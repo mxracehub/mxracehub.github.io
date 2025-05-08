@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 600" width="500" height="600">
+  <!-- This is a generic placeholder for 250 class riders -->
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="rider-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#222222;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#444444;stop-opacity:0.7" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="500" height="600" fill="url(#rider-gradient)" />
+  
+  <!-- Rider shape silhouette -->
+  <path d="M250,150 C350,150 400,250 400,350 C400,450 350,550 250,550 C150,550 100,450 100,350 C100,250 150,150 250,150" fill="#333" opacity="0.8" />
+  
+  <!-- Generic number -->
+  <text x="250" y="400" font-family="Impact, sans-serif" font-size="220" fill="white" text-anchor="middle" dominant-baseline="middle">#</text>
+  
+  <!-- Team Name -->
+  <text x="250" y="520" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle" dominant-baseline="middle">250 CLASS RIDER</text>
+  
+  <!-- Rider Name -->
+  <text x="250" y="100" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">PLACEHOLDER</text>
+  
+  <!-- MX Logo (simplified) -->
+  <circle cx="330" cy="70" r="30" fill="#E2001A" />
+  <text x="330" y="80" font-family="Impact, sans-serif" font-size="24" fill="white" text-anchor="middle" dominant-baseline="middle">MX</text>
+  
+  <!-- Photo credit notice -->
+  <text x="250" y="580" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Placeholder image - replace with licensed photo</text>
+</svg>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0.7" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background layer with gradient overlay -->
+  <rect width="1920" height="1080" fill="url(#bg-gradient)" />
+  
+  <!-- Track elements - stylized motocross track -->
+  <path d="M0,700 C200,650 400,750 600,650 S800,600 1000,650 S1200,700 1400,650 S1600,600 1920,650 L1920,1080 L0,1080 Z" 
+        fill="#3d2c17" opacity="0.6" />
+  
+  <!-- Dirt elements -->
+  <path d="M0,800 C150,780 300,820 450,800 S600,760 750,780 S900,830 1050,810 S1200,760 1350,780 S1500,830 1650,810 S1800,760 1920,780 L1920,1080 L0,1080 Z" 
+        fill="#594321" opacity="0.7" />
+  
+  <!-- Track jumps -->
+  <path d="M300,880 Q350,840 400,880" stroke="#594321" stroke-width="10" fill="none" />
+  <path d="M700,860 Q750,810 800,860" stroke="#594321" stroke-width="15" fill="none" />
+  <path d="M1100,870 Q1150,820 1200,870" stroke="#594321" stroke-width="12" fill="none" />
+  <path d="M1500,860 Q1550,810 1600,860" stroke="#594321" stroke-width="15" fill="none" />
+  
+  <!-- Flying dirt particles -->
+  <circle cx="350" cy="850" r="5" fill="#594321" opacity="0.8" />
+  <circle cx="360" cy="840" r="3" fill="#594321" opacity="0.6" />
+  <circle cx="370" cy="845" r="4" fill="#594321" opacity="0.7" />
+  
+  <circle cx="750" cy="830" r="6" fill="#594321" opacity="0.8" />
+  <circle cx="760" cy="820" r="4" fill="#594321" opacity="0.6" />
+  <circle cx="770" cy="825" r="5" fill="#594321" opacity="0.7" />
+  
+  <circle cx="1150" cy="840" r="5" fill="#594321" opacity="0.8" />
+  <circle cx="1160" cy="830" r="3" fill="#594321" opacity="0.6" />
+  <circle cx="1170" cy="835" r="4" fill="#594321" opacity="0.7" />
+  
+  <circle cx="1550" cy="830" r="6" fill="#594321" opacity="0.8" />
+  <circle cx="1560" cy="820" r="4" fill="#594321" opacity="0.6" />
+  <circle cx="1570" cy="825" r="5" fill="#594321" opacity="0.7" />
+  
+  <!-- Stylized motorcycle silhouettes -->
+  <g transform="translate(400, 720) scale(0.6)">
+    <path d="M70,50 L120,50 L130,30 L180,30 L170,50 L200,70 L170,90 L110,90 L90,70 Z" fill="#E2001A" />
+    <circle cx="90" cy="90" r="25" fill="none" stroke="#444" stroke-width="8" />
+    <circle cx="180" cy="90" r="25" fill="none" stroke="#444" stroke-width="8" />
+    <path d="M130,50 L150,40 L160,50" stroke="#333" stroke-width="3" fill="none" />
+    <path d="M110,60 L140,60 L150,50" stroke="#333" stroke-width="2" fill="none" />
+  </g>
+  
+  <g transform="translate(900, 700) scale(0.7)">
+    <path d="M70,50 L120,50 L130,30 L180,30 L170,50 L200,70 L170,90 L110,90 L90,70 Z" fill="#0057b8" />
+    <circle cx="90" cy="90" r="25" fill="none" stroke="#444" stroke-width="8" />
+    <circle cx="180" cy="90" r="25" fill="none" stroke="#444" stroke-width="8" />
+    <path d="M130,50 L150,40 L160,50" stroke="#333" stroke-width="3" fill="none" />
+    <path d="M110,60 L140,60 L150,50" stroke="#333" stroke-width="2" fill="none" />
+  </g>
+  
+  <g transform="translate(1300, 730) scale(0.65)">
+    <path d="M70,50 L120,50 L130,30 L180,30 L170,50 L200,70 L170,90 L110,90 L90,70 Z" fill="#ffde00" />
+    <circle cx="90" cy="90" r="25" fill="none" stroke="#444" stroke-width="8" />
+    <circle cx="180" cy="90" r="25" fill="none" stroke="#444" stroke-width="8" />
+    <path d="M130,50 L150,40 L160,50" stroke="#333" stroke-width="3" fill="none" />
+    <path d="M110,60 L140,60 L150,50" stroke="#333" stroke-width="2" fill="none" />
+  </g>
+  
+  <!-- Dynamic lines representing track boundaries -->
+  <path d="M0,750 C300,730 600,770 900,730 S1300,780 1600,740 S1900,760 1920,750" 
+        stroke="#ffffff" stroke-width="3" stroke-dasharray="10,5" fill="none" opacity="0.4" />
+        
+  <path d="M0,650 C300,630 600,670 900,630 S1300,680 1600,640 S1900,660 1920,650" 
+        stroke="#ffffff" stroke-width="3" stroke-dasharray="10,5" fill="none" opacity="0.4" />
+</svg>

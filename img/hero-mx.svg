@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0B1930;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1A3366;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="trackGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#A0522D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B4513;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Night sky background -->
+  <rect width="1600" height="900" fill="url(#skyGradient)" />
+  
+  <!-- Stadium lights -->
+  <circle cx="200" cy="200" r="50" fill="#FFEEAA" opacity="0.3" />
+  <circle cx="200" cy="200" r="30" fill="#FFEEAA" opacity="0.5" />
+  <circle cx="200" cy="200" r="10" fill="#FFEEAA" opacity="0.8" />
+  
+  <circle cx="1400" cy="200" r="50" fill="#FFEEAA" opacity="0.3" />
+  <circle cx="1400" cy="200" r="30" fill="#FFEEAA" opacity="0.5" />
+  <circle cx="1400" cy="200" r="10" fill="#FFEEAA" opacity="0.8" />
+  
+  <!-- Light beams -->
+  <polygon points="170,170 700,600 700,650 150,190" fill="#FFEEAA" opacity="0.1" />
+  <polygon points="230,170 900,600 900,650 250,190" fill="#FFEEAA" opacity="0.1" />
+  
+  <polygon points="1370,170 900,600 900,650 1350,190" fill="#FFEEAA" opacity="0.1" />
+  <polygon points="1430,170 700,600 700,650 1450,190" fill="#FFEEAA" opacity="0.1" />
+  
+  <!-- Dirt track -->
+  <path d="M0,700 C400,650 900,750 1600,670 L1600,900 L0,900 Z" fill="url(#trackGradient)" />
+  
+  <!-- Track jumps -->
+  <path d="M300,700 L400,630 L500,700" stroke="#5D2906" stroke-width="5" fill="none" />
+  <path d="M700,700 L800,620 L900,700" stroke="#5D2906" stroke-width="5" fill="none" />
+  <path d="M1100,700 L1200,640 L1300,700" stroke="#5D2906" stroke-width="5" fill="none" />
+  
+  <!-- Crowd silhouettes -->
+  <rect x="0" y="400" width="1600" height="100" fill="#111111" />
+  <path d="M0,400 Q200,380 400,400 Q600,420 800,400 Q1000,380 1200,400 Q1400,420 1600,400 L1600,500 L0,500 Z" fill="#111111" />
+  
+  <!-- Motorcycles in action (simplified silhouettes) -->
+  <g transform="translate(500,640) scale(1.5) rotate(-15)">
+    <path d="M10,20 L30,10 L50,20 L60,15 L40,5 L20,15 Z" fill="#FF6600" />
+    <circle cx="15" cy="25" r="6" fill="#111" />
+    <circle cx="45" cy="25" r="6" fill="#111" />
+    <path d="M25,10 L35,5" stroke="#111" stroke-width="2" />
+  </g>
+  
+  <g transform="translate(850,620) scale(1.2) rotate(-5)">
+    <path d="M10,20 L30,10 L50,20 L60,15 L40,5 L20,15 Z" fill="#0066CC" />
+    <circle cx="15" cy="25" r="6" fill="#111" />
+    <circle cx="45" cy="25" r="6" fill="#111" />
+    <path d="M25,10 L35,5" stroke="#111" stroke-width="2" />
+  </g>
+  
+  <!-- MXRaceHub text -->
+  <text x="800" y="300" font-family="Arial, sans-serif" font-size="80" font-weight="bold" text-anchor="middle" fill="#FF6600">MXRACEHUB</text>
+  <text x="800" y="370" font-family="Arial, sans-serif" font-size="40" font-weight="normal" text-anchor="middle" fill="#FFFFFF">SUPERCROSS • MOTOCROSS • RACING</text>
+</svg>

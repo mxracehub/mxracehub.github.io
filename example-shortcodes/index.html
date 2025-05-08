@@ -1,0 +1,7058 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="true">
+<meta name="description" content="Demonstrating our custom shortcodes with the Blowfish theme">
+<meta name="author" content="map[bio:A powerful, lightweight theme for Hugo. email:nuno@n9o.xyz headline:A powerful, lightweight theme for Hugo. image:img/blowfish_logo.png links:[map[x-twitter:https://twitter.com/burufugu] map[github:https://github.com/nunocoracao/blowfish]] name:Blowfish]">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mxracehub.github.io/example-shortcodes/">
+<meta property="og:title" content="Example Shortcodes">
+<meta property="og:description" content="Demonstrating our custom shortcodes with the Blowfish theme">
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mxracehub.github.io/example-shortcodes/">
+<meta property="twitter:title" content="Example Shortcodes">
+<meta property="twitter:description" content="Demonstrating our custom shortcodes with the Blowfish theme">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/styles.css">
+
+
+<style>
+  :root {
+    --primary-color: #0066cc;
+    --primary-dark: #0052a3;
+    --primary-light: #e6f0ff;
+    --text-color: #333;
+    --text-muted: #666;
+    --background-color: #fff;
+    --card-background: #f9f9f9;
+    --border-color: #e0e0e0;
+    --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --primary-color: #2d8cff;
+      --primary-dark: #0066cc;
+      --primary-light: #0a1a2d;
+      --text-color: #e0e0e0;
+      --text-muted: #a0a0a0;
+      --background-color: #121212;
+      --card-background: #1e1e1e;
+      --border-color: #383838;
+    }
+  }
+  
+  body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+  }
+  
+  .main-content {
+    flex: 1;
+    width: 100%;
+    padding: 0 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .main-content {
+      padding: 0 2rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .main-content {
+      padding: 0 3rem;
+    }
+  }
+  
+  .content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .content-wrapper {
+      padding: 0 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .content-wrapper {
+      padding: 0 2rem;
+    }
+  }
+</style>
+
+
+<style>
+   
+  .transfers-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .transfers-page {
+      padding: 0 2rem;
+    }
+  }
+  
+  .transfers-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+  
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+  }
+  
+  .balance-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  
+  .balance-amount {
+    color: var(--primary-color);
+  }
+  
+  .add-funds-btn, 
+  .option-card.active .option-link,
+  .transfer-button {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+  
+  .add-funds-btn:hover, 
+  .option-card.active .option-link:hover,
+  .transfer-button:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .option-card {
+    background-color: var(--background-color);
+    border: 2px solid transparent;
+  }
+  
+  .option-card.active {
+    border-color: var(--primary-color);
+  }
+  
+  .option-icon {
+    color: var(--primary-color);
+  }
+  
+  .tab-btn.active {
+    color: var(--primary-color);
+  }
+  
+  .tab-btn.active::after {
+    background-color: var(--primary-color);
+  }
+  
+  .transfer-form-container {
+    background-color: var(--background-color);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .transfer-form-container {
+      background-color: var(--card-background);
+    }
+    
+    .recipient-name,
+    .transfer-header h2 {
+      color: var(--text-color);
+    }
+    
+    .recipient-preview {
+      background-color: var(--primary-light);
+    }
+    
+    #transfer-amount,
+    #transfer-description,
+    #recipient-search {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      border-color: var(--border-color);
+    }
+    
+    .transaction-item {
+      border-color: var(--border-color);
+    }
+    
+    .transaction-title {
+      color: var(--text-color);
+    }
+    
+    .transaction-date {
+      color: var(--text-muted);
+    }
+  }
+</style><body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  
+<header class="navbar-main">
+  
+  <div class="top-navbar">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="navbar-logo">
+        <a href="/" class="logo-link">
+          <span class="logo-text">MXRaceHub</span>
+        </a>
+      </div>
+      
+      <div class="nav-buttons flex items-center">
+        <a href="/live-stream/" class="watch-btn">
+          <span class="watch-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </span>
+          <span>Watch Live</span>
+        </a>
+        
+        <a href="/tickets/" class="tickets-btn">
+          <span class="ticket-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 10 4 15 9 20"></polyline>
+              <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+            </svg>
+          </span>
+          <span>Tickets</span>
+        </a>
+        
+        <a href="/auth/" class="signin-btn">
+          <span class="user-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>Sign In</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="main-navbar">
+    <div class="container mx-auto px-4">
+      
+      <nav class="desktop-nav">
+        <ul class="nav-list">
+          <li class="nav-item ">
+            <a href="/" class="nav-link">Home</a>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/races/" class="nav-link dropdown-toggle">
+              <span>Races</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/races/upcoming/" class="dropdown-link">Upcoming Races</a></li>
+                <li><a href="/races/supercross/" class="dropdown-link">Supercross</a></li>
+                <li><a href="/races/motocross/" class="dropdown-link">Motocross</a></li>
+                <li><a href="/races/results/" class="dropdown-link">Race Results</a></li>
+                <li><a href="/races/standings/" class="dropdown-link">Standings</a></li>
+                <li><a href="/races/schedule/" class="dropdown-link">Full Schedule</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/riders/" class="nav-link dropdown-toggle">
+              <span>Riders</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/riders/450/" class="dropdown-link">450 Class</a></li>
+                <li><a href="/riders/250/" class="dropdown-link">250 Class</a></li>
+                <li><a href="/riders/all/" class="dropdown-link">Search All Riders</a></li>
+                <li><a href="/riders/champions/" class="dropdown-link">Champions</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/teams/" class="nav-link dropdown-toggle">
+              <span>Teams</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/teams/honda/" class="dropdown-link">Team Honda HRC</a></li>
+                <li><a href="/teams/ktm/" class="dropdown-link">Red Bull KTM</a></li>
+                <li><a href="/teams/yamaha/" class="dropdown-link">Monster Energy Yamaha</a></li>
+                <li><a href="/teams/kawasaki/" class="dropdown-link">Monster Energy Kawasaki</a></li>
+                <li><a href="/teams/pro-circuit/" class="dropdown-link">Pro Circuit Kawasaki</a></li>
+                <li><a href="/teams/all/" class="dropdown-link">All Teams</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/tracks/" class="nav-link dropdown-toggle">
+              <span>Tracks</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/tracks/supercross/" class="dropdown-link">Supercross Tracks</a></li>
+                <li><a href="/tracks/motocross/" class="dropdown-link">Motocross Tracks</a></li>
+                <li><a href="/tracks/featured/" class="dropdown-link">Featured Tracks</a></li>
+                <li><a href="/tracks/map/" class="dropdown-link">Track Map</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/news/" class="nav-link dropdown-toggle">
+              <span>News</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/news/latest/" class="dropdown-link">Latest News</a></li>
+                <li><a href="/news/interviews/" class="dropdown-link">Rider Interviews</a></li>
+                <li><a href="/news/analysis/" class="dropdown-link">Race Analysis</a></li>
+                <li><a href="/news/video/" class="dropdown-link">Video Content</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/betting/" class="nav-link dropdown-toggle">
+              <span>Betting</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/betting/friend-bets/" class="dropdown-link">Friend Bets</a></li>
+                <li><a href="/betting/groups/" class="dropdown-link">Betting Groups</a></li>
+                <li><a href="/betting/odds/" class="dropdown-link">Latest Odds</a></li>
+                <li><a href="/betting/membership/" class="dropdown-link">Membership</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/account/" class="nav-link dropdown-toggle">
+              <span>My Account</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/account/profile/" class="dropdown-link">My Profile</a></li>
+                <li><a href="/account/bets/" class="dropdown-link">My Bets</a></li>
+                <li><a href="/account/wallet/" class="dropdown-link">Wallet</a></li>
+                <li><a href="/account/transfers/" class="dropdown-link">Money Transfers</a></li>
+                <li><a href="/account/membership/" class="dropdown-link">Membership</a></li>
+                <li><a href="/account/settings/" class="dropdown-link">Settings</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      
+      
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  
+  <div id="mobile-nav-panel" class="mobile-nav-panel">
+    <div class="mobile-nav-content">
+      <div class="mobile-nav-header">
+        <div class="logo-text">MXRaceHub</div>
+        <button id="mobile-nav-close" class="mobile-nav-close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav-buttons">
+        <a href="/auth/" class="mobile-signin-btn">
+          <span class="user-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>Sign In</span>
+        </a>
+        
+        <a href="/live-stream/" class="mobile-watch-btn">
+          <span class="watch-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </span>
+          <span>Watch Live</span>
+        </a>
+        
+        <a href="/tickets/" class="mobile-tickets-btn">
+          <span class="ticket-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 10 4 15 9 20"></polyline>
+              <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+            </svg>
+          </span>
+          <span>Tickets</span>
+        </a>
+      </div>
+      
+      <nav class="mobile-nav-menu">
+        <div class="accordion-menu">
+          <div class="accordion-item">
+            <a href="/" class="accordion-link ">Home</a>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Races</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/races/upcoming/" class="accordion-sublink">Upcoming Races</a>
+              <a href="/races/supercross/" class="accordion-sublink">Supercross</a>
+              <a href="/races/motocross/" class="accordion-sublink">Motocross</a>
+              <a href="/races/results/" class="accordion-sublink">Race Results</a>
+              <a href="/races/standings/" class="accordion-sublink">Standings</a>
+              <a href="/races/schedule/" class="accordion-sublink">Full Schedule</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Riders</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/riders/450/" class="accordion-sublink">450 Class</a>
+              <a href="/riders/250/" class="accordion-sublink">250 Class</a>
+              <a href="/riders/all/" class="accordion-sublink">Search All Riders</a>
+              <a href="/riders/champions/" class="accordion-sublink">Champions</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Teams</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/teams/honda/" class="accordion-sublink">Team Honda HRC</a>
+              <a href="/teams/ktm/" class="accordion-sublink">Red Bull KTM</a>
+              <a href="/teams/yamaha/" class="accordion-sublink">Monster Energy Yamaha</a>
+              <a href="/teams/kawasaki/" class="accordion-sublink">Monster Energy Kawasaki</a>
+              <a href="/teams/pro-circuit/" class="accordion-sublink">Pro Circuit Kawasaki</a>
+              <a href="/teams/all/" class="accordion-sublink">All Teams</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Tracks</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/tracks/supercross/" class="accordion-sublink">Supercross Tracks</a>
+              <a href="/tracks/motocross/" class="accordion-sublink">Motocross Tracks</a>
+              <a href="/tracks/featured/" class="accordion-sublink">Featured Tracks</a>
+              <a href="/tracks/map/" class="accordion-sublink">Track Map</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>News</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/news/latest/" class="accordion-sublink">Latest News</a>
+              <a href="/news/interviews/" class="accordion-sublink">Rider Interviews</a>
+              <a href="/news/analysis/" class="accordion-sublink">Race Analysis</a>
+              <a href="/news/video/" class="accordion-sublink">Video Content</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Betting</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/betting/friend-bets/" class="accordion-sublink">Friend Bets</a>
+              <a href="/betting/groups/" class="accordion-sublink">Betting Groups</a>
+              <a href="/betting/odds/" class="accordion-sublink">Latest Odds</a>
+              <a href="/betting/membership/" class="accordion-sublink">Membership</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>My Account</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/account/profile/" class="accordion-sublink">My Profile</a>
+              <a href="/account/bets/" class="accordion-sublink">My Bets</a>
+              <a href="/account/wallet/" class="accordion-sublink">Wallet</a>
+              <a href="/account/transfers/" class="accordion-sublink">Money Transfers</a>
+              <a href="/account/membership/" class="accordion-sublink">Membership</a>
+              <a href="/account/settings/" class="accordion-sublink">Settings</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+<div class="nav-spacer"></div>
+
+<style>
+   
+  :root {
+    --primary-color: #e20613;  
+    --secondary-color: #003366;  
+    --text-color: #333333;
+    --light-gray: #f2f2f2;
+    --medium-gray: #dddddd;
+    --dark-gray: #555555;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  
+   
+  .top-navbar {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 0;
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .logo-text {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .watch-btn, .tickets-btn, .signin-btn {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  
+  .watch-btn {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .tickets-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .signin-btn {
+    background-color: transparent;
+    color: white;
+  }
+  
+  .watch-btn:hover, .tickets-btn:hover, .signin-btn:hover {
+    opacity: 0.9;
+  }
+  
+   
+  .main-navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 40;
+  }
+  
+  .desktop-nav {
+    display: flex;
+  }
+  
+  .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .nav-item {
+    position: relative;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    color: var(--primary-color);
+  }
+  
+  .dropdown-toggle {
+    cursor: pointer;
+  }
+  
+  .dropdown-arrow {
+    margin-left: 0.375rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 4px 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 30;
+  }
+  
+  .dropdown-list {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+  
+  .dropdown-link {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dropdown-link:hover {
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+  }
+  
+  .nav-item.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .nav-item.has-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .nav-item.active .nav-link {
+    color: var(--primary-color);
+  }
+  
+   
+  .mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    padding: 1rem;
+    cursor: pointer;
+  }
+  
+   
+  .mobile-nav-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 350px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    z-index: 60;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+  }
+  
+  .mobile-nav-panel.visible {
+    right: 0;
+  }
+  
+  .mobile-nav-content {
+    padding: 1rem;
+  }
+  
+  .mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  .mobile-nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-signin-btn, .mobile-watch-btn, .mobile-tickets-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .mobile-watch-btn {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .mobile-tickets-btn {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+  }
+  
+  .mobile-signin-btn {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+   
+  .accordion-item {
+    border-bottom: 1px solid var(--medium-gray);
+  }
+  
+  .accordion-link, .accordion-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: left;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .accordion-toggle {
+    border-bottom: none;
+  }
+  
+  .accordion-arrow {
+    transition: transform 0.2s ease;
+  }
+  
+  .accordion-toggle.active .accordion-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .accordion-content {
+    display: none;
+    padding: 0.5rem 0 0.5rem 1rem;
+  }
+  
+  .accordion-content.visible {
+    display: block;
+  }
+  
+  .accordion-sublink {
+    display: block;
+    padding: 0.625rem 0;
+    color: var(--dark-gray);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .accordion-sublink:hover {
+    color: var(--primary-color);
+  }
+  
+  .accordion-item .accordion-link.active, 
+  .accordion-item .accordion-toggle.active {
+    color: var(--primary-color);
+  }
+  
+   
+  .nav-spacer {
+    height: 120px;  
+  }
+  
+   
+  @media (max-width: 1024px) {
+    .nav-link {
+      padding: 1rem 0.75rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .desktop-nav {
+      display: none;
+    }
+    
+    .mobile-nav-toggle {
+      display: block;
+    }
+    
+    .nav-spacer {
+      height: 100px;  
+    }
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-color: #f5f5f5;
+      --light-gray: #2a2a2a;
+      --medium-gray: #444444;
+      --dark-gray: #aaaaaa;
+    }
+    
+    .top-navbar {
+      background-color: #002244;  
+    }
+    
+    .main-navbar {
+      background-color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dropdown-menu {
+      background-color: #1a1a1a;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dropdown-link:hover {
+      background-color: #333333;
+    }
+    
+    .mobile-nav-panel {
+      background-color: #1a1a1a;
+    }
+    
+    .mobile-signin-btn {
+      background-color: #002244;
+    }
+    
+    .mobile-tickets-btn {
+      background-color: #333333;
+      color: #f5f5f5;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+    const mobileNavPanel = document.getElementById('mobile-nav-panel');
+    const mobileNavClose = document.getElementById('mobile-nav-close');
+    
+    if (mobileNavToggle && mobileNavPanel) {
+      mobileNavToggle.addEventListener('click', function() {
+        mobileNavPanel.classList.add('visible');
+        document.body.style.overflow = 'hidden'; 
+      });
+    }
+    
+    if (mobileNavClose && mobileNavPanel) {
+      mobileNavClose.addEventListener('click', function() {
+        mobileNavPanel.classList.remove('visible');
+        document.body.style.overflow = ''; 
+      });
+    }
+    
+    
+    const accordionToggles = document.querySelectorAll('.accordion-toggle');
+    
+    accordionToggles.forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        
+        
+        const allContents = document.querySelectorAll('.accordion-content');
+        const allToggles = document.querySelectorAll('.accordion-toggle');
+        
+        allContents.forEach(item => {
+          if (item !== content) {
+            item.classList.remove('visible');
+          }
+        });
+        
+        allToggles.forEach(item => {
+          if (item !== this) {
+            item.classList.remove('active');
+          }
+        });
+        
+        
+        this.classList.toggle('active');
+        content.classList.toggle('visible');
+      });
+    });
+  });
+</script>
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+<div class="container mx-auto px-4 py-8">
+  <article class="content-wrapper">
+    <header class="content-header mb-8">
+      <h1 class="title text-3xl md:text-4xl font-bold mb-2">Example Shortcodes</h1>
+      
+        <p class="description text-gray-600 dark:text-gray-400">Demonstrating our custom shortcodes with the Blowfish theme</p>
+      
+    </header>
+    
+    <div class="content prose dark:prose-invert max-w-none">
+      
+
+<h2 class="relative group">Race Countdown Timer 
+    <div id="race-countdown-timer" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#race-countdown-timer" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The race-countdown shortcode displays a countdown timer to the next race with progress information:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+  
+  
+    
+  
+  
+
+
+
+  
+
+
+
+  
+
+
+
+<div class="race-countdown rounded-lg overflow-hidden shadow-md p-5 bg-neutral-100 dark:bg-neutral-800">
+  <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+    <div>
+      <h3 class="text-xl font-bold text-neutral-800 dark:text-neutral-100">
+        
+ 
+        Anaheim 1 Supercross
+      </h3>
+      
+      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Round 1 of the 2025 AMA Supercross Championship</p>
+      
+    </div>
+    
+    <div class="mt-3 md:mt-0">
+      
+      <div class="text-right">
+        <span class="inline-block bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm font-semibold">
+          January 4, 2025
+        </span>
+      </div>
+      
+    </div>
+  </div>
+  
+  
+  <div class="mb-3">
+    <div class="flex justify-between mb-1">
+      <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">260 days left</span>
+      
+      <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">105 of 365</span>
+      
+    </div>
+    <div class="w-full bg-neutral-200 dark:bg-neutral-700 rounded-full h-2.5">
+      
+      
+        
+      
+      <div class="bg-primary-600 h-2.5 rounded-full" style="width: 0%"></div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="grid grid-cols-4 gap-2 mt-4">
+    <div class="flex flex-col items-center p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+      <span class="text-2xl font-bold text-primary-600 dark:text-primary-300" id="countdown-days">--</span>
+      <span class="text-xs text-neutral-500 dark:text-neutral-400">Days</span>
+    </div>
+    <div class="flex flex-col items-center p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+      <span class="text-2xl font-bold text-primary-600 dark:text-primary-300" id="countdown-hours">--</span>
+      <span class="text-xs text-neutral-500 dark:text-neutral-400">Hours</span>
+    </div>
+    <div class="flex flex-col items-center p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+      <span class="text-2xl font-bold text-primary-600 dark:text-primary-300" id="countdown-minutes">--</span>
+      <span class="text-xs text-neutral-500 dark:text-neutral-400">Minutes</span>
+    </div>
+    <div class="flex flex-col items-center p-3 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+      <span class="text-2xl font-bold text-primary-600 dark:text-primary-300" id="countdown-seconds">--</span>
+      <span class="text-xs text-neutral-500 dark:text-neutral-400">Seconds</span>
+    </div>
+  </div>
+  
+  <script>
+    
+    var countDownDate = new Date("Jan 4, 2025 19:00:00").getTime();
+    
+    
+    var countdownTimer = setInterval(function() {
+      
+      var now = new Date().getTime();
+        
+      
+      var distance = countDownDate - now;
+        
+      
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+      
+      document.getElementById("countdown-days").innerHTML = days;
+      document.getElementById("countdown-hours").innerHTML = hours;
+      document.getElementById("countdown-minutes").innerHTML = minutes;
+      document.getElementById("countdown-seconds").innerHTML = seconds;
+        
+      
+      if (distance < 0) {
+        clearInterval(countdownTimer);
+        document.getElementById("countdown-days").innerHTML = "0";
+        document.getElementById("countdown-hours").innerHTML = "0";
+        document.getElementById("countdown-minutes").innerHTML = "0";
+        document.getElementById("countdown-seconds").innerHTML = "0";
+      }
+    }, 1000);
+  </script>
+  
+  
+  
+  <div class="mt-4 flex flex-wrap gap-2">
+    
+    <a href="/races/anaheim-1-2025" class="inline-flex items-center px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-md transition-colors duration-300">
+      
+
+      <span class="ml-2">Event Details</span>
+    </a>
+    
+    <a href="https://tickets.supercrosslive.com" class="inline-flex items-center px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-md transition-colors duration-300">
+      
+
+      <span class="ml-2">Buy Tickets</span>
+    </a>
+    
+  </div>
+  
+  
+  
+  <div class="mt-4 text-sm text-neutral-700 dark:text-neutral-300">
+    
+The opening round of the 2025 Monster Energy Supercross Championship at Angel Stadium in Anaheim, California.
+
+  </div>
+  
+</div>
+
+
+<h1 class="relative group">Using Shortcodes with Blowfish Theme 
+    <div id="using-shortcodes-with-blowfish-theme" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#using-shortcodes-with-blowfish-theme" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>This page demonstrates how to use our custom shortcodes that integrate with the Blowfish theme styling.</p>
+
+
+<h2 class="relative group">Individual Rider Card 
+    <div id="individual-rider-card" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#individual-rider-card" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The rider-card shortcode displays information about a single rider:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+<div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+  <div class="relative">
+    
+      <img src="/images/riders/jett-lawrence.jpg" alt="Jett Lawrence" class="w-full h-60 object-cover" />
+    
+    
+    
+    
+    
+    
+    
+    <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+      450
+    </div>
+    
+    
+    <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+      #18
+    </div>
+    
+    
+    
+    <div class="absolute bottom-3 right-3 manufacturer-badge honda">
+      Honda
+    </div>
+    
+  </div>
+  
+  <div class="p-4 bg-white dark:bg-neutral-800">
+    <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Jett Lawrence</h3>
+    
+    
+    <div class="mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400">Team Honda HRC</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-xs uppercase tracking-wider font-semibold bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-neutral-700 dark:text-neutral-300">Australia</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+      
+      
+      <div class="mt-2 flex justify-between items-center">
+        <div class="flex flex-col">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">1</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">187</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <div class="text-sm text-neutral-600 dark:text-neutral-400">
+        
+Jett Lawrence is an Australian motocross and supercross racer who has quickly risen to the top of the sport. Known for his smooth riding style and technical ability, Jett has become one of the most dominant riders in the 450 class.
+
+      </div>
+    </div>
+    
+    
+    
+    <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+      <a href="/riders/450/jett-lawrence/" class="view-profile-btn flex items-center">
+        <span>View Profile</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+   
+  .class-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .450-class {
+    background-color: #c10000;
+  }
+  
+  .250-class {
+    background-color: #005fdb;
+  }
+  
+   
+  .manufacturer-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+   
+  .view-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .view-profile-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+
+
+<h2 class="relative group">Individual Track Info 
+    <div id="individual-track-info" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#individual-track-info" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The track-info shortcode displays information about a track with a description:</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+<div class="track-info bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md">
+  <div class="relative">
+    
+      <img src="/images/tracks/snapdragon-stadium.jpg" alt="Snapdragon Stadium" class="w-full h-56 object-cover" />
+    
+    <div class="absolute top-0 right-0 m-2 bg-primary-100 dark:bg-primary-800 rounded-full px-3 py-1 text-sm font-semibold text-primary-800 dark:text-primary-200">
+      Supercross
+    </div>
+  </div>
+  
+  <div class="p-4">
+    <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100">Snapdragon Stadium</h3>
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Location:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">San Diego, CA</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Length:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">850m</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-3">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Surface:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">Hard-packed dirt</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <p class="text-sm text-neutral-700 dark:text-neutral-300">
+        
+Snapdragon Stadium is a state-of-the-art venue featuring a challenging track layout with multiple rhythm sections, a sand section, and one of the longest start straights in the series.
+
+      </p>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="inline-block bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm font-semibold">
+        Upcoming Race: February 3, 2025
+      </span>
+    </div>
+    
+  </div>
+</div>
+
+
+<h2 class="relative group">Rider Grid 
+    <div id="rider-grid" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#rider-grid" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The rider-grid shortcode can display multiple riders in a grid format:</p>
+
+
+<h3 class="relative group">Built-in Functionality 
+    <div id="built-in-functionality" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#built-in-functionality" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>This will automatically display all riders from the &ldquo;riders&rdquo; section with the &ldquo;450&rdquo; division:</p>
+
+
+
+<div class="rider-grid grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+  
+    
+      
+      
+        
+          
+        
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+      
+        
+      
+      
+      <div class="rider-grid-item">
+        
+<div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+  <div class="relative">
+    
+      <img src="/img/riders/aaron-plessinger.svg" alt="Aaron Plessinger" class="w-full h-60 object-cover" />
+    
+    
+    
+    
+    
+    
+    
+    <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+      450
+    </div>
+    
+    
+    <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+      #7
+    </div>
+    
+    
+    
+    <div class="absolute bottom-3 right-3 manufacturer-badge ktm">
+      KTM
+    </div>
+    
+  </div>
+  
+  <div class="p-4 bg-white dark:bg-neutral-800">
+    <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Aaron Plessinger</h3>
+    
+    
+    <div class="mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400">Red Bull KTM Factory Racing</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-xs uppercase tracking-wider font-semibold bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-neutral-700 dark:text-neutral-300">USA</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+      
+      
+      <div class="mt-2 flex justify-between items-center">
+        <div class="flex flex-col">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">2</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">261</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+      <a href="/riders/450/aaron-plessinger/" class="view-profile-btn flex items-center">
+        <span>View Profile</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+   
+  .class-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .450-class {
+    background-color: #c10000;
+  }
+  
+  .250-class {
+    background-color: #005fdb;
+  }
+  
+   
+  .manufacturer-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+   
+  .view-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .view-profile-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+      </div>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+      
+      
+      
+      
+      <div class="rider-grid-item">
+        
+<div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+  <div class="relative">
+    
+      <img src="/img/riders/adam-cianciarulo.svg" alt="Adam Cianciarulo" class="w-full h-60 object-cover" />
+    
+    
+    
+    
+    
+    
+    
+    <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+      450
+    </div>
+    
+    
+    <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+      #9
+    </div>
+    
+    
+    
+    <div class="absolute bottom-3 right-3 manufacturer-badge kawasaki">
+      Kawasaki
+    </div>
+    
+  </div>
+  
+  <div class="p-4 bg-white dark:bg-neutral-800">
+    <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Adam Cianciarulo</h3>
+    
+    
+    <div class="mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400">Retired</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-xs uppercase tracking-wider font-semibold bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-neutral-700 dark:text-neutral-300">USA</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+      
+      
+      <div class="mt-2 flex justify-between items-center">
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">No current standings</div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+      <a href="/riders/450/adam-cianciarulo/" class="view-profile-btn flex items-center">
+        <span>View Profile</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+   
+  .class-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .450-class {
+    background-color: #c10000;
+  }
+  
+  .250-class {
+    background-color: #005fdb;
+  }
+  
+   
+  .manufacturer-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+   
+  .view-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .view-profile-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+      </div>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+      
+        
+      
+      
+      <div class="rider-grid-item">
+        
+<div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+  <div class="relative">
+    
+      <img src="/img/riders/chase-sexton.svg" alt="Chase Sexton" class="w-full h-60 object-cover" />
+    
+    
+    
+    
+    
+    
+    
+    <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+      450
+    </div>
+    
+    
+    <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+      #1
+    </div>
+    
+    
+    
+    <div class="absolute bottom-3 right-3 manufacturer-badge ktm">
+      KTM
+    </div>
+    
+  </div>
+  
+  <div class="p-4 bg-white dark:bg-neutral-800">
+    <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Chase Sexton</h3>
+    
+    
+    <div class="mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400">Red Bull KTM Factory Racing</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-xs uppercase tracking-wider font-semibold bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-neutral-700 dark:text-neutral-300">USA</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+      
+      
+      <div class="mt-2 flex justify-between items-center">
+        <div class="flex flex-col">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">3</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">220</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+      <a href="/riders/450/chase-sexton/" class="view-profile-btn flex items-center">
+        <span>View Profile</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+   
+  .class-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .450-class {
+    background-color: #c10000;
+  }
+  
+  .250-class {
+    background-color: #005fdb;
+  }
+  
+   
+  .manufacturer-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+   
+  .view-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .view-profile-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+      </div>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+      
+        
+      
+      
+      <div class="rider-grid-item">
+        
+<div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+  <div class="relative">
+    
+      <img src="/img/riders/christian-craig.svg" alt="Christian Craig" class="w-full h-60 object-cover" />
+    
+    
+    
+    
+    
+    
+    
+    <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+      450
+    </div>
+    
+    
+    <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+      #28
+    </div>
+    
+    
+    
+    <div class="absolute bottom-3 right-3 manufacturer-badge husqvarna">
+      Husqvarna
+    </div>
+    
+  </div>
+  
+  <div class="p-4 bg-white dark:bg-neutral-800">
+    <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Christian Craig</h3>
+    
+    
+    <div class="mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400">Rockstar Energy Husqvarna Factory Racing</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-xs uppercase tracking-wider font-semibold bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-neutral-700 dark:text-neutral-300">USA</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+      
+      
+      <div class="mt-2 flex justify-between items-center">
+        <div class="flex flex-col">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">10</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">149</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+      <a href="/riders/450/christian-craig/" class="view-profile-btn flex items-center">
+        <span>View Profile</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+   
+  .class-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .450-class {
+    background-color: #c10000;
+  }
+  
+  .250-class {
+    background-color: #005fdb;
+  }
+  
+   
+  .manufacturer-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+   
+  .view-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .view-profile-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+      </div>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+      
+        
+      
+      
+      <div class="rider-grid-item">
+        
+<div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+  <div class="relative">
+    
+      <img src="/img/riders/colt-nichols.svg" alt="Colt Nichols" class="w-full h-60 object-cover" />
+    
+    
+    
+    
+    
+    
+    
+    <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+      450
+    </div>
+    
+    
+    <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+      #45
+    </div>
+    
+    
+    
+    <div class="absolute bottom-3 right-3 manufacturer-badge beta">
+      Beta
+    </div>
+    
+  </div>
+  
+  <div class="p-4 bg-white dark:bg-neutral-800">
+    <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Colt Nichols</h3>
+    
+    
+    <div class="mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400">Beta Factory Racing</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-xs uppercase tracking-wider font-semibold bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-neutral-700 dark:text-neutral-300">USA</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+      
+      
+      <div class="mt-2 flex justify-between items-center">
+        <div class="flex flex-col">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">13</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">109</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+      <a href="/riders/450/colt-nichols/" class="view-profile-btn flex items-center">
+        <span>View Profile</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+   
+  .class-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .450-class {
+    background-color: #c10000;
+  }
+  
+  .250-class {
+    background-color: #005fdb;
+  }
+  
+   
+  .manufacturer-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+   
+  .view-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .view-profile-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+      </div>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+      
+        
+      
+      
+      <div class="rider-grid-item">
+        
+<div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+  <div class="relative">
+    
+      <img src="/img/riders/cooper-webb.svg" alt="Cooper Webb" class="w-full h-60 object-cover" />
+    
+    
+    
+    
+    
+    
+    
+    <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+      450
+    </div>
+    
+    
+    <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+      #2
+    </div>
+    
+    
+    
+    <div class="absolute bottom-3 right-3 manufacturer-badge yamaha">
+      Yamaha
+    </div>
+    
+  </div>
+  
+  <div class="p-4 bg-white dark:bg-neutral-800">
+    <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Cooper Webb</h3>
+    
+    
+    <div class="mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400">Monster Energy Yamaha Star Racing</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-xs uppercase tracking-wider font-semibold bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-neutral-700 dark:text-neutral-300">USA</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+      
+      
+      <div class="mt-2 flex justify-between items-center">
+        <div class="flex flex-col">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">2</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">231</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+      <a href="/riders/450/cooper-webb/" class="view-profile-btn flex items-center">
+        <span>View Profile</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+   
+  .class-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .450-class {
+    background-color: #c10000;
+  }
+  
+  .250-class {
+    background-color: #005fdb;
+  }
+  
+   
+  .manufacturer-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+   
+  .view-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .view-profile-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+      </div>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+      
+        
+      
+      
+      <div class="rider-grid-item">
+        
+<div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+  <div class="relative">
+    
+      <img src="/img/riders/dean-wilson.svg" alt="Dean Wilson" class="w-full h-60 object-cover" />
+    
+    
+    
+    
+    
+    
+    
+    <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+      450
+    </div>
+    
+    
+    <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+      #15
+    </div>
+    
+    
+    
+    <div class="absolute bottom-3 right-3 manufacturer-badge kawasaki/honda">
+      Kawasaki/Honda
+    </div>
+    
+  </div>
+  
+  <div class="p-4 bg-white dark:bg-neutral-800">
+    <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Dean Wilson</h3>
+    
+    
+    <div class="mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400">Muc-Off Kawasaki/Fire Power Honda</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-xs uppercase tracking-wider font-semibold bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-neutral-700 dark:text-neutral-300">UK/Scotland</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+      
+      
+      <div class="mt-2 flex justify-between items-center">
+        <div class="flex flex-col">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">20</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">24</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+      <a href="/riders/450/dean-wilson/" class="view-profile-btn flex items-center">
+        <span>View Profile</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+   
+  .class-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .450-class {
+    background-color: #c10000;
+  }
+  
+  .250-class {
+    background-color: #005fdb;
+  }
+  
+   
+  .manufacturer-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+   
+  .view-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .view-profile-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+      </div>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+      
+        
+      
+      
+      <div class="rider-grid-item">
+        
+<div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+  <div class="relative">
+    
+      <img src="/img/riders/dylan-ferrandis.svg" alt="Dylan Ferrandis" class="w-full h-60 object-cover" />
+    
+    
+    
+    
+    
+    
+    
+    <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+      450
+    </div>
+    
+    
+    <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+      #14
+    </div>
+    
+    
+    
+    <div class="absolute bottom-3 right-3 manufacturer-badge honda">
+      Honda
+    </div>
+    
+  </div>
+  
+  <div class="p-4 bg-white dark:bg-neutral-800">
+    <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Dylan Ferrandis</h3>
+    
+    
+    <div class="mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400">Phoenix Racing Honda</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-xs uppercase tracking-wider font-semibold bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-neutral-700 dark:text-neutral-300">France</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+      
+      
+      <div class="mt-2 flex justify-between items-center">
+        <div class="flex flex-col">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">16</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">82</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+      <a href="/riders/450/dylan-ferrandis/" class="view-profile-btn flex items-center">
+        <span>View Profile</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+   
+  .class-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .450-class {
+    background-color: #c10000;
+  }
+  
+  .250-class {
+    background-color: #005fdb;
+  }
+  
+   
+  .manufacturer-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+   
+  .view-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .view-profile-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+      </div>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+      
+        
+      
+      
+      <div class="rider-grid-item">
+        
+<div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+  <div class="relative">
+    
+      <img src="/img/riders/eli-tomac.svg" alt="Eli Tomac" class="w-full h-60 object-cover" />
+    
+    
+    
+    
+    
+    
+    
+    <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+      450
+    </div>
+    
+    
+    <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+      #3
+    </div>
+    
+    
+    
+    <div class="absolute bottom-3 right-3 manufacturer-badge yamaha">
+      Yamaha
+    </div>
+    
+  </div>
+  
+  <div class="p-4 bg-white dark:bg-neutral-800">
+    <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Eli Tomac</h3>
+    
+    
+    <div class="mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400">Monster Energy Yamaha Star Racing</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-xs uppercase tracking-wider font-semibold bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-neutral-700 dark:text-neutral-300">USA</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+      
+      
+      <div class="mt-2 flex justify-between items-center">
+        <div class="flex flex-col">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">10</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">92</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+      <a href="/riders/450/eli-tomac/" class="view-profile-btn flex items-center">
+        <span>View Profile</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+   
+  .class-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .450-class {
+    background-color: #c10000;
+  }
+  
+  .250-class {
+    background-color: #005fdb;
+  }
+  
+   
+  .manufacturer-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+   
+  .view-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .view-profile-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+      </div>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+      
+        
+      
+      
+      <div class="rider-grid-item">
+        
+<div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+  <div class="relative">
+    
+      <img src="/img/riders/hunter-lawrence.svg" alt="Hunter Lawrence" class="w-full h-60 object-cover" />
+    
+    
+    
+    
+    
+    
+    
+    <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+      450
+    </div>
+    
+    
+    <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+      #96
+    </div>
+    
+    
+    
+    <div class="absolute bottom-3 right-3 manufacturer-badge honda">
+      Honda
+    </div>
+    
+  </div>
+  
+  <div class="p-4 bg-white dark:bg-neutral-800">
+    <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Hunter Lawrence</h3>
+    
+    
+    <div class="mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400">Team Honda HRC</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-xs uppercase tracking-wider font-semibold bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-neutral-700 dark:text-neutral-300">Australia</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+      
+      
+      <div class="mt-2 flex justify-between items-center">
+        <div class="flex flex-col">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">6</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">182</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+      <a href="/riders/450/hunter-lawrence/" class="view-profile-btn flex items-center">
+        <span>View Profile</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+   
+  .class-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .450-class {
+    background-color: #c10000;
+  }
+  
+  .250-class {
+    background-color: #005fdb;
+  }
+  
+   
+  .manufacturer-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+   
+  .view-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .view-profile-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+      </div>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+      
+        
+      
+      
+      <div class="rider-grid-item">
+        
+<div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+  <div class="relative">
+    
+      <img src="/img/riders/jason-anderson.svg" alt="Jason Anderson" class="w-full h-60 object-cover" />
+    
+    
+    
+    
+    
+    
+    
+    <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+      450
+    </div>
+    
+    
+    <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+      #21
+    </div>
+    
+    
+    
+    <div class="absolute bottom-3 right-3 manufacturer-badge kawasaki">
+      Kawasaki
+    </div>
+    
+  </div>
+  
+  <div class="p-4 bg-white dark:bg-neutral-800">
+    <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Jason Anderson</h3>
+    
+    
+    <div class="mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400">Monster Energy Kawasaki</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-xs uppercase tracking-wider font-semibold bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-neutral-700 dark:text-neutral-300">USA</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+      
+      
+      <div class="mt-2 flex justify-between items-center">
+        <div class="flex flex-col">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">4</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">198</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+      <a href="/riders/450/jason-anderson/" class="view-profile-btn flex items-center">
+        <span>View Profile</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+   
+  .class-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .450-class {
+    background-color: #c10000;
+  }
+  
+  .250-class {
+    background-color: #005fdb;
+  }
+  
+   
+  .manufacturer-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+   
+  .view-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .view-profile-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+      </div>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+      
+        
+      
+      
+      <div class="rider-grid-item">
+        
+<div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+  <div class="relative">
+    
+      <img src="/img/riders/jett-lawrence.svg" alt="Jett Lawrence" class="w-full h-60 object-cover" />
+    
+    
+    
+    
+    
+    
+    
+    <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+      450
+    </div>
+    
+    
+    <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+      #18
+    </div>
+    
+    
+    
+    <div class="absolute bottom-3 right-3 manufacturer-badge honda">
+      Honda
+    </div>
+    
+  </div>
+  
+  <div class="p-4 bg-white dark:bg-neutral-800">
+    <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Jett Lawrence</h3>
+    
+    
+    <div class="mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400">Team Honda HRC</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-xs uppercase tracking-wider font-semibold bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-neutral-700 dark:text-neutral-300">Australia</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+      
+      
+      <div class="mt-2 flex justify-between items-center">
+        <div class="flex flex-col">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">1</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">245</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+      <a href="/riders/450/jett-lawrence/" class="view-profile-btn flex items-center">
+        <span>View Profile</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+   
+  .class-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .450-class {
+    background-color: #c10000;
+  }
+  
+  .250-class {
+    background-color: #005fdb;
+  }
+  
+   
+  .manufacturer-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+   
+  .view-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .view-profile-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+      </div>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+      
+        
+      
+      
+      <div class="rider-grid-item">
+        
+<div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+  <div class="relative">
+    
+      <img src="/img/riders/joey-savatgy.svg" alt="Joey Savatgy" class="w-full h-60 object-cover" />
+    
+    
+    
+    
+    
+    
+    
+    <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+      450
+    </div>
+    
+    
+    <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+      #17
+    </div>
+    
+    
+    
+    <div class="absolute bottom-3 right-3 manufacturer-badge suzuki">
+      Suzuki
+    </div>
+    
+  </div>
+  
+  <div class="p-4 bg-white dark:bg-neutral-800">
+    <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Joey Savatgy</h3>
+    
+    
+    <div class="mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400">H.E.P. Suzuki</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-xs uppercase tracking-wider font-semibold bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-neutral-700 dark:text-neutral-300">USA</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+      
+      
+      <div class="mt-2 flex justify-between items-center">
+        <div class="flex flex-col">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">12</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">116</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+      <a href="/riders/450/joey-savatgy/" class="view-profile-btn flex items-center">
+        <span>View Profile</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+   
+  .class-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .450-class {
+    background-color: #c10000;
+  }
+  
+  .250-class {
+    background-color: #005fdb;
+  }
+  
+   
+  .manufacturer-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+   
+  .view-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .view-profile-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+      </div>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+      
+        
+      
+      
+      <div class="rider-grid-item">
+        
+<div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+  <div class="relative">
+    
+      <img src="/img/riders/justin-barcia.svg" alt="Justin Barcia" class="w-full h-60 object-cover" />
+    
+    
+    
+    
+    
+    
+    
+    <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+      450
+    </div>
+    
+    
+    <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+      #51
+    </div>
+    
+    
+    
+    <div class="absolute bottom-3 right-3 manufacturer-badge gasgas">
+      GASGAS
+    </div>
+    
+  </div>
+  
+  <div class="p-4 bg-white dark:bg-neutral-800">
+    <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Justin Barcia</h3>
+    
+    
+    <div class="mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400">TLD Red Bull GASGAS Factory Racing</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-xs uppercase tracking-wider font-semibold bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-neutral-700 dark:text-neutral-300">USA</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+      
+      
+      <div class="mt-2 flex justify-between items-center">
+        <div class="flex flex-col">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">8</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">152</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+      <a href="/riders/450/justin-barcia/" class="view-profile-btn flex items-center">
+        <span>View Profile</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+   
+  .class-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .450-class {
+    background-color: #c10000;
+  }
+  
+  .250-class {
+    background-color: #005fdb;
+  }
+  
+   
+  .manufacturer-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+   
+  .view-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .view-profile-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+      </div>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+      
+        
+      
+      
+      <div class="rider-grid-item">
+        
+<div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+  <div class="relative">
+    
+      <img src="/img/riders/justin-cooper.svg" alt="Justin Cooper" class="w-full h-60 object-cover" />
+    
+    
+    
+    
+    
+    
+    
+    <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+      450
+    </div>
+    
+    
+    <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+      #32
+    </div>
+    
+    
+    
+    <div class="absolute bottom-3 right-3 manufacturer-badge yamaha">
+      Yamaha
+    </div>
+    
+  </div>
+  
+  <div class="p-4 bg-white dark:bg-neutral-800">
+    <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Justin Cooper</h3>
+    
+    
+    <div class="mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400">Monster Energy Yamaha Star Racing</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-xs uppercase tracking-wider font-semibold bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-neutral-700 dark:text-neutral-300">USA</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+      
+      
+      <div class="mt-2 flex justify-between items-center">
+        <div class="flex flex-col">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">7</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">156</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+      <a href="/riders/450/justin-cooper/" class="view-profile-btn flex items-center">
+        <span>View Profile</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+   
+  .class-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .450-class {
+    background-color: #c10000;
+  }
+  
+  .250-class {
+    background-color: #005fdb;
+  }
+  
+   
+  .manufacturer-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+   
+  .view-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .view-profile-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+      </div>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+      
+        
+      
+      
+      <div class="rider-grid-item">
+        
+<div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+  <div class="relative">
+    
+      <img src="/img/riders/justin-hill.svg" alt="Justin Hill" class="w-full h-60 object-cover" />
+    
+    
+    
+    
+    
+    
+    
+    <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+      450
+    </div>
+    
+    
+    <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+      #46
+    </div>
+    
+    
+    
+    <div class="absolute bottom-3 right-3 manufacturer-badge various">
+      Various
+    </div>
+    
+  </div>
+  
+  <div class="p-4 bg-white dark:bg-neutral-800">
+    <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Justin Hill</h3>
+    
+    
+    <div class="mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400">Independent/Semi-Retired</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-xs uppercase tracking-wider font-semibold bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-neutral-700 dark:text-neutral-300">USA</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+      
+      
+      <div class="mt-2 flex justify-between items-center">
+        <div class="flex flex-col">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">DNS</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">0</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+      <a href="/riders/450/justin-hill/" class="view-profile-btn flex items-center">
+        <span>View Profile</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+   
+  .class-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .450-class {
+    background-color: #c10000;
+  }
+  
+  .250-class {
+    background-color: #005fdb;
+  }
+  
+   
+  .manufacturer-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+   
+  .view-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .view-profile-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+      </div>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+      
+        
+      
+      
+      <div class="rider-grid-item">
+        
+<div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+  <div class="relative">
+    
+      <img src="/img/riders/ken-roczen.svg" alt="Ken Roczen" class="w-full h-60 object-cover" />
+    
+    
+    
+    
+    
+    
+    
+    <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+      450
+    </div>
+    
+    
+    <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+      #94
+    </div>
+    
+    
+    
+    <div class="absolute bottom-3 right-3 manufacturer-badge suzuki">
+      Suzuki
+    </div>
+    
+  </div>
+  
+  <div class="p-4 bg-white dark:bg-neutral-800">
+    <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Ken Roczen</h3>
+    
+    
+    <div class="mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400">Progressive Insurance Suzuki</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-xs uppercase tracking-wider font-semibold bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-neutral-700 dark:text-neutral-300">Germany</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+      
+      
+      <div class="mt-2 flex justify-between items-center">
+        <div class="flex flex-col">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">5</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">190</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+      <a href="/riders/450/ken-roczen/" class="view-profile-btn flex items-center">
+        <span>View Profile</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+   
+  .class-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .450-class {
+    background-color: #c10000;
+  }
+  
+  .250-class {
+    background-color: #005fdb;
+  }
+  
+   
+  .manufacturer-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+   
+  .view-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .view-profile-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+      </div>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+      
+        
+      
+      
+      <div class="rider-grid-item">
+        
+<div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+  <div class="relative">
+    
+      <img src="/img/riders/malcolm-stewart.svg" alt="Malcolm Stewart" class="w-full h-60 object-cover" />
+    
+    
+    
+    
+    
+    
+    
+    <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+      450
+    </div>
+    
+    
+    <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+      #27
+    </div>
+    
+    
+    
+    <div class="absolute bottom-3 right-3 manufacturer-badge husqvarna">
+      Husqvarna
+    </div>
+    
+  </div>
+  
+  <div class="p-4 bg-white dark:bg-neutral-800">
+    <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Malcolm Stewart</h3>
+    
+    
+    <div class="mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400">Rockstar Energy Husqvarna Factory Racing</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-xs uppercase tracking-wider font-semibold bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-neutral-700 dark:text-neutral-300">USA</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+      
+      
+      <div class="mt-2 flex justify-between items-center">
+        <div class="flex flex-col">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">11</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">82</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+      <a href="/riders/450/malcolm-stewart/" class="view-profile-btn flex items-center">
+        <span>View Profile</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+   
+  .class-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .450-class {
+    background-color: #c10000;
+  }
+  
+  .250-class {
+    background-color: #005fdb;
+  }
+  
+   
+  .manufacturer-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+   
+  .view-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .view-profile-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+      </div>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+      
+        
+      
+      
+      <div class="rider-grid-item">
+        
+<div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+  <div class="relative">
+    
+      <img src="/img/riders/vince-friese.svg" alt="Vince Friese" class="w-full h-60 object-cover" />
+    
+    
+    
+    
+    
+    
+    
+    <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+      450
+    </div>
+    
+    
+    <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+      #62
+    </div>
+    
+    
+    
+    <div class="absolute bottom-3 right-3 manufacturer-badge honda">
+      Honda
+    </div>
+    
+  </div>
+  
+  <div class="p-4 bg-white dark:bg-neutral-800">
+    <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Vince Friese</h3>
+    
+    
+    <div class="mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400">SmarTop/Bullfrog Spas/MotoConcepts Honda</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-xs uppercase tracking-wider font-semibold bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-neutral-700 dark:text-neutral-300">USA</span>
+    </div>
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+      
+      
+      <div class="mt-2 flex justify-between items-center">
+        <div class="flex flex-col">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">9</span>
+        </div>
+        <div class="flex flex-col items-end">
+          <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+          <span class="text-lg font-bold text-primary-600 dark:text-primary-400">150</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+      <a href="/riders/450/vince-friese/" class="view-profile-btn flex items-center">
+        <span>View Profile</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+   
+  .class-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .450-class {
+    background-color: #c10000;
+  }
+  
+  .250-class {
+    background-color: #005fdb;
+  }
+  
+   
+  .manufacturer-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+   
+  .view-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .view-profile-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+      </div>
+    
+  
+</div>
+
+
+<h3 class="relative group">Manual Grid 
+    <div id="manual-grid" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#manual-grid" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>You can also manually add rider cards to a grid:</p>
+
+
+
+<div class="rider-grid grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+  <div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+    <div class="relative">
+      
+        <div class="w-full h-60 flex items-center justify-center bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-700">
+          <span class="rider-number text-6xl font-bold opacity-50">#18</span>
+        </div>
+      
+      
+      
+      
+      
+      
+      
+      <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+        450
+      </div>
+      
+      
+      <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+        #18
+      </div>
+      
+      
+      
+      <div class="absolute bottom-3 right-3 manufacturer-badge honda">
+        Honda
+      </div>
+      
+    </div>
+    
+    <div class="p-4 bg-white dark:bg-neutral-800">
+      <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Jett Lawrence</h3>
+      
+      
+      <div class="mb-2">
+        <span class="text-sm text-neutral-600 dark:text-neutral-400">Team Honda HRC</span>
+      </div>
+      
+      
+      
+      
+      
+      <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+        <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+        
+        
+        <div class="mt-2 flex justify-between items-center">
+          <div class="flex flex-col">
+            <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+            <span class="text-lg font-bold text-primary-600 dark:text-primary-400">1</span>
+          </div>
+          <div class="flex flex-col items-end">
+            <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+            <span class="text-lg font-bold text-primary-600 dark:text-primary-400">187</span>
+          </div>
+        </div>
+        
+      </div>
+      
+      
+      
+      
+      <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+        <a href="/riders/450/jett-lawrence/" class="view-profile-btn flex items-center">
+          <span>View Profile</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+     
+    .class-badge {
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .450-class {
+      background-color: #c10000;
+    }
+    
+    .250-class {
+      background-color: #005fdb;
+    }
+    
+     
+    .manufacturer-badge {
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: white;
+      background-color: #333;
+    }
+    
+    .honda {
+      background-color: #e2001a;
+    }
+    
+    .yamaha {
+      background-color: #0a1e83;
+    }
+    
+    .kawasaki {
+      background-color: #006600;
+    }
+    
+    .ktm {
+      background-color: #ff6600;
+    }
+    
+    .husqvarna, .husky {
+      background-color: #0c1c37;
+    }
+    
+    .suzuki {
+      background-color: #003399;
+    }
+    
+    .gasgas {
+      background-color: #ec1b2f;
+    }
+    
+    .triumph {
+      background-color: #b5122a;
+    }
+    
+    .beta {
+      background-color: #c10604;
+    }
+    
+     
+    .view-profile-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.4rem 0.8rem;
+      background-color: #f8f9fa;
+      color: var(--primary-color, #0066cc);
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid var(--primary-color, #0066cc);
+      border-radius: 50px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color, #0066cc);
+      color: white;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .view-profile-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    
+     
+    @media (prefers-color-scheme: dark) {
+      .view-profile-btn {
+        background-color: rgba(30, 41, 59, 0.7);
+        color: var(--primary-color-light, #38bdf8);
+        border-color: var(--primary-color-light, #38bdf8);
+      }
+      
+      .view-profile-btn:hover {
+        background-color: var(--primary-color-light, #38bdf8);
+        color: #0f172a;
+      }
+    }
+  </style>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+  <div class="rider-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+    <div class="relative">
+      
+        <div class="w-full h-60 flex items-center justify-center bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-700">
+          <span class="rider-number text-6xl font-bold opacity-50">#1</span>
+        </div>
+      
+      
+      
+      
+      
+      
+      
+      <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md class-badge 450-class">
+        450
+      </div>
+      
+      
+      <div class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+        #1
+      </div>
+      
+      
+      
+      <div class="absolute bottom-3 right-3 manufacturer-badge ktm">
+        KTM
+      </div>
+      
+    </div>
+    
+    <div class="p-4 bg-white dark:bg-neutral-800">
+      <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Chase Sexton</h3>
+      
+      
+      <div class="mb-2">
+        <span class="text-sm text-neutral-600 dark:text-neutral-400">Red Bull KTM</span>
+      </div>
+      
+      
+      
+      
+      
+      <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+        <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase">2024 Championship</span>
+        
+        
+        <div class="mt-2 flex justify-between items-center">
+          <div class="flex flex-col">
+            <span class="text-xs text-neutral-500 dark:text-neutral-400">Position</span>
+            <span class="text-lg font-bold text-primary-600 dark:text-primary-400">2</span>
+          </div>
+          <div class="flex flex-col items-end">
+            <span class="text-xs text-neutral-500 dark:text-neutral-400">Points</span>
+            <span class="text-lg font-bold text-primary-600 dark:text-primary-400">161</span>
+          </div>
+        </div>
+        
+      </div>
+      
+      
+      
+      
+      <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+        <a href="/riders/450/chase-sexton/" class="view-profile-btn flex items-center">
+          <span>View Profile</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+     
+    .class-badge {
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .450-class {
+      background-color: #c10000;
+    }
+    
+    .250-class {
+      background-color: #005fdb;
+    }
+    
+     
+    .manufacturer-badge {
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: white;
+      background-color: #333;
+    }
+    
+    .honda {
+      background-color: #e2001a;
+    }
+    
+    .yamaha {
+      background-color: #0a1e83;
+    }
+    
+    .kawasaki {
+      background-color: #006600;
+    }
+    
+    .ktm {
+      background-color: #ff6600;
+    }
+    
+    .husqvarna, .husky {
+      background-color: #0c1c37;
+    }
+    
+    .suzuki {
+      background-color: #003399;
+    }
+    
+    .gasgas {
+      background-color: #ec1b2f;
+    }
+    
+    .triumph {
+      background-color: #b5122a;
+    }
+    
+    .beta {
+      background-color: #c10604;
+    }
+    
+     
+    .view-profile-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.4rem 0.8rem;
+      background-color: #f8f9fa;
+      color: var(--primary-color, #0066cc);
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid var(--primary-color, #0066cc);
+      border-radius: 50px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    
+    .view-profile-btn:hover {
+      background-color: var(--primary-color, #0066cc);
+      color: white;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .view-profile-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    
+     
+    @media (prefers-color-scheme: dark) {
+      .view-profile-btn {
+        background-color: rgba(30, 41, 59, 0.7);
+        color: var(--primary-color-light, #38bdf8);
+        border-color: var(--primary-color-light, #38bdf8);
+      }
+      
+      .view-profile-btn:hover {
+        background-color: var(--primary-color-light, #38bdf8);
+        color: #0f172a;
+      }
+    }
+  </style>
+
+  
+</div>
+
+
+<h2 class="relative group">Track Grid 
+    <div id="track-grid" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#track-grid" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The track-grid shortcode can display multiple tracks in a grid format:</p>
+
+
+<h3 class="relative group">Built-in Functionality 
+    <div id="built-in-functionality-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#built-in-functionality-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>This will automatically display all tracks from the &ldquo;tracks&rdquo; section:</p>
+
+
+
+<div class="track-grid grid gap-6 grid-cols-1 md:grid-cols-2">
+  
+    
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      <div class="track-grid-item">
+        
+<div class="track-info bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md">
+  <div class="relative">
+    
+      <div class="w-full h-56 bg-primary-200 dark:bg-primary-900 flex items-center justify-center">
+        <span class="track-icon text-4xl font-bold text-primary-700 dark:text-primary-300">
+          
+
+        </span>
+      </div>
+    
+    <div class="absolute top-0 right-0 m-2 bg-primary-100 dark:bg-primary-800 rounded-full px-3 py-1 text-sm font-semibold text-primary-800 dark:text-primary-200">
+      supercross
+    </div>
+  </div>
+  
+  <div class="p-4">
+    <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100"></h3>
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Location:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">Anaheim, California</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Length:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">0.53 miles</span>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+  </div>
+</div>
+      </div>
+    
+      
+      
+      
+      
+      
+      
+      <div class="track-grid-item">
+        
+<div class="track-info bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md">
+  <div class="relative">
+    
+      <div class="w-full h-56 bg-primary-200 dark:bg-primary-900 flex items-center justify-center">
+        <span class="track-icon text-4xl font-bold text-primary-700 dark:text-primary-300">
+          
+
+        </span>
+      </div>
+    
+    <div class="absolute top-0 right-0 m-2 bg-primary-100 dark:bg-primary-800 rounded-full px-3 py-1 text-sm font-semibold text-primary-800 dark:text-primary-200">
+      supercross
+    </div>
+  </div>
+  
+  <div class="p-4">
+    <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100"></h3>
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Location:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">Arlington, Texas</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Length:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">0.59 miles</span>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+  </div>
+</div>
+      </div>
+    
+      
+      
+      
+      
+      
+      
+      <div class="track-grid-item">
+        
+<div class="track-info bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md">
+  <div class="relative">
+    
+      <div class="w-full h-56 bg-primary-200 dark:bg-primary-900 flex items-center justify-center">
+        <span class="track-icon text-4xl font-bold text-primary-700 dark:text-primary-300">
+          
+
+        </span>
+      </div>
+    
+    <div class="absolute top-0 right-0 m-2 bg-primary-100 dark:bg-primary-800 rounded-full px-3 py-1 text-sm font-semibold text-primary-800 dark:text-primary-200">
+      supercross
+    </div>
+  </div>
+  
+  <div class="p-4">
+    <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100"></h3>
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Location:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">Daytona Beach, Florida</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Length:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">0.6 miles</span>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+  </div>
+</div>
+      </div>
+    
+      
+      
+      
+      
+      
+        
+      
+      
+      <div class="track-grid-item">
+        
+<div class="track-info bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md">
+  <div class="relative">
+    
+      <div class="w-full h-56 bg-primary-200 dark:bg-primary-900 flex items-center justify-center">
+        <span class="track-icon text-4xl font-bold text-primary-700 dark:text-primary-300">
+          
+
+        </span>
+      </div>
+    
+    <div class="absolute top-0 right-0 m-2 bg-primary-100 dark:bg-primary-800 rounded-full px-3 py-1 text-sm font-semibold text-primary-800 dark:text-primary-200">
+      
+    </div>
+  </div>
+  
+  <div class="p-4">
+    <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100"></h3>
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <p class="text-sm text-neutral-700 dark:text-neutral-300">
+        Detroit, Michigan - Home of the Detroit Supercross
+      </p>
+    </div>
+    
+    
+    
+  </div>
+</div>
+      </div>
+    
+      
+      
+      
+      
+      
+      
+      <div class="track-grid-item">
+        
+<div class="track-info bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md">
+  <div class="relative">
+    
+      <div class="w-full h-56 bg-primary-200 dark:bg-primary-900 flex items-center justify-center">
+        <span class="track-icon text-4xl font-bold text-primary-700 dark:text-primary-300">
+          
+
+        </span>
+      </div>
+    
+    <div class="absolute top-0 right-0 m-2 bg-primary-100 dark:bg-primary-800 rounded-full px-3 py-1 text-sm font-semibold text-primary-800 dark:text-primary-200">
+      motocross
+    </div>
+  </div>
+  
+  <div class="p-4">
+    <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100"></h3>
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Location:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">Pala, California</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Length:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">1.5 miles</span>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+  </div>
+</div>
+      </div>
+    
+      
+      
+      
+      
+      
+      
+      <div class="track-grid-item">
+        
+<div class="track-info bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md">
+  <div class="relative">
+    
+      <div class="w-full h-56 bg-primary-200 dark:bg-primary-900 flex items-center justify-center">
+        <span class="track-icon text-4xl font-bold text-primary-700 dark:text-primary-300">
+          
+
+        </span>
+      </div>
+    
+    <div class="absolute top-0 right-0 m-2 bg-primary-100 dark:bg-primary-800 rounded-full px-3 py-1 text-sm font-semibold text-primary-800 dark:text-primary-200">
+      motocross
+    </div>
+  </div>
+  
+  <div class="p-4">
+    <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100"></h3>
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Location:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">Mt. Morris, Pennsylvania</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Length:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">1.7 miles</span>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+  </div>
+</div>
+      </div>
+    
+      
+      
+      
+      
+      
+      
+      <div class="track-grid-item">
+        
+<div class="track-info bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md">
+  <div class="relative">
+    
+      <div class="w-full h-56 bg-primary-200 dark:bg-primary-900 flex items-center justify-center">
+        <span class="track-icon text-4xl font-bold text-primary-700 dark:text-primary-300">
+          
+
+        </span>
+      </div>
+    
+    <div class="absolute top-0 right-0 m-2 bg-primary-100 dark:bg-primary-800 rounded-full px-3 py-1 text-sm font-semibold text-primary-800 dark:text-primary-200">
+      supercross
+    </div>
+  </div>
+  
+  <div class="p-4">
+    <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100"></h3>
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Location:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">East Rutherford, New Jersey</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Length:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">0.57 miles</span>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+  </div>
+</div>
+      </div>
+    
+      
+      
+      
+      
+      
+      
+      <div class="track-grid-item">
+        
+<div class="track-info bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md">
+  <div class="relative">
+    
+      <div class="w-full h-56 bg-primary-200 dark:bg-primary-900 flex items-center justify-center">
+        <span class="track-icon text-4xl font-bold text-primary-700 dark:text-primary-300">
+          
+
+        </span>
+      </div>
+    
+    <div class="absolute top-0 right-0 m-2 bg-primary-100 dark:bg-primary-800 rounded-full px-3 py-1 text-sm font-semibold text-primary-800 dark:text-primary-200">
+      
+    </div>
+  </div>
+  
+  <div class="p-4">
+    <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100"></h3>
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Location:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">Tampa, Florida</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Length:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">2,900 feet</span>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+  </div>
+</div>
+      </div>
+    
+      
+      
+      
+      
+      
+      
+      <div class="track-grid-item">
+        
+<div class="track-info bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md">
+  <div class="relative">
+    
+      <div class="w-full h-56 bg-primary-200 dark:bg-primary-900 flex items-center justify-center">
+        <span class="track-icon text-4xl font-bold text-primary-700 dark:text-primary-300">
+          
+
+        </span>
+      </div>
+    
+    <div class="absolute top-0 right-0 m-2 bg-primary-100 dark:bg-primary-800 rounded-full px-3 py-1 text-sm font-semibold text-primary-800 dark:text-primary-200">
+      motocross
+    </div>
+  </div>
+  
+  <div class="p-4">
+    <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100"></h3>
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Location:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">Buchanan, Michigan</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Length:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">1.8 miles</span>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+  </div>
+</div>
+      </div>
+    
+      
+      
+      
+      
+      
+      
+      <div class="track-grid-item">
+        
+<div class="track-info bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md">
+  <div class="relative">
+    
+      <div class="w-full h-56 bg-primary-200 dark:bg-primary-900 flex items-center justify-center">
+        <span class="track-icon text-4xl font-bold text-primary-700 dark:text-primary-300">
+          
+
+        </span>
+      </div>
+    
+    <div class="absolute top-0 right-0 m-2 bg-primary-100 dark:bg-primary-800 rounded-full px-3 py-1 text-sm font-semibold text-primary-800 dark:text-primary-200">
+      supercross
+    </div>
+  </div>
+  
+  <div class="p-4">
+    <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100"></h3>
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Location:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">Salt Lake City, Utah</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Length:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">0.51 miles</span>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+  </div>
+</div>
+      </div>
+    
+      
+      
+      
+      
+      
+      
+      <div class="track-grid-item">
+        
+<div class="track-info bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md">
+  <div class="relative">
+    
+      <div class="w-full h-56 bg-primary-200 dark:bg-primary-900 flex items-center justify-center">
+        <span class="track-icon text-4xl font-bold text-primary-700 dark:text-primary-300">
+          
+
+        </span>
+      </div>
+    
+    <div class="absolute top-0 right-0 m-2 bg-primary-100 dark:bg-primary-800 rounded-full px-3 py-1 text-sm font-semibold text-primary-800 dark:text-primary-200">
+      
+    </div>
+  </div>
+  
+  <div class="p-4">
+    <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100"></h3>
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Location:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">San Diego, California</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Length:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">2,800 feet</span>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+  </div>
+</div>
+      </div>
+    
+      
+      
+      
+      
+      
+        
+      
+      
+      <div class="track-grid-item">
+        
+<div class="track-info bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md">
+  <div class="relative">
+    
+      <div class="w-full h-56 bg-primary-200 dark:bg-primary-900 flex items-center justify-center">
+        <span class="track-icon text-4xl font-bold text-primary-700 dark:text-primary-300">
+          
+
+        </span>
+      </div>
+    
+    <div class="absolute top-0 right-0 m-2 bg-primary-100 dark:bg-primary-800 rounded-full px-3 py-1 text-sm font-semibold text-primary-800 dark:text-primary-200">
+      
+    </div>
+  </div>
+  
+  <div class="p-4">
+    <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100"></h3>
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
+      <p class="text-sm text-neutral-700 dark:text-neutral-300">
+        San Diego, California - Home of the San Diego Supercross
+      </p>
+    </div>
+    
+    
+    
+  </div>
+</div>
+      </div>
+    
+      
+      
+      
+      
+      
+      
+      <div class="track-grid-item">
+        
+<div class="track-info bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md">
+  <div class="relative">
+    
+      <div class="w-full h-56 bg-primary-200 dark:bg-primary-900 flex items-center justify-center">
+        <span class="track-icon text-4xl font-bold text-primary-700 dark:text-primary-300">
+          
+
+        </span>
+      </div>
+    
+    <div class="absolute top-0 right-0 m-2 bg-primary-100 dark:bg-primary-800 rounded-full px-3 py-1 text-sm font-semibold text-primary-800 dark:text-primary-200">
+      
+    </div>
+  </div>
+  
+  <div class="p-4">
+    <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100"></h3>
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Location:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">New Berlin, New York</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Length:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">1.6 miles</span>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+  </div>
+</div>
+      </div>
+    
+      
+      
+      
+      
+      
+      
+      <div class="track-grid-item">
+        
+<div class="track-info bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md">
+  <div class="relative">
+    
+      <div class="w-full h-56 bg-primary-200 dark:bg-primary-900 flex items-center justify-center">
+        <span class="track-icon text-4xl font-bold text-primary-700 dark:text-primary-300">
+          
+
+        </span>
+      </div>
+    
+    <div class="absolute top-0 right-0 m-2 bg-primary-100 dark:bg-primary-800 rounded-full px-3 py-1 text-sm font-semibold text-primary-800 dark:text-primary-200">
+      
+    </div>
+  </div>
+  
+  <div class="p-4">
+    <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100"></h3>
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Location:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">Washougal, Washington</span>
+    </div>
+    
+    
+    
+    <div class="flex items-center mb-2">
+      <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Length:</span>
+      <span class="text-neutral-700 dark:text-neutral-300">1.5 miles</span>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+  </div>
+</div>
+      </div>
+    
+  
+</div>
+
+
+<h3 class="relative group">Filtered by Type 
+    <div id="filtered-by-type" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#filtered-by-type" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>You can filter tracks by type:</p>
+
+
+
+<div class="track-grid grid gap-6 grid-cols-1 md:grid-cols-2">
+  
+    
+    
+      
+    
+    
+    
+  
+</div>
+
+
+<h3 class="relative group">Manual Grid 
+    <div id="manual-grid-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#manual-grid-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>You can also manually add track information to a grid:</p>
+
+
+
+<div class="track-grid grid gap-6 grid-cols-1 md:grid-cols-2">
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="track-info bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md">
+    <div class="relative">
+      
+        <div class="w-full h-56 bg-primary-200 dark:bg-primary-900 flex items-center justify-center">
+          <span class="track-icon text-4xl font-bold text-primary-700 dark:text-primary-300">
+            
+  
+          </span>
+        </div>
+      
+      <div class="absolute top-0 right-0 m-2 bg-primary-100 dark:bg-primary-800 rounded-full px-3 py-1 text-sm font-semibold text-primary-800 dark:text-primary-200">
+        Supercross
+      </div>
+    </div>
+    
+    <div class="p-4">
+      <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100">Snapdragon Stadium</h3>
+      
+      
+      <div class="flex items-center mb-2">
+        <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Location:</span>
+        <span class="text-neutral-700 dark:text-neutral-300">San Diego, CA</span>
+      </div>
+      
+      
+      
+      <div class="flex items-center mb-2">
+        <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Length:</span>
+        <span class="text-neutral-700 dark:text-neutral-300">850m</span>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="track-info bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md">
+    <div class="relative">
+      
+        <div class="w-full h-56 bg-primary-200 dark:bg-primary-900 flex items-center justify-center">
+          <span class="track-icon text-4xl font-bold text-primary-700 dark:text-primary-300">
+            
+  
+          </span>
+        </div>
+      
+      <div class="absolute top-0 right-0 m-2 bg-primary-100 dark:bg-primary-800 rounded-full px-3 py-1 text-sm font-semibold text-primary-800 dark:text-primary-200">
+        Supercross
+      </div>
+    </div>
+    
+    <div class="p-4">
+      <h3 class="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100">Angel Stadium</h3>
+      
+      
+      <div class="flex items-center mb-2">
+        <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Location:</span>
+        <span class="text-neutral-700 dark:text-neutral-300">Anaheim, CA</span>
+      </div>
+      
+      
+      
+      <div class="flex items-center mb-2">
+        <span class="text-sm text-neutral-600 dark:text-neutral-400 mr-2">Length:</span>
+        <span class="text-neutral-700 dark:text-neutral-300">790m</span>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+    </div>
+  </div>
+
+  
+</div>
+
+
+<h2 class="relative group">Rider Comparison 
+    <div id="rider-comparison" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#rider-comparison" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The comparison shortcode allows comparing two riders side by side:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    
+    
+    
+    
+    
+  
+
+  
+  
+    
+    
+    
+    
+    
+  
+
+  
+  
+    
+    
+    
+    
+    
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+<div class="comparison-container p-4 rounded-lg shadow-md bg-neutral-100 dark:bg-neutral-800">
+  <h3 class="text-xl font-bold mb-4 text-center text-neutral-800 dark:text-neutral-100">2025 Championship Contenders</h3>
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    
+    <div class="comparison-item p-4 rounded-md bg-white dark:bg-neutral-700">
+      <div class="text-center mb-4">
+        <h4 class="font-bold text-lg text-neutral-800 dark:text-neutral-100">Jett Lawrence</h4>
+        <span class="text-sm text-neutral-500 dark:text-neutral-400">Team Honda HRC</span>
+      </div>
+      
+      
+      <div class="text-center mb-4">
+        <img src="/images/riders/jett-lawrence.jpg" alt="Jett Lawrence" class="mx-auto h-48 object-contain">
+      </div>
+      
+      
+      <div class="space-y-2">
+        
+      </div>
+    </div>
+    
+    
+    <div class="comparison-metrics py-4">
+      <div class="text-center mb-4">
+        <h4 class="font-bold text-lg text-neutral-800 dark:text-neutral-100">Head-to-Head</h4>
+        <span class="text-sm text-neutral-500 dark:text-neutral-400">2025 Season Stats</span>
+      </div>
+      
+      <div class="space-y-6 mt-8">
+        
+        <div class="comparison-metric">
+          <div class="flex justify-between mb-1">
+            <span class="text-sm font-medium text-neutral-600 dark:text-neutral-300">Championship Points</span>
+          </div>
+          
+          
+          
+          
+          
+          
+          
+            
+            
+          
+          
+          <div class="w-full bg-neutral-200 dark:bg-neutral-700 rounded-full h-2.5 mt-2">
+            
+              
+                
+                  <div class="flex h-2.5">
+                    <div class="bg-primary-600 h-2.5 rounded-l-full" style="width: 50%"></div>
+                    <div class="bg-primary-600 h-2.5 rounded-r-full" style="width: 50%"></div>
+                  </div>
+                
+              
+            
+          </div>
+        </div>
+        
+        <div class="comparison-metric">
+          <div class="flex justify-between mb-1">
+            <span class="text-sm font-medium text-neutral-600 dark:text-neutral-300">Podiums</span>
+          </div>
+          
+          
+          
+          
+          
+          
+          
+            
+            
+          
+          
+          <div class="w-full bg-neutral-200 dark:bg-neutral-700 rounded-full h-2.5 mt-2">
+            
+              
+                
+                  <div class="flex h-2.5">
+                    <div class="bg-primary-600 h-2.5 rounded-l-full" style="width: 50%"></div>
+                    <div class="bg-primary-600 h-2.5 rounded-r-full" style="width: 50%"></div>
+                  </div>
+                
+              
+            
+          </div>
+        </div>
+        
+        <div class="comparison-metric">
+          <div class="flex justify-between mb-1">
+            <span class="text-sm font-medium text-neutral-600 dark:text-neutral-300">Wins</span>
+          </div>
+          
+          
+          
+          
+          
+          
+          
+            
+            
+          
+          
+          <div class="w-full bg-neutral-200 dark:bg-neutral-700 rounded-full h-2.5 mt-2">
+            
+              
+                
+                  <div class="flex h-2.5">
+                    <div class="bg-primary-600 h-2.5 rounded-l-full" style="width: 50%"></div>
+                    <div class="bg-primary-600 h-2.5 rounded-r-full" style="width: 50%"></div>
+                  </div>
+                
+              
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    
+    <div class="comparison-item p-4 rounded-md bg-white dark:bg-neutral-700">
+      <div class="text-center mb-4">
+        <h4 class="font-bold text-lg text-neutral-800 dark:text-neutral-100">Chase Sexton</h4>
+        <span class="text-sm text-neutral-500 dark:text-neutral-400">Red Bull KTM</span>
+      </div>
+      
+      
+      <div class="text-center mb-4">
+        <img src="/images/riders/chase-sexton.jpg" alt="Chase Sexton" class="mx-auto h-48 object-contain">
+      </div>
+      
+      
+      <div class="space-y-2">
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="mt-6 p-4 bg-white dark:bg-neutral-700 rounded-md">
+    <h4 class="font-bold text-lg mb-2 text-neutral-800 dark:text-neutral-100">Analysis</h4>
+    <div class="text-neutral-700 dark:text-neutral-300 prose dark:prose-invert max-w-none">
+      
+Two of the most talented riders in the 450 class battling for the championship. Both riders have shown incredible speed and consistency throughout the season.
+
+    </div>
+  </div>
+  
+</div>
+
+    </div>
+  </article>
+</div>
+
+      
+    </main><footer id="site-footer" class="py-4 print:hidden border-t border-neutral-200 dark:border-neutral-700">
+  <div class="container">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex flex-wrap justify-center md:justify-start">
+        
+        
+          
+          <nav class="flex text-sm font-medium text-neutral-500 dark:text-neutral-400">
+            <ul class="flex flex-row flex-wrap list-none justify-center">
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/about/"
+                  title="">
+                  
+                  About
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/contact/"
+                  title="">
+                  
+                  Contact
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/terms/"
+                  title="">
+                  
+                  Terms
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/privacy/"
+                  title="">
+                  
+                  Privacy
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/betting/policies/"
+                  title="">
+                  
+                  Betting Policies
+                </a>
+                
+              </li>
+              
+            </ul>
+          </nav>
+          
+        
+      </div>
+
+      <div class="flex flex-wrap justify-center md:justify-end gap-4">
+        
+        
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy; 2025 MXRaceHub
+        </p>
+        
+
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+</footer>
+  </div>
+</body>
+
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+  data-id="nunocoracao" data-description="Support me on Buy me a coffee!" data-message=""
+  data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+
+</html>

@@ -1,0 +1,2156 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="true">
+<meta name="description" content="A powerful, lightweight theme for Hugo.">
+<meta name="author" content="map[bio:A powerful, lightweight theme for Hugo. email:nuno@n9o.xyz headline:A powerful, lightweight theme for Hugo. image:img/blowfish_logo.png links:[map[x-twitter:https://twitter.com/burufugu] map[github:https://github.com/nunocoracao/blowfish]] name:Blowfish]">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mxracehub.github.io/riders/250/chance-hymas/">
+<meta property="og:title" content="Chance Hymas">
+<meta property="og:description" content="A powerful, lightweight theme for Hugo.">
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mxracehub.github.io/riders/250/chance-hymas/">
+<meta property="twitter:title" content="Chance Hymas">
+<meta property="twitter:description" content="A powerful, lightweight theme for Hugo.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/styles.css">
+
+
+<style>
+  :root {
+    --primary-color: #0066cc;
+    --primary-dark: #0052a3;
+    --primary-light: #e6f0ff;
+    --text-color: #333;
+    --text-muted: #666;
+    --background-color: #fff;
+    --card-background: #f9f9f9;
+    --border-color: #e0e0e0;
+    --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --primary-color: #2d8cff;
+      --primary-dark: #0066cc;
+      --primary-light: #0a1a2d;
+      --text-color: #e0e0e0;
+      --text-muted: #a0a0a0;
+      --background-color: #121212;
+      --card-background: #1e1e1e;
+      --border-color: #383838;
+    }
+  }
+  
+  body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+  }
+  
+  .main-content {
+    flex: 1;
+    width: 100%;
+    padding: 0 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .main-content {
+      padding: 0 2rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .main-content {
+      padding: 0 3rem;
+    }
+  }
+  
+  .content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .content-wrapper {
+      padding: 0 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .content-wrapper {
+      padding: 0 2rem;
+    }
+  }
+</style>
+
+
+<style>
+   
+  .transfers-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .transfers-page {
+      padding: 0 2rem;
+    }
+  }
+  
+  .transfers-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+  
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+  }
+  
+  .balance-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  
+  .balance-amount {
+    color: var(--primary-color);
+  }
+  
+  .add-funds-btn, 
+  .option-card.active .option-link,
+  .transfer-button {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+  
+  .add-funds-btn:hover, 
+  .option-card.active .option-link:hover,
+  .transfer-button:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .option-card {
+    background-color: var(--background-color);
+    border: 2px solid transparent;
+  }
+  
+  .option-card.active {
+    border-color: var(--primary-color);
+  }
+  
+  .option-icon {
+    color: var(--primary-color);
+  }
+  
+  .tab-btn.active {
+    color: var(--primary-color);
+  }
+  
+  .tab-btn.active::after {
+    background-color: var(--primary-color);
+  }
+  
+  .transfer-form-container {
+    background-color: var(--background-color);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .transfer-form-container {
+      background-color: var(--card-background);
+    }
+    
+    .recipient-name,
+    .transfer-header h2 {
+      color: var(--text-color);
+    }
+    
+    .recipient-preview {
+      background-color: var(--primary-light);
+    }
+    
+    #transfer-amount,
+    #transfer-description,
+    #recipient-search {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      border-color: var(--border-color);
+    }
+    
+    .transaction-item {
+      border-color: var(--border-color);
+    }
+    
+    .transaction-title {
+      color: var(--text-color);
+    }
+    
+    .transaction-date {
+      color: var(--text-muted);
+    }
+  }
+</style><body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  
+<header class="navbar-main">
+  
+  <div class="top-navbar">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="navbar-logo">
+        <a href="/" class="logo-link">
+          <span class="logo-text">MXRaceHub</span>
+        </a>
+      </div>
+      
+      <div class="nav-buttons flex items-center">
+        <a href="/live-stream/" class="watch-btn">
+          <span class="watch-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </span>
+          <span>Watch Live</span>
+        </a>
+        
+        <a href="/tickets/" class="tickets-btn">
+          <span class="ticket-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 10 4 15 9 20"></polyline>
+              <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+            </svg>
+          </span>
+          <span>Tickets</span>
+        </a>
+        
+        <a href="/auth/" class="signin-btn">
+          <span class="user-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>Sign In</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="main-navbar">
+    <div class="container mx-auto px-4">
+      
+      <nav class="desktop-nav">
+        <ul class="nav-list">
+          <li class="nav-item ">
+            <a href="/" class="nav-link">Home</a>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/races/" class="nav-link dropdown-toggle">
+              <span>Races</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/races/upcoming/" class="dropdown-link">Upcoming Races</a></li>
+                <li><a href="/races/supercross/" class="dropdown-link">Supercross</a></li>
+                <li><a href="/races/motocross/" class="dropdown-link">Motocross</a></li>
+                <li><a href="/races/results/" class="dropdown-link">Race Results</a></li>
+                <li><a href="/races/standings/" class="dropdown-link">Standings</a></li>
+                <li><a href="/races/schedule/" class="dropdown-link">Full Schedule</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown active">
+            <a href="/riders/" class="nav-link dropdown-toggle">
+              <span>Riders</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/riders/450/" class="dropdown-link">450 Class</a></li>
+                <li><a href="/riders/250/" class="dropdown-link">250 Class</a></li>
+                <li><a href="/riders/all/" class="dropdown-link">Search All Riders</a></li>
+                <li><a href="/riders/champions/" class="dropdown-link">Champions</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/teams/" class="nav-link dropdown-toggle">
+              <span>Teams</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/teams/honda/" class="dropdown-link">Team Honda HRC</a></li>
+                <li><a href="/teams/ktm/" class="dropdown-link">Red Bull KTM</a></li>
+                <li><a href="/teams/yamaha/" class="dropdown-link">Monster Energy Yamaha</a></li>
+                <li><a href="/teams/kawasaki/" class="dropdown-link">Monster Energy Kawasaki</a></li>
+                <li><a href="/teams/pro-circuit/" class="dropdown-link">Pro Circuit Kawasaki</a></li>
+                <li><a href="/teams/all/" class="dropdown-link">All Teams</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/tracks/" class="nav-link dropdown-toggle">
+              <span>Tracks</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/tracks/supercross/" class="dropdown-link">Supercross Tracks</a></li>
+                <li><a href="/tracks/motocross/" class="dropdown-link">Motocross Tracks</a></li>
+                <li><a href="/tracks/featured/" class="dropdown-link">Featured Tracks</a></li>
+                <li><a href="/tracks/map/" class="dropdown-link">Track Map</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/news/" class="nav-link dropdown-toggle">
+              <span>News</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/news/latest/" class="dropdown-link">Latest News</a></li>
+                <li><a href="/news/interviews/" class="dropdown-link">Rider Interviews</a></li>
+                <li><a href="/news/analysis/" class="dropdown-link">Race Analysis</a></li>
+                <li><a href="/news/video/" class="dropdown-link">Video Content</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/betting/" class="nav-link dropdown-toggle">
+              <span>Betting</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/betting/friend-bets/" class="dropdown-link">Friend Bets</a></li>
+                <li><a href="/betting/groups/" class="dropdown-link">Betting Groups</a></li>
+                <li><a href="/betting/odds/" class="dropdown-link">Latest Odds</a></li>
+                <li><a href="/betting/membership/" class="dropdown-link">Membership</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/account/" class="nav-link dropdown-toggle">
+              <span>My Account</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/account/profile/" class="dropdown-link">My Profile</a></li>
+                <li><a href="/account/bets/" class="dropdown-link">My Bets</a></li>
+                <li><a href="/account/wallet/" class="dropdown-link">Wallet</a></li>
+                <li><a href="/account/transfers/" class="dropdown-link">Money Transfers</a></li>
+                <li><a href="/account/membership/" class="dropdown-link">Membership</a></li>
+                <li><a href="/account/settings/" class="dropdown-link">Settings</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      
+      
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  
+  <div id="mobile-nav-panel" class="mobile-nav-panel">
+    <div class="mobile-nav-content">
+      <div class="mobile-nav-header">
+        <div class="logo-text">MXRaceHub</div>
+        <button id="mobile-nav-close" class="mobile-nav-close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav-buttons">
+        <a href="/auth/" class="mobile-signin-btn">
+          <span class="user-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>Sign In</span>
+        </a>
+        
+        <a href="/live-stream/" class="mobile-watch-btn">
+          <span class="watch-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </span>
+          <span>Watch Live</span>
+        </a>
+        
+        <a href="/tickets/" class="mobile-tickets-btn">
+          <span class="ticket-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 10 4 15 9 20"></polyline>
+              <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+            </svg>
+          </span>
+          <span>Tickets</span>
+        </a>
+      </div>
+      
+      <nav class="mobile-nav-menu">
+        <div class="accordion-menu">
+          <div class="accordion-item">
+            <a href="/" class="accordion-link ">Home</a>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Races</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/races/upcoming/" class="accordion-sublink">Upcoming Races</a>
+              <a href="/races/supercross/" class="accordion-sublink">Supercross</a>
+              <a href="/races/motocross/" class="accordion-sublink">Motocross</a>
+              <a href="/races/results/" class="accordion-sublink">Race Results</a>
+              <a href="/races/standings/" class="accordion-sublink">Standings</a>
+              <a href="/races/schedule/" class="accordion-sublink">Full Schedule</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle active">
+              <span>Riders</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/riders/450/" class="accordion-sublink">450 Class</a>
+              <a href="/riders/250/" class="accordion-sublink">250 Class</a>
+              <a href="/riders/all/" class="accordion-sublink">Search All Riders</a>
+              <a href="/riders/champions/" class="accordion-sublink">Champions</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Teams</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/teams/honda/" class="accordion-sublink">Team Honda HRC</a>
+              <a href="/teams/ktm/" class="accordion-sublink">Red Bull KTM</a>
+              <a href="/teams/yamaha/" class="accordion-sublink">Monster Energy Yamaha</a>
+              <a href="/teams/kawasaki/" class="accordion-sublink">Monster Energy Kawasaki</a>
+              <a href="/teams/pro-circuit/" class="accordion-sublink">Pro Circuit Kawasaki</a>
+              <a href="/teams/all/" class="accordion-sublink">All Teams</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Tracks</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/tracks/supercross/" class="accordion-sublink">Supercross Tracks</a>
+              <a href="/tracks/motocross/" class="accordion-sublink">Motocross Tracks</a>
+              <a href="/tracks/featured/" class="accordion-sublink">Featured Tracks</a>
+              <a href="/tracks/map/" class="accordion-sublink">Track Map</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>News</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/news/latest/" class="accordion-sublink">Latest News</a>
+              <a href="/news/interviews/" class="accordion-sublink">Rider Interviews</a>
+              <a href="/news/analysis/" class="accordion-sublink">Race Analysis</a>
+              <a href="/news/video/" class="accordion-sublink">Video Content</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Betting</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/betting/friend-bets/" class="accordion-sublink">Friend Bets</a>
+              <a href="/betting/groups/" class="accordion-sublink">Betting Groups</a>
+              <a href="/betting/odds/" class="accordion-sublink">Latest Odds</a>
+              <a href="/betting/membership/" class="accordion-sublink">Membership</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>My Account</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/account/profile/" class="accordion-sublink">My Profile</a>
+              <a href="/account/bets/" class="accordion-sublink">My Bets</a>
+              <a href="/account/wallet/" class="accordion-sublink">Wallet</a>
+              <a href="/account/transfers/" class="accordion-sublink">Money Transfers</a>
+              <a href="/account/membership/" class="accordion-sublink">Membership</a>
+              <a href="/account/settings/" class="accordion-sublink">Settings</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+<div class="nav-spacer"></div>
+
+<style>
+   
+  :root {
+    --primary-color: #e20613;  
+    --secondary-color: #003366;  
+    --text-color: #333333;
+    --light-gray: #f2f2f2;
+    --medium-gray: #dddddd;
+    --dark-gray: #555555;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  
+   
+  .top-navbar {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 0;
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .logo-text {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .watch-btn, .tickets-btn, .signin-btn {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  
+  .watch-btn {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .tickets-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .signin-btn {
+    background-color: transparent;
+    color: white;
+  }
+  
+  .watch-btn:hover, .tickets-btn:hover, .signin-btn:hover {
+    opacity: 0.9;
+  }
+  
+   
+  .main-navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 40;
+  }
+  
+  .desktop-nav {
+    display: flex;
+  }
+  
+  .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .nav-item {
+    position: relative;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    color: var(--primary-color);
+  }
+  
+  .dropdown-toggle {
+    cursor: pointer;
+  }
+  
+  .dropdown-arrow {
+    margin-left: 0.375rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 4px 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 30;
+  }
+  
+  .dropdown-list {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+  
+  .dropdown-link {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dropdown-link:hover {
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+  }
+  
+  .nav-item.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .nav-item.has-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .nav-item.active .nav-link {
+    color: var(--primary-color);
+  }
+  
+   
+  .mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    padding: 1rem;
+    cursor: pointer;
+  }
+  
+   
+  .mobile-nav-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 350px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    z-index: 60;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+  }
+  
+  .mobile-nav-panel.visible {
+    right: 0;
+  }
+  
+  .mobile-nav-content {
+    padding: 1rem;
+  }
+  
+  .mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  .mobile-nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-signin-btn, .mobile-watch-btn, .mobile-tickets-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .mobile-watch-btn {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .mobile-tickets-btn {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+  }
+  
+  .mobile-signin-btn {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+   
+  .accordion-item {
+    border-bottom: 1px solid var(--medium-gray);
+  }
+  
+  .accordion-link, .accordion-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: left;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .accordion-toggle {
+    border-bottom: none;
+  }
+  
+  .accordion-arrow {
+    transition: transform 0.2s ease;
+  }
+  
+  .accordion-toggle.active .accordion-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .accordion-content {
+    display: none;
+    padding: 0.5rem 0 0.5rem 1rem;
+  }
+  
+  .accordion-content.visible {
+    display: block;
+  }
+  
+  .accordion-sublink {
+    display: block;
+    padding: 0.625rem 0;
+    color: var(--dark-gray);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .accordion-sublink:hover {
+    color: var(--primary-color);
+  }
+  
+  .accordion-item .accordion-link.active, 
+  .accordion-item .accordion-toggle.active {
+    color: var(--primary-color);
+  }
+  
+   
+  .nav-spacer {
+    height: 120px;  
+  }
+  
+   
+  @media (max-width: 1024px) {
+    .nav-link {
+      padding: 1rem 0.75rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .desktop-nav {
+      display: none;
+    }
+    
+    .mobile-nav-toggle {
+      display: block;
+    }
+    
+    .nav-spacer {
+      height: 100px;  
+    }
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-color: #f5f5f5;
+      --light-gray: #2a2a2a;
+      --medium-gray: #444444;
+      --dark-gray: #aaaaaa;
+    }
+    
+    .top-navbar {
+      background-color: #002244;  
+    }
+    
+    .main-navbar {
+      background-color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dropdown-menu {
+      background-color: #1a1a1a;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dropdown-link:hover {
+      background-color: #333333;
+    }
+    
+    .mobile-nav-panel {
+      background-color: #1a1a1a;
+    }
+    
+    .mobile-signin-btn {
+      background-color: #002244;
+    }
+    
+    .mobile-tickets-btn {
+      background-color: #333333;
+      color: #f5f5f5;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+    const mobileNavPanel = document.getElementById('mobile-nav-panel');
+    const mobileNavClose = document.getElementById('mobile-nav-close');
+    
+    if (mobileNavToggle && mobileNavPanel) {
+      mobileNavToggle.addEventListener('click', function() {
+        mobileNavPanel.classList.add('visible');
+        document.body.style.overflow = 'hidden'; 
+      });
+    }
+    
+    if (mobileNavClose && mobileNavPanel) {
+      mobileNavClose.addEventListener('click', function() {
+        mobileNavPanel.classList.remove('visible');
+        document.body.style.overflow = ''; 
+      });
+    }
+    
+    
+    const accordionToggles = document.querySelectorAll('.accordion-toggle');
+    
+    accordionToggles.forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        
+        
+        const allContents = document.querySelectorAll('.accordion-content');
+        const allToggles = document.querySelectorAll('.accordion-toggle');
+        
+        allContents.forEach(item => {
+          if (item !== content) {
+            item.classList.remove('visible');
+          }
+        });
+        
+        allToggles.forEach(item => {
+          if (item !== this) {
+            item.classList.remove('active');
+          }
+        });
+        
+        
+        this.classList.toggle('active');
+        content.classList.toggle('visible');
+      });
+    });
+  });
+</script>
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+<article class="rider-profile">
+  <div class="rider-hero">
+    <div class="rider-hero-overlay"></div>
+    
+      <img src="/img/hero-images/chance-hymas-hero.jpg" alt="Chance Hymas" class="rider-hero-bg">
+    
+    
+    <div class="container rider-hero-content">
+      <div class="rider-hero-info">
+        <h1 class="rider-name">Chance Hymas</h1>
+        <div class="rider-details">
+          <div class="rider-team">Team Honda HRC</div>
+          <div class="rider-number-badge">#29</div>
+          <div class="rider-class-badge class-250">250</div>
+          <div class="rider-nationality">USA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container rider-content">
+    <div class="rider-stats-container">
+      <div class="rider-photo">
+        
+          <img src="/img/riders/chance-hymas.svg" alt="Chance Hymas">
+        
+        
+        <div class="rider-manufacturer">
+          
+            <span class="manufacturer-badge honda">Honda</span>
+          
+        </div>
+      </div>
+      
+      <div class="rider-stats">
+        <h2>Rider Statistics</h2>
+        <div class="stats-grid">
+          
+          <div class="stat-item">
+            <div class="stat-label">Number</div>
+            <div class="stat-value">#29</div>
+          </div>
+          
+          
+          
+          <div class="stat-item">
+            <div class="stat-label">Class</div>
+            <div class="stat-value">250</div>
+          </div>
+          
+          
+          
+          <div class="stat-item">
+            <div class="stat-label">Nationality</div>
+            <div class="stat-value">USA</div>
+          </div>
+          
+          
+          
+          <div class="stat-item">
+            <div class="stat-label">Age</div>
+            <div class="stat-value">19</div>
+          </div>
+          
+          
+          
+          <div class="stat-item">
+            <div class="stat-label">Height</div>
+            <div class="stat-value">5&#39;11&#34;</div>
+          </div>
+          
+          
+          
+          
+          
+          <div class="stat-item">
+            <div class="stat-label">Status</div>
+            <div class="stat-value">Active</div>
+          </div>
+          
+        </div>
+        
+        
+        <div class="rider-highlights">
+          <h3>Career Highlights</h3>
+          <ul>
+            
+              <li>Team Honda HRC Factory Rider</li>
+            
+              <li>2022 Scouting Combine Moto Combine Winner</li>
+            
+              <li>Multiple Amateur National Championships</li>
+            
+              <li>2023 Pro Motocross Top 10 Overall</li>
+            
+              <li>2023 AMA 250SX East Top 10 Finishes</li>
+            
+          </ul>
+        </div>
+        
+        
+        
+        <div class="rider-standings">
+          <h3>Championship Standings</h3>
+          <div class="standings-grid">
+            
+              <div class="standings-item">
+                <div class="standings-series">2023 ama 250sx east</div>
+                <div class="standings-position">Position: 12</div>
+                <div class="standings-points">Points: 63</div>
+              </div>
+            
+              <div class="standings-item">
+                <div class="standings-series">2023 pro motocross 250</div>
+                <div class="standings-position">Position: 8</div>
+                <div class="standings-points">Points: 242</div>
+              </div>
+            
+              <div class="standings-item">
+                <div class="standings-series">2024 ama 250sx east</div>
+                <div class="standings-position">Position: 10</div>
+                <div class="standings-points">Points: 66</div>
+              </div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="rider-content-main">
+      <div class="rider-bio">
+        <h2>Biography</h2>
+        
+
+<h2 class="relative group">The Idaho Prodigy 
+    <div id="the-idaho-prodigy" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-idaho-prodigy" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Chance Hymas represents the excitement of emerging talent in professional motocross and supercross, bringing exceptional natural ability, dedicated work ethic, and the fearlessness of youth to the sport&rsquo;s highest levels. As one of the youngest factory-supported riders in the 250 class, Hymas carries both the advantages of factory Honda support and the challenges of developing race craft while competing against more experienced professionals.</p>
+<p>Born in Pocatello, Idaho, and developing his skills in the state&rsquo;s diverse riding environments, Hymas has built his reputation on a foundation of natural speed, aggressive style, and the focused determination that earned him direct factory support from American Honda&rsquo;s prestigious HRC program. His development from talented amateur to factory professional demonstrates both his natural gifts and Honda&rsquo;s belief in his long-term championship potential.</p>
+
+
+<h2 class="relative group">The Idaho Background 
+    <div id="the-idaho-background" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-idaho-background" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Unlike many professional prospects who emerge from traditional motocross hotbeds like California, Florida, or the Carolinas, Hymas developed his skills in the less recognized Idaho motocross scene. This unique background provided both challenges and advantages that shaped his racing approach:</p>
+<ul>
+<li>Development on varied terrain from hardpack desert tracks to loamy mountain circuits</li>
+<li>Self-reliance and resourcefulness necessitated by distance from industry centers</li>
+<li>Strong work ethic cultivated in the region&rsquo;s no-nonsense approach to motorcycle sports</li>
+<li>Physical conditioning enhanced by training at elevation in the Rocky Mountain region</li>
+</ul>
+<p>This Idaho foundation created a distinctive combination of technical versatility and independent determination that distinguished Hymas from competitors with more traditional developmental pathways. Rather than following established progression routes, his development required innovation and self-motivation that serve him well at the professional level.</p>
+
+
+<h2 class="relative group">Amateur Success 
+    <div id="amateur-success" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#amateur-success" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Despite his nontraditional geographic background, Hymas&rsquo; amateur career demonstrated the exceptional talent that would eventually earn him factory interest. His amateur achievements included:</p>
+<ul>
+<li>Multiple championships at regional and national levels</li>
+<li>Success across various motorcycle displacements and age divisions</li>
+<li>Strong performance at the prestigious Loretta Lynn&rsquo;s Amateur National</li>
+<li>Standout results in the Scouting Combine Moto program showcasing elite amateur talent</li>
+</ul>
+<p>This amateur success culminated in his participation in the professional scouting programs that increasingly serve as the bridge between amateur and professional competition. His performance in these events, particularly the Scouting Combine Moto series, demonstrated readiness for professional racing while catching the attention of factory teams seeking developmental talent.</p>
+
+
+<h2 class="relative group">The Honda Opportunity 
+    <div id="the-honda-opportunity" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-honda-opportunity" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Hymas&rsquo; potential earned him the remarkable opportunity to join Team Honda HRC directly from the amateur ranks—one of the most coveted positions in the sport and an exceptional vote of confidence in a young rider&rsquo;s potential. This factory support provides significant developmental advantages:</p>
+<ul>
+<li>World-class technical support from one of the sport&rsquo;s most established teams</li>
+<li>Training and preparation guidance from industry-leading coaches and staff</li>
+<li>Equipment advantages unavailable to privateer or support team competitors</li>
+<li>Long-term development perspective without immediate result pressure</li>
+</ul>
+<p>This supportive environment creates optimal conditions for maximizing his potential while allowing the physical and mental development needed for championship contention. The Honda program&rsquo;s emphasis on comprehensive rider development rather than immediate results provides the balanced approach needed for sustainable professional growth.</p>
+
+
+<h2 class="relative group">Professional Transition 
+    <div id="professional-transition" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#professional-transition" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Hymas turned professional in a measured, strategic manner that prioritized development over rushed advancement. Rather than immediately jumping into full Supercross competition, his transition included:</p>
+<ul>
+<li>Selected professional outdoor events while still an amateur</li>
+<li>Focused preparation and training specific to professional demands</li>
+<li>Gradual adaptation to the increased intensity and duration of professional racing</li>
+<li>Mental adjustment to competing against established veterans</li>
+</ul>
+<p>This methodical approach, guided by Team Honda HRC&rsquo;s experienced management, created a foundation for sustainable professional development rather than spectacular but potentially short-lived early success. While immediate championship contention wasn&rsquo;t expected, this patient progression builds the comprehensive skills needed for long-term achievement.</p>
+
+
+<h2 class="relative group">Riding Style and Approach 
+    <div id="riding-style-and-approach" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#riding-style-and-approach" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Hymas&rsquo; riding style demonstrates both his natural talents and developmental focus:</p>
+<ul>
+<li>Aggressive corner entry creating passing opportunities</li>
+<li>Committed approach to challenging rhythm sections</li>
+<li>Natural comfort in high-speed sections demonstrating exceptional confidence</li>
+<li>Technical development balancing aggression with calculated execution</li>
+</ul>
+<p>This approach reflects both his youthful fearlessness and the technical refinement developed through Honda&rsquo;s structured program. While his natural instinct tends toward aggressive, attacking riding, his professional development emphasizes balancing this aggression with the technical precision and race management required for championship-level competition.</p>
+<p>His style particularly shines in outdoor motocross, where the varied terrain and longer races reward his natural speed and physical conditioning. His comfort on rough, challenging tracks suggests particular potential for Pro Motocross success as his experience and technical refinement continue developing.</p>
+
+
+<h2 class="relative group">Physical Development 
+    <div id="physical-development" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#physical-development" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>As one of the youngest competitors in professional competition, Hymas&rsquo; physical development remains ongoing, with significant performance gains likely as he matures physically:</p>
+<ul>
+<li>Increasing strength supporting improved bike control in challenging conditions</li>
+<li>Enhanced endurance maintaining performance throughout demanding race formats</li>
+<li>Improved recovery capacity managing the professional schedule&rsquo;s demands</li>
+<li>Physical maturation creating improved power-to-weight advantages</li>
+</ul>
+<p>This physical development, guided by Honda&rsquo;s comprehensive training programs, represents one of his most significant future performance advantages. While already competing successfully against more physically mature competitors, his natural talents will be amplified by continued physical development in coming seasons.</p>
+
+
+<h2 class="relative group">Learning Curve 
+    <div id="learning-curve" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#learning-curve" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Hymas&rsquo; early professional seasons have demonstrated the learning curve faced by even the most talented young riders. The adjustment to professional racing includes numerous challenges beyond pure speed:</p>
+<ul>
+<li>Adapting to increased race duration and intensity</li>
+<li>Developing strategic race management against experienced competitors</li>
+<li>Building mental approaches for handling inevitable setbacks</li>
+<li>Refining technical skills for the specialized demands of professional tracks</li>
+</ul>
+<p>His progression through these challenges shows promising development, with improving results demonstrating growing comfort with professional competition. The occasional inconsistency typical of young riders has been balanced by flashes of exceptional speed that validate Honda&rsquo;s investment in his development.</p>
+
+
+<h2 class="relative group">Factory Environment 
+    <div id="factory-environment" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#factory-environment" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The Team Honda HRC environment provides specific advantages for young rider development:</p>
+<ul>
+<li>Established protocols for physical conditioning and preparation</li>
+<li>Technical guidance from the sport&rsquo;s most experienced personnel</li>
+<li>Veteran teammates providing perspective and mentorship</li>
+<li>Structured approach to media and sponsor obligations</li>
+</ul>
+<p>This supportive structure allows Hymas to focus primarily on performance development while learning the professional responsibilities that accompany factory support. The team&rsquo;s experience developing young talent creates a pathway that minimizes common pitfalls while maximizing growth opportunities.</p>
+<p>The Honda program&rsquo;s international scope also provides unique development potential, with possible exposure to various racing formats and environments as his career progresses. This global perspective expands potential competitive pathways beyond traditional American series, creating diverse opportunities for skill development and competitive achievement.</p>
+
+
+<h2 class="relative group">Future Potential 
+    <div id="future-potential" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#future-potential" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>At just 19 years old, Hymas represents one of the 250 class&rsquo;s youngest factory competitors with significant developmental potential ahead. His current trajectory suggests considerable capacity for championship contention as he builds experience and refines his approach:</p>
+<ul>
+<li>Natural speed already translating to professional top-ten results</li>
+<li>Factory support providing optimal development environment</li>
+<li>Physical maturation creating continued improvement potential</li>
+<li>Technical foundation supporting long-term competitive development</li>
+</ul>
+<p>While championship success requires both talent and fortunate circumstances, Hymas&rsquo; combination of natural ability, professional support, and youth creates the potential for significant achievement in coming seasons. His measured progression suggests that as results continue improving, they will represent sustainable development rather than isolated performance spikes.</p>
+
+
+<h2 class="relative group">Idaho Pride 
+    <div id="idaho-pride" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#idaho-pride" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Throughout his professional development, Hymas maintains strong connection to his Idaho roots, representing the state&rsquo;s motocross community at the sport&rsquo;s highest levels. This connection provides:</p>
+<ul>
+<li>Perspective maintaining balanced priorities despite professional pressure</li>
+<li>Support from the tight-knit regional motocross community</li>
+<li>Training opportunities in the region&rsquo;s diverse terrain</li>
+<li>Identity beyond professional results and team affiliations</li>
+</ul>
+<p>This regional identity distinguishes Hymas from competitors with more traditional backgrounds, creating distinctive character that resonates with fans and industry observers. His success represents not just personal achievement but validation for riders developing outside established motocross centers, demonstrating alternative pathways to factory support and professional opportunity.</p>
+
+
+<h2 class="relative group">The Developmental Timeline 
+    <div id="the-developmental-timeline" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-developmental-timeline" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Team Honda HRC&rsquo;s investment in Hymas reflects the modern approach to rider development, with factory teams increasingly identifying and supporting talent earlier in their careers. This comprehensive development model includes:</p>
+<ul>
+<li>Amateur support transitioning seamlessly to professional opportunity</li>
+<li>Technical development specific to Honda&rsquo;s motorcycle platform</li>
+<li>Structured progression emphasizing sustainable skill development</li>
+<li>Long-term perspective prioritizing championship potential over immediate results</li>
+</ul>
+<p>This approach represents evolution from earlier eras when riders typically earned factory support only after professional success with support teams. The modern development pipeline creates more stable progression while allowing manufacturers to shape talent specific to their technical needs and team culture.</p>
+
+
+<h2 class="relative group">The Emerging Story 
+    <div id="the-emerging-story" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-emerging-story" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Chance Hymas&rsquo; professional journey remains in its earliest chapters, with his most significant competitive achievements likely still ahead. However, his position as a factory-supported teenager demonstrates both his exceptional potential and the changing nature of professional talent development in contemporary motocross.</p>
+<p>For fans and industry observers, Hymas represents both the excitement of emerging talent and the strategic approach to rider development that characterizes modern professional teams. His continuing career will likely demonstrate the effectiveness of structured development pipelines in creating sustainable championship contenders from exceptional amateur talent.</p>
+<p>With Honda&rsquo;s commitment to his development and natural talents still developing toward their full expression, Chance Hymas stands poised to potentially become one of the sport&rsquo;s significant competitors in coming years, with his Idaho background adding distinctive character to his emerging professional story.</p>
+
+      </div>
+      
+      
+      <div class="rider-results">
+        <h2>Recent Results</h2>
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Event</th>
+              <th>Location</th>
+              <th>Position</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>April 13, 2024</td>
+              <td>Denver Supercross</td>
+              <td>Denver, CO</td>
+              <td>10</td>
+            </tr>
+            
+            <tr>
+              <td>April 6, 2024</td>
+              <td>Madison Supercross</td>
+              <td>Madison, WI</td>
+              <td>8</td>
+            </tr>
+            
+            <tr>
+              <td>March 23, 2024</td>
+              <td>Seattle Supercross</td>
+              <td>Seattle, WA</td>
+              <td>10</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      
+      
+      
+      <div class="rider-media">
+        
+        <div class="rider-videos">
+          <h2>Videos</h2>
+          <div class="videos-grid">
+            
+              <div class="video-item">
+                
+                  <div class="video-wrapper">
+                    <iframe
+                      src="https://www.youtube.com/embed/9EKLrsH8cvM"
+                      title="Chance Hymas - The Idaho Prospect"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                
+              </div>
+            
+              <div class="video-item">
+                
+                  <div class="video-wrapper">
+                    <iframe
+                      src="https://www.youtube.com/embed/KZj2HcVrF8E"
+                      title="Chance Hymas | Team Honda HRC Factory Profile"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                
+              </div>
+            
+              <div class="video-item">
+                
+                  <div class="video-wrapper">
+                    <iframe
+                      src="https://www.youtube.com/embed/L7VjnPqRwDM"
+                      title="Chance Hymas 2023 Season Highlights"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                
+              </div>
+            
+          </div>
+        </div>
+        
+        
+        
+        <div class="rider-gallery">
+          <h2>Gallery</h2>
+          <div class="gallery-grid">
+            
+              <div class="gallery-item">
+                <a href="/img/riders/gallery/chance-hymas-1.jpg" class="gallery-image-link">
+                  <img src="/img/riders/gallery/chance-hymas-1.jpg" alt="Chance Hymas at the 2023 Supercross season opener">
+                  
+                    <div class="gallery-caption">Chance Hymas at the 2023 Supercross season opener</div>
+                  
+                </a>
+              </div>
+            
+              <div class="gallery-item">
+                <a href="/img/riders/gallery/chance-hymas-2.jpg" class="gallery-image-link">
+                  <img src="/img/riders/gallery/chance-hymas-2.jpg" alt="Hymas in action during the 2023 Pro Motocross season">
+                  
+                    <div class="gallery-caption">Hymas in action during the 2023 Pro Motocross season</div>
+                  
+                </a>
+              </div>
+            
+              <div class="gallery-item">
+                <a href="/img/riders/gallery/chance-hymas-3.jpg" class="gallery-image-link">
+                  <img src="/img/riders/gallery/chance-hymas-3.jpg" alt="Chance Hymas with his Honda CRF250R">
+                  
+                    <div class="gallery-caption">Chance Hymas with his Honda CRF250R</div>
+                  
+                </a>
+              </div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+      
+      
+      <div class="rider-social">
+        <h2>Follow Chance Hymas</h2>
+        <div class="social-links">
+          <a href="https://www.instagram.com/chancehymas/" target="_blank" class="social-link instagram">Instagram</a>
+          <a href="https://twitter.com/chancehymas" target="_blank" class="social-link twitter">Twitter</a>
+          <a href="https://www.facebook.com/chancehymas29" target="_blank" class="social-link facebook">Facebook</a>
+          
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</article>
+
+<style>
+   
+  .rider-profile {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+   
+  .rider-hero {
+    position: relative;
+    height: 350px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+  
+  .rider-hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .rider-hero-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .rider-hero-fallback .rider-number {
+    font-size: 8rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .rider-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+    z-index: 1;
+  }
+  
+  .rider-hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    z-index: 2;
+  }
+  
+  .rider-hero-info {
+    color: white;
+  }
+  
+  .rider-name {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .rider-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .rider-team {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+  
+  .rider-number-badge {
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #333;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+  }
+  
+  .rider-class-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .class-450 {
+    background-color: #c10000;
+  }
+  
+  .class-250 {
+    background-color: #005fdb;
+  }
+  
+  .rider-nationality {
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+  
+   
+  .rider-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 4rem;
+  }
+  
+  @media (min-width: 992px) {
+    .rider-content {
+      grid-template-columns: 300px 1fr;
+    }
+  }
+  
+  .rider-stats-container {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .rider-photo {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+  
+  .rider-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .rider-manufacturer {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 2;
+  }
+  
+  .manufacturer-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .rider-stats {
+    padding: 1.5rem;
+  }
+  
+  .rider-stats h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .stat-label {
+    font-size: 0.85rem;
+    color: #777;
+    text-transform: uppercase;
+  }
+  
+  .stat-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .rider-highlights h3,
+  .rider-standings h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+  
+  .rider-highlights ul {
+    padding-left: 1.25rem;
+  }
+  
+  .rider-highlights li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .standings-grid {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .standings-item {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .standings-series {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .standings-position,
+  .standings-points {
+    font-size: 0.9rem;
+  }
+  
+   
+  .rider-content-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .rider-content-main h2 {
+    font-size: 1.75rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .rider-bio {
+    line-height: 1.6;
+  }
+  
+   
+  .results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  .results-table th,
+  .results-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .results-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .results-table tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+   
+  .videos-grid,
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .video-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .video-wrapper {
+    position: relative;
+    padding-top: 56.25%;  
+  }
+  
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  
+  .video-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .video-thumbnail {
+    position: relative;
+    aspect-ratio: 16/9;
+    background-color: #eee;
+    overflow: hidden;
+  }
+  
+  .video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .video-thumbnail-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    color: white;
+  }
+  
+  .video-title {
+    padding: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .gallery-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .gallery-image-link {
+    display: block;
+    position: relative;
+  }
+  
+  .gallery-image-link img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  
+  .gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 0.9rem;
+  }
+  
+   
+  .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+  }
+  
+  .social-link:hover {
+    opacity: 0.9;
+  }
+  
+  .instagram {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+  }
+  
+  .twitter {
+    background-color: #1DA1F2;
+  }
+  
+  .facebook {
+    background-color: #1877F2;
+  }
+  
+  .youtube {
+    background-color: #FF0000;
+  }
+  
+  .tiktok {
+    background-color: #000000;
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .rider-stats-container {
+      background-color: #222;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .stat-label {
+      color: #aaa;
+    }
+    
+    .standings-item {
+      background-color: #333;
+    }
+    
+    .results-table th {
+      background-color: #333;
+    }
+    
+    .results-table td {
+      border-bottom-color: #444;
+    }
+    
+    .results-table tr:hover {
+      background-color: #333;
+    }
+    
+    .rider-content-main h2 {
+      color: #e0e0e0;
+    }
+  }
+  
+   
+  @media (max-width: 768px) {
+    .rider-hero {
+      height: 280px;
+    }
+    
+    .rider-name {
+      font-size: 2.5rem;
+    }
+    
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .videos-grid, 
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+      
+    </main><footer id="site-footer" class="py-4 print:hidden border-t border-neutral-200 dark:border-neutral-700">
+  <div class="container">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex flex-wrap justify-center md:justify-start">
+        
+        
+          
+          <nav class="flex text-sm font-medium text-neutral-500 dark:text-neutral-400">
+            <ul class="flex flex-row flex-wrap list-none justify-center">
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/about/"
+                  title="">
+                  
+                  About
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/contact/"
+                  title="">
+                  
+                  Contact
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/terms/"
+                  title="">
+                  
+                  Terms
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/privacy/"
+                  title="">
+                  
+                  Privacy
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/betting/policies/"
+                  title="">
+                  
+                  Betting Policies
+                </a>
+                
+              </li>
+              
+            </ul>
+          </nav>
+          
+        
+      </div>
+
+      <div class="flex flex-wrap justify-center md:justify-end gap-4">
+        
+        
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy; 2025 MXRaceHub
+        </p>
+        
+
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+</footer>
+  </div>
+</body>
+
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+  data-id="nunocoracao" data-description="Support me on Buy me a coffee!" data-message=""
+  data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+
+</html>
