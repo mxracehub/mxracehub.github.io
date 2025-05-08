@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Privacy Policy on Blowfish</title>
-    <link>https://mxracehub.github.io/privacy-policy/</link>
+    <link>http://localhost:1313/privacy-policy/</link>
     <description>Recent content in Privacy Policy on Blowfish</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>nuno@n9o.xyz (Blowfish)</managingEditor>
     <webMaster>nuno@n9o.xyz (Blowfish)</webMaster>
     <copyright>© 2025 Blowfish</copyright>
-    <atom:link href="https://mxracehub.github.io/privacy-policy/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/privacy-policy/index.xml" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>

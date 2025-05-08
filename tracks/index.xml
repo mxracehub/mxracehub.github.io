@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tracks on Blowfish</title>
-    <link>https://mxracehub.github.io/tracks/</link>
+    <link>http://localhost:1313/tracks/</link>
     <description>Recent content in Tracks on Blowfish</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>nuno@n9o.xyz (Blowfish)</managingEditor>
     <webMaster>nuno@n9o.xyz (Blowfish)</webMaster>
     <copyright>© 2025 Blowfish</copyright>
-    <atom:link href="https://mxracehub.github.io/tracks/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tracks/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Angel Stadium of Anaheim</title>
-      <link>https://mxracehub.github.io/tracks/angel-stadium/</link>
+      <link>http://localhost:1313/tracks/angel-stadium/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>nuno@n9o.xyz (Blowfish)</author>
-      <guid>https://mxracehub.github.io/tracks/angel-stadium/</guid>
+      <guid>http://localhost:1313/tracks/angel-stadium/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Traditional Season Opener 
     &lt;div id=&#34;the-traditional-season-opener&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -33,10 +33,10 @@
     
     <item>
       <title>AT&amp;T Stadium</title>
-      <link>https://mxracehub.github.io/tracks/at-t-stadium/</link>
+      <link>http://localhost:1313/tracks/at-t-stadium/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>nuno@n9o.xyz (Blowfish)</author>
-      <guid>https://mxracehub.github.io/tracks/at-t-stadium/</guid>
+      <guid>http://localhost:1313/tracks/at-t-stadium/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Spectacle of Supercross in America&amp;rsquo;s Stadium 
     &lt;div id=&#34;the-spectacle-of-supercross-in-americas-stadium&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -53,10 +53,10 @@
     
     <item>
       <title>Daytona International Speedway</title>
-      <link>https://mxracehub.github.io/tracks/daytona-international-speedway/</link>
+      <link>http://localhost:1313/tracks/daytona-international-speedway/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>nuno@n9o.xyz (Blowfish)</author>
-      <guid>https://mxracehub.github.io/tracks/daytona-international-speedway/</guid>
+      <guid>http://localhost:1313/tracks/daytona-international-speedway/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Most Unique Race on the Supercross Calendar 
     &lt;div id=&#34;the-most-unique-race-on-the-supercross-calendar&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -73,15 +73,15 @@
     
     <item>
       <title>Ford Field</title>
-      <link>https://mxracehub.github.io/tracks/detroit-supercross/</link>
+      <link>http://localhost:1313/tracks/detroit-supercross/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>nuno@n9o.xyz (Blowfish)</author>
-      <guid>https://mxracehub.github.io/tracks/detroit-supercross/</guid>
+      <guid>http://localhost:1313/tracks/detroit-supercross/</guid>
       <description>&lt;div class=&#34;track-profile&#34;&gt;
   
   &lt;div class=&#34;track-content&#34;&gt;
     &lt;div class=&#34;track-image&#34;&gt;
-      &lt;img src=&#34;https://mxracehub.github.io/img/tracks/ford-field.svg&#34; alt=&#34;Ford Field&#34; class=&#34;track-photo&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/img/tracks/ford-field.svg&#34; alt=&#34;Ford Field&#34; class=&#34;track-photo&#34;&gt;
     &lt;/div&gt;
     
     &lt;div class=&#34;track-details&#34;&gt;
@@ -118,10 +118,10 @@
     
     <item>
       <title>Fox Raceway at Pala</title>
-      <link>https://mxracehub.github.io/tracks/fox-raceway/</link>
+      <link>http://localhost:1313/tracks/fox-raceway/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>nuno@n9o.xyz (Blowfish)</author>
-      <guid>https://mxracehub.github.io/tracks/fox-raceway/</guid>
+      <guid>http://localhost:1313/tracks/fox-raceway/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;Southern California&amp;rsquo;s Premier Motocross Facility 
     &lt;div id=&#34;southern-californias-premier-motocross-facility&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -138,10 +138,10 @@
     
     <item>
       <title>High Point Raceway</title>
-      <link>https://mxracehub.github.io/tracks/high-point/</link>
+      <link>http://localhost:1313/tracks/high-point/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>nuno@n9o.xyz (Blowfish)</author>
-      <guid>https://mxracehub.github.io/tracks/high-point/</guid>
+      <guid>http://localhost:1313/tracks/high-point/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Rolling Hills of Pennsylvania 
     &lt;div id=&#34;the-rolling-hills-of-pennsylvania&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -158,10 +158,10 @@
     
     <item>
       <title>MetLife Stadium</title>
-      <link>https://mxracehub.github.io/tracks/metlife-stadium/</link>
+      <link>http://localhost:1313/tracks/metlife-stadium/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>nuno@n9o.xyz (Blowfish)</author>
-      <guid>https://mxracehub.github.io/tracks/metlife-stadium/</guid>
+      <guid>http://localhost:1313/tracks/metlife-stadium/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The East Coast Supercross Showcase 
     &lt;div id=&#34;the-east-coast-supercross-showcase&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -178,10 +178,10 @@
     
     <item>
       <title>Raymond James Stadium</title>
-      <link>https://mxracehub.github.io/tracks/raymond-james-stadium/</link>
+      <link>http://localhost:1313/tracks/raymond-james-stadium/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>nuno@n9o.xyz (Blowfish)</author>
-      <guid>https://mxracehub.github.io/tracks/raymond-james-stadium/</guid>
+      <guid>http://localhost:1313/tracks/raymond-james-stadium/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;Stadium Overview 
     &lt;div id=&#34;stadium-overview&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -198,10 +198,10 @@
     
     <item>
       <title>RedBud MX</title>
-      <link>https://mxracehub.github.io/tracks/redbud/</link>
+      <link>http://localhost:1313/tracks/redbud/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>nuno@n9o.xyz (Blowfish)</author>
-      <guid>https://mxracehub.github.io/tracks/redbud/</guid>
+      <guid>http://localhost:1313/tracks/redbud/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;America&amp;rsquo;s Motocross Track 
     &lt;div id=&#34;americas-motocross-track&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -218,10 +218,10 @@
     
     <item>
       <title>Rice-Eccles Stadium</title>
-      <link>https://mxracehub.github.io/tracks/rice-eccles-stadium/</link>
+      <link>http://localhost:1313/tracks/rice-eccles-stadium/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>nuno@n9o.xyz (Blowfish)</author>
-      <guid>https://mxracehub.github.io/tracks/rice-eccles-stadium/</guid>
+      <guid>http://localhost:1313/tracks/rice-eccles-stadium/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The High-Altitude Season Finale 
     &lt;div id=&#34;the-high-altitude-season-finale&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -238,10 +238,10 @@
     
     <item>
       <title>Snapdragon Stadium</title>
-      <link>https://mxracehub.github.io/tracks/san-diego-snapdragon-stadium/</link>
+      <link>http://localhost:1313/tracks/san-diego-snapdragon-stadium/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>nuno@n9o.xyz (Blowfish)</author>
-      <guid>https://mxracehub.github.io/tracks/san-diego-snapdragon-stadium/</guid>
+      <guid>http://localhost:1313/tracks/san-diego-snapdragon-stadium/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The New Home of San Diego Supercross 
     &lt;div id=&#34;the-new-home-of-san-diego-supercross&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -258,15 +258,15 @@
     
     <item>
       <title>Snapdragon Stadium</title>
-      <link>https://mxracehub.github.io/tracks/snapdragon-stadium/</link>
+      <link>http://localhost:1313/tracks/snapdragon-stadium/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>nuno@n9o.xyz (Blowfish)</author>
-      <guid>https://mxracehub.github.io/tracks/snapdragon-stadium/</guid>
+      <guid>http://localhost:1313/tracks/snapdragon-stadium/</guid>
       <description>&lt;div class=&#34;track-profile&#34;&gt;
   
   &lt;div class=&#34;track-content&#34;&gt;
     &lt;div class=&#34;track-image&#34;&gt;
-      &lt;img src=&#34;https://mxracehub.github.io/img/tracks/snapdragon-stadium.svg&#34; alt=&#34;Snapdragon Stadium&#34; class=&#34;track-photo&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/img/tracks/snapdragon-stadium.svg&#34; alt=&#34;Snapdragon Stadium&#34; class=&#34;track-photo&#34;&gt;
     &lt;/div&gt;
     
     &lt;div class=&#34;track-details&#34;&gt;
@@ -303,10 +303,10 @@
     
     <item>
       <title>Unadilla MX</title>
-      <link>https://mxracehub.github.io/tracks/unadilla-mx/</link>
+      <link>http://localhost:1313/tracks/unadilla-mx/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>nuno@n9o.xyz (Blowfish)</author>
-      <guid>https://mxracehub.github.io/tracks/unadilla-mx/</guid>
+      <guid>http://localhost:1313/tracks/unadilla-mx/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Historic Battleground 
     &lt;div id=&#34;the-historic-battleground&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -323,10 +323,10 @@
     
     <item>
       <title>Washougal MX Park</title>
-      <link>https://mxracehub.github.io/tracks/washougal-mx-park/</link>
+      <link>http://localhost:1313/tracks/washougal-mx-park/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>nuno@n9o.xyz (Blowfish)</author>
-      <guid>https://mxracehub.github.io/tracks/washougal-mx-park/</guid>
+      <guid>http://localhost:1313/tracks/washougal-mx-park/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Cathedral of Motocross 
     &lt;div id=&#34;the-cathedral-of-motocross&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     

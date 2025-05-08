@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pro Motocross on Blowfish</title>
-    <link>https://mxracehub.github.io/series/pro-motocross/</link>
+    <link>http://localhost:1313/series/pro-motocross/</link>
     <description>Recent content in Pro Motocross on Blowfish</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>nuno@n9o.xyz (Blowfish)</managingEditor>
     <webMaster>nuno@n9o.xyz (Blowfish)</webMaster>
     <copyright>© 2025 Blowfish</copyright>
-    <atom:link href="https://mxracehub.github.io/series/pro-motocross/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/series/pro-motocross/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Unadilla MX</title>
-      <link>https://mxracehub.github.io/tracks/unadilla-mx/</link>
+      <link>http://localhost:1313/tracks/unadilla-mx/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>nuno@n9o.xyz (Blowfish)</author>
-      <guid>https://mxracehub.github.io/tracks/unadilla-mx/</guid>
+      <guid>http://localhost:1313/tracks/unadilla-mx/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Historic Battleground 
     &lt;div id=&#34;the-historic-battleground&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -33,10 +33,10 @@
     
     <item>
       <title>Washougal MX Park</title>
-      <link>https://mxracehub.github.io/tracks/washougal-mx-park/</link>
+      <link>http://localhost:1313/tracks/washougal-mx-park/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>nuno@n9o.xyz (Blowfish)</author>
-      <guid>https://mxracehub.github.io/tracks/washougal-mx-park/</guid>
+      <guid>http://localhost:1313/tracks/washougal-mx-park/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Cathedral of Motocross 
     &lt;div id=&#34;the-cathedral-of-motocross&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     

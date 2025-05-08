@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Friend Bets on Blowfish</title>
-    <link>https://mxracehub.github.io/betting/friend-bets/</link>
+    <link>http://localhost:1313/betting/friend-bets/</link>
     <description>Recent content in Friend Bets on Blowfish</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>nuno@n9o.xyz (Blowfish)</managingEditor>
     <webMaster>nuno@n9o.xyz (Blowfish)</webMaster>
     <copyright>© 2025 Blowfish</copyright>
-    <atom:link href="https://mxracehub.github.io/betting/friend-bets/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/betting/friend-bets/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Place a Race Bet</title>
-      <link>https://mxracehub.github.io/betting/friend-bets/race-bet-form/</link>
+      <link>http://localhost:1313/betting/friend-bets/race-bet-form/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>nuno@n9o.xyz (Blowfish)</author>
-      <guid>https://mxracehub.github.io/betting/friend-bets/race-bet-form/</guid>
-      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;https://mxracehub.github.io/css/betting-form.css&#34;&gt;
-&lt;script src=&#34;https://mxracehub.github.io/js/race-bet-form.js&#34; defer&gt;&lt;/script&gt;
+      <guid>http://localhost:1313/betting/friend-bets/race-bet-form/</guid>
+      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/betting-form.css&#34;&gt;
+&lt;script src=&#34;http://localhost:1313/js/race-bet-form.js&#34; defer&gt;&lt;/script&gt;
 
 &lt;div class=&#34;betting-container&#34;&gt;
   &lt;h1 class=&#34;betting-title&#34;&gt;PLACE YOUR RACE BET&lt;/h1&gt;
