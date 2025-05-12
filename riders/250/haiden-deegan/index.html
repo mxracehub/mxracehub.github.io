@@ -1,0 +1,2112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true">
+<script src="/livereload.js?mindelay=10&amp;v=2&amp;port=49642&amp;path=livereload" data-no-instant defer></script><meta name="description" content="A powerful, lightweight theme for Hugo.">
+<meta name="author" content="MXRaceHub">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:49642/riders/250/haiden-deegan/">
+<meta property="og:title" content="Haiden Deegan">
+<meta property="og:description" content="A powerful, lightweight theme for Hugo.">
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="http://localhost:49642/riders/250/haiden-deegan/">
+<meta property="twitter:title" content="Haiden Deegan">
+<meta property="twitter:description" content="A powerful, lightweight theme for Hugo.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/styles.css">
+
+
+<style>
+  :root {
+    --primary-color: #0066cc;
+    --primary-dark: #0052a3;
+    --primary-light: #e6f0ff;
+    --text-color: #333;
+    --text-muted: #666;
+    --background-color: #fff;
+    --card-background: #f9f9f9;
+    --border-color: #e0e0e0;
+    --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --primary-color: #2d8cff;
+      --primary-dark: #0066cc;
+      --primary-light: #0a1a2d;
+      --text-color: #e0e0e0;
+      --text-muted: #a0a0a0;
+      --background-color: #121212;
+      --card-background: #1e1e1e;
+      --border-color: #383838;
+    }
+  }
+  
+  body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+  }
+  
+  .main-content {
+    flex: 1;
+    width: 100%;
+    padding: 0 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .main-content {
+      padding: 0 2rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .main-content {
+      padding: 0 3rem;
+    }
+  }
+  
+  .content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .content-wrapper {
+      padding: 0 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .content-wrapper {
+      padding: 0 2rem;
+    }
+  }
+</style>
+
+
+<style>
+   
+  .transfers-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .transfers-page {
+      padding: 0 2rem;
+    }
+  }
+  
+  .transfers-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+  
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+  }
+  
+  .balance-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  
+  .balance-amount {
+    color: var(--primary-color);
+  }
+  
+  .add-funds-btn, 
+  .option-card.active .option-link,
+  .transfer-button {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+  
+  .add-funds-btn:hover, 
+  .option-card.active .option-link:hover,
+  .transfer-button:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .option-card {
+    background-color: var(--background-color);
+    border: 2px solid transparent;
+  }
+  
+  .option-card.active {
+    border-color: var(--primary-color);
+  }
+  
+  .option-icon {
+    color: var(--primary-color);
+  }
+  
+  .tab-btn.active {
+    color: var(--primary-color);
+  }
+  
+  .tab-btn.active::after {
+    background-color: var(--primary-color);
+  }
+  
+  .transfer-form-container {
+    background-color: var(--background-color);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .transfer-form-container {
+      background-color: var(--card-background);
+    }
+    
+    .recipient-name,
+    .transfer-header h2 {
+      color: var(--text-color);
+    }
+    
+    .recipient-preview {
+      background-color: var(--primary-light);
+    }
+    
+    #transfer-amount,
+    #transfer-description,
+    #recipient-search {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      border-color: var(--border-color);
+    }
+    
+    .transaction-item {
+      border-color: var(--border-color);
+    }
+    
+    .transaction-title {
+      color: var(--text-color);
+    }
+    
+    .transaction-date {
+      color: var(--text-muted);
+    }
+  }
+</style><body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  
+<header class="navbar-main">
+  
+  <div class="top-navbar">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="navbar-logo">
+        <a href="/" class="logo-link">
+          <span class="logo-text">MXRaceHub</span>
+        </a>
+      </div>
+      
+      <div class="nav-buttons flex items-center">
+        <a href="/live-stream/" class="watch-btn">
+          <span class="watch-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </span>
+          <span>Watch Live</span>
+        </a>
+        
+        <a href="/tickets/" class="tickets-btn">
+          <span class="ticket-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 10 4 15 9 20"></polyline>
+              <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+            </svg>
+          </span>
+          <span>Tickets</span>
+        </a>
+        
+        <a href="/auth/" class="signin-btn">
+          <span class="user-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>Sign In</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="main-navbar">
+    <div class="container mx-auto px-4">
+      
+      <nav class="desktop-nav">
+        <ul class="nav-list">
+          <li class="nav-item ">
+            <a href="/" class="nav-link">Home</a>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/races/" class="nav-link dropdown-toggle">
+              <span>Races</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/races/upcoming/" class="dropdown-link">Upcoming Races</a></li>
+                <li><a href="/races/supercross/" class="dropdown-link">Supercross</a></li>
+                <li><a href="/races/motocross/" class="dropdown-link">Motocross</a></li>
+                <li><a href="/races/results/" class="dropdown-link">Race Results</a></li>
+                <li><a href="/races/standings/" class="dropdown-link">Standings</a></li>
+                <li><a href="/races/schedule/" class="dropdown-link">Full Schedule</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown active">
+            <a href="/riders/" class="nav-link dropdown-toggle">
+              <span>Riders</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/riders/450/" class="dropdown-link">450 Class</a></li>
+                <li><a href="/riders/250/" class="dropdown-link">250 Class</a></li>
+                <li><a href="/riders/all/" class="dropdown-link">Search All Riders</a></li>
+                <li><a href="/riders/champions/" class="dropdown-link">Champions</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/teams/" class="nav-link dropdown-toggle">
+              <span>Teams</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/teams/honda/" class="dropdown-link">Team Honda HRC</a></li>
+                <li><a href="/teams/ktm/" class="dropdown-link">Red Bull KTM</a></li>
+                <li><a href="/teams/yamaha/" class="dropdown-link">Monster Energy Yamaha</a></li>
+                <li><a href="/teams/kawasaki/" class="dropdown-link">Monster Energy Kawasaki</a></li>
+                <li><a href="/teams/pro-circuit/" class="dropdown-link">Pro Circuit Kawasaki</a></li>
+                <li><a href="/teams/all/" class="dropdown-link">All Teams</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/tracks/" class="nav-link dropdown-toggle">
+              <span>Tracks</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/tracks/supercross/" class="dropdown-link">Supercross Tracks</a></li>
+                <li><a href="/tracks/motocross/" class="dropdown-link">Motocross Tracks</a></li>
+                <li><a href="/tracks/featured/" class="dropdown-link">Featured Tracks</a></li>
+                <li><a href="/tracks/map/" class="dropdown-link">Track Map</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/news/" class="nav-link dropdown-toggle">
+              <span>News</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/news/latest/" class="dropdown-link">Latest News</a></li>
+                <li><a href="/news/interviews/" class="dropdown-link">Rider Interviews</a></li>
+                <li><a href="/news/analysis/" class="dropdown-link">Race Analysis</a></li>
+                <li><a href="/news/video/" class="dropdown-link">Video Content</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/betting/" class="nav-link dropdown-toggle">
+              <span>Betting</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/betting/friend-bets/" class="dropdown-link">Friend Bets</a></li>
+                <li><a href="/betting/groups/" class="dropdown-link">Betting Groups</a></li>
+                <li><a href="/betting/odds/" class="dropdown-link">Latest Odds</a></li>
+                <li><a href="/betting/membership/" class="dropdown-link">Membership</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/account/" class="nav-link dropdown-toggle">
+              <span>My Account</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/account/profile/" class="dropdown-link">My Profile</a></li>
+                <li><a href="/account/bets/" class="dropdown-link">My Bets</a></li>
+                <li><a href="/account/wallet/" class="dropdown-link">Wallet</a></li>
+                <li><a href="/account/transfers/" class="dropdown-link">Money Transfers</a></li>
+                <li><a href="/account/membership/" class="dropdown-link">Membership</a></li>
+                <li><a href="/account/settings/" class="dropdown-link">Settings</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      
+      
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  
+  <div id="mobile-nav-panel" class="mobile-nav-panel">
+    <div class="mobile-nav-content">
+      <div class="mobile-nav-header">
+        <div class="logo-text">MXRaceHub</div>
+        <button id="mobile-nav-close" class="mobile-nav-close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav-buttons">
+        <a href="/auth/" class="mobile-signin-btn">
+          <span class="user-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>Sign In</span>
+        </a>
+        
+        <a href="/live-stream/" class="mobile-watch-btn">
+          <span class="watch-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </span>
+          <span>Watch Live</span>
+        </a>
+        
+        <a href="/tickets/" class="mobile-tickets-btn">
+          <span class="ticket-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 10 4 15 9 20"></polyline>
+              <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+            </svg>
+          </span>
+          <span>Tickets</span>
+        </a>
+      </div>
+      
+      <nav class="mobile-nav-menu">
+        <div class="accordion-menu">
+          <div class="accordion-item">
+            <a href="/" class="accordion-link ">Home</a>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Races</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/races/upcoming/" class="accordion-sublink">Upcoming Races</a>
+              <a href="/races/supercross/" class="accordion-sublink">Supercross</a>
+              <a href="/races/motocross/" class="accordion-sublink">Motocross</a>
+              <a href="/races/results/" class="accordion-sublink">Race Results</a>
+              <a href="/races/standings/" class="accordion-sublink">Standings</a>
+              <a href="/races/schedule/" class="accordion-sublink">Full Schedule</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle active">
+              <span>Riders</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/riders/450/" class="accordion-sublink">450 Class</a>
+              <a href="/riders/250/" class="accordion-sublink">250 Class</a>
+              <a href="/riders/all/" class="accordion-sublink">Search All Riders</a>
+              <a href="/riders/champions/" class="accordion-sublink">Champions</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Teams</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/teams/honda/" class="accordion-sublink">Team Honda HRC</a>
+              <a href="/teams/ktm/" class="accordion-sublink">Red Bull KTM</a>
+              <a href="/teams/yamaha/" class="accordion-sublink">Monster Energy Yamaha</a>
+              <a href="/teams/kawasaki/" class="accordion-sublink">Monster Energy Kawasaki</a>
+              <a href="/teams/pro-circuit/" class="accordion-sublink">Pro Circuit Kawasaki</a>
+              <a href="/teams/all/" class="accordion-sublink">All Teams</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Tracks</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/tracks/supercross/" class="accordion-sublink">Supercross Tracks</a>
+              <a href="/tracks/motocross/" class="accordion-sublink">Motocross Tracks</a>
+              <a href="/tracks/featured/" class="accordion-sublink">Featured Tracks</a>
+              <a href="/tracks/map/" class="accordion-sublink">Track Map</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>News</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/news/latest/" class="accordion-sublink">Latest News</a>
+              <a href="/news/interviews/" class="accordion-sublink">Rider Interviews</a>
+              <a href="/news/analysis/" class="accordion-sublink">Race Analysis</a>
+              <a href="/news/video/" class="accordion-sublink">Video Content</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Betting</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/betting/friend-bets/" class="accordion-sublink">Friend Bets</a>
+              <a href="/betting/groups/" class="accordion-sublink">Betting Groups</a>
+              <a href="/betting/odds/" class="accordion-sublink">Latest Odds</a>
+              <a href="/betting/membership/" class="accordion-sublink">Membership</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>My Account</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/account/profile/" class="accordion-sublink">My Profile</a>
+              <a href="/account/bets/" class="accordion-sublink">My Bets</a>
+              <a href="/account/wallet/" class="accordion-sublink">Wallet</a>
+              <a href="/account/transfers/" class="accordion-sublink">Money Transfers</a>
+              <a href="/account/membership/" class="accordion-sublink">Membership</a>
+              <a href="/account/settings/" class="accordion-sublink">Settings</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+<div class="nav-spacer"></div>
+
+<style>
+   
+  :root {
+    --primary-color: #e20613;  
+    --secondary-color: #003366;  
+    --text-color: #333333;
+    --light-gray: #f2f2f2;
+    --medium-gray: #dddddd;
+    --dark-gray: #555555;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  
+   
+  .top-navbar {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 0;
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .logo-text {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .watch-btn, .tickets-btn, .signin-btn {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  
+  .watch-btn {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .tickets-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .signin-btn {
+    background-color: transparent;
+    color: white;
+  }
+  
+  .watch-btn:hover, .tickets-btn:hover, .signin-btn:hover {
+    opacity: 0.9;
+  }
+  
+   
+  .main-navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 40;
+  }
+  
+  .desktop-nav {
+    display: flex;
+  }
+  
+  .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .nav-item {
+    position: relative;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    color: var(--primary-color);
+  }
+  
+  .dropdown-toggle {
+    cursor: pointer;
+  }
+  
+  .dropdown-arrow {
+    margin-left: 0.375rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 4px 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 30;
+  }
+  
+  .dropdown-list {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+  
+  .dropdown-link {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dropdown-link:hover {
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+  }
+  
+  .nav-item.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .nav-item.has-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .nav-item.active .nav-link {
+    color: var(--primary-color);
+  }
+  
+   
+  .mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    padding: 1rem;
+    cursor: pointer;
+  }
+  
+   
+  .mobile-nav-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 350px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    z-index: 60;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+  }
+  
+  .mobile-nav-panel.visible {
+    right: 0;
+  }
+  
+  .mobile-nav-content {
+    padding: 1rem;
+  }
+  
+  .mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  .mobile-nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-signin-btn, .mobile-watch-btn, .mobile-tickets-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .mobile-watch-btn {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .mobile-tickets-btn {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+  }
+  
+  .mobile-signin-btn {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+   
+  .accordion-item {
+    border-bottom: 1px solid var(--medium-gray);
+  }
+  
+  .accordion-link, .accordion-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: left;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .accordion-toggle {
+    border-bottom: none;
+  }
+  
+  .accordion-arrow {
+    transition: transform 0.2s ease;
+  }
+  
+  .accordion-toggle.active .accordion-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .accordion-content {
+    display: none;
+    padding: 0.5rem 0 0.5rem 1rem;
+  }
+  
+  .accordion-content.visible {
+    display: block;
+  }
+  
+  .accordion-sublink {
+    display: block;
+    padding: 0.625rem 0;
+    color: var(--dark-gray);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .accordion-sublink:hover {
+    color: var(--primary-color);
+  }
+  
+  .accordion-item .accordion-link.active, 
+  .accordion-item .accordion-toggle.active {
+    color: var(--primary-color);
+  }
+  
+   
+  .nav-spacer {
+    height: 120px;  
+  }
+  
+   
+  @media (max-width: 1024px) {
+    .nav-link {
+      padding: 1rem 0.75rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .desktop-nav {
+      display: none;
+    }
+    
+    .mobile-nav-toggle {
+      display: block;
+    }
+    
+    .nav-spacer {
+      height: 100px;  
+    }
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-color: #f5f5f5;
+      --light-gray: #2a2a2a;
+      --medium-gray: #444444;
+      --dark-gray: #aaaaaa;
+    }
+    
+    .top-navbar {
+      background-color: #002244;  
+    }
+    
+    .main-navbar {
+      background-color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dropdown-menu {
+      background-color: #1a1a1a;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dropdown-link:hover {
+      background-color: #333333;
+    }
+    
+    .mobile-nav-panel {
+      background-color: #1a1a1a;
+    }
+    
+    .mobile-signin-btn {
+      background-color: #002244;
+    }
+    
+    .mobile-tickets-btn {
+      background-color: #333333;
+      color: #f5f5f5;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+    const mobileNavPanel = document.getElementById('mobile-nav-panel');
+    const mobileNavClose = document.getElementById('mobile-nav-close');
+    
+    if (mobileNavToggle && mobileNavPanel) {
+      mobileNavToggle.addEventListener('click', function() {
+        mobileNavPanel.classList.add('visible');
+        document.body.style.overflow = 'hidden'; 
+      });
+    }
+    
+    if (mobileNavClose && mobileNavPanel) {
+      mobileNavClose.addEventListener('click', function() {
+        mobileNavPanel.classList.remove('visible');
+        document.body.style.overflow = ''; 
+      });
+    }
+    
+    
+    const accordionToggles = document.querySelectorAll('.accordion-toggle');
+    
+    accordionToggles.forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        
+        
+        const allContents = document.querySelectorAll('.accordion-content');
+        const allToggles = document.querySelectorAll('.accordion-toggle');
+        
+        allContents.forEach(item => {
+          if (item !== content) {
+            item.classList.remove('visible');
+          }
+        });
+        
+        allToggles.forEach(item => {
+          if (item !== this) {
+            item.classList.remove('active');
+          }
+        });
+        
+        
+        this.classList.toggle('active');
+        content.classList.toggle('visible');
+      });
+    });
+  });
+</script>
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+<article class="rider-profile">
+  <div class="rider-hero">
+    <div class="rider-hero-overlay"></div>
+    
+      <img src="/img/hero-images/haiden-deegan-hero.jpg" alt="Haiden Deegan" class="rider-hero-bg">
+    
+    
+    <div class="container rider-hero-content">
+      <div class="rider-hero-info">
+        <h1 class="rider-name">Haiden Deegan</h1>
+        <div class="rider-details">
+          <div class="rider-team">Monster Energy Star Racing Yamaha</div>
+          <div class="rider-number-badge">#23</div>
+          <div class="rider-class-badge class-250">250</div>
+          <div class="rider-nationality">USA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container rider-content">
+    <div class="rider-stats-container">
+      <div class="rider-photo">
+        
+          <img src="/img/riders/haiden-deegan.svg" alt="Haiden Deegan">
+        
+        
+        <div class="rider-manufacturer">
+          
+            <span class="manufacturer-badge yamaha">Yamaha</span>
+          
+        </div>
+      </div>
+      
+      <div class="rider-stats">
+        <h2>Rider Statistics</h2>
+        <div class="stats-grid">
+          
+          <div class="stat-item">
+            <div class="stat-label">Number</div>
+            <div class="stat-value">#23</div>
+          </div>
+          
+          
+          
+          <div class="stat-item">
+            <div class="stat-label">Class</div>
+            <div class="stat-value">250</div>
+          </div>
+          
+          
+          
+          <div class="stat-item">
+            <div class="stat-label">Nationality</div>
+            <div class="stat-value">USA</div>
+          </div>
+          
+          
+          
+          <div class="stat-item">
+            <div class="stat-label">Age</div>
+            <div class="stat-value">18</div>
+          </div>
+          
+          
+          
+          <div class="stat-item">
+            <div class="stat-label">Height</div>
+            <div class="stat-value">5&#39;10&#34;</div>
+          </div>
+          
+          
+          
+          
+          
+          <div class="stat-item">
+            <div class="stat-label">Status</div>
+            <div class="stat-value">Active</div>
+          </div>
+          
+        </div>
+        
+        
+        <div class="rider-highlights">
+          <h3>Career Highlights</h3>
+          <ul>
+            
+              <li>2023 AMA 250SX East Rookie of the Year</li>
+            
+              <li>Multiple 250 Supercross &amp; Motocross Wins</li>
+            
+              <li>2023 Pro Motocross 250 - 3rd Overall</li>
+            
+              <li>2023 AMA 250SX East - 2nd Overall</li>
+            
+              <li>2022 Loretta Lynn&#39;s Open Pro Sport &amp; 250 Pro Sport Champion</li>
+            
+          </ul>
+        </div>
+        
+        
+        
+        <div class="rider-standings">
+          <h3>Championship Standings</h3>
+          <div class="standings-grid">
+            
+              <div class="standings-item">
+                <div class="standings-series">2023 ama 250sx east</div>
+                <div class="standings-position">Position: 2</div>
+                <div class="standings-points">Points: 197</div>
+              </div>
+            
+              <div class="standings-item">
+                <div class="standings-series">2023 pro motocross 250</div>
+                <div class="standings-position">Position: 3</div>
+                <div class="standings-points">Points: 437</div>
+              </div>
+            
+              <div class="standings-item">
+                <div class="standings-series">2024 ama 250sx east</div>
+                <div class="standings-position">Position: 1</div>
+                <div class="standings-points">Points: 201</div>
+              </div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="rider-content-main">
+      <div class="rider-bio">
+        <h2>Biography</h2>
+        
+
+<h2 class="relative group">The Next Generation 
+    <div id="the-next-generation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-next-generation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Haiden &ldquo;Dangerboy&rdquo; Deegan represents the exciting evolution of professional motocross, bringing exceptional riding talent, social media savvy, and a lifelong preparation for the spotlight. As the son of freestyle motocross legend Brian Deegan, Haiden has grown up in the motorsports industry, building both technical skills and media presence that have made him one of the most anticipated professional prospects in recent memory.</p>
+<p>His remarkable rookie professional success has validated the extraordinary expectations that accompanied his amateur career, with multiple race wins and championship contention establishing him as not merely a famous name but a legitimate championship talent. At just 18 years old, Deegan has already begun writing his own chapter in motocross history while representing the sport&rsquo;s bright future.</p>
+
+
+<h2 class="relative group">The Family Legacy 
+    <div id="the-family-legacy" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-family-legacy" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Deegan&rsquo;s motocross journey began with exceptional genetic advantages and environmental opportunities. As the son of Brian Deegan—Metal Mulisha founder, freestyle motocross pioneer, and off-road racing champion—Haiden was immersed in motorsports culture from birth. This background provided both technical advantages and industry understanding that most developing riders lack:</p>
+<ul>
+<li>Access to world-class training facilities from his earliest riding days</li>
+<li>Guidance from one of action sports&rsquo; most successful competitors</li>
+<li>Industry connections creating exceptional sponsorship and support opportunities</li>
+<li>Media experience and comfort with public attention from childhood</li>
+</ul>
+<p>While this background created extraordinary advantages, it also generated immense expectations and pressure that might have overwhelmed less mentally prepared athletes. Deegan&rsquo;s ability to embrace rather than retreat from these expectations demonstrates exceptional mental fortitude that complements his natural riding talents.</p>
+
+
+<h2 class="relative group">Social Media Phenomenon 
+    <div id="social-media-phenomenon" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#social-media-phenomenon" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Before turning professional, Deegan had already built one of motocross&rsquo;s largest social media followings through the popular &ldquo;Deegan38&rdquo; family channels and his personal &ldquo;Dangerboy&rdquo; brand. This digital presence created unprecedented industry visibility for a developing rider, showcasing both his exceptional skills and engaging personality.</p>
+<p>This early media development represented a modern evolution of the traditional path to professional recognition:</p>
+<ul>
+<li>YouTube content documenting his development from mini bikes to professional preparation</li>
+<li>Instagram presence building connection with fans through both racing and lifestyle content</li>
+<li>Family channels providing context and professional production quality</li>
+<li>Authentic personality creating engagement beyond pure racing results</li>
+</ul>
+<p>This approach created commercial value and industry recognition long before professional results, demonstrating the changing nature of athlete development in the digital era. Unlike previous generations who built recognition solely through racing accomplishments, Deegan entered professional competition with an established fan base and commercial platform independent of results.</p>
+
+
+<h2 class="relative group">Amateur Dominance 
+    <div id="amateur-dominance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#amateur-dominance" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>While his media presence generated significant attention, Deegan&rsquo;s amateur racing results demonstrated the legitimate talent behind the popularity. His amateur career included:</p>
+<ul>
+<li>Multiple championships at the prestigious Loretta Lynn&rsquo;s Amateur National</li>
+<li>Success across varying motorcycle displacements and age divisions</li>
+<li>Factory support from Star Racing Yamaha throughout his development</li>
+<li>Technical excellence across diverse tracks and conditions</li>
+</ul>
+<p>This amateur success culminated in 2022 when he captured both the Open Pro Sport and 250 Pro Sport Championships at Loretta Lynn&rsquo;s, establishing himself as the premier amateur talent ready for professional competition. These accomplishments earned him the coveted AMA Horizon Award, recognizing him as the sport&rsquo;s most promising amateur rider moving to professional ranks.</p>
+
+
+<h2 class="relative group">The Professional Breakthrough 
+    <div id="the-professional-breakthrough" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-professional-breakthrough" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Deegan turned professional in 2023 with the Monster Energy Star Racing Yamaha team, immediately demonstrating that his talents translated seamlessly to the sport&rsquo;s highest level. His rookie supercross season produced remarkable results including his first professional victory at Detroit and consistent podium finishes, earning him second overall in the 250SX East Championship standings and Rookie of the Year honors.</p>
+<p>This success continued outdoors, where he secured third overall in the Pro Motocross 250 Championship with multiple overall victories and podium finishes, establishing remarkable consistency for a rider in his debut professional season. These results validated the extraordinary expectations surrounding his professional debut, proving his ability to compete immediately at championship level.</p>
+<p>His sophomore 2024 season has shown continued development, with multiple supercross victories and championship contention demonstrating both his natural talent and rapid professional growth. This progression suggests championship success may come earlier than even optimistic projections anticipated, with multiple titles potentially within reach even in these early professional years.</p>
+
+
+<h2 class="relative group">Riding Style and Approach 
+    <div id="riding-style-and-approach" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#riding-style-and-approach" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Deegan&rsquo;s riding style combines technical precision with calculated aggression:</p>
+<ul>
+<li>Exceptional whip technique creating both functional advantages and spectacular visual appeal</li>
+<li>Remarkable body positioning maintaining perfect balance in technical sections</li>
+<li>Creative line selection identifying opportunities others overlook</li>
+<li>Mature race management balancing aggression with championship perspective</li>
+</ul>
+<p>This approach creates a riding style that generates both competitive results and spectacular content, perfectly aligning with his dual identity as championship contender and social media personality. While many riders excel at either racing execution or spectacular technique, Deegan&rsquo;s combination of both dimensions represents the perfect modern professional package.</p>
+<p>His style particularly shines in varying conditions where adaptability creates advantages over specialists. Throughout his young career, some of his most impressive performances have come on technically demanding tracks where creative line selection and precise execution separate elite talent from the field.</p>
+
+
+<h2 class="relative group">The Complete Package 
+    <div id="the-complete-package" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-complete-package" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Beyond his riding abilities, Deegan has demonstrated exceptional professional maturity in his approach to media, sponsors, and industry relationships:</p>
+<ul>
+<li>Articulate, engaging interviews that represent sponsors effectively</li>
+<li>Comfortable interaction with media building positive industry relationships</li>
+<li>Strategic content creation maximizing exposure while maintaining authentic personality</li>
+<li>Balanced perspective processing both success and disappointment constructively</li>
+</ul>
+<p>This professional polish, rare for such a young athlete, represents both natural aptitude and the influence of experienced family guidance. The lessons learned through his father&rsquo;s pioneering career in action sports marketing and media have accelerated Deegan&rsquo;s professional development beyond pure riding skills.</p>
+
+
+<h2 class="relative group">Generation Shift 
+    <div id="generation-shift" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#generation-shift" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Deegan&rsquo;s emergence represents a generational shift in professional motocross, introducing new approaches to athlete development, sponsor relationships, and fan engagement. As perhaps the first rider to enter professional competition with established content creation success independent of racing results, he demonstrates the evolving nature of professional motorsports in the digital era.</p>
+<p>This modern approach creates both opportunities and responsibilities:</p>
+<ul>
+<li>Enhanced commercial value through direct audience engagement</li>
+<li>Greater control over personal brand narrative and presentation</li>
+<li>Increased expectations for content creation alongside competitive preparation</li>
+<li>The potential to influence industry direction through fan mobilization</li>
+</ul>
+<p>This pioneer position allows Deegan to potentially reshape aspects of the sport&rsquo;s commercial structure, creating pathways that future riders will follow as the traditional sponsor-athlete relationship continues evolving in response to changing media consumption patterns.</p>
+
+
+<h2 class="relative group">Championship Future 
+    <div id="championship-future" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#championship-future" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>At just 18 years old, Deegan&rsquo;s potential competitive ceiling remains undefined, with multiple championships in both 250 and eventually 450 classes appearing well within his capabilities. His remarkable rookie success suggests a career trajectory that could place him among the sport&rsquo;s most accomplished competitors if his development continues at its current pace.</p>
+<p>Several factors suggest significant championship potential:</p>
+<ul>
+<li>Natural talent already translating to professional success at an unusually young age</li>
+<li>Professional infrastructure providing optimal development environment</li>
+<li>Mental maturity processing both success and challenges constructively</li>
+<li>Commercial platform creating sustainability beyond pure racing results</li>
+</ul>
+<p>While his early professional success has validated expectations, Deegan&rsquo;s ultimate legacy will be defined by championship performance in the coming years. The combination of his natural talents, professional support, and mental approach creates the potential for extraordinary competitive achievement if his development continues along its current trajectory.</p>
+
+
+<h2 class="relative group">Beyond Racing 
+    <div id="beyond-racing" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#beyond-racing" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Deegan&rsquo;s impact extends beyond pure racing results to include broader influence on motocross culture and industry direction. His combination of competitive success and media platform creates opportunities to shape aspects of the sport beyond what traditional racers influence:</p>
+<ul>
+<li>Content creation showcasing aspects of motocross lifestyle beyond professional racing</li>
+<li>Product development leveraging his testing capabilities and fan feedback channels</li>
+<li>Youth engagement bringing new audiences to traditional racing formats</li>
+<li>Potential crossover opportunities connecting motocross with broader action sports culture</li>
+</ul>
+<p>This multidimensional impact represents the evolution of professional influence in contemporary motorsports, where athlete platforms increasingly extend beyond competitive venues to include digital communities and commercial partnerships operating independent of traditional racing structures.</p>
+
+
+<h2 class="relative group">The Ongoing Story 
+    <div id="the-ongoing-story" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-ongoing-story" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Haiden Deegan&rsquo;s professional journey remains in its earliest chapters, with his most significant competitive achievements likely still ahead. However, his impact on professional motocross is already substantial, demonstrating both exceptional competitive potential and the changing nature of professional athlete development in the digital era.</p>
+<p>For fans and industry observers, Deegan represents both the thrilling potential of a generational talent and the fascinating evolution of what it means to be a professional motocross athlete in the modern media landscape. His continuing career will likely influence not just championship record books but the very structure of how future riders build their careers and engage with the broader motocross community.</p>
+
+      </div>
+      
+      
+      <div class="rider-results">
+        <h2>Recent Results</h2>
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Event</th>
+              <th>Location</th>
+              <th>Position</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>April 13, 2024</td>
+              <td>Denver Supercross</td>
+              <td>Denver, CO</td>
+              <td>1</td>
+            </tr>
+            
+            <tr>
+              <td>April 6, 2024</td>
+              <td>Madison Supercross</td>
+              <td>Madison, WI</td>
+              <td>3</td>
+            </tr>
+            
+            <tr>
+              <td>March 23, 2024</td>
+              <td>Seattle Supercross</td>
+              <td>Seattle, WA</td>
+              <td>2</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      
+      
+      
+      <div class="rider-media">
+        
+        <div class="rider-videos">
+          <h2>Videos</h2>
+          <div class="videos-grid">
+            
+              <div class="video-item">
+                
+                  <div class="video-wrapper">
+                    <iframe
+                      src="https://www.youtube.com/embed/HkLtcY5MjsE"
+                      title="Haiden Deegan - Dangerboy Rises"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                
+              </div>
+            
+              <div class="video-item">
+                
+                  <div class="video-wrapper">
+                    <iframe
+                      src="https://www.youtube.com/embed/fN3m9LyhvP8"
+                      title="Haiden Deegan&#39;s First Pro Win - 2023 Detroit Supercross"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                
+              </div>
+            
+              <div class="video-item">
+                
+                  <div class="video-wrapper">
+                    <iframe
+                      src="https://www.youtube.com/embed/bB2cPLxwi_Q"
+                      title="Haiden Deegan | Star Racing Yamaha Team Profile"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                
+              </div>
+            
+          </div>
+        </div>
+        
+        
+        
+        <div class="rider-gallery">
+          <h2>Gallery</h2>
+          <div class="gallery-grid">
+            
+              <div class="gallery-item">
+                <a href="/img/riders/gallery/haiden-deegan-1.jpg" class="gallery-image-link">
+                  <img src="/img/riders/gallery/haiden-deegan-1.jpg" alt="Haiden Deegan celebrating a 2024 Supercross victory">
+                  
+                    <div class="gallery-caption">Haiden Deegan celebrating a 2024 Supercross victory</div>
+                  
+                </a>
+              </div>
+            
+              <div class="gallery-item">
+                <a href="/img/riders/gallery/haiden-deegan-2.jpg" class="gallery-image-link">
+                  <img src="/img/riders/gallery/haiden-deegan-2.jpg" alt="Dangerboy in action during the 2023 Pro Motocross season">
+                  
+                    <div class="gallery-caption">Dangerboy in action during the 2023 Pro Motocross season</div>
+                  
+                </a>
+              </div>
+            
+              <div class="gallery-item">
+                <a href="/img/riders/gallery/haiden-deegan-3.jpg" class="gallery-image-link">
+                  <img src="/img/riders/gallery/haiden-deegan-3.jpg" alt="Haiden Deegan with his Yamaha YZ250F">
+                  
+                    <div class="gallery-caption">Haiden Deegan with his Yamaha YZ250F</div>
+                  
+                </a>
+              </div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+      
+      
+      <div class="rider-social">
+        <h2>Follow Haiden Deegan</h2>
+        <div class="social-links">
+          <a href="https://www.instagram.com/dangerboydeegan/" target="_blank" class="social-link instagram">Instagram</a>
+          <a href="https://twitter.com/dangerboydeegan" target="_blank" class="social-link twitter">Twitter</a>
+          
+          <a href="https://www.youtube.com/c/DangerBoyDeegan" target="_blank" class="social-link youtube">YouTube</a>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</article>
+
+<style>
+   
+  .rider-profile {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+   
+  .rider-hero {
+    position: relative;
+    height: 350px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+  
+  .rider-hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .rider-hero-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .rider-hero-fallback .rider-number {
+    font-size: 8rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .rider-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+    z-index: 1;
+  }
+  
+  .rider-hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    z-index: 2;
+  }
+  
+  .rider-hero-info {
+    color: white;
+  }
+  
+  .rider-name {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .rider-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .rider-team {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+  
+  .rider-number-badge {
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #333;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+  }
+  
+  .rider-class-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .class-450 {
+    background-color: #c10000;
+  }
+  
+  .class-250 {
+    background-color: #005fdb;
+  }
+  
+  .rider-nationality {
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+  
+   
+  .rider-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 4rem;
+  }
+  
+  @media (min-width: 992px) {
+    .rider-content {
+      grid-template-columns: 300px 1fr;
+    }
+  }
+  
+  .rider-stats-container {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .rider-photo {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+  
+  .rider-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .rider-manufacturer {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 2;
+  }
+  
+  .manufacturer-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .rider-stats {
+    padding: 1.5rem;
+  }
+  
+  .rider-stats h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .stat-label {
+    font-size: 0.85rem;
+    color: #777;
+    text-transform: uppercase;
+  }
+  
+  .stat-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .rider-highlights h3,
+  .rider-standings h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+  
+  .rider-highlights ul {
+    padding-left: 1.25rem;
+  }
+  
+  .rider-highlights li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .standings-grid {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .standings-item {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .standings-series {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .standings-position,
+  .standings-points {
+    font-size: 0.9rem;
+  }
+  
+   
+  .rider-content-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .rider-content-main h2 {
+    font-size: 1.75rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .rider-bio {
+    line-height: 1.6;
+  }
+  
+   
+  .results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  .results-table th,
+  .results-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .results-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .results-table tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+   
+  .videos-grid,
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .video-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .video-wrapper {
+    position: relative;
+    padding-top: 56.25%;  
+  }
+  
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  
+  .video-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .video-thumbnail {
+    position: relative;
+    aspect-ratio: 16/9;
+    background-color: #eee;
+    overflow: hidden;
+  }
+  
+  .video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .video-thumbnail-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    color: white;
+  }
+  
+  .video-title {
+    padding: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .gallery-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .gallery-image-link {
+    display: block;
+    position: relative;
+  }
+  
+  .gallery-image-link img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  
+  .gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 0.9rem;
+  }
+  
+   
+  .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+  }
+  
+  .social-link:hover {
+    opacity: 0.9;
+  }
+  
+  .instagram {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+  }
+  
+  .twitter {
+    background-color: #1DA1F2;
+  }
+  
+  .facebook {
+    background-color: #1877F2;
+  }
+  
+  .youtube {
+    background-color: #FF0000;
+  }
+  
+  .tiktok {
+    background-color: #000000;
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .rider-stats-container {
+      background-color: #222;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .stat-label {
+      color: #aaa;
+    }
+    
+    .standings-item {
+      background-color: #333;
+    }
+    
+    .results-table th {
+      background-color: #333;
+    }
+    
+    .results-table td {
+      border-bottom-color: #444;
+    }
+    
+    .results-table tr:hover {
+      background-color: #333;
+    }
+    
+    .rider-content-main h2 {
+      color: #e0e0e0;
+    }
+  }
+  
+   
+  @media (max-width: 768px) {
+    .rider-hero {
+      height: 280px;
+    }
+    
+    .rider-name {
+      font-size: 2.5rem;
+    }
+    
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .videos-grid, 
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+      
+    </main><footer id="site-footer" class="py-4 print:hidden border-t border-neutral-200 dark:border-neutral-700">
+  <div class="container">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex flex-wrap justify-center md:justify-start">
+        
+        
+          
+          <nav class="flex text-sm font-medium text-neutral-500 dark:text-neutral-400">
+            <ul class="flex flex-row flex-wrap list-none justify-center">
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/about/"
+                  title="">
+                  
+                  About
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/contact/"
+                  title="">
+                  
+                  Contact
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/terms/"
+                  title="">
+                  
+                  Terms
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/privacy/"
+                  title="">
+                  
+                  Privacy
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/betting/policies/"
+                  title="">
+                  
+                  Betting Policies
+                </a>
+                
+              </li>
+              
+            </ul>
+          </nav>
+          
+        
+      </div>
+
+      <div class="flex flex-wrap justify-center md:justify-end gap-4">
+        
+        
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy; 2025 MXRaceHub
+        </p>
+        
+
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+</footer>
+  </div>
+</body>
+
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+  data-id="nunocoracao" data-description="Support me on Buy me a coffee!" data-message=""
+  data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+
+</html>

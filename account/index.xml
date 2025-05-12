@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My Account on </title>
+    <link>http://localhost:49642/account/</link>
+    <description>Recent content in My Account on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2025 </copyright>
+    <atom:link href="http://localhost:49642/account/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Membership</title>
+      <link>http://localhost:49642/account/membership/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:49642/account/membership/</guid>
+      <description>&lt;div class=&#34;membership-container&#34;&gt;
+  &lt;div class=&#34;membership-header&#34;&gt;
+    &lt;h1 class=&#34;text-3xl font-bold mb-2&#34;&gt;Membership&lt;/h1&gt;
+    &lt;p class=&#34;text-gray-600 dark:text-gray-400 mb-6&#34;&gt;Join our premium membership to unlock exclusive benefits&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&#34;membership-content&#34;&gt;
+    &lt;div class=&#34;membership-plan-container&#34; id=&#34;current-plan-container&#34;&gt;
+      &lt;!-- This will be dynamically populated with the current membership status --&gt;
+      &lt;!-- Loading state --&gt;
+      &lt;div class=&#34;loading-state&#34;&gt;
+        &lt;div class=&#34;spinner&#34;&gt;&lt;/div&gt;
+        &lt;p&gt;Loading membership information...&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Money Transfers</title>
+      <link>http://localhost:49642/account/transfers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:49642/account/transfers/</guid>
+      <description>&lt;div class=&#34;transfers-container&#34;&gt;
+  &lt;div class=&#34;transfers-header&#34;&gt;
+    &lt;h1 class=&#34;text-3xl font-bold mb-2&#34;&gt;Money Transfers&lt;/h1&gt;
+    &lt;p class=&#34;text-gray-600 dark:text-gray-400 mb-6&#34;&gt;Transfer funds between your wallet and bank accounts&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&#34;transfers-content&#34;&gt;
+    &lt;div class=&#34;wallet-summary&#34;&gt;
+      &lt;div class=&#34;wallet-card&#34;&gt;
+        &lt;div class=&#34;wallet-balance&#34;&gt;
+          &lt;h2&gt;Available Balance&lt;/h2&gt;
+          &lt;div class=&#34;balance-amount&#34; id=&#34;available-balance&#34;&gt;$250.00&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;wallet-actions&#34;&gt;
+          &lt;a href=&#34;http://localhost:49642/account/wallet/&#34; class=&#34;wallet-btn&#34;&gt;View Wallet&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;transfer-options&#34;&gt;
+      &lt;div class=&#34;transfer-tabs&#34;&gt;
+        &lt;button class=&#34;tab-btn active&#34; data-tab=&#34;deposit&#34;&gt;Deposit to Wallet&lt;/button&gt;
+        &lt;button class=&#34;tab-btn&#34; data-tab=&#34;withdraw&#34;&gt;Withdraw to Bank&lt;/button&gt;
+      &lt;/div&gt;
+      
+      &lt;div class=&#34;tab-content&#34;&gt;
+        &lt;!-- Deposit Tab --&gt;
+        &lt;div id=&#34;deposit-tab&#34; class=&#34;tab-pane active&#34;&gt;
+          &lt;div class=&#34;transfer-card&#34;&gt;
+            &lt;h2 class=&#34;text-xl font-semibold mb-4&#34;&gt;Deposit Funds to Your Wallet&lt;/h2&gt;
+            &lt;p class=&#34;mb-4&#34;&gt;Transfer money from your bank account to your MXRaceHub wallet.&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

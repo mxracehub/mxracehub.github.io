@@ -1,0 +1,4522 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true">
+<script src="/livereload.js?mindelay=10&amp;v=2&amp;port=49642&amp;path=livereload" data-no-instant defer></script><meta name="description" content="Explore Supercross and Motocross tracks from across the country featuring detailed information and specifications">
+<meta name="author" content="MXRaceHub">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:49642/tracks/">
+<meta property="og:title" content="Tracks">
+<meta property="og:description" content="Explore Supercross and Motocross tracks from across the country featuring detailed information and specifications">
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="http://localhost:49642/tracks/">
+<meta property="twitter:title" content="Tracks">
+<meta property="twitter:description" content="Explore Supercross and Motocross tracks from across the country featuring detailed information and specifications">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/styles.css">
+
+
+<style>
+  :root {
+    --primary-color: #0066cc;
+    --primary-dark: #0052a3;
+    --primary-light: #e6f0ff;
+    --text-color: #333;
+    --text-muted: #666;
+    --background-color: #fff;
+    --card-background: #f9f9f9;
+    --border-color: #e0e0e0;
+    --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --primary-color: #2d8cff;
+      --primary-dark: #0066cc;
+      --primary-light: #0a1a2d;
+      --text-color: #e0e0e0;
+      --text-muted: #a0a0a0;
+      --background-color: #121212;
+      --card-background: #1e1e1e;
+      --border-color: #383838;
+    }
+  }
+  
+  body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+  }
+  
+  .main-content {
+    flex: 1;
+    width: 100%;
+    padding: 0 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .main-content {
+      padding: 0 2rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .main-content {
+      padding: 0 3rem;
+    }
+  }
+  
+  .content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .content-wrapper {
+      padding: 0 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .content-wrapper {
+      padding: 0 2rem;
+    }
+  }
+</style>
+
+
+<style>
+   
+  .transfers-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .transfers-page {
+      padding: 0 2rem;
+    }
+  }
+  
+  .transfers-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+  
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+  }
+  
+  .balance-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  
+  .balance-amount {
+    color: var(--primary-color);
+  }
+  
+  .add-funds-btn, 
+  .option-card.active .option-link,
+  .transfer-button {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+  
+  .add-funds-btn:hover, 
+  .option-card.active .option-link:hover,
+  .transfer-button:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .option-card {
+    background-color: var(--background-color);
+    border: 2px solid transparent;
+  }
+  
+  .option-card.active {
+    border-color: var(--primary-color);
+  }
+  
+  .option-icon {
+    color: var(--primary-color);
+  }
+  
+  .tab-btn.active {
+    color: var(--primary-color);
+  }
+  
+  .tab-btn.active::after {
+    background-color: var(--primary-color);
+  }
+  
+  .transfer-form-container {
+    background-color: var(--background-color);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .transfer-form-container {
+      background-color: var(--card-background);
+    }
+    
+    .recipient-name,
+    .transfer-header h2 {
+      color: var(--text-color);
+    }
+    
+    .recipient-preview {
+      background-color: var(--primary-light);
+    }
+    
+    #transfer-amount,
+    #transfer-description,
+    #recipient-search {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      border-color: var(--border-color);
+    }
+    
+    .transaction-item {
+      border-color: var(--border-color);
+    }
+    
+    .transaction-title {
+      color: var(--text-color);
+    }
+    
+    .transaction-date {
+      color: var(--text-muted);
+    }
+  }
+</style><body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  
+<header class="navbar-main">
+  
+  <div class="top-navbar">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="navbar-logo">
+        <a href="/" class="logo-link">
+          <span class="logo-text">MXRaceHub</span>
+        </a>
+      </div>
+      
+      <div class="nav-buttons flex items-center">
+        <a href="/live-stream/" class="watch-btn">
+          <span class="watch-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </span>
+          <span>Watch Live</span>
+        </a>
+        
+        <a href="/tickets/" class="tickets-btn">
+          <span class="ticket-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 10 4 15 9 20"></polyline>
+              <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+            </svg>
+          </span>
+          <span>Tickets</span>
+        </a>
+        
+        <a href="/auth/" class="signin-btn">
+          <span class="user-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>Sign In</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="main-navbar">
+    <div class="container mx-auto px-4">
+      
+      <nav class="desktop-nav">
+        <ul class="nav-list">
+          <li class="nav-item ">
+            <a href="/" class="nav-link">Home</a>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/races/" class="nav-link dropdown-toggle">
+              <span>Races</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/races/upcoming/" class="dropdown-link">Upcoming Races</a></li>
+                <li><a href="/races/supercross/" class="dropdown-link">Supercross</a></li>
+                <li><a href="/races/motocross/" class="dropdown-link">Motocross</a></li>
+                <li><a href="/races/results/" class="dropdown-link">Race Results</a></li>
+                <li><a href="/races/standings/" class="dropdown-link">Standings</a></li>
+                <li><a href="/races/schedule/" class="dropdown-link">Full Schedule</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/riders/" class="nav-link dropdown-toggle">
+              <span>Riders</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/riders/450/" class="dropdown-link">450 Class</a></li>
+                <li><a href="/riders/250/" class="dropdown-link">250 Class</a></li>
+                <li><a href="/riders/all/" class="dropdown-link">Search All Riders</a></li>
+                <li><a href="/riders/champions/" class="dropdown-link">Champions</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/teams/" class="nav-link dropdown-toggle">
+              <span>Teams</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/teams/honda/" class="dropdown-link">Team Honda HRC</a></li>
+                <li><a href="/teams/ktm/" class="dropdown-link">Red Bull KTM</a></li>
+                <li><a href="/teams/yamaha/" class="dropdown-link">Monster Energy Yamaha</a></li>
+                <li><a href="/teams/kawasaki/" class="dropdown-link">Monster Energy Kawasaki</a></li>
+                <li><a href="/teams/pro-circuit/" class="dropdown-link">Pro Circuit Kawasaki</a></li>
+                <li><a href="/teams/all/" class="dropdown-link">All Teams</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown active">
+            <a href="/tracks/" class="nav-link dropdown-toggle">
+              <span>Tracks</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/tracks/supercross/" class="dropdown-link">Supercross Tracks</a></li>
+                <li><a href="/tracks/motocross/" class="dropdown-link">Motocross Tracks</a></li>
+                <li><a href="/tracks/featured/" class="dropdown-link">Featured Tracks</a></li>
+                <li><a href="/tracks/map/" class="dropdown-link">Track Map</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/news/" class="nav-link dropdown-toggle">
+              <span>News</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/news/latest/" class="dropdown-link">Latest News</a></li>
+                <li><a href="/news/interviews/" class="dropdown-link">Rider Interviews</a></li>
+                <li><a href="/news/analysis/" class="dropdown-link">Race Analysis</a></li>
+                <li><a href="/news/video/" class="dropdown-link">Video Content</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/betting/" class="nav-link dropdown-toggle">
+              <span>Betting</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/betting/friend-bets/" class="dropdown-link">Friend Bets</a></li>
+                <li><a href="/betting/groups/" class="dropdown-link">Betting Groups</a></li>
+                <li><a href="/betting/odds/" class="dropdown-link">Latest Odds</a></li>
+                <li><a href="/betting/membership/" class="dropdown-link">Membership</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/account/" class="nav-link dropdown-toggle">
+              <span>My Account</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/account/profile/" class="dropdown-link">My Profile</a></li>
+                <li><a href="/account/bets/" class="dropdown-link">My Bets</a></li>
+                <li><a href="/account/wallet/" class="dropdown-link">Wallet</a></li>
+                <li><a href="/account/transfers/" class="dropdown-link">Money Transfers</a></li>
+                <li><a href="/account/membership/" class="dropdown-link">Membership</a></li>
+                <li><a href="/account/settings/" class="dropdown-link">Settings</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      
+      
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  
+  <div id="mobile-nav-panel" class="mobile-nav-panel">
+    <div class="mobile-nav-content">
+      <div class="mobile-nav-header">
+        <div class="logo-text">MXRaceHub</div>
+        <button id="mobile-nav-close" class="mobile-nav-close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav-buttons">
+        <a href="/auth/" class="mobile-signin-btn">
+          <span class="user-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>Sign In</span>
+        </a>
+        
+        <a href="/live-stream/" class="mobile-watch-btn">
+          <span class="watch-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </span>
+          <span>Watch Live</span>
+        </a>
+        
+        <a href="/tickets/" class="mobile-tickets-btn">
+          <span class="ticket-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 10 4 15 9 20"></polyline>
+              <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+            </svg>
+          </span>
+          <span>Tickets</span>
+        </a>
+      </div>
+      
+      <nav class="mobile-nav-menu">
+        <div class="accordion-menu">
+          <div class="accordion-item">
+            <a href="/" class="accordion-link ">Home</a>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Races</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/races/upcoming/" class="accordion-sublink">Upcoming Races</a>
+              <a href="/races/supercross/" class="accordion-sublink">Supercross</a>
+              <a href="/races/motocross/" class="accordion-sublink">Motocross</a>
+              <a href="/races/results/" class="accordion-sublink">Race Results</a>
+              <a href="/races/standings/" class="accordion-sublink">Standings</a>
+              <a href="/races/schedule/" class="accordion-sublink">Full Schedule</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Riders</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/riders/450/" class="accordion-sublink">450 Class</a>
+              <a href="/riders/250/" class="accordion-sublink">250 Class</a>
+              <a href="/riders/all/" class="accordion-sublink">Search All Riders</a>
+              <a href="/riders/champions/" class="accordion-sublink">Champions</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Teams</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/teams/honda/" class="accordion-sublink">Team Honda HRC</a>
+              <a href="/teams/ktm/" class="accordion-sublink">Red Bull KTM</a>
+              <a href="/teams/yamaha/" class="accordion-sublink">Monster Energy Yamaha</a>
+              <a href="/teams/kawasaki/" class="accordion-sublink">Monster Energy Kawasaki</a>
+              <a href="/teams/pro-circuit/" class="accordion-sublink">Pro Circuit Kawasaki</a>
+              <a href="/teams/all/" class="accordion-sublink">All Teams</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle active">
+              <span>Tracks</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/tracks/supercross/" class="accordion-sublink">Supercross Tracks</a>
+              <a href="/tracks/motocross/" class="accordion-sublink">Motocross Tracks</a>
+              <a href="/tracks/featured/" class="accordion-sublink">Featured Tracks</a>
+              <a href="/tracks/map/" class="accordion-sublink">Track Map</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>News</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/news/latest/" class="accordion-sublink">Latest News</a>
+              <a href="/news/interviews/" class="accordion-sublink">Rider Interviews</a>
+              <a href="/news/analysis/" class="accordion-sublink">Race Analysis</a>
+              <a href="/news/video/" class="accordion-sublink">Video Content</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Betting</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/betting/friend-bets/" class="accordion-sublink">Friend Bets</a>
+              <a href="/betting/groups/" class="accordion-sublink">Betting Groups</a>
+              <a href="/betting/odds/" class="accordion-sublink">Latest Odds</a>
+              <a href="/betting/membership/" class="accordion-sublink">Membership</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>My Account</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/account/profile/" class="accordion-sublink">My Profile</a>
+              <a href="/account/bets/" class="accordion-sublink">My Bets</a>
+              <a href="/account/wallet/" class="accordion-sublink">Wallet</a>
+              <a href="/account/transfers/" class="accordion-sublink">Money Transfers</a>
+              <a href="/account/membership/" class="accordion-sublink">Membership</a>
+              <a href="/account/settings/" class="accordion-sublink">Settings</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+<div class="nav-spacer"></div>
+
+<style>
+   
+  :root {
+    --primary-color: #e20613;  
+    --secondary-color: #003366;  
+    --text-color: #333333;
+    --light-gray: #f2f2f2;
+    --medium-gray: #dddddd;
+    --dark-gray: #555555;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  
+   
+  .top-navbar {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 0;
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .logo-text {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .watch-btn, .tickets-btn, .signin-btn {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  
+  .watch-btn {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .tickets-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .signin-btn {
+    background-color: transparent;
+    color: white;
+  }
+  
+  .watch-btn:hover, .tickets-btn:hover, .signin-btn:hover {
+    opacity: 0.9;
+  }
+  
+   
+  .main-navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 40;
+  }
+  
+  .desktop-nav {
+    display: flex;
+  }
+  
+  .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .nav-item {
+    position: relative;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    color: var(--primary-color);
+  }
+  
+  .dropdown-toggle {
+    cursor: pointer;
+  }
+  
+  .dropdown-arrow {
+    margin-left: 0.375rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 4px 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 30;
+  }
+  
+  .dropdown-list {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+  
+  .dropdown-link {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dropdown-link:hover {
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+  }
+  
+  .nav-item.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .nav-item.has-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .nav-item.active .nav-link {
+    color: var(--primary-color);
+  }
+  
+   
+  .mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    padding: 1rem;
+    cursor: pointer;
+  }
+  
+   
+  .mobile-nav-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 350px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    z-index: 60;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+  }
+  
+  .mobile-nav-panel.visible {
+    right: 0;
+  }
+  
+  .mobile-nav-content {
+    padding: 1rem;
+  }
+  
+  .mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  .mobile-nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-signin-btn, .mobile-watch-btn, .mobile-tickets-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .mobile-watch-btn {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .mobile-tickets-btn {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+  }
+  
+  .mobile-signin-btn {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+   
+  .accordion-item {
+    border-bottom: 1px solid var(--medium-gray);
+  }
+  
+  .accordion-link, .accordion-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: left;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .accordion-toggle {
+    border-bottom: none;
+  }
+  
+  .accordion-arrow {
+    transition: transform 0.2s ease;
+  }
+  
+  .accordion-toggle.active .accordion-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .accordion-content {
+    display: none;
+    padding: 0.5rem 0 0.5rem 1rem;
+  }
+  
+  .accordion-content.visible {
+    display: block;
+  }
+  
+  .accordion-sublink {
+    display: block;
+    padding: 0.625rem 0;
+    color: var(--dark-gray);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .accordion-sublink:hover {
+    color: var(--primary-color);
+  }
+  
+  .accordion-item .accordion-link.active, 
+  .accordion-item .accordion-toggle.active {
+    color: var(--primary-color);
+  }
+  
+   
+  .nav-spacer {
+    height: 120px;  
+  }
+  
+   
+  @media (max-width: 1024px) {
+    .nav-link {
+      padding: 1rem 0.75rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .desktop-nav {
+      display: none;
+    }
+    
+    .mobile-nav-toggle {
+      display: block;
+    }
+    
+    .nav-spacer {
+      height: 100px;  
+    }
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-color: #f5f5f5;
+      --light-gray: #2a2a2a;
+      --medium-gray: #444444;
+      --dark-gray: #aaaaaa;
+    }
+    
+    .top-navbar {
+      background-color: #002244;  
+    }
+    
+    .main-navbar {
+      background-color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dropdown-menu {
+      background-color: #1a1a1a;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dropdown-link:hover {
+      background-color: #333333;
+    }
+    
+    .mobile-nav-panel {
+      background-color: #1a1a1a;
+    }
+    
+    .mobile-signin-btn {
+      background-color: #002244;
+    }
+    
+    .mobile-tickets-btn {
+      background-color: #333333;
+      color: #f5f5f5;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+    const mobileNavPanel = document.getElementById('mobile-nav-panel');
+    const mobileNavClose = document.getElementById('mobile-nav-close');
+    
+    if (mobileNavToggle && mobileNavPanel) {
+      mobileNavToggle.addEventListener('click', function() {
+        mobileNavPanel.classList.add('visible');
+        document.body.style.overflow = 'hidden'; 
+      });
+    }
+    
+    if (mobileNavClose && mobileNavPanel) {
+      mobileNavClose.addEventListener('click', function() {
+        mobileNavPanel.classList.remove('visible');
+        document.body.style.overflow = ''; 
+      });
+    }
+    
+    
+    const accordionToggles = document.querySelectorAll('.accordion-toggle');
+    
+    accordionToggles.forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        
+        
+        const allContents = document.querySelectorAll('.accordion-content');
+        const allToggles = document.querySelectorAll('.accordion-toggle');
+        
+        allContents.forEach(item => {
+          if (item !== content) {
+            item.classList.remove('visible');
+          }
+        });
+        
+        allToggles.forEach(item => {
+          if (item !== this) {
+            item.classList.remove('active');
+          }
+        });
+        
+        
+        this.classList.toggle('active');
+        content.classList.toggle('visible');
+      });
+    });
+  });
+</script>
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+
+
+
+
+ 
+  
+   
+  
+ 
+
+
+
+ <header>
+  
+  <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">Tracks</h1>
+  <div class="mt-1 mb-2 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+</div>
+
+
+  </div>
+  
+  
+    
+    
+      
+      
+    
+  <script>
+    var oid = "views_tracks\/_index.md"
+    var oid_likes = "likes_tracks\/_index.md"
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+  
+  </header>
+  <section class="mt-0 prose flex max-w-full flex-col dark:prose-invert lg:flex-row">
+    
+    <div class="min-w-0 min-h-0 max-w-prose">
+      
+<div class="tracks-header">
+  <h1>Supercross and Motocross Tracks</h1>
+  <p class="tracks-intro">
+    Discover detailed information about every track on the Supercross and Pro Motocross calendar. From stadium floor configurations to natural terrain courses, we provide comprehensive details about each venue.
+  </p>
+
+  <!-- Searchable Track Filter Section -->
+  <div class="search-filter-container">
+    <div class="search-box">
+      <input type="text" id="trackSearch" class="search-input" placeholder="Search tracks by name, location, or features..." />
+      <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </div>
+    
+    <div class="filter-options">
+      <div class="filter-group">
+        <label for="typeFilter">Track Type</label>
+        <select id="typeFilter" class="select-input">
+          <option value="all">All Types</option>
+          <option value="supercross">Supercross</option>
+          <option value="motocross">Motocross</option>
+          <option value="smx">SMX (SuperMotocross)</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="regionFilter">Region</label>
+        <select id="regionFilter" class="select-input">
+          <option value="all">All Regions</option>
+          <option value="west">West Coast</option>
+          <option value="midwest">Midwest</option>
+          <option value="south">South</option>
+          <option value="east">East Coast</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="sortFilter">Sort By</label>
+        <select id="sortFilter" class="select-input">
+          <option value="name">Track Name</option>
+          <option value="date">Upcoming Event Date</option>
+          <option value="location">Location</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="track-type-tabs">
+  <button id="allTab" class="track-tab active" data-type="all">All Tracks</button>
+  <button id="sxTab" class="track-tab" data-type="supercross">Supercross</button>
+  <button id="mxTab" class="track-tab" data-type="motocross">Motocross</button>
+</div>
+
+<div class="track-types">
+  <div class="track-type supercross">
+    <h2>Supercross</h2>
+    <p>Indoor stadium tracks featuring technical obstacles, tight corners, and spectacular jumps.</p>
+  </div>
+  
+  <div class="track-type motocross">
+    <h2>Motocross</h2>
+    <p>Outdoor natural terrain tracks with varying soil conditions, elevation changes, and high-speed sections.</p>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="mb-8">
+  <h2 class="text-2xl font-bold mb-6">Featured Tracks</h2>
+  
+  <div id="card-carousel-1bebb7e6f4df0531015f9becb716cfed" class="card-carousel relative overflow-hidden">
+    <div class="card-carousel-container transition-transform duration-500 ease-in-out flex">
+      
+        
+  <div class="card-carousel-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="track-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+      <div class="relative">
+        
+          <img src="/img/tracks/daytona.svg" alt="Daytona International Speedway" class="w-full h-60 object-cover" />
+        
+        
+        
+        <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md track-type-badge supercross-type">
+          supercross
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="absolute bottom-3 right-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+          March 8, 2025
+        </div>
+        
+      </div>
+      
+      <div class="p-4 bg-white dark:bg-neutral-800">
+        <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Daytona International Speedway</h3>
+        
+        
+        <div class="mb-2 flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1 text-neutral-500">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+          </svg>
+          <span class="text-sm text-neutral-600 dark:text-neutral-400">Daytona Beach, FL</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+          <a href="/tracks/daytona-international-speedway/" class="view-track-btn flex items-center">
+            <span>View Details</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <style>
+       
+      .view-track-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.4rem 0.8rem;
+        background-color: #f8f9fa;
+        color: var(--primary-color, #0066cc);
+        font-size: 0.85rem;
+        font-weight: 600;
+        border: 1px solid var(--primary-color, #0066cc);
+        border-radius: 50px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        transition: all 0.2s ease;
+        text-decoration: none;
+      }
+      
+      .view-track-btn:hover {
+        background-color: var(--primary-color, #0066cc);
+        color: white;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .view-track-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      }
+      
+       
+      .track-type-badge {
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      }
+      
+      .supercross-type {
+        background-color: #d4a017;
+      }
+      
+      .motocross-type {
+        background-color: #228b22;
+      }
+      
+      .smx-type {
+        background-color: #9932cc;
+      }
+      
+       
+      @media (prefers-color-scheme: dark) {
+        .view-track-btn {
+          background-color: rgba(30, 41, 59, 0.7);
+          color: var(--primary-color-light, #38bdf8);
+          border-color: var(--primary-color-light, #38bdf8);
+        }
+        
+        .view-track-btn:hover {
+          background-color: var(--primary-color-light, #38bdf8);
+          color: #0f172a;
+        }
+      }
+    </style>
+  </div>
+  <div class="card-carousel-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="track-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+      <div class="relative">
+        
+          <img src="/img/tracks/redbud.svg" alt="RedBud MX" class="w-full h-60 object-cover" />
+        
+        
+        
+        <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md track-type-badge motocross-type">
+          motocross
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="absolute bottom-3 right-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+          July 5, 2025
+        </div>
+        
+      </div>
+      
+      <div class="p-4 bg-white dark:bg-neutral-800">
+        <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">RedBud MX</h3>
+        
+        
+        <div class="mb-2 flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1 text-neutral-500">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+          </svg>
+          <span class="text-sm text-neutral-600 dark:text-neutral-400">Buchanan, MI</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+          <a href="/tracks/redbud-mx/" class="view-track-btn flex items-center">
+            <span>View Details</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <style>
+       
+      .view-track-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.4rem 0.8rem;
+        background-color: #f8f9fa;
+        color: var(--primary-color, #0066cc);
+        font-size: 0.85rem;
+        font-weight: 600;
+        border: 1px solid var(--primary-color, #0066cc);
+        border-radius: 50px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        transition: all 0.2s ease;
+        text-decoration: none;
+      }
+      
+      .view-track-btn:hover {
+        background-color: var(--primary-color, #0066cc);
+        color: white;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .view-track-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      }
+      
+       
+      .track-type-badge {
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      }
+      
+      .supercross-type {
+        background-color: #d4a017;
+      }
+      
+      .motocross-type {
+        background-color: #228b22;
+      }
+      
+      .smx-type {
+        background-color: #9932cc;
+      }
+      
+       
+      @media (prefers-color-scheme: dark) {
+        .view-track-btn {
+          background-color: rgba(30, 41, 59, 0.7);
+          color: var(--primary-color-light, #38bdf8);
+          border-color: var(--primary-color-light, #38bdf8);
+        }
+        
+        .view-track-btn:hover {
+          background-color: var(--primary-color-light, #38bdf8);
+          color: #0f172a;
+        }
+      }
+    </style>
+  </div>
+  <div class="card-carousel-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="track-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+      <div class="relative">
+        
+          <img src="/img/tracks/anaheim.svg" alt="Angel Stadium" class="w-full h-60 object-cover" />
+        
+        
+        
+        <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md track-type-badge supercross-type">
+          supercross
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="absolute bottom-3 right-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+          January 11, 2025
+        </div>
+        
+      </div>
+      
+      <div class="p-4 bg-white dark:bg-neutral-800">
+        <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">Angel Stadium</h3>
+        
+        
+        <div class="mb-2 flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1 text-neutral-500">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+          </svg>
+          <span class="text-sm text-neutral-600 dark:text-neutral-400">Anaheim, CA</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+          <a href="/tracks/angel-stadium/" class="view-track-btn flex items-center">
+            <span>View Details</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <style>
+       
+      .view-track-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.4rem 0.8rem;
+        background-color: #f8f9fa;
+        color: var(--primary-color, #0066cc);
+        font-size: 0.85rem;
+        font-weight: 600;
+        border: 1px solid var(--primary-color, #0066cc);
+        border-radius: 50px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        transition: all 0.2s ease;
+        text-decoration: none;
+      }
+      
+      .view-track-btn:hover {
+        background-color: var(--primary-color, #0066cc);
+        color: white;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .view-track-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      }
+      
+       
+      .track-type-badge {
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      }
+      
+      .supercross-type {
+        background-color: #d4a017;
+      }
+      
+      .motocross-type {
+        background-color: #228b22;
+      }
+      
+      .smx-type {
+        background-color: #9932cc;
+      }
+      
+       
+      @media (prefers-color-scheme: dark) {
+        .view-track-btn {
+          background-color: rgba(30, 41, 59, 0.7);
+          color: var(--primary-color-light, #38bdf8);
+          border-color: var(--primary-color-light, #38bdf8);
+        }
+        
+        .view-track-btn:hover {
+          background-color: var(--primary-color-light, #38bdf8);
+          color: #0f172a;
+        }
+      }
+    </style>
+  </div>
+  <div class="card-carousel-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="track-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+      <div class="relative">
+        
+          <img src="/img/tracks/high-point.svg" alt="High Point Raceway" class="w-full h-60 object-cover" />
+        
+        
+        
+        <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md track-type-badge motocross-type">
+          motocross
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="absolute bottom-3 right-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+          June 14, 2025
+        </div>
+        
+      </div>
+      
+      <div class="p-4 bg-white dark:bg-neutral-800">
+        <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">High Point Raceway</h3>
+        
+        
+        <div class="mb-2 flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1 text-neutral-500">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+          </svg>
+          <span class="text-sm text-neutral-600 dark:text-neutral-400">Mt. Morris, PA</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+          <a href="/tracks/high-point-raceway/" class="view-track-btn flex items-center">
+            <span>View Details</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <style>
+       
+      .view-track-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.4rem 0.8rem;
+        background-color: #f8f9fa;
+        color: var(--primary-color, #0066cc);
+        font-size: 0.85rem;
+        font-weight: 600;
+        border: 1px solid var(--primary-color, #0066cc);
+        border-radius: 50px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        transition: all 0.2s ease;
+        text-decoration: none;
+      }
+      
+      .view-track-btn:hover {
+        background-color: var(--primary-color, #0066cc);
+        color: white;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .view-track-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      }
+      
+       
+      .track-type-badge {
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      }
+      
+      .supercross-type {
+        background-color: #d4a017;
+      }
+      
+      .motocross-type {
+        background-color: #228b22;
+      }
+      
+      .smx-type {
+        background-color: #9932cc;
+      }
+      
+       
+      @media (prefers-color-scheme: dark) {
+        .view-track-btn {
+          background-color: rgba(30, 41, 59, 0.7);
+          color: var(--primary-color-light, #38bdf8);
+          border-color: var(--primary-color-light, #38bdf8);
+        }
+        
+        .view-track-btn:hover {
+          background-color: var(--primary-color-light, #38bdf8);
+          color: #0f172a;
+        }
+      }
+    </style>
+  </div>
+  <div class="card-carousel-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="track-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+      <div class="relative">
+        
+          <img src="/img/tracks/arlington.svg" alt="AT&amp;T Stadium" class="w-full h-60 object-cover" />
+        
+        
+        
+        <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md track-type-badge supercross-type">
+          supercross
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="absolute bottom-3 right-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+          February 22, 2025
+        </div>
+        
+      </div>
+      
+      <div class="p-4 bg-white dark:bg-neutral-800">
+        <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">AT&amp;T Stadium</h3>
+        
+        
+        <div class="mb-2 flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1 text-neutral-500">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+          </svg>
+          <span class="text-sm text-neutral-600 dark:text-neutral-400">Arlington, TX</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+          <a href="/tracks/att-stadium/" class="view-track-btn flex items-center">
+            <span>View Details</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <style>
+       
+      .view-track-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.4rem 0.8rem;
+        background-color: #f8f9fa;
+        color: var(--primary-color, #0066cc);
+        font-size: 0.85rem;
+        font-weight: 600;
+        border: 1px solid var(--primary-color, #0066cc);
+        border-radius: 50px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        transition: all 0.2s ease;
+        text-decoration: none;
+      }
+      
+      .view-track-btn:hover {
+        background-color: var(--primary-color, #0066cc);
+        color: white;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      .view-track-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      }
+      
+       
+      .track-type-badge {
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      }
+      
+      .supercross-type {
+        background-color: #d4a017;
+      }
+      
+      .motocross-type {
+        background-color: #228b22;
+      }
+      
+      .smx-type {
+        background-color: #9932cc;
+      }
+      
+       
+      @media (prefers-color-scheme: dark) {
+        .view-track-btn {
+          background-color: rgba(30, 41, 59, 0.7);
+          color: var(--primary-color-light, #38bdf8);
+          border-color: var(--primary-color-light, #38bdf8);
+        }
+        
+        .view-track-btn:hover {
+          background-color: var(--primary-color-light, #38bdf8);
+          color: #0f172a;
+        }
+      }
+    </style>
+  </div>
+
+      
+    </div>
+    
+    
+    
+    <button class="card-carousel-control-prev absolute top-1/2 left-2 transform -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-black bg-opacity-50 hover:bg-opacity-75 transition-all text-white focus:outline-none"
+            type="button" aria-label="Previous">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <button class="card-carousel-control-next absolute top-1/2 right-2 transform -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-black bg-opacity-50 hover:bg-opacity-75 transition-all text-white focus:outline-none"
+            type="button" aria-label="Next">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+    
+    
+    
+    
+    <div class="card-carousel-indicators absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      
+    </div>
+    
+  </div>
+</div>
+
+<style>
+  .card-carousel-item {
+    flex: 0 0 calc(100% / 3);
+    padding: 0 10px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  @media (max-width: 1024px) {
+    .card-carousel-item {
+      flex: 0 0 calc(100% / 2);
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .card-carousel-item {
+      flex: 0 0 calc(100% / 1);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.getElementById('card-carousel-1bebb7e6f4df0531015f9becb716cfed');
+    if (!carousel) return;
+    
+    const container = carousel.querySelector('.card-carousel-container');
+    const items = carousel.querySelectorAll('.card-carousel-item');
+    const prevBtn = carousel.querySelector('.card-carousel-control-prev');
+    const nextBtn = carousel.querySelector('.card-carousel-control-next');
+    const indicatorsContainer = carousel.querySelector('.card-carousel-indicators');
+    
+    if (!container || items.length === 0) return;
+    
+    let currentIndex = 0;
+    let interval = "6000";
+    let slideInterval;
+    let itemsPerView = "3";
+    
+    function updateItemsPerView() {
+      if (window.innerWidth <= 640) {
+        itemsPerView = "1";
+      } else if (window.innerWidth <= 1024) {
+        itemsPerView = "2";
+      } else {
+        itemsPerView = "3";
+      }
+    }
+    
+    
+    function setupIndicators() {
+      if (!indicatorsContainer) return;
+      
+      indicatorsContainer.innerHTML = '';
+      const totalSlides = Math.ceil(items.length / itemsPerView);
+      
+      for (let i = 0; i < totalSlides; i++) {
+        const indicator = document.createElement('button');
+        indicator.classList.add('w-2', 'h-2', 'rounded-full', 'bg-white', 'bg-opacity-50', 'hover:bg-opacity-100', 'transition-all');
+        if (i === 0) indicator.classList.add('bg-opacity-100');
+        indicator.setAttribute('aria-label', `Slide ${i + 1}`);
+        indicator.dataset.slideTo = i;
+        
+        indicator.addEventListener('click', function() {
+          goToSlide(i);
+          resetInterval();
+        });
+        
+        indicatorsContainer.appendChild(indicator);
+      }
+    }
+    
+    
+    function updateIndicators() {
+      if (!indicatorsContainer) return;
+      
+      const indicators = indicatorsContainer.querySelectorAll('button');
+      indicators.forEach((indicator, i) => {
+        if (i === currentIndex) {
+          indicator.classList.add('bg-opacity-100');
+        } else {
+          indicator.classList.remove('bg-opacity-100');
+        }
+      });
+    }
+    
+    
+    function goToSlide(index) {
+      updateItemsPerView();
+      const totalSlides = Math.ceil(items.length / itemsPerView);
+      
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      
+      currentIndex = index;
+      const offset = -(currentIndex * (100 / itemsPerView) * itemsPerView);
+      container.style.transform = `translateX(${offset}%)`;
+      
+      updateIndicators();
+    }
+    
+    
+    function nextSlide() {
+      goToSlide(currentIndex + 1);
+    }
+    
+    
+    function prevSlide() {
+      goToSlide(currentIndex - 1);
+    }
+    
+    
+    function resetInterval() {
+      if ( true ) {
+        clearInterval(slideInterval);
+        startSlideInterval();
+      }
+    }
+    
+    
+    function startSlideInterval() {
+      if ( true ) {
+        slideInterval = setInterval(nextSlide, interval);
+      }
+    }
+    
+    
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function() {
+        prevSlide();
+        resetInterval();
+      });
+    }
+    
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function() {
+        nextSlide();
+        resetInterval();
+      });
+    }
+    
+    
+    carousel.addEventListener('mouseenter', function() {
+      if ( true ) {
+        clearInterval(slideInterval);
+      }
+    });
+    
+    carousel.addEventListener('mouseleave', function() {
+      resetInterval();
+    });
+    
+    
+    carousel.addEventListener('focusin', function() {
+      if ( true ) {
+        clearInterval(slideInterval);
+      }
+    });
+    
+    carousel.addEventListener('focusout', function() {
+      resetInterval();
+    });
+    
+    
+    window.addEventListener('resize', function() {
+      updateItemsPerView();
+      setupIndicators();
+      goToSlide(currentIndex);
+    });
+    
+    
+    updateItemsPerView();
+    setupIndicators();
+    startSlideInterval();
+  });
+</script>
+
+<div id="searchResults" class="search-results-container hidden">
+  <h2>Search Results <span id="resultCount">(0)</span></h2>
+  <div id="noResults" class="no-results hidden">
+    <p>No tracks found matching your search criteria.</p>
+  </div>
+  <div class="track-grid search-results-grid" id="searchResultsGrid">
+    <!-- Search results will be dynamically added here -->
+  </div>
+</div>
+
+<h2>Browse All Tracks</h2>
+
+<div class="interactive-track-grid">
+  <div class="tracks-grid">
+    <div class="tracks-list">
+      <h3>Supercross</h3>
+      <ul class="track-links" id="sxTrackList">
+        <li><a href="/tracks/angel-stadium/" data-region="west">Angel Stadium (Anaheim, CA)</a></li>
+        <li><a href="/tracks/at-t-stadium/" data-region="south">AT&T Stadium (Arlington, TX)</a></li>
+        <li><a href="/tracks/daytona-international-speedway/" data-region="south">Daytona International Speedway (Daytona Beach, FL)</a></li>
+        <li><a href="/tracks/empower-field/" data-region="west">Empower Field at Mile High (Denver, CO)</a></li>
+        <li><a href="/tracks/ford-field/" data-region="midwest">Ford Field (Detroit, MI)</a></li>
+        <li><a href="/tracks/lincoln-financial-field/" data-region="east">Lincoln Financial Field (Philadelphia, PA)</a></li>
+        <li><a href="/tracks/metlife-stadium/" data-region="east">MetLife Stadium (East Rutherford, NJ)</a></li>
+        <li><a href="/tracks/nissan-stadium/" data-region="south">Nissan Stadium (Nashville, TN)</a></li>
+        <li><a href="/tracks/petco-park/" data-region="west">Petco Park (San Diego, CA)</a></li>
+        <li><a href="/tracks/raymond-james-stadium/" data-region="south">Raymond James Stadium (Tampa, FL)</a></li>
+        <li><a href="/tracks/rice-eccles-stadium/" data-region="west">Rice-Eccles Stadium (Salt Lake City, UT)</a></li>
+        <li><a href="/tracks/state-farm-stadium/" data-region="west">State Farm Stadium (Glendale, AZ)</a></li>
+      </ul>
+    </div>
+    
+    <div class="tracks-list">
+      <h3>Motocross</h3>
+      <ul class="track-links" id="mxTrackList">
+        <li><a href="/tracks/fox-raceway/" data-region="west">Fox Raceway (Pala, CA)</a></li>
+        <li><a href="/tracks/hangtown/" data-region="west">Hangtown (Prairie City, CA)</a></li>
+        <li><a href="/tracks/high-point/" data-region="east">High Point Raceway (Mt. Morris, PA)</a></li>
+        <li><a href="/tracks/ironman/" data-region="midwest">Ironman Raceway (Crawfordsville, IN)</a></li>
+        <li><a href="/tracks/millville/" data-region="midwest">Spring Creek MX Park (Millville, MN)</a></li>
+        <li><a href="/tracks/muddy-creek/" data-region="south">Muddy Creek Raceway (Blountville, TN)</a></li>
+        <li><a href="/tracks/redbud/" data-region="midwest">RedBud MX (Buchanan, MI)</a></li>
+        <li><a href="/tracks/southwick/" data-region="east">The Wick 338 (Southwick, MA)</a></li>
+        <li><a href="/tracks/thunder-valley/" data-region="west">Thunder Valley Motocross Park (Lakewood, CO)</a></li>
+        <li><a href="/tracks/unadilla/" data-region="east">Unadilla MX (New Berlin, NY)</a></li>
+        <li><a href="/tracks/washougal/" data-region="west">Washougal MX Park (Washougal, WA)</a></li>
+        <li><a href="/tracks/budds-creek/" data-region="east">Budds Creek Motocross Park (Mechanicsville, MD)</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<h2>Track Information</h2>
+
+<div class="tracks-info">
+  <p>Our detailed track profiles include:</p>
+  
+  <ul class="feature-list">
+    <li>
+      <span class="feature-icon">📏</span>
+      <span class="feature-text">Complete track specifications</span>
+    </li>
+    <li>
+      <span class="feature-icon">📜</span>
+      <span class="feature-text">Track history and records</span>
+    </li>
+    <li>
+      <span class="feature-icon">📅</span>
+      <span class="feature-text">Upcoming events and broadcast information</span>
+    </li>
+    <li>
+      <span class="feature-icon">🖼️</span>
+      <span class="feature-text">Photo galleries and video content</span>
+    </li>
+    <li>
+      <span class="feature-icon">🏆</span>
+      <span class="feature-text">Previous winners and memorable moments</span>
+    </li>
+    <li>
+      <span class="feature-icon">🚗</span>
+      <span class="feature-text">Directions and accommodation information</span>
+    </li>
+  </ul>
+  
+  <p class="track-conclusion">Whether you're planning to attend an event or just want to learn more about where the action takes place, our track guides provide the essential information for every venue on the professional circuit.</p>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('trackSearch');
+    const typeFilter = document.getElementById('typeFilter');
+    const regionFilter = document.getElementById('regionFilter');
+    const sortFilter = document.getElementById('sortFilter');
+    const searchResults = document.getElementById('searchResults');
+    const searchResultsGrid = document.getElementById('searchResultsGrid');
+    const resultCount = document.getElementById('resultCount');
+    const noResults = document.getElementById('noResults');
+    const trackTabs = document.querySelectorAll('.track-tab');
+    const sxTrackLinks = document.querySelectorAll('#sxTrackList li a');
+    const mxTrackLinks = document.querySelectorAll('#mxTrackList li a');
+    
+    // Sample track data (this would ideally be loaded from your site data)
+    // In a real implementation, you would use Hugo to generate this data
+    const tracks = [
+      { name: "Angel Stadium", location: "Anaheim, CA", type: "supercross", region: "west", date: "January 11, 2025", image: "/img/tracks/angel-stadium.svg", url: "/tracks/angel-stadium/" },
+      { name: "AT&T Stadium", location: "Arlington, TX", type: "supercross", region: "south", date: "February 22, 2025", image: "/img/tracks/att-stadium.svg", url: "/tracks/at-t-stadium/" },
+      { name: "Daytona International Speedway", location: "Daytona Beach, FL", type: "supercross", region: "south", date: "March 8, 2025", image: "/img/tracks/daytona.svg", url: "/tracks/daytona-international-speedway/" },
+      { name: "Fox Raceway", location: "Pala, CA", type: "motocross", region: "west", date: "May 25, 2025", image: "/img/tracks/fox-raceway.svg", url: "/tracks/fox-raceway/" },
+      { name: "RedBud MX", location: "Buchanan, MI", type: "motocross", region: "midwest", date: "July 5, 2025", image: "/img/tracks/redbud.svg", url: "/tracks/redbud/" },
+      { name: "Unadilla MX", location: "New Berlin, NY", type: "motocross", region: "east", date: "August 16, 2025", image: "/img/tracks/track-template.svg", url: "/tracks/unadilla/" }
+    ];
+    
+    function filterTracks() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const typeValue = typeFilter.value;
+      const regionValue = regionFilter.value;
+      const sortValue = sortFilter.value;
+      
+      let filteredTracks = tracks.filter(track => {
+        const nameMatch = track.name.toLowerCase().includes(searchTerm);
+        const locationMatch = track.location.toLowerCase().includes(searchTerm);
+        const typeMatch = typeValue === 'all' || track.type === typeValue;
+        const regionMatch = regionValue === 'all' || track.region === regionValue;
+        
+        return (nameMatch || locationMatch) && typeMatch && regionMatch;
+      });
+      
+      // Sort the filtered tracks
+      filteredTracks.sort((a, b) => {
+        if (sortValue === 'name') {
+          return a.name.localeCompare(b.name);
+        } else if (sortValue === 'date') {
+          // This is a simplified sort - in real implementation, you'd use Date objects
+          return a.date.localeCompare(b.date);
+        } else if (sortValue === 'location') {
+          return a.location.localeCompare(b.location);
+        }
+      });
+      
+      displayResults(filteredTracks);
+    }
+    
+    function displayResults(filteredTracks) {
+      searchResultsGrid.innerHTML = '';
+      
+      if (filteredTracks.length === 0) {
+        noResults.classList.remove('hidden');
+        searchResults.classList.remove('hidden');
+        resultCount.textContent = '(0)';
+        return;
+      }
+      
+      noResults.classList.add('hidden');
+      searchResults.classList.remove('hidden');
+      resultCount.textContent = `(${filteredTracks.length})`;
+      
+      filteredTracks.forEach(track => {
+        const trackCard = document.createElement('div');
+        trackCard.className = 'track-grid-item';
+        trackCard.innerHTML = `
+          <div class="track-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="relative">
+              <img src="${track.image}" alt="${track.name}" class="w-full h-60 object-cover" />
+              
+              <div class="absolute top-3 right-3 px-3 py-1 rounded-full text-white font-bold text-sm shadow-md track-type-badge ${track.type}-type">
+                ${track.type}
+              </div>
+              
+              <div class="absolute bottom-3 right-3 bg-black bg-opacity-70 text-white font-bold px-3 py-1 rounded-md">
+                ${track.date}
+              </div>
+            </div>
+            
+            <div class="p-4 bg-white dark:bg-neutral-800">
+              <h3 class="text-xl font-bold mb-1 text-neutral-800 dark:text-neutral-100">${track.name}</h3>
+              
+              <div class="mb-2 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1 text-neutral-500">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                </svg>
+                <span class="text-sm text-neutral-600 dark:text-neutral-400">${track.location}</span>
+              </div>
+              
+              <div class="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex justify-center">
+                <a href="${track.url}" class="view-track-btn flex items-center">
+                  <span>View Details</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        searchResultsGrid.appendChild(trackCard);
+      });
+    }
+    
+    // Filter tracks from the sxTrackList and mxTrackList based on region
+    function filterTrackLists() {
+      const selectedRegion = regionFilter.value;
+      
+      if (selectedRegion === 'all') {
+        // Show all tracks
+        sxTrackLinks.forEach(link => {
+          link.parentElement.style.display = 'block';
+        });
+        
+        mxTrackLinks.forEach(link => {
+          link.parentElement.style.display = 'block';
+        });
+        return;
+      }
+      
+      // Filter SX tracks
+      sxTrackLinks.forEach(link => {
+        const trackRegion = link.getAttribute('data-region');
+        if (trackRegion === selectedRegion) {
+          link.parentElement.style.display = 'block';
+        } else {
+          link.parentElement.style.display = 'none';
+        }
+      });
+      
+      // Filter MX tracks
+      mxTrackLinks.forEach(link => {
+        const trackRegion = link.getAttribute('data-region');
+        if (trackRegion === selectedRegion) {
+          link.parentElement.style.display = 'block';
+        } else {
+          link.parentElement.style.display = 'none';
+        }
+      });
+    }
+    
+    // Event listeners
+    searchInput.addEventListener('input', filterTracks);
+    typeFilter.addEventListener('change', function() {
+      filterTracks();
+      // Update active tab
+      trackTabs.forEach(tab => {
+        if (tab.getAttribute('data-type') === typeFilter.value) {
+          trackTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+        }
+      });
+    });
+    
+    regionFilter.addEventListener('change', function() {
+      filterTracks();
+      filterTrackLists();
+    });
+    
+    sortFilter.addEventListener('change', filterTracks);
+    
+    // Track tabs functionality
+    trackTabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        const selectedType = this.getAttribute('data-type');
+        
+        // Update active tab
+        trackTabs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Update type filter
+        typeFilter.value = selectedType;
+        filterTracks();
+      });
+    });
+  });
+</script>
+
+<style>
+  /* Tracks Header Styling */
+  .tracks-header {
+    margin-bottom: 2rem;
+  }
+  
+  .tracks-intro {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+    max-width: 900px;
+  }
+  
+  /* Search and Filter Styling */
+  .search-filter-container {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  }
+  
+  .search-box {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+  }
+  
+  .search-input:focus {
+    border-color: #0066cc;
+    box-shadow: 0 0 0 3px rgba(0,102,204,0.2);
+    outline: none;
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #777;
+  }
+  
+  .filter-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .filter-options {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .filter-options {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filter-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+  
+  .select-input {
+    padding: 0.6rem 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    background-color: white;
+    transition: all 0.2s ease;
+  }
+  
+  .select-input:focus {
+    border-color: #0066cc;
+    box-shadow: 0 0 0 3px rgba(0,102,204,0.2);
+    outline: none;
+  }
+  
+  /* Track Type Tabs Styling */
+  .track-type-tabs {
+    display: flex;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .track-tab {
+    padding: 0.75rem 1.5rem;
+    background: none;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+  
+  .track-tab:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+  }
+  
+  .track-tab.active {
+    color: #0066cc;
+  }
+  
+  .track-tab.active:after {
+    background-color: #0066cc;
+  }
+  
+  .track-tab:hover {
+    color: #0066cc;
+  }
+  
+  /* Track Types Styling */
+  .track-types {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  @media (min-width: 768px) {
+    .track-types {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .track-type {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .supercross {
+    background: linear-gradient(135deg, #d4a017, #f1c232);
+    color: #333;
+  }
+  
+  .motocross {
+    background: linear-gradient(135deg, #228b22, #38b638);
+    color: white;
+  }
+  
+  .track-type h2 {
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  }
+  
+  .track-type p {
+    margin-bottom: 0;
+    opacity: 0.9;
+  }
+  
+  /* Featured Tracks Styling */
+  .featured-tracks {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  /* Search Results Styling */
+  .search-results-container {
+    margin-bottom: 3rem;
+  }
+  
+  .search-results-container.hidden {
+    display: none;
+  }
+  
+  .no-results {
+    padding: 2rem;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    color: #666;
+  }
+  
+  .no-results.hidden {
+    display: none;
+  }
+  
+  .search-results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  /* Tracks Grid Styling */
+  .interactive-track-grid {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .tracks-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .tracks-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .tracks-list h3 {
+    margin-top: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #ddd;
+    font-size: 1.4rem;
+    color: #333;
+  }
+  
+  .track-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .track-links li {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+  
+  .track-links li:hover {
+    background-color: #eee;
+  }
+  
+  .track-links a {
+    text-decoration: none;
+    color: var(--primary-color, #0066cc);
+    transition: color 0.2s ease;
+    display: block;
+  }
+  
+  .track-links a:hover {
+    color: var(--primary-color-dark, #004c99);
+  }
+  
+  /* Feature List Styling */
+  .feature-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .feature-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .feature-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .feature-list li {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  .feature-icon {
+    font-size: 1.5rem;
+    margin-right: 0.75rem;
+  }
+  
+  .feature-text {
+    font-size: 0.95rem;
+    color: #444;
+  }
+  
+  .track-conclusion {
+    font-size: 1.05rem;
+    color: #444;
+    margin-top: 1.5rem;
+    line-height: 1.6;
+  }
+  
+  /* Styling for track type badges */
+  .track-type-badge {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .supercross-type {
+    background-color: #d4a017;
+  }
+  
+  .motocross-type {
+    background-color: #228b22;
+  }
+  
+  .smx-type {
+    background-color: #9932cc;
+  }
+  
+  /* View Track Button Styling */
+  .view-track-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    background-color: #f8f9fa;
+    color: var(--primary-color, #0066cc);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-color, #0066cc);
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .view-track-btn:hover {
+    background-color: var(--primary-color, #0066cc);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .view-track-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  
+  /* Dark mode adjustments */
+  @media (prefers-color-scheme: dark) {
+    .tracks-intro {
+      color: #aaa;
+    }
+    
+    .search-filter-container, 
+    .interactive-track-grid,
+    .feature-list li {
+      background-color: #1f2937;
+    }
+    
+    .filter-group label {
+      color: #ccc;
+    }
+    
+    .select-input {
+      background-color: #111827;
+      border-color: #374151;
+      color: #e5e7eb;
+    }
+    
+    .track-type-tabs {
+      border-bottom-color: #374151;
+    }
+    
+    .tracks-list h3 {
+      border-bottom-color: #374151;
+      color: #e5e7eb;
+    }
+    
+    .track-links li:hover {
+      background-color: #2d3748;
+    }
+    
+    .track-links a {
+      color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .track-links a:hover {
+      color: var(--primary-color-lighter, #7dd3fc);
+    }
+    
+    .feature-text {
+      color: #d1d5db;
+    }
+    
+    .track-conclusion {
+      color: #d1d5db;
+    }
+    
+    .track-tab {
+      color: #d1d5db;
+    }
+    
+    .track-tab.active {
+      color: #38bdf8;
+    }
+    
+    .track-tab.active:after {
+      background-color: #38bdf8;
+    }
+    
+    .view-track-btn {
+      background-color: rgba(30, 41, 59, 0.7);
+      color: var(--primary-color-light, #38bdf8);
+      border-color: var(--primary-color-light, #38bdf8);
+    }
+    
+    .view-track-btn:hover {
+      background-color: var(--primary-color-light, #38bdf8);
+      color: #0f172a;
+    }
+  }
+</style>
+
+
+    </div>
+
+
+
+
+  </section>
+  
+
+    
+    
+    
+    
+    
+
+    
+
+      
+
+        
+        <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+        
+        
+          
+          
+
+  <a href="/tracks/angel-stadium/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/tracks/angel-stadium/">Angel Stadium of Anaheim</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01T00:00:00&#43;00:00">1 January 0001</time>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+          
+          
+
+  <a href="/tracks/at-t-stadium/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/tracks/at-t-stadium/">AT&T Stadium</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01T00:00:00&#43;00:00">1 January 0001</time>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+          
+          
+
+  <a href="/tracks/daytona-international-speedway/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/tracks/daytona-international-speedway/">Daytona International Speedway</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01T00:00:00&#43;00:00">1 January 0001</time>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+          
+          
+
+  <a href="/tracks/featured/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/tracks/featured/">Featured Tracks</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01T00:00:00&#43;00:00">1 January 0001</time>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+          
+          
+
+  <a href="/tracks/detroit-supercross/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/tracks/detroit-supercross/">Ford Field</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01T00:00:00&#43;00:00">1 January 0001</time>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+          
+          
+
+  <a href="/tracks/fox-raceway/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/tracks/fox-raceway/">Fox Raceway at Pala</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01T00:00:00&#43;00:00">1 January 0001</time>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+          
+          
+
+  <a href="/tracks/high-point/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/tracks/high-point/">High Point Raceway</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01T00:00:00&#43;00:00">1 January 0001</time>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+          
+          
+
+  <a href="/tracks/metlife-stadium/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/tracks/metlife-stadium/">MetLife Stadium</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01T00:00:00&#43;00:00">1 January 0001</time>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+          
+          
+
+  <a href="/tracks/motocross/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/tracks/motocross/">Motocross Tracks</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01T00:00:00&#43;00:00">1 January 0001</time>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+          
+          
+
+  <a href="/tracks/raymond-james-stadium/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/tracks/raymond-james-stadium/">Raymond James Stadium</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01T00:00:00&#43;00:00">1 January 0001</time>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+          
+          
+
+  <a href="/tracks/redbud/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/tracks/redbud/">RedBud MX</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01T00:00:00&#43;00:00">1 January 0001</time>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+          
+          
+
+  <a href="/tracks/rice-eccles-stadium/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/tracks/rice-eccles-stadium/">Rice-Eccles Stadium</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01T00:00:00&#43;00:00">1 January 0001</time>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+          
+          
+
+  <a href="/tracks/san-diego-snapdragon-stadium/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/tracks/san-diego-snapdragon-stadium/">Snapdragon Stadium</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01T00:00:00&#43;00:00">1 January 0001</time>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+          
+          
+
+  <a href="/tracks/snapdragon-stadium/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/tracks/snapdragon-stadium/">Snapdragon Stadium</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01T00:00:00&#43;00:00">1 January 0001</time>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+          
+          
+
+  <a href="/tracks/supercross/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/tracks/supercross/">Supercross Tracks</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01T00:00:00&#43;00:00">1 January 0001</time>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+          
+          
+
+  <a href="/tracks/map/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/tracks/map/">Track Map</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01T00:00:00&#43;00:00">1 January 0001</time>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+          
+          
+
+  <a href="/tracks/unadilla-mx/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/tracks/unadilla-mx/">Unadilla MX</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01T00:00:00&#43;00:00">1 January 0001</time>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+          
+          
+
+  <a href="/tracks/washougal-mx-park/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/tracks/washougal-mx-park/">Washougal MX Park</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01T00:00:00&#43;00:00">1 January 0001</time>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+          
+        
+        </section>
+        
+
+    
+
+    
+
+  
+
+    
+
+  
+      
+    </main><footer id="site-footer" class="py-4 print:hidden border-t border-neutral-200 dark:border-neutral-700">
+  <div class="container">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex flex-wrap justify-center md:justify-start">
+        
+        
+          
+          <nav class="flex text-sm font-medium text-neutral-500 dark:text-neutral-400">
+            <ul class="flex flex-row flex-wrap list-none justify-center">
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/about/"
+                  title="">
+                  
+                  About
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/contact/"
+                  title="">
+                  
+                  Contact
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/terms/"
+                  title="">
+                  
+                  Terms
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/privacy/"
+                  title="">
+                  
+                  Privacy
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/betting/policies/"
+                  title="">
+                  
+                  Betting Policies
+                </a>
+                
+              </li>
+              
+            </ul>
+          </nav>
+          
+        
+      </div>
+
+      <div class="flex flex-wrap justify-center md:justify-end gap-4">
+        
+        
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy; 2025 MXRaceHub
+        </p>
+        
+
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+</footer>
+  </div>
+</body>
+
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+  data-id="nunocoracao" data-description="Support me on Buy me a coffee!" data-message=""
+  data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+
+</html>
