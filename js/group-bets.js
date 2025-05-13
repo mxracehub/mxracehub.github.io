@@ -230,12 +230,35 @@ document.addEventListener('DOMContentLoaded', function() {
   /**
    * Handle form submission
    */
+  async async function syncGroupWithFriends(groupId) {
+    try {
+      await fetch('/api/user/friends', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          action: 'sync_group',
+          groupId
+        })
+      });
+    } catch (error) {
+      console.error('Error syncing group:', error);
+    }
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
     
     // Validate the form
     if (!validateForm()) {
       return;
+    }
+
+    // Auto-sync new group with friends
+    const groupId = event.target.elements.groupId?.value;
+    if (groupId) {
+      await syncGroupWithFriends(groupId);
     }
     
     // Get form data

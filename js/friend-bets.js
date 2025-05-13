@@ -6,6 +6,54 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Elements
   const form = document.getElementById('friend-bet-form');
+  const friendSearch = document.getElementById('friend-search');
+  const friendResults = document.getElementById('friend-search-results');
+  let savedFriends = [];
+
+  // Load saved friends
+  async function loadSavedFriends() {
+    try {
+      const response = await fetch('/api/user/friends');
+      if (response.ok) {
+        savedFriends = await response.json();
+        updateFriendList();
+      }
+    } catch (error) {
+      console.error('Error loading friends:', error);
+    }
+  }
+
+  // Update friend list display
+  function updateFriendList() {
+    if (friendResults) {
+      friendResults.innerHTML = savedFriends.map(friend => `
+        <div class="friend-item" data-id="${friend.id}">
+          <span>${friend.username}</span>
+          <button class="add-friend-btn">Add to Bet</button>
+        </div>
+      `).join('');
+    }
+  }
+
+  // Initialize friend search
+  if (friendSearch) {
+    friendSearch.addEventListener('input', async (e) => {
+      const searchTerm = e.target.value;
+      if (searchTerm.length >= 2) {
+        try {
+          const response = await fetch(`/api/users/search?q=${searchTerm}`);
+          const results = await response.json();
+          // Filter results to prioritize saved friends
+          const sortedResults = results.sort((a, b) => 
+            savedFriends.some(f => f.id === a.id) ? -1 : 1
+          );
+          updateSearchResults(sortedResults);
+        } catch (error) {
+          console.error('Search error:', error);
+        }
+      }
+    });
+  }
   const betTypeSelect = document.getElementById('bet-type');
   const raceWinnerPrediction = document.getElementById('race-winner-prediction');
   const headToHeadPrediction = document.getElementById('head-to-head-prediction');
@@ -19,10 +67,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const betSummary = document.getElementById('bet-summary');
   const summaryContent = document.getElementById('summary-content');
   const successMessage = document.getElementById('success-message');
-  
+
   // Only initialize if we're on the friend bet page
   if (!form) return;
-  
+
   // Initialize auto-save functionality if available
   if (window.initBetFormAutoSave) {
     window.initBetFormAutoSave('friend-bet', form, {
@@ -35,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
       afterLoad: (data) => {
         // Run type-specific UI updates after loading data
         handleBetTypeChange();
-        
+
         // If head-to-head, update rider names
         if (data.betType === 'head-to-head' && 
             rider1Select && rider2Select && 
@@ -45,41 +93,41 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
-  
+
   // Set up event listeners
   if (betTypeSelect) {
     betTypeSelect.addEventListener('change', handleBetTypeChange);
     // Initial setup based on current value
     handleBetTypeChange();
   }
-  
+
   if (rider1Select && rider2Select) {
     rider1Select.addEventListener('change', updateRiderNames);
     rider2Select.addEventListener('change', updateRiderNames);
     // Initial setup
     updateRiderNames();
   }
-  
+
   if (previewBetBtn) {
     previewBetBtn.addEventListener('click', previewBet);
   }
-  
+
   // Form submission
   if (form) {
     form.addEventListener('submit', handleSubmit);
   }
-  
+
   /**
    * Handle bet type change
    */
   function handleBetTypeChange() {
     const betType = betTypeSelect.value;
-    
+
     // Hide all prediction sections
     raceWinnerPrediction.classList.add('hidden');
     headToHeadPrediction.classList.add('hidden');
     customPrediction.classList.add('hidden');
-    
+
     // Show the selected one
     if (betType === 'race-winner') {
       raceWinnerPrediction.classList.remove('hidden');
@@ -88,13 +136,13 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (betType === 'custom') {
       customPrediction.classList.remove('hidden');
     }
-    
+
     // Trigger form change event for autosave
     if (window.friendBetManager) {
       window.friendBetManager.handleFormChange();
     }
   }
-  
+
   /**
    * Update rider names in head-to-head section
    */
@@ -102,17 +150,17 @@ document.addEventListener('DOMContentLoaded', function() {
     if (rider1Select && rider2Select && rider1Name && rider2Name) {
       const rider1Text = rider1Select.options[rider1Select.selectedIndex].text;
       const rider2Text = rider2Select.options[rider2Select.selectedIndex].text;
-      
+
       rider1Name.textContent = rider1Text;
       rider2Name.textContent = rider2Text;
-      
+
       // Trigger form change event for autosave
       if (window.friendBetManager) {
         window.friendBetManager.handleFormChange();
       }
     }
   }
-  
+
   /**
    * Validate form inputs
    */
@@ -122,26 +170,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const friendSelect = document.getElementById('friend-select');
     const wagerAmount = document.getElementById('wager-amount');
     const betType = betTypeSelect.value;
-    
+
     let isValid = true;
     let errorMessage = '';
-    
+
     // Check required fields
     if (!eventSelect.value) {
       isValid = false;
       errorMessage += 'Please select an event.\n';
     }
-    
+
     if (!friendSelect.value) {
       isValid = false;
       errorMessage += 'Please select a friend to challenge.\n';
     }
-    
+
     if (!wagerAmount.value || wagerAmount.value < 5) {
       isValid = false;
       errorMessage += 'Please enter a wager amount (minimum $5).\n';
     }
-    
+
     // Check type-specific fields
     if (betType === 'race-winner') {
       const riderPrediction = document.getElementById('rider-prediction');
@@ -161,15 +209,15 @@ document.addEventListener('DOMContentLoaded', function() {
         errorMessage += 'Please enter your custom proposition.\n';
       }
     }
-    
+
     // Show error messages if any
     if (!isValid) {
       alert('Please fix the following errors:\n\n' + errorMessage);
     }
-    
+
     return isValid;
   }
-  
+
   /**
    * Preview the bet before submission
    */
@@ -177,16 +225,16 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!validateForm()) {
       return;
     }
-    
+
     // Get form data
     const eventText = document.getElementById('event-select').options[document.getElementById('event-select').selectedIndex].text;
     const friendText = document.getElementById('friend-select').options[document.getElementById('friend-select').selectedIndex].text;
     const wagerAmount = document.getElementById('wager-amount').value;
     const betType = betTypeSelect.value;
     const customTerms = document.getElementById('custom-terms').value;
-    
+
     let predictionText = '';
-    
+
     if (betType === 'race-winner') {
       const riderText = document.getElementById('rider-prediction').options[document.getElementById('rider-prediction').selectedIndex].text;
       predictionText = `${riderText} will win the race`;
@@ -197,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (betType === 'custom') {
       predictionText = document.getElementById('custom-prop').value;
     }
-    
+
     // Create summary HTML
     const summaryHtml = `
       <div class="text-sm space-y-2">
@@ -209,23 +257,23 @@ document.addEventListener('DOMContentLoaded', function() {
         ${customTerms ? `<p><strong>Custom Terms:</strong> ${customTerms}</p>` : ''}
       </div>
     `;
-    
+
     // Update and show summary
     summaryContent.innerHTML = summaryHtml;
     betSummary.classList.remove('hidden');
   }
-  
+
   /**
    * Handle form submission
    */
   async function handleSubmit(event) {
     event.preventDefault();
-    
+
     // Validate the form
     if (!validateForm()) {
       return;
     }
-    
+
     // Get form data
     const formData = new FormData(form);
     const betData = {
@@ -235,7 +283,7 @@ document.addEventListener('DOMContentLoaded', function() {
       wagerAmount: parseFloat(formData.get('wagerAmount')),
       customTerms: formData.get('customTerms')
     };
-    
+
     // Add type-specific data
     if (betData.betType === 'race-winner') {
       betData.selectedRiderId = formData.get('selectedRiderId');
@@ -247,17 +295,17 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (betData.betType === 'custom') {
       betData.prediction = formData.get('prediction');
     }
-    
+
     try {
       // Check if user is logged in
       const token = localStorage.getItem('mxracehub-token');
-      
+
       if (!token) {
         // Redirect to login if not logged in
         window.location.href = '/account/login?redirect=' + encodeURIComponent(window.location.pathname);
         return;
       }
-      
+
       // Send data to server
       const response = await fetch('/api/bets/friend', {
         method: 'POST',
@@ -267,25 +315,25 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         body: JSON.stringify(betData)
       });
-      
+
       const data = await response.json();
-      
+
       if (data.success) {
         // Clear saved form data
         if (window.friendBetManager) {
           await window.friendBetManager.clearSavedData();
         }
-        
+
         // Reset form
         form.reset();
-        
+
         // Hide summary
         betSummary.classList.add('hidden');
-        
+
         // Show success message
         if (successMessage) {
           successMessage.classList.remove('hidden');
-          
+
           // Hide success message after 5 seconds
           setTimeout(() => {
             successMessage.classList.add('hidden');
@@ -300,3 +348,78 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const riderSelect = document.querySelector('.rider-select');
+  const headToHeadSection = document.getElementById('head-to-head-section');
+
+  if (riderSelect) {
+    fetch('/api/riders')
+      .then(response => response.json())
+      .then(riders => {
+        const group450 = document.createElement('optgroup');
+        group450.label = '450 Class';
+
+        const group250 = document.createElement('optgroup');
+        group250.label = '250 Class';
+
+        riders.forEach(rider => {
+          const option = document.createElement('option');
+          option.value = rider.id;
+          option.textContent = `${rider.number} - ${rider.firstName} ${rider.lastName}`;
+
+          if (rider.class === '450') {
+            group450.appendChild(option);
+          } else {
+            group250.appendChild(option);
+          }
+        });
+
+        riderSelect.appendChild(group450);
+        riderSelect.appendChild(group250);
+    });
+
+    riderSelect.addEventListener('change', function(e) {
+      const selectedRider = e.target.value;
+      if (selectedRider && headToHeadSection) {
+        headToHeadSection.style.display = 'block';
+      }
+    });
+  }
+});
+
+/**
+ * Populate rider select element
+ * @param {HTMLElement} selectElement - The select element to populate
+ * @param {object} riders - An object containing arrays of riders for each class
+ */
+function populateRiderSelect(selectElement, riders) {
+  // Clear existing options
+  selectElement.innerHTML = '';
+
+  // Create class groups
+  const group250 = document.createElement('optgroup');
+  group250.label = '250 Class';
+  const group450 = document.createElement('optgroup');
+  group450.label = '450 Class';
+
+  // Populate riders
+  riders['250'].forEach(rider => {
+    const option = document.createElement('option');
+    option.value = rider.id;
+    option.textContent = `#${rider.number} - ${rider.firstName} ${rider.lastName}`;
+    option.setAttribute('data-profile-url', `/riders/250/${rider.firstName.toLowerCase()}-${rider.lastName.toLowerCase()}/`);
+    group250.appendChild(option);
+  });
+
+  riders['450'].forEach(rider => {
+    const option = document.createElement('option');
+    option.value = rider.id;
+    option.textContent = `#${rider.number} - ${rider.firstName} ${rider.lastName}`;
+    option.setAttribute('data-profile-url', `/riders/450/${rider.firstName.toLowerCase()}-${rider.lastName.toLowerCase()}/`);
+    group450.appendChild(option);
+  });
+
+  selectElement.appendChild(group450);
+  selectElement.appendChild(group250);
+}

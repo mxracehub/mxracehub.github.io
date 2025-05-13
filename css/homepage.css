@@ -358,6 +358,7 @@
   font-weight: 700;
   margin-bottom: 1rem;
   line-height: 1.3;
+  color: var(--sx-black);
 }
 
 .news-excerpt {
@@ -489,6 +490,7 @@
 
 .rider-name {
   font-weight: 600;
+  color: var(--sx-black);
 }
 
 .rider-odds {

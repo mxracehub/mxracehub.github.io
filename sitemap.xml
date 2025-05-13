@@ -3,640 +3,640 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://mxracehub.github.io/</loc>
     <lastmod>2023-04-21T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/readme/</loc>
+    <loc>https://mxracehub.github.io/readme/</loc>
     <lastmod>2023-04-21T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/example-shortcodes/</loc>
+    <loc>https://mxracehub.github.io/example-shortcodes/</loc>
     <lastmod>2023-04-19T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/</loc>
+    <loc>https://mxracehub.github.io/riders/250/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/450/</loc>
+    <loc>https://mxracehub.github.io/riders/450/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/450/aaron-plessinger/</loc>
+    <loc>https://mxracehub.github.io/riders/450/aaron-plessinger/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://mxracehub.github.io/about/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/account/</loc>
+    <loc>https://mxracehub.github.io/account/settings/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/account/settings/</loc>
+    <loc>https://mxracehub.github.io/riders/450/adam-cianciarulo/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/450/adam-cianciarulo/</loc>
+    <loc>https://mxracehub.github.io/tags/advanced/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tags/advanced/</loc>
+    <loc>https://mxracehub.github.io/riders/all/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/all/</loc>
+    <loc>https://mxracehub.github.io/teams/all/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/teams/all/</loc>
+    <loc>https://mxracehub.github.io/tracks/angel-stadium/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tracks/angel-stadium/</loc>
+    <loc>https://mxracehub.github.io/tracks/at-t-stadium/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tracks/at-t-stadium/</loc>
+    <loc>https://mxracehub.github.io/riders/250/austin-forkner/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/austin-forkner/</loc>
+    <loc>https://mxracehub.github.io/authors/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/authors/</loc>
+    <loc>https://mxracehub.github.io/betting/groups/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/betting/groups/</loc>
+    <loc>https://mxracehub.github.io/betting/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/betting/</loc>
+    <loc>https://mxracehub.github.io/betting/odds/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/betting/odds/</loc>
+    <loc>https://mxracehub.github.io/betting/policies/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/betting/policies/</loc>
+    <loc>https://mxracehub.github.io/riders/250/cameron-mcadoo/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/cameron-mcadoo/</loc>
+    <loc>https://mxracehub.github.io/riders/250/carson-mumford/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/carson-mumford/</loc>
+    <loc>https://mxracehub.github.io/categories/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://mxracehub.github.io/riders/250/chance-hymas/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/chance-hymas/</loc>
+    <loc>https://mxracehub.github.io/riders/450/chase-sexton/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/450/chase-sexton/</loc>
+    <loc>https://mxracehub.github.io/riders/450/christian-craig/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/450/christian-craig/</loc>
+    <loc>https://mxracehub.github.io/riders/450/colt-nichols/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/450/colt-nichols/</loc>
+    <loc>https://mxracehub.github.io/contact/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/contact/</loc>
+    <loc>https://mxracehub.github.io/riders/450/cooper-webb/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/450/cooper-webb/</loc>
+    <loc>https://mxracehub.github.io/riders/250/coty-schock/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/coty-schock/</loc>
+    <loc>https://mxracehub.github.io/tracks/daytona-international-speedway/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tracks/daytona-international-speedway/</loc>
+    <loc>https://mxracehub.github.io/riders/450/dean-wilson/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/450/dean-wilson/</loc>
+    <loc>https://mxracehub.github.io/authors/secondauthor/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/authors/secondauthor/</loc>
+    <loc>https://mxracehub.github.io/riders/450/dylan-ferrandis/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/450/dylan-ferrandis/</loc>
+    <loc>https://mxracehub.github.io/riders/450/eli-tomac/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/450/eli-tomac/</loc>
+    <loc>https://mxracehub.github.io/riders/250/enzo-lopes/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/enzo-lopes/</loc>
+    <loc>https://mxracehub.github.io/teams/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tracks/featured/</loc>
+    <loc>https://mxracehub.github.io/tracks/featured/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tracks/detroit-supercross/</loc>
+    <loc>https://mxracehub.github.io/tracks/detroit-supercross/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tracks/fox-raceway/</loc>
+    <loc>https://mxracehub.github.io/tracks/fox-raceway/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/betting/friend-bets/</loc>
+    <loc>https://mxracehub.github.io/betting/friend-bets/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/races/schedule/</loc>
+    <loc>https://mxracehub.github.io/races/schedule/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/garrett-marchbanks/</loc>
+    <loc>https://mxracehub.github.io/riders/250/garrett-marchbanks/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/betting/group-bets/</loc>
+    <loc>https://mxracehub.github.io/betting/group-bets/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/haiden-deegan/</loc>
+    <loc>https://mxracehub.github.io/riders/250/haiden-deegan/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tracks/high-point/</loc>
+    <loc>https://mxracehub.github.io/tracks/high-point/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/450/hunter-lawrence/</loc>
+    <loc>https://mxracehub.github.io/riders/450/hunter-lawrence/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/jalek-swoll/</loc>
+    <loc>https://mxracehub.github.io/riders/250/jalek-swoll/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/450/jason-anderson/</loc>
+    <loc>https://mxracehub.github.io/riders/450/jason-anderson/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/jeremy-martin/</loc>
+    <loc>https://mxracehub.github.io/riders/250/jeremy-martin/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/450/jett-lawrence/</loc>
+    <loc>https://mxracehub.github.io/riders/450/jett-lawrence/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/jo-shimoda/</loc>
+    <loc>https://mxracehub.github.io/riders/250/jo-shimoda/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/450/joey-savatgy/</loc>
+    <loc>https://mxracehub.github.io/riders/450/joey-savatgy/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/jordon-smith/</loc>
+    <loc>https://mxracehub.github.io/riders/250/jordon-smith/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/450/justin-barcia/</loc>
+    <loc>https://mxracehub.github.io/riders/450/justin-barcia/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/450/justin-cooper/</loc>
+    <loc>https://mxracehub.github.io/riders/450/justin-cooper/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/450/justin-hill/</loc>
+    <loc>https://mxracehub.github.io/riders/450/justin-hill/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/450/ken-roczen/</loc>
+    <loc>https://mxracehub.github.io/riders/450/ken-roczen/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/news/latest/</loc>
+    <loc>https://mxracehub.github.io/news/latest/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/levi-kitchen/</loc>
+    <loc>https://mxracehub.github.io/riders/250/levi-kitchen/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/live-stream/</loc>
+    <loc>https://mxracehub.github.io/live-stream/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/account/login/</loc>
+    <loc>https://mxracehub.github.io/account/login/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/450/malcolm-stewart/</loc>
+    <loc>https://mxracehub.github.io/riders/450/malcolm-stewart/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/max-anstie/</loc>
+    <loc>https://mxracehub.github.io/riders/250/max-anstie/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/max-vohland/</loc>
+    <loc>https://mxracehub.github.io/riders/250/max-vohland/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/account/membership/</loc>
+    <loc>https://mxracehub.github.io/account/membership/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/betting/membership/</loc>
+    <loc>https://mxracehub.github.io/betting/membership/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/membership/</loc>
+    <loc>https://mxracehub.github.io/membership/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tracks/metlife-stadium/</loc>
+    <loc>https://mxracehub.github.io/tracks/metlife-stadium/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/mitchell-oldenburg/</loc>
+    <loc>https://mxracehub.github.io/riders/250/mitchell-oldenburg/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/account/transfers/</loc>
+    <loc>https://mxracehub.github.io/account/transfers/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/races/motocross/</loc>
+    <loc>https://mxracehub.github.io/races/motocross/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tracks/motocross/</loc>
+    <loc>https://mxracehub.github.io/tracks/motocross/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/betting/my-bets/</loc>
+    <loc>https://mxracehub.github.io/account/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/account/profile/</loc>
+    <loc>https://mxracehub.github.io/betting/my-bets/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/account/wallet/</loc>
+    <loc>https://mxracehub.github.io/account/profile/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/nate-thrasher/</loc>
+    <loc>https://mxracehub.github.io/riders/250/nate-thrasher/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/news/</loc>
+    <loc>https://mxracehub.github.io/news/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/authors/nunocoracao/</loc>
+    <loc>https://mxracehub.github.io/authors/nunocoracao/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/betting/payment/</loc>
+    <loc>https://mxracehub.github.io/betting/payment/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/betting/payment-success/</loc>
+    <loc>https://mxracehub.github.io/betting/payment-success/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/phil-nicoletti/</loc>
+    <loc>https://mxracehub.github.io/riders/250/phil-nicoletti/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/pierce-brown/</loc>
+    <loc>https://mxracehub.github.io/riders/250/pierce-brown/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/betting/friend-bets/race-bet-form/</loc>
+    <loc>https://mxracehub.github.io/betting/friend-bets/race-bet-form/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/membership/premium/</loc>
+    <loc>https://mxracehub.github.io/membership/premium/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/privacy-policy/</loc>
+    <loc>https://mxracehub.github.io/privacy-policy/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/privacy/</loc>
+    <loc>https://mxracehub.github.io/privacy/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/series/pro-motocross/</loc>
+    <loc>https://mxracehub.github.io/series/pro-motocross/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/news/analysis/</loc>
+    <loc>https://mxracehub.github.io/news/analysis/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/races/results/</loc>
+    <loc>https://mxracehub.github.io/races/results/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/races/</loc>
+    <loc>https://mxracehub.github.io/races/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tracks/raymond-james-stadium/</loc>
+    <loc>https://mxracehub.github.io/tracks/raymond-james-stadium/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/teams/ktm/</loc>
+    <loc>https://mxracehub.github.io/teams/ktm/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tracks/redbud/</loc>
+    <loc>https://mxracehub.github.io/tracks/redbud/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/account/register/</loc>
+    <loc>https://mxracehub.github.io/account/register/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/responsible-gambling/</loc>
+    <loc>https://mxracehub.github.io/responsible-gambling/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tracks/rice-eccles-stadium/</loc>
+    <loc>https://mxracehub.github.io/tracks/rice-eccles-stadium/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/news/interviews/</loc>
+    <loc>https://mxracehub.github.io/news/interviews/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/</loc>
+    <loc>https://mxracehub.github.io/riders/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/rj-hampshire/</loc>
+    <loc>https://mxracehub.github.io/riders/250/rj-hampshire/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/series/</loc>
+    <loc>https://mxracehub.github.io/series/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/seth-hammaker/</loc>
+    <loc>https://mxracehub.github.io/riders/250/seth-hammaker/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/auth/</loc>
+    <loc>https://mxracehub.github.io/auth/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tracks/san-diego-snapdragon-stadium/</loc>
+    <loc>https://mxracehub.github.io/tracks/san-diego-snapdragon-stadium/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tracks/snapdragon-stadium/</loc>
+    <loc>https://mxracehub.github.io/tracks/snapdragon-stadium/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/races/standings/</loc>
+    <loc>https://mxracehub.github.io/races/standings/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/stilez-robertson/</loc>
+    <loc>https://mxracehub.github.io/riders/250/stilez-robertson/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/series/supercross/</loc>
+    <loc>https://mxracehub.github.io/series/supercross/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/races/supercross/</loc>
+    <loc>https://mxracehub.github.io/races/supercross/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tracks/supercross/</loc>
+    <loc>https://mxracehub.github.io/tracks/supercross/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://mxracehub.github.io/tags/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/teams/honda/</loc>
+    <loc>https://mxracehub.github.io/teams/honda/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/teams/</loc>
+    <loc>https://mxracehub.github.io/terms-of-service/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/terms-of-service/</loc>
+    <loc>https://mxracehub.github.io/terms/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/terms/</loc>
+    <loc>https://mxracehub.github.io/tickets/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tickets/</loc>
+    <loc>https://mxracehub.github.io/riders/250/tom-vialle/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/250/tom-vialle/</loc>
+    <loc>https://mxracehub.github.io/tracks/map/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tracks/map/</loc>
+    <loc>https://mxracehub.github.io/tracks/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tracks/</loc>
+    <loc>https://mxracehub.github.io/betting/transfers/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/betting/transfers/</loc>
+    <loc>https://mxracehub.github.io/tracks/unadilla-mx/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tracks/unadilla-mx/</loc>
+    <loc>https://mxracehub.github.io/races/upcoming/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/races/upcoming/</loc>
+    <loc>https://mxracehub.github.io/news/video/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/news/video/</loc>
+    <loc>https://mxracehub.github.io/riders/450/vince-friese/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/riders/450/vince-friese/</loc>
+    <loc>https://mxracehub.github.io/account/wallet/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tracks/washougal-mx-park/</loc>
+    <loc>https://mxracehub.github.io/tracks/washougal-mx-park/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/watch/</loc>
+    <loc>https://mxracehub.github.io/watch/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/betting/withdraw/</loc>
+    <loc>https://mxracehub.github.io/betting/withdraw/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>

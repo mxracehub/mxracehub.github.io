@@ -1,15 +1,15 @@
 /* Betting Form Styles */
 :root {
-  --sx-red: #E2001A;
-  --sx-dark-red: #B10015;
-  --sx-blue: #0057B8;
+  --sx-red: #D00017;
+  --sx-dark-red: #A30012;
+  --sx-blue: #0046A7;
   --sx-dark-blue: #003D82;
   --sx-white: #FFFFFF;
-  --sx-black: #111111;
-  --sx-gray: #666666;
+  --sx-black: #000000;
+  --sx-gray: #595959;
   --sx-dark-gray: #333333;
   --sx-light-gray: #F2F2F2;
-  --sx-green: #28a745;
+  --sx-green: #1E8035;
 }
 
 .betting-container {
@@ -19,6 +19,7 @@
   background-color: var(--sx-white);
   border-radius: 8px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  
 }
 
 .betting-title {
