@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Betting Hub on </title>
-    <link>https://mxracehub.github.io/betting/</link>
+    <link>http://localhost:53390/betting/</link>
     <description>Recent content in Betting Hub on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 </copyright>
-    <atom:link href="https://mxracehub.github.io/betting/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:53390/betting/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Membership Plans</title>
-      <link>https://mxracehub.github.io/betting/membership/</link>
+      <link>http://localhost:53390/betting/membership/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.github.io/betting/membership/</guid>
+      <guid>http://localhost:53390/betting/membership/</guid>
       <description>&lt;div class=&#34;membership-page&#34;&gt;
   
   &lt;div class=&#34;current-plan-container&#34; id=&#34;current-plan-section&#34;&gt;
@@ -112,10 +112,10 @@
     
     <item>
       <title>My Bets</title>
-      <link>https://mxracehub.github.io/betting/my-bets/</link>
+      <link>http://localhost:53390/betting/my-bets/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.github.io/betting/my-bets/</guid>
+      <guid>http://localhost:53390/betting/my-bets/</guid>
       <description>&lt;div class=&#34;bets-page&#34;&gt;
   &lt;div class=&#34;bets-header&#34;&gt;
     &lt;h1&gt;My Bets&lt;/h1&gt;
@@ -845,10 +845,10 @@
     
     <item>
       <title>Payment &amp; Betting</title>
-      <link>https://mxracehub.github.io/betting/payment/</link>
+      <link>http://localhost:53390/betting/payment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.github.io/betting/payment/</guid>
+      <guid>http://localhost:53390/betting/payment/</guid>
       <description>&lt;div class=&#34;payment-page&#34;&gt;
   &lt;div class=&#34;payment-header&#34;&gt;
     &lt;h1&gt;Payment &amp; Betting&lt;/h1&gt;
@@ -1049,10 +1049,10 @@
     
     <item>
       <title>Payment Successful</title>
-      <link>https://mxracehub.github.io/betting/payment-success/</link>
+      <link>http://localhost:53390/betting/payment-success/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.github.io/betting/payment-success/</guid>
+      <guid>http://localhost:53390/betting/payment-success/</guid>
       <description>&lt;div class=&#34;success-page&#34;&gt;
   &lt;div class=&#34;success-container&#34;&gt;
     &lt;div class=&#34;success-icon&#34;&gt;
@@ -1258,10 +1258,10 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     
     <item>
       <title>Transfer Funds</title>
-      <link>https://mxracehub.github.io/betting/transfers/</link>
+      <link>http://localhost:53390/betting/transfers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.github.io/betting/transfers/</guid>
+      <guid>http://localhost:53390/betting/transfers/</guid>
       <description>&lt;div class=&#34;transfers-page&#34;&gt;
   &lt;div class=&#34;transfers-header&#34;&gt;
     &lt;h1&gt;Transfer Funds&lt;/h1&gt;
@@ -1271,7 +1271,7 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     &lt;div class=&#34;balance-card&#34;&gt;
       &lt;div class=&#34;balance-header&#34;&gt;Available Balance&lt;/div&gt;
       &lt;div class=&#34;balance-amount&#34;&gt;$750.00&lt;/div&gt;
-      &lt;a href=&#34;https://mxracehub.github.io/betting/payment&#34; class=&#34;add-funds-btn&#34;&gt;Add Funds&lt;/a&gt;
+      &lt;a href=&#34;http://localhost:53390/betting/payment&#34; class=&#34;add-funds-btn&#34;&gt;Add Funds&lt;/a&gt;
     &lt;/div&gt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;payment-options&amp;quot;&amp;gt;
   &amp;lt;div class=&amp;quot;option-card&amp;quot;&amp;gt;
@@ -1332,10 +1332,10 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     
     <item>
       <title>Withdraw Funds</title>
-      <link>https://mxracehub.github.io/betting/withdraw/</link>
+      <link>http://localhost:53390/betting/withdraw/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.github.io/betting/withdraw/</guid>
+      <guid>http://localhost:53390/betting/withdraw/</guid>
       <description>&lt;div class=&#34;withdraw-page&#34;&gt;
   &lt;div class=&#34;withdraw-header&#34;&gt;
     &lt;h1&gt;Withdraw Funds&lt;/h1&gt;

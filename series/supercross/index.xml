@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Supercross on </title>
-    <link>https://mxracehub.github.io/series/supercross/</link>
+    <link>http://localhost:53390/series/supercross/</link>
     <description>Recent content in Supercross on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 </copyright>
-    <atom:link href="https://mxracehub.github.io/series/supercross/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:53390/series/supercross/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Raymond James Stadium</title>
-      <link>https://mxracehub.github.io/tracks/raymond-james-stadium/</link>
+      <link>http://localhost:53390/tracks/raymond-james-stadium/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.github.io/tracks/raymond-james-stadium/</guid>
+      <guid>http://localhost:53390/tracks/raymond-james-stadium/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;Stadium Overview 
     &lt;div id=&#34;stadium-overview&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -31,10 +31,10 @@
     
     <item>
       <title>Snapdragon Stadium</title>
-      <link>https://mxracehub.github.io/tracks/san-diego-snapdragon-stadium/</link>
+      <link>http://localhost:53390/tracks/san-diego-snapdragon-stadium/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.github.io/tracks/san-diego-snapdragon-stadium/</guid>
+      <guid>http://localhost:53390/tracks/san-diego-snapdragon-stadium/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The New Home of San Diego Supercross 
     &lt;div id=&#34;the-new-home-of-san-diego-supercross&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
