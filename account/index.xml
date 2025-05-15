@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>My Account on </title>
-    <link>http://localhost:53390/account/</link>
+    <link>https://mxracehub.github.io/account/</link>
     <description>Recent content in My Account on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 </copyright>
-    <atom:link href="http://localhost:53390/account/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://mxracehub.github.io/account/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Membership</title>
-      <link>http://localhost:53390/account/membership/</link>
+      <link>https://mxracehub.github.io/account/membership/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:53390/account/membership/</guid>
+      <guid>https://mxracehub.github.io/account/membership/</guid>
       <description>&lt;div class=&#34;membership-container&#34;&gt;
   &lt;div class=&#34;membership-header&#34;&gt;
     &lt;h1 class=&#34;text-3xl font-bold mb-2&#34;&gt;Membership&lt;/h1&gt;
@@ -33,10 +33,10 @@
     
     <item>
       <title>Money Transfers</title>
-      <link>http://localhost:53390/account/transfers/</link>
+      <link>https://mxracehub.github.io/account/transfers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:53390/account/transfers/</guid>
+      <guid>https://mxracehub.github.io/account/transfers/</guid>
       <description>&lt;div class=&#34;transfers-container&#34;&gt;
   &lt;div class=&#34;transfers-header&#34;&gt;
     &lt;h1 class=&#34;text-3xl font-bold mb-2&#34;&gt;Money Transfers&lt;/h1&gt;
@@ -51,7 +51,7 @@
           &lt;div class=&#34;balance-amount&#34; id=&#34;available-balance&#34;&gt;$250.00&lt;/div&gt;
         &lt;/div&gt;
         &lt;div class=&#34;wallet-actions&#34;&gt;
-          &lt;a href=&#34;http://localhost:53390/account/wallet/&#34; class=&#34;wallet-btn&#34;&gt;View Wallet&lt;/a&gt;
+          &lt;a href=&#34;https://mxracehub.github.io/account/wallet/&#34; class=&#34;wallet-btn&#34;&gt;View Wallet&lt;/a&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
