@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="true">
+<meta name="description" content="Austria&#39;s premier motocross team with championship-winning tradition in AMA Supercross and Motocross">
+<meta name="author" content="MXRaceHub">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mxracehub.site/teams/ktm/">
+<meta property="og:title" content="Red Bull KTM Factory Racing">
+<meta property="og:description" content="Austria&#39;s premier motocross team with championship-winning tradition in AMA Supercross and Motocross">
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mxracehub.site/teams/ktm/">
+<meta property="twitter:title" content="Red Bull KTM Factory Racing">
+<meta property="twitter:description" content="Austria&#39;s premier motocross team with championship-winning tradition in AMA Supercross and Motocross">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/styles.css">
+
+
+<style>
+  :root {
+    --primary-color: #0066cc;
+    --primary-dark: #0052a3;
+    --primary-light: #e6f0ff;
+    --text-color: #333;
+    --text-muted: #666;
+    --background-color: #fff;
+    --card-background: #f9f9f9;
+    --border-color: #e0e0e0;
+    --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --primary-color: #2d8cff;
+      --primary-dark: #0066cc;
+      --primary-light: #0a1a2d;
+      --text-color: #e0e0e0;
+      --text-muted: #a0a0a0;
+      --background-color: #121212;
+      --card-background: #1e1e1e;
+      --border-color: #383838;
+    }
+  }
+
+  body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  .main-content {
+    flex: 1;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .main-content {
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .main-content {
+      padding: 0 3rem;
+    }
+  }
+
+  .content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .content-wrapper {
+      padding: 0 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .content-wrapper {
+      padding: 0 2rem;
+    }
+  }
+</style>
+
+
+<style>
+   
+  .transfers-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .transfers-page {
+      padding: 0 2rem;
+    }
+  }
+
+  .transfers-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+  }
+
+  .balance-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .balance-amount {
+    color: var(--primary-color);
+  }
+
+  .add-funds-btn, 
+  .option-card.active .option-link,
+  .transfer-button {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+
+  .add-funds-btn:hover, 
+  .option-card.active .option-link:hover,
+  .transfer-button:hover {
+    background-color: var(--primary-dark);
+  }
+
+  .option-card {
+    background-color: var(--background-color);
+    border: 2px solid transparent;
+  }
+
+  .option-card.active {
+    border-color: var(--primary-color);
+  }
+
+  .option-icon {
+    color: var(--primary-color);
+  }
+
+  .tab-btn.active {
+    color: var(--primary-color);
+  }
+
+  .tab-btn.active::after {
+    background-color: var(--primary-color);
+  }
+
+  .transfer-form-container {
+    background-color: var(--background-color);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .transfer-form-container {
+      background-color: var(--card-background);
+    }
+
+    .recipient-name,
+    .transfer-header h2 {
+      color: var(--text-color);
+    }
+
+    .recipient-preview {
+      background-color: var(--primary-light);
+    }
+
+    #transfer-amount,
+    #transfer-description,
+    #recipient-search {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      border-color: var(--border-color);
+    }
+
+    .transaction-item {
+      border-color: var(--border-color);
+    }
+
+    .transaction-title {
+      color: var(--text-color);
+    }
+
+    .transaction-date {
+      color: var(--text-muted);
+    }
+  }
+</style><script>
+
+window.mediumZoom = window.mediumZoom || function() {
+  return {
+    attach: function() { return this; },
+    detach: function() { return this; },
+    update: function() { return this; },
+    clone: function() { return this; },
+    on: function() { return this; },
+    off: function() { return this; },
+    open: function() { return this; },
+    close: function() { return this; },
+    toggle: function() { return this; },
+    getOptions: function() { return {}; },
+    getImages: function() { return []; },
+    getZoomedImage: function() { return null; }
+  };
+};
+
+
+window.$ = window.$ || function() {
+  return {
+    ready: function(fn) { 
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', fn);
+      } else {
+        fn();
+      }
+      return this;
+    },
+    on: function() { return this; },
+    off: function() { return this; },
+    click: function() { return this; },
+    each: function() { return this; },
+    find: function() { return this; },
+    addClass: function() { return this; },
+    removeClass: function() { return this; },
+    toggleClass: function() { return this; },
+    hide: function() { return this; },
+    show: function() { return this; },
+    attr: function() { return this; },
+    css: function() { return this; },
+    html: function() { return this; },
+    text: function() { return this; },
+    val: function() { return this; }
+  };
+};
+window.jQuery = window.$;
+</script>
+<script>
+
+if (typeof $ === 'undefined') {
+  window.$ = function(selector) {
+    const elements = typeof selector === 'string' ? document.querySelectorAll(selector) : [selector];
+    return {
+      ready: function(fn) { 
+        if (document.readyState !== 'loading') fn(); 
+        else document.addEventListener('DOMContentLoaded', fn); 
+        return this;
+      },
+      click: function(fn) { 
+        elements.forEach(el => el && el.addEventListener && el.addEventListener('click', fn)); 
+        return this; 
+      },
+      addClass: function(className) { 
+        elements.forEach(el => el && el.classList && el.classList.add(className)); 
+        return this; 
+      },
+      removeClass: function(className) { 
+        elements.forEach(el => el && el.classList && el.classList.remove(className)); 
+        return this; 
+      },
+      toggle: function() { 
+        elements.forEach(el => el && el.style && (el.style.display = el.style.display === 'none' ? '' : 'none')); 
+        return this; 
+      },
+      each: function(fn) {
+        elements.forEach((el, i) => fn.call(el, i, el));
+        return this;
+      },
+      length: elements.length
+    };
+  };
+  
+  window.$.ready = window.$.fn = window.$;
+}
+</script><body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  
+<header class="navbar-main">
+  
+  <div class="top-navbar">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="navbar-logo">
+        <a href="/" class="logo-link">
+          <span class="logo-text">MXRaceHub</span>
+        </a>
+      </div>
+      
+      <div class="nav-buttons flex items-center">
+        <a href="/live-stream/" class="watch-btn">
+          <span class="watch-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </span>
+          <span>Watch Live</span>
+        </a>
+        
+        <a href="/tickets/" class="tickets-btn">
+          <span class="ticket-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 10 4 15 9 20"></polyline>
+              <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+            </svg>
+          </span>
+          <span>Tickets</span>
+        </a>
+        
+        <a href="/auth/" class="signin-btn">
+          <span class="user-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>Sign In</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="main-navbar">
+    <div class="container mx-auto px-4">
+      
+      <nav class="desktop-nav">
+        <ul class="nav-list">
+          <li class="nav-item ">
+            <a href="/" class="nav-link">Home</a>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/races/" class="nav-link dropdown-toggle">
+              <span>Races</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/races/upcoming/" class="dropdown-link">Upcoming Races</a></li>
+                <li><a href="/races/supercross/" class="dropdown-link">Supercross</a></li>
+                <li><a href="/races/motocross/" class="dropdown-link">Motocross</a></li>
+                <li><a href="/races/results/" class="dropdown-link">Race Results</a></li>
+                <li><a href="/races/standings/" class="dropdown-link">Standings</a></li>
+                <li><a href="/races/schedule/" class="dropdown-link">Full Schedule</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/riders/" class="nav-link dropdown-toggle">
+              <span>Riders</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/riders/450/" class="dropdown-link">450 Class</a></li>
+                <li><a href="/riders/250/" class="dropdown-link">250 Class</a></li>
+                <li><a href="/riders/all/" class="dropdown-link">Search All Riders</a></li>
+                <li><a href="/riders/champions/" class="dropdown-link">Champions</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown active">
+            <a href="/teams/" class="nav-link dropdown-toggle">
+              <span>Teams</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/teams/honda/" class="dropdown-link">Team Honda HRC</a></li>
+                <li><a href="/teams/ktm/" class="dropdown-link">Red Bull KTM</a></li>
+                <li><a href="/teams/yamaha/" class="dropdown-link">Monster Energy Yamaha</a></li>
+                <li><a href="/teams/kawasaki/" class="dropdown-link">Monster Energy Kawasaki</a></li>
+                <li><a href="/teams/pro-circuit/" class="dropdown-link">Pro Circuit Kawasaki</a></li>
+                <li><a href="/teams/all/" class="dropdown-link">All Teams</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/tracks/" class="nav-link dropdown-toggle">
+              <span>Tracks</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/tracks/supercross/" class="dropdown-link">Supercross Tracks</a></li>
+                <li><a href="/tracks/motocross/" class="dropdown-link">Motocross Tracks</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/news/" class="nav-link dropdown-toggle">
+              <span>News</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/news/latest/" class="dropdown-link">Latest News</a></li>
+                <li><a href="/news/interviews/" class="dropdown-link">Rider Interviews</a></li>
+                <li><a href="/news/video/" class="dropdown-link">Video Content</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/betting/" class="nav-link dropdown-toggle">
+              <span>Betting</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/betting/friend-bets/" class="dropdown-link">Friend Bets</a></li>
+                <li><a href="/betting/groups/" class="dropdown-link">Betting Groups</a></li>
+                <li><a href="/betting/odds/" class="dropdown-link">Latest Odds</a></li>
+                <li><a href="/betting/membership/" class="dropdown-link">Membership</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/account/" class="nav-link dropdown-toggle">
+              <span>My Account</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/account/profile/" class="dropdown-link">My Profile</a></li>
+                <li><a href="/profile/achievements/" class="dropdown-link">🏆 My Badges</a></li>
+                <li><a href="/account/bets/" class="dropdown-link">My Bets</a></li>
+                <li><a href="/account/wallet/" class="dropdown-link">Wallet</a></li>
+                <li><a href="/account/transfers/" class="dropdown-link">Money Transfers</a></li>
+                <li><a href="/account/membership/" class="dropdown-link">Membership</a></li>
+                <li><a href="/account/settings/" class="dropdown-link">Settings</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      
+      
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  
+  <div id="mobile-nav-panel" class="mobile-nav-panel">
+    <div class="mobile-nav-content">
+      <div class="mobile-nav-header">
+        <div class="logo-text">MXRaceHub</div>
+        <button id="mobile-nav-close" class="mobile-nav-close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav-buttons">
+        <a href="/auth/" class="mobile-signin-btn">
+          <span class="user-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>Sign In</span>
+        </a>
+        
+        <a href="/live-stream/" class="mobile-watch-btn">
+          <span class="watch-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </span>
+          <span>Watch Live</span>
+        </a>
+        
+        <a href="/tickets/" class="mobile-tickets-btn">
+          <span class="ticket-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 10 4 15 9 20"></polyline>
+              <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+            </svg>
+          </span>
+          <span>Tickets</span>
+        </a>
+      </div>
+      
+      <nav class="mobile-nav-menu">
+        <div class="accordion-menu">
+          <div class="accordion-item">
+            <a href="/" class="accordion-link ">Home</a>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Races</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/races/upcoming/" class="accordion-sublink">Upcoming Races</a>
+              <a href="/races/supercross/" class="accordion-sublink">Supercross</a>
+              <a href="/races/motocross/" class="accordion-sublink">Motocross</a>
+              <a href="/races/results/" class="accordion-sublink">Race Results</a>
+              <a href="/races/standings/" class="accordion-sublink">Standings</a>
+              <a href="/races/schedule/" class="accordion-sublink">Full Schedule</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Riders</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/riders/450/" class="accordion-sublink">450 Class</a>
+              <a href="/riders/250/" class="accordion-sublink">250 Class</a>
+              <a href="/riders/all/" class="accordion-sublink">Search All Riders</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle active">
+              <span>Teams</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/teams/honda/" class="accordion-sublink">Team Honda HRC</a>
+              <a href="/teams/ktm/" class="accordion-sublink">Red Bull KTM</a>
+              <a href="/teams/yamaha/" class="accordion-sublink">Monster Energy Yamaha</a>
+              <a href="/teams/kawasaki/" class="accordion-sublink">Monster Energy Kawasaki</a>
+              <a href="/teams/pro-circuit/" class="accordion-sublink">Pro Circuit Kawasaki</a>
+              <a href="/teams/all/" class="accordion-sublink">All Teams</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Tracks</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/tracks/supercross/" class="accordion-sublink">Supercross Tracks</a>
+              <a href="/tracks/motocross/" class="accordion-sublink">Motocross Tracks</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>News</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/news/latest/" class="accordion-sublink">Latest News</a>
+              <a href="/news/interviews/" class="accordion-sublink">Rider Interviews</a>
+              <a href="/news/video/" class="accordion-sublink">Video Content</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Betting</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/betting/friend-bets/" class="accordion-sublink">Friend Bets</a>
+              <a href="/betting/groups/" class="accordion-sublink">Betting Groups</a>
+              <a href="/betting/odds/" class="accordion-sublink">Latest Odds</a>
+              <a href="/betting/membership/" class="accordion-sublink">Membership</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>My Account</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/account/profile/" class="accordion-sublink">My Profile</a>
+              <a href="/account/bets/" class="accordion-sublink">My Bets</a>
+              <a href="/account/wallet/" class="accordion-sublink">Wallet</a>
+              <a href="/account/transfers/" class="accordion-sublink">Money Transfers</a>
+              <a href="/account/membership/" class="accordion-sublink">Membership</a>
+              <a href="/account/settings/" class="accordion-sublink">Settings</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+<div class="nav-spacer"></div>
+
+<style>
+   
+  :root {
+    --primary-color: #e20613;  
+    --secondary-color: #003366;  
+    --text-color: #333333;
+    --light-gray: #f2f2f2;
+    --medium-gray: #dddddd;
+    --dark-gray: #555555;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  
+   
+  .top-navbar {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 0;
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .logo-text {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .watch-btn, .tickets-btn, .signin-btn {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  
+  .watch-btn {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .tickets-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .signin-btn {
+    background-color: transparent;
+    color: white;
+  }
+  
+  .watch-btn:hover, .tickets-btn:hover, .signin-btn:hover {
+    opacity: 0.9;
+  }
+  
+   
+  .main-navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 40;
+  }
+  
+  .desktop-nav {
+    display: flex;
+  }
+  
+  .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .nav-item {
+    position: relative;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    color: var(--primary-color);
+  }
+  
+  .dropdown-toggle {
+    cursor: pointer;
+  }
+  
+  .dropdown-arrow {
+    margin-left: 0.375rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 4px 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 30;
+  }
+  
+  .dropdown-list {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+  
+  .dropdown-link {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dropdown-link:hover {
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+  }
+  
+  .nav-item.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .nav-item.has-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .nav-item.active .nav-link {
+    color: var(--primary-color);
+  }
+  
+   
+  .mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    padding: 1rem;
+    cursor: pointer;
+  }
+  
+   
+  .mobile-nav-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 350px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    z-index: 60;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+  }
+  
+  .mobile-nav-panel.visible {
+    right: 0;
+  }
+  
+  .mobile-nav-content {
+    padding: 1rem;
+  }
+  
+  .mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  .mobile-nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-signin-btn, .mobile-watch-btn, .mobile-tickets-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .mobile-watch-btn {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .mobile-tickets-btn {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+  }
+  
+  .mobile-signin-btn {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+   
+  .accordion-item {
+    border-bottom: 1px solid var(--medium-gray);
+  }
+  
+  .accordion-link, .accordion-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: left;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .accordion-toggle {
+    border-bottom: none;
+  }
+  
+  .accordion-arrow {
+    transition: transform 0.2s ease;
+  }
+  
+  .accordion-toggle.active .accordion-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .accordion-content {
+    display: none;
+    padding: 0.5rem 0 0.5rem 1rem;
+  }
+  
+  .accordion-content.visible {
+    display: block;
+  }
+  
+  .accordion-sublink {
+    display: block;
+    padding: 0.625rem 0;
+    color: var(--dark-gray);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .accordion-sublink:hover {
+    color: var(--primary-color);
+  }
+  
+  .accordion-item .accordion-link.active, 
+  .accordion-item .accordion-toggle.active {
+    color: var(--primary-color);
+  }
+  
+   
+  .nav-spacer {
+    height: 120px;  
+  }
+  
+   
+  @media (max-width: 1024px) {
+    .nav-link {
+      padding: 1rem 0.75rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .desktop-nav {
+      display: none;
+    }
+    
+    .mobile-nav-toggle {
+      display: block;
+    }
+    
+    .nav-spacer {
+      height: 100px;  
+    }
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-color: #f5f5f5;
+      --light-gray: #2a2a2a;
+      --medium-gray: #444444;
+      --dark-gray: #aaaaaa;
+    }
+    
+    .top-navbar {
+      background-color: #002244;  
+    }
+    
+    .main-navbar {
+      background-color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dropdown-menu {
+      background-color: #1a1a1a;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dropdown-link:hover {
+      background-color: #333333;
+    }
+    
+    .mobile-nav-panel {
+      background-color: #1a1a1a;
+    }
+    
+    .mobile-signin-btn {
+      background-color: #002244;
+    }
+    
+    .mobile-tickets-btn {
+      background-color: #333333;
+      color: #f5f5f5;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+    const mobileNavPanel = document.getElementById('mobile-nav-panel');
+    const mobileNavClose = document.getElementById('mobile-nav-close');
+    
+    if (mobileNavToggle && mobileNavPanel) {
+      mobileNavToggle.addEventListener('click', function() {
+        mobileNavPanel.classList.add('visible');
+        document.body.style.overflow = 'hidden'; 
+      });
+    }
+    
+    if (mobileNavClose && mobileNavPanel) {
+      mobileNavClose.addEventListener('click', function() {
+        mobileNavPanel.classList.remove('visible');
+        document.body.style.overflow = ''; 
+      });
+    }
+    
+    
+    const accordionToggles = document.querySelectorAll('.accordion-toggle');
+    
+    accordionToggles.forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        
+        
+        const allContents = document.querySelectorAll('.accordion-content');
+        const allToggles = document.querySelectorAll('.accordion-toggle');
+        
+        allContents.forEach(item => {
+          if (item !== content) {
+            item.classList.remove('visible');
+          }
+        });
+        
+        allToggles.forEach(item => {
+          if (item !== this) {
+            item.classList.remove('active');
+          }
+        });
+        
+        
+        this.classList.toggle('active');
+        content.classList.toggle('visible');
+      });
+    });
+  });
+</script>
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+<div class="max-w-7xl mx-auto px-4 py-8">
+  
+  <div id="team-header" class="team-header bg-gradient-to-br from-orange-500 via-red-500 to-orange-600 text-white p-10 rounded-2xl mb-10 shadow-2xl">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center">
+        <div class="team-logo mr-8">
+          <div id="team-color" class="w-28 h-28 bg-white bg-opacity-25 rounded-2xl flex items-center justify-center shadow-lg backdrop-blur-sm">
+            <span class="text-3xl font-black" id="team-initials">RE</span>
+          </div>
+        </div>
+        <div>
+          <h1 class="text-5xl font-black mb-3 tracking-tight" id="team-name">Red Bull KTM Factory Racing</h1>
+          <p class="text-2xl opacity-95 mb-2" id="team-description">Loading team information...</p>
+          <p class="text-lg opacity-80" id="team-manufacturer"></p>
+        </div>
+      </div>
+      <div class="hidden md:block">
+        <div class="text-right">
+          <div class="text-sm opacity-75 mb-1">Professional Racing Team</div>
+          <div class="text-lg font-bold">2025 Season</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    
+    <div class="lg:col-span-2">
+      <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg mb-8">
+        <h2 class="text-2xl font-bold mb-4 text-orange-600">Team Overview</h2>
+        <div class="prose dark:prose-invert max-w-none">
+          
+
+<h1 class="relative group">Red Bull KTM Factory Racing 
+    <div id="red-bull-ktm-factory-racing" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#red-bull-ktm-factory-racing" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Red Bull KTM Factory Racing represents the pinnacle of Austrian engineering and racing excellence in AMA Supercross and Pro Motocross competition. Known for their distinctive orange machines and innovative technology, KTM has established itself as a dominant force in professional motocross with a commitment to pushing the boundaries of motorcycle performance.</p>
+<p>The partnership with Red Bull has created one of the most recognizable and successful teams in the sport, combining cutting-edge Austrian engineering with world-class rider development and support. KTM&rsquo;s dedication to both two-stroke and four-stroke innovation continues to set new standards in professional racing.</p>
+
+
+<h2 class="relative group">Current Riders 
+    <div id="current-riders" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#current-riders" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Chase Sexton - #23 
+    <div id="chase-sexton---23" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#chase-sexton---23" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The talented American rider has quickly become one of the sport&rsquo;s premier athletes, bringing championship potential to the orange brigade.</p>
+<p><strong>Recent Achievements:</strong></p>
+<ul>
+<li><strong>2023 450 MX Championship 2nd</strong></li>
+<li><strong>Multiple 450 Main Event Wins</strong></li>
+<li><strong>2021 250 East SX Champion</strong></li>
+</ul>
+
+
+<h3 class="relative group">Aaron Plessinger - #7 
+    <div id="aaron-plessinger---7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#aaron-plessinger---7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>A versatile competitor known for his consistency and racecraft, Plessinger adds veteran experience to the KTM lineup.</p>
+<p><strong>Recent Achievements:</strong></p>
+<ul>
+<li><strong>Multiple 450 Podium Finishes</strong></li>
+<li><strong>2018 250 MX Champion</strong></li>
+<li><strong>2017 250 West SX Champion</strong></li>
+</ul>
+
+
+<h3 class="relative group">Tom Vialle - #28 
+    <div id="tom-vialle---28" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#tom-vialle---28" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The French sensation has brought European flair and championship-winning speed to the KTM 250 program.</p>
+<p><strong>Recent Achievements:</strong></p>
+<ul>
+<li><strong>2022 250 West SX Champion</strong></li>
+<li><strong>2020 MX2 World Champion</strong></li>
+<li><strong>Multiple 250 Main Event Wins</strong></li>
+</ul>
+
+
+<h2 class="relative group">Team History 
+    <div id="team-history" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#team-history" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><strong>1953</strong> - KTM is founded in Austria by Hans Trunkenpolz, beginning a legacy of innovative motorcycle engineering.</p>
+<p><strong>1960s-1970s</strong> - KTM establishes itself in European motocross competition with early two-stroke innovations.</p>
+<p><strong>1980s</strong> - The brand expands globally, with riders like Heinz Kinigadner winning World Championships on orange machines.</p>
+<p><strong>1990s-2000s</strong> - KTM develops their four-stroke program while maintaining their two-stroke dominance in various racing disciplines.</p>
+<p><strong>2010s</strong> - The partnership with Red Bull elevates the team&rsquo;s profile, attracting top American talent and establishing a strong presence in AMA racing.</p>
+<p><strong>2020s</strong> - Continued development of the SX-F platform and recruitment of championship-caliber riders maintains KTM&rsquo;s competitive edge.</p>
+
+
+<h2 class="relative group">Recent Championships 
+    <div id="recent-championships" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#recent-championships" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Year</th>
+          <th>Rider</th>
+          <th>Championship</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>2022</td>
+          <td>Tom Vialle</td>
+          <td>AMA 250 West Supercross Championship</td>
+      </tr>
+      <tr>
+          <td>2021</td>
+          <td>Chase Sexton</td>
+          <td>AMA 250 East Supercross Championship</td>
+      </tr>
+      <tr>
+          <td>2020</td>
+          <td>Tom Vialle</td>
+          <td>MX2 World Championship</td>
+      </tr>
+      <tr>
+          <td>2018</td>
+          <td>Aaron Plessinger</td>
+          <td>AMA 250 Pro Motocross Championship</td>
+      </tr>
+      <tr>
+          <td>2017</td>
+          <td>Aaron Plessinger</td>
+          <td>AMA 250 West Supercross Championship</td>
+      </tr>
+      <tr>
+          <td>2016</td>
+          <td>Cooper Webb</td>
+          <td>AMA 250 East Supercross Championship</td>
+      </tr>
+      <tr>
+          <td>2015</td>
+          <td>Ryan Dungey</td>
+          <td>AMA 450 Supercross Championship</td>
+      </tr>
+      <tr>
+          <td>2010</td>
+          <td>Ryan Dungey</td>
+          <td>AMA 450 Pro Motocross Championship</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h2 class="relative group">Team Information 
+    <div id="team-information" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#team-information" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><strong>Location:</strong> Murrieta, California (USA Operations)<br>
+<strong>Team Manager:</strong> Ian Harrison<br>
+<strong>Founded:</strong> 1953 (Racing operations)<br>
+<strong>Base:</strong> Red Bull KTM operates from their state-of-the-art facility where riders collaborate with engineers to develop championship-winning technology.</p>
+
+
+<h2 class="relative group">Technical Partners 
+    <div id="technical-partners" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#technical-partners" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The team works with leading suppliers to maintain their technological advantage:</p>
+<ul>
+<li><strong>WP Suspension</strong> - Advanced suspension systems</li>
+<li><strong>Akrapovič</strong> - Exhaust technology</li>
+<li><strong>Renthal</strong> - Handlebars and controls</li>
+<li><strong>D.I.D</strong> - Chain and sprocket systems</li>
+<li><strong>Twin Air</strong> - Air filtration technology</li>
+<li><strong>Alpinestars</strong> - Rider protection and gear</li>
+</ul>
+<p>Red Bull KTM Factory Racing continues to represent the cutting edge of motocross technology, combining Austrian engineering excellence with championship-level racing ambition across all competitive disciplines.</p>
+
+        </div>
+      </div>
+
+      
+      <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-100 dark:border-gray-700">
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-3xl font-black text-orange-600 dark:text-orange-400">Team Riders</h2>
+          <div class="bg-orange-100 dark:bg-orange-900 px-4 py-2 rounded-full">
+            <span class="text-sm font-semibold text-orange-800 dark:text-orange-200">2025 Season</span>
+          </div>
+        </div>
+        
+        <div id="riders-loading" class="text-center py-12">
+          <div class="loading-spinner mx-auto mb-4"></div>
+          <p class="text-gray-500 dark:text-gray-400 text-lg">Loading team riders...</p>
+        </div>
+        
+        <div id="riders-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 hidden">
+          
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="space-y-6">
+      
+      <div class="bg-gradient-to-br from-orange-500 to-red-500 text-white rounded-2xl p-8 shadow-xl">
+        <h3 class="text-2xl font-black mb-6 flex items-center">
+          <span class="w-2 h-8 bg-white rounded-full mr-3"></span>
+          Team Stats
+        </h3>
+        <div class="space-y-6" id="team-stats">
+          <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-4">
+            <div class="flex justify-between items-center">
+              <span class="text-white text-opacity-90 font-medium">Championships</span>
+              <span class="font-black text-2xl" id="championships">Loading...</span>
+            </div>
+          </div>
+          <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-4">
+            <div class="flex justify-between items-center">
+              <span class="text-white text-opacity-90 font-medium">Race Wins</span>
+              <span class="font-black text-2xl" id="race-wins">Loading...</span>
+            </div>
+          </div>
+          <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-4">
+            <div class="flex justify-between items-center">
+              <span class="text-white text-opacity-90 font-medium">Founded</span>
+              <span class="font-black text-xl" id="founded">Loading...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
+        <h3 class="text-xl font-bold mb-4 text-orange-600">Recent Results</h3>
+        <div class="space-y-3">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const teamName = 'Red Bull KTM Factory Racing';
+  const API_BASE = 'http://localhost:5000/api';
+  
+  
+  async function loadTeamData() {
+    try {
+      
+      const teamsResponse = await fetch(`${API_BASE}/teams`);
+      if (!teamsResponse.ok) throw new Error('Failed to load teams');
+      
+      const teams = await teamsResponse.json();
+      const team = teams.find(t => t.name === teamName);
+      
+      if (team) {
+        
+        const teamColor = document.getElementById('team-color');
+        const teamDescription = document.getElementById('team-description');
+        const teamManufacturer = document.getElementById('team-manufacturer');
+        const teamHeader = document.getElementById('team-header');
+        
+        if (team.color && team.color !== '#333333') {
+          teamColor.style.backgroundColor = team.color;
+          teamColor.style.background = team.color;
+          teamHeader.style.background = `linear-gradient(45deg, ${team.color}, #f7931e)`;
+        }
+        
+        teamDescription.textContent = team.description || 'Professional Racing Team';
+        teamManufacturer.textContent = team.manufacturer ? `${team.manufacturer} Racing` : '';
+        
+        
+        document.getElementById('championships').textContent = team.championships || 0;
+        document.getElementById('race-wins').textContent = team.race_wins || 0;
+        document.getElementById('founded').textContent = team.founded || 'N/A';
+        
+        
+        loadTeamRiders(team.id);
+      } else {
+        console.log('Team not found in database, using static content');
+        hideLoadingStates();
+      }
+    } catch (error) {
+      console.log('Could not load dynamic team data, using static content');
+      hideLoadingStates();
+    }
+  }
+  
+  
+  async function loadTeamRiders(teamId) {
+    try {
+      const response = await fetch(`${API_BASE}/teams/${teamId}/riders`);
+      if (!response.ok) throw new Error('Failed to load riders');
+      
+      const riders = await response.json();
+      const ridersGrid = document.getElementById('riders-grid');
+      const ridersLoading = document.getElementById('riders-loading');
+      
+      if (riders.length > 0) {
+        ridersGrid.innerHTML = riders.map(rider => `
+          <div class="rider-card bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
+            <div class="flex items-center mb-6">
+              <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 text-white rounded-2xl flex items-center justify-center font-black text-lg mr-5 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                #${rider.number}
+              </div>
+              <div class="flex-1">
+                <h3 class="font-black text-xl text-gray-900 dark:text-white mb-1">${rider.first_name} ${rider.last_name}</h3>
+                <p class="text-orange-600 dark:text-orange-400 font-semibold">${rider.division}cc Class</p>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-3">
+                <p class="text-sm"><span class="font-semibold text-gray-700 dark:text-gray-300">Hometown:</span> <span class="text-gray-900 dark:text-white">${rider.hometown || 'N/A'}</span></p>
+              </div>
+              <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-3">
+                <p class="text-sm"><span class="font-semibold text-gray-700 dark:text-gray-300">Bike:</span> <span class="text-gray-900 dark:text-white">${rider.bike || rider.bike_brand || 'N/A'}</span></p>
+              </div>
+              <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-3">
+                <p class="text-sm"><span class="font-semibold text-gray-700 dark:text-gray-300">Country:</span> <span class="text-gray-900 dark:text-white">${rider.nationality || 'N/A'}</span></p>
+              </div>
+            </div>
+          </div>
+        `).join('');
+        
+        ridersLoading.classList.add('hidden');
+        ridersGrid.classList.remove('hidden');
+        
+        
+        addRiderCardEffects();
+      } else {
+        ridersLoading.innerHTML = '<p class="text-gray-500 text-center">No riders found for this team</p>';
+      }
+    } catch (error) {
+      ridersLoading.innerHTML = '<p class="text-gray-500 text-center">Could not load team riders</p>';
+    }
+  }
+  
+  function hideLoadingStates() {
+    
+    document.getElementById('team-description').textContent = 'Professional Racing Team';
+    document.getElementById('championships').textContent = '0';
+    document.getElementById('race-wins').textContent = '0';
+    document.getElementById('founded').textContent = '2024';
+    document.getElementById('riders-loading').classList.add('hidden');
+    document.getElementById('riders-grid').classList.remove('hidden');
+  }
+  
+  function addRiderCardEffects() {
+    const riderCards = document.querySelectorAll('.rider-card');
+    riderCards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-2px)';
+        this.style.transition = 'transform 0.2s ease';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+      });
+    });
+  }
+  
+  
+  loadTeamData();
+});
+</script>
+
+      
+    </main><footer id="site-footer" class="py-4 print:hidden border-t border-neutral-200 dark:border-neutral-700">
+  <div class="container">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex flex-wrap justify-center md:justify-start">
+        
+        
+          
+          <nav class="flex text-sm font-medium text-neutral-500 dark:text-neutral-400">
+            <ul class="flex flex-row flex-wrap list-none justify-center">
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/about/"
+                  title="">
+                  
+                  About
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/contact/"
+                  title="">
+                  
+                  Contact
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/terms/"
+                  title="">
+                  
+                  Terms
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/privacy/"
+                  title="">
+                  
+                  Privacy
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/betting/policies/"
+                  title="">
+                  
+                  Betting Policies
+                </a>
+                
+              </li>
+              
+            </ul>
+          </nav>
+          
+        
+      </div>
+
+      <div class="flex flex-wrap justify-center md:justify-end gap-4">
+        
+        
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy; 2025 MXRaceHub
+        </p>
+        
+
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+  </script>
+  
+  
+  
+<script>
+
+(function() {
+  'use strict';
+  
+  
+  window.mediumZoom = function() {
+    return {
+      attach: function() { return this; },
+      detach: function() { return this; },
+      update: function() { return this; },
+      clone: function() { return this; },
+      on: function() { return this; },
+      off: function() { return this; },
+      open: function() { return this; },
+      close: function() { return this; },
+      toggle: function() { return this; },
+      getOptions: function() { return {}; },
+      getImages: function() { return []; },
+      getZoomedImage: function() { return null; }
+    };
+  };
+
+  
+  const originalError = console.error;
+  console.error = function() {
+    const message = Array.from(arguments).join(' ');
+    if (message.includes('mediumZoom') || message.includes('Uncaught ReferenceError')) {
+      return; 
+    }
+    originalError.apply(console, arguments);
+  };
+
+  
+  window.addEventListener('error', function(e) {
+    if (e.message && (e.message.includes('mediumZoom') || e.message.includes('is not defined'))) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  }, true);
+})();
+</script>
+  
+</footer>
+  </div>
+</body>
+
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+  data-id="nunocoracao" data-description="Support me on Buy me a coffee!" data-message=""
+  data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+
+</html>

@@ -1,0 +1,2339 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="true">
+<meta name="description" content="A powerful, lightweight theme for Hugo.">
+<meta name="author" content="MXRaceHub">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mxracehub.site/tracks/high-point/">
+<meta property="og:title" content="High Point Raceway">
+<meta property="og:description" content="A powerful, lightweight theme for Hugo.">
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mxracehub.site/tracks/high-point/">
+<meta property="twitter:title" content="High Point Raceway">
+<meta property="twitter:description" content="A powerful, lightweight theme for Hugo.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/styles.css">
+
+
+<style>
+  :root {
+    --primary-color: #0066cc;
+    --primary-dark: #0052a3;
+    --primary-light: #e6f0ff;
+    --text-color: #333;
+    --text-muted: #666;
+    --background-color: #fff;
+    --card-background: #f9f9f9;
+    --border-color: #e0e0e0;
+    --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --primary-color: #2d8cff;
+      --primary-dark: #0066cc;
+      --primary-light: #0a1a2d;
+      --text-color: #e0e0e0;
+      --text-muted: #a0a0a0;
+      --background-color: #121212;
+      --card-background: #1e1e1e;
+      --border-color: #383838;
+    }
+  }
+
+  body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  .main-content {
+    flex: 1;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .main-content {
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .main-content {
+      padding: 0 3rem;
+    }
+  }
+
+  .content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .content-wrapper {
+      padding: 0 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .content-wrapper {
+      padding: 0 2rem;
+    }
+  }
+</style>
+
+
+<style>
+   
+  .transfers-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .transfers-page {
+      padding: 0 2rem;
+    }
+  }
+
+  .transfers-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+  }
+
+  .balance-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .balance-amount {
+    color: var(--primary-color);
+  }
+
+  .add-funds-btn, 
+  .option-card.active .option-link,
+  .transfer-button {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+
+  .add-funds-btn:hover, 
+  .option-card.active .option-link:hover,
+  .transfer-button:hover {
+    background-color: var(--primary-dark);
+  }
+
+  .option-card {
+    background-color: var(--background-color);
+    border: 2px solid transparent;
+  }
+
+  .option-card.active {
+    border-color: var(--primary-color);
+  }
+
+  .option-icon {
+    color: var(--primary-color);
+  }
+
+  .tab-btn.active {
+    color: var(--primary-color);
+  }
+
+  .tab-btn.active::after {
+    background-color: var(--primary-color);
+  }
+
+  .transfer-form-container {
+    background-color: var(--background-color);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .transfer-form-container {
+      background-color: var(--card-background);
+    }
+
+    .recipient-name,
+    .transfer-header h2 {
+      color: var(--text-color);
+    }
+
+    .recipient-preview {
+      background-color: var(--primary-light);
+    }
+
+    #transfer-amount,
+    #transfer-description,
+    #recipient-search {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      border-color: var(--border-color);
+    }
+
+    .transaction-item {
+      border-color: var(--border-color);
+    }
+
+    .transaction-title {
+      color: var(--text-color);
+    }
+
+    .transaction-date {
+      color: var(--text-muted);
+    }
+  }
+</style><script>
+
+window.mediumZoom = window.mediumZoom || function() {
+  return {
+    attach: function() { return this; },
+    detach: function() { return this; },
+    update: function() { return this; },
+    clone: function() { return this; },
+    on: function() { return this; },
+    off: function() { return this; },
+    open: function() { return this; },
+    close: function() { return this; },
+    toggle: function() { return this; },
+    getOptions: function() { return {}; },
+    getImages: function() { return []; },
+    getZoomedImage: function() { return null; }
+  };
+};
+
+
+window.$ = window.$ || function() {
+  return {
+    ready: function(fn) { 
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', fn);
+      } else {
+        fn();
+      }
+      return this;
+    },
+    on: function() { return this; },
+    off: function() { return this; },
+    click: function() { return this; },
+    each: function() { return this; },
+    find: function() { return this; },
+    addClass: function() { return this; },
+    removeClass: function() { return this; },
+    toggleClass: function() { return this; },
+    hide: function() { return this; },
+    show: function() { return this; },
+    attr: function() { return this; },
+    css: function() { return this; },
+    html: function() { return this; },
+    text: function() { return this; },
+    val: function() { return this; }
+  };
+};
+window.jQuery = window.$;
+</script>
+<script>
+
+if (typeof $ === 'undefined') {
+  window.$ = function(selector) {
+    const elements = typeof selector === 'string' ? document.querySelectorAll(selector) : [selector];
+    return {
+      ready: function(fn) { 
+        if (document.readyState !== 'loading') fn(); 
+        else document.addEventListener('DOMContentLoaded', fn); 
+        return this;
+      },
+      click: function(fn) { 
+        elements.forEach(el => el && el.addEventListener && el.addEventListener('click', fn)); 
+        return this; 
+      },
+      addClass: function(className) { 
+        elements.forEach(el => el && el.classList && el.classList.add(className)); 
+        return this; 
+      },
+      removeClass: function(className) { 
+        elements.forEach(el => el && el.classList && el.classList.remove(className)); 
+        return this; 
+      },
+      toggle: function() { 
+        elements.forEach(el => el && el.style && (el.style.display = el.style.display === 'none' ? '' : 'none')); 
+        return this; 
+      },
+      each: function(fn) {
+        elements.forEach((el, i) => fn.call(el, i, el));
+        return this;
+      },
+      length: elements.length
+    };
+  };
+  
+  window.$.ready = window.$.fn = window.$;
+}
+</script><body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  
+<header class="navbar-main">
+  
+  <div class="top-navbar">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="navbar-logo">
+        <a href="/" class="logo-link">
+          <span class="logo-text">MXRaceHub</span>
+        </a>
+      </div>
+      
+      <div class="nav-buttons flex items-center">
+        <a href="/live-stream/" class="watch-btn">
+          <span class="watch-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </span>
+          <span>Watch Live</span>
+        </a>
+        
+        <a href="/tickets/" class="tickets-btn">
+          <span class="ticket-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 10 4 15 9 20"></polyline>
+              <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+            </svg>
+          </span>
+          <span>Tickets</span>
+        </a>
+        
+        <a href="/auth/" class="signin-btn">
+          <span class="user-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>Sign In</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="main-navbar">
+    <div class="container mx-auto px-4">
+      
+      <nav class="desktop-nav">
+        <ul class="nav-list">
+          <li class="nav-item ">
+            <a href="/" class="nav-link">Home</a>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/races/" class="nav-link dropdown-toggle">
+              <span>Races</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/races/upcoming/" class="dropdown-link">Upcoming Races</a></li>
+                <li><a href="/races/supercross/" class="dropdown-link">Supercross</a></li>
+                <li><a href="/races/motocross/" class="dropdown-link">Motocross</a></li>
+                <li><a href="/races/results/" class="dropdown-link">Race Results</a></li>
+                <li><a href="/races/standings/" class="dropdown-link">Standings</a></li>
+                <li><a href="/races/schedule/" class="dropdown-link">Full Schedule</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/riders/" class="nav-link dropdown-toggle">
+              <span>Riders</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/riders/450/" class="dropdown-link">450 Class</a></li>
+                <li><a href="/riders/250/" class="dropdown-link">250 Class</a></li>
+                <li><a href="/riders/all/" class="dropdown-link">Search All Riders</a></li>
+                <li><a href="/riders/champions/" class="dropdown-link">Champions</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/teams/" class="nav-link dropdown-toggle">
+              <span>Teams</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/teams/honda/" class="dropdown-link">Team Honda HRC</a></li>
+                <li><a href="/teams/ktm/" class="dropdown-link">Red Bull KTM</a></li>
+                <li><a href="/teams/yamaha/" class="dropdown-link">Monster Energy Yamaha</a></li>
+                <li><a href="/teams/kawasaki/" class="dropdown-link">Monster Energy Kawasaki</a></li>
+                <li><a href="/teams/pro-circuit/" class="dropdown-link">Pro Circuit Kawasaki</a></li>
+                <li><a href="/teams/all/" class="dropdown-link">All Teams</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown active">
+            <a href="/tracks/" class="nav-link dropdown-toggle">
+              <span>Tracks</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/tracks/supercross/" class="dropdown-link">Supercross Tracks</a></li>
+                <li><a href="/tracks/motocross/" class="dropdown-link">Motocross Tracks</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/news/" class="nav-link dropdown-toggle">
+              <span>News</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/news/latest/" class="dropdown-link">Latest News</a></li>
+                <li><a href="/news/interviews/" class="dropdown-link">Rider Interviews</a></li>
+                <li><a href="/news/video/" class="dropdown-link">Video Content</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/betting/" class="nav-link dropdown-toggle">
+              <span>Betting</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/betting/friend-bets/" class="dropdown-link">Friend Bets</a></li>
+                <li><a href="/betting/groups/" class="dropdown-link">Betting Groups</a></li>
+                <li><a href="/betting/odds/" class="dropdown-link">Latest Odds</a></li>
+                <li><a href="/betting/membership/" class="dropdown-link">Membership</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/account/" class="nav-link dropdown-toggle">
+              <span>My Account</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/account/profile/" class="dropdown-link">My Profile</a></li>
+                <li><a href="/profile/achievements/" class="dropdown-link">🏆 My Badges</a></li>
+                <li><a href="/account/bets/" class="dropdown-link">My Bets</a></li>
+                <li><a href="/account/wallet/" class="dropdown-link">Wallet</a></li>
+                <li><a href="/account/transfers/" class="dropdown-link">Money Transfers</a></li>
+                <li><a href="/account/membership/" class="dropdown-link">Membership</a></li>
+                <li><a href="/account/settings/" class="dropdown-link">Settings</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      
+      
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  
+  <div id="mobile-nav-panel" class="mobile-nav-panel">
+    <div class="mobile-nav-content">
+      <div class="mobile-nav-header">
+        <div class="logo-text">MXRaceHub</div>
+        <button id="mobile-nav-close" class="mobile-nav-close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav-buttons">
+        <a href="/auth/" class="mobile-signin-btn">
+          <span class="user-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>Sign In</span>
+        </a>
+        
+        <a href="/live-stream/" class="mobile-watch-btn">
+          <span class="watch-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </span>
+          <span>Watch Live</span>
+        </a>
+        
+        <a href="/tickets/" class="mobile-tickets-btn">
+          <span class="ticket-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 10 4 15 9 20"></polyline>
+              <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+            </svg>
+          </span>
+          <span>Tickets</span>
+        </a>
+      </div>
+      
+      <nav class="mobile-nav-menu">
+        <div class="accordion-menu">
+          <div class="accordion-item">
+            <a href="/" class="accordion-link ">Home</a>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Races</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/races/upcoming/" class="accordion-sublink">Upcoming Races</a>
+              <a href="/races/supercross/" class="accordion-sublink">Supercross</a>
+              <a href="/races/motocross/" class="accordion-sublink">Motocross</a>
+              <a href="/races/results/" class="accordion-sublink">Race Results</a>
+              <a href="/races/standings/" class="accordion-sublink">Standings</a>
+              <a href="/races/schedule/" class="accordion-sublink">Full Schedule</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Riders</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/riders/450/" class="accordion-sublink">450 Class</a>
+              <a href="/riders/250/" class="accordion-sublink">250 Class</a>
+              <a href="/riders/all/" class="accordion-sublink">Search All Riders</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Teams</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/teams/honda/" class="accordion-sublink">Team Honda HRC</a>
+              <a href="/teams/ktm/" class="accordion-sublink">Red Bull KTM</a>
+              <a href="/teams/yamaha/" class="accordion-sublink">Monster Energy Yamaha</a>
+              <a href="/teams/kawasaki/" class="accordion-sublink">Monster Energy Kawasaki</a>
+              <a href="/teams/pro-circuit/" class="accordion-sublink">Pro Circuit Kawasaki</a>
+              <a href="/teams/all/" class="accordion-sublink">All Teams</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle active">
+              <span>Tracks</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/tracks/supercross/" class="accordion-sublink">Supercross Tracks</a>
+              <a href="/tracks/motocross/" class="accordion-sublink">Motocross Tracks</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>News</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/news/latest/" class="accordion-sublink">Latest News</a>
+              <a href="/news/interviews/" class="accordion-sublink">Rider Interviews</a>
+              <a href="/news/video/" class="accordion-sublink">Video Content</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Betting</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/betting/friend-bets/" class="accordion-sublink">Friend Bets</a>
+              <a href="/betting/groups/" class="accordion-sublink">Betting Groups</a>
+              <a href="/betting/odds/" class="accordion-sublink">Latest Odds</a>
+              <a href="/betting/membership/" class="accordion-sublink">Membership</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>My Account</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/account/profile/" class="accordion-sublink">My Profile</a>
+              <a href="/account/bets/" class="accordion-sublink">My Bets</a>
+              <a href="/account/wallet/" class="accordion-sublink">Wallet</a>
+              <a href="/account/transfers/" class="accordion-sublink">Money Transfers</a>
+              <a href="/account/membership/" class="accordion-sublink">Membership</a>
+              <a href="/account/settings/" class="accordion-sublink">Settings</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+<div class="nav-spacer"></div>
+
+<style>
+   
+  :root {
+    --primary-color: #e20613;  
+    --secondary-color: #003366;  
+    --text-color: #333333;
+    --light-gray: #f2f2f2;
+    --medium-gray: #dddddd;
+    --dark-gray: #555555;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  
+   
+  .top-navbar {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 0;
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .logo-text {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .watch-btn, .tickets-btn, .signin-btn {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  
+  .watch-btn {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .tickets-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .signin-btn {
+    background-color: transparent;
+    color: white;
+  }
+  
+  .watch-btn:hover, .tickets-btn:hover, .signin-btn:hover {
+    opacity: 0.9;
+  }
+  
+   
+  .main-navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 40;
+  }
+  
+  .desktop-nav {
+    display: flex;
+  }
+  
+  .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .nav-item {
+    position: relative;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    color: var(--primary-color);
+  }
+  
+  .dropdown-toggle {
+    cursor: pointer;
+  }
+  
+  .dropdown-arrow {
+    margin-left: 0.375rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 4px 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 30;
+  }
+  
+  .dropdown-list {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+  
+  .dropdown-link {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dropdown-link:hover {
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+  }
+  
+  .nav-item.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .nav-item.has-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .nav-item.active .nav-link {
+    color: var(--primary-color);
+  }
+  
+   
+  .mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    padding: 1rem;
+    cursor: pointer;
+  }
+  
+   
+  .mobile-nav-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 350px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    z-index: 60;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+  }
+  
+  .mobile-nav-panel.visible {
+    right: 0;
+  }
+  
+  .mobile-nav-content {
+    padding: 1rem;
+  }
+  
+  .mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  .mobile-nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-signin-btn, .mobile-watch-btn, .mobile-tickets-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .mobile-watch-btn {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .mobile-tickets-btn {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+  }
+  
+  .mobile-signin-btn {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+   
+  .accordion-item {
+    border-bottom: 1px solid var(--medium-gray);
+  }
+  
+  .accordion-link, .accordion-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: left;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .accordion-toggle {
+    border-bottom: none;
+  }
+  
+  .accordion-arrow {
+    transition: transform 0.2s ease;
+  }
+  
+  .accordion-toggle.active .accordion-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .accordion-content {
+    display: none;
+    padding: 0.5rem 0 0.5rem 1rem;
+  }
+  
+  .accordion-content.visible {
+    display: block;
+  }
+  
+  .accordion-sublink {
+    display: block;
+    padding: 0.625rem 0;
+    color: var(--dark-gray);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .accordion-sublink:hover {
+    color: var(--primary-color);
+  }
+  
+  .accordion-item .accordion-link.active, 
+  .accordion-item .accordion-toggle.active {
+    color: var(--primary-color);
+  }
+  
+   
+  .nav-spacer {
+    height: 120px;  
+  }
+  
+   
+  @media (max-width: 1024px) {
+    .nav-link {
+      padding: 1rem 0.75rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .desktop-nav {
+      display: none;
+    }
+    
+    .mobile-nav-toggle {
+      display: block;
+    }
+    
+    .nav-spacer {
+      height: 100px;  
+    }
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-color: #f5f5f5;
+      --light-gray: #2a2a2a;
+      --medium-gray: #444444;
+      --dark-gray: #aaaaaa;
+    }
+    
+    .top-navbar {
+      background-color: #002244;  
+    }
+    
+    .main-navbar {
+      background-color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dropdown-menu {
+      background-color: #1a1a1a;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dropdown-link:hover {
+      background-color: #333333;
+    }
+    
+    .mobile-nav-panel {
+      background-color: #1a1a1a;
+    }
+    
+    .mobile-signin-btn {
+      background-color: #002244;
+    }
+    
+    .mobile-tickets-btn {
+      background-color: #333333;
+      color: #f5f5f5;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+    const mobileNavPanel = document.getElementById('mobile-nav-panel');
+    const mobileNavClose = document.getElementById('mobile-nav-close');
+    
+    if (mobileNavToggle && mobileNavPanel) {
+      mobileNavToggle.addEventListener('click', function() {
+        mobileNavPanel.classList.add('visible');
+        document.body.style.overflow = 'hidden'; 
+      });
+    }
+    
+    if (mobileNavClose && mobileNavPanel) {
+      mobileNavClose.addEventListener('click', function() {
+        mobileNavPanel.classList.remove('visible');
+        document.body.style.overflow = ''; 
+      });
+    }
+    
+    
+    const accordionToggles = document.querySelectorAll('.accordion-toggle');
+    
+    accordionToggles.forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        
+        
+        const allContents = document.querySelectorAll('.accordion-content');
+        const allToggles = document.querySelectorAll('.accordion-toggle');
+        
+        allContents.forEach(item => {
+          if (item !== content) {
+            item.classList.remove('visible');
+          }
+        });
+        
+        allToggles.forEach(item => {
+          if (item !== this) {
+            item.classList.remove('active');
+          }
+        });
+        
+        
+        this.classList.toggle('active');
+        content.classList.toggle('visible');
+      });
+    });
+  });
+</script>
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+<article class="track-profile">
+  <div class="track-hero">
+    <div class="track-hero-overlay"></div>
+    
+      <img src="/img/hero-images/high-point-hero.jpg" alt="High Point Raceway" class="track-hero-bg">
+    
+    
+    <div class="container track-hero-content">
+      <div class="track-hero-info">
+        <h1 class="track-name">High Point Raceway</h1>
+        <div class="track-details">
+          <div class="track-location">Mt. Morris, Pennsylvania</div>
+          <div class="track-type-badge type-motocross">motocross</div>
+          
+          <div class="track-tv-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="15" rx="2" ry="2" />
+              <polyline points="17 2 12 7 7 2" />
+            </svg>
+            
+              On MAVTV/NBC/Peacock
+            
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container track-content">
+    <div class="track-specs-container">
+      <div class="track-image">
+        
+          <img src="/img/tracks/high-point-layout.jpg" alt="High Point Raceway layout">
+        
+      </div>
+      
+      <div class="track-specs">
+        <h2>Track Specifications</h2>
+        <div class="specs-grid">
+          
+          <div class="spec-item">
+            <div class="spec-label">Type</div>
+            <div class="spec-value">motocross</div>
+          </div>
+          
+          
+          
+          <div class="spec-item">
+            <div class="spec-label">Length</div>
+            <div class="spec-value">1.7 miles</div>
+          </div>
+          
+          
+          
+          <div class="spec-item">
+            <div class="spec-label">Soil Type</div>
+            <div class="spec-value">Red Clay</div>
+          </div>
+          
+          
+          
+          <div class="spec-item">
+            <div class="spec-label">Capacity</div>
+            <div class="spec-value">30,000</div>
+          </div>
+          
+          
+          
+          <div class="spec-item">
+            <div class="spec-label">Elevation</div>
+            <div class="spec-value">Varied (300 ft difference)</div>
+          </div>
+          
+          
+          
+          <div class="spec-item">
+            <div class="spec-label">First Race</div>
+            <div class="spec-value">1977</div>
+          </div>
+          
+        </div>
+        
+        
+        <div class="track-broadcast">
+          <h3>Broadcast Information</h3>
+          <div class="broadcast-details">
+            
+            <div class="broadcast-item">
+              <div class="broadcast-label">Channel</div>
+              <div class="broadcast-value">MAVTV/NBC/Peacock</div>
+            </div>
+            
+            
+            
+            <div class="broadcast-item">
+              <div class="broadcast-label">Date</div>
+              <div class="broadcast-value">June 21, 2025</div>
+            </div>
+            
+            
+            
+            <div class="broadcast-item">
+              <div class="broadcast-label">Time</div>
+              <div class="broadcast-value">1:00 PM ET</div>
+            </div>
+            
+          </div>
+        </div>
+        
+        
+        
+        <div class="track-records">
+          <h3>Track Records</h3>
+          <div class="records-list">
+            
+              <div class="record-item">
+                <div class="record-detail">
+                  <strong>2023</strong> - Jett Lawrence (2:07.452)
+                </div>
+              </div>
+            
+              <div class="record-item">
+                <div class="record-detail">
+                  <strong>2022</strong> - Chase Sexton (2:08.213)
+                </div>
+              </div>
+            
+              <div class="record-item">
+                <div class="record-detail">
+                  <strong>2021</strong> - Dylan Ferrandis (2:09.847)
+                </div>
+              </div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="track-content-main">
+      <div class="track-description">
+        <h2>Overview</h2>
+        
+
+<h2 class="relative group">The Rolling Hills of Pennsylvania 
+    <div id="the-rolling-hills-of-pennsylvania" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-rolling-hills-of-pennsylvania" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>High Point Raceway has been a staple of American motocross since it first appeared on the AMA Pro Motocross Championship schedule in 1977. Nestled in the rolling hills of southwestern Pennsylvania near the West Virginia border, this iconic track is known for its distinctive red clay surface, dramatic elevation changes, and rich racing history spanning over four decades.</p>
+<p>Owned and operated by the Coombs family, founders of the famous Racer X Illustrated magazine, High Point Raceway represents the heart and soul of East Coast motocross. The track combines old-school motocross traditions with modern track design elements, creating a unique challenge that has tested the skills of generations of motocross competitors.</p>
+
+
+<h2 class="relative group">Track Design and Characteristics 
+    <div id="track-design-and-characteristics" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#track-design-and-characteristics" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>High Point&rsquo;s distinctive characteristics have made it a favorite among riders and fans alike:</p>
+<ul>
+<li>The famous red clay surface provides exceptional traction when moist but can become extremely slick when dry</li>
+<li>Dramatic elevation changes throughout the circuit, with approximately 300 feet of vertical variation</li>
+<li>Natural terrain features incorporated into the layout, including ridge drops and off-camber turns</li>
+<li>The iconic uphill section after the start, where riders power up a steep incline while navigating multiple turns</li>
+<li>Classic motocross jumps integrated with modern rhythm sections and technical obstacles</li>
+</ul>
+<p>The track layout has evolved over the decades while maintaining its core identity. Modern track designers have carefully balanced preservation of High Point&rsquo;s classic features with innovations that keep the racing competitive and spectacular for today&rsquo;s high-performance motorcycles.</p>
+
+
+<h2 class="relative group">East Coast Soil and Weather Variables 
+    <div id="east-coast-soil-and-weather-variables" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#east-coast-soil-and-weather-variables" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>High Point&rsquo;s red clay surface represents classic East Coast motocross conditions that differ dramatically from the West Coast venues that start the outdoor season. This clay-based soil:</p>
+<ul>
+<li>Holds moisture well, creating deep ruts that reward technical precision</li>
+<li>Develops a distinctive shine when it gets slick, challenging riders with unpredictable traction</li>
+<li>Forms hardpack edges on jump faces and takeoffs that require precise throttle control</li>
+<li>Changes dramatically throughout the day as it transitions from morning moisture to afternoon dry conditions</li>
+</ul>
+<p>The Pennsylvania climate adds another variable, with the June date often featuring hot, humid conditions that test rider fitness. Afternoon thunderstorms are not uncommon, potentially transforming track conditions mid-event and requiring teams to make rapid adjustments to motorcycle setup.</p>
+
+
+<h2 class="relative group">The Natural Amphitheater 
+    <div id="the-natural-amphitheater" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-natural-amphitheater" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>What makes High Point particularly special for spectators is its natural amphitheater design. The track&rsquo;s layout in a valley surrounded by hills provides exceptional viewing opportunities, with many fans able to see nearly the entire circuit from a single vantage point.</p>
+<p>Spectator areas on the hillsides surrounding the track create the famous &ldquo;High Point experience,&rdquo; where fans set up for the day with chairs, canopies, and coolers while enjoying panoramic views of the racing action. The iconic corners where spectators crowd the fences mere feet from the racing line create an electric atmosphere that riders often cite as motivation to push harder.</p>
+
+
+<h2 class="relative group">Legacy of Champions 
+    <div id="legacy-of-champions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#legacy-of-champions" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The list of High Point National winners reads like a motocross hall of fame. Legendary riders including Bob Hannah, Rick Johnson, Jeff Stanton, Ricky Carmichael, and James Stewart have all conquered the Pennsylvania clay. In recent years, new stars like Eli Tomac, Ken Roczen, and the Lawrence brothers have added their names to this prestigious list.</p>
+<p>The track has been the site of many memorable championship battles and career-defining performances. Ricky Carmichael&rsquo;s perfect season in 2002 included a dominant performance at High Point, while James Stewart&rsquo;s legendary battles with Chad Reed electrified fans during their championship rivalry.</p>
+
+
+<h2 class="relative group">A Family Tradition 
+    <div id="a-family-tradition" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#a-family-tradition" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>High Point holds a special place in American motocross as a family-oriented venue that celebrates the sport&rsquo;s grassroots heritage. The Coombs family&rsquo;s stewardship has ensured that despite the event&rsquo;s growth and the sport&rsquo;s increasing professionalization, High Point maintains the authentic motocross atmosphere that has made it beloved by generations of fans.</p>
+<p>Many families have made attending the High Point National an annual tradition, with multiple generations experiencing the sights, sounds, and distinctive red clay of this Pennsylvania motocross institution together. This connection to motocross history and community is palpable throughout the event weekend.</p>
+
+
+<h2 class="relative group">Beyond the National 
+    <div id="beyond-the-national" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#beyond-the-national" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>While the Pro Motocross National is High Point&rsquo;s premier event, the facility hosts a full calendar of amateur racing throughout the season. Regional championship series, qualifying events for the prestigious Loretta Lynn&rsquo;s Amateur National, and local race series all utilize the same track that challenges the pros (with appropriate modifications).</p>
+<p>This accessibility allows amateur riders to test themselves on the same iconic terrain as their professional heroes, creating a direct connection between the grassroots and professional levels of the sport that is central to motocross culture.</p>
+<p>The High Point Amateur Days held in conjunction with the National weekend are particularly special, giving young riders the opportunity to compete on a freshly prepared professional track just days after watching their heroes race the same circuit.</p>
+
+      </div>
+      
+      
+      <div class="track-events">
+        <h2>Upcoming Events</h2>
+        <div class="events-list">
+          
+            <div class="event-item">
+              <div class="event-date">June 21, 2025</div>
+              <div class="event-details">
+                <div class="event-name">High Point National</div>
+                <div class="event-description">Round 4 of the 2025 AMA Pro Motocross Championship</div>
+              </div>
+              
+                <a href="https://promotocross.com/tickets" class="event-tickets-link" target="_blank">Get Tickets</a>
+              
+            </div>
+          
+            <div class="event-item">
+              <div class="event-date">June 19-20, 2025</div>
+              <div class="event-details">
+                <div class="event-name">High Point Amateur Days</div>
+                <div class="event-description">Amateur racing during the National weekend</div>
+              </div>
+              
+                <a href="https://highpointmx.com/events" class="event-tickets-link" target="_blank">Get Tickets</a>
+              
+            </div>
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="track-media">
+        
+        <div class="track-videos">
+          <h2>Videos</h2>
+          <div class="videos-grid">
+            
+              <div class="video-item">
+                
+                  <div class="video-wrapper">
+                    <iframe
+                      src="https://www.youtube.com/embed/vVJbNH6FbLw"
+                      title="2023 High Point National - 450 Moto 2 Highlights"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                
+              </div>
+            
+              <div class="video-item">
+                
+                  <div class="video-wrapper">
+                    <iframe
+                      src="https://www.youtube.com/embed/XQtFQVyHmM8"
+                      title="High Point Track Map Animation 2023"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                
+              </div>
+            
+              <div class="video-item">
+                
+                  <div class="video-wrapper">
+                    <iframe
+                      src="https://www.youtube.com/embed/6Ll6XH2vIwQ"
+                      title="The History of High Point Raceway"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                
+              </div>
+            
+          </div>
+        </div>
+        
+        
+        
+        <div class="track-gallery">
+          <h2>Gallery</h2>
+          <div class="gallery-grid">
+            
+              <div class="gallery-item">
+                <a href="/img/tracks/gallery/high-point-1.jpg" class="gallery-image-link">
+                  <img src="/img/tracks/gallery/high-point-1.jpg" alt="Aerial view of High Point&#39;s distinctive layout">
+                  
+                    <div class="gallery-caption">Aerial view of High Point&#39;s distinctive layout</div>
+                  
+                </a>
+              </div>
+            
+              <div class="gallery-item">
+                <a href="/img/tracks/gallery/high-point-2.jpg" class="gallery-image-link">
+                  <img src="/img/tracks/gallery/high-point-2.jpg" alt="Racing action on High Point&#39;s famous red clay">
+                  
+                    <div class="gallery-caption">Racing action on High Point&#39;s famous red clay</div>
+                  
+                </a>
+              </div>
+            
+              <div class="gallery-item">
+                <a href="/img/tracks/gallery/high-point-3.jpg" class="gallery-image-link">
+                  <img src="/img/tracks/gallery/high-point-3.jpg" alt="The iconic uphill section with spectators lining the fences">
+                  
+                    <div class="gallery-caption">The iconic uphill section with spectators lining the fences</div>
+                  
+                </a>
+              </div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+      
+      
+      <div class="track-previous-winners">
+        <h2>Previous Winners</h2>
+        <table class="winners-table">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Class</th>
+              <th>Rider</th>
+              <th>Manufacturer</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>2023</td>
+              <td>450</td>
+              <td>Jett Lawrence</td>
+              <td>Honda</td>
+            </tr>
+            
+            <tr>
+              <td>2023</td>
+              <td>250</td>
+              <td>Hunter Lawrence</td>
+              <td>Honda</td>
+            </tr>
+            
+            <tr>
+              <td>2022</td>
+              <td>450</td>
+              <td>Chase Sexton</td>
+              <td>Honda</td>
+            </tr>
+            
+            <tr>
+              <td>2022</td>
+              <td>250</td>
+              <td>Jett Lawrence</td>
+              <td>Honda</td>
+            </tr>
+            
+            <tr>
+              <td>2021</td>
+              <td>450</td>
+              <td>Dylan Ferrandis</td>
+              <td>Yamaha</td>
+            </tr>
+            
+            <tr>
+              <td>2021</td>
+              <td>250</td>
+              <td>Justin Cooper</td>
+              <td>Yamaha</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      
+      
+      
+      <div class="track-directions">
+        <h2>Location & Directions</h2>
+        <div class="directions-content">
+          <h3 class="relative group">Getting to High Point Raceway 
+    <div id="getting-to-high-point-raceway" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#getting-to-high-point-raceway" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>High Point Raceway is located at:<br>
+912 Peterstown Rd<br>
+Mt Morris, PA 15349</p>
+
+
+<h4 class="relative group">From Pittsburgh, PA 
+    <div id="from-pittsburgh-pa" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#from-pittsburgh-pa" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>Take I-79 South toward Washington, PA</li>
+<li>Take exit 1 for PA-221 toward Jefferson/Waynesburg</li>
+<li>Turn right onto PA-221 South</li>
+<li>Turn left onto PA-188 East</li>
+<li>Turn right onto Taylortown Rd</li>
+<li>Turn right onto Peterstown Rd</li>
+<li>High Point Raceway will be on your left</li>
+</ul>
+
+
+<h4 class="relative group">From Morgantown, WV 
+    <div id="from-morgantown-wv" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#from-morgantown-wv" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>Take I-79 North toward Pittsburgh</li>
+<li>Take exit 1 for PA-221 toward Jefferson/Waynesburg</li>
+<li>Turn left onto PA-221 South</li>
+<li>Turn left onto PA-188 East</li>
+<li>Turn right onto Taylortown Rd</li>
+<li>Turn right onto Peterstown Rd</li>
+<li>High Point Raceway will be on your left</li>
+</ul>
+        </div>
+        
+        
+        <div class="track-map">
+          <a href="https://maps.app.goo.gl/mK1VK6L4n6Qm2j896" target="_blank" class="map-link">View on Google Maps</a>
+        </div>
+        
+      </div>
+      
+      
+      
+      <div class="track-accommodations">
+        <h2>Nearby Accommodations</h2>
+        <div class="accommodations-list">
+          
+            <div class="accommodation-item">
+              <div class="accommodation-name">Microtel Inn &amp; Suites by Wyndham Waynesburg</div>
+              <div class="accommodation-distance">12 miles from track</div>
+              <a href="https://www.wyndhamhotels.com/microtel/waynesburg-pennsylvania/microtel-inn-and-suites-waynesburg-pa/overview" target="_blank" class="accommodation-link">View Details</a>
+            </div>
+          
+            <div class="accommodation-item">
+              <div class="accommodation-name">Hampton Inn Waynesburg</div>
+              <div class="accommodation-distance">13 miles from track</div>
+              <a href="https://www.hilton.com/en/hotels/pithphx-hampton-waynesburg/" target="_blank" class="accommodation-link">View Details</a>
+            </div>
+          
+            <div class="accommodation-item">
+              <div class="accommodation-name">Hilton Garden Inn Morgantown</div>
+              <div class="accommodation-distance">18 miles from track</div>
+              <a href="https://www.hilton.com/en/hotels/mgwgigi-hilton-garden-inn-morgantown/" target="_blank" class="accommodation-link">View Details</a>
+            </div>
+          
+            <div class="accommodation-item">
+              <div class="accommodation-name">Holiday Inn Express Morgantown</div>
+              <div class="accommodation-distance">19 miles from track</div>
+              <a href="https://www.ihg.com/holidayinnexpress/hotels/us/en/morgantown/mgwwv/hoteldetail" target="_blank" class="accommodation-link">View Details</a>
+            </div>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</article>
+
+<style>
+   
+  .track-profile {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+   
+  .track-hero {
+    position: relative;
+    height: 350px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+  
+  .track-hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .track-hero-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .track-hero-fallback .track-name {
+    font-size: 3rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .track-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+    z-index: 1;
+  }
+  
+  .track-hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    z-index: 2;
+  }
+  
+  .track-hero-info {
+    color: white;
+  }
+  
+  .track-hero-info h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .track-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .track-location {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+  
+  .track-type-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .type-supercross {
+    background-color: #d4a017;
+  }
+  
+  .type-motocross {
+    background-color: #228b22;
+  }
+  
+  .type-smx {
+    background-color: #9932cc;
+  }
+  
+  .track-tv-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    background-color: #cc0000;
+    color: white;
+    font-weight: 500;
+  }
+  
+   
+  .track-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 4rem;
+  }
+  
+  @media (min-width: 992px) {
+    .track-content {
+      grid-template-columns: 300px 1fr;
+    }
+  }
+  
+  .track-specs-container {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .track-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+  
+  .track-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .track-specs {
+    padding: 1.5rem;
+  }
+  
+  .track-specs h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .spec-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .spec-label {
+    font-size: 0.85rem;
+    color: #777;
+    text-transform: uppercase;
+  }
+  
+  .spec-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .track-broadcast,
+  .track-records {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+  }
+  
+  .track-broadcast h3,
+  .track-records h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+  
+  .broadcast-details {
+    display: grid;
+    gap: 0.75rem;
+  }
+  
+  .broadcast-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .broadcast-label {
+    font-size: 0.85rem;
+    color: #777;
+    text-transform: uppercase;
+  }
+  
+  .broadcast-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .records-list {
+    display: grid;
+    gap: 0.75rem;
+  }
+  
+  .record-item {
+    padding: 0.75rem;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+  }
+  
+   
+  .track-content-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .track-content-main h2 {
+    font-size: 1.75rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .track-description {
+    line-height: 1.6;
+  }
+  
+   
+  .events-list {
+    display: grid;
+    gap: 1.25rem;
+  }
+  
+  .event-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
+    padding: 1.25rem;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .event-date {
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  
+  .event-name {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  
+  .event-description {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .event-tickets-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #c10000;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+  }
+  
+  .event-tickets-link:hover {
+    background-color: #a00000;
+  }
+  
+   
+  .videos-grid,
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .video-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .video-wrapper {
+    position: relative;
+    padding-top: 56.25%;  
+  }
+  
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  
+  .video-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .video-thumbnail {
+    position: relative;
+    aspect-ratio: 16/9;
+    background-color: #eee;
+    overflow: hidden;
+  }
+  
+  .video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .video-thumbnail-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    color: white;
+  }
+  
+  .video-title {
+    padding: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .gallery-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .gallery-image-link {
+    display: block;
+    position: relative;
+  }
+  
+  .gallery-image-link img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  
+  .gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 0.9rem;
+  }
+  
+   
+  .winners-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  .winners-table th,
+  .winners-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .winners-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .winners-table tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+   
+  .track-map {
+    margin-top: 1.25rem;
+  }
+  
+  .map-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #4285F4;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+  
+  .map-link:hover {
+    background-color: #3367D6;
+  }
+  
+   
+  .accommodations-list {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+  
+  .accommodation-item {
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .accommodation-name {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  
+  .accommodation-distance {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.75rem;
+  }
+  
+  .accommodation-link {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    background-color: #4285F4;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  .accommodation-link:hover {
+    background-color: #3367D6;
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .track-specs-container {
+      background-color: #222;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .spec-label,
+    .broadcast-label {
+      color: #aaa;
+    }
+    
+    .track-broadcast,
+    .track-records {
+      border-top-color: #333;
+    }
+    
+    .record-item {
+      background-color: #333;
+    }
+    
+    .track-content-main h2 {
+      color: #e0e0e0;
+    }
+    
+    .event-item {
+      background-color: #222;
+    }
+    
+    .event-description {
+      color: #aaa;
+    }
+    
+    .winners-table th {
+      background-color: #333;
+    }
+    
+    .winners-table td {
+      border-bottom-color: #444;
+    }
+    
+    .winners-table tr:hover {
+      background-color: #333;
+    }
+    
+    .accommodation-item {
+      background-color: #222;
+    }
+    
+    .accommodation-distance {
+      color: #aaa;
+    }
+  }
+  
+   
+  @media (max-width: 768px) {
+    .track-hero {
+      height: 280px;
+    }
+    
+    .track-hero-info h1 {
+      font-size: 2.5rem;
+    }
+    
+    .specs-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .videos-grid, 
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .event-item {
+      grid-template-columns: 1fr;
+    }
+    
+    .accommodations-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+      
+    </main><footer id="site-footer" class="py-4 print:hidden border-t border-neutral-200 dark:border-neutral-700">
+  <div class="container">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex flex-wrap justify-center md:justify-start">
+        
+        
+          
+          <nav class="flex text-sm font-medium text-neutral-500 dark:text-neutral-400">
+            <ul class="flex flex-row flex-wrap list-none justify-center">
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/about/"
+                  title="">
+                  
+                  About
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/contact/"
+                  title="">
+                  
+                  Contact
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/terms/"
+                  title="">
+                  
+                  Terms
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/privacy/"
+                  title="">
+                  
+                  Privacy
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/betting/policies/"
+                  title="">
+                  
+                  Betting Policies
+                </a>
+                
+              </li>
+              
+            </ul>
+          </nav>
+          
+        
+      </div>
+
+      <div class="flex flex-wrap justify-center md:justify-end gap-4">
+        
+        
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy; 2025 MXRaceHub
+        </p>
+        
+
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+  </script>
+  
+  
+  
+<script>
+
+(function() {
+  'use strict';
+  
+  
+  window.mediumZoom = function() {
+    return {
+      attach: function() { return this; },
+      detach: function() { return this; },
+      update: function() { return this; },
+      clone: function() { return this; },
+      on: function() { return this; },
+      off: function() { return this; },
+      open: function() { return this; },
+      close: function() { return this; },
+      toggle: function() { return this; },
+      getOptions: function() { return {}; },
+      getImages: function() { return []; },
+      getZoomedImage: function() { return null; }
+    };
+  };
+
+  
+  const originalError = console.error;
+  console.error = function() {
+    const message = Array.from(arguments).join(' ');
+    if (message.includes('mediumZoom') || message.includes('Uncaught ReferenceError')) {
+      return; 
+    }
+    originalError.apply(console, arguments);
+  };
+
+  
+  window.addEventListener('error', function(e) {
+    if (e.message && (e.message.includes('mediumZoom') || e.message.includes('is not defined'))) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  }, true);
+})();
+</script>
+  
+</footer>
+  </div>
+</body>
+
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+  data-id="nunocoracao" data-description="Support me on Buy me a coffee!" data-message=""
+  data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+
+</html>

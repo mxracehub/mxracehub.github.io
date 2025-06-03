@@ -1,0 +1,2265 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="true">
+<meta name="description" content="A powerful, lightweight theme for Hugo.">
+<meta name="author" content="MXRaceHub">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mxracehub.site/riders/250/levi-kitchen/">
+<meta property="og:title" content="Levi Kitchen">
+<meta property="og:description" content="A powerful, lightweight theme for Hugo.">
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mxracehub.site/riders/250/levi-kitchen/">
+<meta property="twitter:title" content="Levi Kitchen">
+<meta property="twitter:description" content="A powerful, lightweight theme for Hugo.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/styles.css">
+
+
+<style>
+  :root {
+    --primary-color: #0066cc;
+    --primary-dark: #0052a3;
+    --primary-light: #e6f0ff;
+    --text-color: #333;
+    --text-muted: #666;
+    --background-color: #fff;
+    --card-background: #f9f9f9;
+    --border-color: #e0e0e0;
+    --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --primary-color: #2d8cff;
+      --primary-dark: #0066cc;
+      --primary-light: #0a1a2d;
+      --text-color: #e0e0e0;
+      --text-muted: #a0a0a0;
+      --background-color: #121212;
+      --card-background: #1e1e1e;
+      --border-color: #383838;
+    }
+  }
+
+  body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  .main-content {
+    flex: 1;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .main-content {
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .main-content {
+      padding: 0 3rem;
+    }
+  }
+
+  .content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .content-wrapper {
+      padding: 0 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .content-wrapper {
+      padding: 0 2rem;
+    }
+  }
+</style>
+
+
+<style>
+   
+  .transfers-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .transfers-page {
+      padding: 0 2rem;
+    }
+  }
+
+  .transfers-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+  }
+
+  .balance-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .balance-amount {
+    color: var(--primary-color);
+  }
+
+  .add-funds-btn, 
+  .option-card.active .option-link,
+  .transfer-button {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+
+  .add-funds-btn:hover, 
+  .option-card.active .option-link:hover,
+  .transfer-button:hover {
+    background-color: var(--primary-dark);
+  }
+
+  .option-card {
+    background-color: var(--background-color);
+    border: 2px solid transparent;
+  }
+
+  .option-card.active {
+    border-color: var(--primary-color);
+  }
+
+  .option-icon {
+    color: var(--primary-color);
+  }
+
+  .tab-btn.active {
+    color: var(--primary-color);
+  }
+
+  .tab-btn.active::after {
+    background-color: var(--primary-color);
+  }
+
+  .transfer-form-container {
+    background-color: var(--background-color);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .transfer-form-container {
+      background-color: var(--card-background);
+    }
+
+    .recipient-name,
+    .transfer-header h2 {
+      color: var(--text-color);
+    }
+
+    .recipient-preview {
+      background-color: var(--primary-light);
+    }
+
+    #transfer-amount,
+    #transfer-description,
+    #recipient-search {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      border-color: var(--border-color);
+    }
+
+    .transaction-item {
+      border-color: var(--border-color);
+    }
+
+    .transaction-title {
+      color: var(--text-color);
+    }
+
+    .transaction-date {
+      color: var(--text-muted);
+    }
+  }
+</style><script>
+
+window.mediumZoom = window.mediumZoom || function() {
+  return {
+    attach: function() { return this; },
+    detach: function() { return this; },
+    update: function() { return this; },
+    clone: function() { return this; },
+    on: function() { return this; },
+    off: function() { return this; },
+    open: function() { return this; },
+    close: function() { return this; },
+    toggle: function() { return this; },
+    getOptions: function() { return {}; },
+    getImages: function() { return []; },
+    getZoomedImage: function() { return null; }
+  };
+};
+
+
+window.$ = window.$ || function() {
+  return {
+    ready: function(fn) { 
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', fn);
+      } else {
+        fn();
+      }
+      return this;
+    },
+    on: function() { return this; },
+    off: function() { return this; },
+    click: function() { return this; },
+    each: function() { return this; },
+    find: function() { return this; },
+    addClass: function() { return this; },
+    removeClass: function() { return this; },
+    toggleClass: function() { return this; },
+    hide: function() { return this; },
+    show: function() { return this; },
+    attr: function() { return this; },
+    css: function() { return this; },
+    html: function() { return this; },
+    text: function() { return this; },
+    val: function() { return this; }
+  };
+};
+window.jQuery = window.$;
+</script>
+<script>
+
+if (typeof $ === 'undefined') {
+  window.$ = function(selector) {
+    const elements = typeof selector === 'string' ? document.querySelectorAll(selector) : [selector];
+    return {
+      ready: function(fn) { 
+        if (document.readyState !== 'loading') fn(); 
+        else document.addEventListener('DOMContentLoaded', fn); 
+        return this;
+      },
+      click: function(fn) { 
+        elements.forEach(el => el && el.addEventListener && el.addEventListener('click', fn)); 
+        return this; 
+      },
+      addClass: function(className) { 
+        elements.forEach(el => el && el.classList && el.classList.add(className)); 
+        return this; 
+      },
+      removeClass: function(className) { 
+        elements.forEach(el => el && el.classList && el.classList.remove(className)); 
+        return this; 
+      },
+      toggle: function() { 
+        elements.forEach(el => el && el.style && (el.style.display = el.style.display === 'none' ? '' : 'none')); 
+        return this; 
+      },
+      each: function(fn) {
+        elements.forEach((el, i) => fn.call(el, i, el));
+        return this;
+      },
+      length: elements.length
+    };
+  };
+  
+  window.$.ready = window.$.fn = window.$;
+}
+</script><body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  
+<header class="navbar-main">
+  
+  <div class="top-navbar">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="navbar-logo">
+        <a href="/" class="logo-link">
+          <span class="logo-text">MXRaceHub</span>
+        </a>
+      </div>
+      
+      <div class="nav-buttons flex items-center">
+        <a href="/live-stream/" class="watch-btn">
+          <span class="watch-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </span>
+          <span>Watch Live</span>
+        </a>
+        
+        <a href="/tickets/" class="tickets-btn">
+          <span class="ticket-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 10 4 15 9 20"></polyline>
+              <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+            </svg>
+          </span>
+          <span>Tickets</span>
+        </a>
+        
+        <a href="/auth/" class="signin-btn">
+          <span class="user-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>Sign In</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="main-navbar">
+    <div class="container mx-auto px-4">
+      
+      <nav class="desktop-nav">
+        <ul class="nav-list">
+          <li class="nav-item ">
+            <a href="/" class="nav-link">Home</a>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/races/" class="nav-link dropdown-toggle">
+              <span>Races</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/races/upcoming/" class="dropdown-link">Upcoming Races</a></li>
+                <li><a href="/races/supercross/" class="dropdown-link">Supercross</a></li>
+                <li><a href="/races/motocross/" class="dropdown-link">Motocross</a></li>
+                <li><a href="/races/results/" class="dropdown-link">Race Results</a></li>
+                <li><a href="/races/standings/" class="dropdown-link">Standings</a></li>
+                <li><a href="/races/schedule/" class="dropdown-link">Full Schedule</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown active">
+            <a href="/riders/" class="nav-link dropdown-toggle">
+              <span>Riders</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/riders/450/" class="dropdown-link">450 Class</a></li>
+                <li><a href="/riders/250/" class="dropdown-link">250 Class</a></li>
+                <li><a href="/riders/all/" class="dropdown-link">Search All Riders</a></li>
+                <li><a href="/riders/champions/" class="dropdown-link">Champions</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/teams/" class="nav-link dropdown-toggle">
+              <span>Teams</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/teams/honda/" class="dropdown-link">Team Honda HRC</a></li>
+                <li><a href="/teams/ktm/" class="dropdown-link">Red Bull KTM</a></li>
+                <li><a href="/teams/yamaha/" class="dropdown-link">Monster Energy Yamaha</a></li>
+                <li><a href="/teams/kawasaki/" class="dropdown-link">Monster Energy Kawasaki</a></li>
+                <li><a href="/teams/pro-circuit/" class="dropdown-link">Pro Circuit Kawasaki</a></li>
+                <li><a href="/teams/all/" class="dropdown-link">All Teams</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/tracks/" class="nav-link dropdown-toggle">
+              <span>Tracks</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/tracks/supercross/" class="dropdown-link">Supercross Tracks</a></li>
+                <li><a href="/tracks/motocross/" class="dropdown-link">Motocross Tracks</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/news/" class="nav-link dropdown-toggle">
+              <span>News</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/news/latest/" class="dropdown-link">Latest News</a></li>
+                <li><a href="/news/interviews/" class="dropdown-link">Rider Interviews</a></li>
+                <li><a href="/news/video/" class="dropdown-link">Video Content</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/betting/" class="nav-link dropdown-toggle">
+              <span>Betting</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/betting/friend-bets/" class="dropdown-link">Friend Bets</a></li>
+                <li><a href="/betting/groups/" class="dropdown-link">Betting Groups</a></li>
+                <li><a href="/betting/odds/" class="dropdown-link">Latest Odds</a></li>
+                <li><a href="/betting/membership/" class="dropdown-link">Membership</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/account/" class="nav-link dropdown-toggle">
+              <span>My Account</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/account/profile/" class="dropdown-link">My Profile</a></li>
+                <li><a href="/profile/achievements/" class="dropdown-link">🏆 My Badges</a></li>
+                <li><a href="/account/bets/" class="dropdown-link">My Bets</a></li>
+                <li><a href="/account/wallet/" class="dropdown-link">Wallet</a></li>
+                <li><a href="/account/transfers/" class="dropdown-link">Money Transfers</a></li>
+                <li><a href="/account/membership/" class="dropdown-link">Membership</a></li>
+                <li><a href="/account/settings/" class="dropdown-link">Settings</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      
+      
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  
+  <div id="mobile-nav-panel" class="mobile-nav-panel">
+    <div class="mobile-nav-content">
+      <div class="mobile-nav-header">
+        <div class="logo-text">MXRaceHub</div>
+        <button id="mobile-nav-close" class="mobile-nav-close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav-buttons">
+        <a href="/auth/" class="mobile-signin-btn">
+          <span class="user-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>Sign In</span>
+        </a>
+        
+        <a href="/live-stream/" class="mobile-watch-btn">
+          <span class="watch-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </span>
+          <span>Watch Live</span>
+        </a>
+        
+        <a href="/tickets/" class="mobile-tickets-btn">
+          <span class="ticket-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 10 4 15 9 20"></polyline>
+              <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+            </svg>
+          </span>
+          <span>Tickets</span>
+        </a>
+      </div>
+      
+      <nav class="mobile-nav-menu">
+        <div class="accordion-menu">
+          <div class="accordion-item">
+            <a href="/" class="accordion-link ">Home</a>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Races</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/races/upcoming/" class="accordion-sublink">Upcoming Races</a>
+              <a href="/races/supercross/" class="accordion-sublink">Supercross</a>
+              <a href="/races/motocross/" class="accordion-sublink">Motocross</a>
+              <a href="/races/results/" class="accordion-sublink">Race Results</a>
+              <a href="/races/standings/" class="accordion-sublink">Standings</a>
+              <a href="/races/schedule/" class="accordion-sublink">Full Schedule</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle active">
+              <span>Riders</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/riders/450/" class="accordion-sublink">450 Class</a>
+              <a href="/riders/250/" class="accordion-sublink">250 Class</a>
+              <a href="/riders/all/" class="accordion-sublink">Search All Riders</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Teams</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/teams/honda/" class="accordion-sublink">Team Honda HRC</a>
+              <a href="/teams/ktm/" class="accordion-sublink">Red Bull KTM</a>
+              <a href="/teams/yamaha/" class="accordion-sublink">Monster Energy Yamaha</a>
+              <a href="/teams/kawasaki/" class="accordion-sublink">Monster Energy Kawasaki</a>
+              <a href="/teams/pro-circuit/" class="accordion-sublink">Pro Circuit Kawasaki</a>
+              <a href="/teams/all/" class="accordion-sublink">All Teams</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Tracks</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/tracks/supercross/" class="accordion-sublink">Supercross Tracks</a>
+              <a href="/tracks/motocross/" class="accordion-sublink">Motocross Tracks</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>News</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/news/latest/" class="accordion-sublink">Latest News</a>
+              <a href="/news/interviews/" class="accordion-sublink">Rider Interviews</a>
+              <a href="/news/video/" class="accordion-sublink">Video Content</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Betting</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/betting/friend-bets/" class="accordion-sublink">Friend Bets</a>
+              <a href="/betting/groups/" class="accordion-sublink">Betting Groups</a>
+              <a href="/betting/odds/" class="accordion-sublink">Latest Odds</a>
+              <a href="/betting/membership/" class="accordion-sublink">Membership</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>My Account</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/account/profile/" class="accordion-sublink">My Profile</a>
+              <a href="/account/bets/" class="accordion-sublink">My Bets</a>
+              <a href="/account/wallet/" class="accordion-sublink">Wallet</a>
+              <a href="/account/transfers/" class="accordion-sublink">Money Transfers</a>
+              <a href="/account/membership/" class="accordion-sublink">Membership</a>
+              <a href="/account/settings/" class="accordion-sublink">Settings</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+<div class="nav-spacer"></div>
+
+<style>
+   
+  :root {
+    --primary-color: #e20613;  
+    --secondary-color: #003366;  
+    --text-color: #333333;
+    --light-gray: #f2f2f2;
+    --medium-gray: #dddddd;
+    --dark-gray: #555555;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  
+   
+  .top-navbar {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 0;
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .logo-text {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .watch-btn, .tickets-btn, .signin-btn {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  
+  .watch-btn {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .tickets-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .signin-btn {
+    background-color: transparent;
+    color: white;
+  }
+  
+  .watch-btn:hover, .tickets-btn:hover, .signin-btn:hover {
+    opacity: 0.9;
+  }
+  
+   
+  .main-navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 40;
+  }
+  
+  .desktop-nav {
+    display: flex;
+  }
+  
+  .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .nav-item {
+    position: relative;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    color: var(--primary-color);
+  }
+  
+  .dropdown-toggle {
+    cursor: pointer;
+  }
+  
+  .dropdown-arrow {
+    margin-left: 0.375rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 4px 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 30;
+  }
+  
+  .dropdown-list {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+  
+  .dropdown-link {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dropdown-link:hover {
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+  }
+  
+  .nav-item.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .nav-item.has-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .nav-item.active .nav-link {
+    color: var(--primary-color);
+  }
+  
+   
+  .mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    padding: 1rem;
+    cursor: pointer;
+  }
+  
+   
+  .mobile-nav-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 350px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    z-index: 60;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+  }
+  
+  .mobile-nav-panel.visible {
+    right: 0;
+  }
+  
+  .mobile-nav-content {
+    padding: 1rem;
+  }
+  
+  .mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  .mobile-nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-signin-btn, .mobile-watch-btn, .mobile-tickets-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .mobile-watch-btn {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .mobile-tickets-btn {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+  }
+  
+  .mobile-signin-btn {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+   
+  .accordion-item {
+    border-bottom: 1px solid var(--medium-gray);
+  }
+  
+  .accordion-link, .accordion-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: left;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .accordion-toggle {
+    border-bottom: none;
+  }
+  
+  .accordion-arrow {
+    transition: transform 0.2s ease;
+  }
+  
+  .accordion-toggle.active .accordion-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .accordion-content {
+    display: none;
+    padding: 0.5rem 0 0.5rem 1rem;
+  }
+  
+  .accordion-content.visible {
+    display: block;
+  }
+  
+  .accordion-sublink {
+    display: block;
+    padding: 0.625rem 0;
+    color: var(--dark-gray);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .accordion-sublink:hover {
+    color: var(--primary-color);
+  }
+  
+  .accordion-item .accordion-link.active, 
+  .accordion-item .accordion-toggle.active {
+    color: var(--primary-color);
+  }
+  
+   
+  .nav-spacer {
+    height: 120px;  
+  }
+  
+   
+  @media (max-width: 1024px) {
+    .nav-link {
+      padding: 1rem 0.75rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .desktop-nav {
+      display: none;
+    }
+    
+    .mobile-nav-toggle {
+      display: block;
+    }
+    
+    .nav-spacer {
+      height: 100px;  
+    }
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-color: #f5f5f5;
+      --light-gray: #2a2a2a;
+      --medium-gray: #444444;
+      --dark-gray: #aaaaaa;
+    }
+    
+    .top-navbar {
+      background-color: #002244;  
+    }
+    
+    .main-navbar {
+      background-color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dropdown-menu {
+      background-color: #1a1a1a;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dropdown-link:hover {
+      background-color: #333333;
+    }
+    
+    .mobile-nav-panel {
+      background-color: #1a1a1a;
+    }
+    
+    .mobile-signin-btn {
+      background-color: #002244;
+    }
+    
+    .mobile-tickets-btn {
+      background-color: #333333;
+      color: #f5f5f5;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+    const mobileNavPanel = document.getElementById('mobile-nav-panel');
+    const mobileNavClose = document.getElementById('mobile-nav-close');
+    
+    if (mobileNavToggle && mobileNavPanel) {
+      mobileNavToggle.addEventListener('click', function() {
+        mobileNavPanel.classList.add('visible');
+        document.body.style.overflow = 'hidden'; 
+      });
+    }
+    
+    if (mobileNavClose && mobileNavPanel) {
+      mobileNavClose.addEventListener('click', function() {
+        mobileNavPanel.classList.remove('visible');
+        document.body.style.overflow = ''; 
+      });
+    }
+    
+    
+    const accordionToggles = document.querySelectorAll('.accordion-toggle');
+    
+    accordionToggles.forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        
+        
+        const allContents = document.querySelectorAll('.accordion-content');
+        const allToggles = document.querySelectorAll('.accordion-toggle');
+        
+        allContents.forEach(item => {
+          if (item !== content) {
+            item.classList.remove('visible');
+          }
+        });
+        
+        allToggles.forEach(item => {
+          if (item !== this) {
+            item.classList.remove('active');
+          }
+        });
+        
+        
+        this.classList.toggle('active');
+        content.classList.toggle('visible');
+      });
+    });
+  });
+</script>
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+<article class="rider-profile">
+  <div class="rider-hero">
+    <div class="rider-hero-overlay"></div>
+    
+      <img src="/img/hero-images/levi-kitchen-hero.jpg" alt="Levi Kitchen" class="rider-hero-bg">
+    
+    
+    <div class="container rider-hero-content">
+      <div class="rider-hero-info">
+        <h1 class="rider-name">Levi Kitchen</h1>
+        <div class="rider-details">
+          <div class="rider-team">Monster Energy Pro Circuit Kawasaki</div>
+          <div class="rider-number-badge">#43</div>
+          <div class="rider-class-badge class-250">250</div>
+          <div class="rider-nationality">USA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container rider-content">
+    <div class="rider-stats-container">
+      <div class="rider-photo">
+        
+          <img src="/img/riders/levi-kitchen.svg" alt="Levi Kitchen">
+        
+        
+        <div class="rider-manufacturer">
+          
+            <span class="manufacturer-badge kawasaki">Kawasaki</span>
+          
+        </div>
+      </div>
+      
+      <div class="rider-stats">
+        <h2>Rider Statistics</h2>
+        <div class="stats-grid">
+          
+          <div class="stat-item">
+            <div class="stat-label">Number</div>
+            <div class="stat-value">#43</div>
+          </div>
+          
+          
+          
+          <div class="stat-item">
+            <div class="stat-label">Class</div>
+            <div class="stat-value">250</div>
+          </div>
+          
+          
+          
+          <div class="stat-item">
+            <div class="stat-label">Nationality</div>
+            <div class="stat-value">USA</div>
+          </div>
+          
+          
+          
+          <div class="stat-item">
+            <div class="stat-label">Age</div>
+            <div class="stat-value">23</div>
+          </div>
+          
+          
+          
+          <div class="stat-item">
+            <div class="stat-label">Height</div>
+            <div class="stat-value">5&#39;10&#34;</div>
+          </div>
+          
+          
+          
+          
+          
+          <div class="stat-item">
+            <div class="stat-label">Status</div>
+            <div class="stat-value">Active</div>
+          </div>
+          
+        </div>
+        
+        
+        <div class="rider-highlights">
+          <h3>Career Highlights</h3>
+          <ul>
+            
+              <li>Multiple 250 Supercross &amp; Motocross Wins</li>
+            
+              <li>2023 San Diego Supercross 250 Winner</li>
+            
+              <li>2023 Pro Motocross - Multiple Overall Wins</li>
+            
+              <li>2021 Loretta Lynn&#39;s Open Pro Sport &amp; 250 Pro Sport Champion</li>
+            
+              <li>2023 AMA 250SX West - 4th Overall</li>
+            
+          </ul>
+        </div>
+        
+        
+        
+        <div class="rider-standings">
+          <h3>Championship Standings</h3>
+          <div class="standings-grid">
+            
+              <div class="standings-item">
+                <div class="standings-series">2023 ama 250sx west</div>
+                <div class="standings-position">Position: 4</div>
+                <div class="standings-points">Points: 163</div>
+              </div>
+            
+              <div class="standings-item">
+                <div class="standings-series">2023 pro motocross 250</div>
+                <div class="standings-position">Position: 4</div>
+                <div class="standings-points">Points: 329</div>
+              </div>
+            
+              <div class="standings-item">
+                <div class="standings-series">2024 ama 250sx west</div>
+                <div class="standings-position">Position: 2</div>
+                <div class="standings-points">Points: 158</div>
+              </div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="rider-content-main">
+      <div class="rider-bio">
+        <h2>Biography</h2>
+        
+
+<h2 class="relative group">The Washington Wonder 
+    <div id="the-washington-wonder" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-washington-wonder" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Levi Kitchen represents one of professional motocross and supercross&rsquo;s most remarkable development stories, bringing exceptional natural talent, Pacific Northwest work ethic, and a uniquely late-blooming trajectory to the sport&rsquo;s highest levels. Unlike riders who follow traditional developmental pathways, Kitchen&rsquo;s extraordinary rise from regional obscurity to factory stardom demonstrates both his remarkable natural gifts and the changing nature of talent identification in modern motorsports.</p>
+<p>Born and raised in Washougal, Washington, Kitchen has built his professional reputation on a foundation of raw speed, smooth technique, and the genuine, grounded personality that reflects his Pacific Northwest upbringing. His rapid ascent from regional amateur to Monster Energy Pro Circuit Kawasaki factory rider has established him as one of the sport&rsquo;s most exciting young talents while creating an inspiring template for riders developing outside traditional motocross hotbeds.</p>
+
+
+<h2 class="relative group">The Unconventional Path 
+    <div id="the-unconventional-path" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-unconventional-path" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Kitchen&rsquo;s development as a rider represents a dramatic departure from conventional professional pathways. While most factory prospects are identified and supported from their earliest mini bike days, Kitchen&rsquo;s talent remained largely hidden within regional Pacific Northwest competition until his late teens:</p>
+<ul>
+<li>Minimal national amateur competition until relatively late in his development</li>
+<li>Limited exposure to traditional amateur national events like Loretta Lynn&rsquo;s</li>
+<li>Development primarily through regional racing in Washington and Oregon</li>
+<li>Absence from the typical amateur scouting radar until nearly professional age</li>
+</ul>
+<p>This unconventional background meant Kitchen lacked the structured development, equipment support, and professional coaching that typically accompanies future factory riders. Instead, his skills developed organically through passion for riding and natural aptitude, creating a distinctive style uninfluenced by standardized coaching approaches.</p>
+
+
+<h2 class="relative group">The Breakthrough Moment 
+    <div id="the-breakthrough-moment" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-breakthrough-moment" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Kitchen&rsquo;s emergence into national consciousness came through a remarkable performance at the 2019 Washougal National amateur day event, where he dominated despite competing on equipment far below factory-supported standards. This hometown performance caught the attention of industry insiders, who were stunned by the raw speed and technical precision demonstrated by a virtually unknown rider.</p>
+<p>This breakthrough created immediate industry buzz about the &ldquo;Washington kid&rdquo; with extraordinary untapped potential. The performance&rsquo;s timing proved fortunate, coinciding with the rise of social media scouting that allowed his talent to receive exposure outside traditional amateur national events.</p>
+<p>The resulting opportunity with Star Racing Yamaha&rsquo;s amateur program represented a dramatic acceleration of his career timeline, propelling him from regional racing to factory support with unprecedented speed. This transition required exceptional adaptability, with Kitchen condensing years of typical amateur national development into an abbreviated timeline while simultaneously adjusting to the increased expectations accompanying factory support.</p>
+
+
+<h2 class="relative group">Amateur Success 
+    <div id="amateur-success" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#amateur-success" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Despite his late entry into national amateur competition, Kitchen quickly demonstrated his exceptional talent at the highest amateur levels. His amateur national achievements included:</p>
+<ul>
+<li>2021 Loretta Lynn&rsquo;s Open Pro Sport and 250 Pro Sport Championships</li>
+<li>Dominant performances at other national amateur events</li>
+<li>Success across varying track conditions demonstrating remarkable versatility</li>
+<li>Technical excellence comparing favorably with lifelong factory-supported prospects</li>
+</ul>
+<p>These accomplishments validated Star Racing&rsquo;s unexpected investment in his development while establishing Kitchen as a legitimate professional prospect despite his nontraditional background. His performances demonstrated not just raw speed but the complete skill package required for professional success, with technical precision and race craft beyond what his limited national experience might suggest.</p>
+
+
+<h2 class="relative group">The Professional Transition 
+    <div id="the-professional-transition" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-professional-transition" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Kitchen turned professional in 2022 with Star Racing Yamaha, immediately demonstrating promise with solid results that suggested significant potential as experience developed. His rookie season provided valuable professional adaptation while confirming the natural talent that had created his unprecedented amateur opportunity.</p>
+<p>Following this promising debut season, Kitchen made a significant career move, joining Mitch Payton&rsquo;s prestigious Monster Energy Pro Circuit Kawasaki team for 2023. This transition to one of the sport&rsquo;s most accomplished programs reflected industry recognition of his exceptional potential despite his limited professional experience.</p>
+<p>His first season with Pro Circuit produced breakthrough results that validated this potential, including his first professional supercross victory at San Diego and multiple overall wins in Pro Motocross competition. These successes established Kitchen as a legitimate championship contender while demonstrating his adaptability across both stadium racing and outdoor nationals.</p>
+
+
+<h2 class="relative group">Riding Style and Approach 
+    <div id="riding-style-and-approach" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#riding-style-and-approach" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Kitchen&rsquo;s riding style reflects both his natural talents and unconventional development:</p>
+<ul>
+<li>Exceptional smoothness creating efficiency that appears deceptively effortless</li>
+<li>Remarkable corner speed utilizing perfect body positioning</li>
+<li>Natural whip technique combining function with distinctive style</li>
+<li>Technical precision particularly evident in challenging terrain</li>
+</ul>
+<p>This approach creates a riding style that combines functional efficiency with spectacular visual appeal. His technique appears simultaneously effortless and aggressive, with smooth precision generating speed that often surprises competitors expecting more visibly aggressive approaches to produce similar pace.</p>
+<p>His style particularly shines in outdoor motocross, where his comfort in rough, challenging terrain creates advantages as races progress. The natural flow of his riding suggests particular affinity for tracks requiring rhythm and momentum rather than stop-and-go technical sections, though his adaptability allows success across varying designs.</p>
+
+
+<h2 class="relative group">The Pacific Northwest Foundation 
+    <div id="the-pacific-northwest-foundation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-pacific-northwest-foundation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Kitchen&rsquo;s development in Washington&rsquo;s Pacific Northwest motocross community has significantly influenced his technical approach and racing mentality. The region&rsquo;s distinctive characteristics shaped key aspects of his riding:</p>
+<ul>
+<li>Technical development on typically loamy, natural terrain</li>
+<li>Comfort in challenging weather conditions including rain and varying traction</li>
+<li>Adaptability handling terrain changes throughout race days</li>
+<li>Mental toughness built through the region&rsquo;s notoriously difficult riding conditions</li>
+</ul>
+<p>This Pacific Northwest foundation created a rider exceptionally comfortable in changing conditions who thrives when tracks develop technical challenges that separate riders with superior technique. Unlike competitors who excel primarily in consistent conditions, Kitchen&rsquo;s comfort in varying terrain creates advantages throughout unpredictable race days.</p>
+<p>His hometown connection to Washougal Motocross Park—host of the prestigious Washougal National—provided particular developmental advantages. Regular exposure to a national-caliber track throughout his formative years created technical comfort with professional-level obstacles and challenges that accelerated his adaptation once receiving national opportunities.</p>
+
+
+<h2 class="relative group">Physical Development 
+    <div id="physical-development" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#physical-development" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>As one of the taller and more physically substantial riders in the 250 class, Kitchen brings specific physical attributes that influence his racing approach:</p>
+<ul>
+<li>Natural strength creating advantages in challenging conditions</li>
+<li>Leverage for controlling the motorcycle through rough sections</li>
+<li>Size requiring specific motorcycle setup accommodations</li>
+<li>Physical presence creating natural authority in close racing situations</li>
+</ul>
+<p>These physical characteristics create both advantages and challenges, with his strength and leverage providing benefits in certain conditions while creating setup requirements different from smaller, lighter competitors. His adaptation to these physical realities demonstrates the technical intelligence that complements his natural speed.</p>
+
+
+<h2 class="relative group">Professional Growth 
+    <div id="professional-growth" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#professional-growth" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Throughout his brief but remarkable professional career, Kitchen has demonstrated rapid development in both technical skills and racing maturity:</p>
+<ul>
+<li>Enhanced supercross-specific techniques through structured practice</li>
+<li>Refined race management balancing aggression with calculated execution</li>
+<li>Developed media skills representing team and sponsors effectively</li>
+<li>Built professional resilience handling both success and setbacks constructively</li>
+</ul>
+<p>This comprehensive growth reflects both his natural adaptability and the quality of professional guidance received from his teams. Rather than relying solely on natural talent, Kitchen&rsquo;s continued improvement demonstrates commitment to developing all dimensions required for championship success.</p>
+
+
+<h2 class="relative group">The Environmental Connection 
+    <div id="the-environmental-connection" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-environmental-connection" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Beyond his professional racing, Kitchen maintains strong connection to the Pacific Northwest outdoor lifestyle that shaped his development. This environmental affinity includes:</p>
+<ul>
+<li>Fishing and outdoor activities balancing intensive racing focus</li>
+<li>Connection to the region&rsquo;s natural landscapes and recreational opportunities</li>
+<li>Perspective maintaining regional identity despite professional success</li>
+<li>Values reflecting the Northwest&rsquo;s characteristically grounded approach</li>
+</ul>
+<p>This connection provides valuable perspective amid professional racing&rsquo;s intense pressure, with outdoor activities creating mental refreshment between competitive demands. Unlike competitors whose identities revolve exclusively around racing results, Kitchen&rsquo;s broader interests create sustainable balance supporting long-term career development.</p>
+
+
+<h2 class="relative group">Future Championship Potential 
+    <div id="future-championship-potential" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#future-championship-potential" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>At 23 years old, Kitchen&rsquo;s potential competitive ceiling remains undefined, with multiple championships in both supercross and motocross appearing well within his capabilities. His trajectory suggests significant championship potential as he continues building experience and refining his approach:</p>
+<ul>
+<li>Natural talent already producing professional victories across both disciplines</li>
+<li>Factory support providing optimal development environment</li>
+<li>Technical foundation supporting enhanced performance through experience</li>
+<li>Balanced approach maintaining perspective through success and challenges</li>
+</ul>
+<p>While championship success requires both talent and fortunate circumstances, Kitchen&rsquo;s combination of natural ability, professional support, and rapid development creates legitimate title potential in coming seasons. His steady progression and breakthrough victories suggest imminent championship contention as consistency continues building.</p>
+
+
+<h2 class="relative group">Washington Pride 
+    <div id="washington-pride" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#washington-pride" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Throughout his professional journey, Kitchen maintains strong connection to his Washington roots, representing the Pacific Northwest motocross community at the sport&rsquo;s highest levels. This regional identity provides:</p>
+<ul>
+<li>Perspective maintaining balanced priorities despite professional pressure</li>
+<li>Support from the region&rsquo;s passionate but smaller motocross community</li>
+<li>Distinctive character separating him from California and Florida-developed competitors</li>
+<li>Connection to the hometown crowd during the prestigious Washougal National</li>
+</ul>
+<p>This regional pride adds meaning to his competitive journey, with success representing not just personal achievement but validation for Pacific Northwest motocross on the national stage. His breakthrough provides inspiration for riders developing outside traditional motocross centers, demonstrating that exceptional talent can emerge from any region given opportunity.</p>
+
+
+<h2 class="relative group">The Emerging Story 
+    <div id="the-emerging-story" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-emerging-story" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Levi Kitchen&rsquo;s professional journey remains in its early chapters, with his most significant competitive achievements likely still ahead. However, his impact on professional motocross is already substantial, demonstrating both exceptional competitive potential and the changing nature of talent identification in contemporary racing.</p>
+<p>For fans and industry observers, Kitchen represents both the excitement of emerging championship talent and the inspiring possibility of nontraditional developmental pathways in modern motorsports. His continuing career will likely influence not just championship standings but industry approaches to talent identification and development beyond established amateur national programs.</p>
+<p>With factory support, developing experience, and breakthrough victories already achieved at a young age, Levi Kitchen stands poised to potentially become one of American motocross&rsquo;s significant competitors in coming years, with his Pacific Northwest background adding distinctive character to his emerging professional story.</p>
+
+      </div>
+      
+      
+      <div class="rider-results">
+        <h2>Recent Results</h2>
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Event</th>
+              <th>Location</th>
+              <th>Position</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>April 13, 2024</td>
+              <td>Denver Supercross</td>
+              <td>Denver, CO</td>
+              <td>1</td>
+            </tr>
+            
+            <tr>
+              <td>March 23, 2024</td>
+              <td>Seattle Supercross</td>
+              <td>Seattle, WA</td>
+              <td>1</td>
+            </tr>
+            
+            <tr>
+              <td>February 10, 2024</td>
+              <td>Glendale Supercross</td>
+              <td>Glendale, AZ</td>
+              <td>3</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      
+      
+      
+      <div class="rider-media">
+        
+        <div class="rider-videos">
+          <h2>Videos</h2>
+          <div class="videos-grid">
+            
+              <div class="video-item">
+                
+                  <div class="video-wrapper">
+                    <iframe
+                      src="https://www.youtube.com/embed/7tLqRWy8kMQ"
+                      title="Levi Kitchen - From Washington to Pro Circuit"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                
+              </div>
+            
+              <div class="video-item">
+                
+                  <div class="video-wrapper">
+                    <iframe
+                      src="https://www.youtube.com/embed/pFn2g8vR7lM"
+                      title="Levi Kitchen&#39;s 2024 Seattle Supercross Win"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                
+              </div>
+            
+              <div class="video-item">
+                
+                  <div class="video-wrapper">
+                    <iframe
+                      src="https://www.youtube.com/embed/TuO3kBvzRr0"
+                      title="Levi Kitchen | Pro Circuit Kawasaki Team Profile"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                
+              </div>
+            
+          </div>
+        </div>
+        
+        
+        
+        <div class="rider-gallery">
+          <h2>Gallery</h2>
+          <div class="gallery-grid">
+            
+              <div class="gallery-item">
+                <a href="/img/riders/gallery/levi-kitchen-1.jpg" class="gallery-image-link">
+                  <img src="/img/riders/gallery/levi-kitchen-1.jpg" alt="Levi Kitchen celebrating a 2024 Supercross victory">
+                  
+                    <div class="gallery-caption">Levi Kitchen celebrating a 2024 Supercross victory</div>
+                  
+                </a>
+              </div>
+            
+              <div class="gallery-item">
+                <a href="/img/riders/gallery/levi-kitchen-2.jpg" class="gallery-image-link">
+                  <img src="/img/riders/gallery/levi-kitchen-2.jpg" alt="Kitchen in action during the 2023 Pro Motocross season">
+                  
+                    <div class="gallery-caption">Kitchen in action during the 2023 Pro Motocross season</div>
+                  
+                </a>
+              </div>
+            
+              <div class="gallery-item">
+                <a href="/img/riders/gallery/levi-kitchen-3.jpg" class="gallery-image-link">
+                  <img src="/img/riders/gallery/levi-kitchen-3.jpg" alt="Levi Kitchen with his Kawasaki KX250">
+                  
+                    <div class="gallery-caption">Levi Kitchen with his Kawasaki KX250</div>
+                  
+                </a>
+              </div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+      
+      
+      <div class="rider-social">
+        <h2>Follow Levi Kitchen</h2>
+        <div class="social-links">
+          <a href="https://www.instagram.com/levikitchen316/" target="_blank" class="social-link instagram">Instagram</a>
+          <a href="https://twitter.com/levikitchen" target="_blank" class="social-link twitter">Twitter</a>
+          <a href="https://www.facebook.com/levikitchen43" target="_blank" class="social-link facebook">Facebook</a>
+          
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</article>
+
+<style>
+   
+  .rider-profile {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+   
+  .rider-hero {
+    position: relative;
+    height: 350px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+  
+  .rider-hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .rider-hero-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .rider-hero-fallback .rider-number {
+    font-size: 8rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .rider-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+    z-index: 1;
+  }
+  
+  .rider-hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    z-index: 2;
+  }
+  
+  .rider-hero-info {
+    color: white;
+  }
+  
+  .rider-name {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .rider-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .rider-team {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+  
+  .rider-number-badge {
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #333;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+  }
+  
+  .rider-class-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .class-450 {
+    background-color: #c10000;
+  }
+  
+  .class-250 {
+    background-color: #005fdb;
+  }
+  
+  .rider-nationality {
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+  
+   
+  .rider-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 4rem;
+  }
+  
+  @media (min-width: 992px) {
+    .rider-content {
+      grid-template-columns: 300px 1fr;
+    }
+  }
+  
+  .rider-stats-container {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .rider-photo {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+  
+  .rider-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .rider-manufacturer {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 2;
+  }
+  
+  .manufacturer-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #333;
+  }
+  
+  .honda {
+    background-color: #e2001a;
+  }
+  
+  .yamaha {
+    background-color: #0a1e83;
+  }
+  
+  .kawasaki {
+    background-color: #006600;
+  }
+  
+  .ktm {
+    background-color: #ff6600;
+  }
+  
+  .husqvarna, .husky {
+    background-color: #0c1c37;
+  }
+  
+  .suzuki {
+    background-color: #003399;
+  }
+  
+  .gasgas {
+    background-color: #ec1b2f;
+  }
+  
+  .beta {
+    background-color: #c10604;
+  }
+  
+  .triumph {
+    background-color: #b5122a;
+  }
+  
+  .rider-stats {
+    padding: 1.5rem;
+  }
+  
+  .rider-stats h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .stat-label {
+    font-size: 0.85rem;
+    color: #777;
+    text-transform: uppercase;
+  }
+  
+  .stat-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .rider-highlights h3,
+  .rider-standings h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+  
+  .rider-highlights ul {
+    padding-left: 1.25rem;
+  }
+  
+  .rider-highlights li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .standings-grid {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .standings-item {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .standings-series {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .standings-position,
+  .standings-points {
+    font-size: 0.9rem;
+  }
+  
+   
+  .rider-content-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .rider-content-main h2 {
+    font-size: 1.75rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .rider-bio {
+    line-height: 1.6;
+  }
+  
+   
+  .results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  .results-table th,
+  .results-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .results-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .results-table tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+   
+  .videos-grid,
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .video-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .video-wrapper {
+    position: relative;
+    padding-top: 56.25%;  
+  }
+  
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  
+  .video-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .video-thumbnail {
+    position: relative;
+    aspect-ratio: 16/9;
+    background-color: #eee;
+    overflow: hidden;
+  }
+  
+  .video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .video-thumbnail-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    color: white;
+  }
+  
+  .video-title {
+    padding: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .gallery-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .gallery-image-link {
+    display: block;
+    position: relative;
+  }
+  
+  .gallery-image-link img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  
+  .gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 0.9rem;
+  }
+  
+   
+  .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+  }
+  
+  .social-link:hover {
+    opacity: 0.9;
+  }
+  
+  .instagram {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+  }
+  
+  .twitter {
+    background-color: #1DA1F2;
+  }
+  
+  .facebook {
+    background-color: #1877F2;
+  }
+  
+  .youtube {
+    background-color: #FF0000;
+  }
+  
+  .tiktok {
+    background-color: #000000;
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .rider-stats-container {
+      background-color: #222;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .stat-label {
+      color: #aaa;
+    }
+    
+    .standings-item {
+      background-color: #333;
+    }
+    
+    .results-table th {
+      background-color: #333;
+    }
+    
+    .results-table td {
+      border-bottom-color: #444;
+    }
+    
+    .results-table tr:hover {
+      background-color: #333;
+    }
+    
+    .rider-content-main h2 {
+      color: #e0e0e0;
+    }
+  }
+  
+   
+  @media (max-width: 768px) {
+    .rider-hero {
+      height: 280px;
+    }
+    
+    .rider-name {
+      font-size: 2.5rem;
+    }
+    
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .videos-grid, 
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+      
+    </main><footer id="site-footer" class="py-4 print:hidden border-t border-neutral-200 dark:border-neutral-700">
+  <div class="container">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex flex-wrap justify-center md:justify-start">
+        
+        
+          
+          <nav class="flex text-sm font-medium text-neutral-500 dark:text-neutral-400">
+            <ul class="flex flex-row flex-wrap list-none justify-center">
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/about/"
+                  title="">
+                  
+                  About
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/contact/"
+                  title="">
+                  
+                  Contact
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/terms/"
+                  title="">
+                  
+                  Terms
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/privacy/"
+                  title="">
+                  
+                  Privacy
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/betting/policies/"
+                  title="">
+                  
+                  Betting Policies
+                </a>
+                
+              </li>
+              
+            </ul>
+          </nav>
+          
+        
+      </div>
+
+      <div class="flex flex-wrap justify-center md:justify-end gap-4">
+        
+        
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy; 2025 MXRaceHub
+        </p>
+        
+
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+  </script>
+  
+  
+  
+<script>
+
+(function() {
+  'use strict';
+  
+  
+  window.mediumZoom = function() {
+    return {
+      attach: function() { return this; },
+      detach: function() { return this; },
+      update: function() { return this; },
+      clone: function() { return this; },
+      on: function() { return this; },
+      off: function() { return this; },
+      open: function() { return this; },
+      close: function() { return this; },
+      toggle: function() { return this; },
+      getOptions: function() { return {}; },
+      getImages: function() { return []; },
+      getZoomedImage: function() { return null; }
+    };
+  };
+
+  
+  const originalError = console.error;
+  console.error = function() {
+    const message = Array.from(arguments).join(' ');
+    if (message.includes('mediumZoom') || message.includes('Uncaught ReferenceError')) {
+      return; 
+    }
+    originalError.apply(console, arguments);
+  };
+
+  
+  window.addEventListener('error', function(e) {
+    if (e.message && (e.message.includes('mediumZoom') || e.message.includes('is not defined'))) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  }, true);
+})();
+</script>
+  
+</footer>
+  </div>
+</body>
+
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+  data-id="nunocoracao" data-description="Support me on Buy me a coffee!" data-message=""
+  data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+
+</html>

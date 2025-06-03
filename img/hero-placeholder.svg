@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#171717"/>
+  
+  <!-- Stadium silhouette -->
+  <path d="M0,400 C200,350 400,300 600,350 C800,300 1000,350 1200,400 L1200,600 L0,600 Z" fill="#333333"/>
+  
+  <!-- Crowd silhouette -->
+  <path d="M0,450 C50,440 100,445 150,455 C200,465 250,460 300,450 C350,440 400,445 450,455 C500,465 550,460 600,450 C650,440 700,445 750,455 C800,465 850,460 900,450 C950,440 1000,445 1050,455 C1100,465 1150,460 1200,450 L1200,500 L0,500 Z" fill="#222222"/>
+  
+  <!-- Track silhouette -->
+  <path d="M200,500 C300,480 400,490 500,520 C600,550 700,550 800,520 C900,490 1000,480 1100,500 L1100,600 L200,600 Z" fill="#775533"/>
+  
+  <!-- Jumps -->
+  <path d="M300,530 L330,510 L360,530" stroke="#663311" stroke-width="4" fill="none"/>
+  <path d="M500,540 L530,520 L560,540" stroke="#663311" stroke-width="4" fill="none"/>
+  <path d="M700,540 L730,520 L760,540" stroke="#663311" stroke-width="4" fill="none"/>
+  <path d="M900,530 L930,510 L960,530" stroke="#663311" stroke-width="4" fill="none"/>
+  
+  <!-- Whoops -->
+  <path d="M400,530 C410,525 420,535 430,530 C440,525 450,535 460,530" stroke="#663311" stroke-width="3" fill="none"/>
+  <path d="M800,530 C810,525 820,535 830,530 C840,525 850,535 860,530" stroke="#663311" stroke-width="3" fill="none"/>
+  
+  <!-- Riders -->
+  <g transform="translate(350, 515) scale(0.4)">
+    <path d="M0,0 C10,-10 20,-5 30,0 C40,5 50,0 60,-10" stroke="#ff3300" stroke-width="5" fill="none"/>
+    <circle cx="30" cy="-5" r="10" fill="#ff3300"/>
+  </g>
+  
+  <g transform="translate(650, 525) scale(0.4)">
+    <path d="M0,0 C10,-10 20,-5 30,0 C40,5 50,0 60,-10" stroke="#0033ff" stroke-width="5" fill="none"/>
+    <circle cx="30" cy="-5" r="10" fill="#0033ff"/>
+  </g>
+  
+  <g transform="translate(850, 515) scale(0.4)">
+    <path d="M0,0 C10,-10 20,-5 30,0 C40,5 50,0 60,-10" stroke="#00cc33" stroke-width="5" fill="none"/>
+    <circle cx="30" cy="-5" r="10" fill="#00cc33"/>
+  </g>
+  
+  <!-- Stadium lights -->
+  <circle cx="200" cy="300" r="40" fill="rgba(255, 255, 200, 0.1)"/>
+  <circle cx="400" cy="300" r="40" fill="rgba(255, 255, 200, 0.1)"/>
+  <circle cx="600" cy="300" r="40" fill="rgba(255, 255, 200, 0.1)"/>
+  <circle cx="800" cy="300" r="40" fill="rgba(255, 255, 200, 0.1)"/>
+  <circle cx="1000" cy="300" r="40" fill="rgba(255, 255, 200, 0.1)"/>
+  
+  <!-- Light beams -->
+  <polygon points="200,300 150,500 250,500" fill="rgba(255, 255, 200, 0.05)"/>
+  <polygon points="400,300 350,500 450,500" fill="rgba(255, 255, 200, 0.05)"/>
+  <polygon points="600,300 550,500 650,500" fill="rgba(255, 255, 200, 0.05)"/>
+  <polygon points="800,300 750,500 850,500" fill="rgba(255, 255, 200, 0.05)"/>
+  <polygon points="1000,300 950,500 1050,500" fill="rgba(255, 255, 200, 0.05)"/>
+  
+  <!-- Watermark -->
+  <text x="600" y="580" font-family="Arial" font-size="20" fill="#999" text-anchor="middle">MXRaceHub</text>
+</svg>

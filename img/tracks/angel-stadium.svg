@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="500" height="320" viewBox="0 0 500 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background - Stadium Design -->
+  <rect width="500" height="320" fill="#f4f4f4"/>
+  <rect x="20" y="40" width="460" height="240" rx="30" fill="#e8e8e8"/>
+  <rect x="40" y="60" width="420" height="200" rx="20" fill="#dadada"/>
+  
+  <!-- Anaheim Track Layout - based on simplified 2023 layout -->
+  <path d="M80,120 
+           C90,100 120,90 160,100 
+           C200,90 230,120 260,130 
+           C300,140 330,120 370,130 
+           C410,140 430,180 420,200 
+           C410,220 380,210 350,210 
+           C320,210 290,230 250,220 
+           C210,210 180,230 140,220 
+           C100,210 70,140 80,120 Z" 
+        fill="#b8b8b8" stroke="#808080" stroke-width="2"/>
+  
+  <!-- Start Gate -->
+  <rect x="120" y="160" width="60" height="6" fill="#ff0000"/>
+  
+  <!-- Jumps and obstacles -->
+  <rect x="180" y="120" width="25" height="8" rx="4" fill="#808080"/>
+  <rect x="220" y="180" width="25" height="8" rx="4" fill="#808080"/>
+  <rect x="270" y="160" width="25" height="8" rx="4" fill="#808080"/>
+  <rect x="330" y="190" width="25" height="8" rx="4" fill="#808080"/>
+  <rect x="380" y="150" width="25" height="8" rx="4" fill="#808080"/>
+  
+  <!-- Whoops section -->
+  <path d="M200,140 
+           Q205,135 210,140 
+           Q215,145 220,140 
+           Q225,135 230,140 
+           Q235,145 240,140 
+           Q245,135 250,140" 
+        stroke="#808080" stroke-width="3" fill="none"/>
+  
+  <!-- Title Bar -->
+  <rect x="0" y="0" width="500" height="40" fill="#c10000"/>
+  <text x="250" y="25" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">ANGEL STADIUM</text>
+  
+  <!-- Location -->
+  <text x="250" y="280" font-family="Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle">Anaheim, California</text>
+  
+  <!-- Type Label -->
+  <g transform="translate(40, 40)">
+    <rect x="0" y="0" width="120" height="30" rx="15" fill="#d4a017"/>
+    <text x="60" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SUPERCROSS</text>
+  </g>
+  
+  <!-- TV Badge -->
+  <g transform="translate(420, 40)">
+    <rect x="0" y="0" width="60" height="30" rx="5" fill="#cc0000"/>
+    <text x="30" y="20" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">NBC</text>
+  </g>
+  
+  <!-- Stadium Outline -->
+  <ellipse cx="250" cy="160" rx="200" ry="120" stroke="#a0a0a0" stroke-width="10" stroke-dasharray="15,10" fill="none"/>
+</svg>

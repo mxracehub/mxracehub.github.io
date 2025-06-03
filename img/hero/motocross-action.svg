@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1c3a6e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5389d4;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10" />
+      <feOffset dx="0" dy="10" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.5" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Sky background -->
+  <rect width="1920" height="1080" fill="url(#sky-gradient)" />
+  
+  <!-- Crowd silhouette -->
+  <path d="M0,450 Q50,445 100,450 Q150,455 200,450 Q250,445 300,450 Q350,455 400,450 
+           Q450,445 500,450 Q550,455 600,450 Q650,445 700,450 Q750,455 800,450 
+           Q850,445 900,450 Q950,455 1000,450 Q1050,445 1100,450 Q1150,455 1200,450 
+           Q1250,445 1300,450 Q1350,455 1400,450 Q1450,445 1500,450 Q1550,455 1600,450 
+           Q1650,445 1700,450 Q1750,455 1800,450 Q1850,445 1900,450 L1920,450 L1920,1080 L0,1080 Z" 
+        fill="#000000" opacity="0.7" />
+  
+  <!-- Stadium lights -->
+  <circle cx="300" cy="200" r="15" fill="white" opacity="0.9" />
+  <circle cx="300" cy="200" r="40" fill="white" opacity="0.4" />
+  <circle cx="300" cy="200" r="70" fill="white" opacity="0.2" />
+  
+  <circle cx="1620" cy="200" r="15" fill="white" opacity="0.9" />
+  <circle cx="1620" cy="200" r="40" fill="white" opacity="0.4" />
+  <circle cx="1620" cy="200" r="70" fill="white" opacity="0.2" />
+  
+  <!-- Race track -->
+  <path d="M0,700 C300,650 600,750 900,650 S1300,750 1600,650 S1900,700 1920,700 L1920,1080 L0,1080 Z" 
+        fill="#7c5f30" />
+  
+  <!-- Track bumps and details -->
+  <path d="M300,800 Q330,760 360,800" stroke="#594321" stroke-width="10" fill="none" />
+  <path d="M500,780 Q530,740 560,780" stroke="#594321" stroke-width="15" fill="none" />
+  <path d="M700,800 Q730,750 760,800" stroke="#594321" stroke-width="12" fill="none" />
+  <path d="M900,780 Q930,730 960,780" stroke="#594321" stroke-width="15" fill="none" />
+  <path d="M1100,800 Q1130,760 1160,800" stroke="#594321" stroke-width="10" fill="none" />
+  <path d="M1300,780 Q1330,740 1360,780" stroke="#594321" stroke-width="15" fill="none" />
+  <path d="M1500,800 Q1530,750 1560,800" stroke="#594321" stroke-width="12" fill="none" />
+  <path d="M1700,780 Q1730,730 1760,780" stroke="#594321" stroke-width="15" fill="none" />
+  
+  <!-- Main motorcycles in action - mid-air jump -->
+  <g transform="translate(960, 500) scale(1.5)" filter="url(#shadow)">
+    <!-- Dynamic Motorcycle in mid-air jump -->
+    <g transform="rotate(-25)">
+      <!-- Main bike body -->
+      <path d="M70,50 L120,50 L130,30 L180,30 L170,50 L200,70 L170,90 L110,90 L90,70 Z" fill="#E2001A" />
+      <!-- Wheels -->
+      <circle cx="90" cy="90" r="25" fill="none" stroke="#444" stroke-width="8" />
+      <circle cx="180" cy="90" r="25" fill="none" stroke="#444" stroke-width="8" />
+      <!-- Handlebars and details -->
+      <path d="M130,50 L150,40 L160,50" stroke="#333" stroke-width="3" fill="none" />
+      <path d="M110,60 L140,60 L150,50" stroke="#333" stroke-width="2" fill="none" />
+      <!-- Rider silhouette -->
+      <path d="M120,20 C125,15 130,18 135,20 C140,22 142,25 145,20 C150,15 155,10 155,5 
+               C155,0 150,-5 145,-5 C140,-5 135,0 130,0 C125,0 120,-5 115,-5 
+               C110,-5 105,0 105,5 C105,10 110,15 115,20" 
+            fill="#333333" />
+      <ellipse cx="137" cy="0" rx="8" ry="10" fill="#333333" />
+      <!-- Rider arms -->
+      <path d="M130,15 C125,20 120,25 130,40" stroke="#333333" stroke-width="4" fill="none" />
+      <path d="M145,15 C150,20 155,25 160,40" stroke="#333333" stroke-width="4" fill="none" />
+      <!-- Rider legs -->
+      <path d="M130,40 C135,45 140,50 145,60" stroke="#333333" stroke-width="5" fill="none" />
+      <path d="M130,40 C125,45 120,50 115,60" stroke="#333333" stroke-width="5" fill="none" />
+    </g>
+  </g>
+  
+  <!-- Secondary motorcycles in background -->
+  <g transform="translate(600, 550) scale(0.8)" opacity="0.8">
+    <g transform="rotate(-15)">
+      <path d="M70,50 L120,50 L130,30 L180,30 L170,50 L200,70 L170,90 L110,90 L90,70 Z" fill="#0057b8" />
+      <circle cx="90" cy="90" r="25" fill="none" stroke="#444" stroke-width="8" />
+      <circle cx="180" cy="90" r="25" fill="none" stroke="#444" stroke-width="8" />
+      <path d="M120,20 C125,15 130,18 135,20 C140,22 142,25 145,20" fill="#333333" />
+      <ellipse cx="137" cy="10" rx="8" ry="10" fill="#333333" />
+    </g>
+  </g>
+  
+  <g transform="translate(1300, 580) scale(0.9)" opacity="0.7">
+    <g transform="rotate(-30)">
+      <path d="M70,50 L120,50 L130,30 L180,30 L170,50 L200,70 L170,90 L110,90 L90,70 Z" fill="#ffde00" />
+      <circle cx="90" cy="90" r="25" fill="none" stroke="#444" stroke-width="8" />
+      <circle cx="180" cy="90" r="25" fill="none" stroke="#444" stroke-width="8" />
+      <path d="M120,20 C125,15 130,18 135,20 C140,22 142,25 145,20" fill="#333333" />
+      <ellipse cx="137" cy="10" rx="8" ry="10" fill="#333333" />
+    </g>
+  </g>
+  
+  <!-- Flying dirt particles -->
+  <g opacity="0.7">
+    <circle cx="850" cy="650" r="7" fill="#7c5f30" />
+    <circle cx="870" cy="640" r="5" fill="#7c5f30" />
+    <circle cx="890" cy="655" r="6" fill="#7c5f30" />
+    <circle cx="910" cy="645" r="4" fill="#7c5f30" />
+    <circle cx="1000" cy="660" r="8" fill="#7c5f30" />
+    <circle cx="1020" cy="650" r="5" fill="#7c5f30" />
+    <circle cx="1040" cy="670" r="6" fill="#7c5f30" />
+    <circle cx="1060" cy="655" r="7" fill="#7c5f30" />
+  </g>
+  
+  <!-- Race flags -->
+  <g transform="translate(1600, 350) rotate(-10)">
+    <rect x="0" y="0" width="15" height="300" fill="#333" />
+    <rect x="15" y="0" width="80" height="60" fill="#000" />
+    <rect x="15" y="60" width="80" height="60" fill="#fff" />
+  </g>
+  
+  <!-- Crowd energy elements - small dots representing flashes and excitement -->
+  <g opacity="0.8">
+    <circle cx="200" cy="480" r="2" fill="white" />
+    <circle cx="250" cy="490" r="1" fill="white" />
+    <circle cx="300" cy="485" r="2" fill="white" />
+    <circle cx="450" cy="480" r="1" fill="white" />
+    <circle cx="500" cy="490" r="2" fill="white" />
+    <circle cx="650" cy="485" r="1" fill="white" />
+    <circle cx="800" cy="480" r="2" fill="white" />
+    <circle cx="950" cy="490" r="1" fill="white" />
+    <circle cx="1100" cy="485" r="2" fill="white" />
+    <circle cx="1250" cy="480" r="1" fill="white" />
+    <circle cx="1400" cy="490" r="2" fill="white" />
+    <circle cx="1550" cy="485" r="1" fill="white" />
+    <circle cx="1700" cy="480" r="2" fill="white" />
+    <circle cx="1850" cy="490" r="1" fill="white" />
+  </g>
+</svg>

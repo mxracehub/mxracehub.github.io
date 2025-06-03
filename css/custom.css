@@ -1,0 +1,79 @@
+/* MXRaceHub Custom CSS for Header/Navigation Consistency */
+
+/* Ensure navbar appears on all pages with consistent styling */
+.navbar-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  background-color: white;
+}
+
+/* Dark mode navbar */
+@media (prefers-color-scheme: dark) {
+  .navbar-main {
+    background-color: #1a1a1a;
+  }
+}
+
+/* Make room for navbar in content area */
+.main-content {
+  padding-top: 140px !important; /* Ensure this value matches navbar height */
+}
+
+/* Custom container for pages */
+.mx-rh-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .mx-rh-container {
+    padding: 0 2rem;
+  }
+}
+
+/* Fix for themes that might override header color */
+.top-navbar, .main-navbar {
+  background-color: inherit;
+}
+
+/* Ensure header visibility */
+.navbar-logo, .nav-buttons, .desktop-nav {
+  display: flex !important;
+}
+
+/* Make mobile nav toggle visible on small screens */
+@media (max-width: 767px) {
+  .mobile-nav-toggle {
+    display: block !important;
+  }
+  
+  .desktop-nav {
+    display: none !important;
+  }
+}
+
+/* Ensure dropdown menus work properly */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.has-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Dark mode dropdown menus */
+@media (prefers-color-scheme: dark) {
+  .dropdown-menu {
+    background-color: #1a1a1a;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+}
