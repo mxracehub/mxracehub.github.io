@@ -1,0 +1,2144 @@
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true">
+<meta name="description" content="Real-time betting with live odds, in-race wagering, and multi-race parlays">
+<meta name="author" content="MXRaceHub">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mxracehub.site/live-betting/">
+<meta property="og:title" content="Live Race Betting">
+<meta property="og:description" content="Real-time betting with live odds, in-race wagering, and multi-race parlays">
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mxracehub.site/live-betting/">
+<meta property="twitter:title" content="Live Race Betting">
+<meta property="twitter:description" content="Real-time betting with live odds, in-race wagering, and multi-race parlays">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/styles.css">
+
+
+<style>
+  :root {
+    --primary-color: #0066cc;
+    --primary-dark: #0052a3;
+    --primary-light: #e6f0ff;
+    --text-color: #333;
+    --text-muted: #666;
+    --background-color: #fff;
+    --card-background: #f9f9f9;
+    --border-color: #e0e0e0;
+    --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --primary-color: #2d8cff;
+      --primary-dark: #0066cc;
+      --primary-light: #0a1a2d;
+      --text-color: #e0e0e0;
+      --text-muted: #a0a0a0;
+      --background-color: #121212;
+      --card-background: #1e1e1e;
+      --border-color: #383838;
+    }
+  }
+
+  body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  .main-content {
+    flex: 1;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .main-content {
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .main-content {
+      padding: 0 3rem;
+    }
+  }
+
+  .content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .content-wrapper {
+      padding: 0 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .content-wrapper {
+      padding: 0 2rem;
+    }
+  }
+</style>
+
+
+<style>
+   
+  .transfers-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .transfers-page {
+      padding: 0 2rem;
+    }
+  }
+
+  .transfers-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+  }
+
+  .balance-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .balance-amount {
+    color: var(--primary-color);
+  }
+
+  .add-funds-btn, 
+  .option-card.active .option-link,
+  .transfer-button {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+
+  .add-funds-btn:hover, 
+  .option-card.active .option-link:hover,
+  .transfer-button:hover {
+    background-color: var(--primary-dark);
+  }
+
+  .option-card {
+    background-color: var(--background-color);
+    border: 2px solid transparent;
+  }
+
+  .option-card.active {
+    border-color: var(--primary-color);
+  }
+
+  .option-icon {
+    color: var(--primary-color);
+  }
+
+  .tab-btn.active {
+    color: var(--primary-color);
+  }
+
+  .tab-btn.active::after {
+    background-color: var(--primary-color);
+  }
+
+  .transfer-form-container {
+    background-color: var(--background-color);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .transfer-form-container {
+      background-color: var(--card-background);
+    }
+
+    .recipient-name,
+    .transfer-header h2 {
+      color: var(--text-color);
+    }
+
+    .recipient-preview {
+      background-color: var(--primary-light);
+    }
+
+    #transfer-amount,
+    #transfer-description,
+    #recipient-search {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      border-color: var(--border-color);
+    }
+
+    .transaction-item {
+      border-color: var(--border-color);
+    }
+
+    .transaction-title {
+      color: var(--text-color);
+    }
+
+    .transaction-date {
+      color: var(--text-muted);
+    }
+  }
+</style><script>
+
+window.mediumZoom = window.mediumZoom || function() {
+  return {
+    attach: function() { return this; },
+    detach: function() { return this; },
+    update: function() { return this; },
+    clone: function() { return this; },
+    on: function() { return this; },
+    off: function() { return this; },
+    open: function() { return this; },
+    close: function() { return this; },
+    toggle: function() { return this; },
+    getOptions: function() { return {}; },
+    getImages: function() { return []; },
+    getZoomedImage: function() { return null; }
+  };
+};
+
+
+window.$ = window.$ || function() {
+  return {
+    ready: function(fn) { 
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', fn);
+      } else {
+        fn();
+      }
+      return this;
+    },
+    on: function() { return this; },
+    off: function() { return this; },
+    click: function() { return this; },
+    each: function() { return this; },
+    find: function() { return this; },
+    addClass: function() { return this; },
+    removeClass: function() { return this; },
+    toggleClass: function() { return this; },
+    hide: function() { return this; },
+    show: function() { return this; },
+    attr: function() { return this; },
+    css: function() { return this; },
+    html: function() { return this; },
+    text: function() { return this; },
+    val: function() { return this; }
+  };
+};
+window.jQuery = window.$;
+</script>
+<script>
+
+if (typeof $ === 'undefined') {
+  window.$ = function(selector) {
+    const elements = typeof selector === 'string' ? document.querySelectorAll(selector) : [selector];
+    return {
+      ready: function(fn) { 
+        if (document.readyState !== 'loading') fn(); 
+        else document.addEventListener('DOMContentLoaded', fn); 
+        return this;
+      },
+      click: function(fn) { 
+        elements.forEach(el => el && el.addEventListener && el.addEventListener('click', fn)); 
+        return this; 
+      },
+      addClass: function(className) { 
+        elements.forEach(el => el && el.classList && el.classList.add(className)); 
+        return this; 
+      },
+      removeClass: function(className) { 
+        elements.forEach(el => el && el.classList && el.classList.remove(className)); 
+        return this; 
+      },
+      toggle: function() { 
+        elements.forEach(el => el && el.style && (el.style.display = el.style.display === 'none' ? '' : 'none')); 
+        return this; 
+      },
+      each: function(fn) {
+        elements.forEach((el, i) => fn.call(el, i, el));
+        return this;
+      },
+      length: elements.length
+    };
+  };
+  
+  window.$.ready = window.$.fn = window.$;
+}
+</script><body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a
+      >
+    </div>
+    
+    
+      
+<header class="navbar-main">
+  
+  <div class="top-navbar">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="navbar-logo">
+        <a href="/" class="logo-link">
+          <span class="logo-text">MXRaceHub</span>
+        </a>
+      </div>
+      
+      <div class="nav-buttons flex items-center">
+        <a href="/live-stream/" class="watch-btn">
+          <span class="watch-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </span>
+          <span>Watch Live</span>
+        </a>
+        
+        <a href="/tickets/" class="tickets-btn">
+          <span class="ticket-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 10 4 15 9 20"></polyline>
+              <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+            </svg>
+          </span>
+          <span>Tickets</span>
+        </a>
+        
+        <a href="/auth/" class="signin-btn">
+          <span class="user-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>Sign In</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="main-navbar">
+    <div class="container mx-auto px-4">
+      
+      <nav class="desktop-nav">
+        <ul class="nav-list">
+          <li class="nav-item ">
+            <a href="/" class="nav-link">Home</a>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/races/" class="nav-link dropdown-toggle">
+              <span>Races</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/races/upcoming/" class="dropdown-link">Upcoming Races</a></li>
+                <li><a href="/races/supercross/" class="dropdown-link">Supercross</a></li>
+                <li><a href="/races/motocross/" class="dropdown-link">Motocross</a></li>
+                <li><a href="/races/results/" class="dropdown-link">Race Results</a></li>
+                <li><a href="/races/standings/" class="dropdown-link">Standings</a></li>
+                <li><a href="/races/schedule/" class="dropdown-link">Full Schedule</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/riders/" class="nav-link dropdown-toggle">
+              <span>Riders</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/riders/450/" class="dropdown-link">450 Class</a></li>
+                <li><a href="/riders/250/" class="dropdown-link">250 Class</a></li>
+                <li><a href="/riders/all/" class="dropdown-link">Search All Riders</a></li>
+                <li><a href="/riders/champions/" class="dropdown-link">Champions</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/teams/" class="nav-link dropdown-toggle">
+              <span>Teams</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/teams/honda/" class="dropdown-link">Team Honda HRC</a></li>
+                <li><a href="/teams/ktm/" class="dropdown-link">Red Bull KTM</a></li>
+                <li><a href="/teams/yamaha/" class="dropdown-link">Monster Energy Yamaha</a></li>
+                <li><a href="/teams/kawasaki/" class="dropdown-link">Monster Energy Kawasaki</a></li>
+                <li><a href="/teams/pro-circuit/" class="dropdown-link">Pro Circuit Kawasaki</a></li>
+                <li><a href="/teams/all/" class="dropdown-link">All Teams</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/tracks/" class="nav-link dropdown-toggle">
+              <span>Tracks</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/tracks/supercross/" class="dropdown-link">Supercross Tracks</a></li>
+                <li><a href="/tracks/motocross/" class="dropdown-link">Motocross Tracks</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/news/" class="nav-link dropdown-toggle">
+              <span>News</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/news/latest/" class="dropdown-link">Latest News</a></li>
+                <li><a href="/news/interviews/" class="dropdown-link">Rider Interviews</a></li>
+                <li><a href="/news/video/" class="dropdown-link">Video Content</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/betting/" class="nav-link dropdown-toggle">
+              <span>Betting</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/betting/friend-bets/" class="dropdown-link">Friend Bets</a></li>
+                <li><a href="/betting/groups/" class="dropdown-link">Betting Groups</a></li>
+                <li><a href="/betting/odds/" class="dropdown-link">Latest Odds</a></li>
+                <li><a href="/betting/membership/" class="dropdown-link">Membership</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/account/" class="nav-link dropdown-toggle">
+              <span>My Account</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/account/profile/" class="dropdown-link">My Profile</a></li>
+                <li><a href="/profile/achievements/" class="dropdown-link">🏆 My Badges</a></li>
+                <li><a href="/account/bets/" class="dropdown-link">My Bets</a></li>
+                <li><a href="/account/wallet/" class="dropdown-link">Wallet</a></li>
+                <li><a href="/account/transfers/" class="dropdown-link">Money Transfers</a></li>
+                <li><a href="/account/membership/" class="dropdown-link">Membership</a></li>
+                <li><a href="/account/settings/" class="dropdown-link">Settings</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      
+      
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  
+  <div id="mobile-nav-panel" class="mobile-nav-panel">
+    <div class="mobile-nav-content">
+      <div class="mobile-nav-header">
+        <div class="logo-text">MXRaceHub</div>
+        <button id="mobile-nav-close" class="mobile-nav-close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav-buttons">
+        <a href="/auth/" class="mobile-signin-btn">
+          <span class="user-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>Sign In</span>
+        </a>
+        
+        <a href="/live-stream/" class="mobile-watch-btn">
+          <span class="watch-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </span>
+          <span>Watch Live</span>
+        </a>
+        
+        <a href="/tickets/" class="mobile-tickets-btn">
+          <span class="ticket-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 10 4 15 9 20"></polyline>
+              <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+            </svg>
+          </span>
+          <span>Tickets</span>
+        </a>
+      </div>
+      
+      <nav class="mobile-nav-menu">
+        <div class="accordion-menu">
+          <div class="accordion-item">
+            <a href="/" class="accordion-link ">Home</a>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Races</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/races/upcoming/" class="accordion-sublink">Upcoming Races</a>
+              <a href="/races/supercross/" class="accordion-sublink">Supercross</a>
+              <a href="/races/motocross/" class="accordion-sublink">Motocross</a>
+              <a href="/races/results/" class="accordion-sublink">Race Results</a>
+              <a href="/races/standings/" class="accordion-sublink">Standings</a>
+              <a href="/races/schedule/" class="accordion-sublink">Full Schedule</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Riders</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/riders/450/" class="accordion-sublink">450 Class</a>
+              <a href="/riders/250/" class="accordion-sublink">250 Class</a>
+              <a href="/riders/all/" class="accordion-sublink">Search All Riders</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Teams</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/teams/honda/" class="accordion-sublink">Team Honda HRC</a>
+              <a href="/teams/ktm/" class="accordion-sublink">Red Bull KTM</a>
+              <a href="/teams/yamaha/" class="accordion-sublink">Monster Energy Yamaha</a>
+              <a href="/teams/kawasaki/" class="accordion-sublink">Monster Energy Kawasaki</a>
+              <a href="/teams/pro-circuit/" class="accordion-sublink">Pro Circuit Kawasaki</a>
+              <a href="/teams/all/" class="accordion-sublink">All Teams</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Tracks</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/tracks/supercross/" class="accordion-sublink">Supercross Tracks</a>
+              <a href="/tracks/motocross/" class="accordion-sublink">Motocross Tracks</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>News</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/news/latest/" class="accordion-sublink">Latest News</a>
+              <a href="/news/interviews/" class="accordion-sublink">Rider Interviews</a>
+              <a href="/news/video/" class="accordion-sublink">Video Content</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Betting</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/betting/friend-bets/" class="accordion-sublink">Friend Bets</a>
+              <a href="/betting/groups/" class="accordion-sublink">Betting Groups</a>
+              <a href="/betting/odds/" class="accordion-sublink">Latest Odds</a>
+              <a href="/betting/membership/" class="accordion-sublink">Membership</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>My Account</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/account/profile/" class="accordion-sublink">My Profile</a>
+              <a href="/account/bets/" class="accordion-sublink">My Bets</a>
+              <a href="/account/wallet/" class="accordion-sublink">Wallet</a>
+              <a href="/account/transfers/" class="accordion-sublink">Money Transfers</a>
+              <a href="/account/membership/" class="accordion-sublink">Membership</a>
+              <a href="/account/settings/" class="accordion-sublink">Settings</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+<div class="nav-spacer"></div>
+
+<style>
+   
+  :root {
+    --primary-color: #e20613;  
+    --secondary-color: #003366;  
+    --text-color: #333333;
+    --light-gray: #f2f2f2;
+    --medium-gray: #dddddd;
+    --dark-gray: #555555;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  
+   
+  .top-navbar {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 0;
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .logo-text {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .watch-btn, .tickets-btn, .signin-btn {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  
+  .watch-btn {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .tickets-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .signin-btn {
+    background-color: transparent;
+    color: white;
+  }
+  
+  .watch-btn:hover, .tickets-btn:hover, .signin-btn:hover {
+    opacity: 0.9;
+  }
+  
+   
+  .main-navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 40;
+  }
+  
+  .desktop-nav {
+    display: flex;
+  }
+  
+  .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .nav-item {
+    position: relative;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    color: var(--primary-color);
+  }
+  
+  .dropdown-toggle {
+    cursor: pointer;
+  }
+  
+  .dropdown-arrow {
+    margin-left: 0.375rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 4px 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 30;
+  }
+  
+  .dropdown-list {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+  
+  .dropdown-link {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dropdown-link:hover {
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+  }
+  
+  .nav-item.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .nav-item.has-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .nav-item.active .nav-link {
+    color: var(--primary-color);
+  }
+  
+   
+  .mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    padding: 1rem;
+    cursor: pointer;
+  }
+  
+   
+  .mobile-nav-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 350px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    z-index: 60;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+  }
+  
+  .mobile-nav-panel.visible {
+    right: 0;
+  }
+  
+  .mobile-nav-content {
+    padding: 1rem;
+  }
+  
+  .mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  .mobile-nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-signin-btn, .mobile-watch-btn, .mobile-tickets-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .mobile-watch-btn {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .mobile-tickets-btn {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+  }
+  
+  .mobile-signin-btn {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+   
+  .accordion-item {
+    border-bottom: 1px solid var(--medium-gray);
+  }
+  
+  .accordion-link, .accordion-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: left;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .accordion-toggle {
+    border-bottom: none;
+  }
+  
+  .accordion-arrow {
+    transition: transform 0.2s ease;
+  }
+  
+  .accordion-toggle.active .accordion-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .accordion-content {
+    display: none;
+    padding: 0.5rem 0 0.5rem 1rem;
+  }
+  
+  .accordion-content.visible {
+    display: block;
+  }
+  
+  .accordion-sublink {
+    display: block;
+    padding: 0.625rem 0;
+    color: var(--dark-gray);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .accordion-sublink:hover {
+    color: var(--primary-color);
+  }
+  
+  .accordion-item .accordion-link.active, 
+  .accordion-item .accordion-toggle.active {
+    color: var(--primary-color);
+  }
+  
+   
+  .nav-spacer {
+    height: 120px;  
+  }
+  
+   
+  @media (max-width: 1024px) {
+    .nav-link {
+      padding: 1rem 0.75rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .desktop-nav {
+      display: none;
+    }
+    
+    .mobile-nav-toggle {
+      display: block;
+    }
+    
+    .nav-spacer {
+      height: 100px;  
+    }
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-color: #f5f5f5;
+      --light-gray: #2a2a2a;
+      --medium-gray: #444444;
+      --dark-gray: #aaaaaa;
+    }
+    
+    .top-navbar {
+      background-color: #002244;  
+    }
+    
+    .main-navbar {
+      background-color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dropdown-menu {
+      background-color: #1a1a1a;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dropdown-link:hover {
+      background-color: #333333;
+    }
+    
+    .mobile-nav-panel {
+      background-color: #1a1a1a;
+    }
+    
+    .mobile-signin-btn {
+      background-color: #002244;
+    }
+    
+    .mobile-tickets-btn {
+      background-color: #333333;
+      color: #f5f5f5;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+    const mobileNavPanel = document.getElementById('mobile-nav-panel');
+    const mobileNavClose = document.getElementById('mobile-nav-close');
+    
+    if (mobileNavToggle && mobileNavPanel) {
+      mobileNavToggle.addEventListener('click', function() {
+        mobileNavPanel.classList.add('visible');
+        document.body.style.overflow = 'hidden'; 
+      });
+    }
+    
+    if (mobileNavClose && mobileNavPanel) {
+      mobileNavClose.addEventListener('click', function() {
+        mobileNavPanel.classList.remove('visible');
+        document.body.style.overflow = ''; 
+      });
+    }
+    
+    
+    const accordionToggles = document.querySelectorAll('.accordion-toggle');
+    
+    accordionToggles.forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        
+        
+        const allContents = document.querySelectorAll('.accordion-content');
+        const allToggles = document.querySelectorAll('.accordion-toggle');
+        
+        allContents.forEach(item => {
+          if (item !== content) {
+            item.classList.remove('visible');
+          }
+        });
+        
+        allToggles.forEach(item => {
+          if (item !== this) {
+            item.classList.remove('active');
+          }
+        });
+        
+        
+        this.classList.toggle('active');
+        content.classList.toggle('visible');
+      });
+    });
+  });
+</script>
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+
+
+
+
+
+
+ 
+
+
+
+ <header>
+  
+  <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">Live Race Betting</h1>
+  <div class="mt-1 mb-2 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+    
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+  </div>
+
+
+  </div>
+  
+  
+    
+    
+      
+      
+    
+  
+  
+  <script type="text/javascript" src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js" integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA==" data-oid="views_live-betting/_index.md" data-oid-likes="likes_live-betting/_index.md"></script>
+  
+  </header>
+  <section class="mt-0 prose flex max-w-full flex-col dark:prose-invert lg:flex-row">
+    
+    <div class="min-w-0 min-h-0 max-w-prose">
+      
+<h1 class="relative group">🔴 Live Race Betting 
+    <div id="-live-race-betting" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#-live-race-betting" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Experience the thrill of real-time betting with live odds, in-race wagering, and exciting parlay opportunities!</p>
+<!-- Live Race Status -->
+<div id="live-race-banner" class="hidden bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 border border-red-200 dark:border-red-800 rounded-xl p-6 my-8 shadow-lg">
+  <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+    <div class="flex items-center">
+      <div class="w-4 h-4 bg-red-500 rounded-full animate-pulse mr-3"></div>
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white" id="live-race-title">Checking for live races...</h3>
+        <p class="text-gray-600 dark:text-gray-300" id="live-race-status">Loading race status...</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-4">
+      <div class="text-center">
+        <div class="text-2xl font-bold text-red-600 dark:text-red-400" id="live-lap">--/--</div>
+        <div class="text-sm text-gray-500">Current Lap</div>
+      </div>
+      <div class="text-center">
+        <div class="text-2xl font-bold text-blue-600 dark:text-blue-400" id="live-leader">--</div>
+        <div class="text-sm text-gray-500">Leader</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="relative group">🎯 Live Odds &amp; Position Betting 
+    <div id="-live-odds--position-betting" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#-live-odds--position-betting" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 my-8">
+  <!-- Live Race Winner Odds -->
+  <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+    <div class="bg-gradient-to-r from-green-600 to-green-700 p-4 text-white">
+      <div class="flex items-center justify-between">
+        <h3 class="font-bold">Race Winner Odds</h3>
+        <div class="flex items-center text-green-100">
+          <div class="w-2 h-2 bg-green-300 rounded-full animate-pulse mr-2"></div>
+          <span class="text-sm">Live Updates</span>
+        </div>
+      </div>
+      <p class="text-green-100 text-sm">Odds refresh every 5 seconds during races</p>
+    </div>
+<pre><code>&lt;div class=&quot;p-4&quot;&gt;
+  &lt;div id=&quot;live-winner-odds&quot; class=&quot;space-y-2&quot;&gt;
+    &lt;div class=&quot;text-center text-gray-500 dark:text-gray-400 py-8&quot;&gt;
+      No live race currently active
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+  <!-- In-Race Position Changes -->
+  <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+    <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-4 text-white">
+      <h3 class="font-bold">In-Race Betting</h3>
+      <p class="text-blue-100 text-sm">Lap times, position changes & race events</p>
+    </div>
+<pre><code>&lt;div class=&quot;p-4 space-y-3&quot;&gt;
+  &lt;div class=&quot;flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors cursor-pointer live-bet&quot; data-bet-type=&quot;position-change&quot;&gt;
+    &lt;div&gt;
+      &lt;div class=&quot;font-semibold text-gray-900 dark:text-white&quot;&gt;Next Position Change&lt;/div&gt;
+      &lt;div class=&quot;text-sm text-gray-500&quot;&gt;Any rider gains/loses position&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;font-bold text-blue-600&quot; id=&quot;position-change-odds&quot;&gt;--&lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class=&quot;flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors cursor-pointer live-bet&quot; data-bet-type=&quot;fastest-lap&quot;&gt;
+    &lt;div&gt;
+      &lt;div class=&quot;font-semibold text-gray-900 dark:text-white&quot;&gt;Fastest Lap Next&lt;/div&gt;
+      &lt;div class=&quot;text-sm text-gray-500&quot;&gt;Who sets fastest lap time&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;font-bold text-green-600&quot; id=&quot;fastest-lap-odds&quot;&gt;--&lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class=&quot;flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors cursor-pointer live-bet&quot; data-bet-type=&quot;crash-caution&quot;&gt;
+    &lt;div&gt;
+      &lt;div class=&quot;font-semibold text-gray-900 dark:text-white&quot;&gt;Crash/Caution Flag&lt;/div&gt;
+      &lt;div class=&quot;text-sm text-gray-500&quot;&gt;Red flag in next 3 laps&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;font-bold text-red-600&quot; id=&quot;caution-odds&quot;&gt;--&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+
+<h2 class="relative group">🎲 Multi-Race Parlay Builder 
+    <div id="-multi-race-parlay-builder" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#-multi-race-parlay-builder" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden my-8">
+  <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-6 text-white">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+      <div>
+        <h3 class="text-xl font-bold mb-2">Parlay Builder</h3>
+        <p class="text-purple-100">Combine multiple race bets for bigger payouts</p>
+      </div>
+      <div class="mt-4 sm:mt-0">
+        <div class="text-right">
+          <div class="text-2xl font-bold" id="parlay-multiplier">1.0x</div>
+          <div class="text-sm text-purple-200">Potential Multiplier</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Parlay Race Selection -->
+  <div class="p-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Available Races -->
+      <div>
+        <h4 class="font-bold text-gray-900 dark:text-white mb-4">Available Races Today</h4>
+        <div class="space-y-3" id="parlay-races">
+          <!-- Race selection will be populated here -->
+        </div>
+      </div>
+<pre><code>  &lt;!-- Current Parlay --&gt;
+  &lt;div&gt;
+    &lt;h4 class=&quot;font-bold text-gray-900 dark:text-white mb-4&quot;&gt;Your Parlay &lt;span id=&quot;parlay-count&quot; class=&quot;text-purple-600&quot;&gt;(0 selections)&lt;/span&gt;&lt;/h4&gt;
+    &lt;div id=&quot;parlay-selections&quot; class=&quot;space-y-2 mb-4&quot;&gt;
+      &lt;div class=&quot;text-center text-gray-500 dark:text-gray-400 py-8&quot; id=&quot;empty-parlay&quot;&gt;
+        Add race bets to build your parlay
+      &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class=&quot;border-t border-gray-200 dark:border-gray-700 pt-4&quot;&gt;
+      &lt;div class=&quot;flex justify-between items-center mb-3&quot;&gt;
+        &lt;span class=&quot;font-semibold text-gray-900 dark:text-white&quot;&gt;Bet Amount:&lt;/span&gt;
+        &lt;input type=&quot;number&quot; id=&quot;parlay-amount&quot; class=&quot;w-24 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white&quot; placeholder=&quot;$10&quot; min=&quot;1&quot; max=&quot;1000&quot;&gt;
+      &lt;/div&gt;
+      
+      &lt;div class=&quot;flex justify-between items-center mb-4&quot;&gt;
+        &lt;span class=&quot;font-semibold text-gray-900 dark:text-white&quot;&gt;Potential Payout:&lt;/span&gt;
+        &lt;span class=&quot;font-bold text-green-600 dark:text-green-400&quot; id=&quot;parlay-payout&quot;&gt;$0.00&lt;/span&gt;
+      &lt;/div&gt;
+      
+      &lt;button id=&quot;place-parlay&quot; class=&quot;w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg hover:from-purple-700 hover:to-purple-800 font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed&quot; disabled&gt;
+        Place Parlay Bet
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+
+<h2 class="relative group">⚡ Real-Time Race Data 
+    <div id="-real-time-race-data" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#-real-time-race-data" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 my-8">
+  <!-- Live Leaderboard -->
+  <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+    <div class="bg-gradient-to-r from-yellow-600 to-orange-600 p-4 text-white">
+      <h3 class="font-bold">Live Positions</h3>
+      <p class="text-yellow-100 text-sm">Current race standings</p>
+    </div>
+<pre><code>&lt;div class=&quot;p-4&quot;&gt;
+  &lt;div id=&quot;live-positions&quot; class=&quot;space-y-2&quot;&gt;
+    &lt;div class=&quot;text-center text-gray-500 dark:text-gray-400 py-4&quot;&gt;
+      No live race data available
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+  <!-- Lap Times -->
+  <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+    <div class="bg-gradient-to-r from-cyan-600 to-blue-600 p-4 text-white">
+      <h3 class="font-bold">Lap Times</h3>
+      <p class="text-cyan-100 text-sm">Latest sector times</p>
+    </div>
+<pre><code>&lt;div class=&quot;p-4&quot;&gt;
+  &lt;div id=&quot;lap-times&quot; class=&quot;space-y-2&quot;&gt;
+    &lt;div class=&quot;text-center text-gray-500 dark:text-gray-400 py-4&quot;&gt;
+      No timing data available
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+  <!-- Race Stats -->
+  <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+    <div class="bg-gradient-to-r from-emerald-600 to-green-600 p-4 text-white">
+      <h3 class="font-bold">Race Stats</h3>
+      <p class="text-emerald-100 text-sm">Key race metrics</p>
+    </div>
+<pre><code>&lt;div class=&quot;p-4 space-y-3&quot;&gt;
+  &lt;div class=&quot;flex justify-between&quot;&gt;
+    &lt;span class=&quot;text-gray-600 dark:text-gray-400&quot;&gt;Fastest Lap:&lt;/span&gt;
+    &lt;span class=&quot;font-bold text-gray-900 dark:text-white&quot; id=&quot;fastest-lap-time&quot;&gt;--:--&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex justify-between&quot;&gt;
+    &lt;span class=&quot;text-gray-600 dark:text-gray-400&quot;&gt;By:&lt;/span&gt;
+    &lt;span class=&quot;font-bold text-gray-900 dark:text-white&quot; id=&quot;fastest-lap-rider&quot;&gt;--&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex justify-between&quot;&gt;
+    &lt;span class=&quot;text-gray-600 dark:text-gray-400&quot;&gt;Lead Changes:&lt;/span&gt;
+    &lt;span class=&quot;font-bold text-gray-900 dark:text-white&quot; id=&quot;lead-changes&quot;&gt;--&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex justify-between&quot;&gt;
+    &lt;span class=&quot;text-gray-600 dark:text-gray-400&quot;&gt;Gap to 2nd:&lt;/span&gt;
+    &lt;span class=&quot;font-bold text-gray-900 dark:text-white&quot; id=&quot;leader-gap&quot;&gt;--&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+<!-- Live Betting Modal -->
+<div id="live-bet-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+  <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-md w-full">
+    <div class="bg-gradient-to-r from-red-600 to-red-700 p-6 text-white rounded-t-xl">
+      <h3 class="text-xl font-bold" id="modal-title">Place Live Bet</h3>
+      <p class="text-red-100" id="modal-subtitle">Current race betting</p>
+    </div>
+<pre><code>&lt;div class=&quot;p-6&quot;&gt;
+  &lt;div class=&quot;mb-4&quot;&gt;
+    &lt;label class=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2&quot;&gt;Bet Amount&lt;/label&gt;
+    &lt;input type=&quot;number&quot; id=&quot;live-bet-amount&quot; class=&quot;w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white&quot; placeholder=&quot;$10&quot; min=&quot;1&quot; max=&quot;500&quot;&gt;
+  &lt;/div&gt;
+  
+  &lt;div class=&quot;mb-6&quot;&gt;
+    &lt;div class=&quot;flex justify-between items-center&quot;&gt;
+      &lt;span class=&quot;text-gray-600 dark:text-gray-400&quot;&gt;Potential Payout:&lt;/span&gt;
+      &lt;span class=&quot;font-bold text-green-600 dark:text-green-400&quot; id=&quot;live-bet-payout&quot;&gt;$0.00&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class=&quot;flex gap-3&quot;&gt;
+    &lt;button id=&quot;cancel-live-bet&quot; class=&quot;flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors&quot;&gt;
+      Cancel
+    &lt;/button&gt;
+    &lt;button id=&quot;confirm-live-bet&quot; class=&quot;flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors&quot;&gt;
+      Place Bet
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  initializeLiveBetting();
+  
+  let liveBettingActive = false;
+  let raceDataInterval;
+  let oddsUpdateInterval;
+  let currentParlaySelections = [];
+  
+  async function initializeLiveBetting() {
+    // Check if there's an active race
+    await checkForActiveRace();
+    
+    // Initialize parlay builder
+    await initializeParlayBuilder();
+    
+    // Set up event listeners
+    setupEventListeners();
+    
+    // Start live updates if race is active
+    if (liveBettingActive) {
+      startLiveUpdates();
+    }
+  }
+  
+  async function checkForActiveRace() {
+    try {
+      const response = await fetch('/api/races/live-status');
+      if (response.ok) {
+        const data = await response.json();
+        
+        if (data.activeRace) {
+          liveBettingActive = true;
+          showLiveRaceBanner(data.activeRace);
+          if (data.liveOdds) {
+            populateLiveOdds(data.liveOdds);
+          }
+          if (data.raceData) {
+            populateRaceData(data.raceData);
+          }
+        } else {
+          showNoActiveRace();
+        }
+      } else {
+        console.log('No live race API response');
+        showNoActiveRace();
+      }
+    } catch (error) {
+      console.log('Live race API not available');
+      showNoActiveRace();
+    }
+  }
+  
+  function showLiveRaceBanner(raceData) {
+    document.getElementById('live-race-banner').classList.remove('hidden');
+    document.getElementById('live-race-title').textContent = raceData.name || 'Live Race';
+    document.getElementById('live-race-status').textContent = 
+      `Lap ${raceData.currentLap || 0} of ${raceData.totalLaps || 0} • Live betting active`;
+    document.getElementById('live-lap').textContent = 
+      `${raceData.currentLap || 0}/${raceData.totalLaps || 0}`;
+    document.getElementById('live-leader').textContent = raceData.leader || 'Loading...';
+  }
+  
+  function populateLiveOdds(odds) {
+    const container = document.getElementById('live-winner-odds');
+    if (!odds || odds.length === 0) {
+      container.innerHTML = '<div class="text-center text-gray-500 dark:text-gray-400 py-8">Loading live odds...</div>';
+      return;
+    }
+    
+    container.innerHTML = odds.map((rider, index) => {
+      const changeIcon = rider.change === 'up' ? '🔼' : rider.change === 'down' ? '🔽' : '▶️';
+      const changeColor = rider.change === 'up' ? 'text-green-600' : 
+                         rider.change === 'down' ? 'text-red-600' : 'text-gray-600';
+      
+      return `
+        <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors cursor-pointer live-winner-bet" data-rider="${rider.name}" data-odds="${rider.odds}">
+          <div class="flex items-center">
+            <span class="text-sm font-bold w-8 text-gray-500">#${rider.position || index + 1}</span>
+            <span class="font-semibold text-gray-900 dark:text-white">${rider.name}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="${changeColor}">${changeIcon}</span>
+            <span class="font-bold text-green-600">${rider.odds}</span>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+  
+  function populateRaceData(raceData) {
+    // Populate live positions
+    if (raceData.positions) {
+      const container = document.getElementById('live-positions');
+      container.innerHTML = raceData.positions.slice(0, 6).map(rider => `
+        <div class="flex items-center justify-between text-sm">
+          <div class="flex items-center">
+            <span class="font-bold w-8 text-gray-500">${rider.position}</span>
+            <span class="text-gray-900 dark:text-white">${rider.name}</span>
+          </div>
+          <span class="text-gray-500">+${rider.gap || '0.0'}s</span>
+        </div>
+      `).join('');
+    }
+    
+    // Populate lap times
+    if (raceData.lapTimes) {
+      const container = document.getElementById('lap-times');
+      container.innerHTML = raceData.lapTimes.slice(0, 4).map(lap => `
+        <div class="flex items-center justify-between text-sm">
+          <span class="text-gray-900 dark:text-white">${lap.rider}</span>
+          <span class="font-mono ${lap.fastest ? 'text-green-600 font-bold' : 'text-gray-500'}">${lap.time}</span>
+        </div>
+      `).join('');
+    }
+    
+    // Update race stats
+    if (raceData.stats) {
+      document.getElementById('fastest-lap-time').textContent = raceData.stats.fastestLap || '--:--';
+      document.getElementById('fastest-lap-rider').textContent = raceData.stats.fastestLapRider || '--';
+      document.getElementById('lead-changes').textContent = raceData.stats.leadChanges || '--';
+      document.getElementById('leader-gap').textContent = raceData.stats.leaderGap || '--';
+    }
+    
+    // Update in-race betting odds
+    if (raceData.inRaceOdds) {
+      document.getElementById('position-change-odds').textContent = raceData.inRaceOdds.positionChange || '--';
+      document.getElementById('fastest-lap-odds').textContent = raceData.inRaceOdds.fastestLap || '--';
+      document.getElementById('caution-odds').textContent = raceData.inRaceOdds.caution || '--';
+    }
+  }
+  
+  async function initializeParlayBuilder() {
+    try {
+      const response = await fetch('/api/races/upcoming');
+      if (response.ok) {
+        const data = await response.json();
+        populateParlayRaces(data.races || []);
+      } else {
+        populateParlayRaces([]);
+      }
+    } catch (error) {
+      console.log('Upcoming races API not available');
+      populateParlayRaces([]);
+    }
+  }
+  
+  function populateParlayRaces(races) {
+    const container = document.getElementById('parlay-races');
+    
+    if (races.length === 0) {
+      container.innerHTML = `
+        <div class="text-center text-gray-500 dark:text-gray-400 py-8">
+          No upcoming races available for parlay betting
+        </div>
+      `;
+      return;
+    }
+    
+    container.innerHTML = races.slice(0, 4).map(race => `
+      <div class="border border-gray-200 dark:border-gray-600 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+        <div class="flex items-center justify-between mb-2">
+          <h5 class="font-semibold text-gray-900 dark:text-white">${race.name}</h5>
+          <span class="text-xs px-2 py-1 rounded-full ${race.status === 'live' ? 'bg-red-100 text-red-800' : 'bg-blue-100 text-blue-800'}">${race.status}</span>
+        </div>
+        <p class="text-sm text-gray-500 mb-3">${race.date} ${race.time}</p>
+        <div class="grid grid-cols-2 gap-2">
+          <button class="px-3 py-2 text-sm bg-gray-100 dark:bg-gray-600 text-gray-900 dark:text-white rounded hover:bg-gray-200 dark:hover:bg-gray-500 transition-colors parlay-option" data-race-id="${race.id}" data-bet="winner" data-odds="2.5">
+            Race Winner (+150)
+          </button>
+          <button class="px-3 py-2 text-sm bg-gray-100 dark:bg-gray-600 text-gray-900 dark:text-white rounded hover:bg-gray-200 dark:hover:bg-gray-500 transition-colors parlay-option" data-race-id="${race.id}" data-bet="podium" data-odds="1.8">
+            Top 3 Finish (+80)
+          </button>
+        </div>
+      </div>
+    `).join('');
+  }
+  
+  function setupEventListeners() {
+    // Live winner betting
+    document.addEventListener('click', function(e) {
+      if (e.target.closest('.live-winner-bet')) {
+        const bet = e.target.closest('.live-winner-bet');
+        openLiveBetModal('Race Winner', bet.dataset.rider, bet.dataset.odds);
+      }
+      
+      if (e.target.closest('.live-bet')) {
+        const bet = e.target.closest('.live-bet');
+        const betType = bet.dataset.betType;
+        const odds = bet.querySelector('[id$="-odds"]')?.textContent || '+120';
+        openLiveBetModal('In-Race Bet', betType, odds);
+      }
+      
+      if (e.target.closest('.parlay-option')) {
+        const option = e.target.closest('.parlay-option');
+        addToParlayBet(option);
+      }
+    });
+    
+    // Modal handlers
+    document.getElementById('cancel-live-bet')?.addEventListener('click', closeLiveBetModal);
+    document.getElementById('confirm-live-bet')?.addEventListener('click', confirmLiveBet);
+    
+    // Amount calculation
+    document.getElementById('parlay-amount')?.addEventListener('input', updateParlayPayout);
+    document.getElementById('live-bet-amount')?.addEventListener('input', updateLiveBetPayout);
+    
+    // Place parlay bet
+    document.getElementById('place-parlay')?.addEventListener('click', placeParlayBet);
+  }
+  
+  function openLiveBetModal(type, selection, odds) {
+    document.getElementById('modal-title').textContent = type;
+    document.getElementById('modal-subtitle').textContent = selection;
+    document.getElementById('live-bet-modal').classList.remove('hidden');
+    
+    // Store current bet data
+    document.getElementById('live-bet-modal').dataset.selection = selection;
+    document.getElementById('live-bet-modal').dataset.odds = odds;
+    
+    updateLiveBetPayout();
+  }
+  
+  function closeLiveBetModal() {
+    document.getElementById('live-bet-modal').classList.add('hidden');
+    document.getElementById('live-bet-amount').value = '';
+  }
+  
+  function updateLiveBetPayout() {
+    const amount = parseFloat(document.getElementById('live-bet-amount').value) || 0;
+    const odds = document.getElementById('live-bet-modal').dataset.odds || '+120';
+    const multiplier = parseFloat(odds.replace('+', '')) / 100 + 1;
+    const payout = amount * multiplier;
+    
+    document.getElementById('live-bet-payout').textContent = `$${payout.toFixed(2)}`;
+  }
+  
+  function confirmLiveBet() {
+    const amount = document.getElementById('live-bet-amount').value;
+    const selection = document.getElementById('live-bet-modal').dataset.selection;
+    
+    if (!amount || parseFloat(amount) < 1) {
+      alert('Please enter a valid bet amount');
+      return;
+    }
+    
+    // Place the bet via API
+    placeLiveBet(selection, amount);
+    closeLiveBetModal();
+  }
+  
+  async function placeLiveBet(selection, amount) {
+    try {
+      const response = await fetch('/api/bets/live', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ selection, amount })
+      });
+      
+      if (response.ok) {
+        showBetConfirmation(`Live bet placed: $${amount} on ${selection}`);
+      } else {
+        alert('Failed to place bet. Please try again.');
+      }
+    } catch (error) {
+      alert('Unable to place bet. Please check your connection.');
+    }
+  }
+  
+  function addToParlayBet(option) {
+    const raceId = option.dataset.raceId;
+    const betType = option.dataset.bet;
+    const odds = parseFloat(option.dataset.odds);
+    
+    // Check if this race is already in parlay
+    const existingIndex = currentParlaySelections.findIndex(s => s.raceId === raceId);
+    if (existingIndex >= 0) {
+      currentParlaySelections[existingIndex] = { raceId, betType, odds, text: option.textContent };
+    } else {
+      currentParlaySelections.push({ raceId, betType, odds, text: option.textContent });
+    }
+    
+    updateParlayDisplay();
+  }
+  
+  function updateParlayDisplay() {
+    const container = document.getElementById('parlay-selections');
+    const countElement = document.getElementById('parlay-count');
+    const emptyMessage = document.getElementById('empty-parlay');
+    
+    if (currentParlaySelections.length === 0) {
+      container.innerHTML = emptyMessage.outerHTML;
+    } else {
+      container.innerHTML = currentParlaySelections.map((selection, index) => `
+        <div class="flex items-center justify-between p-2 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+          <span class="text-sm text-gray-900 dark:text-white">${selection.text}</span>
+          <button class="text-red-600 hover:text-red-800 remove-parlay" data-index="${index}">×</button>
+        </div>
+      `).join('');
+    }
+    
+    countElement.textContent = `(${currentParlaySelections.length} selections)`;
+    
+    // Calculate multiplier
+    const multiplier = currentParlaySelections.reduce((acc, sel) => acc * sel.odds, 1);
+    document.getElementById('parlay-multiplier').textContent = `${multiplier.toFixed(1)}x`;
+    
+    // Enable/disable place bet button
+    const placeButton = document.getElementById('place-parlay');
+    placeButton.disabled = currentParlaySelections.length < 2;
+    
+    updateParlayPayout();
+    
+    // Add remove handlers
+    document.querySelectorAll('.remove-parlay').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const index = parseInt(this.dataset.index);
+        currentParlaySelections.splice(index, 1);
+        updateParlayDisplay();
+      });
+    });
+  }
+  
+  function updateParlayPayout() {
+    const amount = parseFloat(document.getElementById('parlay-amount').value) || 0;
+    const multiplier = currentParlaySelections.reduce((acc, sel) => acc * sel.odds, 1);
+    const payout = amount * multiplier;
+    
+    document.getElementById('parlay-payout').textContent = `$${payout.toFixed(2)}`;
+  }
+  
+  async function placeParlayBet() {
+    const amount = document.getElementById('parlay-amount').value;
+    
+    if (!amount || parseFloat(amount) < 1) {
+      alert('Please enter a valid bet amount');
+      return;
+    }
+    
+    if (currentParlaySelections.length < 2) {
+      alert('Please select at least 2 races for a parlay');
+      return;
+    }
+    
+    try {
+      const response = await fetch('/api/bets/parlay', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          selections: currentParlaySelections,
+          amount: parseFloat(amount)
+        })
+      });
+      
+      if (response.ok) {
+        showBetConfirmation(`Parlay bet placed: $${amount} on ${currentParlaySelections.length} races`);
+        
+        // Reset parlay
+        currentParlaySelections = [];
+        updateParlayDisplay();
+        document.getElementById('parlay-amount').value = '';
+      } else {
+        alert('Failed to place parlay bet. Please try again.');
+      }
+    } catch (error) {
+      alert('Unable to place parlay bet. Please check your connection.');
+    }
+  }
+  
+  function startLiveUpdates() {
+    // Update odds every 5 seconds
+    oddsUpdateInterval = setInterval(updateLiveData, 5000);
+    
+    // Update race data every 10 seconds
+    raceDataInterval = setInterval(updateRaceData, 10000);
+  }
+  
+  async function updateLiveData() {
+    try {
+      const response = await fetch('/api/races/live-odds');
+      if (response.ok) {
+        const data = await response.json();
+        if (data.odds) {
+          populateLiveOdds(data.odds);
+        }
+        if (data.raceData) {
+          populateRaceData(data.raceData);
+        }
+      }
+    } catch (error) {
+      console.log('Live odds update failed');
+    }
+  }
+  
+  async function updateRaceData() {
+    try {
+      const response = await fetch('/api/races/live-data');
+      if (response.ok) {
+        const data = await response.json();
+        if (data.raceData) {
+          populateRaceData(data.raceData);
+        }
+      }
+    } catch (error) {
+      console.log('Race data update failed');
+    }
+  }
+  
+  function showBetConfirmation(message) {
+    const notification = document.createElement('div');
+    notification.className = 'fixed top-4 right-4 z-50 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg font-medium';
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+      notification.remove();
+    }, 4000);
+  }
+  
+  function showNoActiveRace() {
+    // Update UI to show no active race
+    const container = document.querySelector('#live-winner-odds');
+    if (container) {
+      container.innerHTML = `
+        <div class="text-center py-8 text-gray-500 dark:text-gray-400">
+          <div class="text-4xl mb-4">🏁</div>
+          <h3 class="font-bold mb-2">No Live Race Active</h3>
+          <p class="text-sm">Live betting will be available during race events</p>
+        </div>
+      `;
+    }
+  }
+  
+  // Cleanup intervals when page unloads
+  window.addEventListener('beforeunload', function() {
+    if (oddsUpdateInterval) clearInterval(oddsUpdateInterval);
+    if (raceDataInterval) clearInterval(raceDataInterval);
+  });
+});
+</script>
+<!-- Load Social Sharing and Bet Slip Sharing -->
+<script src="/js/social-sharing.js"></script>
+<script src="/js/bet-slip-sharing.js"></script>
+<script>
+// Enhanced live betting with win sharing
+document.addEventListener('DOMContentLoaded', function() {
+  // Add a demo button to test the sharing feature
+  const demoSection = document.createElement('div');
+  demoSection.className = 'bg-yellow-100 dark:bg-yellow-900 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 my-6 text-center';
+  demoSection.innerHTML = `
+    <h4 class="font-bold text-yellow-800 dark:text-yellow-200 mb-2">🎉 Demo Feature</h4>
+    <p class="text-yellow-700 dark:text-yellow-300 mb-3">Try out the social sharing feature for big wins!</p>
+    <button id="demo-big-win" class="px-6 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 font-medium transition-colors">
+      Simulate Big Win & Share
+    </button>
+  `;
+  
+  // Insert after the live race banner
+  const banner = document.getElementById('live-race-banner');
+  if (banner && banner.nextSibling) {
+    banner.parentNode.insertBefore(demoSection, banner.nextSibling);
+  }
+  
+  // Add demo functionality
+  document.getElementById('demo-big-win')?.addEventListener('click', function() {
+    // Create a realistic big win scenario
+    const bigWinData = {
+      id: Date.now(),
+      payout: 1250.00,
+      amount: 75.00,
+      raceName: 'Thunder Valley National - 450 Main Event',
+      betType: 'Live Race Winner',
+      odds: '+1567',
+      status: 'won'
+    };
+    
+    // Show celebration notification first
+    showBigWinCelebration(bigWinData);
+    
+    // Then show sharing modal after celebration
+    setTimeout(() => {
+      if (window.winSharingManager) {
+        window.winSharingManager.showWinSharingModal(bigWinData);
+      }
+    }, 3000);
+  });
+  
+  function showBigWinCelebration(winData) {
+    const celebration = document.createElement('div');
+    celebration.className = 'fixed inset-0 z-50 flex items-center justify-center pointer-events-none';
+    celebration.innerHTML = `
+      <div class="text-center animate-bounce">
+        <div class="text-8xl mb-4">🎉🏆💰</div>
+        <div class="text-4xl font-bold text-yellow-400 mb-2">BIG WIN!</div>
+        <div class="text-3xl font-bold text-white">$${winData.payout.toFixed(2)}</div>
+        <div class="text-xl text-gray-300 mt-2">${winData.raceName}</div>
+      </div>
+    `;
+    
+    document.body.appendChild(celebration);
+    
+    // Remove after animation
+    setTimeout(() => {
+      if (celebration.parentNode) {
+        celebration.parentNode.removeChild(celebration);
+      }
+    }, 3000);
+  }
+  
+  // Integrate with existing bet confirmation
+  const originalConfirmLiveBet = window.confirmLiveBet;
+  if (originalConfirmLiveBet) {
+    window.confirmLiveBet = function() {
+      originalConfirmLiveBet();
+      
+      // Simulate a win scenario for demo (in real app, this would come from your API)
+      setTimeout(() => {
+        const randomWin = Math.random() > 0.7; // 30% chance of big win
+        if (randomWin) {
+          const winAmount = Math.random() * 500 + 100; // $100-$600 win
+          const betAmount = 25;
+          
+          const winData = {
+            id: Date.now(),
+            payout: winAmount,
+            amount: betAmount,
+            raceName: 'Live Race Bet',
+            betType: 'Position Change',
+            odds: '+' + Math.floor((winAmount / betAmount - 1) * 100),
+            status: 'won'
+          };
+          
+          // Trigger the sharing modal for big wins
+          if (winAmount >= 50) {
+            document.dispatchEvent(new CustomEvent('betSettled', { detail: winData }));
+          }
+        }
+      }, 2000);
+    };
+  }
+});
+</script>
+    </div>
+
+
+
+
+  </section>
+  
+  <section class="mt-10 prose dark:prose-invert">
+    <p class="py-8 border-t">
+      <em>There are no articles to list here yet.</em>
+    </p>
+  </section>
+  
+
+    
+
+  
+        
+      </main><footer id="site-footer" class="py-4 print:hidden border-t border-neutral-200 dark:border-neutral-700">
+  <div class="container">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex flex-wrap justify-center md:justify-start">
+        
+        
+          
+          <nav class="flex text-sm font-medium text-neutral-500 dark:text-neutral-400">
+            <ul class="flex flex-row flex-wrap list-none justify-center">
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/about/"
+                  title="">
+                  
+                  About
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/contact/"
+                  title="">
+                  
+                  Contact
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/terms/"
+                  title="">
+                  
+                  Terms
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/privacy/"
+                  title="">
+                  
+                  Privacy
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/betting/policies/"
+                  title="">
+                  
+                  Betting Policies
+                </a>
+                
+              </li>
+              
+            </ul>
+          </nav>
+          
+        
+      </div>
+
+      <div class="flex flex-wrap justify-center md:justify-end gap-4">
+        
+        
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy; 2025 MXRaceHub
+        </p>
+        
+
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+  </script>
+  
+  
+  
+<script>
+
+(function() {
+  'use strict';
+  
+  
+  window.mediumZoom = function() {
+    return {
+      attach: function() { return this; },
+      detach: function() { return this; },
+      update: function() { return this; },
+      clone: function() { return this; },
+      on: function() { return this; },
+      off: function() { return this; },
+      open: function() { return this; },
+      close: function() { return this; },
+      toggle: function() { return this; },
+      getOptions: function() { return {}; },
+      getImages: function() { return []; },
+      getZoomedImage: function() { return null; }
+    };
+  };
+
+  
+  const originalError = console.error;
+  console.error = function() {
+    const message = Array.from(arguments).join(' ');
+    if (message.includes('mediumZoom') || message.includes('Uncaught ReferenceError')) {
+      return; 
+    }
+    originalError.apply(console, arguments);
+  };
+
+  
+  window.addEventListener('error', function(e) {
+    if (e.message && (e.message.includes('mediumZoom') || e.message.includes('is not defined'))) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  }, true);
+})();
+</script>
+  
+</footer>
+    </div>
+  </body>
+  
+    <script
+      data-name="BMC-Widget"
+      data-cfasync="false"
+      src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+      data-id="nunocoracao"
+      data-description="Support me on Buy me a coffee!"
+      data-message=""
+      data-color="#FFDD00"
+      data-position="Right"
+      data-x_margin="18"
+      data-y_margin="18"></script>
+  
+</html>

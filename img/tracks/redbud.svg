@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="500" height="320" viewBox="0 0 500 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background - Outdoor Setting with RedBud colors -->
+  <rect width="500" height="320" fill="#a4d1a2"/>
+  
+  <!-- Red/White Stripe Sky Background -->
+  <rect x="0" y="0" width="500" height="40" fill="#bf0a30"/>
+  <rect x="0" y="40" width="500" height="40" fill="#ffffff"/>
+  <rect x="0" y="80" width="500" height="40" fill="#bf0a30"/>
+  
+  <!-- Hills in background -->
+  <path d="M0,120 Q50,110 100,115 Q150,120 200,110 Q250,100 300,105 Q350,110 400,105 Q450,100 500,110 L500,150 L0,150 Z" fill="#7d9f7b"/>
+  
+  <!-- RedBud Track Layout - Famous for LaRocco's Leap -->
+  <path d="M100,150 
+           C120,140 140,160 160,170 
+           C180,180 200,160 220,150 
+           C240,140 260,130 280,140 
+           C300,150 320,170 340,180 
+           C360,190 380,170 400,160 
+           C380,200 360,210 340,220 
+           C320,230 300,210 280,200 
+           C260,190 240,180 220,190 
+           C200,200 180,220 160,210 
+           C140,200 120,190 100,180 
+           C80,170 80,160 100,150 Z" 
+        fill="#c2b280" stroke="#a89968" stroke-width="2"/>
+  
+  <!-- Dirt Texture -->
+  <rect x="100" y="150" width="300" height="70" fill="url(#dirt-pattern)" opacity="0.4"/>
+  
+  <!-- Start Gate -->
+  <rect x="160" y="170" width="100" height="6" fill="#ff0000"/>
+  
+  <!-- LaRocco's Leap - Famous Jump -->
+  <path d="M280,180 L310,160 L330,180" stroke="#a89968" stroke-width="10" fill="none"/>
+  <text x="300" y="150" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#333333" text-anchor="middle">LAROCCO'S LEAP</text>
+  
+  <!-- Other Jumps -->
+  <path d="M220,160 Q230,150 240,160" stroke="#a89968" stroke-width="8" fill="none"/>
+  <path d="M180,190 Q190,180 200,190" stroke="#a89968" stroke-width="8" fill="none"/>
+  <path d="M360,170 Q370,160 380,170" stroke="#a89968" stroke-width="8" fill="none"/>
+  <path d="M140,180 Q150,170 160,180" stroke="#a89968" stroke-width="8" fill="none"/>
+  
+  <!-- Trees around the track -->
+  <circle cx="80" cy="140" r="15" fill="#3a5f38"/>
+  <circle cx="60" cy="170" r="12" fill="#3a5f38"/>
+  <circle cx="70" cy="200" r="14" fill="#3a5f38"/>
+  <circle cx="420" cy="150" r="15" fill="#3a5f38"/>
+  <circle cx="440" cy="180" r="12" fill="#3a5f38"/>
+  <circle cx="430" cy="210" r="14" fill="#3a5f38"/>
+  
+  <!-- RedBud Logo - July 4th Inspired -->
+  <g transform="translate(250, 30)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="24" font-weight="900" fill="white" text-anchor="middle">REDBUD MX</text>
+    <circle cx="-90" cy="0" r="5" fill="white"/>
+    <circle cx="90" cy="0" r="5" fill="white"/>
+  </g>
+  
+  <!-- Location -->
+  <text x="250" y="280" font-family="Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle">Buchanan, Michigan</text>
+  
+  <!-- July 4th Weekend Badge -->
+  <g transform="translate(400, 260)">
+    <rect x="-70" y="-15" width="140" height="30" rx="15" fill="#bf0a30"/>
+    <text x="0" y="5" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">JULY 4TH WEEKEND</text>
+  </g>
+  
+  <!-- Type Label -->
+  <g transform="translate(40, 40)">
+    <rect x="0" y="0" width="120" height="30" rx="15" fill="#228b22"/>
+    <text x="60" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">MOTOCROSS</text>
+  </g>
+  
+  <!-- TV Badge -->
+  <g transform="translate(420, 40)">
+    <rect x="0" y="0" width="60" height="30" rx="5" fill="#cc0000"/>
+    <text x="30" y="20" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">NBC</text>
+  </g>
+  
+  <!-- USA Patriotic Elements (for 4th of July race) -->
+  <g transform="translate(40, 80)">
+    <rect x="0" y="0" width="30" height="20" fill="#002868"/>
+    <rect x="12" y="0" width="6" height="20" fill="white"/>
+    <rect x="0" y="7" width="30" height="6" fill="white"/>
+    <circle cx="15" cy="10" r="3" fill="#bf0a30"/>
+  </g>
+  
+  <g transform="translate(440, 80)">
+    <rect x="0" y="0" width="30" height="20" fill="#002868"/>
+    <rect x="12" y="0" width="6" height="20" fill="white"/>
+    <rect x="0" y="7" width="30" height="6" fill="white"/>
+    <circle cx="15" cy="10" r="3" fill="#bf0a30"/>
+  </g>
+  
+  <!-- Dirt Pattern -->
+  <defs>
+    <pattern id="dirt-pattern" patternUnits="userSpaceOnUse" width="40" height="40" patternTransform="scale(0.5)">
+      <rect width="40" height="40" fill="none"/>
+      <circle cx="5" cy="5" r="1" fill="#a0855c"/>
+      <circle cx="15" cy="20" r="1.5" fill="#a0855c"/>
+      <circle cx="30" cy="30" r="1" fill="#a0855c"/>
+      <circle cx="35" cy="10" r="1.5" fill="#a0855c"/>
+      <circle cx="10" cy="35" r="1" fill="#a0855c"/>
+      <circle cx="25" cy="15" r="1" fill="#a0855c"/>
+      <circle cx="20" cy="25" r="1.5" fill="#a0855c"/>
+    </pattern>
+  </defs>
+</svg>

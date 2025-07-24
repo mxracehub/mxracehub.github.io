@@ -1,0 +1,2367 @@
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true">
+<meta name="description" content="A powerful, lightweight theme for Hugo.">
+<meta name="author" content="MXRaceHub">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mxracehub.site/tracks/san-diego-snapdragon-stadium/">
+<meta property="og:title" content="Snapdragon Stadium">
+<meta property="og:description" content="A powerful, lightweight theme for Hugo.">
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mxracehub.site/tracks/san-diego-snapdragon-stadium/">
+<meta property="twitter:title" content="Snapdragon Stadium">
+<meta property="twitter:description" content="A powerful, lightweight theme for Hugo.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/styles.css">
+
+
+<style>
+  :root {
+    --primary-color: #0066cc;
+    --primary-dark: #0052a3;
+    --primary-light: #e6f0ff;
+    --text-color: #333;
+    --text-muted: #666;
+    --background-color: #fff;
+    --card-background: #f9f9f9;
+    --border-color: #e0e0e0;
+    --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --primary-color: #2d8cff;
+      --primary-dark: #0066cc;
+      --primary-light: #0a1a2d;
+      --text-color: #e0e0e0;
+      --text-muted: #a0a0a0;
+      --background-color: #121212;
+      --card-background: #1e1e1e;
+      --border-color: #383838;
+    }
+  }
+
+  body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  .main-content {
+    flex: 1;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .main-content {
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .main-content {
+      padding: 0 3rem;
+    }
+  }
+
+  .content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .content-wrapper {
+      padding: 0 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .content-wrapper {
+      padding: 0 2rem;
+    }
+  }
+</style>
+
+
+<style>
+   
+  .transfers-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .transfers-page {
+      padding: 0 2rem;
+    }
+  }
+
+  .transfers-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+  }
+
+  .balance-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .balance-amount {
+    color: var(--primary-color);
+  }
+
+  .add-funds-btn, 
+  .option-card.active .option-link,
+  .transfer-button {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+
+  .add-funds-btn:hover, 
+  .option-card.active .option-link:hover,
+  .transfer-button:hover {
+    background-color: var(--primary-dark);
+  }
+
+  .option-card {
+    background-color: var(--background-color);
+    border: 2px solid transparent;
+  }
+
+  .option-card.active {
+    border-color: var(--primary-color);
+  }
+
+  .option-icon {
+    color: var(--primary-color);
+  }
+
+  .tab-btn.active {
+    color: var(--primary-color);
+  }
+
+  .tab-btn.active::after {
+    background-color: var(--primary-color);
+  }
+
+  .transfer-form-container {
+    background-color: var(--background-color);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .transfer-form-container {
+      background-color: var(--card-background);
+    }
+
+    .recipient-name,
+    .transfer-header h2 {
+      color: var(--text-color);
+    }
+
+    .recipient-preview {
+      background-color: var(--primary-light);
+    }
+
+    #transfer-amount,
+    #transfer-description,
+    #recipient-search {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      border-color: var(--border-color);
+    }
+
+    .transaction-item {
+      border-color: var(--border-color);
+    }
+
+    .transaction-title {
+      color: var(--text-color);
+    }
+
+    .transaction-date {
+      color: var(--text-muted);
+    }
+  }
+</style><script>
+
+window.mediumZoom = window.mediumZoom || function() {
+  return {
+    attach: function() { return this; },
+    detach: function() { return this; },
+    update: function() { return this; },
+    clone: function() { return this; },
+    on: function() { return this; },
+    off: function() { return this; },
+    open: function() { return this; },
+    close: function() { return this; },
+    toggle: function() { return this; },
+    getOptions: function() { return {}; },
+    getImages: function() { return []; },
+    getZoomedImage: function() { return null; }
+  };
+};
+
+
+window.$ = window.$ || function() {
+  return {
+    ready: function(fn) { 
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', fn);
+      } else {
+        fn();
+      }
+      return this;
+    },
+    on: function() { return this; },
+    off: function() { return this; },
+    click: function() { return this; },
+    each: function() { return this; },
+    find: function() { return this; },
+    addClass: function() { return this; },
+    removeClass: function() { return this; },
+    toggleClass: function() { return this; },
+    hide: function() { return this; },
+    show: function() { return this; },
+    attr: function() { return this; },
+    css: function() { return this; },
+    html: function() { return this; },
+    text: function() { return this; },
+    val: function() { return this; }
+  };
+};
+window.jQuery = window.$;
+</script>
+<script>
+
+if (typeof $ === 'undefined') {
+  window.$ = function(selector) {
+    const elements = typeof selector === 'string' ? document.querySelectorAll(selector) : [selector];
+    return {
+      ready: function(fn) { 
+        if (document.readyState !== 'loading') fn(); 
+        else document.addEventListener('DOMContentLoaded', fn); 
+        return this;
+      },
+      click: function(fn) { 
+        elements.forEach(el => el && el.addEventListener && el.addEventListener('click', fn)); 
+        return this; 
+      },
+      addClass: function(className) { 
+        elements.forEach(el => el && el.classList && el.classList.add(className)); 
+        return this; 
+      },
+      removeClass: function(className) { 
+        elements.forEach(el => el && el.classList && el.classList.remove(className)); 
+        return this; 
+      },
+      toggle: function() { 
+        elements.forEach(el => el && el.style && (el.style.display = el.style.display === 'none' ? '' : 'none')); 
+        return this; 
+      },
+      each: function(fn) {
+        elements.forEach((el, i) => fn.call(el, i, el));
+        return this;
+      },
+      length: elements.length
+    };
+  };
+  
+  window.$.ready = window.$.fn = window.$;
+}
+</script><body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a
+      >
+    </div>
+    
+    
+      
+<header class="navbar-main">
+  
+  <div class="top-navbar">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="navbar-logo">
+        <a href="/" class="logo-link">
+          <span class="logo-text">MXRaceHub</span>
+        </a>
+      </div>
+      
+      <div class="nav-buttons flex items-center">
+        <a href="/live-stream/" class="watch-btn">
+          <span class="watch-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </span>
+          <span>Watch Live</span>
+        </a>
+        
+        <a href="/tickets/" class="tickets-btn">
+          <span class="ticket-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 10 4 15 9 20"></polyline>
+              <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+            </svg>
+          </span>
+          <span>Tickets</span>
+        </a>
+        
+        <a href="/auth/" class="signin-btn">
+          <span class="user-icon mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>Sign In</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="main-navbar">
+    <div class="container mx-auto px-4">
+      
+      <nav class="desktop-nav">
+        <ul class="nav-list">
+          <li class="nav-item ">
+            <a href="/" class="nav-link">Home</a>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/races/" class="nav-link dropdown-toggle">
+              <span>Races</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/races/upcoming/" class="dropdown-link">Upcoming Races</a></li>
+                <li><a href="/races/supercross/" class="dropdown-link">Supercross</a></li>
+                <li><a href="/races/motocross/" class="dropdown-link">Motocross</a></li>
+                <li><a href="/races/results/" class="dropdown-link">Race Results</a></li>
+                <li><a href="/races/standings/" class="dropdown-link">Standings</a></li>
+                <li><a href="/races/schedule/" class="dropdown-link">Full Schedule</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/riders/" class="nav-link dropdown-toggle">
+              <span>Riders</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/riders/450/" class="dropdown-link">450 Class</a></li>
+                <li><a href="/riders/250/" class="dropdown-link">250 Class</a></li>
+                <li><a href="/riders/all/" class="dropdown-link">Search All Riders</a></li>
+                <li><a href="/riders/champions/" class="dropdown-link">Champions</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/teams/" class="nav-link dropdown-toggle">
+              <span>Teams</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/teams/honda/" class="dropdown-link">Team Honda HRC</a></li>
+                <li><a href="/teams/ktm/" class="dropdown-link">Red Bull KTM</a></li>
+                <li><a href="/teams/yamaha/" class="dropdown-link">Monster Energy Yamaha</a></li>
+                <li><a href="/teams/kawasaki/" class="dropdown-link">Monster Energy Kawasaki</a></li>
+                <li><a href="/teams/pro-circuit/" class="dropdown-link">Pro Circuit Kawasaki</a></li>
+                <li><a href="/teams/all/" class="dropdown-link">All Teams</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown active">
+            <a href="/tracks/" class="nav-link dropdown-toggle">
+              <span>Tracks</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/tracks/supercross/" class="dropdown-link">Supercross Tracks</a></li>
+                <li><a href="/tracks/motocross/" class="dropdown-link">Motocross Tracks</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/news/" class="nav-link dropdown-toggle">
+              <span>News</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/news/latest/" class="dropdown-link">Latest News</a></li>
+                <li><a href="/news/interviews/" class="dropdown-link">Rider Interviews</a></li>
+                <li><a href="/news/video/" class="dropdown-link">Video Content</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/betting/" class="nav-link dropdown-toggle">
+              <span>Betting</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/betting/friend-bets/" class="dropdown-link">Friend Bets</a></li>
+                <li><a href="/betting/groups/" class="dropdown-link">Betting Groups</a></li>
+                <li><a href="/betting/odds/" class="dropdown-link">Latest Odds</a></li>
+                <li><a href="/betting/membership/" class="dropdown-link">Membership</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item has-dropdown ">
+            <a href="/account/" class="nav-link dropdown-toggle">
+              <span>My Account</span>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li><a href="/account/profile/" class="dropdown-link">My Profile</a></li>
+                <li><a href="/profile/achievements/" class="dropdown-link">🏆 My Badges</a></li>
+                <li><a href="/account/bets/" class="dropdown-link">My Bets</a></li>
+                <li><a href="/account/wallet/" class="dropdown-link">Wallet</a></li>
+                <li><a href="/account/transfers/" class="dropdown-link">Money Transfers</a></li>
+                <li><a href="/account/membership/" class="dropdown-link">Membership</a></li>
+                <li><a href="/account/settings/" class="dropdown-link">Settings</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      
+      
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  
+  <div id="mobile-nav-panel" class="mobile-nav-panel">
+    <div class="mobile-nav-content">
+      <div class="mobile-nav-header">
+        <div class="logo-text">MXRaceHub</div>
+        <button id="mobile-nav-close" class="mobile-nav-close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav-buttons">
+        <a href="/auth/" class="mobile-signin-btn">
+          <span class="user-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>Sign In</span>
+        </a>
+        
+        <a href="/live-stream/" class="mobile-watch-btn">
+          <span class="watch-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </span>
+          <span>Watch Live</span>
+        </a>
+        
+        <a href="/tickets/" class="mobile-tickets-btn">
+          <span class="ticket-icon mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 10 4 15 9 20"></polyline>
+              <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+            </svg>
+          </span>
+          <span>Tickets</span>
+        </a>
+      </div>
+      
+      <nav class="mobile-nav-menu">
+        <div class="accordion-menu">
+          <div class="accordion-item">
+            <a href="/" class="accordion-link ">Home</a>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Races</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/races/upcoming/" class="accordion-sublink">Upcoming Races</a>
+              <a href="/races/supercross/" class="accordion-sublink">Supercross</a>
+              <a href="/races/motocross/" class="accordion-sublink">Motocross</a>
+              <a href="/races/results/" class="accordion-sublink">Race Results</a>
+              <a href="/races/standings/" class="accordion-sublink">Standings</a>
+              <a href="/races/schedule/" class="accordion-sublink">Full Schedule</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Riders</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/riders/450/" class="accordion-sublink">450 Class</a>
+              <a href="/riders/250/" class="accordion-sublink">250 Class</a>
+              <a href="/riders/all/" class="accordion-sublink">Search All Riders</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Teams</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/teams/honda/" class="accordion-sublink">Team Honda HRC</a>
+              <a href="/teams/ktm/" class="accordion-sublink">Red Bull KTM</a>
+              <a href="/teams/yamaha/" class="accordion-sublink">Monster Energy Yamaha</a>
+              <a href="/teams/kawasaki/" class="accordion-sublink">Monster Energy Kawasaki</a>
+              <a href="/teams/pro-circuit/" class="accordion-sublink">Pro Circuit Kawasaki</a>
+              <a href="/teams/all/" class="accordion-sublink">All Teams</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle active">
+              <span>Tracks</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/tracks/supercross/" class="accordion-sublink">Supercross Tracks</a>
+              <a href="/tracks/motocross/" class="accordion-sublink">Motocross Tracks</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>News</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/news/latest/" class="accordion-sublink">Latest News</a>
+              <a href="/news/interviews/" class="accordion-sublink">Rider Interviews</a>
+              <a href="/news/video/" class="accordion-sublink">Video Content</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>Betting</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/betting/friend-bets/" class="accordion-sublink">Friend Bets</a>
+              <a href="/betting/groups/" class="accordion-sublink">Betting Groups</a>
+              <a href="/betting/odds/" class="accordion-sublink">Latest Odds</a>
+              <a href="/betting/membership/" class="accordion-sublink">Membership</a>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-toggle ">
+              <span>My Account</span>
+              <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <a href="/account/profile/" class="accordion-sublink">My Profile</a>
+              <a href="/account/bets/" class="accordion-sublink">My Bets</a>
+              <a href="/account/wallet/" class="accordion-sublink">Wallet</a>
+              <a href="/account/transfers/" class="accordion-sublink">Money Transfers</a>
+              <a href="/account/membership/" class="accordion-sublink">Membership</a>
+              <a href="/account/settings/" class="accordion-sublink">Settings</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+<div class="nav-spacer"></div>
+
+<style>
+   
+  :root {
+    --primary-color: #e20613;  
+    --secondary-color: #003366;  
+    --text-color: #333333;
+    --light-gray: #f2f2f2;
+    --medium-gray: #dddddd;
+    --dark-gray: #555555;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  
+   
+  .top-navbar {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 0;
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .logo-text {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .watch-btn, .tickets-btn, .signin-btn {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  
+  .watch-btn {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .tickets-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .signin-btn {
+    background-color: transparent;
+    color: white;
+  }
+  
+  .watch-btn:hover, .tickets-btn:hover, .signin-btn:hover {
+    opacity: 0.9;
+  }
+  
+   
+  .main-navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 40;
+  }
+  
+  .desktop-nav {
+    display: flex;
+  }
+  
+  .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .nav-item {
+    position: relative;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    color: var(--primary-color);
+  }
+  
+  .dropdown-toggle {
+    cursor: pointer;
+  }
+  
+  .dropdown-arrow {
+    margin-left: 0.375rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 4px 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 30;
+  }
+  
+  .dropdown-list {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+  
+  .dropdown-link {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dropdown-link:hover {
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+  }
+  
+  .nav-item.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .nav-item.has-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .nav-item.active .nav-link {
+    color: var(--primary-color);
+  }
+  
+   
+  .mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    padding: 1rem;
+    cursor: pointer;
+  }
+  
+   
+  .mobile-nav-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 350px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    z-index: 60;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+  }
+  
+  .mobile-nav-panel.visible {
+    right: 0;
+  }
+  
+  .mobile-nav-content {
+    padding: 1rem;
+  }
+  
+  .mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  .mobile-nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-signin-btn, .mobile-watch-btn, .mobile-tickets-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .mobile-watch-btn {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .mobile-tickets-btn {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+  }
+  
+  .mobile-signin-btn {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+   
+  .accordion-item {
+    border-bottom: 1px solid var(--medium-gray);
+  }
+  
+  .accordion-link, .accordion-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: left;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .accordion-toggle {
+    border-bottom: none;
+  }
+  
+  .accordion-arrow {
+    transition: transform 0.2s ease;
+  }
+  
+  .accordion-toggle.active .accordion-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .accordion-content {
+    display: none;
+    padding: 0.5rem 0 0.5rem 1rem;
+  }
+  
+  .accordion-content.visible {
+    display: block;
+  }
+  
+  .accordion-sublink {
+    display: block;
+    padding: 0.625rem 0;
+    color: var(--dark-gray);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .accordion-sublink:hover {
+    color: var(--primary-color);
+  }
+  
+  .accordion-item .accordion-link.active, 
+  .accordion-item .accordion-toggle.active {
+    color: var(--primary-color);
+  }
+  
+   
+  .nav-spacer {
+    height: 120px;  
+  }
+  
+   
+  @media (max-width: 1024px) {
+    .nav-link {
+      padding: 1rem 0.75rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .desktop-nav {
+      display: none;
+    }
+    
+    .mobile-nav-toggle {
+      display: block;
+    }
+    
+    .nav-spacer {
+      height: 100px;  
+    }
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-color: #f5f5f5;
+      --light-gray: #2a2a2a;
+      --medium-gray: #444444;
+      --dark-gray: #aaaaaa;
+    }
+    
+    .top-navbar {
+      background-color: #002244;  
+    }
+    
+    .main-navbar {
+      background-color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dropdown-menu {
+      background-color: #1a1a1a;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dropdown-link:hover {
+      background-color: #333333;
+    }
+    
+    .mobile-nav-panel {
+      background-color: #1a1a1a;
+    }
+    
+    .mobile-signin-btn {
+      background-color: #002244;
+    }
+    
+    .mobile-tickets-btn {
+      background-color: #333333;
+      color: #f5f5f5;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+    const mobileNavPanel = document.getElementById('mobile-nav-panel');
+    const mobileNavClose = document.getElementById('mobile-nav-close');
+    
+    if (mobileNavToggle && mobileNavPanel) {
+      mobileNavToggle.addEventListener('click', function() {
+        mobileNavPanel.classList.add('visible');
+        document.body.style.overflow = 'hidden'; 
+      });
+    }
+    
+    if (mobileNavClose && mobileNavPanel) {
+      mobileNavClose.addEventListener('click', function() {
+        mobileNavPanel.classList.remove('visible');
+        document.body.style.overflow = ''; 
+      });
+    }
+    
+    
+    const accordionToggles = document.querySelectorAll('.accordion-toggle');
+    
+    accordionToggles.forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        
+        
+        const allContents = document.querySelectorAll('.accordion-content');
+        const allToggles = document.querySelectorAll('.accordion-toggle');
+        
+        allContents.forEach(item => {
+          if (item !== content) {
+            item.classList.remove('visible');
+          }
+        });
+        
+        allToggles.forEach(item => {
+          if (item !== this) {
+            item.classList.remove('active');
+          }
+        });
+        
+        
+        this.classList.toggle('active');
+        content.classList.toggle('visible');
+      });
+    });
+  });
+</script>
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+<article class="track-profile">
+  <div class="track-hero">
+    <div class="track-hero-overlay"></div>
+    
+      <img src="/img/hero-images/snapdragon-stadium-hero.jpg" alt="Snapdragon Stadium" class="track-hero-bg">
+    
+    
+    <div class="container track-hero-content">
+      <div class="track-hero-info">
+        <h1 class="track-name">Snapdragon Stadium</h1>
+        <div class="track-details">
+          <div class="track-location">San Diego, California</div>
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container track-content">
+    <div class="track-specs-container">
+      <div class="track-image">
+        
+          <img src="/img/tracks/snapdragon-stadium.svg" alt="Snapdragon Stadium layout">
+        
+      </div>
+      
+      <div class="track-specs">
+        <h2>Track Specifications</h2>
+        <div class="specs-grid">
+          
+          
+          
+          <div class="spec-item">
+            <div class="spec-label">Length</div>
+            <div class="spec-value">2,800 feet</div>
+          </div>
+          
+          
+          
+          
+          
+          <div class="spec-item">
+            <div class="spec-label">Capacity</div>
+            <div class="spec-value">35,000</div>
+          </div>
+          
+          
+          
+          
+          
+        </div>
+        
+        
+        
+        
+      </div>
+    </div>
+    
+    <div class="track-content-main">
+      <div class="track-description">
+        <h2>Overview</h2>
+        
+<h2 class="relative group">The New Home of San Diego Supercross 
+    <div id="the-new-home-of-san-diego-supercross" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#the-new-home-of-san-diego-supercross" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Snapdragon Stadium represents the newest chapter in San Diego&rsquo;s long and storied Supercross history. Opened in 2022, this state-of-the-art facility has taken over from the historic Qualcomm/Jack Murphy Stadium (demolished in 2021) as Southern California&rsquo;s premier Supercross venue.</p>
+<p>Built on a portion of the former Qualcomm Stadium site, Snapdragon continues San Diego&rsquo;s tradition of hosting world-class Supercross events while providing modern amenities, improved sightlines, and a more intimate atmosphere for fans. As the newest stadium on the Monster Energy AMA Supercross calendar, Snapdragon offers a blend of Southern California Supercross tradition with contemporary stadium design, creating an exceptional experience for both riders and spectators.</p>
+
+<h2 class="relative group">Facility Overview 
+    <div id="facility-overview" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#facility-overview" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>As a purpose-built modern stadium, Snapdragon offers several advantages over many older venues on the Supercross circuit:</p>
+
+<h3 class="relative group">Contemporary Design 
+    <div id="contemporary-design" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#contemporary-design" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The stadium&rsquo;s recent construction incorporates:</p>
+<ul>
+<li>Modern architectural approaches that maximize spectator sightlines</li>
+<li>Wider concourses and improved crowd flow</li>
+<li>State-of-the-art video boards and sound systems</li>
+<li>Contemporary premium seating and hospitality options</li>
+</ul>
+
+<h3 class="relative group">Intimate Atmosphere 
+    <div id="intimate-atmosphere" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#intimate-atmosphere" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Despite the venue&rsquo;s 35,000-seat capacity, the design creates:</p>
+<ul>
+<li>Steeper seating angles that bring fans closer to the action</li>
+<li>A more compact footprint than the previous Qualcomm Stadium</li>
+<li>Superior acoustics that amplify crowd energy</li>
+<li>Minimized distance between the furthest seats and the track</li>
+</ul>
+
+<h3 class="relative group">California Climate Advantage 
+    <div id="california-climate-advantage" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#california-climate-advantage" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>San Diego&rsquo;s legendary weather provides:</p>
+<ul>
+<li>Typically mild January temperatures for comfortable spectating</li>
+<li>Minimal rain concerns for both track preparation and fan experience</li>
+<li>Beautiful sunset backdrops for the evening program</li>
+<li>Consistent conditions for riders and track builders</li>
+</ul>
+
+<h2 class="relative group">Track Characteristics 
+    <div id="track-characteristics" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#track-characteristics" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>While each year brings a new track design, Snapdragon&rsquo;s specific characteristics influence several common elements:</p>
+
+<h3 class="relative group">Southern California Soil 
+    <div id="southern-california-soil" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#southern-california-soil" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The dirt used at San Diego rounds typically features:</p>
+<ul>
+<li>A harder base compared to East Coast stadiums</li>
+<li>Good traction when properly watered and maintained</li>
+<li>Tendency to become slick and blue-grooved as the night progresses</li>
+<li>West Coast hardpack characteristics familiar to California-based riders</li>
+</ul>
+
+<h3 class="relative group">Layout Possibilities 
+    <div id="layout-possibilities" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#layout-possibilities" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The stadium floor configuration allows for:</p>
+<ul>
+<li>Traditional supercross-style layouts with multiple rhythm sections</li>
+<li>Longer start straights than many stadiums on the circuit</li>
+<li>Good balance between technical sections and racing opportunities</li>
+<li>Room for creative track designs that utilize the full floor space</li>
+</ul>
+
+<h3 class="relative group">Weather Considerations 
+    <div id="weather-considerations" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#weather-considerations" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Although San Diego weather is typically favorable, track builders must consider:</p>
+<ul>
+<li>Morning marine layer moisture that can affect dirt preparation</li>
+<li>Significant temperature drops after sunset requiring adjusted watering schedules</li>
+<li>Occasional winter precipitation that can dramatically alter track conditions</li>
+<li>Dew formation as evening temperatures cool</li>
+</ul>
+
+<h2 class="relative group">San Diego Supercross Legacy 
+    <div id="san-diego-supercross-legacy" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#san-diego-supercross-legacy" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>While Snapdragon Stadium itself is new, San Diego&rsquo;s Supercross history runs deep:</p>
+
+<h3 class="relative group">Historical Significance 
+    <div id="historical-significance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#historical-significance" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>San Diego has hosted top-level Supercross since 1980, with:</p>
+<ul>
+<li>Legendary battles that have shaped championship outcomes</li>
+<li>Traditional early-season positioning that makes it a crucial round</li>
+<li>Strong local industry presence due to Southern California&rsquo;s status as a motocross hub</li>
+<li>Consistent drawing power as one of the series&rsquo; best-attended events</li>
+</ul>
+
+<h3 class="relative group">Transitional Period 
+    <div id="transitional-period" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#transitional-period" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The move from Qualcomm to Snapdragon represents:</p>
+<ul>
+<li>Continuity of San Diego&rsquo;s Supercross tradition in a new venue</li>
+<li>Modernization of the fan experience while honoring the past</li>
+<li>Adaptation to changing urban development patterns</li>
+<li>Investment in the future of motorsports in Southern California</li>
+</ul>
+
+<h3 class="relative group">Memorable Moments 
+    <div id="memorable-moments" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#memorable-moments" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Even in its short history, Snapdragon has already contributed to San Diego&rsquo;s rich Supercross legacy:</p>
+<ul>
+<li>The 2023 inaugural event saw Eli Tomac and Chase Sexton continue their championship battle</li>
+<li>The 2024 round featured Cooper Webb&rsquo;s dramatic late-race pass for victory</li>
+<li>The venue&rsquo;s first two events delivered exceptional racing quality and fan experiences</li>
+<li>New track design possibilities have already created distinctive layouts compared to the old stadium</li>
+</ul>
+
+<h2 class="relative group">Fan Experience 
+    <div id="fan-experience" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#fan-experience" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Attending Supercross at Snapdragon offers several advantages over the previous venue:</p>
+
+<h3 class="relative group">Modern Amenities 
+    <div id="modern-amenities" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#modern-amenities" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The new facility provides:</p>
+<ul>
+<li>Enhanced concession options including local San Diego specialties</li>
+<li>Improved restroom facilities and accessibility</li>
+<li>Modern connectivity including robust Wi-Fi and cellular service</li>
+<li>Contemporary premium experiences including club seats and suites</li>
+</ul>
+
+<h3 class="relative group">Southern California Location 
+    <div id="southern-california-location" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#southern-california-location" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The stadium&rsquo;s Mission Valley location offers:</p>
+<ul>
+<li>Convenient access from major highways</li>
+<li>Proximity to San Diego&rsquo;s renowned beaches and attractions</li>
+<li>Ample hotel options for traveling fans</li>
+<li>The region&rsquo;s world-class restaurants and entertainment options</li>
+</ul>
+
+<h3 class="relative group">Industry Connection 
+    <div id="industry-connection" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#industry-connection" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>San Diego&rsquo;s position in the heart of the motocross industry means:</p>
+<ul>
+<li>Heavy industry presence with team headquarters nearby</li>
+<li>Numerous professional riders based in the region</li>
+<li>Local motorcycle dealerships and shops hosting pre-race events</li>
+<li>Factory team and sponsor activations at a scale rarely seen elsewhere</li>
+</ul>
+
+<h3 class="relative group">Pre-Race Activities 
+    <div id="pre-race-activities" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#pre-race-activities" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The fan experience extends beyond race day:</p>
+<ul>
+<li>The traditional pit party utilizes the expansive parking areas surrounding the stadium</li>
+<li>Manufacturer displays showcasing the latest motorcycles and technology</li>
+<li>Rider autograph sessions and meet-and-greet opportunities</li>
+<li>Technical seminars and demonstrations from industry experts</li>
+</ul>
+
+<h2 class="relative group">Rider Perspective 
+    <div id="rider-perspective" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#rider-perspective" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Professional competitors have noted several aspects of Snapdragon Stadium that influence racing:</p>
+<ul>
+<li>The consistent Southern California climate typically allows for ideal dirt preparation</li>
+<li>The stadium&rsquo;s compact design creates an electric atmosphere with fans closer to the track</li>
+<li>The modern facility provides enhanced rider amenities and preparation areas</li>
+<li>Many West Coast-based riders enjoy the &ldquo;home race&rdquo; feeling with familiar surroundings</li>
+</ul>
+<p>The track&rsquo;s typically hardpack Southern California dirt requires:</p>
+<ul>
+<li>Precise throttle control to manage traction</li>
+<li>Careful line selection as preferred racing lines develop</li>
+<li>Suspension settings optimized for harder surfaces</li>
+<li>Specific tire selection to balance grip and durability</li>
+</ul>
+
+<h2 class="relative group">Local Attractions 
+    <div id="local-attractions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#local-attractions" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Fans traveling to San Diego for Supercross have numerous options to enhance their visit:</p>
+
+<h3 class="relative group">Riding Opportunities 
+    <div id="riding-opportunities" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#riding-opportunities" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Southern California offers exceptional riding options:</p>
+<ul>
+<li><strong>Milestone MX Park</strong>: Premier practice facility about 2 hours north in Riverside County</li>
+<li><strong>Pala Raceway</strong>: National-caliber track approximately 45 minutes northeast of San Diego</li>
+<li><strong>Cahuilla Creek MX</strong>: Popular track in Anza, approximately 1.5 hours from San Diego</li>
+<li>Numerous other tracks and trail systems throughout the region</li>
+</ul>
+
+<h3 class="relative group">San Diego Attractions 
+    <div id="san-diego-attractions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#san-diego-attractions" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Beyond motorcycles, the city offers world-class attractions:</p>
+<ul>
+<li><strong>Balboa Park</strong>: 1,200-acre urban cultural park with museums and the famous San Diego Zoo</li>
+<li><strong>Gaslamp Quarter</strong>: Historic district with restaurants, shopping, and nightlife</li>
+<li><strong>Mission Bay</strong>: 4,235-acre aquatic park with beaches and water activities</li>
+<li><strong>USS Midway Museum</strong>: Aircraft carrier museum on the San Diego waterfront</li>
+</ul>
+
+<h3 class="relative group">Motorsports Culture 
+    <div id="motorsports-culture" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#motorsports-culture" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>San Diego&rsquo;s rich motorsports heritage includes:</p>
+<ul>
+<li><strong>Barona Dragstrip</strong>: Quarter-mile drag racing facility in nearby Lakeside</li>
+<li><strong>Legendary motorcycle dealerships</strong> with deep racing connections</li>
+<li><strong>Action sports heritage</strong> as a birthplace of many motocross innovations</li>
+<li><strong>Professional rider training facilities</strong> scattered throughout the county</li>
+</ul>
+
+<h2 class="relative group">Future Possibilities 
+    <div id="future-possibilities" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#future-possibilities" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>As the newest stadium on the Supercross schedule, Snapdragon presents exciting possibilities:</p>
+
+<h3 class="relative group">Evolving Track Designs 
+    <div id="evolving-track-designs" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#evolving-track-designs" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Future events may feature:</p>
+<ul>
+<li>Increasingly innovative layouts as track builders become more familiar with the venue</li>
+<li>Adaptations specifically designed to maximize the stadium&rsquo;s unique dimensions</li>
+<li>Potential for signature obstacles that become associated with the San Diego round</li>
+<li>Experimentation with new track building techniques and materials</li>
+</ul>
+
+<h3 class="relative group">Enhanced Entertainment 
+    <div id="enhanced-entertainment" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#enhanced-entertainment" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The modern facility enables:</p>
+<ul>
+<li>Advanced lighting and visual effects to enhance the show</li>
+<li>Integration of emerging technologies into the fan experience</li>
+<li>Expanded entertainment options beyond traditional racing formats</li>
+<li>Greater connectivity between in-person and broadcast audiences</li>
+</ul>
+
+<h3 class="relative group">Growing Tradition 
+    <div id="growing-tradition" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#growing-tradition" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>While honoring San Diego&rsquo;s Supercross past, Snapdragon offers the opportunity to:</p>
+<ul>
+<li>Establish new traditions specific to the venue</li>
+<li>Create memorable moments that will define this era of the sport</li>
+<li>Build upon Southern California&rsquo;s central role in Supercross culture</li>
+<li>Develop the next chapter in San Diego&rsquo;s rich motorsports history</li>
+</ul>
+<p>Snapdragon Stadium has quickly established itself as a worthy successor to Qualcomm Stadium&rsquo;s Supercross legacy, blending modern amenities with Southern California&rsquo;s deep motocross traditions to create an exceptional venue for one of the sport&rsquo;s most anticipated annual events.</p>
+
+      </div>
+      
+      
+      <div class="track-events">
+        <h2>Upcoming Events</h2>
+        <div class="events-list">
+          
+            <div class="event-item">
+              <div class="event-date">January 17, 2026</div>
+              <div class="event-details">
+                <div class="event-name"></div>
+                <div class="event-description"></div>
+              </div>
+              
+            </div>
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="track-media">
+        
+        
+        
+        <div class="track-gallery">
+          <h2>Gallery</h2>
+          <div class="gallery-grid">
+            
+              <div class="gallery-item">
+                <a href="/img/tracks/gallery/snapdragon-1.jpg" class="gallery-image-link">
+                  <img src="/img/tracks/gallery/snapdragon-1.jpg" alt="Aerial view of Snapdragon Stadium during Supercross">
+                  
+                    <div class="gallery-caption">Aerial view of Snapdragon Stadium during Supercross</div>
+                  
+                </a>
+              </div>
+            
+              <div class="gallery-item">
+                <a href="/img/tracks/gallery/snapdragon-2.jpg" class="gallery-image-link">
+                  <img src="/img/tracks/gallery/snapdragon-2.jpg" alt="Riders battling in the whoop section at the 2024 event">
+                  
+                    <div class="gallery-caption">Riders battling in the whoop section at the 2024 event</div>
+                  
+                </a>
+              </div>
+            
+              <div class="gallery-item">
+                <a href="/img/tracks/gallery/snapdragon-3.jpg" class="gallery-image-link">
+                  <img src="/img/tracks/gallery/snapdragon-3.jpg" alt="San Diego fans filling the stands at the new venue">
+                  
+                    <div class="gallery-caption">San Diego fans filling the stands at the new venue</div>
+                  
+                </a>
+              </div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+      
+      
+      
+      
+      
+      
+    </div>
+  </div>
+</article>
+
+<style>
+   
+  .track-profile {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+   
+  .track-hero {
+    position: relative;
+    height: 350px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+  
+  .track-hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .track-hero-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .track-hero-fallback .track-name {
+    font-size: 3rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .track-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+    z-index: 1;
+  }
+  
+  .track-hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    z-index: 2;
+  }
+  
+  .track-hero-info {
+    color: white;
+  }
+  
+  .track-hero-info h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .track-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .track-location {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+  
+  .track-type-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .type-supercross {
+    background-color: #d4a017;
+  }
+  
+  .type-motocross {
+    background-color: #228b22;
+  }
+  
+  .type-smx {
+    background-color: #9932cc;
+  }
+  
+  .track-tv-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    background-color: #cc0000;
+    color: white;
+    font-weight: 500;
+  }
+  
+   
+  .track-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 4rem;
+  }
+  
+  @media (min-width: 992px) {
+    .track-content {
+      grid-template-columns: 300px 1fr;
+    }
+  }
+  
+  .track-specs-container {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .track-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+  
+  .track-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .track-specs {
+    padding: 1.5rem;
+  }
+  
+  .track-specs h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .spec-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .spec-label {
+    font-size: 0.85rem;
+    color: #777;
+    text-transform: uppercase;
+  }
+  
+  .spec-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .track-broadcast,
+  .track-records {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+  }
+  
+  .track-broadcast h3,
+  .track-records h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+  
+  .broadcast-details {
+    display: grid;
+    gap: 0.75rem;
+  }
+  
+  .broadcast-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .broadcast-label {
+    font-size: 0.85rem;
+    color: #777;
+    text-transform: uppercase;
+  }
+  
+  .broadcast-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .records-list {
+    display: grid;
+    gap: 0.75rem;
+  }
+  
+  .record-item {
+    padding: 0.75rem;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+  }
+  
+   
+  .track-content-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .track-content-main h2 {
+    font-size: 1.75rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .track-description {
+    line-height: 1.6;
+  }
+  
+   
+  .events-list {
+    display: grid;
+    gap: 1.25rem;
+  }
+  
+  .event-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
+    padding: 1.25rem;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .event-date {
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  
+  .event-name {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  
+  .event-description {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .event-tickets-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #c10000;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+  }
+  
+  .event-tickets-link:hover {
+    background-color: #a00000;
+  }
+  
+   
+  .videos-grid,
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .video-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .video-wrapper {
+    position: relative;
+    padding-top: 56.25%;  
+  }
+  
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  
+  .video-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .video-thumbnail {
+    position: relative;
+    aspect-ratio: 16/9;
+    background-color: #eee;
+    overflow: hidden;
+  }
+  
+  .video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .video-thumbnail-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    color: white;
+  }
+  
+  .video-title {
+    padding: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .gallery-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .gallery-image-link {
+    display: block;
+    position: relative;
+  }
+  
+  .gallery-image-link img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  
+  .gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 0.9rem;
+  }
+  
+   
+  .winners-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  .winners-table th,
+  .winners-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .winners-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .winners-table tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+   
+  .track-map {
+    margin-top: 1.25rem;
+  }
+  
+  .map-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #4285F4;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+  
+  .map-link:hover {
+    background-color: #3367D6;
+  }
+  
+   
+  .accommodations-list {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+  
+  .accommodation-item {
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .accommodation-name {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  
+  .accommodation-distance {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.75rem;
+  }
+  
+  .accommodation-link {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    background-color: #4285F4;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  .accommodation-link:hover {
+    background-color: #3367D6;
+  }
+  
+   
+  @media (prefers-color-scheme: dark) {
+    .track-specs-container {
+      background-color: #222;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .spec-label,
+    .broadcast-label {
+      color: #aaa;
+    }
+    
+    .track-broadcast,
+    .track-records {
+      border-top-color: #333;
+    }
+    
+    .record-item {
+      background-color: #333;
+    }
+    
+    .track-content-main h2 {
+      color: #e0e0e0;
+    }
+    
+    .event-item {
+      background-color: #222;
+    }
+    
+    .event-description {
+      color: #aaa;
+    }
+    
+    .winners-table th {
+      background-color: #333;
+    }
+    
+    .winners-table td {
+      border-bottom-color: #444;
+    }
+    
+    .winners-table tr:hover {
+      background-color: #333;
+    }
+    
+    .accommodation-item {
+      background-color: #222;
+    }
+    
+    .accommodation-distance {
+      color: #aaa;
+    }
+  }
+  
+   
+  @media (max-width: 768px) {
+    .track-hero {
+      height: 280px;
+    }
+    
+    .track-hero-info h1 {
+      font-size: 2.5rem;
+    }
+    
+    .specs-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .videos-grid, 
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .event-item {
+      grid-template-columns: 1fr;
+    }
+    
+    .accommodations-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+        
+      </main><footer id="site-footer" class="py-4 print:hidden border-t border-neutral-200 dark:border-neutral-700">
+  <div class="container">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex flex-wrap justify-center md:justify-start">
+        
+        
+          
+          <nav class="flex text-sm font-medium text-neutral-500 dark:text-neutral-400">
+            <ul class="flex flex-row flex-wrap list-none justify-center">
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/about/"
+                  title="">
+                  
+                  About
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/contact/"
+                  title="">
+                  
+                  Contact
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/terms/"
+                  title="">
+                  
+                  Terms
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/privacy/"
+                  title="">
+                  
+                  Privacy
+                </a>
+                
+              </li>
+              
+              <li class="mr-4 mb-2 last:mr-0">
+                
+                <a class="hover:text-primary-500 flex items-center" href="/betting/policies/"
+                  title="">
+                  
+                  Betting Policies
+                </a>
+                
+              </li>
+              
+            </ul>
+          </nav>
+          
+        
+      </div>
+
+      <div class="flex flex-wrap justify-center md:justify-end gap-4">
+        
+        
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy; 2025 MXRaceHub
+        </p>
+        
+
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+  </script>
+  
+  
+  
+<script>
+
+(function() {
+  'use strict';
+  
+  
+  window.mediumZoom = function() {
+    return {
+      attach: function() { return this; },
+      detach: function() { return this; },
+      update: function() { return this; },
+      clone: function() { return this; },
+      on: function() { return this; },
+      off: function() { return this; },
+      open: function() { return this; },
+      close: function() { return this; },
+      toggle: function() { return this; },
+      getOptions: function() { return {}; },
+      getImages: function() { return []; },
+      getZoomedImage: function() { return null; }
+    };
+  };
+
+  
+  const originalError = console.error;
+  console.error = function() {
+    const message = Array.from(arguments).join(' ');
+    if (message.includes('mediumZoom') || message.includes('Uncaught ReferenceError')) {
+      return; 
+    }
+    originalError.apply(console, arguments);
+  };
+
+  
+  window.addEventListener('error', function(e) {
+    if (e.message && (e.message.includes('mediumZoom') || e.message.includes('is not defined'))) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  }, true);
+})();
+</script>
+  
+</footer>
+    </div>
+  </body>
+  
+    <script
+      data-name="BMC-Widget"
+      data-cfasync="false"
+      src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+      data-id="nunocoracao"
+      data-description="Support me on Buy me a coffee!"
+      data-message=""
+      data-color="#FFDD00"
+      data-position="Right"
+      data-x_margin="18"
+      data-y_margin="18"></script>
+  
+</html>

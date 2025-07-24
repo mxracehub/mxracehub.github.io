@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="500" height="320" viewBox="0 0 500 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background - Stadium Design -->
+  <rect width="500" height="320" fill="#f4f4f4"/>
+  <rect x="20" y="40" width="460" height="240" rx="30" fill="#e8e8e8"/>
+  <rect x="40" y="60" width="420" height="200" rx="20" fill="#dadada"/>
+  
+  <!-- AT&T Stadium Track Layout - Dallas/Arlington -->
+  <path d="M100,130 
+           C120,110 150,100 180,110 
+           C210,100 240,130 270,140 
+           C300,150 330,130 350,140 
+           C370,150 380,170 390,180 
+           C400,190 410,200 400,220 
+           C390,240 360,230 330,230 
+           C300,230 280,210 250,210 
+           C220,210 190,230 160,220 
+           C130,210 110,200 100,180 
+           C90,160 80,150 100,130 Z" 
+        fill="#b8b8b8" stroke="#808080" stroke-width="2"/>
+  
+  <!-- Start Gate -->
+  <rect x="160" y="140" width="70" height="6" fill="#ff0000"/>
+  
+  <!-- Jumps and obstacles -->
+  <rect x="200" y="120" width="30" height="10" rx="5" fill="#808080"/>
+  <rect x="240" y="190" width="30" height="10" rx="5" fill="#808080"/>
+  <rect x="290" y="170" width="30" height="10" rx="5" fill="#808080"/>
+  <rect x="330" y="150" width="30" height="10" rx="5" fill="#808080"/>
+  <rect x="120" y="170" width="30" height="10" rx="5" fill="#808080"/>
+  
+  <!-- Whoops section -->
+  <path d="M220,160 
+           Q225,155 230,160 
+           Q235,165 240,160 
+           Q245,155 250,160 
+           Q255,165 260,160 
+           Q265,155 270,160 
+           Q275,165 280,160" 
+        stroke="#808080" stroke-width="4" fill="none"/>
+  
+  <!-- Title Bar -->
+  <rect x="0" y="0" width="500" height="40" fill="#041E42"/>
+  <text x="250" y="25" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">AT&T STADIUM</text>
+  
+  <!-- Location -->
+  <text x="250" y="280" font-family="Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle">Arlington, Texas</text>
+  
+  <!-- Type Label -->
+  <g transform="translate(40, 40)">
+    <rect x="0" y="0" width="120" height="30" rx="15" fill="#d4a017"/>
+    <text x="60" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SUPERCROSS</text>
+  </g>
+  
+  <!-- TV Badge -->
+  <g transform="translate(420, 40)">
+    <rect x="0" y="0" width="60" height="30" rx="5" fill="#cc0000"/>
+    <text x="30" y="20" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">NBC</text>
+  </g>
+  
+  <!-- Stadium Outline - Cowboys Stadium Shape -->
+  <path d="M70,60 L430,60 L450,160 L430,260 L70,260 L50,160 Z" stroke="#a0a0a0" stroke-width="10" stroke-dasharray="15,10" fill="none"/>
+</svg>

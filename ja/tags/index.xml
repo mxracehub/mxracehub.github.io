@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>タグ on Blowfish</title>
+    <link>https://mxracehub.site/ja/tags/</link>
+    <description>Recent content in タグ on Blowfish</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <managingEditor>nuno@n9o.xyz (Blowfish)</managingEditor>
+    <webMaster>nuno@n9o.xyz (Blowfish)</webMaster>
+    <copyright>© 2025 Blowfish</copyright>
+    <atom:link href="https://mxracehub.site/ja/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>高度なタグ</title>
+      <link>https://mxracehub.site/ja/tags/advanced/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>nuno@n9o.xyz (Blowfish)</author>
+      <guid>https://mxracehub.site/ja/tags/advanced/</guid>
+      <description>&lt;p&gt;こちらは高度なタグです。 Blowfish の他のページの様に、個々の分類条項にカスタムコンテンツの追加やそれを条項リストの一番上に表示することが可能です。&amp;#x1f680;&lt;/p&gt;
+&lt;p&gt;タイトルや説明など SEO や他の目的に利用するためのHugo のメタデータを定義するためにこれらのコンテンツページも利用可能です。&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

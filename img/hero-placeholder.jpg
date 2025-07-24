@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="800" viewBox="0 0 1920 800">
+  <!-- Dark Background -->
+  <rect width="1920" height="800" fill="#111111" />
+  
+  <!-- Motocross Track Illustration (Simplified) -->
+  <path d="M0,600 C200,550 400,650 600,600 C800,550 1000,650 1200,600 C1400,550 1600,650 1800,600 C1900,580 1950,590 2000,600 L2000,800 L0,800 Z" fill="#333333" />
+  
+  <!-- Dirt/Jumps -->
+  <path d="M300,650 C320,620 340,600 360,630 C380,660 400,680 420,650 C440,620 460,600 480,630" stroke="#555555" stroke-width="8" fill="none" />
+  <path d="M800,670 C820,640 840,620 860,650 C880,680 900,700 920,670 C940,640 960,620 980,650" stroke="#555555" stroke-width="8" fill="none" />
+  <path d="M1300,660 C1320,630 1340,610 1360,640 C1380,670 1400,690 1420,660 C1440,630 1460,610 1480,640" stroke="#555555" stroke-width="8" fill="none" />
+  
+  <!-- Dust Particles -->
+  <circle cx="300" cy="620" r="3" fill="#777777" opacity="0.7" />
+  <circle cx="320" cy="610" r="2" fill="#777777" opacity="0.5" />
+  <circle cx="340" cy="625" r="4" fill="#777777" opacity="0.6" />
+  <circle cx="360" cy="615" r="2" fill="#777777" opacity="0.7" />
+  <circle cx="390" cy="630" r="3" fill="#777777" opacity="0.5" />
+  
+  <circle cx="800" cy="640" r="3" fill="#777777" opacity="0.7" />
+  <circle cx="820" cy="630" r="2" fill="#777777" opacity="0.5" />
+  <circle cx="840" cy="645" r="4" fill="#777777" opacity="0.6" />
+  <circle cx="860" cy="635" r="2" fill="#777777" opacity="0.7" />
+  <circle cx="890" cy="650" r="3" fill="#777777" opacity="0.5" />
+  
+  <circle cx="1300" cy="630" r="3" fill="#777777" opacity="0.7" />
+  <circle cx="1320" cy="620" r="2" fill="#777777" opacity="0.5" />
+  <circle cx="1340" cy="635" r="4" fill="#777777" opacity="0.6" />
+  <circle cx="1360" cy="625" r="2" fill="#777777" opacity="0.7" />
+  <circle cx="1390" cy="640" r="3" fill="#777777" opacity="0.5" />
+  
+  <!-- Stylized Rider Silhouettes -->
+  <path d="M400,550 C410,545 415,540 420,530 C425,520 440,525 445,530 C450,535 460,545 465,530 C470,515 480,500 490,510 C500,520 505,535 510,525" stroke="#E2001A" stroke-width="6" fill="none" />
+  
+  <path d="M900,570 C910,565 915,560 920,550 C925,540 940,545 945,550 C950,555 960,565 965,550 C970,535 980,520 990,530 C1000,540 1005,555 1010,545" stroke="#0A1E83" stroke-width="6" fill="none" />
+  
+  <path d="M1400,560 C1410,555 1415,550 1420,540 C1425,530 1440,535 1445,540 C1450,545 1460,555 1465,540 C1470,525 1480,510 1490,520 C1500,530 1505,545 1510,535" stroke="#006600" stroke-width="6" fill="none" />
+  
+  <!-- Motion Lines -->
+  <line x1="350" y1="540" x2="380" y2="540" stroke="#999999" stroke-width="2" stroke-dasharray="5,5" />
+  <line x1="360" y1="530" x2="390" y2="530" stroke="#999999" stroke-width="2" stroke-dasharray="5,5" />
+  <line x1="370" y1="550" x2="400" y2="550" stroke="#999999" stroke-width="2" stroke-dasharray="5,5" />
+  
+  <line x1="850" y1="560" x2="880" y2="560" stroke="#999999" stroke-width="2" stroke-dasharray="5,5" />
+  <line x1="860" y1="550" x2="890" y2="550" stroke="#999999" stroke-width="2" stroke-dasharray="5,5" />
+  <line x1="870" y1="570" x2="900" y2="570" stroke="#999999" stroke-width="2" stroke-dasharray="5,5" />
+  
+  <line x1="1350" y1="550" x2="1380" y2="550" stroke="#999999" stroke-width="2" stroke-dasharray="5,5" />
+  <line x1="1360" y1="540" x2="1390" y2="540" stroke="#999999" stroke-width="2" stroke-dasharray="5,5" />
+  <line x1="1370" y1="560" x2="1400" y2="560" stroke="#999999" stroke-width="2" stroke-dasharray="5,5" />
+  
+  <!-- MXRaceHub Logo -->
+  <text x="960" y="200" font-family="Impact, sans-serif" font-size="120" fill="#E2001A" text-anchor="middle">MXRACEHUB</text>
+  <text x="960" y="270" font-family="Arial, sans-serif" font-size="40" fill="white" text-anchor="middle">SUPERCROSS • MOTOCROSS • BETTING</text>
+  
+  <!-- Checkered Flag Pattern (Top and Bottom) -->
+  <rect x="0" y="0" width="1920" height="50" fill="#222222" />
+  <rect x="0" y="750" width="1920" height="50" fill="#222222" />
+  
+  <!-- Checkered Pattern -->
+  <g opacity="0.3">
+    <!-- Top Row -->
+    <rect x="0" y="0" width="60" height="50" fill="white" />
+    <rect x="120" y="0" width="60" height="50" fill="white" />
+    <rect x="240" y="0" width="60" height="50" fill="white" />
+    <rect x="360" y="0" width="60" height="50" fill="white" />
+    <rect x="480" y="0" width="60" height="50" fill="white" />
+    <rect x="600" y="0" width="60" height="50" fill="white" />
+    <rect x="720" y="0" width="60" height="50" fill="white" />
+    <rect x="840" y="0" width="60" height="50" fill="white" />
+    <rect x="960" y="0" width="60" height="50" fill="white" />
+    <rect x="1080" y="0" width="60" height="50" fill="white" />
+    <rect x="1200" y="0" width="60" height="50" fill="white" />
+    <rect x="1320" y="0" width="60" height="50" fill="white" />
+    <rect x="1440" y="0" width="60" height="50" fill="white" />
+    <rect x="1560" y="0" width="60" height="50" fill="white" />
+    <rect x="1680" y="0" width="60" height="50" fill="white" />
+    <rect x="1800" y="0" width="60" height="50" fill="white" />
+    
+    <!-- Bottom Row -->
+    <rect x="60" y="750" width="60" height="50" fill="white" />
+    <rect x="180" y="750" width="60" height="50" fill="white" />
+    <rect x="300" y="750" width="60" height="50" fill="white" />
+    <rect x="420" y="750" width="60" height="50" fill="white" />
+    <rect x="540" y="750" width="60" height="50" fill="white" />
+    <rect x="660" y="750" width="60" height="50" fill="white" />
+    <rect x="780" y="750" width="60" height="50" fill="white" />
+    <rect x="900" y="750" width="60" height="50" fill="white" />
+    <rect x="1020" y="750" width="60" height="50" fill="white" />
+    <rect x="1140" y="750" width="60" height="50" fill="white" />
+    <rect x="1260" y="750" width="60" height="50" fill="white" />
+    <rect x="1380" y="750" width="60" height="50" fill="white" />
+    <rect x="1500" y="750" width="60" height="50" fill="white" />
+    <rect x="1620" y="750" width="60" height="50" fill="white" />
+    <rect x="1740" y="750" width="60" height="50" fill="white" />
+    <rect x="1860" y="750" width="60" height="50" fill="white" />
+  </g>
+  
+  <!-- Photo credit notice -->
+  <text x="960" y="790" font-family="Arial, sans-serif" font-size="14" fill="#666666" text-anchor="middle">Placeholder image - replace with licensed photo</text>
+</svg>

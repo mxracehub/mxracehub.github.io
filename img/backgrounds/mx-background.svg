@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B54800;stop-opacity:1" />
+    </linearGradient>
+    <pattern id="dirt" patternUnits="userSpaceOnUse" width="40" height="40">
+      <rect width="40" height="40" fill="#B54800" />
+      <circle cx="10" cy="10" r="2" fill="#9E3D00" />
+      <circle cx="30" cy="30" r="3" fill="#9E3D00" />
+      <circle cx="25" cy="5" r="1.5" fill="#9E3D00" />
+      <circle cx="5" cy="25" r="2.5" fill="#9E3D00" />
+    </pattern>
+  </defs>
+  
+  <!-- Background gradient -->
+  <rect width="100%" height="100%" fill="url(#grad1)" />
+  
+  <!-- Decorative elements resembling motocross track -->
+  <path d="M0,600 C200,550 400,650 600,600 S800,500 1000,550 L1200,600 L1200,800 L0,800 Z" fill="url(#dirt)" />
+  
+  <!-- Jump silhouettes -->
+  <path d="M100,650 L150,600 L200,650" stroke="#333" stroke-width="5" fill="none" />
+  <path d="M300,650 L350,580 L400,650" stroke="#333" stroke-width="5" fill="none" />
+  <path d="M500,650 L550,560 L600,650" stroke="#333" stroke-width="5" fill="none" />
+  <path d="M700,650 L750,590 L800,650" stroke="#333" stroke-width="5" fill="none" />
+  <path d="M900,650 L950,570 L1000,650" stroke="#333" stroke-width="5" fill="none" />
+  
+  <!-- Motorcycle silhouette -->
+  <path d="M850,450 C860,430 880,420 900,430 C920,440 925,460 915,480 L900,500 L870,490 Z" fill="#111" />
+  <circle cx="865" cy="505" r="15" fill="none" stroke="#111" stroke-width="5" />
+  <circle cx="925" cy="505" r="15" fill="none" stroke="#111" stroke-width="5" />
+</svg>

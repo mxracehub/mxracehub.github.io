@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#f0f0f0"/>
+  
+  <!-- Stadium outline -->
+  <path d="M150,150 h900 v500 h-900 Z" fill="#ffffff" stroke="#333" stroke-width="5"/>
+  
+  <!-- Track layout -->
+  <path d="M250,250 C300,200 400,200 500,230 C600,260 650,300 700,350 C750,400 800,420 850,420 C900,420 950,400 980,350 C1010,300 1010,250 980,200 C950,150 900,130 850,130 C800,130 750,150 700,200 C650,250 600,290 500,320 C400,350 300,350 250,300 Z" fill="#8B4513" stroke="#000" stroke-width="5"/>
+  
+  <!-- Sand section -->
+  <path d="M400,250 C450,225 500,225 550,250 C600,275 600,325 550,350 C500,375 450,375 400,350 C350,325 350,275 400,250 Z" fill="#D2B48C" stroke="#000" stroke-width="3"/>
+  <text x="475" y="300" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">SAND</text>
+  
+  <!-- Start gate -->
+  <line x1="700" y1="200" x2="850" y2="200" stroke="#ff0000" stroke-width="8"/>
+  <text x="750" y="190" font-family="Arial" font-size="16" font-weight="bold">START</text>
+  
+  <!-- Finish line -->
+  <line x1="700" y1="350" x2="850" y2="350" stroke="#ffffff" stroke-width="8" stroke-dasharray="10,10"/>
+  <text x="750" y="370" font-family="Arial" font-size="16" font-weight="bold">FINISH</text>
+  
+  <!-- Obstacles -->
+  <!-- Whoops section -->
+  <path d="M850,270 q10,-10 20,0 q10,10 20,0 q10,-10 20,0 q10,10 20,0 q10,-10 20,0" stroke="#000" stroke-width="3" fill="none"/>
+  <text x="870" y="255" font-family="Arial" font-size="12">WHOOPS</text>
+  
+  <!-- Triple jump -->
+  <path d="M300,300 l20,-20 l20,20 l20,-20" stroke="#000" stroke-width="3" fill="none"/>
+  <text x="300" y="330" font-family="Arial" font-size="12">TRIPLE</text>
+  
+  <!-- Stadium name -->
+  <text x="600" y="100" font-family="Arial" font-size="28" font-weight="bold" text-anchor="middle">SNAPDRAGON STADIUM</text>
+  <text x="600" y="130" font-family="Arial" font-size="18" text-anchor="middle">San Diego, California</text>
+  
+  <!-- Watermark -->
+  <text x="1000" y="780" font-family="Arial" font-size="20" fill="#999">MXRaceHub</text>
+</svg>
