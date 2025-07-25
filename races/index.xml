@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Races on MXRaceHub</title>
-    <link>https://mxracehub.site/races/</link>
+    <link>http://localhost:1313/races/</link>
     <description>Recent content in Races on MXRaceHub</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 </copyright>
-    <lastBuildDate>Sat, 30 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mxracehub.site/races/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/races/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Pro Motocross Round 8: Washougal, WA</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-8-washougal-motocross-park/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-8-washougal-motocross-park/</link>
       <pubDate>Sat, 19 Jul 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-8-washougal-motocross-park/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-8-washougal-motocross-park/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 8 
     &lt;div id=&#34;pro-motocross-round-8&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -42,10 +42,10 @@
     
     <item>
       <title>Pro Motocross Round 7: Millville, MN</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-7-spring-creek-motocross-park/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-7-spring-creek-motocross-park/</link>
       <pubDate>Sat, 12 Jul 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-7-spring-creek-motocross-park/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-7-spring-creek-motocross-park/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 7 
     &lt;div id=&#34;pro-motocross-round-7&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -73,10 +73,10 @@
     
     <item>
       <title>Pro Motocross Round 6: Buchanan, MI</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-6-redbud-mx/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-6-redbud-mx/</link>
       <pubDate>Sat, 28 Jun 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-6-redbud-mx/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-6-redbud-mx/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 6 
     &lt;div id=&#34;pro-motocross-round-6&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -104,10 +104,10 @@
     
     <item>
       <title>Pro Motocross Round 5: Blountville, TN</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-5-muddy-creek-raceway/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-5-muddy-creek-raceway/</link>
       <pubDate>Sat, 21 Jun 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-5-muddy-creek-raceway/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-5-muddy-creek-raceway/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 5 
     &lt;div id=&#34;pro-motocross-round-5&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -135,10 +135,10 @@
     
     <item>
       <title>Pro Motocross Round 4: Mt. Morris, PA</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-4-high-point-raceway/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-4-high-point-raceway/</link>
       <pubDate>Sat, 14 Jun 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-4-high-point-raceway/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-4-high-point-raceway/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 4 
     &lt;div id=&#34;pro-motocross-round-4&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -166,10 +166,10 @@
     
     <item>
       <title>Pro Motocross Round 3: Southwick, MA</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-3-southwick-motocross-park/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-3-southwick-motocross-park/</link>
       <pubDate>Sat, 07 Jun 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-3-southwick-motocross-park/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-3-southwick-motocross-park/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 3 
     &lt;div id=&#34;pro-motocross-round-3&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -197,10 +197,10 @@
     
     <item>
       <title>Pro Motocross Round 2: Lakewood, CO</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-2-thunder-valley-motocross-park/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-2-thunder-valley-motocross-park/</link>
       <pubDate>Sat, 31 May 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-2-thunder-valley-motocross-park/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-2-thunder-valley-motocross-park/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 2 
     &lt;div id=&#34;pro-motocross-round-2&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -228,10 +228,10 @@
     
     <item>
       <title>Pro Motocross Round 1: Pala, CA</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-1-fox-raceway/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-1-fox-raceway/</link>
       <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-1-fox-raceway/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-1-fox-raceway/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 1 
     &lt;div id=&#34;pro-motocross-round-1&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -259,10 +259,10 @@
     
     <item>
       <title>Supercross Round 17: Salt Lake City, UT</title>
-      <link>https://mxracehub.site/races/events/supercross-round-17-rice-eccles-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-17-rice-eccles-stadium/</link>
       <pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-17-rice-eccles-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-17-rice-eccles-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 17 
     &lt;div id=&#34;supercross-round-17&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -290,10 +290,10 @@
     
     <item>
       <title>Supercross Round 16: East Rutherford, NJ</title>
-      <link>https://mxracehub.site/races/events/supercross-round-16-metlife-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-16-metlife-stadium/</link>
       <pubDate>Sat, 26 Apr 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-16-metlife-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-16-metlife-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 16 
     &lt;div id=&#34;supercross-round-16&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -321,10 +321,10 @@
     
     <item>
       <title>Supercross Round 15: Foxborough, MA</title>
-      <link>https://mxracehub.site/races/events/supercross-round-15-gillette-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-15-gillette-stadium/</link>
       <pubDate>Sat, 19 Apr 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-15-gillette-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-15-gillette-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 15 
     &lt;div id=&#34;supercross-round-15&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -352,10 +352,10 @@
     
     <item>
       <title>Supercross Round 14: Nashville, TN</title>
-      <link>https://mxracehub.site/races/events/supercross-round-14-nissan-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-14-nissan-stadium/</link>
       <pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-14-nissan-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-14-nissan-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 14 
     &lt;div id=&#34;supercross-round-14&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -383,10 +383,10 @@
     
     <item>
       <title>Supercross Round 13: Atlanta, GA</title>
-      <link>https://mxracehub.site/races/events/supercross-round-13-mercedes-benz-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-13-mercedes-benz-stadium/</link>
       <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-13-mercedes-benz-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-13-mercedes-benz-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 13 
     &lt;div id=&#34;supercross-round-13&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -414,10 +414,10 @@
     
     <item>
       <title>Supercross Round 12: Houston, TX</title>
-      <link>https://mxracehub.site/races/events/supercross-round-12-nrg-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-12-nrg-stadium/</link>
       <pubDate>Sat, 29 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-12-nrg-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-12-nrg-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 12 
     &lt;div id=&#34;supercross-round-12&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -445,10 +445,10 @@
     
     <item>
       <title>Supercross Round 11: Denver, CO</title>
-      <link>https://mxracehub.site/races/events/supercross-round-11-empower-field/</link>
+      <link>http://localhost:1313/races/events/supercross-round-11-empower-field/</link>
       <pubDate>Sat, 15 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-11-empower-field/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-11-empower-field/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 11 
     &lt;div id=&#34;supercross-round-11&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -476,10 +476,10 @@
     
     <item>
       <title>Supercross Round 10: Seattle, WA</title>
-      <link>https://mxracehub.site/races/events/supercross-round-10-lumen-field/</link>
+      <link>http://localhost:1313/races/events/supercross-round-10-lumen-field/</link>
       <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-10-lumen-field/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-10-lumen-field/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 10 
     &lt;div id=&#34;supercross-round-10&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -507,10 +507,10 @@
     
     <item>
       <title>Supercross Round 9: Indianapolis, IN</title>
-      <link>https://mxracehub.site/races/events/supercross-round-9-lucas-oil-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-9-lucas-oil-stadium/</link>
       <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-9-lucas-oil-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-9-lucas-oil-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 9 
     &lt;div id=&#34;supercross-round-9&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -538,10 +538,10 @@
     
     <item>
       <title>Supercross Round 8: Daytona Beach, FL</title>
-      <link>https://mxracehub.site/races/events/supercross-round-8-daytona-international-speedway/</link>
+      <link>http://localhost:1313/races/events/supercross-round-8-daytona-international-speedway/</link>
       <pubDate>Sat, 22 Feb 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-8-daytona-international-speedway/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-8-daytona-international-speedway/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 8 
     &lt;div id=&#34;supercross-round-8&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -569,10 +569,10 @@
     
     <item>
       <title>Supercross Round 7: Arlington, TX</title>
-      <link>https://mxracehub.site/races/events/supercross-round-7-att-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-7-att-stadium/</link>
       <pubDate>Sat, 15 Feb 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-7-att-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-7-att-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 7 
     &lt;div id=&#34;supercross-round-7&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -600,10 +600,10 @@
     
     <item>
       <title>Supercross Round 6: Tampa, FL</title>
-      <link>https://mxracehub.site/races/events/supercross-round-6-raymond-james-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-6-raymond-james-stadium/</link>
       <pubDate>Sat, 08 Feb 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-6-raymond-james-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-6-raymond-james-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 6 
     &lt;div id=&#34;supercross-round-6&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -631,10 +631,10 @@
     
     <item>
       <title>Supercross Round 5: Detroit, MI</title>
-      <link>https://mxracehub.site/races/events/supercross-round-5-ford-field/</link>
+      <link>http://localhost:1313/races/events/supercross-round-5-ford-field/</link>
       <pubDate>Sat, 01 Feb 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-5-ford-field/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-5-ford-field/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 5 
     &lt;div id=&#34;supercross-round-5&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -662,10 +662,10 @@
     
     <item>
       <title>Supercross Round 4: Glendale, AZ</title>
-      <link>https://mxracehub.site/races/events/supercross-round-4-state-farm-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-4-state-farm-stadium/</link>
       <pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-4-state-farm-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-4-state-farm-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 4 
     &lt;div id=&#34;supercross-round-4&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -693,10 +693,10 @@
     
     <item>
       <title>Supercross Round 3: Anaheim, CA</title>
-      <link>https://mxracehub.site/races/events/supercross-round-3-angel-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-3-angel-stadium/</link>
       <pubDate>Sat, 18 Jan 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-3-angel-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-3-angel-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 3 
     &lt;div id=&#34;supercross-round-3&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -724,10 +724,10 @@
     
     <item>
       <title>Supercross Round 2: San Diego, CA</title>
-      <link>https://mxracehub.site/races/events/supercross-round-2-snapdragon-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-2-snapdragon-stadium/</link>
       <pubDate>Sat, 11 Jan 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-2-snapdragon-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-2-snapdragon-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 2 
     &lt;div id=&#34;supercross-round-2&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -755,10 +755,10 @@
     
     <item>
       <title>Supercross Round 1: Anaheim, CA</title>
-      <link>https://mxracehub.site/races/events/supercross-round-1-angel-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-1-angel-stadium/</link>
       <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-1-angel-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-1-angel-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 1 
     &lt;div id=&#34;supercross-round-1&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     

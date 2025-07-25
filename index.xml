@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MXRaceHub</title>
-    <link>https://mxracehub.site/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on MXRaceHub</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 </copyright>
-    <lastBuildDate>Sat, 30 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mxracehub.site/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Pro Motocross Round 8: Washougal, WA</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-8-washougal-motocross-park/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-8-washougal-motocross-park/</link>
       <pubDate>Sat, 19 Jul 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-8-washougal-motocross-park/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-8-washougal-motocross-park/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 8 
     &lt;div id=&#34;pro-motocross-round-8&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -42,10 +42,10 @@
     
     <item>
       <title>Pro Motocross Round 7: Millville, MN</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-7-spring-creek-motocross-park/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-7-spring-creek-motocross-park/</link>
       <pubDate>Sat, 12 Jul 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-7-spring-creek-motocross-park/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-7-spring-creek-motocross-park/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 7 
     &lt;div id=&#34;pro-motocross-round-7&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -73,10 +73,10 @@
     
     <item>
       <title>Pro Motocross Round 6: Buchanan, MI</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-6-redbud-mx/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-6-redbud-mx/</link>
       <pubDate>Sat, 28 Jun 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-6-redbud-mx/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-6-redbud-mx/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 6 
     &lt;div id=&#34;pro-motocross-round-6&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -104,10 +104,10 @@
     
     <item>
       <title>Pro Motocross Round 5: Blountville, TN</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-5-muddy-creek-raceway/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-5-muddy-creek-raceway/</link>
       <pubDate>Sat, 21 Jun 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-5-muddy-creek-raceway/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-5-muddy-creek-raceway/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 5 
     &lt;div id=&#34;pro-motocross-round-5&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -135,10 +135,10 @@
     
     <item>
       <title>Pro Motocross Round 4: Mt. Morris, PA</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-4-high-point-raceway/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-4-high-point-raceway/</link>
       <pubDate>Sat, 14 Jun 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-4-high-point-raceway/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-4-high-point-raceway/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 4 
     &lt;div id=&#34;pro-motocross-round-4&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -166,10 +166,10 @@
     
     <item>
       <title>Pro Motocross Round 3: Southwick, MA</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-3-southwick-motocross-park/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-3-southwick-motocross-park/</link>
       <pubDate>Sat, 07 Jun 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-3-southwick-motocross-park/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-3-southwick-motocross-park/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 3 
     &lt;div id=&#34;pro-motocross-round-3&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -197,10 +197,10 @@
     
     <item>
       <title>Pro Motocross Round 2: Lakewood, CO</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-2-thunder-valley-motocross-park/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-2-thunder-valley-motocross-park/</link>
       <pubDate>Sat, 31 May 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-2-thunder-valley-motocross-park/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-2-thunder-valley-motocross-park/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 2 
     &lt;div id=&#34;pro-motocross-round-2&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -228,10 +228,10 @@
     
     <item>
       <title>Pro Motocross Round 1: Pala, CA</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-1-fox-raceway/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-1-fox-raceway/</link>
       <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-1-fox-raceway/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-1-fox-raceway/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 1 
     &lt;div id=&#34;pro-motocross-round-1&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -259,10 +259,10 @@
     
     <item>
       <title>Supercross Round 17: Salt Lake City, UT</title>
-      <link>https://mxracehub.site/races/events/supercross-round-17-rice-eccles-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-17-rice-eccles-stadium/</link>
       <pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-17-rice-eccles-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-17-rice-eccles-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 17 
     &lt;div id=&#34;supercross-round-17&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -290,10 +290,10 @@
     
     <item>
       <title>Supercross Round 16: East Rutherford, NJ</title>
-      <link>https://mxracehub.site/races/events/supercross-round-16-metlife-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-16-metlife-stadium/</link>
       <pubDate>Sat, 26 Apr 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-16-metlife-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-16-metlife-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 16 
     &lt;div id=&#34;supercross-round-16&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -321,10 +321,10 @@
     
     <item>
       <title>Supercross Round 15: Foxborough, MA</title>
-      <link>https://mxracehub.site/races/events/supercross-round-15-gillette-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-15-gillette-stadium/</link>
       <pubDate>Sat, 19 Apr 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-15-gillette-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-15-gillette-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 15 
     &lt;div id=&#34;supercross-round-15&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -352,10 +352,10 @@
     
     <item>
       <title>Supercross Round 14: Nashville, TN</title>
-      <link>https://mxracehub.site/races/events/supercross-round-14-nissan-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-14-nissan-stadium/</link>
       <pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-14-nissan-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-14-nissan-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 14 
     &lt;div id=&#34;supercross-round-14&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -383,10 +383,10 @@
     
     <item>
       <title>Supercross Round 13: Atlanta, GA</title>
-      <link>https://mxracehub.site/races/events/supercross-round-13-mercedes-benz-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-13-mercedes-benz-stadium/</link>
       <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-13-mercedes-benz-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-13-mercedes-benz-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 13 
     &lt;div id=&#34;supercross-round-13&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -414,10 +414,10 @@
     
     <item>
       <title>Supercross Round 12: Houston, TX</title>
-      <link>https://mxracehub.site/races/events/supercross-round-12-nrg-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-12-nrg-stadium/</link>
       <pubDate>Sat, 29 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-12-nrg-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-12-nrg-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 12 
     &lt;div id=&#34;supercross-round-12&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -445,10 +445,10 @@
     
     <item>
       <title>Supercross Round 11: Denver, CO</title>
-      <link>https://mxracehub.site/races/events/supercross-round-11-empower-field/</link>
+      <link>http://localhost:1313/races/events/supercross-round-11-empower-field/</link>
       <pubDate>Sat, 15 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-11-empower-field/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-11-empower-field/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 11 
     &lt;div id=&#34;supercross-round-11&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -476,10 +476,10 @@
     
     <item>
       <title>Supercross Round 10: Seattle, WA</title>
-      <link>https://mxracehub.site/races/events/supercross-round-10-lumen-field/</link>
+      <link>http://localhost:1313/races/events/supercross-round-10-lumen-field/</link>
       <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-10-lumen-field/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-10-lumen-field/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 10 
     &lt;div id=&#34;supercross-round-10&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -507,10 +507,10 @@
     
     <item>
       <title>Supercross Round 9: Indianapolis, IN</title>
-      <link>https://mxracehub.site/races/events/supercross-round-9-lucas-oil-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-9-lucas-oil-stadium/</link>
       <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-9-lucas-oil-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-9-lucas-oil-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 9 
     &lt;div id=&#34;supercross-round-9&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -538,10 +538,10 @@
     
     <item>
       <title>Supercross Round 8: Daytona Beach, FL</title>
-      <link>https://mxracehub.site/races/events/supercross-round-8-daytona-international-speedway/</link>
+      <link>http://localhost:1313/races/events/supercross-round-8-daytona-international-speedway/</link>
       <pubDate>Sat, 22 Feb 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-8-daytona-international-speedway/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-8-daytona-international-speedway/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 8 
     &lt;div id=&#34;supercross-round-8&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -569,10 +569,10 @@
     
     <item>
       <title>Supercross Round 7: Arlington, TX</title>
-      <link>https://mxracehub.site/races/events/supercross-round-7-att-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-7-att-stadium/</link>
       <pubDate>Sat, 15 Feb 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-7-att-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-7-att-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 7 
     &lt;div id=&#34;supercross-round-7&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -600,10 +600,10 @@
     
     <item>
       <title>Supercross Round 6: Tampa, FL</title>
-      <link>https://mxracehub.site/races/events/supercross-round-6-raymond-james-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-6-raymond-james-stadium/</link>
       <pubDate>Sat, 08 Feb 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-6-raymond-james-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-6-raymond-james-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 6 
     &lt;div id=&#34;supercross-round-6&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -631,10 +631,10 @@
     
     <item>
       <title>Supercross Round 5: Detroit, MI</title>
-      <link>https://mxracehub.site/races/events/supercross-round-5-ford-field/</link>
+      <link>http://localhost:1313/races/events/supercross-round-5-ford-field/</link>
       <pubDate>Sat, 01 Feb 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-5-ford-field/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-5-ford-field/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 5 
     &lt;div id=&#34;supercross-round-5&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -662,10 +662,10 @@
     
     <item>
       <title>Supercross Round 4: Glendale, AZ</title>
-      <link>https://mxracehub.site/races/events/supercross-round-4-state-farm-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-4-state-farm-stadium/</link>
       <pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-4-state-farm-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-4-state-farm-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 4 
     &lt;div id=&#34;supercross-round-4&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -693,10 +693,10 @@
     
     <item>
       <title>Supercross Round 3: Anaheim, CA</title>
-      <link>https://mxracehub.site/races/events/supercross-round-3-angel-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-3-angel-stadium/</link>
       <pubDate>Sat, 18 Jan 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-3-angel-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-3-angel-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 3 
     &lt;div id=&#34;supercross-round-3&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -724,10 +724,10 @@
     
     <item>
       <title>Supercross Round 2: San Diego, CA</title>
-      <link>https://mxracehub.site/races/events/supercross-round-2-snapdragon-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-2-snapdragon-stadium/</link>
       <pubDate>Sat, 11 Jan 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-2-snapdragon-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-2-snapdragon-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 2 
     &lt;div id=&#34;supercross-round-2&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -755,10 +755,10 @@
     
     <item>
       <title>Supercross Round 1: Anaheim, CA</title>
-      <link>https://mxracehub.site/races/events/supercross-round-1-angel-stadium/</link>
+      <link>http://localhost:1313/races/events/supercross-round-1-angel-stadium/</link>
       <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/supercross-round-1-angel-stadium/</guid>
+      <guid>http://localhost:1313/races/events/supercross-round-1-angel-stadium/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Supercross Round 1 
     &lt;div id=&#34;supercross-round-1&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -786,10 +786,10 @@
     
     <item>
       <title>MXRaceHub - Static Demo</title>
-      <link>https://mxracehub.site/readme/</link>
+      <link>http://localhost:1313/readme/</link>
       <pubDate>Fri, 21 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/readme/</guid>
+      <guid>http://localhost:1313/readme/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;MXRaceHub - Static Demo Version 
     &lt;div id=&#34;mxracehub---static-demo-version&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -805,10 +805,10 @@
     
     <item>
       <title>Example Shortcodes</title>
-      <link>https://mxracehub.site/example-shortcodes/</link>
+      <link>http://localhost:1313/example-shortcodes/</link>
       <pubDate>Wed, 19 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/example-shortcodes/</guid>
+      <guid>http://localhost:1313/example-shortcodes/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;Race Countdown Timer 
     &lt;div id=&#34;race-countdown-timer&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -823,11 +823,21 @@
     </item>
     
     <item>
-      <title>Aaron Plessinger</title>
-      <link>https://mxracehub.site/riders/450/aaron-plessinger/</link>
+      <title>2人目のダミー作者</title>
+      <link>http://localhost:1313/authors/secondauthor/_index.ja/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/450/aaron-plessinger/</guid>
+      <guid>http://localhost:1313/authors/secondauthor/_index.ja/</guid>
+      <description>&lt;p&gt;2人目のダミー作者の素晴らしいダミープロフィールです。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Aaron Plessinger</title>
+      <link>http://localhost:1313/riders/450/aaron-plessinger/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/riders/450/aaron-plessinger/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Sheriff 
     &lt;div id=&#34;the-sheriff&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -843,10 +853,10 @@
     
     <item>
       <title>Achievement System Testing Guide</title>
-      <link>https://mxracehub.site/admin/test-achievements/</link>
+      <link>http://localhost:1313/admin/test-achievements/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/admin/test-achievements/</guid>
+      <guid>http://localhost:1313/admin/test-achievements/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Achievement System Testing Guide 
     &lt;div id=&#34;achievement-system-testing-guide&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -986,10 +996,10 @@
     
     <item>
       <title>Adam Cianciarulo</title>
-      <link>https://mxracehub.site/riders/450/adam-cianciarulo/</link>
+      <link>http://localhost:1313/riders/450/adam-cianciarulo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/450/adam-cianciarulo/</guid>
+      <guid>http://localhost:1313/riders/450/adam-cianciarulo/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Natural Talent 
     &lt;div id=&#34;the-natural-talent&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1004,11 +1014,21 @@
     </item>
     
     <item>
-      <title>Angel Stadium of Anaheim</title>
-      <link>https://mxracehub.site/tracks/angel-stadium/</link>
+      <title>Advanced</title>
+      <link>http://localhost:1313/tags/advanced/_index.it/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/tracks/angel-stadium/</guid>
+      <guid>http://localhost:1313/tags/advanced/_index.it/</guid>
+      <description>&lt;p&gt;This is the advanced tag. Just like other listing pages in Blowfish, you can add custom content to individual taxonomy terms and it will be displayed at the top of the term listing. &amp;#x1f680;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Angel Stadium of Anaheim</title>
+      <link>http://localhost:1313/tracks/angel-stadium/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tracks/angel-stadium/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Traditional Season Opener 
     &lt;div id=&#34;the-traditional-season-opener&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1024,10 +1044,10 @@
     
     <item>
       <title>AT&amp;T Stadium</title>
-      <link>https://mxracehub.site/tracks/at-t-stadium/</link>
+      <link>http://localhost:1313/tracks/at-t-stadium/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/tracks/at-t-stadium/</guid>
+      <guid>http://localhost:1313/tracks/at-t-stadium/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Spectacle of Supercross in America&amp;rsquo;s Stadium 
     &lt;div id=&#34;the-spectacle-of-supercross-in-americas-stadium&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1043,10 +1063,10 @@
     
     <item>
       <title>Austin Forkner</title>
-      <link>https://mxracehub.site/riders/250/austin-forkner/</link>
+      <link>http://localhost:1313/riders/250/austin-forkner/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/austin-forkner/</guid>
+      <guid>http://localhost:1313/riders/250/austin-forkner/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;Raw Talent and Resilience 
     &lt;div id=&#34;raw-talent-and-resilience&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1062,10 +1082,10 @@
     
     <item>
       <title>Cameron McAdoo</title>
-      <link>https://mxracehub.site/riders/250/cameron-mcadoo/</link>
+      <link>http://localhost:1313/riders/250/cameron-mcadoo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/cameron-mcadoo/</guid>
+      <guid>http://localhost:1313/riders/250/cameron-mcadoo/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Determined Fighter 
     &lt;div id=&#34;the-determined-fighter&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1081,10 +1101,10 @@
     
     <item>
       <title>Carson Mumford</title>
-      <link>https://mxracehub.site/riders/250/carson-mumford/</link>
+      <link>http://localhost:1313/riders/250/carson-mumford/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/carson-mumford/</guid>
+      <guid>http://localhost:1313/riders/250/carson-mumford/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Resilient Prospect 
     &lt;div id=&#34;the-resilient-prospect&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1100,10 +1120,10 @@
     
     <item>
       <title>Chance Hymas</title>
-      <link>https://mxracehub.site/riders/250/chance-hymas/</link>
+      <link>http://localhost:1313/riders/250/chance-hymas/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/chance-hymas/</guid>
+      <guid>http://localhost:1313/riders/250/chance-hymas/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Idaho Prodigy 
     &lt;div id=&#34;the-idaho-prodigy&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1119,10 +1139,10 @@
     
     <item>
       <title>Chase Sexton</title>
-      <link>https://mxracehub.site/riders/450/chase-sexton/</link>
+      <link>http://localhost:1313/riders/450/chase-sexton/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/450/chase-sexton/</guid>
+      <guid>http://localhost:1313/riders/450/chase-sexton/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Precision Specialist 
     &lt;div id=&#34;the-precision-specialist&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1138,10 +1158,10 @@
     
     <item>
       <title>Christian Craig</title>
-      <link>https://mxracehub.site/riders/450/christian-craig/</link>
+      <link>http://localhost:1313/riders/450/christian-craig/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/450/christian-craig/</guid>
+      <guid>http://localhost:1313/riders/450/christian-craig/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Late Bloomer 
     &lt;div id=&#34;the-late-bloomer&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1157,10 +1177,10 @@
     
     <item>
       <title>Colt Nichols</title>
-      <link>https://mxracehub.site/riders/450/colt-nichols/</link>
+      <link>http://localhost:1313/riders/450/colt-nichols/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/450/colt-nichols/</guid>
+      <guid>http://localhost:1313/riders/450/colt-nichols/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Persistent Champion 
     &lt;div id=&#34;the-persistent-champion&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1176,10 +1196,10 @@
     
     <item>
       <title>Cooper Webb</title>
-      <link>https://mxracehub.site/riders/450/cooper-webb/</link>
+      <link>http://localhost:1313/riders/450/cooper-webb/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/450/cooper-webb/</guid>
+      <guid>http://localhost:1313/riders/450/cooper-webb/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;Champion with Unstoppable Determination 
     &lt;div id=&#34;champion-with-unstoppable-determination&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1195,10 +1215,10 @@
     
     <item>
       <title>Coty Schock</title>
-      <link>https://mxracehub.site/riders/250/coty-schock/</link>
+      <link>http://localhost:1313/riders/250/coty-schock/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/coty-schock/</guid>
+      <guid>http://localhost:1313/riders/250/coty-schock/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Resilient Personality 
     &lt;div id=&#34;the-resilient-personality&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1214,10 +1234,10 @@
     
     <item>
       <title>Daytona International Speedway</title>
-      <link>https://mxracehub.site/tracks/daytona-international-speedway/</link>
+      <link>http://localhost:1313/tracks/daytona-international-speedway/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/tracks/daytona-international-speedway/</guid>
+      <guid>http://localhost:1313/tracks/daytona-international-speedway/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Most Unique Race on the Supercross Calendar 
     &lt;div id=&#34;the-most-unique-race-on-the-supercross-calendar&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1233,10 +1253,10 @@
     
     <item>
       <title>Dean Wilson</title>
-      <link>https://mxracehub.site/riders/450/dean-wilson/</link>
+      <link>http://localhost:1313/riders/450/dean-wilson/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/450/dean-wilson/</guid>
+      <guid>http://localhost:1313/riders/450/dean-wilson/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Entertainer 
     &lt;div id=&#34;the-entertainer&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1251,11 +1271,21 @@
     </item>
     
     <item>
-      <title>Dylan Ferrandis</title>
-      <link>https://mxracehub.site/riders/450/dylan-ferrandis/</link>
+      <title>Dummy Second Author</title>
+      <link>http://localhost:1313/authors/secondauthor/_index.zh-cn/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/450/dylan-ferrandis/</guid>
+      <guid>http://localhost:1313/authors/secondauthor/_index.zh-cn/</guid>
+      <description>&lt;p&gt;假装这里有一份第二位作者的简介。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Dylan Ferrandis</title>
+      <link>http://localhost:1313/riders/450/dylan-ferrandis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/riders/450/dylan-ferrandis/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The French Finesse 
     &lt;div id=&#34;the-french-finesse&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1271,10 +1301,10 @@
     
     <item>
       <title>Eli Tomac</title>
-      <link>https://mxracehub.site/riders/450/eli-tomac/</link>
+      <link>http://localhost:1313/riders/450/eli-tomac/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/450/eli-tomac/</guid>
+      <guid>http://localhost:1313/riders/450/eli-tomac/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Modern GOAT 
     &lt;div id=&#34;the-modern-goat&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1290,10 +1320,10 @@
     
     <item>
       <title>Enzo Lopes</title>
-      <link>https://mxracehub.site/riders/250/enzo-lopes/</link>
+      <link>http://localhost:1313/riders/250/enzo-lopes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/enzo-lopes/</guid>
+      <guid>http://localhost:1313/riders/250/enzo-lopes/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Brazilian Ambassador 
     &lt;div id=&#34;the-brazilian-ambassador&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1308,16 +1338,26 @@
     </item>
     
     <item>
-      <title>Ford Field</title>
-      <link>https://mxracehub.site/tracks/detroit-supercross/</link>
+      <title>Esempio di elenco di tassonomia degli autori</title>
+      <link>http://localhost:1313/authors/_index.it/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/tracks/detroit-supercross/</guid>
+      <guid>http://localhost:1313/authors/_index.it/</guid>
+      <description>&lt;p&gt;Un rapido esempio di come iniziare a utilizzare le tassonomie degli autori nei tuoi articoli.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Ford Field</title>
+      <link>http://localhost:1313/tracks/detroit-supercross/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tracks/detroit-supercross/</guid>
       <description>&lt;div class=&#34;track-profile&#34;&gt;
   
   &lt;div class=&#34;track-content&#34;&gt;
     &lt;div class=&#34;track-image&#34;&gt;
-      &lt;img src=&#34;https://mxracehub.site/img/tracks/ford-field.svg&#34; alt=&#34;Ford Field&#34; class=&#34;track-photo&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/img/tracks/ford-field.svg&#34; alt=&#34;Ford Field&#34; class=&#34;track-photo&#34;&gt;
     &lt;/div&gt;
     
     &lt;div class=&#34;track-details&#34;&gt;
@@ -1354,10 +1394,10 @@
     
     <item>
       <title>Fox Raceway at Pala</title>
-      <link>https://mxracehub.site/tracks/fox-raceway/</link>
+      <link>http://localhost:1313/tracks/fox-raceway/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/tracks/fox-raceway/</guid>
+      <guid>http://localhost:1313/tracks/fox-raceway/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;Southern California&amp;rsquo;s Premier Motocross Facility 
     &lt;div id=&#34;southern-californias-premier-motocross-facility&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1373,10 +1413,10 @@
     
     <item>
       <title>Garrett Marchbanks</title>
-      <link>https://mxracehub.site/riders/250/garrett-marchbanks/</link>
+      <link>http://localhost:1313/riders/250/garrett-marchbanks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/garrett-marchbanks/</guid>
+      <guid>http://localhost:1313/riders/250/garrett-marchbanks/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Towering Talent 
     &lt;div id=&#34;the-towering-talent&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1392,10 +1432,10 @@
     
     <item>
       <title>Haiden Deegan</title>
-      <link>https://mxracehub.site/riders/250/haiden-deegan/</link>
+      <link>http://localhost:1313/riders/250/haiden-deegan/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/haiden-deegan/</guid>
+      <guid>http://localhost:1313/riders/250/haiden-deegan/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Next Generation 
     &lt;div id=&#34;the-next-generation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1411,10 +1451,10 @@
     
     <item>
       <title>High Point Raceway</title>
-      <link>https://mxracehub.site/tracks/high-point/</link>
+      <link>http://localhost:1313/tracks/high-point/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/tracks/high-point/</guid>
+      <guid>http://localhost:1313/tracks/high-point/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Rolling Hills of Pennsylvania 
     &lt;div id=&#34;the-rolling-hills-of-pennsylvania&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1430,10 +1470,10 @@
     
     <item>
       <title>Hunter Lawrence</title>
-      <link>https://mxracehub.site/riders/450/hunter-lawrence/</link>
+      <link>http://localhost:1313/riders/450/hunter-lawrence/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/450/hunter-lawrence/</guid>
+      <guid>http://localhost:1313/riders/450/hunter-lawrence/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Smooth Operator 
     &lt;div id=&#34;the-smooth-operator&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1449,10 +1489,10 @@
     
     <item>
       <title>Jalek Swoll</title>
-      <link>https://mxracehub.site/riders/250/jalek-swoll/</link>
+      <link>http://localhost:1313/riders/250/jalek-swoll/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/jalek-swoll/</guid>
+      <guid>http://localhost:1313/riders/250/jalek-swoll/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The History Maker 
     &lt;div id=&#34;the-history-maker&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1468,10 +1508,10 @@
     
     <item>
       <title>Jason Anderson</title>
-      <link>https://mxracehub.site/riders/450/jason-anderson/</link>
+      <link>http://localhost:1313/riders/450/jason-anderson/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/450/jason-anderson/</guid>
+      <guid>http://localhost:1313/riders/450/jason-anderson/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;El Hombre 
     &lt;div id=&#34;el-hombre&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1487,10 +1527,10 @@
     
     <item>
       <title>Jeremy Martin</title>
-      <link>https://mxracehub.site/riders/250/jeremy-martin/</link>
+      <link>http://localhost:1313/riders/250/jeremy-martin/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/jeremy-martin/</guid>
+      <guid>http://localhost:1313/riders/250/jeremy-martin/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Resilient Champion 
     &lt;div id=&#34;the-resilient-champion&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1506,10 +1546,10 @@
     
     <item>
       <title>Jett Lawrence</title>
-      <link>https://mxracehub.site/riders/450/jett-lawrence/</link>
+      <link>http://localhost:1313/riders/450/jett-lawrence/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/450/jett-lawrence/</guid>
+      <guid>http://localhost:1313/riders/450/jett-lawrence/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;Rising Star from Australia 
     &lt;div id=&#34;rising-star-from-australia&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1525,10 +1565,10 @@
     
     <item>
       <title>Jo Shimoda</title>
-      <link>https://mxracehub.site/riders/250/jo-shimoda/</link>
+      <link>http://localhost:1313/riders/250/jo-shimoda/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/jo-shimoda/</guid>
+      <guid>http://localhost:1313/riders/250/jo-shimoda/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;International Pioneer 
     &lt;div id=&#34;international-pioneer&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1544,10 +1584,10 @@
     
     <item>
       <title>Joey Savatgy</title>
-      <link>https://mxracehub.site/riders/450/joey-savatgy/</link>
+      <link>http://localhost:1313/riders/450/joey-savatgy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/450/joey-savatgy/</guid>
+      <guid>http://localhost:1313/riders/450/joey-savatgy/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Persistent Professional 
     &lt;div id=&#34;the-persistent-professional&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1563,10 +1603,10 @@
     
     <item>
       <title>Jordon Smith</title>
-      <link>https://mxracehub.site/riders/250/jordon-smith/</link>
+      <link>http://localhost:1313/riders/250/jordon-smith/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/jordon-smith/</guid>
+      <guid>http://localhost:1313/riders/250/jordon-smith/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Resilient Veteran 
     &lt;div id=&#34;the-resilient-veteran&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1582,10 +1622,10 @@
     
     <item>
       <title>Justin Barcia</title>
-      <link>https://mxracehub.site/riders/450/justin-barcia/</link>
+      <link>http://localhost:1313/riders/450/justin-barcia/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/450/justin-barcia/</guid>
+      <guid>http://localhost:1313/riders/450/justin-barcia/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;Bam Bam 
     &lt;div id=&#34;bam-bam&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1601,10 +1641,10 @@
     
     <item>
       <title>Justin Cooper</title>
-      <link>https://mxracehub.site/riders/450/justin-cooper/</link>
+      <link>http://localhost:1313/riders/450/justin-cooper/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/450/justin-cooper/</guid>
+      <guid>http://localhost:1313/riders/450/justin-cooper/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The New York Native 
     &lt;div id=&#34;the-new-york-native&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1620,10 +1660,10 @@
     
     <item>
       <title>Justin Hill</title>
-      <link>https://mxracehub.site/riders/450/justin-hill/</link>
+      <link>http://localhost:1313/riders/450/justin-hill/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/450/justin-hill/</guid>
+      <guid>http://localhost:1313/riders/450/justin-hill/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Natural Talent 
     &lt;div id=&#34;the-natural-talent&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1639,10 +1679,10 @@
     
     <item>
       <title>Ken Roczen</title>
-      <link>https://mxracehub.site/riders/450/ken-roczen/</link>
+      <link>http://localhost:1313/riders/450/ken-roczen/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/450/ken-roczen/</guid>
+      <guid>http://localhost:1313/riders/450/ken-roczen/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Resilient Champion 
     &lt;div id=&#34;the-resilient-champion&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1658,10 +1698,10 @@
     
     <item>
       <title>Levi Kitchen</title>
-      <link>https://mxracehub.site/riders/250/levi-kitchen/</link>
+      <link>http://localhost:1313/riders/250/levi-kitchen/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/levi-kitchen/</guid>
+      <guid>http://localhost:1313/riders/250/levi-kitchen/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Washington Wonder 
     &lt;div id=&#34;the-washington-wonder&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1677,10 +1717,10 @@
     
     <item>
       <title>Malcolm Stewart</title>
-      <link>https://mxracehub.site/riders/450/malcolm-stewart/</link>
+      <link>http://localhost:1313/riders/450/malcolm-stewart/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/450/malcolm-stewart/</guid>
+      <guid>http://localhost:1313/riders/450/malcolm-stewart/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;Mookie Fever 
     &lt;div id=&#34;mookie-fever&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1696,10 +1736,10 @@
     
     <item>
       <title>Max Anstie</title>
-      <link>https://mxracehub.site/riders/250/max-anstie/</link>
+      <link>http://localhost:1313/riders/250/max-anstie/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/max-anstie/</guid>
+      <guid>http://localhost:1313/riders/250/max-anstie/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Global Journeyman 
     &lt;div id=&#34;the-global-journeyman&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1715,10 +1755,10 @@
     
     <item>
       <title>Max Vohland</title>
-      <link>https://mxracehub.site/riders/250/max-vohland/</link>
+      <link>http://localhost:1313/riders/250/max-vohland/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/max-vohland/</guid>
+      <guid>http://localhost:1313/riders/250/max-vohland/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Legacy Racer 
     &lt;div id=&#34;the-legacy-racer&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1734,10 +1774,10 @@
     
     <item>
       <title>Membership</title>
-      <link>https://mxracehub.site/account/membership/</link>
+      <link>http://localhost:1313/account/membership/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/account/membership/</guid>
+      <guid>http://localhost:1313/account/membership/</guid>
       <description>&lt;div class=&#34;membership-container&#34;&gt;
   &lt;div class=&#34;membership-header&#34;&gt;
     &lt;h1 class=&#34;text-3xl font-bold mb-2&#34;&gt;Membership&lt;/h1&gt;
@@ -1756,10 +1796,10 @@
     
     <item>
       <title>Membership Plans</title>
-      <link>https://mxracehub.site/betting/membership/</link>
+      <link>http://localhost:1313/betting/membership/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/betting/membership/</guid>
+      <guid>http://localhost:1313/betting/membership/</guid>
       <description>&lt;div class=&#34;membership-page&#34;&gt;
   
   &lt;div class=&#34;current-plan-container&#34; id=&#34;current-plan-section&#34;&gt;
@@ -1857,10 +1897,10 @@
     
     <item>
       <title>MetLife Stadium</title>
-      <link>https://mxracehub.site/tracks/metlife-stadium/</link>
+      <link>http://localhost:1313/tracks/metlife-stadium/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/tracks/metlife-stadium/</guid>
+      <guid>http://localhost:1313/tracks/metlife-stadium/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The East Coast Supercross Showcase 
     &lt;div id=&#34;the-east-coast-supercross-showcase&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1876,10 +1916,10 @@
     
     <item>
       <title>Mitchell Oldenburg</title>
-      <link>https://mxracehub.site/riders/250/mitchell-oldenburg/</link>
+      <link>http://localhost:1313/riders/250/mitchell-oldenburg/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/mitchell-oldenburg/</guid>
+      <guid>http://localhost:1313/riders/250/mitchell-oldenburg/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Resilient Veteran 
     &lt;div id=&#34;the-resilient-veteran&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1895,10 +1935,10 @@
     
     <item>
       <title>Money Transfers</title>
-      <link>https://mxracehub.site/account/transfers/</link>
+      <link>http://localhost:1313/account/transfers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/account/transfers/</guid>
+      <guid>http://localhost:1313/account/transfers/</guid>
       <description>&lt;div class=&#34;transfers-container&#34;&gt;
   &lt;div class=&#34;transfers-header&#34;&gt;
     &lt;h1 class=&#34;text-3xl font-bold mb-2&#34;&gt;Money Transfers&lt;/h1&gt;
@@ -1913,7 +1953,7 @@
           &lt;div class=&#34;balance-amount&#34; id=&#34;available-balance&#34;&gt;$250.00&lt;/div&gt;
         &lt;/div&gt;
         &lt;div class=&#34;wallet-actions&#34;&gt;
-          &lt;a href=&#34;https://mxracehub.site/account/wallet/&#34; class=&#34;wallet-btn&#34;&gt;View Wallet&lt;/a&gt;
+          &lt;a href=&#34;http://localhost:1313/account/wallet/&#34; class=&#34;wallet-btn&#34;&gt;View Wallet&lt;/a&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -1935,10 +1975,10 @@
     
     <item>
       <title>My Bets</title>
-      <link>https://mxracehub.site/betting/my-bets/</link>
+      <link>http://localhost:1313/betting/my-bets/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/betting/my-bets/</guid>
+      <guid>http://localhost:1313/betting/my-bets/</guid>
       <description>&lt;div class=&#34;bets-page&#34;&gt;
   &lt;div class=&#34;bets-header&#34;&gt;
     &lt;h1&gt;My Bets&lt;/h1&gt;
@@ -2668,10 +2708,10 @@
     
     <item>
       <title>My Wallet</title>
-      <link>https://mxracehub.site/account/wallet/</link>
+      <link>http://localhost:1313/account/wallet/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/account/wallet/</guid>
+      <guid>http://localhost:1313/account/wallet/</guid>
       <description>&lt;div class=&#34;wallet-container&#34;&gt;
   &lt;div class=&#34;wallet-header&#34;&gt;
     &lt;h1 class=&#34;text-3xl font-bold mb-2&#34;&gt;Your Wallet&lt;/h1&gt;
@@ -2688,7 +2728,7 @@
     &lt;div class=&#34;balance-card&#34;&gt;
       &lt;h2 class=&#34;text-lg font-medium mb-2&#34;&gt;Pending Bets&lt;/h2&gt;
       &lt;p class=&#34;balance-amount text-3xl font-bold&#34;&gt;$75.00&lt;/p&gt;
-      &lt;a href=&#34;https://mxracehub.site/account/bets/&#34; class=&#34;view-bets-btn mt-4&#34;&gt;View Bets&lt;/a&gt;
+      &lt;a href=&#34;http://localhost:1313/account/bets/&#34; class=&#34;view-bets-btn mt-4&#34;&gt;View Bets&lt;/a&gt;
     &lt;/div&gt;
     
     &lt;div class=&#34;balance-card&#34;&gt;
@@ -2699,10 +2739,10 @@
     
     <item>
       <title>Nate Thrasher</title>
-      <link>https://mxracehub.site/riders/250/nate-thrasher/</link>
+      <link>http://localhost:1313/riders/250/nate-thrasher/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/nate-thrasher/</guid>
+      <guid>http://localhost:1313/riders/250/nate-thrasher/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Tennessee Talent 
     &lt;div id=&#34;the-tennessee-talent&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -2717,11 +2757,41 @@
     </item>
     
     <item>
-      <title>Payment &amp; Betting</title>
-      <link>https://mxracehub.site/betting/payment/</link>
+      <title>Nuno Coraçao</title>
+      <link>http://localhost:1313/authors/nunocoracao/_index.it/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/betting/payment/</guid>
+      <guid>http://localhost:1313/authors/nunocoracao/_index.it/</guid>
+      <description>&lt;p&gt;La fantastica biografia di Nuno.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Nuno Coração</title>
+      <link>http://localhost:1313/authors/nunocoracao/_index.ja/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/authors/nunocoracao/_index.ja/</guid>
+      <description>&lt;p&gt;Nuno の素晴らしいダミープロフィールです。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Nuno Coração</title>
+      <link>http://localhost:1313/authors/nunocoracao/_index.zh-cn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/authors/nunocoracao/_index.zh-cn/</guid>
+      <description>&lt;p&gt;假装这里有一份 Nuno 的简介。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Payment &amp; Betting</title>
+      <link>http://localhost:1313/betting/payment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/betting/payment/</guid>
       <description>&lt;div class=&#34;payment-page&#34;&gt;
   &lt;div class=&#34;payment-header&#34;&gt;
     &lt;h1&gt;Payment &amp; Betting&lt;/h1&gt;
@@ -2922,10 +2992,10 @@
     
     <item>
       <title>Payment Successful</title>
-      <link>https://mxracehub.site/betting/payment-success/</link>
+      <link>http://localhost:1313/betting/payment-success/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/betting/payment-success/</guid>
+      <guid>http://localhost:1313/betting/payment-success/</guid>
       <description>&lt;div class=&#34;success-page&#34;&gt;
   &lt;div class=&#34;success-container&#34;&gt;
     &lt;div class=&#34;success-icon&#34;&gt;
@@ -3131,10 +3201,10 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     
     <item>
       <title>Phil Nicoletti</title>
-      <link>https://mxracehub.site/riders/250/phil-nicoletti/</link>
+      <link>http://localhost:1313/riders/250/phil-nicoletti/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/phil-nicoletti/</guid>
+      <guid>http://localhost:1313/riders/250/phil-nicoletti/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Last of the Mohicans 
     &lt;div id=&#34;the-last-of-the-mohicans&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -3150,10 +3220,10 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     
     <item>
       <title>Pierce Brown</title>
-      <link>https://mxracehub.site/riders/250/pierce-brown/</link>
+      <link>http://localhost:1313/riders/250/pierce-brown/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/pierce-brown/</guid>
+      <guid>http://localhost:1313/riders/250/pierce-brown/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Rising Star 
     &lt;div id=&#34;the-rising-star&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -3169,12 +3239,12 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     
     <item>
       <title>Place a Race Bet</title>
-      <link>https://mxracehub.site/betting/friend-bets/race-bet-form/</link>
+      <link>http://localhost:1313/betting/friend-bets/race-bet-form/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/betting/friend-bets/race-bet-form/</guid>
-      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;https://mxracehub.site/css/betting-form.css&#34;&gt;
-&lt;script src=&#34;https://mxracehub.site/js/race-bet-form.js&#34; defer&gt;&lt;/script&gt;
+      <guid>http://localhost:1313/betting/friend-bets/race-bet-form/</guid>
+      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/betting-form.css&#34;&gt;
+&lt;script src=&#34;http://localhost:1313/js/race-bet-form.js&#34; defer&gt;&lt;/script&gt;
 
 &lt;div class=&#34;betting-container&#34;&gt;
   &lt;h1 class=&#34;betting-title&#34;&gt;PLACE YOUR RACE BET&lt;/h1&gt;
@@ -3236,10 +3306,10 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     
     <item>
       <title>Raymond James Stadium</title>
-      <link>https://mxracehub.site/tracks/raymond-james-stadium/</link>
+      <link>http://localhost:1313/tracks/raymond-james-stadium/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/tracks/raymond-james-stadium/</guid>
+      <guid>http://localhost:1313/tracks/raymond-james-stadium/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;Stadium Overview 
     &lt;div id=&#34;stadium-overview&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -3255,10 +3325,10 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     
     <item>
       <title>RedBud MX</title>
-      <link>https://mxracehub.site/tracks/redbud/</link>
+      <link>http://localhost:1313/tracks/redbud/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/tracks/redbud/</guid>
+      <guid>http://localhost:1313/tracks/redbud/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;America&amp;rsquo;s Motocross Track 
     &lt;div id=&#34;americas-motocross-track&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -3274,10 +3344,10 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     
     <item>
       <title>Rice-Eccles Stadium</title>
-      <link>https://mxracehub.site/tracks/rice-eccles-stadium/</link>
+      <link>http://localhost:1313/tracks/rice-eccles-stadium/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/tracks/rice-eccles-stadium/</guid>
+      <guid>http://localhost:1313/tracks/rice-eccles-stadium/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The High-Altitude Season Finale 
     &lt;div id=&#34;the-high-altitude-season-finale&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -3293,10 +3363,10 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     
     <item>
       <title>RJ Hampshire</title>
-      <link>https://mxracehub.site/riders/250/rj-hampshire/</link>
+      <link>http://localhost:1313/riders/250/rj-hampshire/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/rj-hampshire/</guid>
+      <guid>http://localhost:1313/riders/250/rj-hampshire/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Persevering Champion 
     &lt;div id=&#34;the-persevering-champion&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -3311,11 +3381,21 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     </item>
     
     <item>
-      <title>Seth Hammaker</title>
-      <link>https://mxracehub.site/riders/250/seth-hammaker/</link>
+      <title>Secondo autore fittizio</title>
+      <link>http://localhost:1313/authors/secondauthor/_index.it/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/seth-hammaker/</guid>
+      <guid>http://localhost:1313/authors/secondauthor/_index.it/</guid>
+      <description>&lt;p&gt;La fantastica biografia fittizia di Dummy Second Author.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Seth Hammaker</title>
+      <link>http://localhost:1313/riders/250/seth-hammaker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/riders/250/seth-hammaker/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Pennsylvania Technician 
     &lt;div id=&#34;the-pennsylvania-technician&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -3331,10 +3411,10 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     
     <item>
       <title>Snapdragon Stadium</title>
-      <link>https://mxracehub.site/tracks/san-diego-snapdragon-stadium/</link>
+      <link>http://localhost:1313/tracks/san-diego-snapdragon-stadium/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/tracks/san-diego-snapdragon-stadium/</guid>
+      <guid>http://localhost:1313/tracks/san-diego-snapdragon-stadium/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The New Home of San Diego Supercross 
     &lt;div id=&#34;the-new-home-of-san-diego-supercross&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -3350,15 +3430,15 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     
     <item>
       <title>Snapdragon Stadium</title>
-      <link>https://mxracehub.site/tracks/snapdragon-stadium/</link>
+      <link>http://localhost:1313/tracks/snapdragon-stadium/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/tracks/snapdragon-stadium/</guid>
+      <guid>http://localhost:1313/tracks/snapdragon-stadium/</guid>
       <description>&lt;div class=&#34;track-profile&#34;&gt;
   
   &lt;div class=&#34;track-content&#34;&gt;
     &lt;div class=&#34;track-image&#34;&gt;
-      &lt;img src=&#34;https://mxracehub.site/img/tracks/snapdragon-stadium.svg&#34; alt=&#34;Snapdragon Stadium&#34; class=&#34;track-photo&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/img/tracks/snapdragon-stadium.svg&#34; alt=&#34;Snapdragon Stadium&#34; class=&#34;track-photo&#34;&gt;
     &lt;/div&gt;
     
     &lt;div class=&#34;track-details&#34;&gt;
@@ -3395,10 +3475,10 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     
     <item>
       <title>Stilez Robertson</title>
-      <link>https://mxracehub.site/riders/250/stilez-robertson/</link>
+      <link>http://localhost:1313/riders/250/stilez-robertson/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/stilez-robertson/</guid>
+      <guid>http://localhost:1313/riders/250/stilez-robertson/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The California Technician 
     &lt;div id=&#34;the-california-technician&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -3413,11 +3493,21 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     </item>
     
     <item>
-      <title>Tom Vialle</title>
-      <link>https://mxracehub.site/riders/250/tom-vialle/</link>
+      <title>Tag</title>
+      <link>http://localhost:1313/tags/_index.it/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/250/tom-vialle/</guid>
+      <guid>http://localhost:1313/tags/_index.it/</guid>
+      <description>&lt;p&gt;Blowfish ha il pieno supporto per le tassonomie Hugo e si adatterà a qualsiasi impostazione tassonomica. Gli elenchi di tassonomia come questo supportano anche il contenuto personalizzato da visualizzare sopra l&amp;rsquo;elenco dei termini.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Tom Vialle</title>
+      <link>http://localhost:1313/riders/250/tom-vialle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/riders/250/tom-vialle/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The European Champion in America 
     &lt;div id=&#34;the-european-champion-in-america&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -3433,10 +3523,10 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     
     <item>
       <title>Transfer Funds</title>
-      <link>https://mxracehub.site/betting/transfers/</link>
+      <link>http://localhost:1313/betting/transfers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/betting/transfers/</guid>
+      <guid>http://localhost:1313/betting/transfers/</guid>
       <description>&lt;div class=&#34;transfers-page&#34;&gt;
   &lt;div class=&#34;transfers-header&#34;&gt;
     &lt;h1&gt;Transfer Funds&lt;/h1&gt;
@@ -3446,7 +3536,7 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     &lt;div class=&#34;balance-card&#34;&gt;
       &lt;div class=&#34;balance-header&#34;&gt;Available Balance&lt;/div&gt;
       &lt;div class=&#34;balance-amount&#34;&gt;$750.00&lt;/div&gt;
-      &lt;a href=&#34;https://mxracehub.site/betting/payment&#34; class=&#34;add-funds-btn&#34;&gt;Add Funds&lt;/a&gt;
+      &lt;a href=&#34;http://localhost:1313/betting/payment&#34; class=&#34;add-funds-btn&#34;&gt;Add Funds&lt;/a&gt;
     &lt;/div&gt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;payment-options&amp;quot;&amp;gt;
   &amp;lt;div class=&amp;quot;option-card&amp;quot;&amp;gt;
@@ -3507,10 +3597,10 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     
     <item>
       <title>Unadilla MX</title>
-      <link>https://mxracehub.site/tracks/unadilla-mx/</link>
+      <link>http://localhost:1313/tracks/unadilla-mx/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/tracks/unadilla-mx/</guid>
+      <guid>http://localhost:1313/tracks/unadilla-mx/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Historic Battleground 
     &lt;div id=&#34;the-historic-battleground&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -3526,10 +3616,10 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     
     <item>
       <title>Vince Friese</title>
-      <link>https://mxracehub.site/riders/450/vince-friese/</link>
+      <link>http://localhost:1313/riders/450/vince-friese/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/riders/450/vince-friese/</guid>
+      <guid>http://localhost:1313/riders/450/vince-friese/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Supercross Specialist 
     &lt;div id=&#34;the-supercross-specialist&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -3545,10 +3635,10 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     
     <item>
       <title>Washougal MX Park</title>
-      <link>https://mxracehub.site/tracks/washougal-mx-park/</link>
+      <link>http://localhost:1313/tracks/washougal-mx-park/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/tracks/washougal-mx-park/</guid>
+      <guid>http://localhost:1313/tracks/washougal-mx-park/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Cathedral of Motocross 
     &lt;div id=&#34;the-cathedral-of-motocross&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -3564,10 +3654,10 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
     
     <item>
       <title>Withdraw Funds</title>
-      <link>https://mxracehub.site/betting/withdraw/</link>
+      <link>http://localhost:1313/betting/withdraw/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/betting/withdraw/</guid>
+      <guid>http://localhost:1313/betting/withdraw/</guid>
       <description>&lt;div class=&#34;withdraw-page&#34;&gt;
   &lt;div class=&#34;withdraw-header&#34;&gt;
     &lt;h1&gt;Withdraw Funds&lt;/h1&gt;
@@ -4618,6 +4708,74 @@ input[type=&#34;number&#34;].input-with-icon {
   display: none;
 }
 &lt;/style&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>タグ</title>
+      <link>http://localhost:1313/tags/_index.ja/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/_index.ja/</guid>
+      <description>&lt;p&gt;Blowfish は Hugo の分類システムを完全にサポートし、どのような分類システムの設定でも適合できます。このような分類システムのリストは、用語リストの上に表示されるカスタムコンテンツもサポートしています。&lt;/p&gt;
+&lt;p&gt;このエリアはそれぞれの分類システムに追加の説明をする時に利用します。以下の&lt;a
+  href=&#34;http://localhost:1313/tags/advanced/&#34;&gt;高度なタグ&lt;/a&gt;を確認して、このコンセプトをさらに発展させる方法をご覧ください。&lt;/p&gt;
+&lt;hr&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>作者列表示例</title>
+      <link>http://localhost:1313/authors/_index.zh-cn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/authors/_index.zh-cn/</guid>
+      <description>&lt;p&gt;在你的文章中添加不同作者的简单示例。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>标签</title>
+      <link>http://localhost:1313/tags/_index.zh-cn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/_index.zh-cn/</guid>
+      <description>&lt;p&gt;Blowfish 支持基于 Hugo 的所有分类方法。同时，当前的标签预览页也支持展示自定义内容。&lt;/p&gt;
+&lt;p&gt;在这里可以为每个分类添加额外的描述信息。查看下面的&lt;a
+  href=&#34;http://localhost:1313/tags/advanced/&#34;&gt;高级标签&lt;/a&gt;页面，了解更多。&lt;/p&gt;
+&lt;hr&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>著者のタクソノミーリストの例</title>
+      <link>http://localhost:1313/authors/_index.ja/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/authors/_index.ja/</guid>
+      <description>&lt;p&gt;あなたの記事で著者のタクソノミーを使う方法の簡単な例です。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>高度なタグ</title>
+      <link>http://localhost:1313/tags/advanced/_index.ja/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/advanced/_index.ja/</guid>
+      <description>&lt;p&gt;こちらは高度なタグです。 Blowfish の他のページの様に、個々の分類条項にカスタムコンテンツの追加やそれを条項リストの一番上に表示することが可能です。&amp;#x1f680;&lt;/p&gt;
+&lt;p&gt;タイトルや説明など SEO や他の目的に利用するためのHugo のメタデータを定義するためにこれらのコンテンツページも利用可能です。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>高级</title>
+      <link>http://localhost:1313/tags/advanced/_index.zh-cn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/advanced/_index.zh-cn/</guid>
+      <description>&lt;p&gt;这是高级标记。类似其他 Blowfish 中的其他列表页面，你可以在分类列表页添加自定义内容，这部分内容会显示在顶部。&amp;#x1f680;&lt;/p&gt;
+&lt;p&gt;你也可以用这些内容来定义 Hugo 的元数据，比如标题和描述。这些内容可以被用来增强 SEO 或其他目的。&lt;/p&gt;</description>
       
     </item>
     

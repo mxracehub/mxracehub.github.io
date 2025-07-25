@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pro Motocross on MXRaceHub</title>
-    <link>https://mxracehub.site/series/pro-motocross/</link>
+    <link>http://localhost:1313/series/pro-motocross/</link>
     <description>Recent content in Pro Motocross on MXRaceHub</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 </copyright>
-    <lastBuildDate>Sat, 19 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mxracehub.site/series/pro-motocross/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/series/pro-motocross/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Pro Motocross Round 8: Washougal, WA</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-8-washougal-motocross-park/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-8-washougal-motocross-park/</link>
       <pubDate>Sat, 19 Jul 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-8-washougal-motocross-park/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-8-washougal-motocross-park/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 8 
     &lt;div id=&#34;pro-motocross-round-8&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -42,10 +42,10 @@
     
     <item>
       <title>Pro Motocross Round 7: Millville, MN</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-7-spring-creek-motocross-park/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-7-spring-creek-motocross-park/</link>
       <pubDate>Sat, 12 Jul 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-7-spring-creek-motocross-park/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-7-spring-creek-motocross-park/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 7 
     &lt;div id=&#34;pro-motocross-round-7&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -73,10 +73,10 @@
     
     <item>
       <title>Pro Motocross Round 6: Buchanan, MI</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-6-redbud-mx/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-6-redbud-mx/</link>
       <pubDate>Sat, 28 Jun 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-6-redbud-mx/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-6-redbud-mx/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 6 
     &lt;div id=&#34;pro-motocross-round-6&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -104,10 +104,10 @@
     
     <item>
       <title>Pro Motocross Round 5: Blountville, TN</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-5-muddy-creek-raceway/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-5-muddy-creek-raceway/</link>
       <pubDate>Sat, 21 Jun 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-5-muddy-creek-raceway/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-5-muddy-creek-raceway/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 5 
     &lt;div id=&#34;pro-motocross-round-5&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -135,10 +135,10 @@
     
     <item>
       <title>Pro Motocross Round 4: Mt. Morris, PA</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-4-high-point-raceway/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-4-high-point-raceway/</link>
       <pubDate>Sat, 14 Jun 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-4-high-point-raceway/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-4-high-point-raceway/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 4 
     &lt;div id=&#34;pro-motocross-round-4&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -166,10 +166,10 @@
     
     <item>
       <title>Pro Motocross Round 3: Southwick, MA</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-3-southwick-motocross-park/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-3-southwick-motocross-park/</link>
       <pubDate>Sat, 07 Jun 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-3-southwick-motocross-park/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-3-southwick-motocross-park/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 3 
     &lt;div id=&#34;pro-motocross-round-3&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -197,10 +197,10 @@
     
     <item>
       <title>Pro Motocross Round 2: Lakewood, CO</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-2-thunder-valley-motocross-park/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-2-thunder-valley-motocross-park/</link>
       <pubDate>Sat, 31 May 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-2-thunder-valley-motocross-park/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-2-thunder-valley-motocross-park/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 2 
     &lt;div id=&#34;pro-motocross-round-2&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -228,10 +228,10 @@
     
     <item>
       <title>Pro Motocross Round 1: Pala, CA</title>
-      <link>https://mxracehub.site/races/events/pro-motocross-round-1-fox-raceway/</link>
+      <link>http://localhost:1313/races/events/pro-motocross-round-1-fox-raceway/</link>
       <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/races/events/pro-motocross-round-1-fox-raceway/</guid>
+      <guid>http://localhost:1313/races/events/pro-motocross-round-1-fox-raceway/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Pro Motocross Round 1 
     &lt;div id=&#34;pro-motocross-round-1&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -259,10 +259,10 @@
     
     <item>
       <title>Unadilla MX</title>
-      <link>https://mxracehub.site/tracks/unadilla-mx/</link>
+      <link>http://localhost:1313/tracks/unadilla-mx/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/tracks/unadilla-mx/</guid>
+      <guid>http://localhost:1313/tracks/unadilla-mx/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Historic Battleground 
     &lt;div id=&#34;the-historic-battleground&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -278,10 +278,10 @@
     
     <item>
       <title>Washougal MX Park</title>
-      <link>https://mxracehub.site/tracks/washougal-mx-park/</link>
+      <link>http://localhost:1313/tracks/washougal-mx-park/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/tracks/washougal-mx-park/</guid>
+      <guid>http://localhost:1313/tracks/washougal-mx-park/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Cathedral of Motocross 
     &lt;div id=&#34;the-cathedral-of-motocross&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     

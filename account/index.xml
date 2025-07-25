@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Account on MXRaceHub</title>
-    <link>https://mxracehub.site/account/</link>
+    <link>http://localhost:1313/account/</link>
     <description>Recent content in Account on MXRaceHub</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 </copyright>
-    <atom:link href="https://mxracehub.site/account/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/account/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Membership</title>
-      <link>https://mxracehub.site/account/membership/</link>
+      <link>http://localhost:1313/account/membership/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/account/membership/</guid>
+      <guid>http://localhost:1313/account/membership/</guid>
       <description>&lt;div class=&#34;membership-container&#34;&gt;
   &lt;div class=&#34;membership-header&#34;&gt;
     &lt;h1 class=&#34;text-3xl font-bold mb-2&#34;&gt;Membership&lt;/h1&gt;
@@ -33,10 +33,10 @@
     
     <item>
       <title>Money Transfers</title>
-      <link>https://mxracehub.site/account/transfers/</link>
+      <link>http://localhost:1313/account/transfers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/account/transfers/</guid>
+      <guid>http://localhost:1313/account/transfers/</guid>
       <description>&lt;div class=&#34;transfers-container&#34;&gt;
   &lt;div class=&#34;transfers-header&#34;&gt;
     &lt;h1 class=&#34;text-3xl font-bold mb-2&#34;&gt;Money Transfers&lt;/h1&gt;
@@ -51,7 +51,7 @@
           &lt;div class=&#34;balance-amount&#34; id=&#34;available-balance&#34;&gt;$250.00&lt;/div&gt;
         &lt;/div&gt;
         &lt;div class=&#34;wallet-actions&#34;&gt;
-          &lt;a href=&#34;https://mxracehub.site/account/wallet/&#34; class=&#34;wallet-btn&#34;&gt;View Wallet&lt;/a&gt;
+          &lt;a href=&#34;http://localhost:1313/account/wallet/&#34; class=&#34;wallet-btn&#34;&gt;View Wallet&lt;/a&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -73,10 +73,10 @@
     
     <item>
       <title>My Wallet</title>
-      <link>https://mxracehub.site/account/wallet/</link>
+      <link>http://localhost:1313/account/wallet/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mxracehub.site/account/wallet/</guid>
+      <guid>http://localhost:1313/account/wallet/</guid>
       <description>&lt;div class=&#34;wallet-container&#34;&gt;
   &lt;div class=&#34;wallet-header&#34;&gt;
     &lt;h1 class=&#34;text-3xl font-bold mb-2&#34;&gt;Your Wallet&lt;/h1&gt;
@@ -93,7 +93,7 @@
     &lt;div class=&#34;balance-card&#34;&gt;
       &lt;h2 class=&#34;text-lg font-medium mb-2&#34;&gt;Pending Bets&lt;/h2&gt;
       &lt;p class=&#34;balance-amount text-3xl font-bold&#34;&gt;$75.00&lt;/p&gt;
-      &lt;a href=&#34;https://mxracehub.site/account/bets/&#34; class=&#34;view-bets-btn mt-4&#34;&gt;View Bets&lt;/a&gt;
+      &lt;a href=&#34;http://localhost:1313/account/bets/&#34; class=&#34;view-bets-btn mt-4&#34;&gt;View Bets&lt;/a&gt;
     &lt;/div&gt;
     
     &lt;div class=&#34;balance-card&#34;&gt;
