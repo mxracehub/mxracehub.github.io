@@ -3,994 +3,983 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://mxracehub.site/</loc>
+    <loc>http://localhost:54893/</loc>
     <lastmod>2025-08-30T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
-      hreflang="it"
-      href="https://mxracehub.site/it/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="ja"
-      href="https://mxracehub.site/ja/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://mxracehub.site/zh-cn/"
+      hreflang="en"
+      href="http://localhost:54893/_en/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="https://mxracehub.site/"
+      href="http://localhost:54893/"
     />
   </url>
   <url>
-    <loc>https://mxracehub.site/races/</loc>
+    <loc>http://localhost:54893/series/pro-motocross/</loc>
     <lastmod>2025-08-30T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/series/pro-motocross/</loc>
-    <lastmod>2025-07-19T00:00:00+00:00</lastmod>
+    <loc>http://localhost:54893/races/events/pro-motocross-round-12-fox-raceway/</loc>
+    <lastmod>2025-08-30T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/pro-motocross-round-8-washougal-motocross-park/</loc>
-    <lastmod>2025-07-19T00:00:00+00:00</lastmod>
+    <loc>http://localhost:54893/races/</loc>
+    <lastmod>2025-08-30T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/series/</loc>
-    <lastmod>2025-07-19T00:00:00+00:00</lastmod>
+    <loc>http://localhost:54893/series/</loc>
+    <lastmod>2025-08-30T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
-      hreflang="it"
-      href="https://mxracehub.site/it/series/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="ja"
-      href="https://mxracehub.site/ja/series/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://mxracehub.site/zh-cn/series/"
+      hreflang="en"
+      href="http://localhost:54893/_en/series/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="https://mxracehub.site/series/"
+      href="http://localhost:54893/series/"
     />
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/pro-motocross-round-7-spring-creek-motocross-park/</loc>
+    <loc>http://localhost:54893/races/events/pro-motocross-round-11-ironman-raceway/</loc>
+    <lastmod>2025-08-23T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/races/events/pro-motocross-round-10-budds-creek-motocross/</loc>
+    <lastmod>2025-08-16T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/races/events/pro-motocross-round-9-unadilla-motocross/</loc>
+    <lastmod>2025-07-26T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/races/events/pro-motocross-round-8-washougal-motocross-park/</loc>
+    <lastmod>2025-07-19T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/races/events/pro-motocross-round-7-spring-creek-motocross-park/</loc>
     <lastmod>2025-07-12T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/pro-motocross-round-6-redbud-mx/</loc>
+    <loc>http://localhost:54893/races/events/pro-motocross-round-6-redbud-mx/</loc>
     <lastmod>2025-06-28T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/pro-motocross-round-5-muddy-creek-raceway/</loc>
+    <loc>http://localhost:54893/races/events/pro-motocross-round-5-muddy-creek-raceway/</loc>
     <lastmod>2025-06-21T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/pro-motocross-round-4-high-point-raceway/</loc>
+    <loc>http://localhost:54893/races/events/pro-motocross-round-4-high-point-raceway/</loc>
     <lastmod>2025-06-14T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/pro-motocross-round-3-southwick-motocross-park/</loc>
+    <loc>http://localhost:54893/races/events/pro-motocross-round-3-southwick-motocross-park/</loc>
     <lastmod>2025-06-07T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/pro-motocross-round-2-thunder-valley-motocross-park/</loc>
+    <loc>http://localhost:54893/races/events/pro-motocross-round-2-thunder-valley-motocross-park/</loc>
     <lastmod>2025-05-31T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/pro-motocross-round-1-fox-raceway/</loc>
+    <loc>http://localhost:54893/races/events/pro-motocross-round-1-fox-raceway/</loc>
     <lastmod>2025-05-24T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/series/supercross/</loc>
+    <loc>http://localhost:54893/series/supercross/</loc>
     <lastmod>2025-05-03T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/supercross-round-17-rice-eccles-stadium/</loc>
+    <loc>http://localhost:54893/races/events/supercross-round-17-rice-eccles-stadium/</loc>
     <lastmod>2025-05-03T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/supercross-round-16-metlife-stadium/</loc>
+    <loc>http://localhost:54893/races/events/supercross-round-16-metlife-stadium/</loc>
     <lastmod>2025-04-26T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/supercross-round-15-gillette-stadium/</loc>
+    <loc>http://localhost:54893/races/events/supercross-round-15-gillette-stadium/</loc>
     <lastmod>2025-04-19T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/supercross-round-14-nissan-stadium/</loc>
+    <loc>http://localhost:54893/races/events/supercross-round-14-nissan-stadium/</loc>
     <lastmod>2025-04-12T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/supercross-round-13-mercedes-benz-stadium/</loc>
+    <loc>http://localhost:54893/races/events/supercross-round-13-mercedes-benz-stadium/</loc>
     <lastmod>2025-04-05T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/supercross-round-12-nrg-stadium/</loc>
+    <loc>http://localhost:54893/races/events/supercross-round-12-nrg-stadium/</loc>
     <lastmod>2025-03-29T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/supercross-round-11-empower-field/</loc>
+    <loc>http://localhost:54893/races/events/supercross-round-11-empower-field/</loc>
     <lastmod>2025-03-15T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/supercross-round-10-lumen-field/</loc>
+    <loc>http://localhost:54893/races/events/supercross-round-10-lumen-field/</loc>
     <lastmod>2025-03-08T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/supercross-round-9-lucas-oil-stadium/</loc>
+    <loc>http://localhost:54893/races/events/supercross-round-9-lucas-oil-stadium/</loc>
     <lastmod>2025-03-01T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/supercross-round-8-daytona-international-speedway/</loc>
+    <loc>http://localhost:54893/races/events/supercross-round-8-daytona-international-speedway/</loc>
     <lastmod>2025-02-22T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/supercross-round-7-att-stadium/</loc>
+    <loc>http://localhost:54893/races/events/supercross-round-7-att-stadium/</loc>
     <lastmod>2025-02-15T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/supercross-round-6-raymond-james-stadium/</loc>
+    <loc>http://localhost:54893/races/events/supercross-round-6-raymond-james-stadium/</loc>
     <lastmod>2025-02-08T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/supercross-round-5-ford-field/</loc>
+    <loc>http://localhost:54893/races/events/supercross-round-5-ford-field/</loc>
     <lastmod>2025-02-01T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/supercross-round-4-state-farm-stadium/</loc>
+    <loc>http://localhost:54893/races/events/supercross-round-4-state-farm-stadium/</loc>
     <lastmod>2025-01-25T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/supercross-round-3-angel-stadium/</loc>
+    <loc>http://localhost:54893/races/events/supercross-round-3-angel-stadium/</loc>
     <lastmod>2025-01-18T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/supercross-round-2-snapdragon-stadium/</loc>
+    <loc>http://localhost:54893/races/events/supercross-round-2-snapdragon-stadium/</loc>
     <lastmod>2025-01-11T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/events/supercross-round-1-angel-stadium/</loc>
+    <loc>http://localhost:54893/races/events/supercross-round-1-angel-stadium/</loc>
     <lastmod>2025-01-04T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/readme/</loc>
+    <loc>http://localhost:54893/readme/</loc>
     <lastmod>2023-04-21T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/example-shortcodes/</loc>
+    <loc>http://localhost:54893/example-shortcodes/</loc>
     <lastmod>2023-04-19T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/races/schedule/</loc>
+    <loc>http://localhost:54893/races/schedule/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/250/</loc>
+    <loc>http://localhost:54893/riders/250/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/450/</loc>
+    <loc>http://localhost:54893/authors/secondauthor/_index.ja/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/450/aaron-plessinger/</loc>
+    <loc>http://localhost:54893/riders/450/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/about/</loc>
+    <loc>http://localhost:54893/riders/450/aaron-plessinger/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/account/</loc>
+    <loc>http://localhost:54893/about/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/account/settings/</loc>
+    <loc>http://localhost:54893/account/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/admin/test-achievements/</loc>
+    <loc>http://localhost:54893/account/settings/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/450/adam-cianciarulo/</loc>
+    <loc>http://localhost:54893/admin/test-achievements/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/admin/</loc>
+    <loc>http://localhost:54893/riders/450/adam-cianciarulo/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/tags/advanced/</loc>
+    <loc>http://localhost:54893/admin/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/tags/advanced/_index.it/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/tags/advanced/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/all/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/teams/all/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/tracks/angel-stadium/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/tracks/at-t-stadium/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/250/austin-forkner/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/authors/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
-      hreflang="it"
-      href="https://mxracehub.site/it/tags/advanced/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="ja"
-      href="https://mxracehub.site/ja/tags/advanced/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://mxracehub.site/zh-cn/tags/advanced/"
+      hreflang="en"
+      href="http://localhost:54893/_en/authors/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="https://mxracehub.site/tags/advanced/"
+      href="http://localhost:54893/authors/"
     />
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/all/</loc>
+    <loc>http://localhost:54893/betting/groups/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/teams/all/</loc>
+    <loc>http://localhost:54893/betting/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/tracks/angel-stadium/</loc>
+    <loc>http://localhost:54893/betting/odds/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/tracks/at-t-stadium/</loc>
+    <loc>http://localhost:54893/betting/policies/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/250/austin-forkner/</loc>
+    <loc>http://localhost:54893/riders/250/cameron-mcadoo/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/authors/</loc>
+    <loc>http://localhost:54893/riders/250/carson-mumford/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/categories/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
-      hreflang="it"
-      href="https://mxracehub.site/it/authors/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="ja"
-      href="https://mxracehub.site/ja/authors/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://mxracehub.site/zh-cn/authors/"
+      hreflang="en"
+      href="http://localhost:54893/_en/categories/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="https://mxracehub.site/authors/"
+      href="http://localhost:54893/categories/"
     />
   </url>
   <url>
-    <loc>https://mxracehub.site/betting/groups/</loc>
+    <loc>http://localhost:54893/riders/250/chance-hymas/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/betting/</loc>
+    <loc>http://localhost:54893/riders/450/chase-sexton/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/betting/odds/</loc>
+    <loc>http://localhost:54893/riders/450/christian-craig/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/betting/policies/</loc>
+    <loc>http://localhost:54893/riders/450/colt-nichols/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/250/cameron-mcadoo/</loc>
+    <loc>http://localhost:54893/contact/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/250/carson-mumford/</loc>
+    <loc>http://localhost:54893/riders/450/cooper-webb/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/categories/</loc>
+    <loc>http://localhost:54893/riders/250/coty-schock/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/tracks/daytona-international-speedway/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/450/dean-wilson/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/authors/secondauthor/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/authors/secondauthor/_index.zh-cn/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/450/dylan-ferrandis/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/450/eli-tomac/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/250/enzo-lopes/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/authors/_index.it/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/tracks/detroit-supercross/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/tracks/fox-raceway/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/betting/friend-bets/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/250/garrett-marchbanks/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/betting/group-bets/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/250/haiden-deegan/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/tracks/high-point/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/450/hunter-lawrence/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/news/interviews/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/250/jalek-swoll/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/450/jason-anderson/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/250/jeremy-martin/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/450/jett-lawrence/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/250/jo-shimoda/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/450/joey-savatgy/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/250/jordon-smith/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/450/justin-barcia/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/450/justin-cooper/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/450/justin-hill/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/450/ken-roczen/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/news/latest/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/leaderboards/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/250/levi-kitchen/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/live-betting/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/live-stream/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/account/login/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/450/malcolm-stewart/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/250/max-anstie/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/250/max-vohland/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/account/membership/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/betting/membership/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/membership/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/tracks/metlife-stadium/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/250/mitchell-oldenburg/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/account/transfers/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/teams/kawasaki/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/races/motocross/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/tracks/motocross/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/betting/my-bets/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/account/profile/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/account/wallet/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/250/nate-thrasher/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/news/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/authors/nunocoracao/_index.it/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/authors/nunocoracao/_index.ja/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/authors/nunocoracao/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/authors/nunocoracao/_index.zh-cn/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/betting/payment/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/betting/payment-success/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/250/phil-nicoletti/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/250/pierce-brown/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/betting/friend-bets/race-bet-form/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/betting/place-bet/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/membership/premium/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/privacy-policy/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/privacy/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/profile/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/news/analysis/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/races/results/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/tickets/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/tracks/raymond-james-stadium/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/teams/ktm/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/tracks/redbud/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/account/register/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/responsible-gambling/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/tracks/rice-eccles-stadium/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/250/rj-hampshire/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/authors/secondauthor/_index.it/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/250/seth-hammaker/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/auth/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/tracks/san-diego-snapdragon-stadium/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/tracks/snapdragon-stadium/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/races/standings/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/riders/250/stilez-robertson/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/races/supercross/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/tracks/supercross/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/tags/_index.it/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:54893/tags/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
       rel="alternate"
-      hreflang="it"
-      href="https://mxracehub.site/it/categories/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="ja"
-      href="https://mxracehub.site/ja/categories/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://mxracehub.site/zh-cn/categories/"
+      hreflang="en"
+      href="http://localhost:54893/_en/tags/"
     />
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="https://mxracehub.site/categories/"
+      href="http://localhost:54893/tags/"
     />
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/250/chance-hymas/</loc>
+    <loc>http://localhost:54893/teams/honda/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/450/chase-sexton/</loc>
+    <loc>http://localhost:54893/teams/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/450/christian-craig/</loc>
+    <loc>http://localhost:54893/terms-of-service/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/450/colt-nichols/</loc>
+    <loc>http://localhost:54893/terms/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/contact/</loc>
+    <loc>http://localhost:54893/riders/250/tom-vialle/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/450/cooper-webb/</loc>
+    <loc>http://localhost:54893/tracks/map/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/250/coty-schock/</loc>
+    <loc>http://localhost:54893/tracks/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/tracks/daytona-international-speedway/</loc>
+    <loc>http://localhost:54893/betting/transfers/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/450/dean-wilson/</loc>
+    <loc>http://localhost:54893/tracks/unadilla-mx/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/authors/secondauthor/</loc>
+    <loc>http://localhost:54893/races/upcoming/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
-    <xhtml:link
-      rel="alternate"
-      hreflang="it"
-      href="https://mxracehub.site/it/authors/secondauthor/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="ja"
-      href="https://mxracehub.site/ja/authors/secondauthor/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://mxracehub.site/zh-cn/authors/secondauthor/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://mxracehub.site/authors/secondauthor/"
-    />
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/450/dylan-ferrandis/</loc>
+    <loc>http://localhost:54893/news/video/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/450/eli-tomac/</loc>
+    <loc>http://localhost:54893/riders/450/vince-friese/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/250/enzo-lopes/</loc>
+    <loc>http://localhost:54893/tracks/washougal-mx-park/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/tracks/detroit-supercross/</loc>
+    <loc>http://localhost:54893/watch/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/tracks/fox-raceway/</loc>
+    <loc>http://localhost:54893/betting/withdraw/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/betting/friend-bets/</loc>
+    <loc>http://localhost:54893/teams/yamaha/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/250/garrett-marchbanks/</loc>
+    <loc>http://localhost:54893/profile/achievements/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/betting/group-bets/</loc>
+    <loc>http://localhost:54893/tags/_index.ja/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/250/haiden-deegan/</loc>
+    <loc>http://localhost:54893/authors/_index.zh-cn/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/tracks/high-point/</loc>
+    <loc>http://localhost:54893/tags/_index.zh-cn/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/450/hunter-lawrence/</loc>
+    <loc>http://localhost:54893/authors/_index.ja/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/news/interviews/</loc>
+    <loc>http://localhost:54893/tags/advanced/_index.ja/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mxracehub.site/riders/250/jalek-swoll/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/450/jason-anderson/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/250/jeremy-martin/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/450/jett-lawrence/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/250/jo-shimoda/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/450/joey-savatgy/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/250/jordon-smith/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/450/justin-barcia/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/450/justin-cooper/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/450/justin-hill/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/450/ken-roczen/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/news/latest/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/leaderboards/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/250/levi-kitchen/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/live-betting/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/live-stream/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/account/login/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/450/malcolm-stewart/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/250/max-anstie/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/250/max-vohland/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/account/membership/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/betting/membership/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/membership/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/tracks/metlife-stadium/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/250/mitchell-oldenburg/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/account/transfers/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/teams/kawasaki/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/races/motocross/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/tracks/motocross/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/betting/my-bets/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/account/profile/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/account/wallet/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/250/nate-thrasher/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/news/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/authors/nunocoracao/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-      rel="alternate"
-      hreflang="it"
-      href="https://mxracehub.site/it/authors/nunocoracao/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="ja"
-      href="https://mxracehub.site/ja/authors/nunocoracao/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://mxracehub.site/zh-cn/authors/nunocoracao/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://mxracehub.site/authors/nunocoracao/"
-    />
-  </url>
-  <url>
-    <loc>https://mxracehub.site/betting/payment/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/betting/payment-success/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/250/phil-nicoletti/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/250/pierce-brown/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/betting/friend-bets/race-bet-form/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/betting/place-bet/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/membership/premium/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/privacy-policy/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/privacy/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/profile/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/news/analysis/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/races/results/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/tickets/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/tracks/raymond-james-stadium/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/teams/ktm/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/tracks/redbud/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/account/register/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/responsible-gambling/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/tracks/rice-eccles-stadium/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/250/rj-hampshire/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/250/seth-hammaker/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/auth/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/tracks/san-diego-snapdragon-stadium/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/tracks/snapdragon-stadium/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/races/standings/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/250/stilez-robertson/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/races/supercross/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/tracks/supercross/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/tags/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-      rel="alternate"
-      hreflang="it"
-      href="https://mxracehub.site/it/tags/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="ja"
-      href="https://mxracehub.site/ja/tags/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://mxracehub.site/zh-cn/tags/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://mxracehub.site/tags/"
-    />
-  </url>
-  <url>
-    <loc>https://mxracehub.site/teams/honda/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/teams/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/terms-of-service/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/terms/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/250/tom-vialle/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/tracks/map/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/tracks/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/betting/transfers/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/tracks/unadilla-mx/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/races/upcoming/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/news/video/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/riders/450/vince-friese/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/tracks/washougal-mx-park/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/watch/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/betting/withdraw/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/teams/yamaha/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mxracehub.site/profile/achievements/</loc>
+    <loc>http://localhost:54893/tags/advanced/_index.zh-cn/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
