@@ -7,11 +7,11 @@ const footerNavLinks = [
   { href: '/', label: 'Home' },
   { href: '/races', label: 'Races' },
   { href: '/riders', label: 'Riders' },
-  { href: '#', label: 'Betting' },
-  { href: '#', label: 'Account' },
-  { href: '#', label: 'Policies' },
-  { href: '#', label: 'Privacy' },
-  { href: '#', label: 'Contact' },
+  { href: '/betting', label: 'Betting' },
+  { href: '/account', label: 'Account' },
+  { href: '/policies', label: 'Policies' },
+  { href: '/privacy', label: 'Privacy' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 export function Footer() {

@@ -9,8 +9,8 @@ const navItems = [
   { href: '/', label: 'Home' },
   { href: '/races', label: 'Races' },
   { href: '/riders', label: 'Riders' },
-  { href: '#', label: 'Betting'},
-  { href: '#', label: 'Account' },
+  { href: '/betting', label: 'Betting'},
+  { href: '/account', label: 'Account' },
 ];
 
 export function Header() {
