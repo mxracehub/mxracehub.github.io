@@ -2,8 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { Header } from '@/components/layout/header';
-import Link from 'next/link';
-import { Trophy } from 'lucide-react';
+import { Footer } from '@/components/layout/footer';
 
 export const metadata: Metadata = {
   title: 'MxHub',
@@ -29,6 +28,7 @@ export default function RootLayout({
             <main className="flex-1 p-4 sm:p-6 lg:p-8">
                 {children}
             </main>
+            <Footer />
         </div>
         <Toaster />
       </body>

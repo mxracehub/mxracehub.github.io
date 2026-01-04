@@ -17,6 +17,24 @@
       "description": "Motocross race day excitement",
       "imageUrl": "https://images.unsplash.com/photo-1656768442835-256722b84e66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW90b2Nyb3NzJTIwYWN0aW9ufGVufDB8fHx8MTc2NzU1Nzc1MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "motocross action"
+    },
+    {
+      "id": "pro-racing-logo",
+      "description": "Pro Racing logo",
+      "imageUrl": "https://images.unsplash.com/photo-1764176910668-a2f3a7babbd1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxyYWNpbmclMjBsb2dvfGVufDB8fHx8MTc2NzU1Nzk4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "racing logo"
+    },
+    {
+      "id": "ama-logo",
+      "description": "AMA logo",
+      "imageUrl": "https://images.unsplash.com/photo-1696392837860-d96c2fc454a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW90b3JjeWNsZSUyMGFzc29jaWF0aW9ufGVufDB8fHx8MTc2NzU1Nzk4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "motorcycle association"
+    },
+    {
+      "id": "monster-logo",
+      "description": "Monster Energy logo",
+      "imageUrl": "https://images.unsplash.com/photo-1612094485240-e6249b81c0cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZW5lcmd5JTIwZHJpbmt8ZW58MHx8fHwxNzY3NTM3MzU4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "energy drink"
     }
   ]
 }
