@@ -13,7 +13,7 @@ import { notFound } from 'next/navigation';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Coins, Trophy, Users, Settings } from 'lucide-react';
+import { Coins, Trophy, Users, Settings, Repeat } from 'lucide-react';
 import Link from 'next/link';
 
 export default function AccountPage() {
@@ -58,7 +58,7 @@ export default function AccountPage() {
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2"><Coins className="text-yellow-500" /> Balances</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-2">
                     <div>
                         <p className="font-bold text-2xl">{account.balances.gold.toLocaleString()}</p>
                         <p className="text-sm text-muted-foreground">Gold Coins</p>
@@ -69,6 +69,9 @@ export default function AccountPage() {
                     </div>
                     <Button className="w-full" asChild>
                         <Link href="/bank">Purchase Gold Coins</Link>
+                    </Button>
+                    <Button className="w-full" variant="outline" asChild>
+                        <Link href="/account/exchange-gold">Exchange Gold Coins</Link>
                     </Button>
                 </CardContent>
             </Card>
