@@ -81,7 +81,7 @@ export default function DashboardPage() {
             src={raceBanner.imageUrl}
             alt={raceBanner.description}
             width={1200}
-            height={300}
+            height={100}
             className="w-full object-cover"
             data-ai-hint={raceBanner.imageHint}
           />
