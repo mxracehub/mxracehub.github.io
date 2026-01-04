@@ -39,8 +39,20 @@
     {
       "id": "monster-logo",
       "description": "Monster Energy logo",
-      "imageUrl": "https://images.unsplash.com/photo-1612094485240-e6249b81c0cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZW5lcmd5JTIwZHJpbmt8ZW58MHx8fHwxNzY3NTM3MzU4fDA&ixlibrb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-16120944485240-e6249b81c0cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZW5lcmd5JTIwZHJpbmt8ZW58MHx8fHwxNzY3NTM3MzU4fDA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "energy drink"
+    },
+    {
+      "id": "450-rider-banner",
+      "description": "450cc class riders",
+      "imageUrl": "https://images.unsplash.com/photo-1746011124084-3134e6e888a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtb3RvY3Jvc3MlMjByaWRlcnN8ZW58MHx8fHwxNzY3NTU5Mjk4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "motocross riders"
+    },
+    {
+      "id": "250-rider-banner",
+      "description": "250cc class riders",
+      "imageUrl": "https://images.unsplash.com/photo-1667506986202-a23a3c90a5a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW90b2Nyb3NzJTIwcmlkZXJzJTIwYWN0aW9ufGVufDB8fHx8MTc2NzU1OTI5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "motocross riders action"
     }
   ]
 }
