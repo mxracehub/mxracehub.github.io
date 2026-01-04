@@ -11,6 +11,7 @@ const navItems = [
   { href: '/races', label: 'Races' },
   { href: '/riders', label: 'Riders' },
   { href: '/betting', label: 'Betting'},
+  { href: '/exchange', label: 'Exchange'},
   { href: '/friends', label: 'Friends'},
   { href: '/account', label: 'Account' },
 ];
