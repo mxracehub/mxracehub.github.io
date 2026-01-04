@@ -8,8 +8,8 @@ import Link from 'next/link';
 import { Trophy } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'MxHub Exchange Duo',
-  description: 'Manage your racing world with MxHub Exchange Duo',
+  title: 'MxHub',
+  description: 'Manage your racing world with MxHub',
 };
 
 export default function RootLayout({
@@ -18,11 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Belleza&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
         <SidebarProvider>
@@ -31,7 +31,7 @@ export default function RootLayout({
                     <Link href="/" className="flex items-center gap-2.5 p-2 pr-4 text-sidebar-foreground transition-colors hover:text-sidebar-primary-foreground">
                         <Trophy className="size-7 shrink-0 text-primary" />
                         <div className="flex flex-col overflow-hidden">
-                           <h1 className="font-headline text-xl font-bold truncate">MxHub Exchange Duo</h1>
+                           <h1 className="font-bold text-xl truncate">MXHUB</h1>
                         </div>
                     </Link>
                 </SidebarHeader>

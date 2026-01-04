@@ -6,147 +6,94 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
-import { Badge } from '@/components/ui/badge';
-import { Coins, Trophy, Clock } from 'lucide-react';
-
-const upcomingRaces = [
-  {
-    name: 'Thunder Valley National',
-    track: 'Thunder Valley Motocross Park',
-    date: 'June 15, 2024',
-    status: 'Upcoming',
-  },
-  {
-    name: 'High Point National',
-    track: 'High Point Raceway',
-    date: 'June 22, 2024',
-    status: 'Upcoming',
-  },
-  {
-    name: 'Southwick National',
-    track: 'The Wick 338',
-    date: 'June 29, 2024',
-    status: 'Upcoming',
-  },
-  {
-    name: 'RedBud National',
-    track: 'RedBud MX',
-    date: 'July 6, 2024',
-    status: 'Upcoming',
-  },
-];
-
-const recentActivities = [
-    {
-        icon: <Coins className="h-4 w-4 text-green-500" />,
-        description: 'Purchased 5,000 Gold Coins',
-        time: '2 hours ago',
-    },
-    {
-        icon: <Trophy className="h-4 w-4 text-blue-500" />,
-        description: 'Placed a bet on Thunder Valley National',
-        time: '1 day ago',
-    },
-    {
-        icon: <Coins className="h-4 w-4 text-red-500" />,
-        description: 'Transferred 100 Sweeps Coins to Mx Exchange',
-        time: '3 days ago',
-    },
-];
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function DashboardPage() {
-  return (
-    <div>
-      <PageHeader
-        title="Dashboard"
-        description="Welcome back! Here's a snapshot of your MxHub activity."
-      />
+  const raceBanner = PlaceHolderImages.find(
+    (img) => img.id === 'race-banner-1'
+  );
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Gold Coins</CardTitle>
-            <Coins className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">12,500</div>
-            <p className="text-xs text-muted-foreground">
-              Your non-redeemable virtual currency.
-            </p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Sweeps Coins</CardTitle>
-            <Trophy className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">250.75</div>
-            <p className="text-xs text-muted-foreground">
-              Redeemable for prizes.
-            </p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Recent Activity</CardTitle>
-            <Clock className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-                {recentActivities.slice(0, 2).map((activity, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                        {activity.icon}
-                        <div className="text-sm">
-                            <p className="font-medium">{activity.description}</p>
-                            <p className="text-xs text-muted-foreground">{activity.time}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-          </CardContent>
-        </Card>
+  return (
+    <div className="space-y-8">
+      <div>
+        <h1 className="text-3xl font-bold">Welcome to MXHUB</h1>
+        <p className="text-muted-foreground">The premier platform for everything motocross.</p>
       </div>
 
-      <div className="mt-8">
+      <Carousel
+        opts={{
+          align: 'start',
+          loop: true,
+        }}
+        className="w-full"
+      >
+        <CarouselContent>
+          {Array.from({ length: 3 }).map((_, index) => (
+            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <div className="p-1">
+                <Card className="overflow-hidden">
+                  <CardContent className="relative aspect-video p-0">
+                    {raceBanner && (
+                      <Image
+                        src={raceBanner.imageUrl}
+                        alt={raceBanner.description}
+                        fill
+                        className="object-cover"
+                        data-ai-hint={raceBanner.imageHint}
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                    <div className="absolute bottom-0 left-0 p-4">
+                      <h3 className="text-lg font-bold text-white">
+                        Race Event {index + 1}
+                      </h3>
+                      <p className="text-sm text-gray-300">Track Name</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="hidden sm:flex" />
+        <CarouselNext className="hidden sm:flex" />
+      </Carousel>
+
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         <Card>
           <CardHeader>
-            <CardTitle>Upcoming Races</CardTitle>
-            <CardDescription>
-              Get ready for the next round of action.
-            </CardDescription>
+            <CardTitle>Races</CardTitle>
+            <CardDescription>View upcoming and past races.</CardDescription>
           </CardHeader>
           <CardContent>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Race Name</TableHead>
-                  <TableHead>Track</TableHead>
-                  <TableHead>Date</TableHead>
-                  <TableHead className="text-right">Status</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {upcomingRaces.map((race) => (
-                  <TableRow key={race.name}>
-                    <TableCell className="font-medium">{race.name}</TableCell>
-                    <TableCell>{race.track}</TableCell>
-                    <TableCell>{race.date}</TableCell>
-                    <TableCell className="text-right">
-                      <Badge variant="secondary">{race.status}</Badge>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+            <Button>View Races</Button>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Shop</CardTitle>
+            <CardDescription>Buy gear and merchandise.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button>Go to Shop</Button>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Profile</CardTitle>
+            <CardDescription>Check your stats and settings.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button>View Profile</Button>
           </CardContent>
         </Card>
       </div>
