@@ -11,17 +11,17 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { User, LogOut, Settings, LayoutDashboard, Trophy, Wallet, Repeat, Cog } from 'lucide-react';
+import { User, LogOut, Settings, Home, Users, Trophy, DollarSign, UserCircle } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { NavLink } from '@/components/layout/nav-link';
 import { Button } from '@/components/ui/button';
 
 const navItems = [
-  { href: '/', label: 'Dashboard', icon: LayoutDashboard },
+  { href: '/', label: 'Home', icon: Home },
+  { href: '#', label: 'Riders', icon: Users },
   { href: '/races', label: 'Races', icon: Trophy },
-  { href: '/bank', label: 'Bank', icon: Wallet },
-  { href: '/exchange', label: 'Exchange', icon: Repeat },
-  { href: '/admin', label: 'Admin', icon: Cog },
+  { href: '#', label: 'Betting', icon: DollarSign },
+  { href: '#', label: 'Account', icon: UserCircle },
 ];
 
 export function Header() {
@@ -39,7 +39,6 @@ export function Header() {
         <nav className="hidden md:flex items-center gap-4">
           {navItems.map((item) => (
             <NavLink key={item.href} href={item.href}>
-              <item.icon className="h-4 w-4" />
               {item.label}
             </NavLink>
           ))}
