@@ -13,7 +13,8 @@ import { notFound } from 'next/navigation';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Coins, Trophy, Users } from 'lucide-react';
+import { Coins, Trophy, Users, Settings } from 'lucide-react';
+import Link from 'next/link';
 
 export default function AccountPage() {
   const account = accounts.find((a) => a.id === 'user-123'); // Example user
@@ -28,7 +29,16 @@ export default function AccountPage() {
       <PageHeader
         title="My Account"
         description="View your profile, balances, and betting history."
-      />
+      >
+        <div className="absolute top-0 right-0 mt-4 mr-4">
+            <Button asChild variant="outline">
+                <Link href="/account/settings">
+                    <Settings className="mr-2 h-4 w-4" />
+                    Settings
+                </Link>
+            </Button>
+        </div>
+      </PageHeader>
       <div className="grid gap-8 md:grid-cols-3">
         <div className="md:col-span-1">
             <Card>
