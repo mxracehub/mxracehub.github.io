@@ -22,7 +22,9 @@ export function Header() {
           <h1 className="font-bold text-2xl truncate font-headline text-primary-foreground">MXracehub</h1>
         </Link>
         <div className="flex items-center gap-4">
-          <Button variant="secondary" className="bg-white text-black hover:bg-gray-200">Sign In</Button>
+          <Button asChild variant="secondary" className="bg-white text-black hover:bg-gray-200">
+            <Link href="/sign-in">Sign In</Link>
+          </Button>
           <Button asChild variant="secondary" className="bg-black text-white hover:bg-gray-800">
             <Link href="/register">Register</Link>
           </Button>
