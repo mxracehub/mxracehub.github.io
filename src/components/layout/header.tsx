@@ -8,7 +8,7 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '/races', label: 'Races' },
-  { href: '#', label: 'Riders' },
+  { href: '/riders', label: 'Riders' },
   { href: '#', label: 'Betting'},
   { href: '#', label: 'Account' },
 ];

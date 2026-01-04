@@ -5,8 +5,8 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const footerNavLinks = [
   { href: '/', label: 'Home' },
-  { href: '/races', label: 'Race' },
-  { href: '#', label: 'Riders' },
+  { href: '/races', label: 'Races' },
+  { href: '/riders', label: 'Riders' },
   { href: '#', label: 'Betting' },
   { href: '#', label: 'Account' },
   { href: '#', label: 'Policies' },
