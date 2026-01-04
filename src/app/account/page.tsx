@@ -77,6 +77,9 @@ export default function AccountPage() {
                     <Button className="w-full" variant="outline" asChild>
                         <Link href="/account/exchange-gold">Exchange Gold Coins</Link>
                     </Button>
+                     <Button className="w-full" variant="outline" asChild>
+                        <Link href="/account/exchange-sweeps">Exchange Sweeps Coins</Link>
+                    </Button>
                 </CardContent>
             </Card>
         </div>

@@ -18,7 +18,7 @@ import { Loader2, Repeat } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { accounts } from '@/lib/accounts-data';
 
-export default function ExchangePage() {
+export default function ExchangeSweepsPage() {
   // In a real app, you'd get the logged-in user's account
   const account = accounts.find((a) => a.id === 'user-123');
 
