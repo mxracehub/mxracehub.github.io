@@ -14,20 +14,33 @@ import {
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { accounts } from '@/lib/accounts-data';
+import { accounts, exchangeRequests } from '@/lib/accounts-data';
 import { Banknote, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 export default function ExchangeGoldPage() {
+    // In a real app, you'd get the logged-in user's account
     const account = accounts.find(a => a.id === 'user-123');
+
     const [amount, setAmount] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const { toast } = useToast();
+    const [balance, setBalance] = useState(account?.balances.gold || 0);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const exchangeAmount = Number(amount);
-        if (!account || !exchangeAmount || exchangeAmount <= 0) {
+
+        if (!account) {
+             toast({
+                title: 'Error',
+                description: 'Could not find user account.',
+                variant: 'destructive',
+            });
+            return;
+        }
+
+        if (!exchangeAmount || exchangeAmount <= 0) {
             toast({
                 title: 'Invalid Amount',
                 description: 'Please enter a valid amount to exchange.',
@@ -36,7 +49,7 @@ export default function ExchangeGoldPage() {
             return;
         }
 
-        if (exchangeAmount > account.balances.gold) {
+        if (exchangeAmount > balance) {
             toast({
                 title: 'Insufficient Balance',
                 description: 'You do not have enough Gold Coins to complete this exchange.',
@@ -46,8 +59,24 @@ export default function ExchangeGoldPage() {
         }
 
         setIsLoading(true);
-        // Simulate API call
+        // Simulate API call to submit the request
         await new Promise(resolve => setTimeout(resolve, 1500));
+
+        // In a real app, this would be handled on the backend.
+        // For demonstration, we'll update the mock data directly.
+        const newBalance = balance - exchangeAmount;
+        setBalance(newBalance);
+        account.balances.gold = newBalance;
+
+        exchangeRequests.unshift({
+            id: `ex-${Date.now()}`,
+            accountId: account.id,
+            accountName: account.name,
+            amount: exchangeAmount,
+            date: new Date().toISOString().split('T')[0],
+            status: 'Pending',
+        });
+
         setIsLoading(false);
 
         toast({
@@ -55,8 +84,6 @@ export default function ExchangeGoldPage() {
             description: `Your request to exchange ${exchangeAmount.toLocaleString()} Gold Coins has been submitted.`,
         });
 
-        // This would be where you update the account data on the backend
-        // For now, we just reset the input
         setAmount('');
     };
 
@@ -114,7 +141,7 @@ export default function ExchangeGoldPage() {
               <CardTitle>Your Gold Coin Balance</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-4xl font-bold">{account?.balances.gold.toLocaleString() || '0'}</div>
+              <div className="text-4xl font-bold">{balance.toLocaleString() || '0'}</div>
               <div className="text-muted-foreground">Gold Coins</div>
             </CardContent>
           </Card>

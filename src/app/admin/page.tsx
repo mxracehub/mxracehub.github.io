@@ -17,6 +17,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { SummarizerForm } from '@/components/admin/summarizer-form';
+import { ExchangeRequestsTable } from '@/components/admin/exchange-requests-table';
 
 export default function AdminPage() {
   return (
@@ -26,9 +27,10 @@ export default function AdminPage() {
         description="Manage application data and utilize AI tools."
       />
       <Tabs defaultValue="race-data" className="w-full">
-        <TabsList className="grid w-full grid-cols-3">
+        <TabsList className="grid w-full grid-cols-4">
           <TabsTrigger value="race-data">Race Data Input</TabsTrigger>
           <TabsTrigger value="exchange-data">Exchange Data Sync</TabsTrigger>
+          <TabsTrigger value="exchange-requests">Exchange Requests</TabsTrigger>
           <TabsTrigger value="ai-summarizer">AI Summarizer</TabsTrigger>
         </TabsList>
 
@@ -92,6 +94,20 @@ export default function AdminPage() {
             <CardFooter>
               <Button>Sync Exchange Data</Button>
             </CardFooter>
+          </Card>
+        </TabsContent>
+        
+        <TabsContent value="exchange-requests">
+          <Card>
+            <CardHeader>
+              <CardTitle>Gold Coin Exchange Requests</CardTitle>
+              <CardDescription>
+                Review and process user requests to exchange Gold Coins.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ExchangeRequestsTable />
+            </CardContent>
           </Card>
         </TabsContent>
 
