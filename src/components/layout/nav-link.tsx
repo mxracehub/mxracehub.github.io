@@ -17,10 +17,10 @@ export function NavLink({ href, children }: NavLinkProps) {
     <Link
       href={href}
       className={cn(
-        'flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors',
+        'flex items-center gap-2 text-sm font-medium transition-colors',
         isActive
-          ? 'text-primary'
-          : 'text-gray-300 hover:text-white'
+          ? 'text-red-500 underline'
+          : 'text-red-500 hover:text-red-400'
       )}
     >
       {children}

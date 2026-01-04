@@ -1,100 +1,43 @@
 "use client";
 
-import Image from 'next/image';
 import Link from 'next/link';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { User, LogOut, Settings, Home, Users, Trophy, DollarSign, UserCircle } from 'lucide-react';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { NavLink } from '@/components/layout/nav-link';
 import { Button } from '@/components/ui/button';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 
 const navItems = [
-  { href: '/', label: 'Home', icon: Home },
-  { href: '#', label: 'Riders', icon: Users },
-  { href: '/races', label: 'Races', icon: Trophy },
-  { href: '#', label: 'Betting', icon: DollarSign },
-  { href: '#', label: 'Account', icon: UserCircle },
+  { href: '/', label: 'Home' },
+  { href: '/races', label: 'Races' },
+  { href: '#', label: 'Riders' },
+  { href: '#', label: 'Betting'},
+  { href: '#', label: 'Account' },
 ];
 
 export function Header() {
-  const userAvatar = PlaceHolderImages.find(img => img.id === 'user-avatar');
-
   return (
-    <header className="sticky top-0 z-10 flex h-20 items-center justify-between border-b border-white/10 bg-background px-4 sm:px-6 lg:px-8">
-      <div className="flex items-center gap-6">
-        <Link href="/" className="flex items-center gap-2.5 text-white">
-            <Trophy className="size-8 shrink-0 text-primary" />
-            <div className="flex flex-col overflow-hidden">
-               <h1 className="font-bold text-2xl truncate font-headline">MXHUB</h1>
-            </div>
+    <header className="sticky top-0 z-10 flex flex-col border-b border-white/10 bg-background">
+      <div className="flex h-16 items-center justify-between bg-primary px-4 sm:px-6 lg:px-8">
+        <Link href="/" className="flex items-center gap-2.5">
+          <h1 className="font-bold text-2xl truncate font-headline text-primary-foreground">MXracehub</h1>
         </Link>
-        <nav className="hidden md:flex items-center gap-4">
+        <div className="flex items-center gap-4">
+          <Button variant="secondary" className="bg-white text-black hover:bg-gray-200">Sign In</Button>
+          <Button variant="secondary" className="bg-black text-white hover:bg-gray-800">Register</Button>
+        </div>
+      </div>
+      <div className="flex h-16 items-center justify-start gap-6 bg-black px-4 sm:px-6 lg:px-8">
+         <Link href="/">
+            <Avatar className="h-10 w-10 border-2 border-primary">
+                <AvatarFallback className="bg-white text-black font-bold">MX</AvatarFallback>
+            </Avatar>
+        </Link>
+        <nav className="flex items-center gap-4">
           {navItems.map((item) => (
             <NavLink key={item.href} href={item.href}>
               {item.label}
             </NavLink>
           ))}
         </nav>
-      </div>
-
-      <div className="flex items-center gap-4">
-        <div className="flex items-center gap-4">
-            <div className="text-right">
-                <p className="font-bold text-lg text-white">2,500.00 GC</p>
-                <p className="text-sm text-red-500">125.00 SC</p>
-            </div>
-            <Button className="bg-primary hover:bg-primary/90 text-white rounded-full font-bold">ADD FUNDS</Button>
-        </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <button className="flex items-center gap-2 focus:outline-none">
-              <Avatar className="h-10 w-10 border-2 border-primary">
-                {userAvatar && (
-                  <AvatarImage
-                    src={userAvatar.imageUrl}
-                    alt={userAvatar.description}
-                    data-ai-hint={userAvatar.imageHint}
-                  />
-                )}
-                <AvatarFallback>U</AvatarFallback>
-              </Avatar>
-            </button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-56">
-            <DropdownMenuLabel>
-              <div className="flex flex-col">
-                <span className="font-semibold">User Name</span>
-                <span className="text-xs text-muted-foreground">user@example.com</span>
-              </div>
-            </DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem asChild>
-              <Link href="#">
-                <User />
-                Profile
-              </Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <Link href="/admin">
-                <Settings />
-                Settings
-              </Link>
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <LogOut />
-              <span>Log out</span>
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
       </div>
     </header>
   );
