@@ -112,7 +112,10 @@ export default function AccountPage() {
                     <CardTitle className="flex items-center gap-2"><Users /> Friends</CardTitle>
                 </CardHeader>
                  <CardContent>
-                     <p className="text-muted-foreground">Coming soon!</p>
+                    <p className="text-muted-foreground mb-4">View your friends list and manage connections.</p>
+                     <Button asChild>
+                         <Link href="/friends">View Friends</Link>
+                     </Button>
                  </CardContent>
             </Card>
         </div>
