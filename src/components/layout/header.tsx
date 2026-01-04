@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -22,7 +23,9 @@ export function Header() {
         </Link>
         <div className="flex items-center gap-4">
           <Button variant="secondary" className="bg-white text-black hover:bg-gray-200">Sign In</Button>
-          <Button variant="secondary" className="bg-black text-white hover:bg-gray-800">Register</Button>
+          <Button asChild variant="secondary" className="bg-black text-white hover:bg-gray-800">
+            <Link href="/register">Register</Link>
+          </Button>
         </div>
       </div>
       <div className="flex h-16 items-center justify-start gap-6 bg-black px-4 sm:px-6 lg:px-8">
