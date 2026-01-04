@@ -76,5 +76,18 @@ export const riders250 = [
     { id: 'bryce-shelly', name: 'Bryce Shelly', imageUrl: 'https://picsum.photos/seed/shelly/300/200', imageHint: 'Bryce Shelly action' },
     { id: 'ayden-shive', name: 'Ayden Shive', imageUrl: 'https://picsum.photos/seed/shive/300/200', imageHint: 'Ayden Shive action' },
     { id: 'devin-simonson', name: 'Devin Simonson', imageUrl: 'https://picsum.photos/seed/simonson/300/200', imageHint: 'Devin Simonson action' },
-    { id: 'reid-taylor', name: 'Reid Taylor', imageUrl: 'https://picsum.photos/seed/taylor/300/200', imageHint: 'Reid Taylor action' }
+    { id: 'reid-taylor', name: 'Reid Taylor', imageUrl: 'https://picsum.photos/seed/taylor/300/200', imageHint: 'Reid Taylor action' },
+    { id: 'cole-thompson', name: 'Cole Thompson', imageUrl: 'https://picsum.photos/seed/cthompson/300/200', imageHint: 'Cole Thompson action' },
+    { id: 'nate-thrasher', name: 'Nate Thrasher', imageUrl: 'https://picsum.photos/seed/thrasher/300/200', imageHint: 'Nate Thrasher action' },
+    { id: 'gavin-towers', name: 'Gavin Towers', imageUrl: 'https://picsum.photos/seed/towers/300/200', imageHint: 'Gavin Towers action' },
+    { id: 'leo-tucker', name: 'Leo Tucker', imageUrl: 'https://picsum.photos/seed/tucker/300/200', imageHint: 'Leo Tucker action' },
+    { id: 'lux-turner', name: 'Lux Turner', imageUrl: 'https://picsum.photos/seed/lturner/300/200', imageHint: 'Lux Turner action' },
+    { id: 'joshua-varize', name: 'Joshua Varize', imageUrl: 'https://picsum.photos/seed/varize/300/200', imageHint: 'Joshua Varize action' },
+    { id: 'slade-varola', name: 'Slade Varola', imageUrl: 'https://picsum.photos/seed/svarola/300/200', imageHint: 'Slade Varola action' },
+    { id: 'noah-viney', name: 'Noah Viney', imageUrl: 'https://picsum.photos/seed/viney/300/200', imageHint: 'Noah Viney action' },
+    { id: 'robbie-wageman', name: 'Robbie Wageman', imageUrl: 'https://picsum.photos/seed/wageman/300/200', imageHint: 'Robbie Wageman action' },
+    { id: 'dylan-walsh', name: 'Dylan Walsh', imageUrl: 'https://picsum.photos/seed/dwalsh/300/200', imageHint: 'Dylan Walsh action' },
+    { id: 'brad-west', name: 'Brad West', imageUrl: 'https://picsum.photos/seed/bwest/300/200', imageHint: 'Brad West action' },
+    { id: 'kyle-wise', name: 'Kyle Wise', imageUrl: 'https://picsum.photos/seed/kwise/300/200', imageHint: 'Kyle Wise action' },
+    { id: 'hunter-yoder', name: 'Hunter Yoder', imageUrl: 'https://picsum.photos/seed/yoder/300/200', imageHint: 'Hunter Yoder action' }
   ];
