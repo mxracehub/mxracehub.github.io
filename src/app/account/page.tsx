@@ -67,7 +67,9 @@ export default function AccountPage() {
                         <p className="font-bold text-2xl">{account.balances.sweeps.toLocaleString()}</p>
                         <p className="text-sm text-muted-foreground">Sweeps Coins</p>
                     </div>
-                    <Button className="w-full">Purchase Gold Coins</Button>
+                    <Button className="w-full" asChild>
+                        <Link href="/bank">Purchase Gold Coins</Link>
+                    </Button>
                 </CardContent>
             </Card>
         </div>
