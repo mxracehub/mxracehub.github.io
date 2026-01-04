@@ -1,102 +1,123 @@
-import { PageHeader } from '@/components/page-header';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+
+'use client';
+
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Star, X } from 'lucide-react';
+
+// CountdownTimer component
+const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
+  const calculateTimeLeft = () => {
+    const difference = +targetDate - +new Date();
+    let timeLeft = {
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+    };
+
+    if (difference > 0) {
+      timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      };
+    }
+
+    return timeLeft;
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  });
+
+  const formatTime = (time: number) => {
+    return time.toString().padStart(2, '0');
+  };
+
+  return (
+    <div className="flex justify-center gap-4">
+      <div className="text-center">
+        <div className="text-4xl font-bold">{formatTime(timeLeft.days)}</div>
+        <div className="text-xs uppercase text-muted-foreground">Days</div>
+      </div>
+      <div className="text-center">
+        <div className="text-4xl font-bold">{formatTime(timeLeft.hours)}</div>
+        <div className="text-xs uppercase text-muted-foreground">Hours</div>
+      </div>
+      <div className="text-center">
+        <div className="text-4xl font-bold">{formatTime(timeLeft.minutes)}</div>
+        <div className="text-xs uppercase text-muted-foreground">Minutes</div>
+      </div>
+      <div className="text-center">
+        <div className="text-4xl font-bold">{formatTime(timeLeft.seconds)}</div>
+        <div className="text-xs uppercase text-muted-foreground">Seconds</div>
+      </div>
+    </div>
+  );
+};
 
 export default function DashboardPage() {
   const raceBanner = PlaceHolderImages.find(
     (img) => img.id === 'race-banner-1'
   );
 
+  const nextRaceDate = new Date('2025-05-31T23:59:59');
+
   return (
-    <div className="space-y-8">
-      <div>
-        <h1 className="text-3xl font-bold">Welcome to MXHUB</h1>
-        <p className="text-muted-foreground">The premier platform for everything motocross.</p>
+    <div className="container mx-auto max-w-5xl px-4 py-8">
+      <div className="relative mb-8 overflow-hidden rounded-lg">
+        {raceBanner && (
+          <Image
+            src={raceBanner.imageUrl}
+            alt={raceBanner.description}
+            width={1200}
+            height={600}
+            className="w-full object-cover"
+            data-ai-hint={raceBanner.imageHint}
+          />
+        )}
+        <div className="absolute bottom-4 left-4 flex gap-2">
+          <Button variant="secondary" size="lg">
+            Races <X className="ml-2 h-4 w-4" />
+          </Button>
+          <Button variant="secondary" size="lg">
+            <Star className="mr-2 h-4 w-4" /> Betting
+          </Button>
+        </div>
       </div>
 
-      <Carousel
-        opts={{
-          align: 'start',
-          loop: true,
-        }}
-        className="w-full"
-      >
-        <CarouselContent>
-          {Array.from({ length: 3 }).map((_, index) => (
-            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-              <div className="p-1">
-                <Card className="overflow-hidden">
-                  <CardContent className="relative aspect-video p-0">
-                    {raceBanner && (
-                      <Image
-                        src={raceBanner.imageUrl}
-                        alt={raceBanner.description}
-                        fill
-                        className="object-cover"
-                        data-ai-hint={raceBanner.imageHint}
-                      />
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                    <div className="absolute bottom-0 left-0 p-4">
-                      <h3 className="text-lg font-bold text-white">
-                        Race Event {index + 1}
-                      </h3>
-                      <p className="text-sm text-gray-300">Track Name</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="hidden sm:flex" />
-        <CarouselNext className="hidden sm:flex" />
-      </Carousel>
+      <div className="mb-8 rounded-lg border border-border bg-card p-6 text-center text-card-foreground">
+        <p className="mb-2 font-bold uppercase tracking-widest text-primary">
+          Next Race
+        </p>
+        <h2 className="mb-1 text-3xl font-bold">
+          THUNDER VALLEY MOTOCROSS
+        </h2>
+        <p className="mb-2 text-muted-foreground">MAY 31, 2025</p>
+        <p className="mb-6 text-muted-foreground">Lakewood, Colorado</p>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-        <Card>
-          <CardHeader>
-            <CardTitle>Races</CardTitle>
-            <CardDescription>View upcoming and past races.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button>View Races</Button>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>Shop</CardTitle>
-            <CardDescription>Buy gear and merchandise.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button>Go to Shop</Button>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>Profile</CardTitle>
-            <CardDescription>Check your stats and settings.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button>View Profile</Button>
-          </CardContent>
-        </Card>
+        <CountdownTimer targetDate={nextRaceDate} />
       </div>
+
+      <div className="mb-12 text-center">
+        <Button
+          size="lg"
+          className="rounded-full bg-red-600 px-12 py-6 text-lg font-bold text-white hover:bg-red-700"
+        >
+          Bet Next Race
+        </Button>
+      </div>
+
     </div>
   );
 }
