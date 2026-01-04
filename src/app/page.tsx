@@ -71,6 +71,10 @@ export default function DashboardPage() {
     (img) => img.id === 'race-banner-1'
   );
 
+  const raceDayBanner = PlaceHolderImages.find(
+    (img) => img.id === 'race-day-banner'
+  );
+
   const nextRaceDate = new Date('2025-05-31T23:59:59');
 
   return (
@@ -118,6 +122,52 @@ export default function DashboardPage() {
         </Button>
       </div>
 
+      <div className="overflow-hidden rounded-lg border border-border bg-card text-card-foreground">
+        <div className="relative">
+          {raceDayBanner && (
+            <Image
+              src={raceDayBanner.imageUrl}
+              alt={raceDayBanner.description}
+              width={1200}
+              height={400}
+              className="w-full object-cover"
+              data-ai-hint={raceDayBanner.imageHint}
+            />
+          )}
+          <div className="absolute inset-x-0 bottom-0 bg-blue-700/90 p-6 text-white">
+            <h3 className="text-3xl font-bold">Make Race Day More Exciting</h3>
+            <p className="mb-4 mt-2 max-w-md text-white/90">
+              Join betting with friends and place bets on your favorite riders.
+              No Fee for bets or gold coins
+            </p>
+            <div className="flex gap-4">
+              <Button className="bg-red-600 text-white hover:bg-red-700">
+                Sign Up
+              </Button>
+              <Button className="bg-red-600 text-white hover:bg-red-700">
+                Place Bet
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div className="p-8 text-center">
+          <h3 className="text-xl font-bold uppercase tracking-wider">
+            The Ultimate Motorcross & Supercross Betting Platform
+          </h3>
+          <p className="mt-2 text-muted-foreground">
+            Professional riders - Automated payouts - Real time standings
+          </p>
+          <div className="mt-6 flex justify-center gap-4">
+            <Button className="bg-red-600 text-white hover:bg-red-700">
+              Race Schedule
+            </Button>
+            <Button variant="outline" className="border-2 font-bold">Place Bets</Button>
+            <Button className="bg-blue-600 text-white hover:bg-blue-700">
+              View Riders
+            </Button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
