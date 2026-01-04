@@ -5,7 +5,8 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Star, X } from 'lucide-react';
+import { Star, X, Calendar, Users } from 'lucide-react';
+import Link from 'next/link';
 
 // CountdownTimer component
 const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
@@ -85,11 +86,15 @@ export default function DashboardPage() {
             allowFullScreen
         ></iframe>
         <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 transform gap-2">
-          <Button variant="secondary" size="lg">
-            Races <X className="ml-2 h-4 w-4" />
+          <Button variant="secondary" size="lg" asChild>
+            <Link href="/races">
+              Races <Calendar className="ml-2 h-4 w-4" />
+            </Link>
           </Button>
-          <Button variant="secondary" size="lg">
-            <Star className="mr-2 h-4 w-4" /> Betting
+          <Button variant="secondary" size="lg" asChild>
+            <Link href="/betting">
+                <Star className="mr-2 h-4 w-4" /> Betting
+            </Link>
           </Button>
         </div>
       </div>
@@ -111,8 +116,9 @@ export default function DashboardPage() {
         <Button
           size="lg"
           className="rounded-full bg-red-600 px-12 py-6 text-lg font-bold text-white hover:bg-red-700"
+          asChild
         >
-          Bet Next Race
+          <Link href="/betting">Bet Next Race</Link>
         </Button>
       </div>
 
@@ -135,11 +141,11 @@ export default function DashboardPage() {
               No Fee for bets or gold coins
             </p>
             <div className="flex gap-4">
-              <Button className="bg-red-600 text-white hover:bg-red-700">
-                Sign Up
+              <Button className="bg-red-600 text-white hover:bg-red-700" asChild>
+                <Link href="#">Sign Up</Link>
               </Button>
-              <Button className="bg-red-600 text-white hover:bg-red-700">
-                Place Bet
+              <Button className="bg-red-600 text-white hover:bg-red-700" asChild>
+                <Link href="/betting">Place Bet</Link>
               </Button>
             </div>
           </div>
@@ -152,12 +158,14 @@ export default function DashboardPage() {
             Professional riders - Automated payouts - Real time standings
           </p>
           <div className="mt-6 flex justify-center gap-4">
-            <Button className="bg-red-600 text-white hover:bg-red-700">
-              Race Schedule
+            <Button className="bg-red-600 text-white hover:bg-red-700" asChild>
+              <Link href="/races">Race Schedule</Link>
             </Button>
-            <Button variant="outline" className="border-2 font-bold">Place Bets</Button>
-            <Button className="bg-blue-600 text-white hover:bg-blue-700">
-              View Riders
+            <Button variant="outline" className="border-2 font-bold" asChild>
+                <Link href="/betting">Place Bets</Link>
+            </Button>
+            <Button className="bg-blue-600 text-white hover:bg-blue-700" asChild>
+              <Link href="/riders">View Riders</Link>
             </Button>
           </div>
         </div>
