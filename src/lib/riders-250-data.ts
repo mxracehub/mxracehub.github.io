@@ -1,0 +1,25 @@
+export const riders250 = [
+    { id: 'rj-hampshire', name: 'RJ Hampshire', imageUrl: 'https://picsum.photos/seed/hampshire/300/200', imageHint: 'RJ Hampshire action' },
+    { id: 'levi-kitchen', name: 'Levi Kitchen', imageUrl: 'https://picsum.photos/seed/kitchen/300/200', imageHint: 'Levi Kitchen action' },
+    { id: 'jo-shimoda', name: 'Jo Shimoda', imageUrl: 'https://picsum.photos/seed/shimoda/300/200', imageHint: 'Jo Shimoda action' },
+    { id: 'jalek-swoll', name: 'Jalek Swoll', imageUrl: 'https://picsum.photos/seed/swoll/300/200', imageHint: 'Jalek Swoll action' },
+    { id: 'ryder-difrancesco', name: 'Ryder DiFrancesco', imageUrl: 'https://picsum.photos/seed/difrancesco/300/200', imageHint: 'Ryder DiFrancesco action' },
+    { id: 'pierce-brown', name: 'Pierce Brown', imageUrl: 'https://picsum.photos/seed/pbrown/300/200', imageHint: 'Pierce Brown action' },
+
+    { id: 'haiden-deegan', name: 'Haiden Deegan', imageUrl: 'https://picsum.photos/seed/deegan/300/200', imageHint: 'Haiden Deegan action' },
+    { id: 'max-vohland', name: 'Max Vohland', imageUrl: 'https://picsum.photos/seed/vohland/300/200', imageHint: 'Max Vohland action' },
+    { id: 'tom-vialle', name: 'Tom Vialle', imageUrl: 'https://picsum.photos/seed/vialle/300/200', imageHint: 'Tom Vialle action' },
+    { id: 'chance-hymas', name: 'Chance Hymas', imageUrl: 'https://picsum.photos/seed/hymas/300/200', imageHint: 'Chance Hymas action' },
+    { id: 'jordon-smith', name: 'Jordon Smith', imageUrl: 'https://picsum.photos/seed/jsmith/300/200', imageHint: 'Jordon Smith action' },
+    { id: 'seth-hammaker', name: 'Seth Hammaker', imageUrl: 'https://picsum.photos/seed/hammaker/300/200', imageHint: 'Seth Hammaker action' },
+
+    { id: 'austin-forkner', name: 'Austin Forkner', imageUrl: 'https://picsum.photos/seed/forkner/300/200', imageHint: 'Austin Forkner action' },
+    { id: 'cameron-mcadoo', name: 'Cameron McAdoo', imageUrl: 'https://picsum.photos/seed/mcadoo/300/200', imageHint: 'Cameron McAdoo action' },
+    { id: 'max-anstie', name: 'Max Anstie', imageUrl: 'https://picsum.photos/seed/anstie/300/200', imageHint: 'Max Anstie action' },
+    { id: 'coty-schock', name: 'Coty Schock', imageUrl: 'https://picsum.photos/seed/schock/300/200', imageHint: 'Coty Schock action' },
+    { id: 'guillem-farres', name: 'Guillem Farres', imageUrl: 'https://picsum.photos/seed/farres/300/200', imageHint: 'Guillem Farres action' },
+    { id: 'daxton-bennick', name: 'Daxton Bennick', imageUrl: 'https://picsum.photos/seed/bennick/300/200', imageHint: 'Daxton Bennick action' },
+
+    { id: 'casey-cochran', name: 'Casey Cochran', imageUrl: 'https://picsum.photos/seed/cochran/300/200', imageHint: 'Casey Cochran action' },
+    { id: 'nick-romano', name: 'Nick Romano', imageUrl: 'https://picsum.photos/seed/romano/300/200', imageHint: 'Nick Romano action' },
+  ];
