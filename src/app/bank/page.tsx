@@ -1,3 +1,4 @@
+
 "use client"
 
 import { PageHeader } from "@/components/page-header"
@@ -10,14 +11,14 @@ import { ShieldCheck } from "lucide-react"
 import React from "react"
 
 const coinPackages = [
-  { amount: "5,000", price: 4.99, id: "gc-5k" },
-  { amount: "12,000", price: 9.99, id: "gc-12k", popular: true },
-  { amount: "30,000", price: 19.99, id: "gc-30k" },
-  { amount: "80,000", price: 49.99, id: "gc-80k" },
+  { amount: "500", price: 5.00, id: "gc-500" },
+  { amount: "1,000", price: 10.00, id: "gc-1k" },
+  { amount: "2,000", price: 20.00, id: "gc-2k", popular: true },
+  { amount: "5,000", price: 50.00, id: "gc-5k" },
 ]
 
 export default function BankPage() {
-    const [selectedPackage, setSelectedPackage] = React.useState("gc-12k")
+    const [selectedPackage, setSelectedPackage] = React.useState("gc-2k")
 
     return (
         <div>
@@ -29,7 +30,7 @@ export default function BankPage() {
                 <Card>
                     <CardHeader>
                         <CardTitle>Purchase Gold Coins</CardTitle>
-                        <CardDescription>Select a package and complete your purchase.</CardDescription>
+                        <CardDescription>Select a package and complete your purchase. 100 Gold Coins = $1.00 USD</CardDescription>
                     </CardHeader>
                     <CardContent className="grid gap-8 md:grid-cols-2">
                         <div>
