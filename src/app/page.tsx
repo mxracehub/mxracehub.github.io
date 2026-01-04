@@ -67,10 +67,6 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
 };
 
 export default function DashboardPage() {
-  const raceBanner = PlaceHolderImages.find(
-    (img) => img.id === 'race-banner-1'
-  );
-
   const raceDayBanner = PlaceHolderImages.find(
     (img) => img.id === 'race-day-banner'
   );
@@ -79,17 +75,15 @@ export default function DashboardPage() {
 
   return (
     <div className="max-w-5xl mx-auto">
-      <div className="relative mb-8 overflow-hidden rounded-lg">
-        {raceBanner && (
-          <Image
-            src={raceBanner.imageUrl}
-            alt={raceBanner.description}
-            width={1200}
-            height={100}
-            className="w-full object-cover"
-            data-ai-hint={raceBanner.imageHint}
-          />
-        )}
+      <div className="relative mb-8 overflow-hidden rounded-lg aspect-video">
+        <iframe
+            className="absolute top-0 left-0 w-full h-full"
+            src="https://www.youtube.com/embed/UOq_s-f2p2c?autoplay=1&mute=1&loop=1&playlist=UOq_s-f2p2c&controls=0&showinfo=0&autohide=1&modestbranding=1"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+        ></iframe>
         <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 transform gap-2">
           <Button variant="secondary" size="lg">
             Races <X className="ml-2 h-4 w-4" />
