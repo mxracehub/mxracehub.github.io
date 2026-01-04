@@ -78,7 +78,7 @@ export default function DashboardPage() {
   const nextRaceDate = new Date('2025-05-31T23:59:59');
 
   return (
-    <div className="container mx-auto max-w-5xl px-4 py-8">
+    <div className="max-w-5xl mx-auto">
       <div className="relative mb-8 overflow-hidden rounded-lg">
         {raceBanner && (
           <Image
