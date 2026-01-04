@@ -1,3 +1,16 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "user-avatar",
+      "description": "User profile avatar",
+      "imageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3Njc1MTExMDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "race-banner-1",
+      "description": "Motocross race banner",
+      "imageUrl": "https://images.unsplash.com/photo-1725919360111-25042e381daf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtb3RvY3Jvc3MlMjByYWNlfGVufDB8fHx8MTc2NzU1NDYyOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "motocross race"
+    }
+  ]
 }
