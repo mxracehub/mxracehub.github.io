@@ -25,6 +25,7 @@ export default function RegisterPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [riderNumber, setRiderNumber] = useState('');
   const [agreed, setAgreed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
@@ -103,6 +104,16 @@ export default function RegisterPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={isLoading}
                 required
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="rider-number">Rider Number</Label>
+              <Input
+                id="rider-number"
+                placeholder="e.g., 7"
+                value={riderNumber}
+                onChange={(e) => setRiderNumber(e.target.value)}
+                disabled={isLoading}
               />
             </div>
             <div className="space-y-2">
