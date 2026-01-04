@@ -19,6 +19,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Loader2, LogIn } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { accounts } from '@/lib/accounts-data';
 
 export default function SignInPage() {
   const [email, setEmail] = useState('');
@@ -42,14 +43,24 @@ export default function SignInPage() {
     setIsLoading(true);
     // Simulate API call for sign-in
     await new Promise(resolve => setTimeout(resolve, 1500));
+
+    const userExists = accounts.some(account => account.email === email);
+
     setIsLoading(false);
 
-    toast({
-        title: 'Signed In!',
-        description: "Welcome back! We're redirecting you to your account.",
-    });
-
-    router.push('/account');
+    if (userExists) {
+        toast({
+            title: 'Signed In!',
+            description: "Welcome back! We're redirecting you to your account.",
+        });
+        router.push('/account');
+    } else {
+        toast({
+            title: 'Sign-in Failed',
+            description: 'No account found with that email address. Please register or try again.',
+            variant: 'destructive'
+        });
+    }
   };
 
   return (
