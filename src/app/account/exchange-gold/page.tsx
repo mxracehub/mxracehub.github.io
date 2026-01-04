@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
 import {
@@ -26,6 +26,15 @@ export default function ExchangeGoldPage() {
     const [isLoading, setIsLoading] = useState(false);
     const { toast } = useToast();
     const [balance, setBalance] = useState(account?.balances.gold || 0);
+    
+    const exchangeValueUSD = useMemo(() => {
+        const numericAmount = Number(amount);
+        if (numericAmount > 0) {
+            return (numericAmount / 100).toFixed(2);
+        }
+        return '0.00';
+    }, [amount]);
+
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -101,12 +110,12 @@ export default function ExchangeGoldPage() {
                 <CardHeader>
                   <CardTitle>Redeem Gold Coins</CardTitle>
                   <CardDescription>
-                    Enter the amount of Gold Coins you wish to exchange. Funds will be returned to your original payment method within 3-5 business days.
+                    Enter the amount of Gold Coins you wish to exchange. Funds will be returned to your original payment method within 3-5 business days. 100 Gold Coins = $1.00 USD
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="amount">Amount to Exchange</Label>
+                    <Label htmlFor="amount">Amount to Exchange (GC)</Label>
                     <Input
                       id="amount"
                       type="number"
@@ -117,9 +126,13 @@ export default function ExchangeGoldPage() {
                       required
                     />
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    There are no fees for exchanging Gold Coins.
-                  </p>
+                   <div className="rounded-lg border bg-muted/50 p-4">
+                        <h3 className="font-semibold">Exchange Value</h3>
+                        <p className="mt-1 text-2xl font-bold">${exchangeValueUSD}</p>
+                        <p className="text-xs text-muted-foreground mt-2">
+                            There are no fees for exchanging Gold Coins.
+                        </p>
+                    </div>
                 </CardContent>
                 <CardFooter>
                   <Button size="lg" type="submit" disabled={isLoading}>
