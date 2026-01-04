@@ -33,6 +33,9 @@ export default function SettingsPage() {
           <Link href="/account/settings/name" className="block text-lg font-medium text-primary hover:underline">
               Change Account Name
           </Link>
+          <Link href="/account/settings/email" className="block text-lg font-medium text-primary hover:underline">
+              Change Email
+          </Link>
            <Link href="/account/settings/password" className="block text-lg font-medium text-primary hover:underline">
               Change Password
           </Link>
