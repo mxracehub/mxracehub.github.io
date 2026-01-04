@@ -13,7 +13,7 @@ import { notFound } from 'next/navigation';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Coins, Trophy, Users, Settings, Repeat } from 'lucide-react';
+import { Coins, Trophy, Users, Settings, Repeat, Hash } from 'lucide-react';
 import Link from 'next/link';
 
 export default function AccountPage() {
@@ -50,8 +50,12 @@ export default function AccountPage() {
                     <CardTitle className="mt-2">{account.name}</CardTitle>
                     <CardDescription>@{account.username}</CardDescription>
                 </CardHeader>
-                <CardContent className="text-center">
+                <CardContent className="space-y-4 text-center">
                     <p className="text-sm text-muted-foreground">{account.bio}</p>
+                     <div className="flex items-center justify-center gap-2 text-sm">
+                        <Hash className="h-4 w-4 text-muted-foreground" />
+                        <span className="font-semibold">Rider #: {account.riderNumber || 'N/A'}</span>
+                    </div>
                 </CardContent>
             </Card>
             <Card className="mt-4">
