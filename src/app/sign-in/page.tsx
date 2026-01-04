@@ -18,7 +18,7 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, LogIn } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { Checkbox } from '@/components/ui/checkbox';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export default function SignInPage() {
   const [email, setEmail] = useState('');
@@ -56,76 +56,67 @@ export default function SignInPage() {
     <div className="max-w-md mx-auto">
       <PageHeader
         title="Sign In"
-        description="Access your MxHub account."
       />
-      <form onSubmit={handleSubmit}>
+      <Tabs defaultValue="sign-in" className="w-full">
         <Card>
-          <CardHeader>
-            <CardTitle>Welcome Back</CardTitle>
-            <CardDescription>Enter your credentials to sign in.</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="your@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                disabled={isLoading}
-                required
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
-              <Input
-                id="password"
-                type="password"
-                placeholder="Enter your password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                disabled={isLoading}
-                required
-              />
-            </div>
-            <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                    <Checkbox id="remember-me" />
-                    <label
-                        htmlFor="remember-me"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                        Remember me
-                    </label>
-                </div>
-                <Link href="#" className="text-sm text-primary hover:underline">
-                    Forgot password?
-                </Link>
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button type="submit" className="w-full bg-red-600 hover:bg-red-700" disabled={isLoading}>
-                {isLoading ? (
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                ) : (
-                    <>
-                        Sign In <LogIn className="ml-2 h-4 w-4" />
-                    </>
-                )}
-            </Button>
-          </CardFooter>
+            <CardHeader>
+                <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="sign-in">Sign In</TabsTrigger>
+                    <TabsTrigger value="register" onClick={() => router.push('/register')}>Register</TabsTrigger>
+                </TabsList>
+            </CardHeader>
+            <TabsContent value="sign-in">
+                <form onSubmit={handleSubmit}>
+                    <CardHeader>
+                        <CardTitle>Welcome Back</CardTitle>
+                        <CardDescription>Sign in to access your account, place bets, and more.</CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                    <div className="space-y-2">
+                        <Label htmlFor="email">Email</Label>
+                        <Input
+                            id="email"
+                            type="email"
+                            placeholder="your@email.com"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            disabled={isLoading}
+                            required
+                        />
+                    </div>
+                    <div className="space-y-2">
+                        <Label htmlFor="password">Password</Label>
+                        <Input
+                            id="password"
+                            type="password"
+                            placeholder="********"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            disabled={isLoading}
+                            required
+                        />
+                    </div>
+                     <div className="flex items-center justify-end">
+                        <Link href="#" className="text-sm text-primary hover:underline">
+                            Forgot Password?
+                        </Link>
+                    </div>
+                    </CardContent>
+                    <CardFooter>
+                    <Button type="submit" className="w-full bg-red-600 hover:bg-red-700" disabled={isLoading}>
+                        {isLoading ? (
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        ) : (
+                            <>
+                                Sign In <LogIn className="ml-2 h-4 w-4" />
+                            </>
+                        )}
+                    </Button>
+                    </CardFooter>
+                </form>
+            </TabsContent>
         </Card>
-      </form>
-       <p className="mt-4 text-center text-sm text-muted-foreground">
-        Don't have an account?{' '}
-        <Link
-          href="/register"
-          className="font-semibold text-primary hover:underline"
-        >
-          Register here
-        </Link>
-      </p>
+      </Tabs>
     </div>
   );
 }
