@@ -11,7 +11,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Coins, Mic, Search, Users, Calendar } from 'lucide-react';
+import { Coins, Mic, Search, Users, Calendar, Layers } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 
@@ -89,9 +89,15 @@ export default function BettingPage() {
           </div>
 
         </CardContent>
-        <CardFooter>
+        <CardFooter className="flex flex-col gap-4">
             <Button size="lg" className="w-full" asChild>
                 <Link href="/betting/confirmation">Place Bet</Link>
+            </Button>
+             <Button size="lg" className="w-full" variant="outline" asChild>
+                <Link href="/betting/parlay">
+                    <Layers className="mr-2 h-4 w-4" />
+                    Create Parlay Bet
+                </Link>
             </Button>
         </CardFooter>
       </Card>
