@@ -47,6 +47,32 @@ export const accounts: Account[] = [
             { id: 'bet-2', race: 'Hangtown Classic', opponent: 'supercross_sally', date: '2024-06-01', amount: 50, coinType: 'Sweeps Coins', status: 'Lost' },
             { id: 'bet-3', race: 'Pala National', opponent: 'braap_brad', date: '2024-05-18', amount: 250, coinType: 'Gold Coins', status: 'Pending' },
         ]
+    },
+    {
+        id: 'user-456',
+        name: 'Jane Smith',
+        username: 'janesmith',
+        email: 'jane.smith@example.com',
+        bio: 'Supercross superfan.',
+        balances: {
+            gold: 5000,
+            sweeps: 100,
+        },
+        betHistory: [
+            { id: 'bet-4', race: 'Daytona Supercross', opponent: 'johndoe', date: '2024-03-05', amount: 20, coinType: 'Sweeps Coins', status: 'Won' },
+        ]
+    },
+     {
+        id: 'user-789',
+        name: 'Mike Johnson',
+        username: 'mikej',
+        email: 'mike.j@example.com',
+        bio: 'Just here for the races.',
+        balances: {
+            gold: 1000,
+            sweeps: 10,
+        },
+        betHistory: []
     }
 ];
 
