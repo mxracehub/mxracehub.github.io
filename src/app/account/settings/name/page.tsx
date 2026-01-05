@@ -17,12 +17,14 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
 import { accounts } from '@/lib/accounts-data';
+import { useRouter } from 'next/navigation';
 
 export default function ChangeNamePage() {
-  const [newName, setNewName] = useState('');
+  const account = accounts.find((a) => a.id === 'user-123'); // Example user
+  const [newName, setNewName] = useState(account?.name || '');
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
-  const account = accounts.find((a) => a.id === 'user-123'); // Example user
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,6 +48,10 @@ export default function ChangeNamePage() {
     setIsLoading(true);
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    // Update the mock data
+    account.name = newName.trim();
+
     setIsLoading(false);
 
     toast({
@@ -53,7 +59,7 @@ export default function ChangeNamePage() {
         description: 'Your account name has been changed.',
     });
 
-    setNewName('');
+    router.push('/account');
   };
 
   return (
@@ -69,7 +75,7 @@ export default function ChangeNamePage() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="old-name">Old Account Name</Label>
+              <Label htmlFor="old-name">Current Account Name</Label>
               <Input
                 id="old-name"
                 type="text"

@@ -17,16 +17,19 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
 import { accounts } from '@/lib/accounts-data';
+import { useRouter } from 'next/navigation';
 
 export default function ChangeRiderNumberPage() {
   const account = accounts.find((a) => a.id === 'user-123'); // Example user
-  const [newRiderNumber, setNewRiderNumber] = useState('');
+  const [newRiderNumber, setNewRiderNumber] = useState(account?.riderNumber || '');
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newRiderNumber.trim()) {
+    const trimmedRiderNumber = newRiderNumber.trim();
+    if (!trimmedRiderNumber) {
       toast({
         title: 'Error',
         description: 'New rider number cannot be empty.',
@@ -45,7 +48,7 @@ export default function ChangeRiderNumberPage() {
     
     // Check if rider number is already taken
     const isTaken = accounts.some(
-        acc => acc.id !== account.id && acc.riderNumber === newRiderNumber.trim()
+        acc => acc.id !== account.id && acc.riderNumber === trimmedRiderNumber
     );
 
     if (isTaken) {
@@ -61,6 +64,10 @@ export default function ChangeRiderNumberPage() {
     setIsLoading(true);
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
+
+    // Update mock data
+    account.riderNumber = trimmedRiderNumber;
+
     setIsLoading(false);
 
     toast({
@@ -68,7 +75,7 @@ export default function ChangeRiderNumberPage() {
         description: 'Your rider number has been changed.',
     });
 
-    setNewRiderNumber('');
+    router.push('/account');
   };
 
   return (
