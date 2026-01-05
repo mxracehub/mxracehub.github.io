@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
 import {
@@ -14,18 +14,34 @@ import {
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { accounts, exchangeRequests } from '@/lib/accounts-data';
+import { accounts, exchangeRequests, type Account } from '@/lib/accounts-data';
 import { Banknote, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { useRouter } from 'next/navigation';
 
 export default function ExchangeGoldPage() {
-    // In a real app, you'd get the logged-in user's account
-    const account = accounts.find(a => a.id === 'user-123');
+    const [account, setAccount] = useState<Account | null>(null);
+    const router = useRouter();
+
+    useEffect(() => {
+        const loggedInUserId = localStorage.getItem('loggedInUserId');
+        if (loggedInUserId) {
+          const userAccount = accounts.find((a) => a.id === loggedInUserId);
+          if (userAccount) {
+            setAccount(userAccount);
+            setBalance(userAccount.balances.gold);
+          } else {
+            router.push('/sign-in');
+          }
+        } else {
+          router.push('/sign-in');
+        }
+      }, [router]);
 
     const [amount, setAmount] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const { toast } = useToast();
-    const [balance, setBalance] = useState(account?.balances.gold || 0);
+    const [balance, setBalance] = useState(0);
     
     const exchangeValueUSD = useMemo(() => {
         const numericAmount = Number(amount);
@@ -95,6 +111,10 @@ export default function ExchangeGoldPage() {
 
         setAmount('');
     };
+
+  if (!account) {
+      return <div>Loading...</div>
+  }
 
 
   return (

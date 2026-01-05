@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
 import {
@@ -16,15 +16,30 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
-import { accounts } from '@/lib/accounts-data';
+import { accounts, type Account } from '@/lib/accounts-data';
 import { useRouter } from 'next/navigation';
 
 export default function ChangeRiderNumberPage() {
-  const account = accounts.find((a) => a.id === 'user-123'); // Example user
-  const [newRiderNumber, setNewRiderNumber] = useState(account?.riderNumber || '');
+  const [account, setAccount] = useState<Account | null>(null);
+  const [newRiderNumber, setNewRiderNumber] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
   const router = useRouter();
+  
+  useEffect(() => {
+    const loggedInUserId = localStorage.getItem('loggedInUserId');
+    if (loggedInUserId) {
+      const userAccount = accounts.find((a) => a.id === loggedInUserId);
+      if (userAccount) {
+        setAccount(userAccount);
+        setNewRiderNumber(userAccount.riderNumber || '');
+      } else {
+        router.push('/sign-in');
+      }
+    } else {
+      router.push('/sign-in');
+    }
+  }, [router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -77,6 +92,10 @@ export default function ChangeRiderNumberPage() {
 
     router.push('/account');
   };
+  
+    if (!account) {
+        return <div className="max-w-2xl mx-auto">Loading...</div>;
+    }
 
   return (
     <div className="max-w-2xl mx-auto">

@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
 import {
@@ -16,16 +16,33 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Loader2, Repeat } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { accounts } from '@/lib/accounts-data';
+import { accounts, type Account } from '@/lib/accounts-data';
+import { useRouter } from 'next/navigation';
 
 export default function ExchangeSweepsPage() {
-  // In a real app, you'd get the logged-in user's account
-  const account = accounts.find((a) => a.id === 'user-123');
+  const [account, setAccount] = useState<Account | null>(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    const loggedInUserId = localStorage.getItem('loggedInUserId');
+    if (loggedInUserId) {
+      const userAccount = accounts.find((a) => a.id === loggedInUserId);
+      if (userAccount) {
+        setAccount(userAccount);
+        setBalance(userAccount.balances.sweeps);
+      } else {
+        router.push('/sign-in');
+      }
+    } else {
+      router.push('/sign-in');
+    }
+  }, [router]);
+
 
   const [amount, setAmount] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
-  const [balance, setBalance] = useState(account?.balances.sweeps || 0);
+  const [balance, setBalance] = useState(0);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -87,6 +104,11 @@ export default function ExchangeSweepsPage() {
 
     setAmount('');
   };
+  
+    if (!account) {
+        return <div>Loading...</div>
+    }
+
 
   return (
     <div>

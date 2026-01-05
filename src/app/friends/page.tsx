@@ -10,14 +10,38 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Search, UserPlus, Mic } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { accounts } from '@/lib/accounts-data';
+import { accounts, type Account } from '@/lib/accounts-data';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
-// In a real app, you would fetch the current user and their friends
-const currentUser = accounts.find(a => a.id === 'user-123');
-const friends = accounts.filter(a => currentUser?.friendIds?.includes(a.id)).sort((a, b) => a.name.localeCompare(b.name));
 
 export default function FriendsPage() {
+    const [currentUser, setCurrentUser] = useState<Account | null>(null);
+    const [friends, setFriends] = useState<Account[]>([]);
+    const router = useRouter();
+
+    useEffect(() => {
+        const loggedInUserId = localStorage.getItem('loggedInUserId');
+        if (loggedInUserId) {
+          const userAccount = accounts.find((a) => a.id === loggedInUserId);
+          if (userAccount) {
+            setCurrentUser(userAccount);
+            const userFriends = accounts.filter(a => userAccount.friendIds?.includes(a.id)).sort((a, b) => a.name.localeCompare(b.name));
+            setFriends(userFriends);
+          } else {
+            router.push('/sign-in');
+          }
+        } else {
+          router.push('/sign-in');
+        }
+      }, [router]);
+
+    if (!currentUser) {
+        return <div>Loading...</div>
+    }
+
+
   return (
     <div className="max-w-4xl mx-auto">
       <PageHeader
@@ -80,4 +104,3 @@ export default function FriendsPage() {
     </div>
   );
 }
-

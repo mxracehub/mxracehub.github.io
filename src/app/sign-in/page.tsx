@@ -50,6 +50,7 @@ export default function SignInPage() {
     setIsLoading(false);
 
     if (userAccount) {
+        localStorage.setItem('loggedInUserId', userAccount.id);
         toast({
             title: 'Signed In!',
             description: "Welcome back! We're redirecting you to your account.",

@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,12 +11,28 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Layers, Loader2 } from 'lucide-react';
 import Image from 'next/image';
 import { useToast } from '@/hooks/use-toast';
-import { accounts } from '@/lib/accounts-data';
+import { accounts, type Account } from '@/lib/accounts-data';
+import { useRouter } from 'next/navigation';
 
 export default function ParlayBetPage() {
   const parlayImage = PlaceHolderImages.find((p) => p.id === 'race-banner-1');
   const { toast } = useToast();
-  const currentUser = accounts.find(a => a.id === 'user-123');
+  const [currentUser, setCurrentUser] = useState<Account | null>(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    const loggedInUserId = localStorage.getItem('loggedInUserId');
+    if (loggedInUserId) {
+      const userAccount = accounts.find((a) => a.id === loggedInUserId);
+      if (userAccount) {
+        setCurrentUser(userAccount);
+      } else {
+        router.push('/sign-in');
+      }
+    } else {
+      router.push('/sign-in');
+    }
+  }, [router]);
   
   const [firstRaceDate, setFirstRaceDate] = useState('');
   const [parlayRaceDate, setParlayRaceDate] = useState('');
@@ -95,6 +111,10 @@ export default function ParlayBetPage() {
     setFirstBetValue('');
     setSecondBetValue('');
   }
+  
+    if (!currentUser) {
+        return <div>Loading...</div>
+    }
 
   return (
     <div className="mx-auto max-w-2xl">

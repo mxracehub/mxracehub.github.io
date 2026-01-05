@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
 import {
@@ -16,14 +16,31 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
-import { accounts } from '@/lib/accounts-data';
+import { accounts, type Account } from '@/lib/accounts-data';
+import { useRouter } from 'next/navigation';
 
 export default function ChangeEmailPage() {
+  const [account, setAccount] = useState<Account | null>(null);
   const [newEmail, setNewEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
-  const account = accounts.find((a) => a.id === 'user-123'); // Example user
+  const router = useRouter();
+
+   useEffect(() => {
+    const loggedInUserId = localStorage.getItem('loggedInUserId');
+    if (loggedInUserId) {
+      const userAccount = accounts.find((a) => a.id === loggedInUserId);
+      if (userAccount) {
+        setAccount(userAccount);
+      } else {
+        router.push('/sign-in');
+      }
+    } else {
+      router.push('/sign-in');
+    }
+  }, [router]);
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,10 +60,25 @@ export default function ChangeEmailPage() {
         });
         return;
     }
+    
+    if (account?.password !== password) {
+         toast({
+            title: 'Error',
+            description: 'Incorrect password.',
+            variant: 'destructive',
+        });
+        return;
+    }
 
     setIsLoading(true);
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    // Update mock data
+    if(account) {
+        account.email = newEmail;
+    }
+
     setIsLoading(false);
 
     toast({
@@ -57,6 +89,11 @@ export default function ChangeEmailPage() {
     setNewEmail('');
     setPassword('');
   };
+  
+    if (!account) {
+        return <div className="max-w-2xl mx-auto">Loading...</div>;
+    }
+
 
   return (
     <div className="max-w-2xl mx-auto">
