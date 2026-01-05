@@ -33,7 +33,7 @@ export default function PoliciesPage() {
             <h3 className="text-xl font-bold mb-2 text-card-foreground">Privacy Policy</h3>
             <p>
               Your privacy is important to us. We collect minimal personal information necessary for account management and transactions. We do not sell your data to third parties. All financial information is encrypted and handled by secure payment processors.
-            p>
+            </p>
           </div>
           <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">KYC Agreement</h3>

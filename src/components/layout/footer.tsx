@@ -11,7 +11,6 @@ const footerNavLinks = [
   { href: '/betting', label: 'Betting' },
   { href: '/account', label: 'Account' },
   { href: '/policies', label: 'Policies' },
-  { href: '/privacy', label: 'Privacy' },
   { href: '/contact', label: 'Contact' },
 ];
 
