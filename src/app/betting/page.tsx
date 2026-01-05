@@ -218,13 +218,13 @@ export default function BettingPage() {
                 <RadioGroup defaultValue="gold" value={coinType} onValueChange={setCoinType} className="flex gap-4">
                     <div>
                         <RadioGroupItem value="gold" id="gold" className="sr-only" />
-                        <Label htmlFor="gold" className="flex cursor-pointer items-center gap-2 rounded-md border p-3 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground">
+                        <Label htmlFor="gold" className="flex cursor-pointer items-center gap-2 rounded-md border p-3 data-[state=checked]:border-primary">
                             Gold Coins
                         </Label>
                     </div>
                     <div>
                         <RadioGroupItem value="sweeps" id="sweeps" className="sr-only" />
-                        <Label htmlFor="sweeps" className="flex cursor-pointer items-center gap-2 rounded-md border p-3 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground">
+                        <Label htmlFor="sweeps" className="flex cursor-pointer items-center gap-2 rounded-md border p-3 data-[state=checked]:border-primary">
                             Sweeps Coins
                         </Label>
                     </div>
