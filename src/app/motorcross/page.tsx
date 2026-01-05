@@ -12,19 +12,13 @@ const motorcrossRaces = [
     date: 'MAY 30',
     logo: (
       <div className="w-full h-20 flex justify-center items-center">
-        <svg viewBox="0 0 100 50" className="h-16 w-auto">
-          <path d="M10 5 H 90 L 100 15 V 45 H 0 V 15 Z" fill="#1e3a8a" />
-          <path d="M5 8 H 95 L 98 13 H 2 Z" fill="#dc2626" />
-          <rect x="5" y="15" width="90" height="25" fill="#fff" />
-          <text x="50" y="13" textAnchor="middle" fontSize="6" fill="#fff" fontWeight="bold">PALA</text>
-          <text x="50" y="24" textAnchor="middle" fontSize="6" fill="#000" fontWeight="bold">FOX RACEWAY</text>
-          <path d="M20 30 h60" stroke="#dc2626" strokeWidth="1" />
-          <text x="50" y="37" textAnchor="middle" fontSize="5" fill="#000" fontWeight="bold">NATIONAL</text>
-          <path d="M48 40 l-2 -2 l5 0 l-3 4" fill="#dc2626" />
-          <path d="M52 40 l2 -2 l-5 0 l3 4" fill="#dc2626" />
-          <path d="M45,42 C40,42 40,38 45,38 C47,38 48,39 50,40 C52,39 53,38 55,38 C60,38 60,42 55,42" fill="none" stroke="#000" strokeWidth="0.5"/>
-          <circle cx="47" cy="39" r="0.5" fill="#000" />
-          <circle cx="53" cy="39" r="0.5" fill="#000" />
+        <svg viewBox="0 0 100 60" className="h-16 w-auto">
+          <path d="M10 5 L90 5 L95 15 L5 15 Z" fill="#1e3a8a" />
+          <text x="50" y="12" textAnchor="middle" fontSize="5" fill="#fff" fontWeight="bold">PALA</text>
+          <text x="50" y="20" textAnchor="middle" fontSize="5" fill="#1e3a8a" fontWeight="bold">FOX RACEWAY</text>
+          <path d="M15 23 H 85 L 82 28 H 18 Z" fill="#fff" />
+          <text x="50" y="27" textAnchor="middle" fontSize="4" fill="#000" fontWeight="bold">NATIONAL</text>
+          <path d="M20 30 L80 30 L75 45 L25 45 Z" fill="#dc2626" />
         </svg>
       </div>
     ),
@@ -37,14 +31,12 @@ const motorcrossRaces = [
     date: 'JUNE 6',
     logo: (
       <div className="w-full h-20 flex justify-center items-center">
-        <svg viewBox="0 0 100 50" className="h-16 w-auto">
-          <path d="M10 5 H 90 L 100 15 V 45 H 0 V 15 Z" fill="#1e3a8a" />
-          <path d="M5 8 H 95 L 98 13 H 2 Z" fill="#dc2626" />
-          <rect x="5" y="15" width="90" height="25" fill="#fff" />
-          <text x="50" y="13" textAnchor="middle" fontSize="6" fill="#fff" fontWeight="bold">2026</text>
-          <text x="50" y="24" textAnchor="middle" fontSize="6" fill="#000" fontWeight="bold">HANGTOWN</text>
-          <path d="M20 30 h60" stroke="#dc2626" strokeWidth="1" />
-          <text x="50" y="37" textAnchor="middle" fontSize="5" fill="#000" fontWeight="bold">MOTOCROSS CLASSIC</text>
+        <svg viewBox="0 0 100 60" className="h-16 w-auto">
+          <path d="M20 5 A 40 20 0 0 1 80 5 L 75 15 L 25 15 Z" fill="#1e3a8a" />
+          <text x="50" y="11" textAnchor="middle" fontSize="5" fill="#fff" fontWeight="bold">(2026) HANGTOWN</text>
+          <path d="M15 17 H 85 L 82 22 H 18 Z" fill="#fff" />
+          <text x="50" y="21" textAnchor="middle" fontSize="3" fill="#000" fontWeight="bold">MOTOCROSS CLASSIC</text>
+          <path d="M20 24 L80 24 L75 39 L25 39 Z" fill="#dc2626" />
         </svg>
       </div>
     ),
@@ -57,14 +49,12 @@ const motorcrossRaces = [
     date: 'JUNE 13',
     logo: (
       <div className="w-full h-20 flex justify-center items-center">
-        <svg viewBox="0 0 100 50" className="h-16 w-auto">
-          <path d="M10 5 H 90 L 100 15 V 45 H 0 V 15 Z" fill="#1e3a8a" />
-          <path d="M5 8 H 95 L 98 13 H 2 Z" fill="#dc2626" />
-          <rect x="5" y="15" width="90" height="25" fill="#fff" />
-          <text x="50" y="13" textAnchor="middle" fontSize="6" fill="#fff" fontWeight="bold">2026</text>
-          <text x="50" y="24" textAnchor="middle" fontSize="6" fill="#000" fontWeight="bold">THUNDER VALLEY</text>
-          <path d="M20 30 h60" stroke="#dc2626" strokeWidth="1" />
-          <text x="50" y="37" textAnchor="middle" fontSize="5" fill="#000" fontWeight="bold">NATIONAL</text>
+        <svg viewBox="0 0 100 60" className="h-16 w-auto">
+          <path d="M20 5 A 40 20 0 0 1 80 5 L 75 15 L 25 15 Z" fill="#1e3a8a" />
+          <text x="50" y="11" textAnchor="middle" fontSize="5" fill="#fff" fontWeight="bold">(2026) THUNDER VALLEY</text>
+          <path d="M15 17 H 85 L 82 22 H 18 Z" fill="#fff" />
+          <text x="50" y="21" textAnchor="middle" fontSize="4" fill="#000" fontWeight="bold">NATIONAL</text>
+          <path d="M20 24 L80 24 L75 39 L25 39 Z" fill="#dc2626" />
         </svg>
       </div>
     ),
@@ -77,14 +67,13 @@ const motorcrossRaces = [
     date: 'JUNE 20',
     logo: (
        <div className="w-full h-20 flex justify-center items-center">
-        <svg viewBox="0 0 100 50" className="h-16 w-auto">
-          <path d="M10 5 H 90 L 100 15 V 45 H 0 V 15 Z" fill="#1e3a8a" />
-           <path d="M5 8 H 95 L 98 13 H 2 Z" fill="#dc2626" />
-           <rect x="5" y="15" width="90" height="25" fill="#fff" />
-           <text x="50" y="13" textAnchor="middle" fontSize="6" fill="#fff" fontWeight="bold">HIGH POINT</text>
-           <text x="50" y="24" textAnchor="middle" fontSize="6" fill="#000" fontWeight="bold" letterSpacing="-0.5">LUCAS OIL PRO</text>
-           <path d="M20 30 h60" stroke="#dc2626" strokeWidth="1" />
-           <text x="50" y="37" textAnchor="middle" fontSize="5" fill="#000" fontWeight="bold">MOTOCROSS</text>
+        <svg viewBox="0 0 100 60" className="h-16 w-auto">
+          <path d="M10 5 L 90 5 L 95 15 L 5 15 Z" fill="#1e3a8a" />
+           <text x="50" y="12" textAnchor="middle" fontSize="5" fill="#fff" fontWeight="bold">HIGH POINT</text>
+           <text x="50" y="20" textAnchor="middle" fontSize="4" fill="#1e3a8a" fontWeight="bold" letterSpacing="-0.5">LUCAS OIL PRO</text>
+           <path d="M15 23 H 85 L 82 28 H 18 Z" fill="#fff" />
+           <text x="50" y="27" textAnchor="middle" fontSize="4" fill="#000" fontWeight="bold">NATIONAL</text>
+           <path d="M20 30 L80 30 L75 45 L25 45 Z" fill="#dc2626" />
         </svg>
       </div>
     ),
@@ -97,15 +86,14 @@ const motorcrossRaces = [
     date: 'AUGUST 15',
     logo: (
       <div className="w-full h-20 flex justify-center items-center">
-        <svg viewBox="0 0 100 50" className="h-16 w-auto">
-          <path d="M10 5 H 90 L 100 15 V 45 H 0 V 15 Z" fill="#1e3a8a" />
-          <rect x="5" y="8" width="90" height="8" fill="#fff" />
-          <text x="25" y="14" fill="#0033A0" fontSize="7" fontWeight="bold" fontStyle="italic">elf</text>
-          <circle cx="36" cy="11.5" r="3" fill="#dc2626" />
-          <rect x="5" y="16" width="90" height="25" fill="#fff" />
-          <text x="50" y="26" textAnchor="middle" fontSize="6" fill="#000" fontWeight="bold">UNADILLA</text>
-          <path d="M20 32 h60" stroke="#dc2626" strokeWidth="1" />
-          <text x="50" y="39" textAnchor="middle" fontSize="5" fill="#000" fontWeight="bold">NATIONAL</text>
+        <svg viewBox="0 0 100 60" className="h-16 w-auto">
+          <path d="M10 5 L 90 5 L 95 15 L 5 15 Z" fill="#1e3a8a" />
+          <text x="30" y="12" fill="#0033A0" fontSize="7" fontWeight="bold" fontStyle="italic">elf</text>
+          <circle cx="41" cy="9.5" r="3" fill="#dc2626" />
+          <text x="65" y="12" textAnchor="middle" fontSize="5" fill="#fff" fontWeight="bold">UNADILLA</text>
+          <path d="M15 17 H 85 L 82 22 H 18 Z" fill="#fff" />
+          <text x="50" y="21" textAnchor="middle" fontSize="4" fill="#000" fontWeight="bold">NATIONAL</text>
+          <path d="M20 24 L80 24 L75 39 L25 39 Z" fill="#dc2626" />
         </svg>
       </div>
     ),
@@ -118,14 +106,13 @@ const motorcrossRaces = [
     date: 'AUGUST 22',
     logo: (
       <div className="w-full h-20 flex justify-center items-center">
-        <svg viewBox="0 0 100 50" className="h-16 w-auto">
-          <path d="M10 5 H 90 L 100 15 V 45 H 0 V 15 Z" fill="#1e3a8a" />
-          <path d="M5 8 H 95 L 98 13 H 2 Z" fill="#fff" />
-          <text x="50" y="13" textAnchor="middle" fontSize="5" fill="#000" fontWeight="bold">YAMAHA</text>
-          <rect x="5" y="15" width="90" height="25" fill="#fff" />
-          <text x="50" y="24" textAnchor="middle" fontSize="6" fill="#000" fontWeight="bold">BUDDS CREEK</text>
-          <path d="M20 30 h60" stroke="#dc2626" strokeWidth="1" />
-          <text x="50" y="37" textAnchor="middle" fontSize="5" fill="#000" fontWeight="bold">NATIONAL</text>
+        <svg viewBox="0 0 100 60" className="h-16 w-auto">
+          <path d="M10 5 L 90 5 L 95 15 L 5 15 Z" fill="#1e3a8a" />
+          <text x="50" y="12" textAnchor="middle" fontSize="5" fill="#fff" fontWeight="bold">YAMAHA</text>
+           <text x="50" y="20" textAnchor="middle" fontSize="5" fill="#1e3a8a" fontWeight="bold">BUDDS CREEK</text>
+          <path d="M15 23 H 85 L 82 28 H 18 Z" fill="#fff" />
+          <text x="50" y="27" textAnchor="middle" fontSize="4" fill="#000" fontWeight="bold">NATIONAL</text>
+          <path d="M20 30 L80 30 L75 45 L25 45 Z" fill="#dc2626" />
         </svg>
       </div>
     ),
@@ -138,14 +125,13 @@ const motorcrossRaces = [
     date: 'AUGUST 29',
     logo: (
       <div className="w-full h-20 flex justify-center items-center">
-        <svg viewBox="0 0 100 50" className="h-16 w-auto">
-          <path d="M10 5 H 90 L 100 15 V 45 H 0 V 15 Z" fill="#1e3a8a" />
-          <path d="M5 8 H 95 L 98 13 H 2 Z" fill="#dc2626" />
-          <rect x="5" y="15" width="90" height="25" fill="#fff" />
-          <text x="50" y="13" textAnchor="middle" fontSize="6" fill="#fff" fontWeight="bold">2026</text>
-          <text x="50" y="24" textAnchor="middle" fontSize="6" fill="#000" fontWeight="bold">IRONMAN</text>
-          <path d="M20 30 h60" stroke="#dc2626" strokeWidth="1" />
-          <text x="50" y="37" textAnchor="middle" fontSize="5" fill="#000" fontWeight="bold">NATIONAL FINALS</text>
+        <svg viewBox="0 0 100 60" className="h-16 w-auto">
+          <path d="M20 5 A 40 20 0 0 1 80 5 L 75 15 L 25 15 Z" fill="#1e3a8a" />
+          <text x="50" y="11" textAnchor="middle" fontSize="5" fill="#fff" fontWeight="bold">(2026) IRONMAN</text>
+          <path d="M15 17 H 85 L 82 22 H 18 Z" fill="#fff" />
+          <text x="50" y="21" textAnchor="middle" fontSize="4" fill="#000" fontWeight="bold">NATIONAL</text>
+          <path d="M20 24 L80 24 L75 39 L25 39 Z" fill="#dc2626" />
+           <text x="50" y="32" textAnchor="middle" fontSize="5" fill="#fff" fontWeight="bold">FINALS</text>
         </svg>
       </div>
     ),
@@ -158,14 +144,12 @@ const motorcrossRaces = [
     date: 'JULY 4',
     logo: (
       <div className="w-full h-20 flex justify-center items-center">
-        <svg viewBox="0 0 100 50" className="h-16 w-auto">
-          <path d="M10 5 H 90 L 100 15 V 45 H 0 V 15 Z" fill="#1e3a8a" />
-          <path d="M5 8 H 95 L 98 13 H 2 Z" fill="#dc2626" />
-          <rect x="5" y="15" width="90" height="25" fill="#fff" />
-          <text x="50" y="13" textAnchor="middle" fontSize="6" fill="#fff" fontWeight="bold">2026</text>
-          <text x="50" y="24" textAnchor="middle" fontSize="6" fill="#000" fontWeight="bold">REDBUD</text>
-          <path d="M20 30 h60" stroke="#dc2626" strokeWidth="1" />
-          <text x="50" y="37" textAnchor="middle" fontSize="5" fill="#000" fontWeight="bold">NATIONAL</text>
+        <svg viewBox="0 0 100 60" className="h-16 w-auto">
+          <path d="M20 5 A 40 20 0 0 1 80 5 L 75 15 L 25 15 Z" fill="#1e3a8a" />
+          <text x="50" y="11" textAnchor="middle" fontSize="5" fill="#fff" fontWeight="bold">(2026) REDBUD</text>
+          <path d="M15 17 H 85 L 82 22 H 18 Z" fill="#fff" />
+          <text x="50" y="21" textAnchor="middle" fontSize="4" fill="#000" fontWeight="bold">NATIONAL</text>
+          <path d="M20 24 L80 24 L75 39 L25 39 Z" fill="#dc2626" />
         </svg>
       </div>
     ),
@@ -178,14 +162,13 @@ const motorcrossRaces = [
     date: 'JULY 11',
     logo: (
       <div className="w-full h-20 flex justify-center items-center">
-        <svg viewBox="0 0 100 50" className="h-16 w-auto">
-          <path d="M10 5 H 90 L 100 15 V 45 H 0 V 15 Z" fill="#1e3a8a" />
-          <path d="M5 8 H 95 L 98 13 H 2 Z" fill="#fff" />
-          <text x="50" y="13" textAnchor="middle" fontSize="5" fill="#000" fontWeight="bold">CRESTVIEW</text>
-          <rect x="5" y="15" width="90" height="25" fill="#fff" />
-          <text x="50" y="24" textAnchor="middle" fontSize="6" fill="#000" fontWeight="bold">SOUTHWICK</text>
-          <path d="M20 30 h60" stroke="#dc2626" strokeWidth="1" />
-          <text x="50" y="37" textAnchor="middle" fontSize="5" fill="#000" fontWeight="bold">NATIONAL</text>
+        <svg viewBox="0 0 100 60" className="h-16 w-auto">
+          <path d="M10 5 L 90 5 L 95 15 L 5 15 Z" fill="#1e3a8a" />
+          <text x="50" y="12" textAnchor="middle" fontSize="5" fill="#fff" fontWeight="bold">CRESTVIEW</text>
+          <text x="50" y="20" textAnchor="middle" fontSize="5" fill="#1e3a8a" fontWeight="bold">SOUTHWICK</text>
+          <path d="M15 23 H 85 L 82 28 H 18 Z" fill="#fff" />
+          <text x="50" y="27" textAnchor="middle" fontSize="4" fill="#000" fontWeight="bold">NATIONAL</text>
+          <path d="M20 30 L80 30 L75 45 L25 45 Z" fill="#dc2626" />
         </svg>
       </div>
     ),
@@ -198,14 +181,13 @@ const motorcrossRaces = [
     date: 'JULY 18',
     logo: (
       <div className="w-full h-20 flex justify-center items-center">
-        <svg viewBox="0 0 100 50" className="h-16 w-auto">
-          <path d="M10 5 H 90 L 100 15 V 45 H 0 V 15 Z" fill="#1e3a8a" />
-          <path d="M5 8 H 95 L 98 13 H 2 Z" fill="#fff" />
-          <text x="50" y="13" textAnchor="middle" fontSize="6" fill="#000" fontWeight="bold" fontFamily="monospace">FXR</text>
-          <rect x="5" y="15" width="90" height="25" fill="#fff" />
-          <text x="50" y="24" textAnchor="middle" fontSize="6" fill="#000" fontWeight="bold">SPRING CREEK</text>
-          <path d="M20 30 h60" stroke="#dc2626" strokeWidth="1" />
-          <text x="50" y="37" textAnchor="middle" fontSize="5" fill="#000" fontWeight="bold">NATIONAL</text>
+        <svg viewBox="0 0 100 60" className="h-16 w-auto">
+          <path d="M20 5 A 40 20 0 0 1 80 5 L 75 15 L 25 15 Z" fill="#1e3a8a" />
+          <text x="50" y="11" textAnchor="middle" fontSize="6" fill="#fff" fontWeight="bold" fontFamily="monospace">FXR</text>
+           <text x="50" y="20" textAnchor="middle" fontSize="5" fill="#1e3a8a" fontWeight="bold">SPRING CREEK</text>
+          <path d="M15 23 H 85 L 82 28 H 18 Z" fill="#fff" />
+          <text x="50" y="27" textAnchor="middle" fontSize="4" fill="#000" fontWeight="bold">NATIONAL</text>
+          <path d="M20 30 L80 30 L75 45 L25 45 Z" fill="#dc2626" />
         </svg>
       </div>
     ),
@@ -218,15 +200,13 @@ const motorcrossRaces = [
     date: 'JULY 25',
     logo: (
       <div className="w-full h-20 flex justify-center items-center">
-        <svg viewBox="0 0 100 50" className="h-16 w-auto">
-          <path d="M10 5 H 90 L 100 15 V 45 H 0 V 15 Z" fill="#1e3a8a" />
-          <path d="M5 8 H 95 L 98 13 H 2 Z" fill="#dc2626" />
-          <path d="M30 8 L 40 13 L 70 13 L 80 8 Z" fill="#fff" />
-          <text x="55" y="12" textAnchor="middle" fontSize="4" fill="#000" fontWeight="bold" >FLY RACING</text>
-          <rect x="5" y="15" width="90" height="25" fill="#fff" />
-          <text x="50" y="24" textAnchor="middle" fontSize="6" fill="#000" fontWeight="bold">WASHOUGAL</text>
-          <path d="M20 30 h60" stroke="#dc2626" strokeWidth="1" />
-          <text x="50" y="37" textAnchor="middle" fontSize="5" fill="#000" fontWeight="bold">NATIONAL</text>
+        <svg viewBox="0 0 100 60" className="h-16 w-auto">
+          <path d="M10 5 L 90 5 L 95 15 L 5 15 Z" fill="#1e3a8a" />
+          <text x="50" y="12" textAnchor="middle" fontSize="5" fill="#fff" fontWeight="bold">FLY RACING</text>
+          <text x="50" y="20" textAnchor="middle" fontSize="5" fill="#1e3a8a" fontWeight="bold">WASHOUGAL</text>
+          <path d="M15 23 H 85 L 82 28 H 18 Z" fill="#fff" />
+          <text x="50" y="27" textAnchor="middle" fontSize="4" fill="#000" fontWeight="bold">NATIONAL</text>
+          <path d="M20 30 L80 30 L75 45 L25 45 Z" fill="#dc2626" />
         </svg>
       </div>
     ),
