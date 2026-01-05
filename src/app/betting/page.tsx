@@ -13,7 +13,7 @@ import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Coins, Mic, Search, Users, Calendar, Layers, X, Trophy, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
-import React, from 'react';
+import React from 'react';
 import { motorcrossRaces } from '@/lib/races-motorcross-data';
 import { supercrossRaces } from '@/lib/races-supercross-data';
 import { accounts, type Account } from '@/lib/accounts-data';
@@ -251,5 +251,7 @@ export default function BettingPage() {
     </div>
   );
 }
+
+    
 
     
