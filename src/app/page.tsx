@@ -142,7 +142,7 @@ export default function DashboardPage() {
             </p>
             <div className="flex gap-4">
               <Button className="bg-red-600 text-white hover:bg-red-700" asChild>
-                <Link href="#">Sign Up</Link>
+                <Link href="/register">Sign Up</Link>
               </Button>
               <Button className="bg-red-600 text-white hover:bg-red-700" asChild>
                 <Link href="/betting">Place Bet</Link>
