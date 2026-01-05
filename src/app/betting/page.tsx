@@ -216,18 +216,14 @@ export default function BettingPage() {
             <div className="space-y-2">
                 <Label>Coin Type</Label>
                 <RadioGroup defaultValue="gold" value={coinType} onValueChange={setCoinType} className="flex gap-4">
-                    <div>
-                        <RadioGroupItem value="gold" id="gold" className="sr-only" />
-                        <Label htmlFor="gold" className="flex cursor-pointer items-center gap-2 rounded-md border p-3 data-[state=checked]:border-primary">
-                            Gold Coins
-                        </Label>
-                    </div>
-                    <div>
-                        <RadioGroupItem value="sweeps" id="sweeps" className="sr-only" />
-                        <Label htmlFor="sweeps" className="flex cursor-pointer items-center gap-2 rounded-md border p-3 data-[state=checked]:border-primary">
-                            Sweeps Coins
-                        </Label>
-                    </div>
+                    <Label htmlFor="gold" className="flex cursor-pointer items-center gap-2 rounded-md border p-3 data-[state=checked]:border-primary">
+                        <RadioGroupItem value="gold" id="gold" />
+                        Gold Coins
+                    </Label>
+                    <Label htmlFor="sweeps" className="flex cursor-pointer items-center gap-2 rounded-md border p-3 data-[state=checked]:border-primary">
+                         <RadioGroupItem value="sweeps" id="sweeps" />
+                        Sweeps Coins
+                    </Label>
                 </RadioGroup>
                  <p className="pt-2 text-xs text-muted-foreground">
                 Use Gold Coins for fun or Sweeps Coins for a chance to win real prizes.
@@ -251,7 +247,3 @@ export default function BettingPage() {
     </div>
   );
 }
-
-    
-
-    
