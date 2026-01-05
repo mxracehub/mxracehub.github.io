@@ -13,9 +13,11 @@ import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Coins, Mic, Search, Users, Calendar, Layers, X, Trophy, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
-import React, { useMemo } from 'react';
+import React, from 'react';
 import { motorcrossRaces } from '@/lib/races-motorcross-data';
 import { supercrossRaces } from '@/lib/races-supercross-data';
+import { accounts, type Account } from '@/lib/accounts-data';
+import { useRouter } from 'next/navigation';
 
 const allRaces = [
     ...motorcrossRaces.map(r => ({ ...r, series: 'Motorcross' })),
@@ -29,8 +31,31 @@ export default function BettingPage() {
 
   const [raceSearch, setRaceSearch] = React.useState('');
   const [selectedRace, setSelectedRace] = React.useState<typeof allRaces[0] | null>(null);
+  
+  const [friendSearch, setFriendSearch] = React.useState('');
+  const [selectedFriend, setSelectedFriend] = React.useState<Account | null>(null);
+  const [currentUser, setCurrentUser] = React.useState<Account | null>(null);
+  const [friends, setFriends] = React.useState<Account[]>([]);
+  const router = useRouter();
+  
+  React.useEffect(() => {
+    const loggedInUserId = localStorage.getItem('loggedInUserId');
+    if (loggedInUserId) {
+        const userAccount = accounts.find(a => a.id === loggedInUserId);
+        if (userAccount) {
+            setCurrentUser(userAccount);
+            const userFriends = accounts.filter(a => userAccount.friendIds?.includes(a.id));
+            setFriends(userFriends);
+        } else {
+            router.push('/sign-in');
+        }
+    } else {
+        router.push('/sign-in');
+    }
+  }, [router]);
 
-  const filteredRaces = useMemo(() => {
+
+  const filteredRaces = React.useMemo(() => {
     if (!raceSearch) return [];
     return allRaces.filter(race => 
         race.name.toLowerCase().includes(raceSearch.toLowerCase()) ||
@@ -42,6 +67,20 @@ export default function BettingPage() {
       setSelectedRace(race);
       setRaceSearch('');
   }
+  
+  const filteredFriends = React.useMemo(() => {
+    if (!friendSearch) return [];
+    return friends.filter(friend => 
+        friend.name.toLowerCase().includes(friendSearch.toLowerCase()) ||
+        friend.username.toLowerCase().includes(friendSearch.toLowerCase())
+    ).slice(0, 5);
+  }, [friendSearch, friends]);
+  
+  const handleSelectFriend = (friend: Account) => {
+      setSelectedFriend(friend);
+      setFriendSearch('');
+  }
+
 
   return (
     <div className="mx-auto max-w-2xl">
@@ -59,9 +98,35 @@ export default function BettingPage() {
                 id="find-friend"
                 placeholder="Search by username..."
                 className="pl-10 pr-10"
+                value={friendSearch}
+                onChange={(e) => setFriendSearch(e.target.value)}
+                disabled={!!selectedFriend}
               />
               <Mic className="absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 cursor-pointer text-muted-foreground" />
             </div>
+            {friendSearch && filteredFriends.length > 0 && (
+                <div className="relative">
+                    <ul className="absolute z-10 w-full bg-card border rounded-md mt-1 max-h-60 overflow-y-auto">
+                        {filteredFriends.map(friend => (
+                            <li key={friend.id} onClick={() => handleSelectFriend(friend)} className="px-4 py-2 hover:bg-muted cursor-pointer">
+                                <p className="font-semibold">{friend.name}</p>
+                                <p className="text-sm text-muted-foreground">@{friend.username}</p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+             {selectedFriend && (
+                <div className="rounded-lg border bg-muted/50 p-4 flex items-center justify-between">
+                    <div>
+                        <p className="font-semibold flex items-center gap-2"><CheckCircle className="h-5 w-5 text-green-500" /> {selectedFriend.name}</p>
+                        <p className="text-sm text-muted-foreground ml-7">@{selectedFriend.username}</p>
+                    </div>
+                     <Button variant="ghost" size="icon" onClick={() => setSelectedFriend(null)}>
+                        <X className="h-5 w-5" />
+                    </Button>
+                </div>
+            )}
           </div>
           <div className="space-y-2">
             <Label className="flex items-center gap-2 text-lg font-semibold"><Calendar className="h-5 w-5" />Find an Upcoming Race</Label>
