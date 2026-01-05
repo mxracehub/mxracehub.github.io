@@ -18,6 +18,7 @@ import { motorcrossRaces } from '@/lib/races-motorcross-data';
 import { supercrossRaces } from '@/lib/races-supercross-data';
 import { accounts, type Account } from '@/lib/accounts-data';
 import { useRouter } from 'next/navigation';
+import { useToast } from '@/hooks/use-toast';
 
 const allRaces = [
     ...motorcrossRaces.map(r => ({ ...r, series: 'Motorcross' })),
@@ -37,6 +38,7 @@ export default function BettingPage() {
   const [currentUser, setCurrentUser] = React.useState<Account | null>(null);
   const [friends, setFriends] = React.useState<Account[]>([]);
   const router = useRouter();
+  const { toast } = useToast();
   
   React.useEffect(() => {
     const loggedInUserId = localStorage.getItem('loggedInUserId');
@@ -46,13 +48,9 @@ export default function BettingPage() {
             setCurrentUser(userAccount);
             const userFriends = accounts.filter(a => userAccount.friendIds?.includes(a.id));
             setFriends(userFriends);
-        } else {
-            router.push('/sign-in');
         }
-    } else {
-        router.push('/sign-in');
     }
-  }, [router]);
+  }, []);
 
 
   const filteredRaces = React.useMemo(() => {
@@ -79,6 +77,40 @@ export default function BettingPage() {
   const handleSelectFriend = (friend: Account) => {
       setSelectedFriend(friend);
       setFriendSearch('');
+  }
+  
+  const handlePlaceBet = () => {
+    if (!currentUser) {
+        toast({
+            title: "Please sign in",
+            description: "You need to be signed in to place a bet.",
+            variant: "destructive"
+        });
+        router.push('/sign-in');
+        return;
+    }
+     if (!selectedFriend) {
+        toast({ title: "No friend selected", description: "Please select a friend to bet against.", variant: "destructive" });
+        return;
+    }
+    if (!selectedRace) {
+        toast({ title: "No race selected", description: "Please select a race to bet on.", variant: "destructive" });
+        return;
+    }
+    const amount = Number(betAmount);
+    if (!amount || amount < 100) {
+        toast({ title: "Invalid Amount", description: "The minimum bet amount is 100 coins.", variant: "destructive" });
+        return;
+    }
+
+    const balance = coinType === 'gold' ? currentUser.balances.gold : currentUser.balances.sweeps;
+    if (amount > balance) {
+        toast({ title: "Insufficient Balance", description: `You do not have enough ${coinType === 'gold' ? 'Gold' : 'Sweeps'} Coins.`, variant: "destructive" });
+        return;
+    }
+    
+    // If all validations pass, redirect to confirmation
+    router.push('/betting/confirmation');
   }
 
 
@@ -175,7 +207,7 @@ export default function BettingPage() {
                 <Input
                 id="bet-amount"
                 type="number"
-                placeholder="Enter amount"
+                placeholder="Minimum 100 coins"
                 value={betAmount}
                 onChange={(e) => setBetAmount(e.target.value)}
                 />
@@ -205,8 +237,8 @@ export default function BettingPage() {
 
         </CardContent>
         <CardFooter className="flex flex-col gap-4">
-            <Button size="lg" className="w-full" asChild>
-                <Link href="/betting/confirmation">Place Bet</Link>
+            <Button size="lg" className="w-full" onClick={handlePlaceBet}>
+                Place Bet
             </Button>
              <Button size="lg" className="w-full" variant="outline" asChild>
                 <Link href="/betting/parlay">
@@ -219,3 +251,5 @@ export default function BettingPage() {
     </div>
   );
 }
+
+    
