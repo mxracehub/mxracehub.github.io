@@ -19,6 +19,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, ArrowRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { accounts } from '@/lib/accounts-data';
 
 export default function RegisterPage() {
   const [username, setUsername] = useState('');
@@ -38,8 +39,16 @@ export default function RegisterPage() {
         toast({ title: 'Error', description: 'Please enter a username.', variant: 'destructive' });
         return;
     }
+    if (accounts.some(acc => acc.username.toLowerCase() === username.trim().toLowerCase())) {
+        toast({ title: 'Error', description: 'This username is already taken.', variant: 'destructive' });
+        return;
+    }
     if (!email.trim() || !/^\S+@\S+\.\S+$/.test(email)) {
         toast({ title: 'Error', description: 'Please enter a valid email.', variant: 'destructive' });
+        return;
+    }
+     if (accounts.some(acc => acc.email.toLowerCase() === email.trim().toLowerCase())) {
+        toast({ title: 'Error', description: 'An account with this email already exists.', variant: 'destructive' });
         return;
     }
     if (password.length < 8) {
@@ -48,6 +57,10 @@ export default function RegisterPage() {
     }
     if (password !== confirmPassword) {
         toast({ title: 'Error', description: 'Passwords do not match.', variant: 'destructive' });
+        return;
+    }
+    if (riderNumber.trim() && accounts.some(acc => acc.riderNumber === riderNumber.trim())) {
+        toast({ title: 'Error', description: 'This rider number is already taken.', variant: 'destructive' });
         return;
     }
     if (!agreed) {
@@ -59,6 +72,22 @@ export default function RegisterPage() {
     setIsLoading(true);
     // Simulate API call for registration
     await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    // In a real app, this would be a backend operation.
+    // For this prototype, we add the user to our mock data.
+    const newAccount = {
+        id: `user-${Date.now()}`,
+        name: username, // Initially name is username
+        username: username.trim(),
+        email: email.trim(),
+        bio: '',
+        balances: { gold: 0, sweeps: 0 },
+        betHistory: [],
+        friendIds: [],
+        riderNumber: riderNumber.trim() || undefined,
+    };
+    accounts.push(newAccount);
+
     setIsLoading(false);
 
     toast({
@@ -66,8 +95,6 @@ export default function RegisterPage() {
         description: "Welcome! We're redirecting you to the sign-in page.",
     });
 
-    // In a real app, you would redirect after successful login
-    // For now, let's redirect to a sign-in page (which we can create next)
     router.push('/sign-in');
   };
 
