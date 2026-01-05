@@ -2,6 +2,7 @@ import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const supercrossRaces = [
   {
@@ -106,28 +107,25 @@ export default function SupercrossPage() {
         {supercrossRaces.map((race) => (
           <div
             key={race.round}
-            className="flex overflow-hidden rounded-lg border border-border bg-card text-card-foreground"
+            className="flex flex-col overflow-hidden rounded-lg border border-border bg-card text-card-foreground"
           >
-            <div className="w-1/3 bg-primary p-4 text-primary-foreground">
+            <div className="w-full bg-primary p-4 text-primary-foreground">
               <p className="text-sm font-bold">Round {race.round}</p>
               <h3 className="text-lg font-bold">{race.location}</h3>
               <p className="text-sm">{race.date}</p>
             </div>
-            <div className="flex w-2/3 flex-col justify-between p-4">
+            <div className="flex-grow p-4">
               <div>
                 <h4 className="font-bold">{race.track}</h4>
                 <p className="text-sm text-muted-foreground">
                   Live on {race.tv}
                 </p>
               </div>
-              <div className="mt-4 flex gap-2">
-                <Button variant="outline" size="sm" asChild>
-                  <a href={race.ticketsUrl}>Tickets</a>
+            </div>
+            <div className="border-t border-border p-2">
+                <Button asChild className="w-full">
+                    <Link href="/betting">Bet on this race now</Link>
                 </Button>
-                <Button variant="outline" size="sm" asChild>
-                  <a href={race.mapUrl}>Race Map</a>
-                </Button>
-              </div>
             </div>
           </div>
         ))}

@@ -127,7 +127,7 @@ export default function MotorcrossPage() {
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {motorcrossRaces.map((race) => (
-          <div key={race.id} className="overflow-hidden rounded-lg border border-border bg-card text-card-foreground">
+          <div key={race.id} className="overflow-hidden rounded-lg border border-border bg-card text-card-foreground flex flex-col">
             <div className="bg-primary p-4 text-center text-primary-foreground">
               <Image
                 src={race.logoUrl}
@@ -140,18 +140,14 @@ export default function MotorcrossPage() {
               <h3 className="mt-2 font-bold uppercase">{race.name.replace(' National', '').replace(' Classic', '')}</h3>
               <p className="text-sm">NATIONAL</p>
             </div>
-            <div className="p-4 text-center">
+            <div className="p-4 text-center flex-grow">
               <p className="text-xl font-bold">{race.date}</p>
               <p className="mt-1 text-sm text-muted-foreground">{race.track}</p>
               <p className="text-xs text-muted-foreground">{race.location}</p>
             </div>
-            <div className="flex border-t border-border">
-              <Button variant="ghost" className="flex-1 rounded-none rounded-bl-lg">
-                Tickets
-              </Button>
-              <div className="w-px bg-border"></div>
-              <Button variant="ghost" className="flex-1 rounded-none rounded-br-lg">
-                Details
+            <div className="border-t border-border p-2">
+              <Button asChild className="w-full">
+                <Link href="/betting">Bet on this race now</Link>
               </Button>
             </div>
           </div>
