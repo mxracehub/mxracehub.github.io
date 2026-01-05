@@ -80,6 +80,7 @@ export default function RegisterPage() {
         name: username, // Initially name is username
         username: username.trim(),
         email: email.trim(),
+        password: password, // In a real app, you would hash this password
         bio: '',
         balances: { gold: 0, sweeps: 0 },
         betHistory: [],

@@ -44,11 +44,12 @@ export default function SignInPage() {
     // Simulate API call for sign-in
     await new Promise(resolve => setTimeout(resolve, 1500));
 
-    const userExists = accounts.some(account => account.email === email);
+    // NOTE: This is a mock authentication. In a real app, do not store passwords in plaintext.
+    const userAccount = accounts.find(account => account.email === email && account.password === password);
 
     setIsLoading(false);
 
-    if (userExists) {
+    if (userAccount) {
         toast({
             title: 'Signed In!',
             description: "Welcome back! We're redirecting you to your account.",
@@ -57,7 +58,7 @@ export default function SignInPage() {
     } else {
         toast({
             title: 'Sign-in Failed',
-            description: 'No account found with that email address. Please register or try again.',
+            description: 'Invalid email or password. Please try again or register for a new account.',
             variant: 'destructive'
         });
     }

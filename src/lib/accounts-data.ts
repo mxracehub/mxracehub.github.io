@@ -23,6 +23,7 @@ export type Account = {
     name: string;
     username: string;
     email: string;
+    password?: string; // In a real app, this would be a hashed password.
     bio: string;
     balances: {
         gold: number;
@@ -40,6 +41,7 @@ export const accounts: Account[] = [
         name: 'John Doe',
         username: 'johndoe',
         email: 'john.doe@example.com',
+        password: 'password123',
         bio: 'Motocross enthusiast and weekend warrior.',
         balances: {
             gold: 15000,
@@ -59,6 +61,7 @@ export const accounts: Account[] = [
         name: 'Jane Smith',
         username: 'janesmith',
         email: 'jane.smith@example.com',
+        password: 'password123',
         bio: 'Supercross superfan.',
         balances: {
             gold: 5000,
@@ -76,6 +79,7 @@ export const accounts: Account[] = [
         name: 'Mike Johnson',
         username: 'mikej',
         email: 'mike.j@example.com',
+        password: 'password123',
         bio: 'Just here for the races.',
         balances: {
             gold: 1000,
