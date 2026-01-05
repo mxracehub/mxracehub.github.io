@@ -1,12 +1,46 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Star, X, Calendar, Users } from 'lucide-react';
+import { Star, Calendar } from 'lucide-react';
 import Link from 'next/link';
+import { motorcrossRaces } from '@/lib/races-motorcross-data';
+import { supercrossRaces } from '@/lib/races-supercross-data';
+
+// Helper function to parse dates. Assumes current or next year for month-day formats.
+const parseDate = (dateString: string): Date => {
+  const now = new Date();
+  let raceDate = new Date(dateString);
+
+  if (isNaN(raceDate.getTime())) {
+    // Handle formats like "MAY 30"
+    const withYear = `${dateString} ${now.getFullYear()}`;
+    raceDate = new Date(withYear);
+    if (raceDate < now) {
+      // If the date is in the past, assume it's for next year
+      raceDate.setFullYear(now.getFullYear() + 1);
+    }
+  }
+  
+  // Set time to end of day for countdown consistency
+  raceDate.setHours(23, 59, 59, 999);
+  return raceDate;
+};
+
+
+const allRaces = [
+  ...motorcrossRaces.map(r => ({ ...r, date: parseDate(r.date) })),
+  ...supercrossRaces.map(r => ({
+    id: `supercross-${r.round}`,
+    name: `${r.location} Supercross`,
+    track: r.track,
+    date: parseDate(r.date),
+    location: r.location,
+  })),
+];
 
 // CountdownTimer component
 const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
@@ -72,7 +106,14 @@ export default function DashboardPage() {
     (img) => img.id === 'race-day-banner'
   );
 
-  const nextRaceDate = new Date('2025-05-31T23:59:59');
+  const nextRace = useMemo(() => {
+    const now = new Date();
+    const upcomingRaces = allRaces
+      .filter(race => race.date > now)
+      .sort((a, b) => a.date.getTime() - b.date.getTime());
+    
+    return upcomingRaces[0] || null;
+  }, []);
 
   return (
     <div className="max-w-5xl mx-auto">
@@ -99,18 +140,24 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      <div className="mb-8 rounded-lg border border-border bg-card p-6 text-center text-card-foreground">
-        <p className="mb-2 font-bold uppercase tracking-widest text-primary">
-          Next Race
-        </p>
-        <h2 className="mb-1 text-3xl font-bold">
-          THUNDER VALLEY MOTOCROSS
-        </h2>
-        <p className="mb-2 text-muted-foreground">MAY 31, 2025</p>
-        <p className="mb-6 text-muted-foreground">Lakewood, Colorado</p>
-
-        <CountdownTimer targetDate={nextRaceDate} />
-      </div>
+      {nextRace ? (
+        <div className="mb-8 rounded-lg border border-border bg-card p-6 text-center text-card-foreground">
+          <p className="mb-2 font-bold uppercase tracking-widest text-primary">
+            Next Race
+          </p>
+          <h2 className="mb-1 text-3xl font-bold uppercase">
+            {nextRace.name}
+          </h2>
+          <p className="mb-2 text-muted-foreground">{nextRace.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+          <p className="mb-6 text-muted-foreground">{nextRace.location}</p>
+          <CountdownTimer targetDate={nextRace.date} />
+        </div>
+      ) : (
+         <div className="mb-8 rounded-lg border border-border bg-card p-6 text-center text-card-foreground">
+            <h2 className="mb-1 text-3xl font-bold">No upcoming races scheduled.</h2>
+            <p className="mt-2 text-muted-foreground">Please check back soon for the next season's schedule!</p>
+        </div>
+      )}
 
       <div className="mb-12 text-center">
         <Button
