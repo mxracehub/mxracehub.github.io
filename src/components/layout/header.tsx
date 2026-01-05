@@ -20,7 +20,7 @@ export function Header() {
     <header className="sticky top-0 z-10 flex flex-col border-b border-white/10 bg-background">
       <div className="flex h-16 items-center justify-between bg-primary px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2.5">
-          <h1 className="font-bold text-2xl truncate font-headline text-primary-foreground">MXracehub</h1>
+          <h1 className="font-bold text-2xl truncate font-headline text-primary-foreground">Mxracehub</h1>
         </Link>
         <div className="flex items-center gap-4">
           <Button asChild variant="secondary" className="bg-white text-black hover:bg-gray-200">

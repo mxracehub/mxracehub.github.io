@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
@@ -5,8 +6,8 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 
 export const metadata: Metadata = {
-  title: 'MxHub',
-  description: 'Manage your racing world with MxHub',
+  title: 'Mxracehub',
+  description: 'Manage your racing world with Mxracehub',
 };
 
 export default function RootLayout({

@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Instagram, Youtube } from 'lucide-react';
 import Image from 'next/image';
@@ -52,7 +53,7 @@ export function Footer() {
 
         {/* Bottom: Copyright */}
         <div className="mt-8 border-t border-white/10 pt-4 text-center text-sm text-muted-foreground">
-          <p>&copy; 2025 MXRaceHub</p>
+          <p>&copy; 2025 Mxracehub</p>
         </div>
       </div>
     </footer>
