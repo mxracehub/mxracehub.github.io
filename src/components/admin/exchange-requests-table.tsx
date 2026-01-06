@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Table,
   TableBody,
@@ -19,23 +19,38 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { MoreHorizontal } from 'lucide-react';
-import { exchangeRequests as initialRequests, type ExchangeRequest } from '@/lib/accounts-data';
+import { getExchangeRequests, updateExchangeRequestStatus } from '@/lib/firebase-config';
+import type { ExchangeRequest } from '@/lib/types';
 import { useToast } from '@/hooks/use-toast';
 
 export function ExchangeRequestsTable() {
-  const [requests, setRequests] = useState<ExchangeRequest[]>(initialRequests);
+  const [requests, setRequests] = useState<ExchangeRequest[]>([]);
   const { toast } = useToast();
 
-  const handleStatusChange = (requestId: string, newStatus: 'Approved' | 'Rejected') => {
-    setRequests(prevRequests =>
-      prevRequests.map(req =>
-        req.id === requestId ? { ...req, status: newStatus } : req
-      )
-    );
-    toast({
-        title: 'Status Updated',
-        description: `Request ${requestId} has been ${newStatus.toLowerCase()}.`
-    });
+  useEffect(() => {
+    getExchangeRequests().then(setRequests);
+  }, []);
+
+  const handleStatusChange = async (requestId: string, newStatus: 'Approved' | 'Rejected') => {
+    try {
+        await updateExchangeRequestStatus(requestId, newStatus);
+        setRequests(prevRequests =>
+          prevRequests.map(req =>
+            req.id === requestId ? { ...req, status: newStatus } : req
+          )
+        );
+        toast({
+            title: 'Status Updated',
+            description: `Request ${requestId} has been ${newStatus.toLowerCase()}.`
+        });
+    } catch (error) {
+        console.error(error);
+        toast({
+            title: 'Error',
+            description: 'Failed to update request status.',
+            variant: 'destructive',
+        });
+    }
   };
 
   return (
@@ -54,7 +69,7 @@ export function ExchangeRequestsTable() {
         <TableBody>
           {requests.map(request => (
             <TableRow key={request.id}>
-              <TableCell className="font-medium">{request.id}</TableCell>
+              <TableCell className="font-medium">{request.id.substring(0, 8)}...</TableCell>
               <TableCell>{request.accountName}</TableCell>
               <TableCell>{request.amount.toLocaleString()} GC</TableCell>
               <TableCell>{request.date}</TableCell>
