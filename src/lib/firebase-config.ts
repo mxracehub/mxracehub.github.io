@@ -1,11 +1,19 @@
-
 'use client';
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore, collection, doc, getDoc, getDocs, setDoc, query, where, addDoc } from "firebase/firestore";
+import { getFirestore, collection, doc, getDoc, getDocs, setDoc, query, where, addDoc, updateDoc } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import { type Account, type ExchangeRequest } from "./types";
-import { firebaseConfig } from "@/firebase/config";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDNAADGPDDmXXTmOEPafwjb_wSE-EPd3E8",
+  authDomain: "studio-122199390-e63be.firebaseapp.com",
+  projectId: "studio-122199390-e63be",
+  storageBucket: "studio-122199390-e63be.appspot.com",
+  messagingSenderId: "553275156578",
+  appId: "1:553275156578:web:cf7bd93695c99957b7c93b"
+};
 
 // Initialize Firebase
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
@@ -38,12 +46,13 @@ export const getAccountByEmail = async (email: string): Promise<Account | null> 
 };
 
 export const createAccount = async (id: string, accountData: Omit<Account, 'id'>): Promise<void> => {
-    await setDoc(doc(db, "accounts", id), accountData);
+    const accountRef = doc(db, "accounts", id);
+    await setDoc(accountRef, accountData);
 };
 
 export const updateAccount = async (id: string, updates: Partial<Account>): Promise<void> => {
     const docRef = doc(db, "accounts", id);
-    await setDoc(docRef, updates, { merge: true });
+    await updateDoc(docRef, updates);
 };
 
 export const isUsernameTaken = async (username: string): Promise<boolean> => {

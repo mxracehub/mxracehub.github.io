@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -76,7 +75,7 @@ export default function RegisterPage() {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
 
-        const newAccount: Omit<Account, 'id'> = {
+        const newAccountData: Omit<Account, 'id'> = {
             name: username,
             username: username.trim(),
             email: email.trim(),
@@ -85,9 +84,10 @@ export default function RegisterPage() {
             betHistory: [],
             friendIds: [],
             riderNumber: riderNumber.trim() || '',
+            mxhubStanding: 0,
         };
 
-        await createAccount(user.uid, newAccount);
+        await createAccount(user.uid, newAccountData);
 
         toast({
             title: 'Account Created!',
