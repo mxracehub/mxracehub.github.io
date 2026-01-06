@@ -19,7 +19,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Loader2, LogIn } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { auth, getAccountByEmail } from '@/lib/firebase-config';
+import { auth } from '@/lib/firebase-config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
 export default function SignInPage() {
@@ -44,10 +44,11 @@ export default function SignInPage() {
     setIsLoading(true);
     
     try {
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
+        await signInWithEmailAndPassword(auth, email, password);
 
-        localStorage.setItem('loggedInUserId', user.uid);
+        // NOTE: We no longer need to manually set localStorage.
+        // The `useUser` hook now manages auth state automatically.
+
         toast({
             title: 'Signed In!',
             description: "Welcome back! We're redirecting you to your account.",

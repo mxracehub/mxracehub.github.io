@@ -7,6 +7,9 @@ import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useUser } from '@/firebase';
+import { auth } from '@/lib/firebase-config';
+import { signOut } from 'firebase/auth';
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -19,20 +22,11 @@ const navItems = [
 
 export function Header() {
   const router = useRouter();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    // This will run on the client side
-    if (typeof window !== 'undefined') {
-      const loggedInUserId = localStorage.getItem('loggedInUserId');
-      setIsLoggedIn(!!loggedInUserId);
-    }
-  }, []);
-
-
-  const handleSignOut = () => {
-    localStorage.removeItem('loggedInUserId');
-    setIsLoggedIn(false);
+  const { user, isLoading } = useUser();
+  const isLoggedIn = !isLoading && !!user;
+  
+  const handleSignOut = async () => {
+    await signOut(auth);
     router.push('/sign-in');
   };
 
@@ -49,12 +43,16 @@ export function Header() {
              </Button>
           ) : (
             <>
-              <Button asChild variant="secondary" className="bg-white text-black hover:bg-gray-200">
-                <Link href="/sign-in">Sign In</Link>
-              </Button>
-              <Button asChild variant="secondary" className="bg-black text-white hover:bg-gray-800">
-                <Link href="/register">Register</Link>
-              </Button>
+              {!isLoading && (
+                <>
+                    <Button asChild variant="secondary" className="bg-white text-black hover:bg-gray-200">
+                        <Link href="/sign-in">Sign In</Link>
+                    </Button>
+                    <Button asChild variant="secondary" className="bg-black text-white hover:bg-gray-800">
+                        <Link href="/register">Register</Link>
+                    </Button>
+                </>
+              )}
             </>
           )}
         </div>

@@ -14,35 +14,76 @@ import {
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { getAccountById, updateAccount, addExchangeRequest } from '@/lib/firebase-config';
+import { updateAccount, addExchangeRequest } from '@/lib/firebase-config';
 import type { Account } from '@/lib/types';
 import { Banknote, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
+import { useUser, useDoc } from '@/firebase';
+import { Skeleton } from '@/components/ui/skeleton';
+
+function ExchangeGoldSkeleton() {
+  return (
+    <div>
+      <PageHeader
+        title="Gold Coin Exchange"
+        description="Exchange your Gold Coins back to your original payment method."
+      />
+      <div className="mx-auto grid max-w-4xl gap-8 lg:grid-cols-5">
+        <div className="lg:col-span-3">
+          <Card>
+            <CardHeader>
+              <CardTitle>Redeem Gold Coins</CardTitle>
+              <CardDescription>
+                Enter the amount of Gold Coins you wish to exchange. Funds will be returned to your original payment method within 3-5 business days. 100 Gold Coins = $1.00 USD
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="amount">Amount to Exchange (GC)</Label>
+                <Skeleton className="h-10 w-full" />
+              </div>
+              <div className="rounded-lg border bg-muted/50 p-4">
+                <h3 className="font-semibold">Exchange Value</h3>
+                <Skeleton className="h-8 w-24 mt-1" />
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Skeleton className="h-11 w-48" />
+            </CardFooter>
+          </Card>
+        </div>
+        <div className="lg:col-span-2">
+          <Card className="bg-muted/50">
+            <CardHeader>
+              <CardTitle>Your Gold Coin Balance</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Skeleton className="h-10 w-32" />
+              <div className="text-muted-foreground mt-1">Gold Coins</div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function ExchangeGoldPage() {
-    const [account, setAccount] = useState<Account | null>(null);
     const router = useRouter();
+    const { toast } = useToast();
+    const { user, isLoading: isUserLoading } = useUser();
+    const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
+    
+    const [amount, setAmount] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     useEffect(() => {
-        const loggedInUserId = localStorage.getItem('loggedInUserId');
-        if (loggedInUserId) {
-          getAccountById(loggedInUserId).then(userAccount => {
-              if (userAccount) {
-                  setAccount(userAccount);
-              } else {
-                  router.push('/sign-in');
-              }
-          });
-        } else {
+        if (!isUserLoading && !user) {
           router.push('/sign-in');
         }
-      }, [router]);
+      }, [isUserLoading, user, router]);
 
-    const [amount, setAmount] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
-    const { toast } = useToast();
-    
     const exchangeValueUSD = useMemo(() => {
         const numericAmount = Number(amount);
         if (numericAmount > 0) {
@@ -56,12 +97,13 @@ export default function ExchangeGoldPage() {
         e.preventDefault();
         const exchangeAmount = Number(amount);
 
-        if (!account) {
+        if (!account || !user) {
              toast({
                 title: 'Error',
-                description: 'Could not find user account.',
+                description: 'Could not find user account. Please sign in again.',
                 variant: 'destructive',
             });
+            router.push('/sign-in');
             return;
         }
 
@@ -83,15 +125,15 @@ export default function ExchangeGoldPage() {
             return;
         }
 
-        setIsLoading(true);
+        setIsSubmitting(true);
         
         try {
             const newBalance = account.balances.gold - exchangeAmount;
             
-            await updateAccount(account.id, { balances: { ...account.balances, gold: newBalance } });
+            await updateAccount(user.uid, { balances: { ...account.balances, gold: newBalance } });
 
             await addExchangeRequest({
-                accountId: account.id,
+                accountId: user.uid,
                 accountName: account.name,
                 amount: exchangeAmount,
                 date: new Date().toISOString().split('T')[0],
@@ -111,15 +153,19 @@ export default function ExchangeGoldPage() {
                 description: 'Failed to submit exchange request. Please try again.',
                 variant: 'destructive',
             });
-            // Revert optimistic update if server failed
-            await updateAccount(account.id, { balances: { ...account.balances, gold: account.balances.gold } });
         } finally {
-            setIsLoading(false);
+            setIsSubmitting(false);
         }
     };
+    
+  const isLoading = isUserLoading || isAccountLoading;
 
+  if (isLoading) {
+      return <ExchangeGoldSkeleton />
+  }
+  
   if (!account) {
-      return <div>Loading...</div>
+      return <div>Account not found. Please try again later.</div>
   }
 
 
@@ -148,7 +194,7 @@ export default function ExchangeGoldPage() {
                       placeholder="e.g., 5000"
                       value={amount}
                       onChange={(e) => setAmount(e.target.value)}
-                      disabled={isLoading}
+                      disabled={isSubmitting}
                       required
                     />
                   </div>
@@ -161,13 +207,13 @@ export default function ExchangeGoldPage() {
                     </div>
                 </CardContent>
                 <CardFooter>
-                  <Button size="lg" type="submit" disabled={isLoading}>
-                    {isLoading ? (
+                  <Button size="lg" type="submit" disabled={isSubmitting}>
+                    {isSubmitting ? (
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                     ) : (
                         <Banknote className="mr-2 h-4 w-4" />
                     )}
-                    {isLoading ? 'Submitting...' : 'Submit Exchange Request'}
+                    {isSubmitting ? 'Submitting...' : 'Submit Exchange Request'}
                   </Button>
                 </CardFooter>
               </Card>

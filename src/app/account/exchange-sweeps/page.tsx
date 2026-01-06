@@ -16,44 +16,86 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Loader2, Repeat } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { getAccountById, updateAccount, addExchangeRequest } from '@/lib/firebase-config';
+import { updateAccount, addExchangeRequest } from '@/lib/firebase-config';
 import type { Account } from '@/lib/types';
 import { useRouter } from 'next/navigation';
+import { useUser, useDoc } from '@/firebase';
+import { Skeleton } from '@/components/ui/skeleton';
+
+function ExchangeSweepsSkeleton() {
+    return (
+      <div>
+        <PageHeader
+          title="Sweeps Coin Exchange"
+          description="Transfer your Sweeps Coins to the Mx Exchange app for redemption."
+        />
+        <div className="mx-auto grid max-w-4xl gap-8 lg:grid-cols-5">
+          <div className="lg:col-span-3">
+            <Card>
+              <CardHeader>
+                <CardTitle>Initiate Transfer</CardTitle>
+                <CardDescription>
+                  Enter the amount of Sweeps Coins you wish to send to your
+                  linked Mx Exchange account.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="amount">Amount to Transfer</Label>
+                  <Skeleton className="h-10 w-full" />
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Minimum transfer amount: 50.00 Sweeps Coins.
+                </p>
+              </CardContent>
+              <CardFooter>
+                 <Skeleton className="h-11 w-52" />
+              </CardFooter>
+            </Card>
+          </div>
+          <div className="lg:col-span-2">
+            <Card className="bg-muted/50">
+              <CardHeader>
+                <CardTitle>Your Balance</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <Skeleton className="h-10 w-32" />
+                <div className="text-muted-foreground mt-1">Sweeps Coins</div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+    )
+}
 
 export default function ExchangeSweepsPage() {
-  const [account, setAccount] = useState<Account | null>(null);
-  const router = useRouter();
+    const router = useRouter();
+    const { toast } = useToast();
+    const { user, isLoading: isUserLoading } = useUser();
+    const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
 
-  useEffect(() => {
-    const loggedInUserId = localStorage.getItem('loggedInUserId');
-    if (loggedInUserId) {
-      getAccountById(loggedInUserId).then(userAccount => {
-        if (userAccount) {
-          setAccount(userAccount);
-        } else {
+    const [amount, setAmount] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    useEffect(() => {
+        if (!isUserLoading && !user) {
           router.push('/sign-in');
         }
-      });
-    } else {
-      router.push('/sign-in');
-    }
-  }, [router]);
+    }, [isUserLoading, user, router]);
 
-
-  const [amount, setAmount] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const transferAmount = Number(amount);
 
-    if (!account) {
+    if (!account || !user) {
       toast({
         title: 'Error',
-        description: 'Could not find user account.',
+        description: 'Could not find user account. Please sign in again.',
         variant: 'destructive',
       });
+      router.push('/sign-in');
       return;
     }
 
@@ -85,14 +127,14 @@ export default function ExchangeSweepsPage() {
       return;
     }
 
-    setIsLoading(true);
+    setIsSubmitting(true);
     
     try {
         const newBalance = account.balances.sweeps - transferAmount;
-        await updateAccount(account.id, { balances: { ...account.balances, sweeps: newBalance } });
+        await updateAccount(user.uid, { balances: { ...account.balances, sweeps: newBalance } });
 
         await addExchangeRequest({
-            accountId: account.id,
+            accountId: user.uid,
             accountName: account.name,
             amount: transferAmount,
             date: new Date().toISOString().split('T')[0],
@@ -114,15 +156,19 @@ export default function ExchangeSweepsPage() {
             description: 'Failed to submit transfer request. Please try again.',
             variant: 'destructive',
         });
-        // Revert optimistic update if server failed
-        await updateAccount(account.id, { balances: { ...account.balances, sweeps: account.balances.sweeps } });
     } finally {
-        setIsLoading(false);
+        setIsSubmitting(false);
     }
   };
   
+    const isLoading = isUserLoading || isAccountLoading;
+
+    if (isLoading) {
+        return <ExchangeSweepsSkeleton />
+    }
+
     if (!account) {
-        return <div>Loading...</div>
+        return <div>Account not found. Please try again later.</div>
     }
 
 
@@ -152,7 +198,7 @@ export default function ExchangeSweepsPage() {
                     placeholder="e.g., 100"
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
-                    disabled={isLoading}
+                    disabled={isSubmitting}
                     required
                   />
                 </div>
@@ -161,13 +207,13 @@ export default function ExchangeSweepsPage() {
                 </p>
               </CardContent>
               <CardFooter>
-                <Button size="lg" type="submit" disabled={isLoading}>
-                  {isLoading ? (
+                <Button size="lg" type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? (
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                   ) : (
                     <Repeat className="mr-2 h-4 w-4" />
                   )}
-                  {isLoading
+                  {isSubmitting
                     ? 'Transferring...'
                     : 'Transfer to Mx Exchange'}
                 </Button>
