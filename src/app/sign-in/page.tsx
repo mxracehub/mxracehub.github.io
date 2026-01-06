@@ -21,16 +21,31 @@ import { useRouter } from 'next/navigation';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { auth } from '@/lib/firebase-config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function SignInPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isVerified, setIsVerified] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
   const router = useRouter();
+  
+  const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
+  const handleRecaptchaChange = (value: string | null) => {
+    if (value) {
+      setIsVerified(true);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!isVerified) {
+        toast({ title: 'Verification Required', description: 'Please complete the reCAPTCHA.', variant: 'destructive' });
+        return;
+    }
 
     if (!email.trim() || !/^\S+@\S+\.\S+$/.test(email)) {
         toast({ title: 'Error', description: 'Please enter a valid email.', variant: 'destructive' });
@@ -45,9 +60,6 @@ export default function SignInPage() {
     
     try {
         await signInWithEmailAndPassword(auth, email, password);
-
-        // NOTE: We no longer need to manually set localStorage.
-        // The `useUser` hook now manages auth state automatically.
 
         toast({
             title: 'Signed In!',
@@ -87,38 +99,49 @@ export default function SignInPage() {
                         <CardDescription>Sign in to access your account, place bets, and more.</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                    <div className="space-y-2">
-                        <Label htmlFor="email">Email</Label>
-                        <Input
-                            id="email"
-                            type="email"
-                            placeholder="your@email.com"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            disabled={isLoading}
-                            required
-                        />
-                    </div>
-                    <div className="space-y-2">
-                        <Label htmlFor="password">Password</Label>
-                        <Input
-                            id="password"
-                            type="password"
-                            placeholder="********"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            disabled={isLoading}
-                            required
-                        />
-                    </div>
-                     <div className="flex items-center justify-end">
-                        <Link href="#" className="text-sm text-primary hover:underline">
-                            Forgot Password?
-                        </Link>
-                    </div>
+                        <div className="space-y-2">
+                            <Label htmlFor="email">Email</Label>
+                            <Input
+                                id="email"
+                                type="email"
+                                placeholder="your@email.com"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                disabled={isLoading}
+                                required
+                            />
+                        </div>
+                        <div className="space-y-2">
+                            <Label htmlFor="password">Password</Label>
+                            <Input
+                                id="password"
+                                type="password"
+                                placeholder="********"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                disabled={isLoading}
+                                required
+                            />
+                        </div>
+                        {recaptchaSiteKey ? (
+                            <div className="flex justify-center">
+                                <ReCAPTCHA
+                                sitekey={recaptchaSiteKey}
+                                onChange={handleRecaptchaChange}
+                                theme="dark"
+                                />
+                            </div>
+                        ) : (
+                            <p className="text-destructive text-center text-sm">reCAPTCHA site key not configured.</p>
+                        )}
+                        <div className="flex items-center justify-end">
+                            <Link href="#" className="text-sm text-primary hover:underline">
+                                Forgot Password?
+                            </Link>
+                        </div>
                     </CardContent>
                     <CardFooter>
-                    <Button type="submit" className="w-full bg-red-600 hover:bg-red-700" disabled={isLoading}>
+                    <Button type="submit" className="w-full bg-red-600 hover:bg-red-700" disabled={isLoading || !isVerified}>
                         {isLoading ? (
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                         ) : (
