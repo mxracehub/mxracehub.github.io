@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
 import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
@@ -21,16 +21,28 @@ import { useRouter } from 'next/navigation';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { auth } from '@/lib/firebase-config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function SignInPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const { toast } = useToast();
   const router = useRouter();
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!recaptchaToken) {
+      toast({
+        title: 'reCAPTCHA required',
+        description: 'Please complete the reCAPTCHA challenge.',
+        variant: 'destructive',
+      });
+      return;
+    }
 
     if (!email.trim() || !/^\S+@\S+\.\S+$/.test(email)) {
         toast({ title: 'Error', description: 'Please enter a valid email.', variant: 'destructive' });
@@ -59,6 +71,8 @@ export default function SignInPage() {
             description: 'Invalid email or password. Please try again or register for a new account.',
             variant: 'destructive'
         });
+        recaptchaRef.current?.reset();
+        setRecaptchaToken(null);
     } finally {
         setIsLoading(false);
     }
@@ -113,9 +127,19 @@ export default function SignInPage() {
                                 Forgot Password?
                             </Link>
                         </div>
+                         {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
+                            <div className="flex justify-center">
+                                <ReCAPTCHA
+                                    ref={recaptchaRef}
+                                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                                    onChange={setRecaptchaToken}
+                                    onExpired={() => setRecaptchaToken(null)}
+                                />
+                            </div>
+                        )}
                     </CardContent>
                     <CardFooter>
-                    <Button type="submit" className="w-full bg-red-600 hover:bg-red-700" disabled={isLoading}>
+                    <Button type="submit" className="w-full bg-red-600 hover:bg-red-700" disabled={isLoading || !recaptchaToken}>
                         {isLoading ? (
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                         ) : (
