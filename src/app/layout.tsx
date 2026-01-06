@@ -7,6 +7,7 @@ import { Footer } from '@/components/layout/footer';
 import { FirebaseClientProvider } from '@/firebase/client-provider';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.mxracehub.site'),
   title: 'Mxracehub',
   description: 'Manage your racing world with Mxracehub',
 };
