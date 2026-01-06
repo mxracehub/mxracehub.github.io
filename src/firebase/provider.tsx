@@ -12,7 +12,7 @@ import {
 import type { Auth } from 'firebase/auth';
 import type { FirebaseApp } from 'firebase/app';
 import type { Firestore } from 'firebase/firestore';
-import { initializeFirebase } from '.';
+import { app, auth, db } from '.';
 import { FirebaseErrorListener } from '@/components/FirebaseErrorListener';
 
 interface FirebaseContextValue {
@@ -31,7 +31,6 @@ export function FirebaseProvider({ children }: { children: ReactNode }) {
   });
 
   useEffect(() => {
-    const { app, auth, db } = initializeFirebase();
     setFirebase({ app, auth, db });
   }, []);
 

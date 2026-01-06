@@ -1,25 +1,9 @@
 'use client';
-import { initializeApp, getApps, getApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getFirestore, collection, doc, getDoc, getDocs, setDoc, query, where, addDoc, updateDoc } from "firebase/firestore";
-import { getStorage } from "firebase/storage";
-import { type Account, type ExchangeRequest } from "./types";
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyDNAADGPDDmXXTmOEPafwjb_wSE-EPd3E8",
-  authDomain: "studio-122199390-e63be.firebaseapp.com",
-  projectId: "studio-122199390-e63be",
-  storageBucket: "studio-122199390-e63be.appspot.com",
-  messagingSenderId: "553275156578",
-  appId: "1:553275156578:web:cf7bd93695c99957b7c93b"
-};
-
-// Initialize Firebase
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-const auth = getAuth(app);
-const db = getFirestore(app);
-const storage = getStorage(app);
+import { auth, db } from "@/firebase";
+import { collection, doc, getDoc, getDocs, setDoc, query, where, addDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import type { Account, ExchangeRequest } from "./types";
 
 // Firestore collection references
 const accountsCollection = collection(db, "accounts");
@@ -121,5 +105,3 @@ export const updateExchangeRequestStatus = async (id: string, status: 'Approved'
     const docRef = doc(db, "exchangeRequests", id);
     await setDoc(docRef, { status }, { merge: true });
 }
-
-export { app, auth, db, storage };
