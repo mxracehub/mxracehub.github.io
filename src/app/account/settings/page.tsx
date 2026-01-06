@@ -45,6 +45,9 @@ export default function SettingsPage() {
           <Link href="/account/settings/banking" className="block text-lg font-medium text-primary hover:underline">
               Banking Details
           </Link>
+          <Link href="/account/transactions" className="block text-lg font-medium text-primary hover:underline">
+              Transaction History
+          </Link>
            <Link href="/account/settings/privacy" className="block text-lg font-medium text-primary hover:underline">
               Privacy
           </Link>

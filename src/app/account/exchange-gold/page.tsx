@@ -96,16 +96,14 @@ export default function ExchangeGoldPage() {
                 amount: exchangeAmount,
                 date: new Date().toISOString().split('T')[0],
                 status: 'Pending',
+                type: 'Gold Coin',
             });
             
-            // Optimistically update the UI
-            setAccount(prev => prev ? { ...prev, balances: { ...prev.balances, gold: newBalance }} : null);
-
             toast({
                 title: 'Request Submitted!',
                 description: `Your request to exchange ${exchangeAmount.toLocaleString()} Gold Coins has been submitted.`,
             });
-            setAmount('');
+            router.push('/account/transactions');
         } catch (error) {
             console.error(error);
             toast({
@@ -113,6 +111,8 @@ export default function ExchangeGoldPage() {
                 description: 'Failed to submit exchange request. Please try again.',
                 variant: 'destructive',
             });
+            // Revert optimistic update if server failed
+            await updateAccount(account.id, { balances: { ...account.balances, gold: account.balances.gold } });
         } finally {
             setIsLoading(false);
         }

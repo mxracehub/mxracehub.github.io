@@ -1,3 +1,4 @@
+
 // Import the functions you need from the SDKs you need
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
@@ -106,8 +107,15 @@ export const getExchangeRequests = async (): Promise<ExchangeRequest[]> => {
     return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as ExchangeRequest));
 };
 
-export const addExchangeRequest = async (request: Omit<ExchangeRequest, 'id'>): Promise<void> => {
-    await addDoc(exchangeRequestsCollection, request);
+export const getExchangeRequestsByAccountId = async (accountId: string): Promise<ExchangeRequest[]> => {
+    const q = query(exchangeRequestsCollection, where("accountId", "==", accountId));
+    const querySnapshot = await getDocs(q);
+    return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as ExchangeRequest));
+};
+
+export const addExchangeRequest = async (request: Omit<ExchangeRequest, 'id'>): Promise<string> => {
+    const docRef = await addDoc(exchangeRequestsCollection, request);
+    return docRef.id;
 };
 
 export const updateExchangeRequestStatus = async (id: string, status: 'Approved' | 'Rejected'): Promise<void> => {

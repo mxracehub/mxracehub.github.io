@@ -16,7 +16,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Loader2, Repeat } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { getAccountById, updateAccount } from '@/lib/firebase-config';
+import { getAccountById, updateAccount, addExchangeRequest } from '@/lib/firebase-config';
 import type { Account } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 
@@ -91,15 +91,21 @@ export default function ExchangeSweepsPage() {
         const newBalance = account.balances.sweeps - transferAmount;
         await updateAccount(account.id, { balances: { ...account.balances, sweeps: newBalance } });
 
-        // Optimistically update UI
-        setAccount(prev => prev ? { ...prev, balances: { ...prev.balances, sweeps: newBalance }} : null);
+        await addExchangeRequest({
+            accountId: account.id,
+            accountName: account.name,
+            amount: transferAmount,
+            date: new Date().toISOString().split('T')[0],
+            status: 'Pending',
+            type: 'Sweeps Coin',
+        });
 
         toast({
           title: 'Transfer Submitted!',
           description: `Your request to transfer ${transferAmount.toLocaleString()} Sweeps Coins has been submitted.`,
         });
 
-        setAmount('');
+        router.push('/account/transactions');
 
     } catch(error) {
         console.error(error);
@@ -108,6 +114,8 @@ export default function ExchangeSweepsPage() {
             description: 'Failed to submit transfer request. Please try again.',
             variant: 'destructive',
         });
+        // Revert optimistic update if server failed
+        await updateAccount(account.id, { balances: { ...account.balances, sweeps: account.balances.sweeps } });
     } finally {
         setIsLoading(false);
     }

@@ -16,6 +16,7 @@ export type ExchangeRequest = {
     amount: number;
     date: string;
     status: 'Pending' | 'Approved' | 'Rejected';
+    type: 'Gold Coin' | 'Sweeps Coin';
 };
 
 export type Account = {
