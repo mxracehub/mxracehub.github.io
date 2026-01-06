@@ -1,7 +1,8 @@
 
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useUser, useDoc } from '@/firebase';
 import { PageHeader } from '@/components/page-header';
 import {
   Card,
@@ -11,7 +12,6 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { getAccountById } from '@/lib/firebase-config';
 import { useRouter } from 'next/navigation';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
@@ -21,40 +21,7 @@ import Link from 'next/link';
 import { Skeleton } from '@/components/ui/skeleton';
 import type { Account } from '@/lib/types';
 
-export default function AccountPage() {
-  const [account, setAccount] = useState<Account | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const router = useRouter();
-  const userAvatar = PlaceHolderImages.find((p) => p.id === 'user-avatar');
-
-  useEffect(() => {
-    const fetchAccountData = async () => {
-      const loggedInUserId = localStorage.getItem('loggedInUserId');
-      if (loggedInUserId) {
-        try {
-          const userAccount = await getAccountById(loggedInUserId);
-          if (userAccount) {
-            setAccount(userAccount);
-          } else {
-            // User ID in storage is stale or invalid
-            localStorage.removeItem('loggedInUserId');
-            router.push('/sign-in');
-          }
-        } catch (error) {
-          console.error("Failed to fetch account:", error);
-          router.push('/sign-in');
-        } finally {
-          setIsLoading(false);
-        }
-      } else {
-        router.push('/sign-in');
-      }
-    };
-
-    fetchAccountData();
-  }, [router]);
-
-  if (isLoading) {
+function AccountPageSkeleton() {
     return (
         <div>
             <PageHeader title="My Account" description="View your profile, balances, and betting history."/>
@@ -95,11 +62,32 @@ export default function AccountPage() {
             </div>
         </div>
     )
+}
+
+export default function AccountPage() {
+  const router = useRouter();
+  const { user, isLoading: isUserLoading } = useUser();
+  const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
+
+  const userAvatar = PlaceHolderImages.find((p) => p.id === 'user-avatar');
+
+  useEffect(() => {
+    // If user loading is finished and there's no user, redirect to sign-in.
+    if (!isUserLoading && !user) {
+      router.push('/sign-in');
+    }
+  }, [isUserLoading, user, router]);
+
+  const isLoading = isUserLoading || isAccountLoading;
+
+  if (isLoading) {
+    return <AccountPageSkeleton />;
   }
 
   if (!account) {
-    // This can happen briefly during redirection
-    return <div>Loading...</div>;
+    // This can happen if the user is authenticated but their account doc doesn't exist yet,
+    // or if there was an error fetching the document.
+    return <div>Could not load account details. Please try again later.</div>;
   }
 
   return (
