@@ -144,7 +144,7 @@ export default function FriendsPage() {
               <Card key={friend.id}>
                 <CardContent className="p-4 flex flex-col sm:flex-row items-center gap-4">
                     <Avatar className="h-24 w-24 border-4 border-primary">
-                        <AvatarImage src={`https://picsum.photos/seed/${friend.username}/200`} alt={friend.name} />
+                        <AvatarImage src={'https://picsum.photos/seed/friend/200'} alt={friend.name} />
                         <AvatarFallback>{friend.name.charAt(0)}</AvatarFallback>
                     </Avatar>
                     <div className="flex-1 text-center sm:text-left">
