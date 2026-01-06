@@ -13,9 +13,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { summarizeRaceData } from '@/ai/flows/summarize-race-data';
 import { Label } from '@/components/ui/label';
-import { Bot, Clipboard, Loader2 } from 'lucide-react';
+import { Bot, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { copyToClipboard } from '@/lib/utils';
 
 export function SummarizerForm() {
   const [raceData, setRaceData] = useState('');
@@ -49,23 +48,6 @@ export function SummarizerForm() {
     }
   };
 
-  const handleCopyToClipboard = () => {
-    if (!summary) return;
-    copyToClipboard(summary).then(() => {
-        toast({
-        title: 'Copied!',
-        description: 'Summary has been copied to your clipboard.',
-        });
-    }).catch(err => {
-        console.error('Failed to copy: ', err);
-        toast({
-            title: 'Error',
-            description: 'Failed to copy summary to clipboard.',
-            variant: 'destructive',
-        });
-    });
-  }
-
   return (
     <Card>
       <CardHeader>
@@ -89,10 +71,7 @@ export function SummarizerForm() {
         {summary && (
           <div className="space-y-2">
             <Label>AI Generated Summary</Label>
-            <div className="relative rounded-md border bg-muted/50 p-4 text-sm">
-                <Button variant="ghost" size="icon" className="absolute top-2 right-2 h-7 w-7" onClick={handleCopyToClipboard}>
-                    <Clipboard className="h-4 w-4" />
-                </Button>
+            <div className="rounded-md border bg-muted/50 p-4 text-sm">
                 {summary}
             </div>
           </div>

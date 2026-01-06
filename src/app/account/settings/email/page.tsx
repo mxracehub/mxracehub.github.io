@@ -15,12 +15,11 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, Clipboard } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import { getAccountById, updateAccount, auth } from '@/lib/firebase-config';
 import type { Account } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 import { EmailAuthProvider, reauthenticateWithCredential, updateEmail } from 'firebase/auth';
-import { copyToClipboard } from '@/lib/utils';
 
 export default function ChangeEmailPage() {
   const [account, setAccount] = useState<Account | null>(null);
@@ -44,23 +43,6 @@ export default function ChangeEmailPage() {
       router.push('/sign-in');
     }
   }, [router]);
-
-  const handleCopyEmail = () => {
-    if (!account?.email) return;
-    copyToClipboard(account.email).then(() => {
-      toast({
-        title: 'Copied!',
-        description: 'Your email address has been copied to your clipboard.',
-      });
-    }).catch(err => {
-      console.error('Failed to copy email: ', err);
-      toast({
-        title: 'Error',
-        description: 'Failed to copy email to clipboard.',
-        variant: 'destructive',
-      });
-    });
-  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -141,25 +123,12 @@ export default function ChangeEmailPage() {
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="old-email">Current Email</Label>
-              <div className="relative">
-                <Input
-                  id="old-email"
-                  type="email"
-                  value={account?.email}
-                  disabled
-                  className="pr-10"
-                />
-                <Button 
-                  type="button" 
-                  variant="ghost" 
-                  size="icon" 
-                  className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7"
-                  onClick={handleCopyEmail}
-                  aria-label="Copy email"
-                >
-                  <Clipboard className="h-4 w-4" />
-                </Button>
-              </div>
+              <Input
+                id="old-email"
+                type="email"
+                value={account?.email}
+                disabled
+              />
             </div>
             <div className="space-y-2">
               <Label htmlFor="new-email">New Email</Label>
