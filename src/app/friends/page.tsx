@@ -10,51 +10,93 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Search, UserPlus, Mic } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { getAccountById, getFriends, getAccountByUsername, updateAccount } from '@/lib/firebase-config';
+import { getFriends, getAccountByUsername, updateAccount } from '@/lib/firebase-config';
 import type { Account } from '@/lib/types';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
+import { useUser, useDoc } from '@/firebase';
+import { Skeleton } from '@/components/ui/skeleton';
+
+function FriendsPageSkeleton() {
+    return (
+        <div className="max-w-4xl mx-auto">
+            <PageHeader
+                title="Find and Make Friends"
+                description="Search for friends, manage your connections, and start betting."
+            />
+            <div className="mb-8 flex gap-4">
+                <Skeleton className="h-10 flex-1" />
+                <Skeleton className="h-10 w-28" />
+            </div>
+            <div>
+                <Skeleton className="h-8 w-48 mb-4" />
+                <div className="space-y-4">
+                    {[...Array(2)].map((_, i) => (
+                        <Card key={i}>
+                            <CardContent className="p-4 flex flex-col sm:flex-row items-center gap-4">
+                                <Skeleton className="h-24 w-24 rounded-full" />
+                                <div className="flex-1 space-y-2 text-center sm:text-left">
+                                    <Skeleton className="h-6 w-32" />
+                                    <Skeleton className="h-4 w-24" />
+                                    <div className="mt-2 grid grid-cols-2 gap-x-4 gap-y-2">
+                                        <Skeleton className="h-4 w-20" />
+                                        <Skeleton className="h-4 w-20" />
+                                        <Skeleton className="h-4 w-20" />
+                                    </div>
+                                </div>
+                                <div className="flex flex-col items-center gap-2">
+                                    <Skeleton className="h-4 w-40" />
+                                    <Skeleton className="h-10 w-36" />
+                                </div>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
+            </div>
+        </div>
+    )
+}
 
 
 export default function FriendsPage() {
-    const [currentUser, setCurrentUser] = useState<Account | null>(null);
-    const [friends, setFriends] = useState<Account[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [friendSearch, setFriendSearch] = useState('');
     const router = useRouter();
     const { toast } = useToast();
+    const { user, isLoading: isUserLoading } = useUser();
+    const { data: currentUser, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
+    
+    const [friends, setFriends] = useState<Account[]>([]);
+    const [isLoadingFriends, setIsLoadingFriends] = useState(true);
+    const [friendSearch, setFriendSearch] = useState('');
+
+    useEffect(() => {
+        if (!isUserLoading && !user) {
+            router.push('/sign-in');
+        }
+    }, [isUserLoading, user, router]);
 
     useEffect(() => {
         const fetchFriendsData = async () => {
-            const loggedInUserId = localStorage.getItem('loggedInUserId');
-            if (loggedInUserId) {
-                try {
-                    const userAccount = await getAccountById(loggedInUserId);
-                    if (userAccount) {
-                        setCurrentUser(userAccount);
-                        if (userAccount.friendIds && userAccount.friendIds.length > 0) {
-                            const friendList = await getFriends(userAccount.friendIds);
-                            setFriends(friendList);
-                        }
-                    } else {
-                        localStorage.removeItem('loggedInUserId');
-                        router.push('/sign-in');
-                    }
-                } catch (error) {
-                    console.error("Failed to fetch friends data:", error);
-                    router.push('/sign-in');
-                } finally {
-                    setIsLoading(false);
+            if (currentUser && currentUser.friendIds) {
+                if (currentUser.friendIds.length > 0) {
+                    setIsLoadingFriends(true);
+                    const friendList = await getFriends(currentUser.friendIds);
+                    setFriends(friendList);
+                    setIsLoadingFriends(false);
+                } else {
+                    setFriends([]);
+                    setIsLoadingFriends(false);
                 }
-            } else {
-                router.push('/sign-in');
+            } else if (currentUser) {
+                // User has account but no friendIds field or it's empty
+                 setFriends([]);
+                 setIsLoadingFriends(false);
             }
         };
 
         fetchFriendsData();
-      }, [router]);
+    }, [currentUser]);
       
     const handleAddFriend = async () => {
         if (!friendSearch.trim()) {
@@ -93,14 +135,15 @@ export default function FriendsPage() {
                 title: "Already friends",
                 description: `You are already friends with ${friendToAdd.name}.`,
             });
+            setFriendSearch('');
             return;
         }
 
         try {
             const updatedFriendIds = [...(currentUser.friendIds || []), friendToAdd.id];
             await updateAccount(currentUser.id, { friendIds: updatedFriendIds });
-
-            setCurrentUser(prev => prev ? { ...prev, friendIds: updatedFriendIds } : null);
+            
+            // The useEffect will refetch friends, but we can optimistically update UI
             setFriends(prev => [...prev, friendToAdd].sort((a,b) => a.name.localeCompare(b.name)));
 
             toast({
@@ -119,9 +162,10 @@ export default function FriendsPage() {
         }
     }
 
+    const isLoading = isUserLoading || isAccountLoading || isLoadingFriends;
 
     if (isLoading) {
-        return <div>Loading...</div>
+        return <FriendsPageSkeleton />
     }
 
 

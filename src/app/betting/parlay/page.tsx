@@ -11,37 +11,82 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Layers, Loader2 } from 'lucide-react';
 import Image from 'next/image';
 import { useToast } from '@/hooks/use-toast';
-import { getAccountById, isUsernameTaken } from '@/lib/firebase-config';
+import { isUsernameTaken } from '@/lib/firebase-config';
 import type { Account } from '@/lib/types';
 import { useRouter } from 'next/navigation';
+import { useUser, useDoc } from '@/firebase';
+import { Skeleton } from '@/components/ui/skeleton';
+
+
+function ParlayBetPageSkeleton() {
+  const parlayImage = PlaceHolderImages.find((p) => p.id === 'race-banner-1');
+  return (
+    <div className="mx-auto max-w-2xl">
+      <PageHeader title="Parlay Bet" />
+      
+      {parlayImage && (
+        <div className="mb-8 overflow-hidden rounded-lg">
+          <Image
+            src={parlayImage.imageUrl}
+            alt={parlayImage.description}
+            width={800}
+            height={300}
+            className="w-full object-cover"
+            data-ai-hint={parlayImage.imageHint}
+          />
+        </div>
+      )}
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Create Your Parlay</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="space-y-2"><Skeleton className="h-4 w-24" /><Skeleton className="h-10 w-full" /></div>
+            <div className="space-y-2"><Skeleton className="h-4 w-24" /><Skeleton className="h-10 w-full" /></div>
+          </div>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="space-y-2"><Skeleton className="h-4 w-24" /><Skeleton className="h-10 w-full" /></div>
+            <div className="space-y-2"><Skeleton className="h-4 w-32" /><Skeleton className="h-10 w-full" /></div>
+          </div>
+           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="space-y-2"><Skeleton className="h-4 w-28" /><Skeleton className="h-10 w-full" /></div>
+            <div className="space-y-2"><Skeleton className="h-4 w-28" /><Skeleton className="h-10 w-full" /></div>
+          </div>
+          <div className="rounded-lg border bg-muted/50 p-4">
+              <h3 className="font-semibold">Total Win Value</h3>
+              <Skeleton className="h-8 w-24 mt-1" />
+          </div>
+        </CardContent>
+        <CardFooter>
+          <Skeleton className="h-11 w-full" />
+        </CardFooter>
+      </Card>
+    </div>
+  );
+}
+
 
 export default function ParlayBetPage() {
   const parlayImage = PlaceHolderImages.find((p) => p.id === 'race-banner-1');
   const { toast } = useToast();
-  const [currentUser, setCurrentUser] = useState<Account | null>(null);
   const router = useRouter();
+  const { user, isLoading: isUserLoading } = useUser();
+  const { data: currentUser, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
 
   useEffect(() => {
-    const loggedInUserId = localStorage.getItem('loggedInUserId');
-    if (loggedInUserId) {
-      getAccountById(loggedInUserId).then(userAccount => {
-        if (userAccount) {
-          setCurrentUser(userAccount);
-        } else {
-          router.push('/sign-in');
-        }
-      });
-    } else {
+    if (!isUserLoading && !user) {
       router.push('/sign-in');
     }
-  }, [router]);
+  }, [isUserLoading, user, router]);
   
   const [firstRaceDate, setFirstRaceDate] = useState('');
   const [parlayRaceDate, setParlayRaceDate] = useState('');
   const [friendUsername, setFriendUsername] = useState('');
   const [firstBetValue, setFirstBetValue] = useState('');
   const [secondBetValue, setSecondBetValue] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const totalWinValue = useMemo(() => {
     const firstBet = Number(firstBetValue) || 0;
@@ -66,6 +111,26 @@ export default function ParlayBetPage() {
         return;
     }
 
+    if (!currentUser) {
+         toast({
+            title: 'Error',
+            description: 'Could not find your account. Please sign in again.',
+            variant: 'destructive'
+        });
+        router.push('/sign-in');
+        return;
+    }
+    
+    if (friendUsername.replace('@', '') === currentUser.username) {
+        toast({
+            title: 'Invalid Friend',
+            description: "You can't place a parlay bet against yourself.",
+            variant: 'destructive'
+        });
+        return;
+    }
+
+    setIsSubmitting(true);
     const friendExists = await isUsernameTaken(friendUsername.replace('@', ''));
     if (!friendExists) {
         toast({
@@ -73,15 +138,7 @@ export default function ParlayBetPage() {
             description: `We couldn't find a user with the username ${friendUsername}.`,
             variant: 'destructive'
         });
-        return;
-    }
-    
-    if (!currentUser) {
-         toast({
-            title: 'Error',
-            description: 'Could not find your account.',
-            variant: 'destructive'
-        });
+        setIsSubmitting(false);
         return;
     }
 
@@ -93,13 +150,13 @@ export default function ParlayBetPage() {
             description: 'You do not have enough Gold Coins to place this parlay bet.',
             variant: 'destructive'
         });
+         setIsSubmitting(false);
         return;
     }
 
-
-    setIsLoading(true);
+    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
-    setIsLoading(false);
+    setIsSubmitting(false);
 
     toast({
         title: 'Parlay Bet Placed!',
@@ -114,9 +171,21 @@ export default function ParlayBetPage() {
     setSecondBetValue('');
   }
   
-    if (!currentUser) {
-        return <div>Loading...</div>
-    }
+  const isLoading = isUserLoading || isAccountLoading;
+  
+  if (isLoading) {
+      return <ParlayBetPageSkeleton />
+  }
+  
+  if (!currentUser) {
+      return (
+        <div className="mx-auto max-w-2xl text-center">
+            <PageHeader title="Parlay Bet" />
+            <p>Could not load your account details. Please try signing in again.</p>
+            <Button onClick={() => router.push('/sign-in')} className="mt-4">Sign In</Button>
+        </div>
+      )
+  }
 
   return (
     <div className="mx-auto max-w-2xl">
@@ -144,11 +213,11 @@ export default function ParlayBetPage() {
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div className="space-y-2">
                 <Label htmlFor="first-race-date">First Race Date</Label>
-                <Input id="first-race-date" type="date" value={firstRaceDate} onChange={(e) => setFirstRaceDate(e.target.value)} disabled={isLoading} />
+                <Input id="first-race-date" type="date" value={firstRaceDate} onChange={(e) => setFirstRaceDate(e.target.value)} disabled={isSubmitting} />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="parlay-race-date">Parlay Race Date</Label>
-                <Input id="parlay-race-date" type="date" value={parlayRaceDate} onChange={(e) => setParlayRaceDate(e.target.value)} disabled={isLoading} />
+                <Input id="parlay-race-date" type="date" value={parlayRaceDate} onChange={(e) => setParlayRaceDate(e.target.value)} disabled={isSubmitting} />
               </div>
             </div>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -158,17 +227,17 @@ export default function ParlayBetPage() {
                 </div>
                 <div className="space-y-2">
                     <Label htmlFor="friend-account-name">Friend's Account Name</Label>
-                    <Input id="friend-account-name" placeholder="e.g., @janesmith" value={friendUsername} onChange={(e) => setFriendUsername(e.target.value)} disabled={isLoading}/>
+                    <Input id="friend-account-name" placeholder="e.g., @janesmith" value={friendUsername} onChange={(e) => setFriendUsername(e.target.value)} disabled={isSubmitting}/>
                 </div>
             </div>
              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                  <div className="space-y-2">
                     <Label htmlFor="first-bet-value">First Bet Value</Label>
-                    <Input id="first-bet-value" type="number" placeholder="Enter amount" value={firstBetValue} onChange={(e) => setFirstBetValue(e.target.value)} disabled={isLoading} />
+                    <Input id="first-bet-value" type="number" placeholder="Enter amount" value={firstBetValue} onChange={(e) => setFirstBetValue(e.target.value)} disabled={isSubmitting} />
                 </div>
                 <div className="space-y-2">
                     <Label htmlFor="second-bet-value">Second Bet Value</Label>
-                    <Input id="second-bet-value" type="number" placeholder="Enter amount" value={secondBetValue} onChange={(e) => setSecondBetValue(e.target.value)} disabled={isLoading} />
+                    <Input id="second-bet-value" type="number" placeholder="Enter amount" value={secondBetValue} onChange={(e) => setSecondBetValue(e.target.value)} disabled={isSubmitting} />
                 </div>
             </div>
 
@@ -182,13 +251,13 @@ export default function ParlayBetPage() {
 
           </CardContent>
           <CardFooter>
-            <Button size="lg" className="w-full" type="submit" disabled={isLoading}>
-                {isLoading ? (
+            <Button size="lg" className="w-full" type="submit" disabled={isSubmitting}>
+                {isSubmitting ? (
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 ) : (
                     <Layers className="mr-2 h-4 w-4" />
                 )}
-                {isLoading ? 'Submitting Bet...' : 'Bet this Parlay Now'}
+                {isSubmitting ? 'Submitting Bet...' : 'Bet this Parlay Now'}
             </Button>
           </CardFooter>
         </Card>

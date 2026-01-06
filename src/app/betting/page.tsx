@@ -11,56 +11,100 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Coins, Mic, Search, Users, Calendar, Layers, X, Trophy, CheckCircle } from 'lucide-react';
+import { Coins, Mic, Search, Users, Calendar, Layers, X, Trophy, CheckCircle, Loader2 } from 'lucide-react';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { motorcrossRaces } from '@/lib/races-motorcross-data';
 import { supercrossRaces } from '@/lib/races-supercross-data';
-import { getAccountById, getFriends } from '@/lib/firebase-config';
+import { getFriends } from '@/lib/firebase-config';
 import type { Account } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
+import { useUser, useDoc } from '@/firebase';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const allRaces = [
     ...motorcrossRaces.map(r => ({ ...r, series: 'Motorcross' })),
     ...supercrossRaces.map(r => ({ id: `supercross-${r.round}`, name: `${r.location}`, track: r.track, date: r.date, series: 'Supercross' }))
 ].sort((a,b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
+function BettingPageSkeleton() {
+    return (
+        <div className="mx-auto max-w-2xl">
+            <PageHeader
+                title="Bet"
+                description="Find friends, select a race, and place your bet."
+            />
+            <Card>
+                <CardContent className="space-y-8 pt-6">
+                    <div className="space-y-2">
+                        <Skeleton className="h-6 w-40" />
+                        <Skeleton className="h-10 w-full" />
+                    </div>
+                    <div className="space-y-2">
+                        <Skeleton className="h-6 w-48" />
+                        <Skeleton className="h-10 w-full" />
+                    </div>
+                    <div className="space-y-4 rounded-lg border bg-background p-4">
+                        <Skeleton className="h-6 w-32" />
+                        <div className="space-y-2">
+                            <Skeleton className="h-4 w-24" />
+                            <Skeleton className="h-10 w-full" />
+                        </div>
+                        <div className="space-y-2">
+                            <Skeleton className="h-4 w-24" />
+                            <div className="flex gap-4">
+                                <Skeleton className="h-12 w-32" />
+                                <Skeleton className="h-12 w-32" />
+                            </div>
+                        </div>
+                    </div>
+                </CardContent>
+                <CardFooter className="flex flex-col gap-4">
+                    <Skeleton className="h-11 w-full" />
+                    <Skeleton className="h-11 w-full" />
+                </CardFooter>
+            </Card>
+        </div>
+    );
+}
 
 export default function BettingPage() {
-  const [betAmount, setBetAmount] = React.useState('');
-  const [coinType, setCoinType] = React.useState('gold');
-
-  const [raceSearch, setRaceSearch] = React.useState('');
-  const [selectedRace, setSelectedRace] = React.useState<typeof allRaces[0] | null>(null);
-  
-  const [friendSearch, setFriendSearch] = React.useState('');
-  const [selectedFriend, setSelectedFriend] = React.useState<Account | null>(null);
-  const [currentUser, setCurrentUser] = React.useState<Account | null>(null);
-  const [friends, setFriends] = React.useState<Account[]>([]);
   const router = useRouter();
   const { toast } = useToast();
+  const { user, isLoading: isUserLoading } = useUser();
+  const { data: currentUser, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
+
+  const [betAmount, setBetAmount] = useState('');
+  const [coinType, setCoinType] = useState('gold');
+  const [raceSearch, setRaceSearch] = useState('');
+  const [selectedRace, setSelectedRace] = useState<typeof allRaces[0] | null>(null);
+  const [friendSearch, setFriendSearch] = useState('');
+  const [selectedFriend, setSelectedFriend] = useState<Account | null>(null);
+  const [friends, setFriends] = useState<Account[]>([]);
+  const [isLoadingFriends, setIsLoadingFriends] = useState(true);
   
-  React.useEffect(() => {
-    const loggedInUserId = localStorage.getItem('loggedInUserId');
-    if (loggedInUserId) {
-        getAccountById(loggedInUserId).then(userAccount => {
-            if (userAccount) {
-                setCurrentUser(userAccount);
-                if (userAccount.friendIds && userAccount.friendIds.length > 0) {
-                    getFriends(userAccount.friendIds).then(setFriends);
-                }
-            } else {
-                router.push('/sign-in');
-            }
-        });
-    } else {
+  useEffect(() => {
+    if (!isUserLoading && !user) {
         router.push('/sign-in');
     }
-  }, [router]);
+  }, [isUserLoading, user, router]);
+
+  useEffect(() => {
+      if (currentUser && currentUser.friendIds && currentUser.friendIds.length > 0) {
+          setIsLoadingFriends(true);
+          getFriends(currentUser.friendIds).then(friendList => {
+              setFriends(friendList);
+              setIsLoadingFriends(false);
+          });
+      } else if (currentUser) {
+          setFriends([]);
+          setIsLoadingFriends(false);
+      }
+  }, [currentUser]);
 
 
-  const filteredRaces = React.useMemo(() => {
+  const filteredRaces = useMemo(() => {
     if (!raceSearch) return [];
     return allRaces.filter(race => 
         race.name.toLowerCase().includes(raceSearch.toLowerCase()) ||
@@ -73,7 +117,7 @@ export default function BettingPage() {
       setRaceSearch('');
   }
   
-  const filteredFriends = React.useMemo(() => {
+  const filteredFriends = useMemo(() => {
     if (!friendSearch) return [];
     return friends.filter(friend => 
         friend.name.toLowerCase().includes(friendSearch.toLowerCase()) ||
@@ -119,7 +163,12 @@ export default function BettingPage() {
     // If all validations pass, redirect to confirmation
     router.push('/betting/confirmation');
   }
+  
+  const isLoading = isUserLoading || isAccountLoading || isLoadingFriends;
 
+  if (isLoading) {
+    return <BettingPageSkeleton />;
+  }
 
   return (
     <div className="mx-auto max-w-2xl">
