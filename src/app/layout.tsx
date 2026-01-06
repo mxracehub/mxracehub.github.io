@@ -4,6 +4,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
+import { FirebaseProvider } from '@/firebase';
 
 export const metadata: Metadata = {
   title: 'Mxracehub',
@@ -24,14 +25,16 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-        <div className="flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-1 container mx-auto px-4 py-8">
-                {children}
-            </main>
-            <Footer />
-        </div>
-        <Toaster />
+        <FirebaseProvider>
+          <div className="flex min-h-screen flex-col">
+              <Header />
+              <main className="flex-1 container mx-auto px-4 py-8">
+                  {children}
+              </main>
+              <Footer />
+          </div>
+          <Toaster />
+        </FirebaseProvider>
       </body>
     </html>
   );
