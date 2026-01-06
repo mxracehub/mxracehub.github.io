@@ -1,10 +1,10 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { PageHeader } from '@/components/page-header';
-import { getAccountById, getExchangeRequestsByAccountId } from '@/lib/firebase-config';
-import type { Account, ExchangeRequest } from '@/lib/types';
+import { getExchangeRequestsByAccountId } from '@/lib/firebase-config';
+import type { ExchangeRequest } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 import {
   Table,
@@ -16,31 +16,64 @@ import {
 } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
+import { useUser, useCollection } from '@/firebase';
+import { Skeleton } from '@/components/ui/skeleton';
+
+function TransactionsPageSkeleton() {
+    return (
+        <div>
+            <PageHeader title="Transaction History" description="View your past exchange requests." />
+            <Card>
+                <CardContent className="p-0">
+                <Table>
+                    <TableHeader>
+                    <TableRow>
+                        <TableHead>Date</TableHead>
+                        <TableHead>Type</TableHead>
+                        <TableHead>Amount</TableHead>
+                        <TableHead>Status</TableHead>
+                    </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                        {[...Array(5)].map((_, i) => (
+                             <TableRow key={i}>
+                                <TableCell><Skeleton className="h-5 w-24" /></TableCell>
+                                <TableCell><Skeleton className="h-5 w-20" /></TableCell>
+                                <TableCell><Skeleton className="h-5 w-16" /></TableCell>
+                                <TableCell><Skeleton className="h-6 w-24 rounded-full" /></TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+                </CardContent>
+            </Card>
+        </div>
+    )
+}
+
 
 export default function TransactionsPage() {
-  const [account, setAccount] = useState<Account | null>(null);
-  const [requests, setRequests] = useState<ExchangeRequest[]>([]);
   const router = useRouter();
-
+  const { user, isLoading: isUserLoading } = useUser();
+  const { data: requests, isLoading: isRequestsLoading } = useCollection<ExchangeRequest>(
+      'exchangeRequests', 
+      user ? ['accountId', '==', user.uid] : undefined,
+      { listen: true }
+  );
+  
   useEffect(() => {
-    const loggedInUserId = localStorage.getItem('loggedInUserId');
-    if (loggedInUserId) {
-      getAccountById(loggedInUserId).then(userAccount => {
-        if (userAccount) {
-          setAccount(userAccount);
-          getExchangeRequestsByAccountId(loggedInUserId).then(setRequests);
-        } else {
-          router.push('/sign-in');
-        }
-      });
-    } else {
-      router.push('/sign-in');
+    if (!isUserLoading && !user) {
+        router.push('/sign-in');
     }
-  }, [router]);
+  }, [isUserLoading, user, router]);
 
-  if (!account) {
-    return <div>Loading...</div>;
+  const isLoading = isUserLoading || isRequestsLoading;
+
+  if (isLoading) {
+    return <TransactionsPageSkeleton />;
   }
+
+  const sortedRequests = requests ? [...requests].sort((a,b) => new Date(b.date).getTime() - new Date(a.date).getTime()) : [];
 
   return (
     <div>
@@ -57,8 +90,8 @@ export default function TransactionsPage() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {requests.length > 0 ? (
-                requests.sort((a,b) => new Date(b.date).getTime() - new Date(a.date).getTime()).map(request => (
+              {sortedRequests.length > 0 ? (
+                sortedRequests.map(request => (
                   <TableRow key={request.id}>
                     <TableCell>{new Date(request.date).toLocaleDateString()}</TableCell>
                     <TableCell>{request.type}</TableCell>

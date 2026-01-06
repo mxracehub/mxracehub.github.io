@@ -16,33 +16,61 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
-import { getAccountById, updateAccount, auth } from '@/lib/firebase-config';
+import { updateAccount, auth } from '@/lib/firebase-config';
 import type { Account } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 import { EmailAuthProvider, reauthenticateWithCredential, updateEmail } from 'firebase/auth';
+import { useUser, useDoc } from '@/firebase';
+import { Skeleton } from '@/components/ui/skeleton';
+
+function ChangeEmailSkeleton() {
+    return (
+        <div className="max-w-2xl mx-auto">
+            <PageHeader title="Change Email" />
+            <Card>
+                <CardHeader>
+                    <CardTitle>Update Your Email Address</CardTitle>
+                    <CardDescription>
+                    We will send a confirmation to your new email address. This requires you to re-enter your password.
+                    </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                    <div className="space-y-2">
+                        <Label htmlFor="old-email">Current Email</Label>
+                        <Skeleton className="h-10 w-full" />
+                    </div>
+                    <div className="space-y-2">
+                        <Label htmlFor="new-email">New Email</Label>
+                        <Skeleton className="h-10 w-full" />
+                    </div>
+                    <div className="space-y-2">
+                        <Label htmlFor="password">Password</Label>
+                        <Skeleton className="h-10 w-full" />
+                    </div>
+                </CardContent>
+                <CardFooter>
+                    <Skeleton className="h-10 w-28" />
+                </CardFooter>
+            </Card>
+        </div>
+    )
+}
 
 export default function ChangeEmailPage() {
-  const [account, setAccount] = useState<Account | null>(null);
+  const router = useRouter();
+  const { toast } = useToast();
+  const { user, isLoading: isUserLoading } = useUser();
+  const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
+
   const [newEmail, setNewEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const { toast } = useToast();
-  const router = useRouter();
 
-   useEffect(() => {
-    const loggedInUserId = localStorage.getItem('loggedInUserId');
-    if (loggedInUserId) {
-      getAccountById(loggedInUserId).then(userAccount => {
-        if (userAccount) {
-          setAccount(userAccount);
-        } else {
-          router.push('/sign-in');
-        }
-      });
-    } else {
+  useEffect(() => {
+    if (!isUserLoading && !user) {
       router.push('/sign-in');
     }
-  }, [router]);
+  }, [isUserLoading, user, router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -88,7 +116,8 @@ export default function ChangeEmailPage() {
 
         setNewEmail('');
         setPassword('');
-        setAccount(prev => prev ? { ...prev, email: newEmail } : null);
+        
+        // No need to set account state, useDoc will handle it
 
     } catch (error: any) {
         console.error("Email update failed:", error);
@@ -104,8 +133,14 @@ export default function ChangeEmailPage() {
     }
   };
   
+    const pageIsLoading = isUserLoading || isAccountLoading;
+
+    if (pageIsLoading) {
+        return <ChangeEmailSkeleton />;
+    }
+    
     if (!account) {
-        return <div className="max-w-2xl mx-auto">Loading...</div>;
+        return <div className="max-w-2xl mx-auto">Account data could not be loaded.</div>;
     }
 
 
@@ -126,7 +161,7 @@ export default function ChangeEmailPage() {
               <Input
                 id="old-email"
                 type="email"
-                value={account?.email}
+                value={account.email}
                 disabled
               />
             </div>

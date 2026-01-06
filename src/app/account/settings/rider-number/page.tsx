@@ -16,32 +16,58 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
-import { getAccountById, isRiderNumberTaken, updateAccount } from '@/lib/firebase-config';
+import { isRiderNumberTaken, updateAccount } from '@/lib/firebase-config';
 import type { Account } from '@/lib/types';
 import { useRouter } from 'next/navigation';
+import { useUser, useDoc } from '@/firebase';
+import { Skeleton } from '@/components/ui/skeleton';
+
+function ChangeRiderNumberSkeleton() {
+    return (
+        <div className="max-w-2xl mx-auto">
+            <PageHeader title="Change Rider Number" />
+             <Card>
+                <CardHeader>
+                    <CardTitle>Update Your Rider Number</CardTitle>
+                    <CardDescription>
+                    This is the number that will be associated with your account for races.
+                    </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                    <div className="space-y-2">
+                        <Label htmlFor="old-rider-number">Current Rider Number</Label>
+                        <Skeleton className="h-10 w-full" />
+                    </div>
+                    <div className="space-y-2">
+                        <Label htmlFor="new-rider-number">New Rider Number</Label>
+                        <Skeleton className="h-10 w-full" />
+                    </div>
+                </CardContent>
+                <CardFooter>
+                    <Skeleton className="h-10 w-28" />
+                </CardFooter>
+            </Card>
+        </div>
+    )
+}
 
 export default function ChangeRiderNumberPage() {
-  const [account, setAccount] = useState<Account | null>(null);
+  const router = useRouter();
+  const { toast } = useToast();
+  const { user, isLoading: isUserLoading } = useUser();
+  const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
+
   const [newRiderNumber, setNewRiderNumber] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const { toast } = useToast();
-  const router = useRouter();
   
   useEffect(() => {
-    const loggedInUserId = localStorage.getItem('loggedInUserId');
-    if (loggedInUserId) {
-      getAccountById(loggedInUserId).then(userAccount => {
-        if (userAccount) {
-          setAccount(userAccount);
-          setNewRiderNumber(userAccount.riderNumber || '');
-        } else {
-          router.push('/sign-in');
-        }
-      });
-    } else {
+    if (!isUserLoading && !user) {
       router.push('/sign-in');
     }
-  }, [router]);
+    if (account) {
+      setNewRiderNumber(account.riderNumber || '');
+    }
+  }, [isUserLoading, user, router, account]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -72,7 +98,6 @@ export default function ChangeRiderNumberPage() {
         return;
     }
 
-
     setIsLoading(true);
     
     try {
@@ -96,8 +121,14 @@ export default function ChangeRiderNumberPage() {
     }
   };
   
+    const pageIsLoading = isUserLoading || isAccountLoading;
+    
+    if (pageIsLoading) {
+        return <ChangeRiderNumberSkeleton />;
+    }
+
     if (!account) {
-        return <div className="max-w-2xl mx-auto">Loading...</div>;
+        return <div className="max-w-2xl mx-auto">Account data could not be loaded.</div>;
     }
 
   return (
@@ -117,7 +148,7 @@ export default function ChangeRiderNumberPage() {
               <Input
                 id="old-rider-number"
                 type="text"
-                value={account?.riderNumber || 'N/A'}
+                value={account.riderNumber || 'N/A'}
                 disabled
               />
             </div>

@@ -16,33 +16,58 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
-import { getAccountById, updateAccount } from '@/lib/firebase-config';
+import { updateAccount } from '@/lib/firebase-config';
 import type { Account } from '@/lib/types';
 import { useRouter } from 'next/navigation';
+import { useUser, useDoc } from '@/firebase';
+import { Skeleton } from '@/components/ui/skeleton';
+
+function ChangeNameSkeleton() {
+    return (
+        <div className="max-w-2xl mx-auto">
+            <PageHeader title="Change Account Name" />
+            <Card>
+                <CardHeader>
+                    <CardTitle>Update Your Account Name</CardTitle>
+                    <CardDescription>
+                    This is the name that will be displayed on your public profile.
+                    </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                    <div className="space-y-2">
+                        <Label htmlFor="old-name">Current Account Name</Label>
+                        <Skeleton className="h-10 w-full" />
+                    </div>
+                    <div className="space-y-2">
+                        <Label htmlFor="new-name">New Account Name</Label>
+                        <Skeleton className="h-10 w-full" />
+                    </div>
+                </CardContent>
+                <CardFooter>
+                    <Skeleton className="h-10 w-28" />
+                </CardFooter>
+            </Card>
+        </div>
+    )
+}
 
 export default function ChangeNamePage() {
-  const [account, setAccount] = useState<Account | null>(null);
+  const router = useRouter();
+  const { toast } = useToast();
+  const { user, isLoading: isUserLoading } = useUser();
+  const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
+  
   const [newName, setNewName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const { toast } = useToast();
-  const router = useRouter();
   
   useEffect(() => {
-    const loggedInUserId = localStorage.getItem('loggedInUserId');
-    if (loggedInUserId) {
-      getAccountById(loggedInUserId).then(userAccount => {
-        if (userAccount) {
-          setAccount(userAccount);
-          setNewName(userAccount.name);
-        } else {
-          router.push('/sign-in');
-        }
-      });
-    } else {
+    if (!isUserLoading && !user) {
       router.push('/sign-in');
     }
-  }, [router]);
-
+    if (account) {
+      setNewName(account.name);
+    }
+  }, [isUserLoading, user, router, account]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -87,8 +112,14 @@ export default function ChangeNamePage() {
     }
   };
 
+  const pageIsLoading = isUserLoading || isAccountLoading;
+
+  if (pageIsLoading) {
+    return <ChangeNameSkeleton />;
+  }
+
   if (!account) {
-    return <div className="max-w-2xl mx-auto">Loading...</div>;
+    return <div className="max-w-2xl mx-auto">Account data could not be loaded.</div>;
   }
 
   return (
@@ -108,7 +139,7 @@ export default function ChangeNamePage() {
               <Input
                 id="old-name"
                 type="text"
-                value={account?.name}
+                value={account.name}
                 disabled
               />
             </div>
