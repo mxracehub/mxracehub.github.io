@@ -1,9 +1,9 @@
 
 export const firebaseConfig = {
-  apiKey: "your_api_key_here",
-  authDomain: "your_auth_domain_here",
-  projectId: "your_project_id_here",
-  storageBucket: "your_storage_bucket_here",
-  messagingSenderId: "your_messaging_sender_id_here",
-  appId: "your_app_id_here",
+  apiKey: "AIzaSyDNAADGPDDmXXTmOEPafwjb_wSE-EPd3E8",
+  authDomain: "studio-122199390-e63be.firebaseapp.com",
+  projectId: "studio-122199390-e63be",
+  storageBucket: "studio-122199390-e63be.appspot.com",
+  messagingSenderId: "553275156578",
+  appId: "1:553275156578:web:cf7bd93695c99957b7c93b"
 };
