@@ -15,6 +15,7 @@ import { summarizeRaceData } from '@/ai/flows/summarize-race-data';
 import { Label } from '@/components/ui/label';
 import { Bot, Clipboard, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { copyToClipboard } from '@/lib/utils';
 
 export function SummarizerForm() {
   const [raceData, setRaceData] = useState('');
@@ -50,10 +51,18 @@ export function SummarizerForm() {
 
   const handleCopyToClipboard = () => {
     if (!summary) return;
-    navigator.clipboard.writeText(summary);
-    toast({
-      title: 'Copied!',
-      description: 'Summary has been copied to your clipboard.',
+    copyToClipboard(summary).then(() => {
+        toast({
+        title: 'Copied!',
+        description: 'Summary has been copied to your clipboard.',
+        });
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+        toast({
+            title: 'Error',
+            description: 'Failed to copy summary to clipboard.',
+            variant: 'destructive',
+        });
     });
   }
 
