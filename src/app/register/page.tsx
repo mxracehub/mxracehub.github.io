@@ -19,7 +19,9 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, ArrowRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { accounts } from '@/lib/accounts-data';
+import { auth, createAccount, getAccountByEmail, isUsernameTaken, isRiderNumberTaken } from '@/lib/firebase-config';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import type { Account } from '@/lib/types';
 
 export default function RegisterPage() {
   const [username, setUsername] = useState('');
@@ -39,7 +41,7 @@ export default function RegisterPage() {
         toast({ title: 'Error', description: 'Please enter a username.', variant: 'destructive' });
         return;
     }
-    if (accounts.some(acc => acc.username.toLowerCase() === username.trim().toLowerCase())) {
+    if (await isUsernameTaken(username.trim())) {
         toast({ title: 'Error', description: 'This username is already taken.', variant: 'destructive' });
         return;
     }
@@ -47,7 +49,7 @@ export default function RegisterPage() {
         toast({ title: 'Error', description: 'Please enter a valid email.', variant: 'destructive' });
         return;
     }
-     if (accounts.some(acc => acc.email.toLowerCase() === email.trim().toLowerCase())) {
+     if (await getAccountByEmail(email.trim())) {
         toast({ title: 'Error', description: 'An account with this email already exists.', variant: 'destructive' });
         return;
     }
@@ -59,7 +61,7 @@ export default function RegisterPage() {
         toast({ title: 'Error', description: 'Passwords do not match.', variant: 'destructive' });
         return;
     }
-    if (riderNumber.trim() && accounts.some(acc => acc.riderNumber === riderNumber.trim())) {
+    if (riderNumber.trim() && await isRiderNumberTaken(riderNumber.trim())) {
         toast({ title: 'Error', description: 'This rider number is already taken.', variant: 'destructive' });
         return;
     }
@@ -68,35 +70,42 @@ export default function RegisterPage() {
         return;
     }
     
-
     setIsLoading(true);
-    // Simulate API call for registration
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    // In a real app, this would be a backend operation.
-    // For this prototype, we add the user to our mock data.
-    const newAccount = {
-        id: `user-${Date.now()}`,
-        name: username, // Initially name is username
-        username: username.trim(),
-        email: email.trim(),
-        password: password, // In a real app, you would hash this password
-        bio: '',
-        balances: { gold: 0, sweeps: 0 },
-        betHistory: [],
-        friendIds: [],
-        riderNumber: riderNumber.trim() || undefined,
-    };
-    accounts.push(newAccount);
 
-    setIsLoading(false);
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
 
-    toast({
-        title: 'Account Created!',
-        description: "Welcome! We're redirecting you to the sign-in page.",
-    });
+        const newAccount: Omit<Account, 'id'> = {
+            name: username,
+            username: username.trim(),
+            email: email.trim(),
+            bio: '',
+            balances: { gold: 0, sweeps: 0 },
+            betHistory: [],
+            friendIds: [],
+            riderNumber: riderNumber.trim() || '',
+        };
 
-    router.push('/sign-in');
+        await createAccount(user.uid, newAccount);
+
+        toast({
+            title: 'Account Created!',
+            description: "Welcome! We're redirecting you to the sign-in page.",
+        });
+
+        router.push('/sign-in');
+
+    } catch (error: any) {
+        console.error("Registration failed:", error);
+        toast({
+            title: 'Registration Failed',
+            description: error.message || 'An unexpected error occurred. Please try again.',
+            variant: 'destructive',
+        });
+    } finally {
+        setIsLoading(false);
+    }
   };
 
   return (
@@ -175,7 +184,7 @@ export default function RegisterPage() {
                     htmlFor="terms"
                     className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                 >
-                   I agree to the <Link href="/policies" className="text-primary underline">Terms of Service</Link> and <Link href="/privacy" className="text-primary underline">Privacy Policy</Link>
+                   I agree to the <Link href="/policies" className="text-primary underline">Terms of Service</Link> and <Link href="/policies" className="text-primary underline">Privacy Policy</Link>
                 </label>
             </div>
           </CardContent>

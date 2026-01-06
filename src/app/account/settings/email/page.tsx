@@ -16,8 +16,10 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
-import { accounts, type Account } from '@/lib/accounts-data';
+import { getAccountById, updateAccount, auth } from '@/lib/firebase-config';
+import type { Account } from '@/lib/types';
 import { useRouter } from 'next/navigation';
+import { EmailAuthProvider, reauthenticateWithCredential, updateEmail } from 'firebase/auth';
 
 export default function ChangeEmailPage() {
   const [account, setAccount] = useState<Account | null>(null);
@@ -30,12 +32,13 @@ export default function ChangeEmailPage() {
    useEffect(() => {
     const loggedInUserId = localStorage.getItem('loggedInUserId');
     if (loggedInUserId) {
-      const userAccount = accounts.find((a) => a.id === loggedInUserId);
-      if (userAccount) {
-        setAccount(userAccount);
-      } else {
-        router.push('/sign-in');
-      }
+      getAccountById(loggedInUserId).then(userAccount => {
+        if (userAccount) {
+          setAccount(userAccount);
+        } else {
+          router.push('/sign-in');
+        }
+      });
     } else {
       router.push('/sign-in');
     }
@@ -61,33 +64,45 @@ export default function ChangeEmailPage() {
         return;
     }
     
-    if (account?.password !== password) {
-         toast({
+    if (!auth.currentUser || !account) {
+        toast({
             title: 'Error',
-            description: 'Incorrect password.',
+            description: 'You must be signed in to change your email.',
             variant: 'destructive',
         });
         return;
     }
 
     setIsLoading(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    // Update mock data
-    if(account) {
-        account.email = newEmail;
+
+    try {
+        const credential = EmailAuthProvider.credential(account.email, password);
+        await reauthenticateWithCredential(auth.currentUser, credential);
+        
+        await updateEmail(auth.currentUser, newEmail);
+        await updateAccount(account.id, { email: newEmail });
+
+        toast({
+            title: 'Success!',
+            description: 'Your email has been changed successfully.',
+        });
+
+        setNewEmail('');
+        setPassword('');
+        setAccount(prev => prev ? { ...prev, email: newEmail } : null);
+
+    } catch (error: any) {
+        console.error("Email update failed:", error);
+        toast({
+            title: 'Error updating email',
+            description: error.code === 'auth/wrong-password' 
+                ? 'Incorrect password.'
+                : 'An error occurred. Please try again.',
+            variant: 'destructive',
+        });
+    } finally {
+        setIsLoading(false);
     }
-
-    setIsLoading(false);
-
-    toast({
-        title: 'Success!',
-        description: 'Your email has been changed successfully.',
-    });
-
-    setNewEmail('');
-    setPassword('');
   };
   
     if (!account) {
@@ -103,7 +118,7 @@ export default function ChangeEmailPage() {
           <CardHeader>
             <CardTitle>Update Your Email Address</CardTitle>
             <CardDescription>
-              We will send a confirmation to your new email address.
+              We will send a confirmation to your new email address. This requires you to re-enter your password.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">

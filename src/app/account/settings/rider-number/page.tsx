@@ -16,7 +16,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
-import { accounts, type Account } from '@/lib/accounts-data';
+import { getAccountById, isRiderNumberTaken, updateAccount } from '@/lib/firebase-config';
+import type { Account } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 
 export default function ChangeRiderNumberPage() {
@@ -29,13 +30,14 @@ export default function ChangeRiderNumberPage() {
   useEffect(() => {
     const loggedInUserId = localStorage.getItem('loggedInUserId');
     if (loggedInUserId) {
-      const userAccount = accounts.find((a) => a.id === loggedInUserId);
-      if (userAccount) {
-        setAccount(userAccount);
-        setNewRiderNumber(userAccount.riderNumber || '');
-      } else {
-        router.push('/sign-in');
-      }
+      getAccountById(loggedInUserId).then(userAccount => {
+        if (userAccount) {
+          setAccount(userAccount);
+          setNewRiderNumber(userAccount.riderNumber || '');
+        } else {
+          router.push('/sign-in');
+        }
+      });
     } else {
       router.push('/sign-in');
     }
@@ -61,12 +63,7 @@ export default function ChangeRiderNumberPage() {
         return;
     }
     
-    // Check if rider number is already taken
-    const isTaken = accounts.some(
-        acc => acc.id !== account.id && acc.riderNumber === trimmedRiderNumber
-    );
-
-    if (isTaken) {
+    if (await isRiderNumberTaken(trimmedRiderNumber, account.id)) {
         toast({
             title: 'Error',
             description: 'This rider number is already taken. Please choose another one.',
@@ -77,20 +74,26 @@ export default function ChangeRiderNumberPage() {
 
 
     setIsLoading(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    try {
+        await updateAccount(account.id, { riderNumber: trimmedRiderNumber });
 
-    // Update mock data
-    account.riderNumber = trimmedRiderNumber;
+        toast({
+            title: 'Success!',
+            description: 'Your rider number has been changed.',
+        });
 
-    setIsLoading(false);
-
-    toast({
-        title: 'Success!',
-        description: 'Your rider number has been changed.',
-    });
-
-    router.push('/account');
+        router.push('/account');
+    } catch (error) {
+        console.error(error);
+        toast({
+            title: 'Error',
+            description: 'Failed to update rider number. Please try again.',
+            variant: 'destructive',
+        });
+    } finally {
+        setIsLoading(false);
+    }
   };
   
     if (!account) {

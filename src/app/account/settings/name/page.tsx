@@ -16,7 +16,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
-import { accounts, type Account } from '@/lib/accounts-data';
+import { getAccountById, updateAccount } from '@/lib/firebase-config';
+import type { Account } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 
 export default function ChangeNamePage() {
@@ -29,13 +30,14 @@ export default function ChangeNamePage() {
   useEffect(() => {
     const loggedInUserId = localStorage.getItem('loggedInUserId');
     if (loggedInUserId) {
-      const userAccount = accounts.find((a) => a.id === loggedInUserId);
-      if (userAccount) {
-        setAccount(userAccount);
-        setNewName(userAccount.name);
-      } else {
-        router.push('/sign-in');
-      }
+      getAccountById(loggedInUserId).then(userAccount => {
+        if (userAccount) {
+          setAccount(userAccount);
+          setNewName(userAccount.name);
+        } else {
+          router.push('/sign-in');
+        }
+      });
     } else {
       router.push('/sign-in');
     }
@@ -62,20 +64,27 @@ export default function ChangeNamePage() {
     }
 
     setIsLoading(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
     
-    // Update the mock data
-    account.name = newName.trim();
+    try {
+        await updateAccount(account.id, { name: newName.trim() });
 
-    setIsLoading(false);
+        toast({
+            title: 'Success!',
+            description: 'Your account name has been changed.',
+        });
 
-    toast({
-        title: 'Success!',
-        description: 'Your account name has been changed.',
-    });
+        router.push('/account');
 
-    router.push('/account');
+    } catch (error) {
+        console.error(error);
+        toast({
+            title: 'Error',
+            description: 'Failed to update name. Please try again.',
+            variant: 'destructive',
+        });
+    } finally {
+        setIsLoading(false);
+    }
   };
 
   if (!account) {

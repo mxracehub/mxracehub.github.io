@@ -11,7 +11,8 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Layers, Loader2 } from 'lucide-react';
 import Image from 'next/image';
 import { useToast } from '@/hooks/use-toast';
-import { accounts, type Account } from '@/lib/accounts-data';
+import { getAccountById, isUsernameTaken } from '@/lib/firebase-config';
+import type { Account } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 
 export default function ParlayBetPage() {
@@ -23,12 +24,13 @@ export default function ParlayBetPage() {
   useEffect(() => {
     const loggedInUserId = localStorage.getItem('loggedInUserId');
     if (loggedInUserId) {
-      const userAccount = accounts.find((a) => a.id === loggedInUserId);
-      if (userAccount) {
-        setCurrentUser(userAccount);
-      } else {
-        router.push('/sign-in');
-      }
+      getAccountById(loggedInUserId).then(userAccount => {
+        if (userAccount) {
+          setCurrentUser(userAccount);
+        } else {
+          router.push('/sign-in');
+        }
+      });
     } else {
       router.push('/sign-in');
     }
@@ -64,7 +66,7 @@ export default function ParlayBetPage() {
         return;
     }
 
-    const friendExists = accounts.some(acc => acc.username === friendUsername.replace('@', ''));
+    const friendExists = await isUsernameTaken(friendUsername.replace('@', ''));
     if (!friendExists) {
         toast({
             title: 'Friend not found',

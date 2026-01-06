@@ -10,7 +10,8 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Search, UserPlus, Mic } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { accounts, type Account } from '@/lib/accounts-data';
+import { getAccountById, getFriends, getAccountByUsername, updateAccount } from '@/lib/firebase-config';
+import type { Account } from '@/lib/types';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -27,20 +28,22 @@ export default function FriendsPage() {
     useEffect(() => {
         const loggedInUserId = localStorage.getItem('loggedInUserId');
         if (loggedInUserId) {
-          const userAccount = accounts.find((a) => a.id === loggedInUserId);
-          if (userAccount) {
-            setCurrentUser(userAccount);
-            const userFriends = accounts.filter(a => userAccount.friendIds?.includes(a.id)).sort((a, b) => a.name.localeCompare(b.name));
-            setFriends(userFriends);
-          } else {
-            router.push('/sign-in');
-          }
+          getAccountById(loggedInUserId).then(userAccount => {
+            if (userAccount) {
+              setCurrentUser(userAccount);
+              if (userAccount.friendIds && userAccount.friendIds.length > 0) {
+                  getFriends(userAccount.friendIds).then(setFriends);
+              }
+            } else {
+              router.push('/sign-in');
+            }
+          });
         } else {
           router.push('/sign-in');
         }
       }, [router]);
       
-    const handleAddFriend = () => {
+    const handleAddFriend = async () => {
         if (!friendSearch.trim()) {
             toast({
                 title: "Username required",
@@ -52,7 +55,7 @@ export default function FriendsPage() {
 
         if (!currentUser) return;
 
-        const friendToAdd = accounts.find(acc => acc.username.toLowerCase() === friendSearch.trim().toLowerCase());
+        const friendToAdd = await getAccountByUsername(friendSearch.trim().toLowerCase());
 
         if (!friendToAdd) {
             toast({
@@ -80,22 +83,27 @@ export default function FriendsPage() {
             return;
         }
 
-        // Add friend
-        if(currentUser.friendIds) {
-            currentUser.friendIds.push(friendToAdd.id);
-        } else {
-            currentUser.friendIds = [friendToAdd.id];
+        try {
+            const updatedFriendIds = [...(currentUser.friendIds || []), friendToAdd.id];
+            await updateAccount(currentUser.id, { friendIds: updatedFriendIds });
+
+            setCurrentUser(prev => prev ? { ...prev, friendIds: updatedFriendIds } : null);
+            setFriends(prev => [...prev, friendToAdd].sort((a,b) => a.name.localeCompare(b.name)));
+
+            toast({
+                title: "Friend Added!",
+                description: `You are now friends with ${friendToAdd.name}.`
+            });
+            
+            setFriendSearch('');
+        } catch (error) {
+            console.error(error);
+            toast({
+                title: "Error",
+                description: "Failed to add friend. Please try again.",
+                variant: "destructive"
+            });
         }
-
-        const updatedFriends = accounts.filter(a => currentUser.friendIds?.includes(a.id)).sort((a, b) => a.name.localeCompare(b.name));
-        setFriends(updatedFriends);
-
-        toast({
-            title: "Friend Added!",
-            description: `You are now friends with ${friendToAdd.name}.`
-        });
-        
-        setFriendSearch('');
     }
 
 

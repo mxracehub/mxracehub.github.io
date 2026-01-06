@@ -11,14 +11,15 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { accounts, type Account } from '@/lib/accounts-data';
+import { getAccountById } from '@/lib/firebase-config';
 import { useRouter } from 'next/navigation';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Coins, Trophy, Users, Settings, Repeat, Hash } from 'lucide-react';
+import { Coins, Trophy, Users, Settings, Hash } from 'lucide-react';
 import Link from 'next/link';
 import { Skeleton } from '@/components/ui/skeleton';
+import type { Account } from '@/lib/types';
 
 export default function AccountPage() {
   const [account, setAccount] = useState<Account | null>(null);
@@ -29,18 +30,25 @@ export default function AccountPage() {
   useEffect(() => {
     const loggedInUserId = localStorage.getItem('loggedInUserId');
     if (loggedInUserId) {
-      const userAccount = accounts.find((a) => a.id === loggedInUserId);
-      if (userAccount) {
-        setAccount(userAccount);
-      } else {
-        // User in local storage not found in data, maybe clear it and redirect
-        localStorage.removeItem('loggedInUserId');
-        router.push('/sign-in');
-      }
+      getAccountById(loggedInUserId)
+        .then(userAccount => {
+          if (userAccount) {
+            setAccount(userAccount);
+          } else {
+            localStorage.removeItem('loggedInUserId');
+            router.push('/sign-in');
+          }
+        })
+        .catch(error => {
+          console.error("Failed to fetch account:", error);
+          router.push('/sign-in');
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
     } else {
       router.push('/sign-in');
     }
-    setIsLoading(false);
   }, [router]);
 
   if (isLoading) {

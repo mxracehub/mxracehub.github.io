@@ -19,7 +19,8 @@ import { useToast } from '@/hooks/use-toast';
 import { Loader2, LogIn } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { accounts } from '@/lib/accounts-data';
+import { auth, getAccountByEmail } from '@/lib/firebase-config';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 export default function SignInPage() {
   const [email, setEmail] = useState('');
@@ -41,27 +42,27 @@ export default function SignInPage() {
     }
 
     setIsLoading(true);
-    // Simulate API call for sign-in
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
 
-    // NOTE: This is a mock authentication. In a real app, do not store passwords in plaintext.
-    const userAccount = accounts.find(account => account.email === email && account.password === password);
-
-    setIsLoading(false);
-
-    if (userAccount) {
-        localStorage.setItem('loggedInUserId', userAccount.id);
+        localStorage.setItem('loggedInUserId', user.uid);
         toast({
             title: 'Signed In!',
             description: "Welcome back! We're redirecting you to your account.",
         });
         router.push('/account');
-    } else {
+
+    } catch (error: any) {
+        console.error("Sign-in failed:", error);
         toast({
             title: 'Sign-in Failed',
             description: 'Invalid email or password. Please try again or register for a new account.',
             variant: 'destructive'
         });
+    } finally {
+        setIsLoading(false);
     }
   };
 

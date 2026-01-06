@@ -16,6 +16,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
+import { auth } from '@/lib/firebase-config';
+import { EmailAuthProvider, reauthenticateWithCredential, updatePassword } from 'firebase/auth';
 
 export default function ChangePasswordPage() {
   const [oldPassword, setOldPassword] = useState('');
@@ -43,20 +45,44 @@ export default function ChangePasswordPage() {
         return;
     }
 
+    const user = auth.currentUser;
+    if (!user || !user.email) {
+        toast({
+            title: 'Error',
+            description: 'You must be signed in to change your password.',
+            variant: 'destructive',
+        });
+        return;
+    }
+
     setIsLoading(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setIsLoading(false);
+    
+    try {
+        const credential = EmailAuthProvider.credential(user.email, oldPassword);
+        await reauthenticateWithCredential(user, credential);
+        await updatePassword(user, newPassword);
 
-    toast({
-        title: 'Success!',
-        description: 'Your password has been changed successfully.',
-    });
+        toast({
+            title: 'Success!',
+            description: 'Your password has been changed successfully.',
+        });
 
-    setOldPassword('');
-    setNewPassword('');
-    setConfirmPassword('');
+        setOldPassword('');
+        setNewPassword('');
+        setConfirmPassword('');
 
+    } catch (error: any) {
+        console.error("Password update failed:", error);
+        toast({
+            title: 'Error changing password',
+            description: error.code === 'auth/wrong-password' 
+                ? 'Incorrect old password.'
+                : 'An error occurred. Please try again.',
+            variant: 'destructive',
+        });
+    } finally {
+        setIsLoading(false);
+    }
   };
 
   return (

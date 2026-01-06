@@ -16,7 +16,8 @@ import Link from 'next/link';
 import React from 'react';
 import { motorcrossRaces } from '@/lib/races-motorcross-data';
 import { supercrossRaces } from '@/lib/races-supercross-data';
-import { accounts, type Account } from '@/lib/accounts-data';
+import { getAccountById, getFriends } from '@/lib/firebase-config';
+import type { Account } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
 
@@ -43,14 +44,20 @@ export default function BettingPage() {
   React.useEffect(() => {
     const loggedInUserId = localStorage.getItem('loggedInUserId');
     if (loggedInUserId) {
-        const userAccount = accounts.find(a => a.id === loggedInUserId);
-        if (userAccount) {
-            setCurrentUser(userAccount);
-            const userFriends = accounts.filter(a => userAccount.friendIds?.includes(a.id));
-            setFriends(userFriends);
-        }
+        getAccountById(loggedInUserId).then(userAccount => {
+            if (userAccount) {
+                setCurrentUser(userAccount);
+                if (userAccount.friendIds && userAccount.friendIds.length > 0) {
+                    getFriends(userAccount.friendIds).then(setFriends);
+                }
+            } else {
+                router.push('/sign-in');
+            }
+        });
+    } else {
+        router.push('/sign-in');
     }
-  }, []);
+  }, [router]);
 
 
   const filteredRaces = React.useMemo(() => {

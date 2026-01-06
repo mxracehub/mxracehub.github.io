@@ -14,7 +14,8 @@ import {
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { accounts, exchangeRequests, type Account } from '@/lib/accounts-data';
+import { getAccountById, updateAccount, addExchangeRequest } from '@/lib/firebase-config';
+import type { Account } from '@/lib/types';
 import { Banknote, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
@@ -26,13 +27,13 @@ export default function ExchangeGoldPage() {
     useEffect(() => {
         const loggedInUserId = localStorage.getItem('loggedInUserId');
         if (loggedInUserId) {
-          const userAccount = accounts.find((a) => a.id === loggedInUserId);
-          if (userAccount) {
-            setAccount(userAccount);
-            setBalance(userAccount.balances.gold);
-          } else {
-            router.push('/sign-in');
-          }
+          getAccountById(loggedInUserId).then(userAccount => {
+              if (userAccount) {
+                  setAccount(userAccount);
+              } else {
+                  router.push('/sign-in');
+              }
+          });
         } else {
           router.push('/sign-in');
         }
@@ -41,7 +42,6 @@ export default function ExchangeGoldPage() {
     const [amount, setAmount] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const { toast } = useToast();
-    const [balance, setBalance] = useState(0);
     
     const exchangeValueUSD = useMemo(() => {
         const numericAmount = Number(amount);
@@ -74,7 +74,7 @@ export default function ExchangeGoldPage() {
             return;
         }
 
-        if (exchangeAmount > balance) {
+        if (exchangeAmount > account.balances.gold) {
             toast({
                 title: 'Insufficient Balance',
                 description: 'You do not have enough Gold Coins to complete this exchange.',
@@ -84,32 +84,38 @@ export default function ExchangeGoldPage() {
         }
 
         setIsLoading(true);
-        // Simulate API call to submit the request
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        try {
+            const newBalance = account.balances.gold - exchangeAmount;
+            
+            await updateAccount(account.id, { balances: { ...account.balances, gold: newBalance } });
 
-        // In a real app, this would be handled on the backend.
-        // For demonstration, we'll update the mock data directly.
-        const newBalance = balance - exchangeAmount;
-        setBalance(newBalance);
-        account.balances.gold = newBalance;
+            await addExchangeRequest({
+                accountId: account.id,
+                accountName: account.name,
+                amount: exchangeAmount,
+                date: new Date().toISOString().split('T')[0],
+                status: 'Pending',
+            });
+            
+            // Optimistically update the UI
+            setAccount(prev => prev ? { ...prev, balances: { ...prev.balances, gold: newBalance }} : null);
 
-        exchangeRequests.unshift({
-            id: `ex-${Date.now()}`,
-            accountId: account.id,
-            accountName: account.name,
-            amount: exchangeAmount,
-            date: new Date().toISOString().split('T')[0],
-            status: 'Pending',
-        });
-
-        setIsLoading(false);
-
-        toast({
-            title: 'Request Submitted!',
-            description: `Your request to exchange ${exchangeAmount.toLocaleString()} Gold Coins has been submitted.`,
-        });
-
-        setAmount('');
+            toast({
+                title: 'Request Submitted!',
+                description: `Your request to exchange ${exchangeAmount.toLocaleString()} Gold Coins has been submitted.`,
+            });
+            setAmount('');
+        } catch (error) {
+            console.error(error);
+            toast({
+                title: 'Error',
+                description: 'Failed to submit exchange request. Please try again.',
+                variant: 'destructive',
+            });
+        } finally {
+            setIsLoading(false);
+        }
     };
 
   if (!account) {
@@ -174,7 +180,7 @@ export default function ExchangeGoldPage() {
               <CardTitle>Your Gold Coin Balance</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-4xl font-bold">{balance.toLocaleString() || '0'}</div>
+              <div className="text-4xl font-bold">{account.balances.gold.toLocaleString() || '0'}</div>
               <div className="text-muted-foreground">Gold Coins</div>
             </CardContent>
           </Card>

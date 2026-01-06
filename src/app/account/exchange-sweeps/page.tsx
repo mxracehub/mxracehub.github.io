@@ -16,7 +16,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Loader2, Repeat } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { accounts, type Account } from '@/lib/accounts-data';
+import { getAccountById, updateAccount } from '@/lib/firebase-config';
+import type { Account } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 
 export default function ExchangeSweepsPage() {
@@ -26,13 +27,13 @@ export default function ExchangeSweepsPage() {
   useEffect(() => {
     const loggedInUserId = localStorage.getItem('loggedInUserId');
     if (loggedInUserId) {
-      const userAccount = accounts.find((a) => a.id === loggedInUserId);
-      if (userAccount) {
-        setAccount(userAccount);
-        setBalance(userAccount.balances.sweeps);
-      } else {
-        router.push('/sign-in');
-      }
+      getAccountById(loggedInUserId).then(userAccount => {
+        if (userAccount) {
+          setAccount(userAccount);
+        } else {
+          router.push('/sign-in');
+        }
+      });
     } else {
       router.push('/sign-in');
     }
@@ -42,7 +43,6 @@ export default function ExchangeSweepsPage() {
   const [amount, setAmount] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
-  const [balance, setBalance] = useState(0);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,7 +75,7 @@ export default function ExchangeSweepsPage() {
         return;
     }
 
-    if (transferAmount > balance) {
+    if (transferAmount > account.balances.sweeps) {
       toast({
         title: 'Insufficient Balance',
         description:
@@ -86,23 +86,31 @@ export default function ExchangeSweepsPage() {
     }
 
     setIsLoading(true);
-    // Simulate API call to submit the request
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    
+    try {
+        const newBalance = account.balances.sweeps - transferAmount;
+        await updateAccount(account.id, { balances: { ...account.balances, sweeps: newBalance } });
 
-    // In a real app, this would be handled on the backend.
-    // For demonstration, we'll update the mock data directly.
-    const newBalance = balance - transferAmount;
-    setBalance(newBalance);
-    account.balances.sweeps = newBalance;
+        // Optimistically update UI
+        setAccount(prev => prev ? { ...prev, balances: { ...prev.balances, sweeps: newBalance }} : null);
 
-    setIsLoading(false);
+        toast({
+          title: 'Transfer Submitted!',
+          description: `Your request to transfer ${transferAmount.toLocaleString()} Sweeps Coins has been submitted.`,
+        });
 
-    toast({
-      title: 'Transfer Submitted!',
-      description: `Your request to transfer ${transferAmount.toLocaleString()} Sweeps Coins has been submitted.`,
-    });
+        setAmount('');
 
-    setAmount('');
+    } catch(error) {
+        console.error(error);
+        toast({
+            title: 'Error',
+            description: 'Failed to submit transfer request. Please try again.',
+            variant: 'destructive',
+        });
+    } finally {
+        setIsLoading(false);
+    }
   };
   
     if (!account) {
@@ -166,7 +174,7 @@ export default function ExchangeSweepsPage() {
               <CardTitle>Your Balance</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-4xl font-bold">{balance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+              <div className="text-4xl font-bold">{account.balances.sweeps.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
               <div className="text-muted-foreground">Sweeps Coins</div>
             </CardContent>
           </Card>
