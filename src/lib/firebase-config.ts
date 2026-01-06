@@ -1,8 +1,8 @@
+
 'use client';
 
-import { auth, db } from "@/firebase";
+import { db } from "@/firebase";
 import { collection, doc, getDoc, getDocs, setDoc, query, where, addDoc, updateDoc, deleteDoc } from "firebase/firestore";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import type { Account, ExchangeRequest } from "./types";
 
 // Firestore collection references

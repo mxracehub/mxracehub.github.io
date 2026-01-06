@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -18,7 +19,8 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, ArrowRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { auth, createAccount, getAccountByEmail, isUsernameTaken, isRiderNumberTaken } from '@/lib/firebase-config';
+import { auth } from '@/firebase';
+import { createAccount, getAccountByEmail, isUsernameTaken, isRiderNumberTaken } from '@/lib/firebase-config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import type { Account } from '@/lib/types';
 
