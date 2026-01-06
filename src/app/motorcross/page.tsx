@@ -3,6 +3,7 @@ import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { motorcrossRaces } from '@/lib/races-motorcross-data';
+import Image from 'next/image';
 
 export default function MotorcrossPage() {
   const heroImage = {
@@ -16,7 +17,7 @@ export default function MotorcrossPage() {
       <PageHeader title="Motorcross" />
       {heroImage && (
         <div className="mb-8 overflow-hidden rounded-lg">
-           <img
+           <Image
             src={heroImage.imageUrl}
             alt={heroImage.description}
             width={1200}
