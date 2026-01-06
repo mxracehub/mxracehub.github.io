@@ -1,7 +1,6 @@
-
 'use client';
 
-import { db } from "@/firebase";
+import { db, auth } from "@/firebase";
 import { collection, doc, getDoc, getDocs, setDoc, query, where, addDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import type { Account, ExchangeRequest } from "./types";
 
