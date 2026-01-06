@@ -21,26 +21,39 @@ import { useToast } from '@/hooks/use-toast';
 export default function FriendsPage() {
     const [currentUser, setCurrentUser] = useState<Account | null>(null);
     const [friends, setFriends] = useState<Account[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
     const [friendSearch, setFriendSearch] = useState('');
     const router = useRouter();
     const { toast } = useToast();
 
     useEffect(() => {
-        const loggedInUserId = localStorage.getItem('loggedInUserId');
-        if (loggedInUserId) {
-          getAccountById(loggedInUserId).then(userAccount => {
-            if (userAccount) {
-              setCurrentUser(userAccount);
-              if (userAccount.friendIds && userAccount.friendIds.length > 0) {
-                  getFriends(userAccount.friendIds).then(setFriends);
-              }
+        const fetchFriendsData = async () => {
+            const loggedInUserId = localStorage.getItem('loggedInUserId');
+            if (loggedInUserId) {
+                try {
+                    const userAccount = await getAccountById(loggedInUserId);
+                    if (userAccount) {
+                        setCurrentUser(userAccount);
+                        if (userAccount.friendIds && userAccount.friendIds.length > 0) {
+                            const friendList = await getFriends(userAccount.friendIds);
+                            setFriends(friendList);
+                        }
+                    } else {
+                        localStorage.removeItem('loggedInUserId');
+                        router.push('/sign-in');
+                    }
+                } catch (error) {
+                    console.error("Failed to fetch friends data:", error);
+                    router.push('/sign-in');
+                } finally {
+                    setIsLoading(false);
+                }
             } else {
-              router.push('/sign-in');
+                router.push('/sign-in');
             }
-          });
-        } else {
-          router.push('/sign-in');
-        }
+        };
+
+        fetchFriendsData();
       }, [router]);
       
     const handleAddFriend = async () => {
@@ -107,7 +120,7 @@ export default function FriendsPage() {
     }
 
 
-    if (!currentUser) {
+    if (isLoading) {
         return <div>Loading...</div>
     }
 
@@ -144,7 +157,7 @@ export default function FriendsPage() {
               <Card key={friend.id}>
                 <CardContent className="p-4 flex flex-col sm:flex-row items-center gap-4">
                     <Avatar className="h-24 w-24 border-4 border-primary">
-                        <AvatarImage src={'https://picsum.photos/seed/friend/200'} alt={friend.name} />
+                        <AvatarImage src={`https://picsum.photos/seed/${friend.id}/200`} alt={friend.name} />
                         <AvatarFallback>{friend.name.charAt(0)}</AvatarFallback>
                     </Avatar>
                     <div className="flex-1 text-center sm:text-left">

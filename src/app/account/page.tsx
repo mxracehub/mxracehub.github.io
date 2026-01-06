@@ -28,27 +28,30 @@ export default function AccountPage() {
   const userAvatar = PlaceHolderImages.find((p) => p.id === 'user-avatar');
 
   useEffect(() => {
-    const loggedInUserId = localStorage.getItem('loggedInUserId');
-    if (loggedInUserId) {
-      getAccountById(loggedInUserId)
-        .then(userAccount => {
+    const fetchAccountData = async () => {
+      const loggedInUserId = localStorage.getItem('loggedInUserId');
+      if (loggedInUserId) {
+        try {
+          const userAccount = await getAccountById(loggedInUserId);
           if (userAccount) {
             setAccount(userAccount);
           } else {
+            // User ID in storage is stale or invalid
             localStorage.removeItem('loggedInUserId');
             router.push('/sign-in');
           }
-        })
-        .catch(error => {
+        } catch (error) {
           console.error("Failed to fetch account:", error);
           router.push('/sign-in');
-        })
-        .finally(() => {
+        } finally {
           setIsLoading(false);
-        });
-    } else {
-      router.push('/sign-in');
-    }
+        }
+      } else {
+        router.push('/sign-in');
+      }
+    };
+
+    fetchAccountData();
   }, [router]);
 
   if (isLoading) {
@@ -95,7 +98,8 @@ export default function AccountPage() {
   }
 
   if (!account) {
-    return null; // Or a message telling the user they are being redirected
+    // This can happen briefly during redirection
+    return <div>Loading...</div>;
   }
 
   return (
