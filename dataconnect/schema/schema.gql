@@ -1,0 +1,45 @@
+type User @table {
+  displayName: String!
+  email: String!
+  createdAt: Timestamp!
+  photoUrl: String
+  favoriteRider: Rider
+}
+
+type Race @table {
+  name: String!
+  series: String!
+  date: Date!
+  location: String!
+  createdAt: Timestamp!
+  winner: Rider
+  description: String
+}
+
+type Rider @table {
+  name: String!
+  nationality: String!
+  createdAt: Timestamp!
+  team: String
+  biography: String
+}
+
+type BettingGroup @table {
+  name: String!
+  inviteCode: String!
+  createdAt: Timestamp!
+  description: String
+  creator: User!
+}
+
+type Bet @table {
+  betType: String!
+  predictedOutcome: String!
+  amount: Float!
+  createdAt: Timestamp!
+  status: String
+  pointsAwarded: Int
+  user: User!
+  race: Race!
+  bettingGroup: BettingGroup!
+}
