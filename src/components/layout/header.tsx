@@ -6,7 +6,8 @@ import { NavLink } from '@/components/layout/nav-link';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { useRouter } from 'next/navigation';
-import { useUser, auth } from '@/firebase';
+import { useUser } from '@/firebase/auth/use-user';
+import { auth } from '@/firebase';
 import { signOut } from 'firebase/auth';
 import {
   Sheet,

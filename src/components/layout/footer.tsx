@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { Instagram, Youtube } from 'lucide-react';
 import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { placeholderImages } from '@/lib/placeholder-images.json';
 
 const footerNavLinks = [
   { href: '/', label: 'Home' },
@@ -15,9 +15,9 @@ const footerNavLinks = [
 ];
 
 export function Footer() {
-  const proRacingLogo = PlaceHolderImages.find(p => p.id === 'pro-racing-logo');
-  const amaLogo = PlaceHolderImages.find(p => p.id === 'ama-logo');
-  const monsterLogo = PlaceHolderImages.find(p => p.id === 'monster-logo');
+  const proRacingLogo = placeholderImages.find(p => p.id === 'pro-racing-logo');
+  const amaLogo = placeholderImages.find(p => p.id === 'ama-logo');
+  const monsterLogo = placeholderImages.find(p => p.id === 'monster-logo');
 
   return (
     <footer className="border-t border-white/10 bg-background text-white">

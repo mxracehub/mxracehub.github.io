@@ -43,8 +43,11 @@ const allRaces = [
 ];
 
 // CountdownTimer component
-const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
+const CountdownTimer = ({ targetDate }: { targetDate: Date | null }) => {
   const calculateTimeLeft = () => {
+    if (!targetDate) {
+        return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    }
     const difference = +targetDate - +new Date();
     let timeLeft = {
       days: 0,
@@ -68,6 +71,8 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
+    if (!targetDate) return;
+
     const timer = setTimeout(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
@@ -78,6 +83,10 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
   const formatTime = (time: number) => {
     return time.toString().padStart(2, '0');
   };
+
+  if (!targetDate) {
+    return null;
+  }
 
   return (
     <div className="flex justify-center gap-4">
@@ -106,13 +115,17 @@ export default function DashboardPage() {
     (img) => img.id === 'race-day-banner'
   );
 
-  const nextRace = useMemo(() => {
+  const [nextRace, setNextRace] = useState<typeof allRaces[0] | null>(null);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
     const now = new Date();
     const upcomingRaces = allRaces
       .filter(race => race.date > now)
       .sort((a, b) => a.date.getTime() - b.date.getTime());
     
-    return upcomingRaces[0] || null;
+    setNextRace(upcomingRaces[0] || null);
   }, []);
 
   return (
@@ -140,7 +153,7 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {nextRace ? (
+      {isClient && nextRace ? (
         <div className="mb-8 rounded-lg border border-border bg-card p-6 text-center text-card-foreground">
           <p className="mb-2 font-bold uppercase tracking-widest text-primary">
             Next Race
@@ -154,8 +167,12 @@ export default function DashboardPage() {
         </div>
       ) : (
          <div className="mb-8 rounded-lg border border-border bg-card p-6 text-center text-card-foreground">
-            <h2 className="mb-1 text-3xl font-bold">No upcoming races scheduled.</h2>
-            <p className="mt-2 text-muted-foreground">Please check back soon for the next season's schedule!</p>
+            <h2 className="mb-1 text-3xl font-bold">
+                {isClient ? 'No upcoming races scheduled.' : 'Loading next race...'}
+            </h2>
+            <p className="mt-2 text-muted-foreground">
+                {isClient ? 'Please check back soon for the next season\'s schedule!' : ''}
+            </p>
         </div>
       )}
 
