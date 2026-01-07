@@ -1,0 +1,1 @@
+self.__RSC_SERVER_MANIFEST="{\"node\":{\"40b93b976f9ec615eb46646b59c2fc21e7310564ea\":{\"workers\":{\"app/admin/page\":{\"moduleId\":\"3866\",\"async\":false}},\"layer\":{\"app/admin/page\":\"action-browser\"},\"filename\":\"ai/flows/summarize-race-data.ts\",\"exportedName\":\"summarizeRaceData\"}},\"edge\":{},\"encryptionKey\":\"process.env.NEXT_SERVER_ACTIONS_ENCRYPTION_KEY\"}"
