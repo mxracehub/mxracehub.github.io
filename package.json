@@ -11,7 +11,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "deploy": "firebase deploy --only hosting:studio-122199390-e63be-d5d97"
+    "deploy": "firebase deploy"
   },
   "dependencies": {
     "@genkit-ai/google-genai": "^1.20.0",
