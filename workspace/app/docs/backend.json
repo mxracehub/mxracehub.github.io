@@ -1,0 +1,121 @@
+
+{
+  "entities": {
+    "Account": {
+      "title": "Account",
+      "description": "Represents a user account in the system.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier for the account."
+        },
+        "name": {
+          "type": "string",
+          "description": "The user's display name."
+        },
+        "username": {
+          "type": "string",
+          "description": "The user's unique username."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The user's email address."
+        },
+        "bio": {
+          "type": "string",
+          "description": "A short biography of the user."
+        },
+        "balances": {
+          "type": "object",
+          "properties": {
+            "gold": {
+              "type": "number"
+            },
+            "sweeps": {
+              "type": "number"
+            }
+          }
+        },
+        "betHistory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/entities/Bet"
+          }
+        },
+        "friendIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "riderNumber": {
+          "type": "string"
+        },
+        "mxhubStanding": {
+          "type": "number"
+        }
+      },
+      "required": ["name", "username", "email", "balances"]
+    },
+    "Bet": {
+      "title": "Bet",
+      "description": "Represents a bet made by a user.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "race": {
+          "type": "string"
+        },
+        "opponent": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "coinType": {
+          "type": "string",
+          "enum": ["Gold Coins", "Sweeps Coins"]
+        },
+        "status": {
+          "type": "string",
+          "enum": ["Won", "Lost", "Pending"]
+        }
+      }
+    },
+    "ExchangeRequest": {
+      "title": "Exchange Request",
+      "description": "Represents a request to exchange coins.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "accountId": { "type": "string" },
+        "accountName": { "type": "string" },
+        "amount": { "type": "number" },
+        "date": { "type": "string" },
+        "status": { "type": "string", "enum": ["Pending", "Approved", "Rejected"] },
+        "type": { "type": "string", "enum": ["Gold Coin", "Sweeps Coin"] }
+      },
+      "required": ["accountId", "accountName", "amount", "date", "status", "type"]
+    }
+  },
+  "auth": {
+    "providers": ["email"]
+  },
+  "firestore": {
+    "/accounts/{accountId}": {
+      "schema": { "$ref": "#/entities/Account" },
+      "description": "Stores user account information."
+    },
+    "/exchangeRequests/{requestId}": {
+      "schema": { "$ref": "#/entities/ExchangeRequest" },
+      "description": "Stores all coin exchange requests from users."
+    }
+  }
+}

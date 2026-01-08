@@ -1,0 +1,64 @@
+{
+  "placeholderImages": [
+    {
+      "id": "user-avatar",
+      "description": "User profile avatar",
+      "imageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3Njc1MTExMDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "race-banner-1",
+      "description": "Motocross race banner",
+      "imageUrl": "https://images.unsplash.com/photo-1524055988636-436c6852de66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb3RvY3Jvc3N8ZW58MHx8fHwxNzY3OTAwNjYwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "motocross race"
+    },
+    {
+      "id": "supercross-banner",
+      "description": "Supercross race action",
+      "imageUrl": "https://images.unsplash.com/photo-1599557457753-15a0a38219e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzdXBlcmNyb3NzfGVufDB8fHx8MTc2ODAxNDg0OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "supercross action"
+    },
+    {
+      "id": "race-day-banner",
+      "description": "Motocross race day excitement",
+      "imageUrl": "https://images.unsplash.com/photo-1656768442835-256722b84e66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW90b2Nyb3NzJTIwYWN0aW9ufGVufDB8fHx8MTc2NzU1Nzc1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "motocross action"
+    },
+    {
+      "id": "pro-racing-logo",
+      "description": "Pro Racing logo",
+      "imageUrl": "https://images.unsplash.com/photo-1764176910668-a2f3a7babbd1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxyYWNpbmclMjBsb2dvfGVufDB8fHx8MTc2NzU1Nzk4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "racing logo"
+    },
+    {
+      "id": "ama-logo",
+      "description": "AMA logo",
+      "imageUrl": "https://images.unsplash.com/photo-1696392837860-d96c2fc454a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW90b3JjeWNsZSUyMGFzc29jaWF0aW9ufGVufDB8fHx8MTc2NzU1Nzk4N3ww&ixlibrb-4.1.0&q=80&w=1080",
+      "imageHint": "motorcycle association"
+    },
+    {
+      "id": "monster-logo",
+      "description": "Monster Energy logo",
+      "imageUrl": "https://images.unsplash.com/photo-16120944485240-e6249b81c0cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZW5lcmd5JTIwZHJpbmt8ZW58MHx8fHwxNzY3NTM3MzU4fDA&ixlibrb-4.1.0&q=80&w=1080",
+      "imageHint": "energy drink"
+    },
+    {
+      "id": "450-rider-banner",
+      "description": "450cc class riders",
+      "imageUrl": "https://images.unsplash.com/photo-1746011124084-3134e6e888a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtb3RvY3Jvc3MlMjByaWRlcnN8ZW58MHx8fHwxNzY3NTU5Mjk4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "motocross riders"
+    },
+    {
+      "id": "250-rider-banner",
+      "description": "250cc class riders",
+      "imageUrl": "https://images.unsplash.com/photo-1667506986202-a23a3c90a5a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW90b2Nyb3NzJTIwcmlkZXJzJTIwYWN0aW9ufGVufDB8fHx8MTc2NzU1OTI5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "motocross riders action"
+    },
+    {
+      "id": "settings-banner",
+      "description": "Settings page banner",
+      "imageUrl": "https://images.unsplash.com/photo-1599557457753-15a0a38219e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzdXBlcmNyb3NzfGVufDB8fHx8MTc2ODAxNDg0OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "motocross rider"
+    }
+  ]
+}
