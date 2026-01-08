@@ -19,7 +19,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { MoreHorizontal } from 'lucide-react';
-import { getExchangeRequests, updateExchangeRequestStatus } from '@/lib/firebase-config';
+import { getExchangeRequests, processExchangeRequest } from '@/lib/firebase-config';
 import type { ExchangeRequest } from '@/lib/types';
 import { useToast } from '@/hooks/use-toast';
 
@@ -28,20 +28,24 @@ export function ExchangeRequestsTable() {
   const { toast } = useToast();
 
   useEffect(() => {
-    getExchangeRequests().then(setRequests);
+    const fetchRequests = async () => {
+        const initialRequests = await getExchangeRequests();
+        setRequests(initialRequests);
+    }
+    fetchRequests();
   }, []);
 
-  const handleStatusChange = async (requestId: string, newStatus: 'Approved' | 'Rejected') => {
+  const handleStatusChange = async (request: ExchangeRequest, newStatus: 'Approved' | 'Rejected') => {
     try {
-        await updateExchangeRequestStatus(requestId, newStatus);
+        await processExchangeRequest(request, newStatus);
         setRequests(prevRequests =>
           prevRequests.map(req =>
-            req.id === requestId ? { ...req, status: newStatus } : req
+            req.id === request.id ? { ...req, status: newStatus } : req
           )
         );
         toast({
             title: 'Status Updated',
-            description: `Request ${requestId} has been ${newStatus.toLowerCase()}.`
+            description: `Request has been ${newStatus.toLowerCase()}.`
         });
     } catch (error) {
         console.error(error);
@@ -53,6 +57,8 @@ export function ExchangeRequestsTable() {
     }
   };
 
+  const sortedRequests = [...requests].sort((a,b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
   return (
     <div className="rounded-md border">
       <Table>
@@ -60,6 +66,7 @@ export function ExchangeRequestsTable() {
           <TableRow>
             <TableHead>Request ID</TableHead>
             <TableHead>Account Name</TableHead>
+             <TableHead>Type</TableHead>
             <TableHead>Amount</TableHead>
             <TableHead>Date</TableHead>
             <TableHead>Status</TableHead>
@@ -67,12 +74,13 @@ export function ExchangeRequestsTable() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {requests.map(request => (
+          {sortedRequests.map(request => (
             <TableRow key={request.id}>
               <TableCell className="font-medium">{request.id.substring(0, 8)}...</TableCell>
               <TableCell>{request.accountName}</TableCell>
-              <TableCell>{request.amount.toLocaleString()} GC</TableCell>
-              <TableCell>{request.date}</TableCell>
+              <TableCell>{request.type}</TableCell>
+              <TableCell>{request.amount.toLocaleString()}</TableCell>
+              <TableCell>{new Date(request.date).toLocaleDateString()}</TableCell>
               <TableCell>
                 <Badge
                   variant={
@@ -90,21 +98,19 @@ export function ExchangeRequestsTable() {
               <TableCell className="text-right">
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="h-8 w-8 p-0">
+                    <Button variant="ghost" className="h-8 w-8 p-0" disabled={request.status !== 'Pending'}>
                       <span className="sr-only">Open menu</span>
                       <MoreHorizontal className="h-4 w-4" />
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
                     <DropdownMenuItem
-                        onClick={() => handleStatusChange(request.id, 'Approved')}
-                        disabled={request.status === 'Approved'}
+                        onClick={() => handleStatusChange(request, 'Approved')}
                     >
                       Approve
                     </DropdownMenuItem>
                     <DropdownMenuItem
-                        onClick={() => handleStatusChange(request.id, 'Rejected')}
-                        disabled={request.status === 'Rejected'}
+                        onClick={() => handleStatusChange(request, 'Rejected')}
                     >
                       Reject
                     </DropdownMenuItem>

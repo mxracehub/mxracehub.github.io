@@ -1,7 +1,7 @@
 'use client';
 
 import { db, auth } from "@/firebase";
-import { collection, doc, getDoc, getDocs, setDoc, query, where, addDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, setDoc, query, where, addDoc, updateDoc, writeBatch } from "firebase/firestore";
 import type { Account, ExchangeRequest } from "./types";
 
 // Firestore collection references
@@ -100,7 +100,36 @@ export const addExchangeRequest = async (request: Omit<ExchangeRequest, 'id'>): 
     return docRef.id;
 };
 
-export const updateExchangeRequestStatus = async (id: string, status: 'Approved' | 'Rejected'): Promise<void> => {
-    const docRef = doc(db, "exchangeRequests", id);
-    await setDoc(docRef, { status }, { merge: true });
+export const processExchangeRequest = async (request: ExchangeRequest, newStatus: 'Approved' | 'Rejected'): Promise<void> => {
+    const batch = writeBatch(db);
+
+    const requestRef = doc(db, "exchangeRequests", request.id);
+    batch.update(requestRef, { status: newStatus });
+
+    if (newStatus === 'Rejected') {
+        const accountRef = doc(db, "accounts", request.accountId);
+        const accountSnap = await getDoc(accountRef);
+        if (accountSnap.exists()) {
+            const accountData = accountSnap.data() as Account;
+            let newGoldBalance = accountData.balances.gold;
+            let newSweepsBalance = accountData.balances.sweeps;
+
+            if (request.type === 'Gold Coin') {
+                newGoldBalance += request.amount;
+            } else if (request.type === 'Sweeps Coin') {
+                newSweepsBalance += request.amount;
+            }
+            
+            batch.update(accountRef, { 
+                balances: { 
+                    gold: newGoldBalance, 
+                    sweeps: newSweepsBalance 
+                } 
+            });
+        } else {
+            throw new Error(`Account with ID ${request.accountId} not found.`);
+        }
+    }
+    
+    await batch.commit();
 }
