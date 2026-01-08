@@ -1,12 +1,5 @@
 
 {
-  "hosting": {
-    "site": "studio-1221993-e63be-d5d97",
-    "source": ".",
-    "frameworksBackend": {
-      "region": "us-central1"
-    }
-  },
   "emulators": {
     "dataconnect": {
       "dataDir": "dataconnect/.dataconnect/pgliteData"
