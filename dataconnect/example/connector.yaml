@@ -1,0 +1,8 @@
+connectorId: "example"
+from:
+  postgresql:
+    # This will use the default postgresql datasource defined in dataconnect.yaml
+    database: "fdcdb"
+schema:
+  # This will use the default schema defined in dataconnect.yaml
+  source: "../schema"
