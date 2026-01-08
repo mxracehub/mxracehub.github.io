@@ -1,3 +1,4 @@
+
 {
   "emulators": {
     "dataconnect": {
@@ -15,7 +16,7 @@
   },
   "apphosting": {
     "backendId": "mx-backend",
-    "rootDir": ".",
+    "rootDir": "app",
     "ignore": [
       "node_modules",
       ".git",
