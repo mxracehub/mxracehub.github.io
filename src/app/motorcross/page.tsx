@@ -4,13 +4,10 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { motorcrossRaces } from '@/lib/races-motorcross-data';
 import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function MotorcrossPage() {
-  const heroImage = {
-      imageUrl: "https://images.unsplash.com/photo-1524055988636-436c6852de66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb3RvY3Jvc3N8ZW58MHx8fHwxNzY3OTAwNjYwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      description: "Motocross race banner",
-      imageHint: "motocross race"
-  };
+  const heroImage = PlaceHolderImages.find((p) => p.id === 'race-banner-1');
 
   return (
     <div>
