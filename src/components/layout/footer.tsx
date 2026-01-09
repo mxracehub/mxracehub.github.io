@@ -26,12 +26,28 @@ export function Footer() {
     .map(id => PlaceHolderImages.find(p => p.id === id))
     .filter(logo => logo !== undefined);
 
+  // Adding Privacy to the nav links if it's not there.
+  if (!footerNavLinks.find(link => link.href === '/policies')) {
+      const contactIndex = footerNavLinks.findIndex(link => link.href === '/contact');
+      if (contactIndex !== -1) {
+          footerNavLinks.splice(contactIndex, 0, { href: '/policies', label: 'Privacy' });
+      } else {
+          footerNavLinks.push({ href: '/policies', label: 'Privacy' });
+      }
+  }
+  // Renaming policies to rules to match screenshot better
+   const policiesLink = footerNavLinks.find(link => link.href === '/policies');
+   if (policiesLink && policiesLink.label === 'Policies') {
+       policiesLink.label = "Rules";
+   }
+
+
   return (
     <footer className="border-t border-white/10 bg-background text-white">
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="flex flex-row justify-between items-start gap-8">
           {/* Left: Navigation */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="flex flex-col gap-1">
             {footerNavLinks.map((link) => (
               <Link key={link.label} href={link.href} className="text-sm text-red-500 hover:underline">
                 {link.label}
@@ -69,7 +85,7 @@ export function Footer() {
         </div>
 
         {/* Bottom: Copyright */}
-        <div className="mt-8 border-t border-white/10 pt-4 text-center text-sm text-muted-foreground">
+        <div className="mt-8 pt-4 text-center text-sm text-muted-foreground">
           <p>&copy; 2025 Mxracehub</p>
         </div>
       </div>
