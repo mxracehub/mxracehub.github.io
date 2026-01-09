@@ -14,10 +14,17 @@ const footerNavLinks = [
   { href: '/contact', label: 'Contact' },
 ];
 
+const footerLogoIds = ['pro-racing-logo', 'ama-logo', 'monster-logo'];
+const logoDimensions: { [key: string]: { width: number; height: number } } = {
+  'pro-racing-logo': { width: 120, height: 40 },
+  'ama-logo': { width: 100, height: 50 },
+  'monster-logo': { width: 150, height: 40 },
+};
+
 export function Footer() {
-  const proRacingLogo = PlaceHolderImages.find(p => p.id === 'pro-racing-logo');
-  const amaLogo = PlaceHolderImages.find(p => p.id === 'ama-logo');
-  const monsterLogo = PlaceHolderImages.find(p => p.id === 'monster-logo');
+  const footerLogos = footerLogoIds
+    .map(id => PlaceHolderImages.find(p => p.id === id))
+    .filter(logo => logo !== undefined);
 
   return (
     <footer className="border-t border-white/10 bg-background text-white">
@@ -34,9 +41,20 @@ export function Footer() {
 
           {/* Middle: Logos */}
           <div className="flex flex-col items-center justify-start gap-4">
-             {proRacingLogo && <Image src={proRacingLogo.imageUrl} alt={proRacingLogo.description} width={120} height={40} data-ai-hint={proRacingLogo.imageHint} />}
-             {amaLogo && <Image src={amaLogo.imageUrl} alt={amaLogo.description} width={100} height={50} data-ai-hint={amaLogo.imageHint}/>}
-             {monsterLogo && <Image src={monsterLogo.imageUrl} alt={monsterLogo.description} width={150} height={40} data-ai-hint={monsterLogo.imageHint} />}
+            {footerLogos.map((logo) => {
+              if (!logo) return null;
+              const dims = logoDimensions[logo.id] || { width: 120, height: 40 };
+              return (
+                <Image 
+                  key={logo.id}
+                  src={logo.imageUrl} 
+                  alt={logo.description} 
+                  width={dims.width} 
+                  height={dims.height} 
+                  data-ai-hint={logo.imageHint} 
+                />
+              )
+            })}
           </div>
 
           {/* Right: Social Icons */}
