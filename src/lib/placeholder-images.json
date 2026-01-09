@@ -33,13 +33,13 @@
     {
       "id": "ama-logo",
       "description": "AMA logo",
-      "imageUrl": "https://images.unsplash.com/photo-1696392837860-d96c2fc454a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW90b3JjeWNsZSUyMGFzc29jaWF0aW9ufGVufDB8fHx8MTc2NzU1Nzk4N3ww&ixlibrb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://storage.googleapis.com/aifire-prompt-gallery/1720621303862_ama-logo.png",
       "imageHint": "motorcycle association"
     },
     {
       "id": "monster-logo",
       "description": "Monster Energy logo",
-      "imageUrl": "https://images.unsplash.com/photo-16120944485240-e6249b81c0cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZW5lcmd5JTIwZHJpbmt8ZW58MHx8fHwxNzY3NTM3MzU4fDA&ixlibrb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://storage.googleapis.com/aifire-prompt-gallery/1720621338838_monster-energy-logo.png",
       "imageHint": "energy drink"
     },
     {
