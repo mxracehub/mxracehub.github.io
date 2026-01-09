@@ -34,7 +34,7 @@ export function Footer() {
 
           {/* Middle: Logos */}
           <div className="flex flex-col items-center justify-start gap-4">
-             {proRacingLogo && <Image src={proRacingLogo.imageUrl} alt={proRacingLogo.description} width={120} height={40} data-ai-hint={proRacinglogo.imageHint} />}
+             {proRacingLogo && <Image src={proRacingLogo.imageUrl} alt={proRacingLogo.description} width={120} height={40} data-ai-hint={proRacingLogo.imageHint} />}
              {amaLogo && <Image src={amaLogo.imageUrl} alt={amaLogo.description} width={100} height={50} data-ai-hint={amaLogo.imageHint}/>}
              {monsterLogo && <Image src={monsterLogo.imageUrl} alt={monsterLogo.description} width={150} height={40} data-ai-hint={monsterLogo.imageHint} />}
           </div>
