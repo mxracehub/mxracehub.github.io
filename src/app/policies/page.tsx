@@ -54,6 +54,12 @@ export default function PoliciesPage() {
             </p>
           </div>
           <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">Data and Asset Disposal Policy</h3>
+            <p>
+              When data or physical assets containing data are no longer needed, they are disposed of securely. Digital data is overwritten or cryptographically erased to ensure it is unrecoverable. Physical media, such as hard drives or servers, are degaussed or physically destroyed before disposal to prevent data recovery. We ensure that all data disposal methods comply with industry standards and applicable regulations.
+            </p>
+          </div>
+          <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">KYC Agreement</h3>
             <p>
               When accepting a friend request, you acknowledge a mutual agreement for social gaming. For financial transactions and prize redemptions, further Know Your Customer (KYC) verification may be required to comply with financial regulations.
