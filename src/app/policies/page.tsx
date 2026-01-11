@@ -56,7 +56,7 @@ export default function PoliciesPage() {
           <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">Data and Asset Disposal Policy</h3>
             <p>
-              When data or physical assets containing data are no longer needed, they are disposed of securely. Digital data is overwritten or cryptographically erased to ensure it is unrecoverable. Physical media, such as hard drives or servers, are degaussed or physically destroyed before disposal to prevent data recovery. We ensure that all data disposal methods comply with industry standards and applicable regulations.
+              Our systems are designed to automatically and securely dispose of data when it is no longer needed according to our retention policies. Digital data is cryptographically erased or overwritten to ensure it is unrecoverable. Physical media, such as servers or hard drives, are degaussed or physically destroyed before being decommissioned. These automated disposal methods comply with industry standards and applicable regulations to ensure your data is permanently and securely removed.
             </p>
           </div>
           <div>
