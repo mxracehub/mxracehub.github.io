@@ -42,6 +42,12 @@ export default function PoliciesPage() {
             </p>
           </div>
           <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">Vulnerability Management Policy</h3>
+            <p>
+              We are dedicated to ensuring the security of our platform by proactively identifying and addressing vulnerabilities. Our process includes regular automated security scanning, code reviews, and staying informed about the latest security threats. We encourage responsible disclosure of security vulnerabilities by security researchers. All reported issues are triaged, prioritized based on severity, and remediated in a timely manner to protect our users and their data.
+            </p>
+          </div>
+          <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">KYC Agreement</h3>
             <p>
               When accepting a friend request, you acknowledge a mutual agreement for social gaming. For financial transactions and prize redemptions, further Know Your Customer (KYC) verification may be required to comply with financial regulations.
