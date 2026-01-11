@@ -51,6 +51,9 @@ export default function SettingsPage() {
            <Link href="/account/settings/privacy" className="block text-lg font-medium text-primary hover:underline">
               Privacy
           </Link>
+          <Link href="/how-it-works" className="block text-lg font-medium text-primary hover:underline">
+              How It Works
+          </Link>
           <Link href="/account/settings/rules" className="block text-lg font-medium text-primary hover:underline">
               Rules
           </Link>
