@@ -33,4 +33,5 @@ export type Account = {
     friendIds?: string[];
     riderNumber?: string;
     mxhubStanding?: number;
+    isAdmin?: boolean;
 };

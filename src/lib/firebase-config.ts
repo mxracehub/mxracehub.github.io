@@ -1,3 +1,4 @@
+
 'use client';
 
 import { db, auth } from "@/firebase";
@@ -30,7 +31,9 @@ export const getAccountByEmail = async (email: string): Promise<Account | null> 
 
 export const createAccount = async (id: string, accountData: Omit<Account, 'id'>): Promise<void> => {
     const accountRef = doc(db, "accounts", id);
-    await setDoc(accountRef, accountData);
+    // New accounts are not admins by default
+    const dataToSet = { ...accountData, isAdmin: false };
+    await setDoc(accountRef, dataToSet);
 };
 
 export const updateAccount = async (id: string, updates: Partial<Account>): Promise<void> => {

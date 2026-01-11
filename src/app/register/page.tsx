@@ -77,7 +77,7 @@ export default function RegisterPage() {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
 
-        const newAccountData: Omit<Account, 'id'> = {
+        const newAccountData: Omit<Account, 'id' | 'isAdmin'> = {
             name: username,
             username: username.trim(),
             email: email.trim(),

@@ -55,6 +55,10 @@
         },
         "mxhubStanding": {
           "type": "number"
+        },
+        "isAdmin": {
+          "type": "boolean",
+          "description": "Determines if the user has administrative privileges."
         }
       },
       "required": ["name", "username", "email", "balances"]
