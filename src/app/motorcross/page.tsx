@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motorcrossRaces } from '@/lib/races-motorcross-data';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Tv } from 'lucide-react';
 
 export default function MotorcrossPage() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'race-banner-1');
@@ -24,6 +25,15 @@ export default function MotorcrossPage() {
           />
         </div>
       )}
+
+      <div className="mb-8 text-center">
+        <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+            <Link href="https://www.peacocktv.com/sports/supercross" target="_blank" rel="noopener noreferrer">
+                <Tv className="mr-2 h-5 w-5" />
+                Live Stream on Peacock
+            </Link>
+        </Button>
+      </div>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {motorcrossRaces.map((race) => (

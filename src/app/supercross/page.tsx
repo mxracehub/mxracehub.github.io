@@ -1,9 +1,11 @@
+
 import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import Link from 'next/link';
 import { supercrossRaces } from '@/lib/races-supercross-data';
+import { Tv } from 'lucide-react';
 
 export default function SupercrossPage() {
   const heroImage = PlaceHolderImages.find(
@@ -28,6 +30,15 @@ export default function SupercrossPage() {
           />
         </div>
       )}
+
+      <div className="mb-8 text-center">
+        <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+            <Link href="https://www.peacocktv.com/sports/supercross" target="_blank" rel="noopener noreferrer">
+                <Tv className="mr-2 h-5 w-5" />
+                Live Stream on Peacock
+            </Link>
+        </Button>
+      </div>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {supercrossRaces.map((race) => (
