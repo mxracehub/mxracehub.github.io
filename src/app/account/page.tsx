@@ -16,10 +16,10 @@ import { useRouter } from 'next/navigation';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Coins, Trophy, Users, Settings, Hash } from 'lucide-react';
+import { Coins, Trophy, Users, Settings, Hash, Facebook, Instagram } from 'lucide-react';
 import Link from 'next/link';
 import { Skeleton } from '@/components/ui/skeleton';
-import type { Account } from '@/lib/types';
+import type { Account, Bet } from '@/lib/types';
 
 function AccountPageSkeleton() {
     return (
@@ -63,6 +63,38 @@ function AccountPageSkeleton() {
         </div>
     )
 }
+
+const SocialShareButtons = ({ bet, account }: { bet: Bet; account: Account }) => {
+    if (bet.status === 'Pending') return null;
+
+    const outcome = bet.status === 'Won' ? 'won' : 'lost';
+    const text = `I just ${outcome} a bet of ${bet.amount} ${bet.coinType} against @${bet.opponent} on the ${bet.race} at #MxRaceHub!`;
+    const url = 'https://www.mxracehub.site';
+
+    const handleFacebookShare = () => {
+        const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`;
+        window.open(facebookShareUrl, '_blank', 'noopener,noreferrer');
+    };
+    
+    // Instagram doesn't have a web sharer API like Facebook. 
+    // The best we can do is inform the user to share manually.
+    const handleInstagramShare = () => {
+        navigator.clipboard.writeText(text);
+        alert('Your bet result has been copied to your clipboard. Paste it into your next Instagram story or post!');
+    };
+
+    return (
+        <div className="flex gap-2 mt-2">
+            <Button variant="ghost" size="icon" className="h-6 w-6" onClick={handleFacebookShare} title="Share on Facebook">
+                <Facebook className="h-4 w-4 text-blue-600" />
+            </Button>
+            <Button variant="ghost" size="icon" className="h-6 w-6" onClick={handleInstagramShare} title="Share on Instagram">
+                <Instagram className="h-4 w-4 text-pink-600" />
+            </Button>
+        </div>
+    );
+};
+
 
 export default function AccountPage() {
   const router = useRouter();
@@ -168,6 +200,7 @@ export default function AccountPage() {
                       <div className={`text-right ${bet.status === 'Won' ? 'text-green-500' : bet.status === 'Lost' ? 'text-red-500' : ''}`}>
                           <p className="font-bold">{bet.status}</p>
                           <p className="text-sm">{bet.amount} {bet.coinType}</p>
+                          <SocialShareButtons bet={bet} account={account} />
                       </div>
                     </li>
                   ))}
