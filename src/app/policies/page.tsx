@@ -48,6 +48,12 @@ export default function PoliciesPage() {
             </p>
           </div>
           <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">Data Deletion and Retention Policy</h3>
+            <p>
+              We retain user data only for as long as necessary to provide our services and comply with legal obligations. You may request the deletion of your account and associated personal data by contacting us. Upon receiving a valid deletion request, we will erase or anonymize your data within 30 days, unless we are legally required to retain it for a longer period (e.g., for financial records or legal disputes). This policy is reviewed periodically to ensure compliance with applicable data privacy laws.
+            </p>
+          </div>
+          <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">KYC Agreement</h3>
             <p>
               When accepting a friend request, you acknowledge a mutual agreement for social gaming. For financial transactions and prize redemptions, further Know Your Customer (KYC) verification may be required to comply with financial regulations.
