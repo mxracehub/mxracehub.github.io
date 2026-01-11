@@ -1,8 +1,8 @@
-# Welcome to MxHub Exchange Duo!
+# Welcome to Mxracehub!
 
-This is your all-in-one platform for everything related to motocross and supercross racing. Whether you're a fan, a rider, or just looking for some fun, MxHub brings the excitement of the track right to your fingertips.
+This is your all-in-one platform for everything related to motocross and supercross racing. Whether you're a fan, a rider, or just looking for some fun, Mxracehub brings the excitement of the track right to your fingertips.
 
-## What can you do with MxHub?
+## What can you do with Mxracehub?
 
 *   **Follow the Action:** Get schedules for all the major Supercross and Motocross races. See who's racing in the 450cc and 250cc classes and learn more about your favorite riders.
 *   **Bet with Friends:** Make race day more exciting by placing friendly bets against your friends on upcoming races.
