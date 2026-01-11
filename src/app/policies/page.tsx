@@ -35,6 +35,12 @@ export default function PoliciesPage() {
               Your privacy is important to us. We collect minimal personal information necessary for account management and transactions. We do not sell your data to third parties. All financial information is encrypted and handled by secure payment processors.
             </p>
           </div>
+           <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">Information Security Policy</h3>
+            <p>
+              We are committed to protecting your data. We implement industry-standard security measures including data encryption in transit and at rest, regular security audits, and access control policies to safeguard your information. For sensitive operations like connecting a bank account, we integrate with trusted third-party services like Plaid, which handle your financial credentials directly. Your banking information is never stored on our servers. You are responsible for maintaining the security of your account by using a strong, unique password and not sharing your login details.
+            </p>
+          </div>
           <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">KYC Agreement</h3>
             <p>
