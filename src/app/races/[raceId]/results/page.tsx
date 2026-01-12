@@ -210,6 +210,12 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
         if (division === 'East/West Showdown') return '250SX East/West Showdown';
         return `250SX ${division} Main Event`;
     }
+    
+    const StandingsNotAvailable = () => (
+        <div className="border rounded-lg p-8 text-center text-muted-foreground mt-4">
+            Results will be posted after the race.
+        </div>
+    );
 
   return (
     <div>
@@ -305,35 +311,39 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
             </>
         )}
         <TabsContent value="series-points">
-             <div className="space-y-6 mt-4">
-                {race.type === 'Supercross' ? (
-                <>
-                    <div>
-                        <h3 className="text-xl font-bold mb-2">450SX Series Points</h3>
-                        <ResultsTable results={seriesPoints450} isSeriesPoints={true} />
-                    </div>
-                    <div>
-                        <h3 className="text-xl font-bold mb-2">250SX West Series Points</h3>
-                        <ResultsTable results={seriesPoints250West} isSeriesPoints={true} />
-                    </div>
-                    <div>
-                        <h3 className="text-xl font-bold mb-2">250SX East Series Points</h3>
-                        <ResultsTable results={seriesPoints250East} isSeriesPoints={true} />
-                    </div>
-                </>
-                ) : (
-                <>
-                    <div>
-                        <h3 className="text-xl font-bold mb-2">450MX Series Points</h3>
-                        <ResultsTable results={seriesPoints450} isSeriesPoints={true} />
-                    </div>
-                     <div>
-                        <h3 className="text-xl font-bold mb-2">250MX Series Points</h3>
-                        <ResultsTable results={seriesPoints250West} isSeriesPoints={true} />
-                    </div>
-                </>
-                )}
-            </div>
+            {race.type === 'Motocross' && !hasRaceHappened ? (
+                <StandingsNotAvailable />
+            ) : (
+                <div className="space-y-6 mt-4">
+                    {race.type === 'Supercross' ? (
+                    <>
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">450SX Series Points</h3>
+                            <ResultsTable results={seriesPoints450} isSeriesPoints={true} />
+                        </div>
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">250SX West Series Points</h3>
+                            <ResultsTable results={seriesPoints250West} isSeriesPoints={true} />
+                        </div>
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">250SX East Series Points</h3>
+                            <ResultsTable results={seriesPoints250East} isSeriesPoints={true} />
+                        </div>
+                    </>
+                    ) : (
+                    <>
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">450MX Series Points</h3>
+                            <ResultsTable results={seriesPoints450} isSeriesPoints={true} />
+                        </div>
+                         <div>
+                            <h3 className="text-xl font-bold mb-2">250MX Series Points</h3>
+                            <ResultsTable results={seriesPoints250West} isSeriesPoints={true} />
+                        </div>
+                    </>
+                    )}
+                </div>
+            )}
         </TabsContent>
       </Tabs>
     </div>
