@@ -11,6 +11,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 export default function RacesPage() {
     const motorcrossImage = PlaceHolderImages.find(p => p.id === 'race-banner-1');
     const supercrossImage = PlaceHolderImages.find(p => p.id === 'race-day-banner');
+    const playoffsImage = PlaceHolderImages.find(p => p.id === 'playoffs-banner');
 
   return (
     <div>
@@ -18,7 +19,7 @@ export default function RacesPage() {
         title="Races"
         description="Select a racing series to view the schedule and results."
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <Card>
             {motorcrossImage && (
                 <Image 
@@ -54,6 +55,25 @@ export default function RacesPage() {
                 <p className="text-muted-foreground mb-4">View the stadium racing series schedule.</p>
                 <Button asChild>
                     <Link href="/supercross">View Schedule</Link>
+                </Button>
+            </CardContent>
+        </Card>
+        <Card>
+            {playoffsImage && (
+                <Image 
+                    src={playoffsImage.imageUrl}
+                    alt="Playoffs"
+                    width={600}
+                    height={300}
+                    className="rounded-t-lg object-cover w-full h-48"
+                    data-ai-hint={playoffsImage.imageHint}
+                />
+            )}
+            <CardContent className="p-6">
+                <h2 className="text-2xl font-bold">Playoffs</h2>
+                <p className="text-muted-foreground mb-4">View the SMX playoff series schedule.</p>
+                <Button asChild>
+                    <Link href="/playoffs">View Schedule</Link>
                 </Button>
             </CardContent>
         </Card>
