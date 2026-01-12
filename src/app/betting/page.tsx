@@ -16,17 +16,28 @@ import Link from 'next/link';
 import React, { useEffect, useMemo, useState } from 'react';
 import { motorcrossRaces } from '@/lib/races-motorcross-data';
 import { supercrossRaces } from '@/lib/races-supercross-data';
-import { getFriends } from '@/lib/firebase-config';
-import type { Account } from '@/lib/types';
+import { getFriends, updateAccount } from '@/lib/firebase-config';
+import type { Account, Bet } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
 import { useUser, useDoc } from '@/firebase';
 import { Skeleton } from '@/components/ui/skeleton';
+import { riders450 } from '@/lib/riders-data';
+import { riders250 } from '@/lib/riders-250-data';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 const allRaces = [
     ...motorcrossRaces.map(r => ({ ...r, series: 'Motorcross' })),
     ...supercrossRaces.map(r => ({ id: `supercross-${r.round}`, name: `${r.location}`, track: r.track, date: r.date, series: 'Supercross' }))
 ].sort((a,b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
+const allRiders = [...riders450, ...riders250].sort((a, b) => a.name.localeCompare(b.name));
 
 function BettingPageSkeleton() {
     return (
@@ -83,6 +94,9 @@ export default function BettingPage() {
   const [selectedFriend, setSelectedFriend] = useState<Account | null>(null);
   const [friends, setFriends] = useState<Account[]>([]);
   const [isLoadingFriends, setIsLoadingFriends] = useState(true);
+  const [userRider, setUserRider] = useState('');
+  const [opponentRider, setOpponentRider] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   useEffect(() => {
     if (!isUserLoading && !user) {
@@ -130,38 +144,89 @@ export default function BettingPage() {
       setFriendSearch('');
   }
   
-  const handlePlaceBet = () => {
-    if (!currentUser) {
-        toast({
-            title: "Please sign in",
-            description: "You need to be signed in to place a bet.",
-            variant: "destructive"
-        });
+  const handlePlaceBet = async () => {
+    setIsSubmitting(true);
+    if (!currentUser || !user) {
+        toast({ title: "Please sign in", description: "You need to be signed in to place a bet.", variant: "destructive" });
         router.push('/sign-in');
+        setIsSubmitting(false);
         return;
     }
-     if (!selectedFriend) {
+    if (!selectedFriend) {
         toast({ title: "No friend selected", description: "Please select a friend to bet against.", variant: "destructive" });
+        setIsSubmitting(false);
         return;
     }
     if (!selectedRace) {
         toast({ title: "No race selected", description: "Please select a race to bet on.", variant: "destructive" });
+        setIsSubmitting(false);
+        return;
+    }
+    if (!userRider) {
+        toast({ title: "Your rider not selected", description: "Please select your rider.", variant: "destructive" });
+        setIsSubmitting(false);
+        return;
+    }
+    if (!opponentRider) {
+        toast({ title: "Opponent's rider not selected", description: "Please select your friend's rider.", variant: "destructive" });
+        setIsSubmitting(false);
         return;
     }
     const amount = Number(betAmount);
     if (!amount || amount < 100) {
         toast({ title: "Invalid Amount", description: "The minimum bet amount is 100 coins.", variant: "destructive" });
+        setIsSubmitting(false);
         return;
     }
 
     const balance = coinType === 'gold' ? currentUser.balances.gold : currentUser.balances.sweeps;
     if (amount > balance) {
         toast({ title: "Insufficient Balance", description: `You do not have enough ${coinType === 'gold' ? 'Gold' : 'Sweeps'} Coins.`, variant: "destructive" });
+        setIsSubmitting(false);
         return;
     }
     
-    // If all validations pass, redirect to confirmation
-    router.push('/betting/confirmation');
+    // Create new bet object
+    const newBet: Bet = {
+        id: `${new Date().getTime()}-${user.uid}`,
+        race: selectedRace.name,
+        raceId: selectedRace.id,
+        opponent: selectedFriend.username,
+        opponentId: selectedFriend.id,
+        date: selectedRace.date,
+        amount: amount,
+        coinType: coinType === 'gold' ? 'Gold Coins' : 'Sweeps Coins',
+        status: 'Pending',
+        userRider,
+        opponentRider,
+    };
+
+    // Optimistically update balances
+    const newUserBalance = {
+        gold: coinType === 'gold' ? currentUser.balances.gold - amount : currentUser.balances.gold,
+        sweeps: coinType === 'sweeps' ? currentUser.balances.sweeps - amount : currentUser.balances.sweeps,
+    };
+
+    // Update Firestore
+    try {
+        await updateAccount(currentUser.id, {
+            betHistory: [...currentUser.betHistory, newBet],
+            balances: newUserBalance,
+        });
+
+        toast({
+            title: "Bet Placed!",
+            description: `Your bet against @${selectedFriend.username} has been placed.`,
+        });
+
+        router.push('/account');
+
+    } catch (error) {
+        console.error("Failed to place bet:", error);
+        toast({ title: "Error", description: "Failed to place bet. Please try again.", variant: "destructive" });
+    } finally {
+        setIsSubmitting(false);
+    }
   }
   
   const isLoading = isUserLoading || isAccountLoading || isLoadingFriends;
@@ -188,7 +253,7 @@ export default function BettingPage() {
                 className="pl-10 pr-10"
                 value={friendSearch}
                 onChange={(e) => setFriendSearch(e.target.value)}
-                disabled={!!selectedFriend}
+                disabled={!!selectedFriend || isSubmitting}
               />
               <Mic className="absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 cursor-pointer text-muted-foreground" />
             </div>
@@ -210,7 +275,7 @@ export default function BettingPage() {
                         <p className="font-semibold flex items-center gap-2"><CheckCircle className="h-5 w-5 text-green-500" /> {selectedFriend.name}</p>
                         <p className="text-sm text-muted-foreground ml-7">@{selectedFriend.username}</p>
                     </div>
-                     <Button variant="ghost" size="icon" onClick={() => setSelectedFriend(null)}>
+                     <Button variant="ghost" size="icon" onClick={() => setSelectedFriend(null)} disabled={isSubmitting}>
                         <X className="h-5 w-5" />
                     </Button>
                 </div>
@@ -226,7 +291,7 @@ export default function BettingPage() {
                     className="pl-10 pr-10"
                     value={raceSearch}
                     onChange={(e) => setRaceSearch(e.target.value)}
-                    disabled={!!selectedRace}
+                    disabled={!!selectedRace || isSubmitting}
                 />
                 <Mic className="absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 cursor-pointer text-muted-foreground" />
             </div>
@@ -248,7 +313,7 @@ export default function BettingPage() {
                         <p className="font-semibold flex items-center gap-2"><Trophy /> {selectedRace.name}</p>
                         <p className="text-sm text-muted-foreground">{selectedRace.track} - {selectedRace.date}</p>
                     </div>
-                     <Button variant="ghost" size="icon" onClick={() => setSelectedRace(null)}>
+                     <Button variant="ghost" size="icon" onClick={() => setSelectedRace(null)} disabled={isSubmitting}>
                         <X className="h-5 w-5" />
                     </Button>
                 </div>
@@ -259,6 +324,32 @@ export default function BettingPage() {
              <Label className="flex items-center gap-2 text-lg font-semibold"><Coins className="h-5 w-5" />Make a Bet</Label>
             
             <div className="space-y-2">
+                <Label>Your Rider Pick</Label>
+                <Select onValueChange={setUserRider} value={userRider} disabled={isSubmitting}>
+                    <SelectTrigger>
+                        <SelectValue placeholder="Select a rider" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        {allRiders.map(rider => (
+                            <SelectItem key={rider.id} value={rider.name}>{rider.name}</SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
+            </div>
+            <div className="space-y-2">
+                <Label>Opponent's Rider Pick</Label>
+                <Select onValueChange={setOpponentRider} value={opponentRider} disabled={isSubmitting}>
+                    <SelectTrigger>
+                        <SelectValue placeholder="Select a rider" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        {allRiders.map(rider => (
+                            <SelectItem key={rider.id} value={rider.name}>{rider.name}</SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
+            </div>
+            <div className="space-y-2">
                 <Label htmlFor="bet-amount">Bet Amount</Label>
                 <Input
                 id="bet-amount"
@@ -266,18 +357,18 @@ export default function BettingPage() {
                 placeholder="Minimum 100 coins"
                 value={betAmount}
                 onChange={(e) => setBetAmount(e.target.value)}
+                disabled={isSubmitting}
                 />
             </div>
-
             <div className="space-y-2">
                 <Label>Coin Type</Label>
                 <RadioGroup defaultValue="gold" value={coinType} onValueChange={setCoinType} className="flex gap-4">
                     <Label htmlFor="gold" className="flex cursor-pointer items-center gap-2 rounded-md border p-3 data-[state=checked]:border-primary">
-                        <RadioGroupItem value="gold" id="gold" />
+                        <RadioGroupItem value="gold" id="gold" disabled={isSubmitting}/>
                         Gold Coins
                     </Label>
                     <Label htmlFor="sweeps" className="flex cursor-pointer items-center gap-2 rounded-md border p-3 data-[state=checked]:border-primary">
-                         <RadioGroupItem value="sweeps" id="sweeps" />
+                         <RadioGroupItem value="sweeps" id="sweeps" disabled={isSubmitting}/>
                         Sweeps Coins
                     </Label>
                 </RadioGroup>
@@ -289,8 +380,8 @@ export default function BettingPage() {
 
         </CardContent>
         <CardFooter className="flex flex-col gap-4">
-            <Button size="lg" className="w-full" onClick={handlePlaceBet}>
-                Place Bet
+            <Button size="lg" className="w-full" onClick={handlePlaceBet} disabled={isSubmitting}>
+                {isSubmitting ? <Loader2 className="animate-spin" /> : "Place Bet"}
             </Button>
              <Button size="lg" className="w-full" variant="outline" asChild>
                 <Link href="/betting/parlay">

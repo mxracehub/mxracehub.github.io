@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useUser, useDoc } from '@/firebase';
 import { PageHeader } from '@/components/page-header';
 import {
@@ -16,10 +16,13 @@ import { useRouter } from 'next/navigation';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Coins, Trophy, Users, Settings, Hash, Facebook, Instagram } from 'lucide-react';
+import { Coins, Trophy, Users, Settings, Hash, Facebook, Instagram, RefreshCw, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { Skeleton } from '@/components/ui/skeleton';
 import type { Account, Bet } from '@/lib/types';
+import { updateAccount, getRiderPosition } from '@/lib/firebase-config';
+import { useToast } from '@/hooks/use-toast';
+
 
 function AccountPageSkeleton() {
     return (
@@ -98,8 +101,18 @@ const SocialShareButtons = ({ bet, account }: { bet: Bet; account: Account }) =>
 
 export default function AccountPage() {
   const router = useRouter();
+  const { toast } = useToast();
   const { user, isLoading: isUserLoading } = useUser();
-  const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
+  // Using a local state for account to allow optimistic updates
+  const { data: initialAccount, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
+  const [account, setAccount] = useState<Account | null>(null);
+  const [settlingBetId, setSettlingBetId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (initialAccount) {
+      setAccount(initialAccount);
+    }
+  }, [initialAccount]);
 
   const userAvatar = PlaceHolderImages.find((p) => p.id === 'user-avatar');
 
@@ -110,17 +123,91 @@ export default function AccountPage() {
     }
   }, [isUserLoading, user, router]);
 
+  const handleSettleBet = async (betToSettle: Bet) => {
+    if (!account) return;
+    setSettlingBetId(betToSettle.id);
+
+    try {
+        const userRiderPosition = await getRiderPosition(betToSettle.raceId, betToSettle.userRider);
+        const opponentRiderPosition = await getRiderPosition(betToSettle.raceId, betToSettle.opponentRider);
+
+        if (userRiderPosition === null || opponentRiderPosition === null) {
+            toast({
+                title: "Race results not available",
+                description: "The results for this race may not be posted yet. Please try again later.",
+                variant: "destructive"
+            });
+            setSettlingBetId(null);
+            return;
+        }
+
+        const userWon = userRiderPosition < opponentRiderPosition;
+        const newStatus = userWon ? 'Won' : 'Lost';
+
+        // Update bet status locally for optimistic update
+        const updatedBetHistory = account.betHistory.map(bet => 
+            bet.id === betToSettle.id ? { ...bet, status: newStatus } : bet
+        );
+
+        let newBalances = account.balances;
+        if (userWon) {
+             const winnings = betToSettle.amount * 2;
+             if (betToSettle.coinType === 'Gold Coins') {
+                 newBalances = { ...newBalances, gold: newBalances.gold + winnings };
+             } else {
+                 newBalances = { ...newBalances, sweeps: newBalances.sweeps + winnings };
+             }
+        }
+        
+        const updatedAccount = {
+            ...account,
+            betHistory: updatedBetHistory,
+            balances: newBalances
+        };
+        
+        // Optimistically update the local state
+        setAccount(updatedAccount);
+        
+        // Persist to Firestore
+        await updateAccount(account.id, {
+            betHistory: updatedBetHistory,
+            balances: newBalances
+        });
+        
+        toast({
+            title: `You ${newStatus}!`,
+            description: userWon ? `You won ${betToSettle.amount.toLocaleString()} ${betToSettle.coinType}!` : `You lost the bet.`,
+            variant: userWon ? "default" : "destructive"
+        });
+
+    } catch (error) {
+        console.error("Failed to settle bet:", error);
+        toast({
+            title: "Error",
+            description: "Could not settle the bet. Please try again.",
+            variant: "destructive"
+        });
+        // Revert optimistic update on error
+        setAccount(initialAccount);
+    } finally {
+        setSettlingBetId(null);
+    }
+  };
+
+
   const isLoading = isUserLoading || isAccountLoading;
 
-  if (isLoading) {
+  if (isLoading || !account) {
     return <AccountPageSkeleton />;
   }
 
-  if (!account) {
-    // This can happen if the user is authenticated but their account doc doesn't exist yet,
-    // or if there was an error fetching the document.
+  // This can happen if the user is authenticated but their account doc doesn't exist yet,
+  if (!initialAccount && !isAccountLoading) {
     return <div>Could not load account details. Please try again later.</div>;
   }
+
+  const sortedBetHistory = [...(account?.betHistory || [])].sort((a,b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
 
   return (
     <div>
@@ -187,20 +274,32 @@ export default function AccountPage() {
               <CardTitle className="flex items-center gap-2"><Trophy /> Betting History</CardTitle>
             </CardHeader>
             <CardContent>
-              {account.betHistory.length > 0 ? (
+              {sortedBetHistory.length > 0 ? (
                 <ul className="space-y-4">
-                  {account.betHistory.map((bet) => (
-                    <li key={bet.id} className="flex items-center justify-between rounded-md border p-4">
-                      <div>
+                  {sortedBetHistory.map((bet) => (
+                    <li key={bet.id} className="flex flex-col sm:flex-row items-start sm:items-center justify-between rounded-md border p-4 gap-4">
+                      <div className="flex-1">
                         <p className="font-semibold">{bet.race}</p>
                         <p className="text-sm text-muted-foreground">
                           Bet against @{bet.opponent} - {bet.date}
                         </p>
+                        <div className="text-xs mt-2 space-y-1">
+                            <p><strong>Your Pick:</strong> {bet.userRider}</p>
+                            <p><strong>Friend's Pick:</strong> {bet.opponentRider}</p>
+                        </div>
                       </div>
-                      <div className={`text-right ${bet.status === 'Won' ? 'text-green-500' : bet.status === 'Lost' ? 'text-red-500' : ''}`}>
-                          <p className="font-bold">{bet.status}</p>
-                          <p className="text-sm">{bet.amount} {bet.coinType}</p>
-                          <SocialShareButtons bet={bet} account={account} />
+                      <div className="flex items-center gap-4">
+                        <div className={`text-right ${bet.status === 'Won' ? 'text-green-500' : bet.status === 'Lost' ? 'text-red-500' : ''}`}>
+                            <p className="font-bold">{bet.status}</p>
+                            <p className="text-sm">{bet.amount} {bet.coinType}</p>
+                            <SocialShareButtons bet={bet} account={account} />
+                        </div>
+                        {bet.status === 'Pending' && (
+                            <Button size="sm" variant="outline" onClick={() => handleSettleBet(bet)} disabled={settlingBetId === bet.id}>
+                                {settlingBetId === bet.id ? <Loader2 className="h-4 w-4 animate-spin"/> : <RefreshCw className="h-4 w-4" />}
+                                <span className="ml-2 hidden sm:inline">Settle</span>
+                            </Button>
+                        )}
                       </div>
                     </li>
                   ))}

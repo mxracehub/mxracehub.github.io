@@ -5,6 +5,33 @@ import { db, auth } from "@/firebase";
 import { collection, doc, getDoc, getDocs, setDoc, query, where, addDoc, updateDoc, writeBatch } from "firebase/firestore";
 import type { Account, ExchangeRequest } from "./types";
 
+// --- DUMMY RESULTS DATA ---
+// In a real app, this would come from a secure API or Firestore after an admin updates it.
+const raceResultsData: Record<string, {rider: string, pos: number}[]> = {
+    'pala': [
+        { rider: 'Eli Tomac', pos: 1 }, { rider: 'Ken Roczen', pos: 2 }, { rider: 'Jorge Prado', pos: 3 },
+        { rider: 'Hunter Lawrence', pos: 4 }, { rider: 'Jason Anderson', pos: 5 }, { rider: 'Justin Cooper', pos: 6 },
+        { rider: 'Cooper Webb', pos: 7 }, { rider: 'Chase Sexton', pos: 8 }, { rider: 'Dylan Ferrandis', pos: 9 },
+        { rider: 'Aaron Plessinger', pos: 10 }
+    ],
+    'supercross-7': [ // Triple Crown example (Arlington)
+        { rider: 'Jett Lawrence', pos: 1 }, { rider: 'Cooper Webb', pos: 2 }, { rider: 'Eli Tomac', pos: 3 }
+    ]
+};
+
+export const getRiderPosition = async (raceId: string, riderName: string): Promise<number | null> => {
+    // Simulate API call to get results
+    await new Promise(resolve => setTimeout(resolve, 500));
+    const results = raceResultsData[raceId];
+    if (!results) {
+        return null; // Results not posted yet
+    }
+    const riderResult = results.find(r => r.rider === riderName);
+    return riderResult ? riderResult.pos : null; // Return position or null if rider not in top results
+}
+// --- END DUMMY DATA ---
+
+
 // Firestore collection references
 const accountsCollection = collection(db, "accounts");
 const exchangeRequestsCollection = collection(db, "exchangeRequests");
