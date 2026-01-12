@@ -12,8 +12,10 @@ const parseRaceDate = (dateStr: string): Date => {
     if (!isNaN(d.getTime())) {
         return d;
     }
-    const withYear = new Date(`${dateStr} ${new Date().getFullYear()}`);
+    const currentYear = new Date().getFullYear();
+    const withYear = new Date(`${dateStr} ${currentYear}`);
     if (withYear < new Date() && new Date().getMonth() > 6) {
+        // Handle dates like "JAN 10" when the current date is "DEC 01"
         withYear.setFullYear(withYear.getFullYear() + 1);
     }
     return withYear;
@@ -50,7 +52,7 @@ const calculatePoints = (completedRaces: any[], series: 'supercross' | 'motocros
         const results = mainEventResults[raceId as keyof typeof mainEventResults];
         if (!results) return;
 
-        const classResults = results[riderClass] || [];
+        const classResults = results[riderClass as '450' | '250'] || [];
 
         classResults.forEach(result => {
             const riderName = result.rider;
@@ -103,8 +105,6 @@ export const getSeriesPoints = () => {
     const mxPoints250 = calculatePoints(completedMX, 'motocross', '250');
     
     const populateRiderList = (pointsData: any[], riderList: any[]) => {
-        if (pointsData.length === 0) return []; // Don't show a list if no points have been scored
-
         const pointRiderNames = new Set(pointsData.map(r => r.rider));
         const missingRiders = riderList
             .filter(r => !pointRiderNames.has(r.name))
@@ -117,23 +117,59 @@ export const getSeriesPoints = () => {
             }));
         
         const combined = [...pointsData, ...missingRiders];
-        return combined.sort((a, b) => b.points - a.points).map((r, i) => ({...r, pos: i+1})).slice(0, 10);
+        const sorted = combined.sort((a, b) => b.points - a.points).map((r, i) => ({...r, pos: i+1}));
+        
+        // If no one has points, just show the first 10 riders from the master list.
+        if (pointsData.length === 0) {
+            return sorted.slice(0, 10);
+        }
+        
+        return sorted.slice(0, 10);
     }
     
-    // For 250 class, we only want to populate the list with riders from that specific division.
-    const sxWestRiders = riders250.filter(r => {
-        const race1Result = mainEventResults['supercross-1']?.['250']?.find(res => res.rider === r.name);
-        return !!race1Result; // A simple way to check if they raced in the first West round.
+    // For 250 class, we need to determine which riders are in which series.
+    const sxWestRiders: any[] = [];
+    const sxEastRiders: any[] = [];
+    const riderDivisions: { [riderName: string]: 'East' | 'West' } = {};
+
+    supercrossRaces.forEach(race => {
+        if (race.division === 'East' || race.division === 'West') {
+            const raceId = `supercross-${race.round}`;
+            const results = mainEventResults[raceId as keyof typeof mainEventResults];
+            if (results && results['250']) {
+                results['250'].forEach(result => {
+                    if (!riderDivisions[result.rider]) {
+                        riderDivisions[result.rider] = race.division;
+                    }
+                });
+            }
+        }
     });
 
-    // Since East hasn't started, we won't have riders for them yet from results. 
-    // An empty list is fine.
-    const sxEastRiderList: any[] = [];
+    riders250.forEach(rider => {
+        const division = riderDivisions[rider.name];
+        if (division === 'West') {
+            sxWestRiders.push(rider);
+        } else if (division === 'East') {
+            sxEastRiders.push(rider);
+        }
+    });
     
+    // Fallback for when no races have happened yet
+    if(sxWestRiders.length === 0) {
+        // A simple heuristic for now. In a real app this would be managed data.
+        riders250.forEach(r => {
+            const westRounds = ['supercross-1', 'supercross-2', 'supercross-3'];
+            const racedInWest = westRounds.some(round => mainEventResults[round as keyof typeof mainEventResults]?.['250'].some(res => res.rider === r.name));
+            if(racedInWest) sxWestRiders.push(r);
+        });
+    }
+
+
     return {
         supercross450: populateRiderList(sxPoints450, riders450),
-        supercross250West: populateRiderList(sxPoints250West, sxWestRiders),
-        supercross250East: populateRiderList(sxPoints250East, sxEastRiderList),
+        supercross250West: populateRiderList(sxPoints250West, sxWestRiders.length > 0 ? sxWestRiders : riders250), // Fallback to all if needed
+        supercross250East: populateRiderList(sxPoints250East, sxEastRiders.length > 0 ? sxEastRiders: []),
         motocross450: populateRiderList(mxPoints450, riders450),
         motocross250: populateRiderList(mxPoints250, riders250),
     };
