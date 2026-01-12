@@ -4,7 +4,7 @@ export const mainEventResults = {
     '450': [
       { rider: 'Eli Tomac', number: '3', bike: 'Yamaha', points: 25 },
       { rider: 'Ken Roczen', number: '94', bike: 'Suzuki', points: 22 },
-      { rider: 'Jorge Prado', number: '111', bike: 'GasGas', points: 20 },
+      { rider: 'Jorge Prado', number: '111', bike: 'GasGas', points: 20, holeshot: true },
       { rider: 'Hunter Lawrence', number: '96', bike: 'Honda', points: 18 },
       { rider: 'Jason Anderson', number: '21', bike: 'Kawasaki', points: 17 },
       { rider: 'Justin Cooper', number: '32', bike: 'Yamaha', points: 16 },
