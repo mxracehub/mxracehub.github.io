@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { motorcrossRaces } from '@/lib/races-motorcross-data';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Tv } from 'lucide-react';
+import { Tv, BarChart3 } from 'lucide-react';
 
 export default function MotorcrossPage() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'race-banner-1');
@@ -15,7 +15,7 @@ export default function MotorcrossPage() {
       <PageHeader title="Motorcross" />
       {heroImage && (
         <div className="mb-8 overflow-hidden rounded-lg">
-           <Image
+          <Image
             src={heroImage.imageUrl}
             alt={heroImage.description}
             width={1200}
@@ -26,26 +26,43 @@ export default function MotorcrossPage() {
         </div>
       )}
 
-      <div className="mb-8 text-center">
+      <div className="mb-8 flex justify-center gap-4 text-center">
         <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
-            <Link href="https://www.peacocktv.com/sports/supercross" target="_blank" rel="noopener noreferrer">
-                <Tv className="mr-2 h-5 w-5" />
-                Live Stream on Peacock
-            </Link>
+          <Link
+            href="https://www.peacocktv.com/sports/supercross"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Tv className="mr-2 h-5 w-5" />
+            Live Stream on Peacock
+          </Link>
+        </Button>
+        <Button asChild size="lg" variant="outline">
+          <Link href="/standings">
+            <BarChart3 className="mr-2 h-5 w-5" />
+            View Standings
+          </Link>
         </Button>
       </div>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {motorcrossRaces.map((race) => (
-          <div key={race.id} className="overflow-hidden rounded-lg border border-border bg-card text-card-foreground flex flex-col">
+          <div
+            key={race.id}
+            className="flex flex-col overflow-hidden rounded-lg border border-border bg-card text-card-foreground"
+          >
             <div className="bg-primary p-4 text-center text-primary-foreground">
               {race.logo}
-              <h3 className="mt-2 font-bold uppercase">{race.name.replace(' National', '').replace(' Classic', '')}</h3>
+              <h3 className="mt-2 font-bold uppercase">
+                {race.name.replace(' National', '').replace(' Classic', '')}
+              </h3>
               <p className="text-sm">NATIONAL</p>
             </div>
-            <div className="p-4 text-center flex-grow">
+            <div className="flex-grow p-4 text-center">
               <p className="text-xl font-bold">{race.date}</p>
-              <p className="mt-1 text-sm text-muted-foreground">{race.track}</p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                {race.track}
+              </p>
               <p className="text-xs text-muted-foreground">{race.location}</p>
             </div>
             <div className="border-t border-border p-2">

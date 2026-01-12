@@ -5,7 +5,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import Link from 'next/link';
 import { supercrossRaces } from '@/lib/races-supercross-data';
-import { Tv } from 'lucide-react';
+import { Tv, BarChart3 } from 'lucide-react';
 
 export default function SupercrossPage() {
   const heroImage = PlaceHolderImages.find(
@@ -31,12 +31,22 @@ export default function SupercrossPage() {
         </div>
       )}
 
-      <div className="mb-8 text-center">
+      <div className="mb-8 flex justify-center gap-4 text-center">
         <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
-            <Link href="https://www.peacocktv.com/sports/supercross" target="_blank" rel="noopener noreferrer">
-                <Tv className="mr-2 h-5 w-5" />
-                Live Stream on Peacock
-            </Link>
+          <Link
+            href="https://www.peacocktv.com/sports/supercross"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Tv className="mr-2 h-5 w-5" />
+            Live Stream on Peacock
+          </Link>
+        </Button>
+        <Button asChild size="lg" variant="outline">
+          <Link href="/standings">
+            <BarChart3 className="mr-2 h-5 w-5" />
+            View Standings
+          </Link>
         </Button>
       </div>
 
@@ -60,9 +70,9 @@ export default function SupercrossPage() {
               </div>
             </div>
             <div className="border-t border-border p-2">
-                <Button asChild className="w-full">
-                    <Link href="/betting">Bet on this race now</Link>
-                </Button>
+              <Button asChild className="w-full">
+                <Link href="/betting">Bet on this race now</Link>
+              </Button>
             </div>
           </div>
         ))}
