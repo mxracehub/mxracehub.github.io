@@ -26,22 +26,20 @@ const allRaces = [
   ...motorcrossRaces.map(r => ({ ...r, type: 'Motocross' }))
 ];
 
-// Main Event Results
+// Main Event Results - Now defaults to 0 points
 const results450 = [
-    { pos: 1, rider: 'Eli Tomac', number: '3', bike: 'Yamaha', points: 25 },
-    { pos: 2, rider: 'Ken Roczen', number: '94', bike: 'Suzuki', points: 22 },
-    { pos: 3, rider: 'Jorge Prado', number: '26', bike: 'KTM', points: 20 },
-    { pos: 4, rider: 'Hunter Lawrence', number: '96', bike: 'Honda', points: 18 },
-    { pos: 5, rider: 'Jason Anderson', number: '21', bike: 'Suzuki', points: 17 },
-    { pos: 6, rider: 'Justin Cooper', number: '32', bike: 'Yamaha', points: 16 },
-    { pos: 7, rider: 'Cooper Webb', number: '1', bike: 'Yamaha', points: 15 },
-    { pos: 8, rider: 'Chase Sexton', number: '4', bike: 'Kawasaki', points: 14 },
-    { pos: 9, rider: 'Dylan Ferrandis', number: '14', bike: 'Ducati', points: 13 },
-    { pos: 10, rider: 'Aaron Plessinger', number: '7', bike: 'KTM', points: 12 },
+    { pos: 1, rider: 'Eli Tomac', number: '3', bike: 'Yamaha', points: 0 },
+    { pos: 2, rider: 'Ken Roczen', number: '94', bike: 'Suzuki', points: 0 },
+    { pos: 3, rider: 'Jorge Prado', number: '26', bike: 'KTM', points: 0 },
+    { pos: 4, rider: 'Hunter Lawrence', number: '96', bike: 'Honda', points: 0 },
+    { pos: 5, rider: 'Jason Anderson', number: '21', bike: 'Suzuki', points: 0 },
+    { pos: 6, rider: 'Justin Cooper', number: '32', bike: 'Yamaha', points: 0 },
+    { pos: 7, rider: 'Cooper Webb', number: '1', bike: 'Yamaha', points: 0 },
+    { pos: 8, rider: 'Chase Sexton', number: '4', bike: 'Kawasaki', points: 0 },
+    { pos: 9, rider: 'Dylan Ferrandis', number: '14', bike: 'Ducati', points: 0 },
+    { pos: 10, rider: 'Aaron Plessinger', number: '7', bike: 'KTM', points: 0 },
 ];
 
-
-// Placeholder for series points.
 const supercrossSeriesPoints450 = [
     { pos: 1, rider: 'Eli Tomac', number: '3', bike: 'Yamaha', points: 25 },
     { pos: 2, rider: 'Ken Roczen', number: '94', bike: 'Suzuki', points: 22 },
@@ -54,6 +52,7 @@ const supercrossSeriesPoints450 = [
     { pos: 9, rider: 'Dylan Ferrandis', number: '14', bike: 'Ducati', points: 13 },
     { pos: 10, rider: 'Aaron Plessinger', number: '7', bike: 'KTM', points: 12 },
 ];
+
 
 const sxSeriesPoints250East = [
     { pos: 1, rider: 'Austin Forkner', number: '64', bike: 'Kawasaki', points: 0 },
@@ -205,6 +204,25 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     if (!race) {
         notFound();
     }
+
+    // Conditionally set points for the first Supercross race
+    const finalResults450 = useMemo(() => {
+        if (race?.type === 'Supercross' && race.id === '1') {
+            return [
+                { pos: 1, rider: 'Eli Tomac', number: '3', bike: 'Yamaha', points: 25 },
+                { pos: 2, rider: 'Ken Roczen', number: '94', bike: 'Suzuki', points: 22 },
+                { pos: 3, rider: 'Jorge Prado', number: '26', bike: 'KTM', points: 20 },
+                { pos: 4, rider: 'Hunter Lawrence', number: '96', bike: 'Honda', points: 18 },
+                { pos: 5, rider: 'Jason Anderson', number: '21', bike: 'Suzuki', points: 17 },
+                { pos: 6, rider: 'Justin Cooper', number: '32', bike: 'Yamaha', points: 16 },
+                { pos: 7, rider: 'Cooper Webb', number: '1', bike: 'Yamaha', points: 15 },
+                { pos: 8, rider: 'Chase Sexton', number: '4', bike: 'Kawasaki', points: 14 },
+                { pos: 9, rider: 'Dylan Ferrandis', number: '14', bike: 'Ducati', points: 13 },
+                { pos: 10, rider: 'Aaron Plessinger', number: '7', bike: 'KTM', points: 12 },
+            ];
+        }
+        return results450;
+    }, [race]);
     
     const getPageDescription = () => {
         if (race.type === 'Supercross') {
@@ -301,7 +319,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                     <div className="space-y-6 mt-4">
                         <div>
                             <h3 className="text-xl font-bold mb-2">450 Class Main Event</h3>
-                            {hasRaceHappened ? <ResultsTable results={results450} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
+                            {hasRaceHappened ? <ResultsTable results={finalResults450} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
                         </div>
                         <div>
                             <h3 className="text-xl font-bold mb-2">{render250ClassTitle()}</h3>
@@ -313,7 +331,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                      <div className="space-y-6 mt-4">
                          <div>
                             <h3 className="text-xl font-bold mb-2">450 Class Heat 1</h3>
-                            {hasRaceHappened ? <ResultsTable results={results450.slice(0, 5)} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
+                            {hasRaceHappened ? <ResultsTable results={finalResults450.slice(0, 5)} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
                         </div>
                         <div>
                             <h3 className="text-xl font-bold mb-2">{render250ClassTitle()} Heat 1</h3>
