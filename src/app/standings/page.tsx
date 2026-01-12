@@ -55,7 +55,7 @@ export default function StandingsPage() {
       name: race.name,
       track: race.track,
       date: race.date,
-      series: 'Motocross',
+      series: 'Motorcross',
     }));
 
     return { sxRaces, mxRaces };
