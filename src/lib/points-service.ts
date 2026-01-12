@@ -56,16 +56,14 @@ const calculatePoints = (
 ) => {
     const pointsMap: { [riderName: string]: number } = {};
 
-    // Initialize all relevant riders with 0 points
-    allRidersForClass.forEach(rider => {
-        // For 250SX, only include riders of the specified division if provided
-        if (series === 'supercross' && riderClass === '250' && division) {
-            if (getRiderDivision(rider.name, supercrossRaces) === division) {
-                pointsMap[rider.name] = 0;
-            }
-        } else {
-             pointsMap[rider.name] = 0;
-        }
+    let relevantRiders = allRidersForClass;
+
+    if (series === 'supercross' && riderClass === '250' && division) {
+        relevantRiders = allRidersForClass.filter(r => getRiderDivision(r.name, supercrossRaces) === division);
+    }
+
+    relevantRiders.forEach(rider => {
+        pointsMap[rider.name] = 0;
     });
 
     const completedRaces = getCompletedRaces(races);
@@ -83,14 +81,8 @@ const calculatePoints = (
         classResults.forEach(result => {
             const riderName = result.rider;
             
-            if (series === 'supercross' && riderClass === '250' && division) {
-                // Award points only if it's the rider's designated series or a showdown
-                const riderDivision = getRiderDivision(riderName, supercrossRaces);
-                if ((race.division === 'East/West Showdown' || race.division === riderDivision) && division === riderDivision) {
-                    pointsMap[riderName] = (pointsMap[riderName] || 0) + result.points;
-                }
-            } else if (pointsMap.hasOwnProperty(riderName)) {
-                 // For 450 class, Motocross, or Playoffs, just add points if the rider is in the map
+            // Only add points if the rider is in the points map for the current calculation
+            if (pointsMap.hasOwnProperty(riderName)) {
                 pointsMap[riderName] = (pointsMap[riderName] || 0) + result.points;
             }
         });
@@ -114,12 +106,9 @@ const calculatePoints = (
 
 export const getSeriesPoints = () => {
     
-    const sxWestRiders = riders250.filter(r => getRiderDivision(r.name, supercrossRaces) === 'West');
-    const sxEastRiders = riders250.filter(r => getRiderDivision(r.name, supercrossRaces) === 'East');
-
     const sxPoints450 = calculatePoints(supercrossRaces, 'supercross', '450', riders450);
-    const sxPoints250West = calculatePoints(supercrossRaces, 'supercross', '250', sxWestRiders, 'West');
-    const sxPoints250East = calculatePoints(supercrossRaces, 'supercross', '250', sxEastRiders, 'East');
+    const sxPoints250West = calculatePoints(supercrossRaces, 'supercross', '250', riders250, 'West');
+    const sxPoints250East = calculatePoints(supercrossRaces, 'supercross', '250', riders250, 'East');
 
     const mxPoints450 = calculatePoints(motocrossRaces, 'motocross', '450', riders450);
     const mxPoints250 = calculatePoints(motocrossRaces, 'motocross', '250', riders250);
