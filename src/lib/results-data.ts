@@ -27,6 +27,18 @@ export const mainEventResults = {
       { rider: 'Carson Mumford', number: '41', bike: 'Honda', points: 11 },
       { rider: 'Robbie Wageman', number: '169', bike: 'Yamaha', points: 10 },
       { rider: 'Joshua Varize', number: '150', bike: 'GasGas', points: 9 }
+    ],
+    '250_heat1': [
+      { pos: 1, rider: 'Haiden Deegan', number: '1W', bike: 'Yamaha' },
+      { pos: 2, rider: 'Cameron Mcadoo', number: '142', bike: 'Kawasaki' },
+      { pos: 3, rider: 'Maximus Vohland', number: '19', bike: 'Yamaha' },
+      { pos: 4, rider: 'Carson Mumford', number: '71', bike: 'KTM' },
+      { pos: 5, rider: 'Ryder Difrancesco', number: '34', bike: 'Husqvarna' },
+      { pos: 6, rider: 'Robbie Wageman', number: '237', bike: 'Yamaha' },
+      { pos: 7, rider: 'Lux Turner', number: '43', bike: 'Yamaha' },
+      { pos: 8, rider: 'Anthony Bourdon', number: '70', bike: 'Kawasaki' },
+      { pos: 9, rider: 'Brandon Ray', number: '388', bike: 'Triumph' },
+      { pos: 10, rider: 'Crockett Myers', number: '131', bike: 'Suzuki' },
     ]
   },
   'supercross-2': { // San Diego

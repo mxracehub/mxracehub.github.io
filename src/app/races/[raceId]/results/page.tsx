@@ -167,7 +167,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     }
 
     const raceIdKey = race.type === 'Supercross' ? `supercross-${race.id}` : race.id;
-    const raceResults = mainEventResults[raceIdKey as keyof typeof mainEventResults];
+    const raceResults = mainEventResults[raceIdKey as keyof typeof mainEventResults] as any;
     
     const getPageDescription = () => {
         if (race.type === 'Supercross') {
@@ -288,11 +288,11 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                      <div className="space-y-6 mt-4">
                          <div>
                             <h3 className="text-xl font-bold mb-2">450 Class Heat 1</h3>
-                            {hasRaceHappened ? <ResultsTable results={raceResults?.['450']?.slice(0,5) || []} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
+                            {hasRaceHappened ? <ResultsTable results={raceResults?.['450_heat1'] || []} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
                         </div>
                         <div>
-                            <h3 className="text-xl font-bold mb-2">{render250ClassTitle()} Heat 1</h3>
-                             {hasRaceHappened ? <ResultsTable results={raceResults?.['250']?.slice(0,5) || []} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
+                            <h3 className="text-xl font-bold mb-2">250 Class Heat 1</h3>
+                             {hasRaceHappened ? <ResultsTable results={raceResults?.['250_heat1'] || []} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
                         </div>
                     </div>
                 </TabsContent>
@@ -344,5 +344,3 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     </div>
   );
 }
-
-    
