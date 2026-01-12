@@ -44,8 +44,21 @@ const results250 = [
     { pos: 10, rider: 'Carson Mumford', number: '41', bike: 'Honda', points: 12 },
 ];
 
+const seriesPoints450 = [
+    { pos: 1, rider: 'Jett Lawrence', number: '18', bike: 'Honda', points: 351 },
+    { pos: 2, rider: 'Cooper Webb', number: '2', bike: 'Yamaha', points: 336 },
+    { pos: 3, rider: 'Chase Sexton', number: '1', bike: 'KTM', points: 307 },
+    { pos: 4, rider: 'Eli Tomac', number: '3', bike: 'Yamaha', points: 282 },
+    { pos: 5, rider: 'Jason Anderson', number: '21', bike: 'Kawasaki', points: 263 },
+    { pos: 6, rider: 'Ken Roczen', number: '94', bike: 'Suzuki', points: 252 },
+    { pos: 7, rider: 'Justin Barcia', number: '51', bike: 'GasGas', points: 247 },
+    { pos: 8, rider: 'Justin Cooper', number: '32', bike: 'Yamaha', points: 227 },
+    { pos: 9, rider: 'Hunter Lawrence', number: '96', bike: 'Honda', points: 207 },
+    { pos: 10, rider: 'Aaron Plessinger', number: '7', bike: 'KTM', points: 198 },
+];
 
-const ResultsTable = ({ results }: { results: typeof results450 }) => (
+
+const ResultsTable = ({ results }: { results: typeof results450 | typeof seriesPoints450 }) => (
   <div className="border rounded-lg">
     <Table>
       <TableHeader>
@@ -88,9 +101,10 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
       />
 
       <Tabs defaultValue="main-event" className="w-full">
-        <TabsList className="grid w-full grid-cols-2">
+        <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="main-event">Main Event Results</TabsTrigger>
           <TabsTrigger value="heat-races">Heat Race Results</TabsTrigger>
+          <TabsTrigger value="series-points">Series Points</TabsTrigger>
         </TabsList>
 
         <TabsContent value="main-event">
@@ -115,6 +129,15 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                  <div>
                     <h3 className="text-xl font-bold mb-2">250SX Heat 1</h3>
                     <ResultsTable results={results250.slice().reverse()} />
+                </div>
+            </div>
+        </TabsContent>
+
+        <TabsContent value="series-points">
+             <div className="space-y-6 mt-4">
+                <div>
+                    <h3 className="text-xl font-bold mb-2">450SX Series Points</h3>
+                    <ResultsTable results={seriesPoints450} />
                 </div>
             </div>
         </TabsContent>
