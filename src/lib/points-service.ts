@@ -5,6 +5,12 @@ import { mainEventResults } from './results-data';
 import { riders450 } from './riders-data';
 import { riders250 } from './riders-250-data';
 
+const playoffsData = [
+    { id: 'playoff-1', name: 'Playoff 1', location: 'Columbus, OH', date: 'Sep 12, 2026' },
+    { id: 'playoff-2', name: 'Playoff 2', location: 'Carson, CA', date: 'Sep 19, 2026' },
+    { id: 'smx-final', name: 'SMX World Championship Final', location: 'Ridgedale, MO', date: 'Sep 26, 2026' },
+];
+
 const allRiders = [...riders450, ...riders250];
 
 const parseRaceDate = (dateStr: string): Date => {
@@ -41,7 +47,7 @@ const getRiderDivision = (riderName: string, allSxRaces: any[]): 'East' | 'West'
 };
 
 
-const calculatePoints = (completedRaces: any[], series: 'supercross' | 'motocross', riderClass: '450' | '250', division?: 'East' | 'West') => {
+const calculatePoints = (completedRaces: any[], series: 'supercross' | 'motocross' | 'playoffs', riderClass: '450' | '250', division?: 'East' | 'West') => {
     const pointsMap: { [riderName: string]: number } = {};
 
     const riderIsInDivision = (riderName: string): boolean => {
@@ -51,7 +57,15 @@ const calculatePoints = (completedRaces: any[], series: 'supercross' | 'motocros
     };
     
     completedRaces.forEach(race => {
-        const raceId = series === 'supercross' ? `supercross-${race.round}` : race.id;
+        let raceId;
+        if (series === 'supercross') {
+            raceId = `supercross-${race.round}`;
+        } else if (series === 'playoffs') {
+            raceId = race.id;
+        } else {
+            raceId = race.id;
+        }
+        
         const results = mainEventResults[raceId as keyof typeof mainEventResults];
         if (!results) return;
 
@@ -70,17 +84,23 @@ const calculatePoints = (completedRaces: any[], series: 'supercross' | 'motocros
                     }
                 }
             } else {
-                 // For 450 class or Motocross, just add points
+                 // For 450 class, Motocross or Playoffs, just add points
                 pointsMap[riderName] = (pointsMap[riderName] || 0) + result.points;
             }
         });
     });
 
-    const relevantRiders = riderClass === '450' 
-        ? riders450 
-        : (series === 'motocross' || !division) 
-            ? riders250 
-            : riders250.filter(rider => riderIsInDivision(rider.name));
+    let relevantRiders;
+    if (riderClass === '450') {
+        relevantRiders = riders450;
+    } else { // 250 class
+        if (series === 'supercross' && division) {
+            relevantRiders = riders250.filter(rider => getRiderDivision(rider.name, supercrossRaces) === division);
+        } else {
+            relevantRiders = riders250;
+        }
+    }
+
 
     relevantRiders.forEach(rider => {
         if (!pointsMap[rider.name]) {
@@ -107,6 +127,7 @@ const calculatePoints = (completedRaces: any[], series: 'supercross' | 'motocros
 export const getSeriesPoints = () => {
     const completedSX = getCompletedRaces(supercrossRaces);
     const completedMX = getCompletedRaces(motorcrossRaces);
+    const completedPlayoffs = getCompletedRaces(playoffsData);
 
     const sxPoints450 = calculatePoints(completedSX, 'supercross', '450');
     const sxPoints250West = calculatePoints(completedSX, 'supercross', '250', 'West');
@@ -115,6 +136,9 @@ export const getSeriesPoints = () => {
     const mxPoints450 = calculatePoints(completedMX, 'motocross', '450');
     const mxPoints250 = calculatePoints(completedMX, 'motocross', '250');
     
+    const playoffPoints450 = calculatePoints(completedPlayoffs, 'playoffs', '450');
+    const playoffPoints250 = calculatePoints(completedPlayoffs, 'playoffs', '250');
+
     const populateRiderList = (pointsData: any[], riderList: any[]) => {
         const pointRiderNames = new Set(pointsData.map(r => r.rider));
         const missingRiders = riderList
@@ -143,5 +167,7 @@ export const getSeriesPoints = () => {
         supercross250East: populateRiderList(sxPoints250East, sxEastRiders.length > 0 ? sxEastRiders: riders250),
         motocross450: populateRiderList(mxPoints450, riders450),
         motocross250: populateRiderList(mxPoints250, riders250),
+        playoff450: populateRiderList(playoffPoints450, riders450),
+        playoff250: populateRiderList(playoffPoints250, riders250),
     };
 };

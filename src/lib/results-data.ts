@@ -16,7 +16,7 @@ export const mainEventResults = {
     '250': [ // West
       { rider: 'Max Anstie', points: 25 },
       { rider: 'Chance Hymas', points: 22 },
-      { rider: 'Ryder Difrancesco', points: 20 },
+      { rider: 'Ryder DiFrancesco', points: 20 },
       { rider: 'Haiden Deegan', points: 18 },
       { rider: 'Michael Mosiman', points: 17 },
       { rider: 'Levi Kitchen', points: 16 },
@@ -55,6 +55,24 @@ export const mainEventResults = {
       { rider: 'Ryder DiFrancesco', points: 12 },
     ]
   },
+  'playoff-1': {
+    '450': [
+      { rider: 'Jett Lawrence', points: 25 },
+      { rider: 'Ken Roczen', points: 22 },
+      { rider: 'Cooper Webb', points: 20 },
+      { rider: 'Chase Sexton', points: 18 },
+      { rider: 'Eli Tomac', points: 17 },
+    ],
+    '250': [
+      { rider: 'Haiden Deegan', points: 25 },
+      { rider: 'RJ Hampshire', points: 22 },
+      { rider: 'Levi Kitchen', points: 20 },
+      { rider: 'Jo Shimoda', points: 18 },
+      { rider: 'Tom Vialle', points: 17 },
+    ]
+  },
+  'playoff-2': {},
+  'smx-final': {},
   'pala': {
     '450': [
         { rider: 'Eli Tomac', points: 0 }, 
