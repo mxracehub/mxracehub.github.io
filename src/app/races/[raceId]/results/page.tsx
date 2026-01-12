@@ -122,7 +122,7 @@ const tripleCrownOverall250 = [
 ]
 
 
-const ResultsTable = ({ results, isTripleCrownOverall = false, isTripleCrownRace = false, isSeriesPoints = false }: { results: any[], isTripleCrownOverall?: boolean, isTripleCrownRace?: boolean, isSeriesPoints?: boolean }) => {
+const ResultsTable = ({ results, hasRaceHappened, isTripleCrownOverall = false, isTripleCrownRace = false, isSeriesPoints = false }: { results: any[], hasRaceHappened: boolean, isTripleCrownOverall?: boolean, isTripleCrownRace?: boolean, isSeriesPoints?: boolean }) => {
     if (!results || results.length === 0) {
       return (
         <div className="border rounded-lg p-8 text-center text-muted-foreground">
@@ -141,7 +141,7 @@ const ResultsTable = ({ results, isTripleCrownOverall = false, isTripleCrownRace
               <TableHead>#</TableHead>
               <TableHead>Bike</TableHead>
               {isTripleCrownOverall && <TableHead>Finishes</TableHead>}
-              {isTripleCrownOverall || isSeriesPoints || !isTripleCrownRace ? <TableHead>Points</TableHead> : null}
+              {hasRaceHappened && (isTripleCrownOverall || isSeriesPoints || !isTripleCrownRace) && <TableHead>Points</TableHead>}
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -152,8 +152,8 @@ const ResultsTable = ({ results, isTripleCrownOverall = false, isTripleCrownRace
                 <TableCell>{r.number}</TableCell>
                 <TableCell>{r.bike}</TableCell>
                 {isTripleCrownOverall && <TableCell>{r.finishes}</TableCell>}
-                {(isTripleCrownOverall || isSeriesPoints) && <TableCell>{r.points}</TableCell>}
-                {!isTripleCrownOverall && !isTripleCrownRace && !isSeriesPoints && <TableCell>{r.points}</TableCell>}
+                {hasRaceHappened && (isTripleCrownOverall || isSeriesPoints) && <TableCell>{r.points}</TableCell>}
+                {hasRaceHappened && !isTripleCrownOverall && !isTripleCrownRace && !isSeriesPoints && <TableCell>{r.points}</TableCell>}
               </TableRow>
             ))}
           </TableBody>
@@ -250,11 +250,11 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                     <div className="space-y-6 mt-4">
                         <div>
                             <h3 className="text-xl font-bold mb-2">450SX Overall Results</h3>
-                            <ResultsTable results={hasRaceHappened ? tripleCrownOverall450 : []} isTripleCrownOverall={true} />
+                            <ResultsTable results={hasRaceHappened ? tripleCrownOverall450 : []} hasRaceHappened={hasRaceHappened} isTripleCrownOverall={true} />
                         </div>
                         <div>
                             <h3 className="text-xl font-bold mb-2">{render250ClassTitle()} Overall</h3>
-                            <ResultsTable results={hasRaceHappened ? tripleCrownOverall250 : []} isTripleCrownOverall={true} />
+                            <ResultsTable results={hasRaceHappened ? tripleCrownOverall250 : []} hasRaceHappened={hasRaceHappened} isTripleCrownOverall={true} />
                         </div>
                     </div>
                 </TabsContent>
@@ -262,7 +262,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                     <div className="space-y-6 mt-4">
                         <div>
                             <h3 className="text-xl font-bold mb-2">450SX Race 1 Results</h3>
-                            <ResultsTable results={hasRaceHappened ? tripleCrownRace1_450 : []} isTripleCrownRace={true} />
+                            <ResultsTable results={hasRaceHappened ? tripleCrownRace1_450 : []} hasRaceHappened={hasRaceHappened} isTripleCrownRace={true} />
                         </div>
                     </div>
                 </TabsContent>
@@ -270,7 +270,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                     <div className="space-y-6 mt-4">
                         <div>
                             <h3 className="text-xl font-bold mb-2">450SX Race 2 Results</h3>
-                             <ResultsTable results={hasRaceHappened ? tripleCrownRace2_450 : []} isTripleCrownRace={true} />
+                             <ResultsTable results={hasRaceHappened ? tripleCrownRace2_450 : []} hasRaceHappened={hasRaceHappened} isTripleCrownRace={true} />
                         </div>
                     </div>
                 </TabsContent>
@@ -278,7 +278,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                     <div className="space-y-6 mt-4">
                         <div>
                             <h3 className="text-xl font-bold mb-2">450SX Race 3 Results</h3>
-                            <ResultsTable results={hasRaceHappened ? tripleCrownRace3_450 : []} isTripleCrownRace={true} />
+                            <ResultsTable results={hasRaceHappened ? tripleCrownRace3_450 : []} hasRaceHappened={hasRaceHappened} isTripleCrownRace={true} />
                         </div>
                     </div>
                 </TabsContent>
@@ -290,11 +290,11 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                         <div className="space-y-6 mt-4">
                             <div>
                                 <h3 className="text-xl font-bold mb-2">450 Class Main Event</h3>
-                                <ResultsTable results={results450} />
+                                <ResultsTable results={results450} hasRaceHappened={hasRaceHappened} />
                             </div>
                             <div>
                                 <h3 className="text-xl font-bold mb-2">{render250ClassTitle()}</h3>
-                                <ResultsTable results={results250} />
+                                <ResultsTable results={results250} hasRaceHappened={hasRaceHappened} />
                             </div>
                         </div>
                     ) : (
@@ -315,11 +315,11 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                         <div className="space-y-6 mt-4">
                             <div>
                                 <h3 className="text-xl font-bold mb-2">450 Class Heat 1</h3>
-                                <ResultsTable results={results450.slice(0, 5)} />
+                                <ResultsTable results={results450.slice(0, 5)} hasRaceHappened={hasRaceHappened} />
                             </div>
                             <div>
                                 <h3 className="text-xl font-bold mb-2">{render250ClassTitle()} Heat 1</h3>
-                                <ResultsTable results={results250.slice(0, 5)} />
+                                <ResultsTable results={results250.slice(0, 5)} hasRaceHappened={hasRaceHappened} />
                             </div>
                         </div>
                     ) : (
@@ -338,7 +338,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
             </>
         )}
         <TabsContent value="series-points">
-            {race.type === 'Motocross' && !hasRaceHappened ? (
+            {(race.type === 'Motocross' && !hasRaceHappened) ? (
                 <StandingsNotAvailable />
             ) : (
                 <div className="space-y-6 mt-4">
@@ -346,26 +346,26 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                     <>
                         <div>
                             <h3 className="text-xl font-bold mb-2">450SX Series Points</h3>
-                            <ResultsTable results={seriesPoints450} isSeriesPoints={true} />
+                            <ResultsTable results={seriesPoints450} hasRaceHappened={true} isSeriesPoints={true} />
                         </div>
                         <div>
                             <h3 className="text-xl font-bold mb-2">250SX West Series Points</h3>
-                            <ResultsTable results={seriesPoints250West} isSeriesPoints={true} />
+                            <ResultsTable results={seriesPoints250West} hasRaceHappened={true} isSeriesPoints={true} />
                         </div>
                         <div>
                             <h3 className="text-xl font-bold mb-2">250SX East Series Points</h3>
-                            <ResultsTable results={seriesPoints250East} isSeriesPoints={true} />
+                            <ResultsTable results={seriesPoints250East} hasRaceHappened={true} isSeriesPoints={true} />
                         </div>
                     </>
                     ) : (
                     <>
                         <div>
                             <h3 className="text-xl font-bold mb-2">450MX Series Points</h3>
-                            <ResultsTable results={seriesPoints450} isSeriesPoints={true} />
+                            <ResultsTable results={seriesPoints450} hasRaceHappened={true} isSeriesPoints={true} />
                         </div>
                          <div>
                             <h3 className="text-xl font-bold mb-2">250MX Series Points</h3>
-                            <ResultsTable results={seriesPoints250West} isSeriesPoints={true} />
+                            <ResultsTable results={seriesPoints250West} hasRaceHappened={true} isSeriesPoints={true} />
                         </div>
                     </>
                     )}
@@ -376,3 +376,5 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     </div>
   );
 }
+
+    
