@@ -22,9 +22,40 @@ import { notFound } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 import { getSeriesPoints } from '@/lib/points-service';
 
+const playoffsData = [
+  {
+    id: 'playoff-1',
+    name: 'Playoff 1',
+    location: 'Columbus, OH',
+    date: 'Sep 12, 2026',
+    series: 'Playoffs',
+    track: 'Unknown Track',
+    type: 'Playoffs'
+  },
+  {
+    id: 'playoff-2',
+    name: 'Playoff 2',
+    location: 'Carson, CA',
+    date: 'Sep 19, 2026',
+    series: 'Playoffs',
+    track: 'Unknown Track',
+    type: 'Playoffs'
+  },
+  {
+    id: 'smx-final',
+    name: 'SMX World Championship Final',
+    location: 'Ridgedale, MO',
+    date: 'Sep 26, 2026',
+    series: 'Playoffs',
+    track: 'Unknown Track',
+    type: 'Playoffs'
+  },
+];
+
 const allRaces = [
   ...supercrossRaces.map(r => ({ ...r, id: r.round.toString(), type: 'Supercross' })),
-  ...motorcrossRaces.map(r => ({ ...r, type: 'Motocross' }))
+  ...motorcrossRaces.map(r => ({ ...r, type: 'Motocross' })),
+  ...playoffsData.map(r => ({...r, type: 'Playoffs' })),
 ];
 
 // Main Event Results - Now defaults to 0 points
@@ -223,6 +254,9 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
             const supercrossRace = race as typeof supercrossRaces[0];
             return `Round ${supercrossRace.round} of the 2026 Supercross season`;
         }
+        if (race.type === 'Playoffs') {
+            return `The ${race.name} at ${race.location}`;
+        }
         return `The ${race.name} at ${race.track}`;
     }
 
@@ -232,11 +266,15 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
             if (isTripleCrown) return `${supercrossRace.location} (Triple Crown)`;
             return `${supercrossRace.location} Results`;
         }
+        if (race.type === 'Playoffs') {
+            return `${race.name} Results`;
+        }
         return `${race.name} Results`;
     }
 
     const render250ClassTitle = () => {
         if (race.type === 'Motocross') return '250 Class';
+        if (race.type === 'Playoffs') return '250 Class';
         if (!division) return '250 Class';
         if (division === 'East/West Showdown') return '250SX East/West Showdown';
         return `250SX ${division} Main Event`;
@@ -352,7 +390,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                         <ResultsTable results={sxSeriesPoints250East} hasRaceHappened={true} isSeriesPoints={true} />
                     </div>
                 </>
-                ) : (
+                ) : race.type === 'Motocross' ? (
                 <>
                     <div>
                         <h3 className="text-xl font-bold mb-2">450MX Series Points</h3>
@@ -363,10 +401,23 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                         <ResultsTable results={motocrossSeriesPoints250} hasRaceHappened={true} isSeriesPoints={true} />
                     </div>
                 </>
-                )}
+                ) : race.type === 'Playoffs' ? (
+                <>
+                    <div>
+                        <h3 className="text-xl font-bold mb-2">450SMX Playoff Series Points</h3>
+                        <ResultsTable results={seriesPoints?.playoff450 || []} hasRaceHappened={true} isSeriesPoints={true} />
+                    </div>
+                     <div>
+                        <h3 className="text-xl font-bold mb-2">250SMX Playoff Series Points</h3>
+                        <ResultsTable results={seriesPoints?.playoff250 || []} hasRaceHappened={true} isSeriesPoints={true} />
+                    </div>
+                </>
+                ) : null}
             </div>
         </TabsContent>
       </Tabs>
     </div>
   );
 }
+
+    
