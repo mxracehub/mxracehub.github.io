@@ -35,6 +35,7 @@ export const supercrossRaces = [
     tv: 'Peacock',
     ticketsUrl: '#',
     mapUrl: '#',
+    format: 'Triple Crown',
   },
   {
     round: 5,
@@ -62,7 +63,6 @@ export const supercrossRaces = [
     tv: 'Peacock',
     ticketsUrl: '#',
     mapUrl: '#',
-    format: 'Triple Crown',
   },
   {
     round: 8,
@@ -81,6 +81,7 @@ export const supercrossRaces = [
     tv: 'Peacock',
     ticketsUrl: '#',
     mapUrl: '#',
+    format: 'Triple Crown',
   },
   {
     round: 10,
@@ -111,12 +112,13 @@ export const supercrossRaces = [
   },
   {
     round: 13,
-    location: 'Foxborough, MA',
+    location: 'Cleveland, OH',
     date: 'Apr 11, 2026',
-    track: 'Gillette Stadium',
+    track: 'Cleveland Browns Stadium',
     tv: 'Peacock',
     ticketsUrl: '#',
     mapUrl: '#',
+    format: 'Triple Crown',
   },
   {
     round: 14,
