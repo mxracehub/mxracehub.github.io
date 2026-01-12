@@ -9,7 +9,7 @@ import {
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { supercrossRaces } from '@/lib/races-supercross-data';
-import { motorcrossRaces } from '@/lib/races-motorcross-data';
+import { motocrossRaces } from '@/lib/races-motocross-data';
 import { useMemo } from 'react';
 
 const playoffsData = [
@@ -50,7 +50,7 @@ export default function StandingsPage() {
       series: 'Supercross',
     }));
 
-    const mxRaces = motorcrossRaces.map((race) => ({
+    const mxRaces = motocrossRaces.map((race) => ({
       id: race.id,
       name: race.name,
       track: race.track,

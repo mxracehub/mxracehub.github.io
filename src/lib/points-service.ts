@@ -1,6 +1,6 @@
 
 import { supercrossRaces } from './races-supercross-data';
-import { motorcrossRaces } from './races-motorcross-data';
+import { motocrossRaces } from './races-motocross-data';
 import { mainEventResults } from './results-data';
 import { riders450 } from './riders-data';
 import { riders250 } from './riders-250-data';
@@ -126,7 +126,7 @@ const calculatePoints = (completedRaces: any[], series: 'supercross' | 'motocros
 
 export const getSeriesPoints = () => {
     const completedSX = getCompletedRaces(supercrossRaces);
-    const completedMX = getCompletedRaces(motorcrossRaces);
+    const completedMX = getCompletedRaces(motocrossRaces);
     const completedPlayoffs = getCompletedRaces(playoffsData);
 
     const sxPoints450 = calculatePoints(completedSX, 'supercross', '450');

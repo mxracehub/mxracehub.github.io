@@ -17,7 +17,7 @@ import {
   TabsTrigger,
 } from '@/components/ui/tabs';
 import { supercrossRaces } from '@/lib/races-supercross-data';
-import { motorcrossRaces } from '@/lib/races-motorcross-data';
+import { motocrossRaces } from '@/lib/races-motocross-data';
 import { notFound } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 import { getSeriesPoints } from '@/lib/points-service';
@@ -54,7 +54,7 @@ const playoffsData = [
 
 const allRaces = [
   ...supercrossRaces.map(r => ({ ...r, id: r.round.toString(), type: 'Supercross' })),
-  ...motorcrossRaces.map(r => ({ ...r, type: 'Motocross' })),
+  ...motocrossRaces.map(r => ({ ...r, type: 'Motocross' })),
   ...playoffsData.map(r => ({...r, type: 'Playoffs' })),
 ];
 

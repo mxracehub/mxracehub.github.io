@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Star, Calendar } from 'lucide-react';
 import Link from 'next/link';
-import { motorcrossRaces } from '@/lib/races-motorcross-data';
+import { motocrossRaces } from '@/lib/races-motocross-data';
 import { supercrossRaces } from '@/lib/races-supercross-data';
 
 // Helper function to parse dates. Assumes current or next year for month-day formats.
@@ -32,7 +32,7 @@ const parseDate = (dateString: string): Date => {
 
 
 const allRaces = [
-  ...motorcrossRaces.map(r => ({ ...r, date: parseDate(r.date) })),
+  ...motocrossRaces.map(r => ({ ...r, date: parseDate(r.date) })),
   ...supercrossRaces.map(r => ({
     id: `supercross-${r.round}`,
     name: `${r.location} Supercross`,
@@ -237,3 +237,5 @@ export default function DashboardPage() {
     </div>
   );
 }
+
+    

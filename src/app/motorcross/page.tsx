@@ -2,7 +2,7 @@
 import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { motorcrossRaces } from '@/lib/races-motorcross-data';
+import { motocrossRaces } from '@/lib/races-motocross-data';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Tv, BarChart3 } from 'lucide-react';
@@ -46,7 +46,7 @@ export default function MotorcrossPage() {
       </div>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {motorcrossRaces.map((race) => (
+        {motocrossRaces.map((race) => (
           <div
             key={race.id}
             className="flex flex-col overflow-hidden rounded-lg border border-border bg-card text-card-foreground"

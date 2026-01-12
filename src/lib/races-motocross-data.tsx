@@ -1,5 +1,5 @@
 
-export const motorcrossRaces = [
+export const motocrossRaces = [
   {
     id: 'pala',
     name: 'Fox Raceway National',
