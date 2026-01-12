@@ -92,17 +92,14 @@ const seriesPoints450 = [
     { pos: 10, rider: 'Aaron Plessinger', number: '7', bike: 'KTM', points: 12 },
 ];
 
-const seriesPoints250 = [
-    { pos: 1, rider: 'Max Anstie', number: '61', bike: 'Yamaha', points: 25 },
-    { pos: 2, rider: 'Chance Hymas', number: '29', bike: 'Honda', points: 22 },
-    { pos: 3, rider: 'Ryder DiFrancesco', number: '34', bike: 'Husqvarna', points: 20 },
-    { pos: 4, rider: 'Haiden Deegan', number: '1W', bike: 'Yamaha', points: 18 },
-    { pos: 5, rider: 'Michael Mosiman', number: '23', bike: 'Yamaha', points: 17 },
-    { pos: 6, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki', points: 16 },
-    { pos: 7, rider: 'Maximus Vohland', number: '19', bike: 'Yamaha', points: 15 },
-    { pos: 8, rider: 'Hunter Yoder', number: '60', bike: 'Yamaha', points: 14 },
-    { pos: 9, rider: 'Avery Long', number: '57', bike: 'KTM', points: 13 },
-    { pos: 10, rider: 'Dilan Schwartz', number: '42', bike: 'Yamaha', points: 12 },
+const seriesPoints250East = [
+    { pos: 1, rider: 'Tom Vialle', number: '16', bike: 'KTM', points: 25 },
+    { pos: 2, rider: 'RJ Hampshire', number: '24', bike: 'Husqvarna', points: 22 },
+];
+
+const seriesPoints250West = [
+    { pos: 1, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki', points: 25 },
+    { pos: 2, rider: 'Jordon Smith', number: '45', bike: 'Yamaha', points: 22 },
 ];
 
 const ResultsTable = ({ results, isTripleCrownOverall = false, isTripleCrownRace = false }: { results: any[], isTripleCrownOverall?: boolean, isTripleCrownRace?: boolean }) => {
@@ -165,6 +162,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     
     const hasRaceHappened = useMemo(() => new Date() > raceDate, [raceDate]);
     const isTripleCrown = race && 'format' in race && race.format === 'Triple Crown';
+    const division = race && 'division' in race ? race.division : null;
 
     if (!race) {
         notFound();
@@ -185,6 +183,12 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
             return `${supercrossRace.location} Results`;
         }
         return `${race.name} Results`;
+    }
+
+    const render250ClassTitle = () => {
+        if (!division) return '250 Class';
+        if (division === 'East/West Showdown') return '250SX East/West Showdown';
+        return `250SX ${division} Main Event`;
     }
 
   return (
@@ -222,7 +226,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                             <ResultsTable results={hasRaceHappened ? tripleCrownOverall450 : []} isTripleCrownOverall={true} />
                         </div>
                         <div>
-                            <h3 className="text-xl font-bold mb-2">250SX Overall Results</h3>
+                            <h3 className="text-xl font-bold mb-2">{render250ClassTitle()} Overall</h3>
                             <ResultsTable results={hasRaceHappened ? tripleCrownOverall250 : []} isTripleCrownOverall={true} />
                         </div>
                     </div>
@@ -261,7 +265,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                             <ResultsTable results={hasRaceHappened ? results450 : []} />
                         </div>
                         <div>
-                            <h3 className="text-xl font-bold mb-2">250SX Main Event</h3>
+                            <h3 className="text-xl font-bold mb-2">{render250ClassTitle()}</h3>
                             <ResultsTable results={hasRaceHappened ? results250 : []} />
                         </div>
                     </div>
@@ -273,7 +277,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                             <ResultsTable results={hasRaceHappened ? results450 : []} />
                         </div>
                         <div>
-                            <h3 className="text-xl font-bold mb-2">250SX Heat 1</h3>
+                             <h3 className="text-xl font-bold mb-2">{render250ClassTitle()} Heat 1</h3>
                             <ResultsTable results={hasRaceHappened ? results250 : []} />
                         </div>
                     </div>
@@ -287,8 +291,12 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                     <ResultsTable results={seriesPoints450} />
                 </div>
                  <div>
-                    <h3 className="text-xl font-bold mb-2">250SX Series Points</h3>
-                    <ResultsTable results={seriesPoints250} />
+                    <h3 className="text-xl font-bold mb-2">250SX East Series Points</h3>
+                    <ResultsTable results={seriesPoints250East} />
+                </div>
+                 <div>
+                    <h3 className="text-xl font-bold mb-2">250SX West Series Points</h3>
+                    <ResultsTable results={seriesPoints250West} />
                 </div>
             </div>
         </TabsContent>
@@ -296,3 +304,5 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     </div>
   );
 }
+
+    

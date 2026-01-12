@@ -6,11 +6,25 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { supercrossRaces } from '@/lib/races-supercross-data';
 import { Tv, BarChart3 } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 export default function SupercrossPage() {
   const heroImage = PlaceHolderImages.find(
     (img) => img.id === 'supercross-banner'
   );
+
+  const getDivisionVariant = (division?: string) => {
+    switch (division) {
+        case 'East':
+            return 'default';
+        case 'West':
+            return 'destructive';
+        case 'East/West Showdown':
+            return 'secondary';
+        default:
+            return 'outline';
+    }
+  }
 
   return (
     <div>
@@ -57,7 +71,10 @@ export default function SupercrossPage() {
             className="flex flex-col overflow-hidden rounded-lg border border-border bg-card text-card-foreground"
           >
             <div className="w-full bg-primary p-4 text-primary-foreground">
-              <p className="text-sm font-bold">Round {race.round}</p>
+              <div className="flex justify-between items-center">
+                <p className="text-sm font-bold">Round {race.round}</p>
+                {race.division && <Badge variant={getDivisionVariant(race.division)}>{race.division}</Badge>}
+              </div>
               <h3 className="text-lg font-bold">{race.location}</h3>
               <p className="text-sm">{race.date}</p>
             </div>
