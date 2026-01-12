@@ -66,6 +66,19 @@ const seriesPoints450 = [
     { pos: 10, rider: 'Hunter Lawrence', number: '96', bike: 'Honda', points: 12 },
 ];
 
+const seriesPoints250 = [
+    { pos: 1, rider: 'RJ Hampshire', number: '24', bike: 'Husqvarna', points: 25 },
+    { pos: 2, rider: 'Jordon Smith', number: '31', bike: 'Yamaha', points: 22 },
+    { pos: 3, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki', points: 20 },
+    { pos: 4, rider: 'Jo Shimoda', number: '30', bike: 'Honda', points: 18 },
+    { pos: 5, rider: 'Max Vohland', number: '20', bike: 'Kawasaki', points: 17 },
+    { pos: 6, rider: 'Julien Beaumer', number: '99', bike: 'KTM', points: 16 },
+    { pos: 7, rider: 'Garrett Marchbanks', number: '26', bike: 'Yamaha', points: 15 },
+    { pos: 8, rider: 'Mitchell Oldenburg', number: '55', bike: 'Honda', points: 14 },
+    { pos: 9, rider: 'Ryder DiFrancesco', number: '34', bike: 'GasGas', points: 13 },
+    { pos: 10, rider: 'Carson Mumford', number: '41', bike: 'Honda', points: 12 },
+];
+
 
 const ResultsTable = ({ results }: { results: typeof results450 | typeof seriesPoints450 }) => {
     if (results.length === 0) {
@@ -181,6 +194,10 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                 <div>
                     <h3 className="text-xl font-bold mb-2">450SX Series Points</h3>
                     <ResultsTable results={seriesPoints450} />
+                </div>
+                 <div>
+                    <h3 className="text-xl font-bold mb-2">250SX Series Points</h3>
+                    <ResultsTable results={seriesPoints250} />
                 </div>
             </div>
         </TabsContent>
