@@ -66,16 +66,19 @@ export const mainEventResults = {
         { rider: 'Aaron Plessinger', points: 0 }
     ],
     '250': [
-        { rider: 'Max Anstie', points: 0 },
-        { rider: 'Chance Hymas', points: 0 },
-        { rider: 'Ryder DiFrancesco', points: 0 },
-        { rider: 'Haiden Deegan', points: 0 },
-        { rider: 'Michael Mosiman', points: 0 },
-        { rider: 'Levi Kitchen', points: 0 },
-        { rider: 'Maximus Vohland', points: 0 },
-        { rider: 'Hunter Yoder', points: 0 },
-        { rider: 'Avery Long', points: 0 },
-        { rider: 'Dilan Schwartz', points: 0 },
+        { rider: 'Max Anstie', points: 25 },
+        { rider: 'Chance Hymas', points: 22 },
+        { rider: 'Ryder DiFrancesco', points: 20 },
+        { rider: 'Haiden Deegan', points: 18 },
+        { rider: 'Michael Mosiman', points: 17 },
+        { rider: 'Levi Kitchen', points: 16 },
+        { rider: 'Maximus Vohland', points: 15 },
+        { rider: 'Hunter Yoder', points: 14 },
+        { rider: 'Avery Long', points: 13 },
+        { rider: 'Dilan Schwartz', points: 12 },
+        { rider: 'Carson Mumford', points: 11 },
+        { rider: 'Robbie Wageman', points: 10 },
+        { rider: 'Joshua Varize', points: 9 }
     ]
   }
 };
