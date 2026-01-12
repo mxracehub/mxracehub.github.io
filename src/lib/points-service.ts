@@ -32,7 +32,7 @@ const calculatePoints = (completedRaces: any[], series: 'supercross' | 'motocros
 
     // First pass for Supercross 250 to determine rider divisions based on their first race
     if (series === 'supercross' && riderClass === '250') {
-        completedRaces.forEach(race => {
+        supercrossRaces.forEach(race => { // Use all races to establish division
             if (race.division === 'East' || race.division === 'West') {
                 const raceId = `supercross-${race.round}`;
                 const results = mainEventResults[raceId as keyof typeof mainEventResults];
@@ -119,11 +119,6 @@ export const getSeriesPoints = () => {
         const combined = [...pointsData, ...missingRiders];
         const sorted = combined.sort((a, b) => b.points - a.points).map((r, i) => ({...r, pos: i+1}));
         
-        // If no one has points, just show the first 10 riders from the master list.
-        if (pointsData.length === 0) {
-            return sorted.slice(0, 10);
-        }
-        
         return sorted.slice(0, 10);
     }
     
@@ -154,22 +149,12 @@ export const getSeriesPoints = () => {
             sxEastRiders.push(rider);
         }
     });
-    
-    // Fallback for when no races have happened yet
-    if(sxWestRiders.length === 0) {
-        // A simple heuristic for now. In a real app this would be managed data.
-        riders250.forEach(r => {
-            const westRounds = ['supercross-1', 'supercross-2', 'supercross-3'];
-            const racedInWest = westRounds.some(round => mainEventResults[round as keyof typeof mainEventResults]?.['250'].some(res => res.rider === r.name));
-            if(racedInWest) sxWestRiders.push(r);
-        });
-    }
 
 
     return {
         supercross450: populateRiderList(sxPoints450, riders450),
         supercross250West: populateRiderList(sxPoints250West, sxWestRiders.length > 0 ? sxWestRiders : riders250), // Fallback to all if needed
-        supercross250East: populateRiderList(sxPoints250East, sxEastRiders.length > 0 ? sxEastRiders: []),
+        supercross250East: populateRiderList(sxPoints250East, sxEastRiders.length > 0 ? sxEastRiders: riders250),
         motocross450: populateRiderList(mxPoints450, riders450),
         motocross250: populateRiderList(mxPoints250, riders250),
     };
