@@ -94,6 +94,32 @@ const seriesPoints250East = [
 ];
 
 
+const mxSeriesPoints450 = [
+    { pos: 1, rider: 'Eli Tomac', number: '3', bike: 'KTM', points: 0 },
+    { pos: 2, rider: 'Ken Roczen', number: '94', bike: 'Suzuki', points: 0 },
+    { pos: 3, rider: 'Jorge Prado', number: '26', bike: 'KTM', points: 0 },
+    { pos: 4, rider: 'Hunter Lawrence', number: '96', bike: 'Honda', points: 0 },
+    { pos: 5, rider: 'Jason Anderson', number: '21', bike: 'Suzuki', points: 0 },
+    { pos: 6, rider: 'Justin Cooper', number: '32', bike: 'Yamaha', points: 0 },
+    { pos: 7, rider: 'Cooper Webb', number: '1', bike: 'Yamaha', points: 0 },
+    { pos: 8, rider: 'Chase Sexton', number: '4', bike: 'Kawasaki', points: 0 },
+    { pos: 9, rider: 'Dylan Ferrandis', number: '14', bike: 'Ducati', points: 0 },
+    { pos: 10, rider: 'Aaron Plessinger', number: '7', bike: 'KTM', points: 0 },
+];
+
+const mxSeriesPoints250 = [
+    { pos: 1, rider: 'RJ Hampshire', number: '24', bike: 'Husqvarna', points: 0 },
+    { pos: 2, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki', points: 0 },
+    { pos: 3, rider: 'Jordon Smith', number: '31', bike: 'Yamaha', points: 0 },
+    { pos: 4, rider: 'Jo Shimoda', number: '30', bike: 'Honda', points: 0 },
+    { pos: 5, rider: 'Garrett Marchbanks', number: '26', bike: 'Yamaha', points: 0 },
+    { pos: 6, rider: 'Max Vohland', number: '20', bike: 'Kawasaki', points: 0 },
+    { pos: 7, rider: 'Nate Thrasher', number: '57', bike: 'Yamaha', points: 0 },
+    { pos: 8, rider: 'Julien Beaumer', number: '99', bike: 'KTM', points: 0 },
+    { pos: 9, rider: 'Anthony Bourdon', number: '100', bike: 'Suzuki', points: 0 },
+    { pos: 10, rider: 'Carson Mumford', number: '41', bike: 'Honda', points: 0 },
+];
+
 // Placeholder data for Triple Crown
 const tripleCrownOverall450 = [
     { pos: 1, rider: 'Jett Lawrence', number: '18', bike: 'Honda', finishes: '1-1-2', points: 0 },
@@ -331,11 +357,11 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                 <>
                     <div>
                         <h3 className="text-xl font-bold mb-2">450MX Series Points</h3>
-                        <ResultsTable results={seriesPoints450} hasRaceHappened={true} isSeriesPoints={true} />
+                        <ResultsTable results={mxSeriesPoints450} hasRaceHappened={true} isSeriesPoints={true} />
                     </div>
                      <div>
                         <h3 className="text-xl font-bold mb-2">250MX Series Points</h3>
-                        <ResultsTable results={seriesPoints250West} hasRaceHappened={true} isSeriesPoints={true} />
+                        <ResultsTable results={mxSeriesPoints250} hasRaceHappened={true} isSeriesPoints={true} />
                     </div>
                 </>
                 )}
