@@ -36,7 +36,7 @@ export default function PlayoffsPage() {
 
   return (
     <div>
-      <PageHeader title="SMX Playoffs" />
+      <PageHeader title="SMX Playoff" className="text-center" />
       {heroImage && (
         <div className="relative mb-8 overflow-hidden rounded-lg">
           <Image
