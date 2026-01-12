@@ -28,16 +28,16 @@ const allRaces = [
 
 // This is now placeholder for a single race's results, not series points.
 const results450 = [
-    { pos: 1, rider: 'Eli Tomac', number: '3', bike: 'KTM', points: 25 },
-    { pos: 2, rider: 'Ken Roczen', number: '94', bike: 'Suzuki', points: 22 },
-    { pos: 3, rider: 'Jorge Prado', number: '26', bike: 'KTM', points: 20 },
-    { pos: 4, rider: 'Hunter Lawrence', number: '96', bike: 'Honda', points: 18 },
-    { pos: 5, rider: 'Jason Anderson', number: '21', bike: 'Suzuki', points: 17 },
-    { pos: 6, rider: 'Justin Cooper', number: '32', bike: 'Yamaha', points: 16 },
-    { pos: 7, rider: 'Cooper Webb', number: '1', bike: 'Yamaha', points: 15 },
-    { pos: 8, rider: 'Chase Sexton', number: '4', bike: 'Kawasaki', points: 14 },
-    { pos: 9, rider: 'Dylan Ferrandis', number: '14', bike: 'Ducati', points: 13 },
-    { pos: 10, rider: 'Aaron Plessinger', number: '7', bike: 'KTM', points: 12 },
+    { pos: 1, rider: 'Eli Tomac', number: '3', bike: 'Yamaha', points: 25 },
+    { pos: 2, rider: 'Cooper Webb', number: '2', bike: 'Yamaha', points: 22 },
+    { pos: 3, rider: 'Chase Sexton', number: '1', bike: 'KTM', points: 20 },
+    { pos: 4, rider: 'Ken Roczen', number: '94', bike: 'Suzuki', points: 18 },
+    { pos: 5, rider: 'Jason Anderson', number: '21', bike: 'Kawasaki', points: 17 },
+    { pos: 6, rider: 'Aaron Plessinger', number: '7', bike: 'KTM', points: 16 },
+    { pos: 7, rider: 'Justin Barcia', number: '51', bike: 'GasGas', points: 15 },
+    { pos: 8, rider: 'Jett Lawrence', number: '18', bike: 'Honda', points: 14 },
+    { pos: 9, rider: 'Hunter Lawrence', number: '96', bike: 'Honda', points: 13 },
+    { pos: 10, rider: 'Dylan Ferrandis', number: '14', bike: 'Honda', points: 12 },
 ];
 
 const results250 = [
@@ -55,16 +55,16 @@ const results250 = [
 
 // Placeholder for series points.
 const seriesPoints450 = [
-    { pos: 1, rider: 'Eli Tomac', number: '3', bike: 'KTM', points: 25 },
-    { pos: 2, rider: 'Ken Roczen', number: '94', bike: 'Suzuki', points: 22 },
-    { pos: 3, rider: 'Jorge Prado', number: '26', bike: 'KTM', points: 20 },
-    { pos: 4, rider: 'Hunter Lawrence', number: '96', bike: 'Honda', points: 18 },
-    { pos: 5, rider: 'Jason Anderson', number: '21', bike: 'Suzuki', points: 17 },
-    { pos: 6, rider: 'Justin Cooper', number: '32', bike: 'Yamaha', points: 16 },
-    { pos: 7, rider: 'Cooper Webb', number: '1', bike: 'Yamaha', points: 15 },
-    { pos: 8, rider: 'Chase Sexton', number: '4', bike: 'Kawasaki', points: 14 },
-    { pos: 9, rider: 'Dylan Ferrandis', number: '14', bike: 'Ducati', points: 13 },
-    { pos: 10, rider: 'Aaron Plessinger', number: '7', bike: 'KTM', points: 12 },
+    { pos: 1, rider: 'Eli Tomac', number: '3', bike: 'Yamaha', points: 25 },
+    { pos: 2, rider: 'Cooper Webb', number: '2', bike: 'Yamaha', points: 22 },
+    { pos: 3, rider: 'Chase Sexton', number: '1', bike: 'KTM', points: 20 },
+    { pos: 4, rider: 'Ken Roczen', number: '94', bike: 'Suzuki', points: 18 },
+    { pos: 5, rider: 'Jason Anderson', number: '21', bike: 'Kawasaki', points: 17 },
+    { pos: 6, rider: 'Aaron Plessinger', number: '7', bike: 'KTM', points: 16 },
+    { pos: 7, rider: 'Justin Barcia', number: '51', bike: 'GasGas', points: 15 },
+    { pos: 8, rider: 'Jett Lawrence', number: '18', bike: 'Honda', points: 14 },
+    { pos: 9, rider: 'Hunter Lawrence', number: '96', bike: 'Honda', points: 13 },
+    { pos: 10, rider: 'Dylan Ferrandis', number: '14', bike: 'Honda', points: 12 },
 ];
 
 const seriesPoints250West = [
