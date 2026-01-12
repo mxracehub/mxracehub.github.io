@@ -7,13 +7,17 @@ import { riders250 } from './riders-250-data';
 
 const allRiders = [...riders450, ...riders250];
 
+const sxEastRiders = new Set(riders250.filter(r => ['Tom Vialle', 'Cameron McAdoo', 'Pierce Brown', 'Coty Schock', 'Haiden Deegan', 'Max Anstie', 'Daxton Bennick', 'Jalek Swoll', 'Henry Hilar', 'Seth Hammaker'].includes(r.name)).map(r => r.name));
+const sxWestRiders = new Set(riders250.filter(r => ['Levi Kitchen', 'RJ Hampshire', 'Jordon Smith', 'Garrett Marchbanks', 'Jo Shimoda', 'Anthony Bourdon', 'Julien Beaumer', 'Ryder DiFrancesco', 'Carson Mumford', 'Nate Thrasher'].includes(r.name)).map(r => r.name));
+
+
 const parseRaceDate = (dateStr: string): Date => {
     const d = new Date(dateStr);
     if (!isNaN(d.getTime())) {
         return d;
     }
     const withYear = new Date(`${dateStr} ${new Date().getFullYear()}`);
-    if (withYear < new Date()) {
+    if (withYear < new Date() && new Date().getMonth() > 6) {
         withYear.setFullYear(withYear.getFullYear() + 1);
     }
     return withYear;
@@ -24,7 +28,7 @@ const getCompletedRaces = (raceSeries: any[]) => {
     return raceSeries.filter(race => parseRaceDate(race.date) < now);
 };
 
-const calculatePoints = (completedRaces: any[], series: 'supercross' | 'motocross', division?: 'East' | 'West' | 'East/West Showdown' | 'All') => {
+const calculatePoints = (completedRaces: any[], series: 'supercross' | 'motocross', riderClass: '450' | '250', division?: 'East' | 'West') => {
     const pointsMap: { [riderName: string]: number } = {};
 
     completedRaces.forEach(race => {
@@ -32,41 +36,31 @@ const calculatePoints = (completedRaces: any[], series: 'supercross' | 'motocros
         const results = mainEventResults[raceId as keyof typeof mainEventResults];
         if (!results) return;
 
-        // Determine which class results to use
-        let classResults450 = results['450'] || [];
-        let classResults250 = results['250'] || [];
+        const classResults = results[riderClass] || [];
 
-        if (series === 'supercross') {
-            if (race.division === 'East') {
-                if (division === 'East' || division === 'All') {
-                     classResults250.forEach(result => {
-                        pointsMap[result.rider] = (pointsMap[result.rider] || 0) + result.points;
-                    });
-                }
-            } else if (race.division === 'West') {
-                 if (division === 'West' || division === 'All') {
-                     classResults250.forEach(result => {
-                        pointsMap[result.rider] = (pointsMap[result.rider] || 0) + result.points;
-                    });
-                }
-            } else if (race.division === 'East/West Showdown') {
-                if (division === 'East' || division === 'West' || division === 'All') {
-                     classResults250.forEach(result => {
-                        pointsMap[result.rider] = (pointsMap[result.rider] || 0) + result.points;
-                    });
+        classResults.forEach(result => {
+            const riderName = result.rider;
+            let shouldAddPoints = false;
+            
+            if (series === 'motocross' || riderClass === '450') {
+                 shouldAddPoints = true;
+            } else { // 250 Supercross
+                const isEastRider = sxEastRiders.has(riderName);
+                const isWestRider = sxWestRiders.has(riderName);
+
+                if (division === 'East') {
+                    if (race.division === 'East' && isEastRider) shouldAddPoints = true;
+                    if (race.division === 'East/West Showdown' && isEastRider) shouldAddPoints = true;
+                } else if (division === 'West') {
+                    if (race.division === 'West' && isWestRider) shouldAddPoints = true;
+                    if (race.division === 'East/West Showdown' && isWestRider) shouldAddPoints = true;
                 }
             }
-        } else { // motocross
-            classResults250.forEach(result => {
-                pointsMap[result.rider] = (pointsMap[result.rider] || 0) + result.points;
-            });
-        }
-        
-        if (division === 'All') {
-            classResults450.forEach(result => {
-                pointsMap[result.rider] = (pointsMap[result.rider] || 0) + result.points;
-            });
-        }
+
+            if (shouldAddPoints) {
+                pointsMap[riderName] = (pointsMap[riderName] || 0) + result.points;
+            }
+        });
     });
 
     return Object.entries(pointsMap)
@@ -89,15 +83,12 @@ export const getSeriesPoints = () => {
     const completedSX = getCompletedRaces(supercrossRaces);
     const completedMX = getCompletedRaces(motorcrossRaces);
 
-    const sxPoints450 = calculatePoints(completedSX, 'supercross', 'All');
-    const sxPoints250West = calculatePoints(completedSX, 'supercross', 'West');
-    const sxPoints250East = calculatePoints(completedSX, 'supercross', 'East');
+    const sxPoints450 = calculatePoints(completedSX, 'supercross', '450');
+    const sxPoints250West = calculatePoints(completedSX, 'supercross', '250', 'West');
+    const sxPoints250East = calculatePoints(completedSX, 'supercross', '250', 'East');
 
-    const mxPoints450 = calculatePoints(completedMX, 'motocross', 'All');
-    const mxPoints250 = calculatePoints(completedMX, 'motocross', 'All');
-
-    // For the purpose of the app, let's combine points as it doesn't distinguish classes in motocross for now
-    const allRidersWithPoints = [...new Set([...riders450.map(r => r.name), ...riders250.map(r => r.name)])];
+    const mxPoints450 = calculatePoints(completedMX, 'motocross', '450');
+    const mxPoints250 = calculatePoints(completedMX, 'motocross', '250');
     
     const populateRiderList = (pointsData: any[], riderList: any[]) => {
         const pointRiderNames = new Set(pointsData.map(r => r.rider));
@@ -112,18 +103,16 @@ export const getSeriesPoints = () => {
             }));
         
         const combined = [...pointsData, ...missingRiders];
-        // Re-sort and re-rank
         return combined.sort((a, b) => b.points - a.points).map((r, i) => ({...r, pos: i+1})).slice(0, 10);
     }
     
-    const sxEastRiders = riders250.filter(r => ['Tom Vialle', 'Cameron McAdoo', 'Pierce Brown', 'Coty Schock', 'Haiden Deegan', 'Max Anstie', 'Daxton Bennick', 'Jalek Swoll', 'Henry Hilar', 'Seth Hammaker'].includes(r.name));
-    const sxWestRiders = riders250.filter(r => ['Levi Kitchen', 'RJ Hampshire', 'Jordon Smith', 'Garrett Marchbanks', 'Jo Shimoda', 'Anthony Bourdon', 'Julien Beaumer', 'Ryder DiFrancesco', 'Carson Mumford', 'Nate Thrasher'].includes(r.name));
-
+    const sxEastRiderList = riders250.filter(r => sxEastRiders.has(r.name));
+    const sxWestRiderList = riders250.filter(r => sxWestRiders.has(r.name));
 
     return {
         supercross450: populateRiderList(sxPoints450, riders450),
-        supercross250West: populateRiderList(sxPoints250West, sxWestRiders),
-        supercross250East: populateRiderList(sxPoints250East, sxEastRiders),
+        supercross250West: populateRiderList(sxPoints250West, sxWestRiderList),
+        supercross250East: populateRiderList(sxPoints250East, sxEastRiderList),
         motocross450: populateRiderList(mxPoints450, riders450),
         motocross250: populateRiderList(mxPoints250, riders250),
     };
