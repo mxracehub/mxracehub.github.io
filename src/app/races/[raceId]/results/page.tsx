@@ -19,7 +19,8 @@ import {
 import { supercrossRaces } from '@/lib/races-supercross-data';
 import { motorcrossRaces } from '@/lib/races-motorcross-data';
 import { notFound } from 'next/navigation';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { getSeriesPoints } from '@/lib/points-service';
 
 const allRaces = [
   ...supercrossRaces.map(r => ({ ...r, id: r.round.toString(), type: 'Supercross' })),
@@ -65,19 +66,6 @@ const sxSeriesPoints250East = [
     { pos: 8, rider: 'Jalek Swoll', number: '33', bike: 'Triumph', points: 0 },
     { pos: 9, rider: 'Daxton Bennick', number: '59', bike: 'Yamaha', points: 0 },
     { pos: 10, rider: 'Seth Hammaker', number: '43', bike: 'Kawasaki', points: 0 },
-];
-
-const supercrossSeriesPoints250West = [
-    { pos: 1, rider: 'RJ Hampshire', number: '24', bike: 'Husqvarna', points: 0 },
-    { pos: 2, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki', points: 0 },
-    { pos: 3, rider: 'Jordon Smith', number: '31', bike: 'Yamaha', points: 0 },
-    { pos: 4, rider: 'Jo Shimoda', number: '30', bike: 'Honda', points: 0 },
-    { pos: 5, rider: 'Garrett Marchbanks', number: '26', bike: 'Yamaha', points: 0 },
-    { pos: 6, rider: 'Max Vohland', number: '20', bike: 'Kawasaki', points: 0 },
-    { pos: 7, rider: 'Nate Thrasher', number: '57', bike: 'Yamaha', points: 0 },
-    { pos: 8, rider: 'Julien Beaumer', number: '99', bike: 'KTM', points: 0 },
-    { pos: 9, rider: 'Anthony Bourdon', number: '100', bike: 'Suzuki', points: 0 },
-    { pos: 10, rider: 'Carson Mumford', number: '41', bike: 'Honda', points: 0 },
 ];
 
 const motocrossSeriesPoints450 = [
@@ -182,6 +170,12 @@ const StandingsNotAvailable = () => (
 
 export default function RaceResultsPage({ params }: { params: { raceId: string } }) {
     const race = allRaces.find(r => r.id === params.raceId);
+    
+    const [seriesPoints, setSeriesPoints] = useState<ReturnType<typeof getSeriesPoints> | null>(null);
+
+    useEffect(() => {
+        setSeriesPoints(getSeriesPoints());
+    }, []);
 
     const raceDate = useMemo(() => {
         if (!race) return new Date();
@@ -323,7 +317,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                         </div>
                         <div>
                             <h3 className="text-xl font-bold mb-2">{render250ClassTitle()}</h3>
-                             {hasRaceHappened ? <ResultsTable results={division === 'East' ? sxSeriesPoints250East : supercrossSeriesPoints250West} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
+                             {hasRaceHappened ? <ResultsTable results={division === 'East' ? sxSeriesPoints250East : (seriesPoints?.supercross250West || [])} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
                         </div>
                     </div>
                 </TabsContent>
@@ -335,7 +329,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                         </div>
                         <div>
                             <h3 className="text-xl font-bold mb-2">{render250ClassTitle()} Heat 1</h3>
-                             {hasRaceHappened ? <ResultsTable results={(division === 'East' ? sxSeriesPoints250East : supercrossSeriesPoints250West).slice(0, 5)} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
+                             {hasRaceHappened ? <ResultsTable results={(division === 'East' ? sxSeriesPoints250East : (seriesPoints?.supercross250West || [])).slice(0, 5)} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
                         </div>
                     </div>
                 </TabsContent>
@@ -351,7 +345,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                     </div>
                     <div>
                         <h3 className="text-xl font-bold mb-2">250SX West Series Points</h3>
-                        <ResultsTable results={supercrossSeriesPoints250West} hasRaceHappened={true} isSeriesPoints={true} />
+                        <ResultsTable results={seriesPoints?.supercross250West || []} hasRaceHappened={true} isSeriesPoints={true} />
                     </div>
                     <div>
                         <h3 className="text-xl font-bold mb-2">250SX East Series Points</h3>
