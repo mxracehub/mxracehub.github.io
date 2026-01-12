@@ -338,7 +338,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
             </>
         )}
         <TabsContent value="series-points">
-            {((race.type === 'Motocross' || race.type === 'Supercross') && !hasRaceHappened) ? (
+            {race.type === 'Motocross' && !hasRaceHappened ? (
                 <StandingsNotAvailable />
             ) : (
                 <div className="space-y-6 mt-4">
@@ -376,5 +376,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     </div>
   );
 }
+
+    
 
     
