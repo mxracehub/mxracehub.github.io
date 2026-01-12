@@ -26,27 +26,30 @@ const getCompletedRaces = (raceSeries: any[]) => {
     return raceSeries.filter(race => parseRaceDate(race.date) < now);
 };
 
+// Helper to determine the division for a 250SX rider
+const getRiderDivision = (riderName: string, allSxRaces: any[]): 'East' | 'West' | undefined => {
+    for (const race of allSxRaces) {
+        if (race.division === 'East' || race.division === 'West') {
+            const raceId = `supercross-${race.round}`;
+            const results = mainEventResults[raceId as keyof typeof mainEventResults];
+            if (results && results['250']?.some(r => r.rider === riderName)) {
+                return race.division;
+            }
+        }
+    }
+    return undefined;
+};
+
+
 const calculatePoints = (completedRaces: any[], series: 'supercross' | 'motocross', riderClass: '450' | '250', division?: 'East' | 'West') => {
     const pointsMap: { [riderName: string]: number } = {};
-    const riderDivisions: { [riderName: string]: 'East' | 'West' } = {};
 
-    // First pass for Supercross 250 to determine rider divisions based on their first race
-    if (series === 'supercross' && riderClass === '250') {
-        supercrossRaces.forEach(race => { // Use all races to establish division
-            if (race.division === 'East' || race.division === 'West') {
-                const raceId = `supercross-${race.round}`;
-                const results = mainEventResults[raceId as keyof typeof mainEventResults];
-                if (results && results['250']) {
-                    results['250'].forEach(result => {
-                        if (!riderDivisions[result.rider]) {
-                            riderDivisions[result.rider] = race.division;
-                        }
-                    });
-                }
-            }
-        });
-    }
-
+    const riderIsInDivision = (riderName: string): boolean => {
+        if (series !== 'supercross' || riderClass !== '250' || !division) return true;
+        const riderDivision = getRiderDivision(riderName, supercrossRaces);
+        return riderDivision === division;
+    };
+    
     completedRaces.forEach(race => {
         const raceId = series === 'supercross' ? `supercross-${race.round}` : race.id;
         const results = mainEventResults[raceId as keyof typeof mainEventResults];
@@ -56,27 +59,35 @@ const calculatePoints = (completedRaces: any[], series: 'supercross' | 'motocros
 
         classResults.forEach(result => {
             const riderName = result.rider;
-            let shouldAddPoints = false;
-
-            if (riderClass === '450' || series === 'motocross') {
-                shouldAddPoints = true;
-            } else { // 250 Supercross logic
-                const riderDivision = riderDivisions[riderName];
-                // Points are awarded if it's the rider's designated series or a showdown
-                if ((race.division === riderDivision) || (race.division === 'East/West Showdown')) {
-                    // Only award points to riders of the specified division in this calculation pass
+            
+            if (series === 'supercross' && riderClass === '250') {
+                 // Award points if it's the rider's designated series or a showdown
+                const riderDivision = getRiderDivision(riderName, supercrossRaces);
+                if (race.division === 'East/West Showdown' || race.division === riderDivision) {
+                    // Check if the current calculation is for the rider's division
                     if (division === riderDivision) {
-                         shouldAddPoints = true;
+                        pointsMap[riderName] = (pointsMap[riderName] || 0) + result.points;
                     }
                 }
-            }
-            
-            if (shouldAddPoints) {
+            } else {
+                 // For 450 class or Motocross, just add points
                 pointsMap[riderName] = (pointsMap[riderName] || 0) + result.points;
             }
         });
     });
 
+    const relevantRiders = riderClass === '450' 
+        ? riders450 
+        : (series === 'motocross' || !division) 
+            ? riders250 
+            : riders250.filter(rider => riderIsInDivision(rider.name));
+
+    relevantRiders.forEach(rider => {
+        if (!pointsMap[rider.name]) {
+            pointsMap[rider.name] = 0;
+        }
+    });
+    
     return Object.entries(pointsMap)
         .map(([riderName, points]) => {
             const riderInfo = allRiders.find(r => r.name === riderName);
@@ -117,43 +128,18 @@ export const getSeriesPoints = () => {
             }));
         
         const combined = [...pointsData, ...missingRiders];
-        const sorted = combined.sort((a, b) => b.points - a.points).map((r, i) => ({...r, pos: i+1}));
+        const sorted = combined.sort((a, b) => b.points - a.points || a.rider.localeCompare(b.rider)).map((r, i) => ({...r, pos: i+1}));
         
         return sorted.slice(0, 10);
     }
     
-    // For 250 class, we need to determine which riders are in which series.
-    const sxWestRiders: any[] = [];
-    const sxEastRiders: any[] = [];
-    const riderDivisions: { [riderName: string]: 'East' | 'West' } = {};
-
-    supercrossRaces.forEach(race => {
-        if (race.division === 'East' || race.division === 'West') {
-            const raceId = `supercross-${race.round}`;
-            const results = mainEventResults[raceId as keyof typeof mainEventResults];
-            if (results && results['250']) {
-                results['250'].forEach(result => {
-                    if (!riderDivisions[result.rider]) {
-                        riderDivisions[result.rider] = race.division;
-                    }
-                });
-            }
-        }
-    });
-
-    riders250.forEach(rider => {
-        const division = riderDivisions[rider.name];
-        if (division === 'West') {
-            sxWestRiders.push(rider);
-        } else if (division === 'East') {
-            sxEastRiders.push(rider);
-        }
-    });
-
+    // For 250 class, we need to determine which riders are in which series to create the initial lists
+    const sxWestRiders = riders250.filter(r => getRiderDivision(r.name, supercrossRaces) === 'West');
+    const sxEastRiders = riders250.filter(r => getRiderDivision(r.name, supercrossRaces) === 'East');
 
     return {
         supercross450: populateRiderList(sxPoints450, riders450),
-        supercross250West: populateRiderList(sxPoints250West, sxWestRiders.length > 0 ? sxWestRiders : riders250), // Fallback to all if needed
+        supercross250West: populateRiderList(sxPoints250West, sxWestRiders.length > 0 ? sxWestRiders : riders250),
         supercross250East: populateRiderList(sxPoints250East, sxEastRiders.length > 0 ? sxEastRiders: riders250),
         motocross450: populateRiderList(mxPoints450, riders450),
         motocross250: populateRiderList(mxPoints250, riders250),
