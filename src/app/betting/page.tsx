@@ -14,7 +14,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Coins, Mic, Search, Users, Calendar, Layers, X, Trophy, CheckCircle, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import React, { useEffect, useMemo, useState } from 'react';
-import { motorcrossRaces } from '@/lib/races-motorcross-data';
+import { motocrossRaces } from '@/lib/races-motocross-data';
 import { supercrossRaces } from '@/lib/races-supercross-data';
 import { getFriends, updateAccount } from '@/lib/firebase-config';
 import type { Account, Bet } from '@/lib/types';
@@ -33,7 +33,7 @@ import {
 } from '@/components/ui/select';
 
 const allRaces = [
-    ...motorcrossRaces.map(r => ({ ...r, series: 'Motorcross' })),
+    ...motocrossRaces.map(r => ({ ...r, series: 'Motorcross' })),
     ...supercrossRaces.map(r => ({ id: `supercross-${r.round}`, name: `${r.location}`, track: r.track, date: r.date, series: 'Supercross' }))
 ].sort((a,b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
