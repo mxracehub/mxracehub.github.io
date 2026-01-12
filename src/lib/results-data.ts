@@ -43,9 +43,9 @@ export const mainEventResults = {
     '450_heat2': [
       { pos: 1, rider: 'Ken Roczen', number: '94', bike: 'Suzuki'},
       { pos: 2, rider: 'Hunter Lawrence', number: '96', bike: 'Honda'},
-      { pos: 3, rider: 'Jason Anderson', number: '21', bike: 'Suzuki'},
+      { pos: 3, rider: 'Jason Anderson', number: '21', bike: 'Kawasaki'},
       { pos: 4, rider: 'Christian Craig', number: '28', bike: 'Honda'},
-      { pos: 5, rider: 'Chase Sexton', number: '4', bike: 'Kawasaki', holeshot: true},
+      { pos: 5, rider: 'Chase Sexton', number: '1', bike: 'KTM', holeshot: true},
       { pos: 6, rider: 'Justin Hill', number: '46', bike: 'KTM'},
       { pos: 7, rider: 'Vince Friese', number: '719', bike: 'Kawasaki'},
       { pos: 8, rider: 'R.J. Hampshire', number: '24', bike: 'Husqvarna'},
@@ -53,7 +53,7 @@ export const mainEventResults = {
       { pos: 10, rider: 'Garrett Marchbanks', number: '36', bike: 'Kawasaki'},
     ],
     '250_heat1': [
-      { pos: 1, rider: 'Haiden Deegan', number: '38', bike: 'Yamaha' },
+      { pos: 1, rider: 'Haiden Deegan', number: '38', bike: 'Yamaha', holeshot: true },
       { pos: 2, rider: 'Cameron Mcadoo', number: '31', bike: 'Kawasaki' },
       { pos: 3, rider: 'Maximus Vohland', number: '20', bike: 'Kawasaki' },
       { pos: 4, rider: 'Carson Mumford', number: '41', bike: 'Honda' },
@@ -151,5 +151,3 @@ export const mainEventResults = {
     ]
   }
 };
-
-    
