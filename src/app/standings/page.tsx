@@ -1,147 +1,129 @@
 
-import { PageHeader } from '@/components/page-header';
-import { supercrossRaces } from '@/lib/races-supercross-data';
-import { motorcrossRaces } from '@/lib/races-motorcross-data';
-import Link from 'next/link';
+'use client';
 
-// Add the missing races from the image
-const additionalRaces = [
-  {
-    round: 9,
-    location: 'Indianapolis, IN',
-    date: 'Mar 08, 2026',
-    track: 'Lucas Oil Stadium',
-    tv: 'Peacock',
-  },
-  {
-    round: 10,
-    location: 'Birmingham, AL',
-    date: 'Mar 15, 2026',
-    track: 'Protective Stadium',
-    tv: 'Peacock',
-  },
-  {
-    round: 11,
-    location: 'Seattle, WA',
-    date: 'Mar 22, 2026',
-    track: 'Lumen Field',
-    tv: 'Peacock',
-  },
-  {
-    round: 12,
-    location: 'St. Louis, MO',
-    date: 'Mar 29, 2026',
-    track: "The Dome at America's Center",
-    tv: 'Peacock',
-    format: 'Triple Crown',
-  },
-  {
-    round: 13,
-    location: 'Foxborough, MA',
-    date: 'Apr 05, 2026',
-    track: 'Gillette Stadium',
-    tv: 'Peacock',
-  },
-  {
-    round: 14,
-    location: 'Nashville, TN',
-    date: 'Apr 19, 2026',
-    track: 'Nissan Stadium',
-    tv: 'Peacock',
-  },
-  {
-    round: 15,
-    location: 'Philadelphia, PA',
-    date: 'Apr 26, 2026',
-    track: 'Lincoln Financial Field',
-    tv: 'Peacock',
-  },
-  {
-    round: 16,
-    location: 'Denver, CO',
-    date: 'May 03, 2026',
-    track: 'Empower Field at Mile High',
-    tv: 'Peacock',
-  },
-  {
-    round: 17,
-    location: 'Salt Lake City, UT',
-    date: 'May 10, 2026',
-    track: 'Rice-Eccles Stadium',
-    tv: 'Peacock',
-  },
+import { PageHeader } from '@/components/page-header';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@/components/ui/tabs';
+
+// Using the same placeholder data from the results page for consistency.
+// In a real app, this would be fetched from a database.
+const seriesPoints450 = [
+    { pos: 1, rider: 'Eli Tomac', number: '3', bike: 'KTM', points: 25 },
+    { pos: 2, rider: 'Ken Roczen', number: '94', bike: 'Suzuki', points: 22 },
+    { pos: 3, rider: 'Jorge Prado', number: '26', bike: 'KTM', points: 20 },
+    { pos: 4, rider: 'Hunter Lawrence', number: '96', bike: 'Honda', points: 18 },
+    { pos: 5, rider: 'Jason Anderson', number: '21', bike: 'Suzuki', points: 17 },
+    { pos: 6, rider: 'Justin Cooper', number: '32', bike: 'Yamaha', points: 16 },
+    { pos: 7, rider: 'Cooper Webb', number: '1', bike: 'Yamaha', points: 15 },
+    { pos: 8, rider: 'Chase Sexton', number: '4', bike: 'Kawasaki', points: 14 },
+    { pos: 9, rider: 'Dylan Ferrandis', number: '14', bike: 'Ducati', points: 13 },
+    { pos: 10, rider: 'Aaron Plessinger', number: '7', bike: 'KTM', points: 12 },
 ];
 
-const allSupercrossRaces = [...supercrossRaces, ...additionalRaces].sort((a, b) => a.round - b.round);
+const seriesPoints250 = [
+    { pos: 1, rider: 'Max Anstie', number: '61', bike: 'Yamaha', points: 25 },
+    { pos: 2, rider: 'Chance Hymas', number: '29', bike: 'Honda', points: 22 },
+    { pos: 3, rider: 'Ryder DiFrancesco', number: '34', bike: 'Husqvarna', points: 20 },
+    { pos: 4, rider: 'Haiden Deegan', number: '1W', bike: 'Yamaha', points: 18 },
+    { pos: 5, rider: 'Michael Mosiman', number: '23', bike: 'Yamaha', points: 17 },
+    { pos: 6, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki', points: 16 },
+    { pos: 7, rider: 'Maximus Vohland', number: '19', bike: 'Yamaha', points: 15 },
+    { pos: 8, rider: 'Hunter Yoder', number: '60', bike: 'Yamaha', points: 14 },
+    { pos: 9, rider: 'Avery Long', number: '57', bike: 'KTM', points: 13 },
+    { pos: 10, rider: 'Dilan Schwartz', number: '42', bike: 'Yamaha', points: 12 },
+];
 
-const formatSupercrossRaceName = (round: number, location: string) => {
-    const anaheimRaces = allSupercrossRaces.filter(r => r.location.startsWith('Anaheim'));
-    if (location.startsWith('Anaheim')) {
-        if (anaheimRaces.length > 1) {
-            const raceIndex = anaheimRaces.findIndex(r => r.round === round);
-            return `Anaheim ${raceIndex === 0 ? 'I' : 'II'}`;
-        }
-        return 'Anaheim';
+const StandingsTable = ({ results }: { results: any[] }) => {
+    if (results.length === 0) {
+      return (
+        <div className="border rounded-lg p-8 text-center text-muted-foreground">
+          Standings will be posted after the first race.
+        </div>
+      );
     }
-    return location.split(',')[0];
-}
+  
+    return (
+      <div className="border rounded-lg">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Pos</TableHead>
+              <TableHead>Rider</TableHead>
+              <TableHead>#</TableHead>
+              <TableHead>Bike</TableHead>
+              <TableHead className="text-right">Points</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {results.map((r) => (
+              <TableRow key={r.pos}>
+                <TableCell>{r.pos}</TableCell>
+                <TableCell>{r.rider}</TableCell>
+                <TableCell>{r.number}</TableCell>
+                <TableCell>{r.bike}</TableCell>
+                <TableCell className="text-right">{r.points}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+    );
+  };
 
 
 export default function StandingsPage() {
-  // Simple date parsing for sorting motocross races
-  const sortedMotorcrossRaces = [...motorcrossRaces].sort((a, b) => {
-    const dateA = new Date(a.date + ' ' + new Date().getFullYear());
-    const dateB = new Date(b.date + ' ' + new Date().getFullYear());
-    return dateA.getTime() - dateB.getTime();
-  });
-
-
   return (
     <div className="max-w-4xl mx-auto space-y-8">
-      <div>
-        <PageHeader title="SUPERCROSS (2026)" />
-        <div className="border rounded-lg overflow-hidden">
-          <div className="bg-card-foreground text-background p-4">
-            <h2 className="text-xl font-bold">2026 Schedule</h2>
-          </div>
-          <ul className="divide-y divide-border">
-            {allSupercrossRaces.map((race, index) => (
-              <li key={race.round}>
-                <Link href={`/races/${race.round}/results`}>
-                  <div className="p-4 hover:bg-muted/50 cursor-pointer flex justify-between items-center">
-                    <span className={`${index === 0 ? 'text-primary' : 'text-foreground'}`}>
-                      {String(race.round).padStart(2, '0')} - {formatSupercrossRaceName(race.round, race.location)}
-                    </span>
-                    {race.format && <span className="text-xs font-bold uppercase text-primary bg-primary/20 px-2 py-1 rounded-full">{race.format}</span>}
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <div>
-        <PageHeader title="MOTOCROSS" />
-        <div className="border rounded-lg overflow-hidden">
-          <div className="bg-card-foreground text-background p-4">
-            <h2 className="text-xl font-bold">Schedule</h2>
-          </div>
-          <ul className="divide-y divide-border">
-            {sortedMotorcrossRaces.map((race) => (
-              <li key={race.id}>
-                <Link href={`/races/${race.id}/results`}>
-                  <div className="p-4 hover:bg-muted/50 cursor-pointer">
-                    <span className="text-foreground">
-                      {race.date} - {race.name}
-                    </span>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      <PageHeader
+        title="Series Standings"
+        description="View the official points standings for each series and class."
+      />
+      
+      <Tabs defaultValue="supercross" className="w-full">
+        <TabsList className="grid w-full grid-cols-2">
+            <TabsTrigger value="supercross">Supercross</TabsTrigger>
+            <TabsTrigger value="motocross">Motocross</TabsTrigger>
+        </TabsList>
+        
+        <TabsContent value="supercross">
+            <div className="space-y-6 mt-4">
+                <div>
+                    <h3 className="text-xl font-bold mb-2">450SX Standings</h3>
+                    <StandingsTable results={seriesPoints450} />
+                </div>
+                 <div>
+                    <h3 className="text-xl font-bold mb-2">250SX Standings</h3>
+                    <StandingsTable results={seriesPoints250} />
+                </div>
+            </div>
+        </TabsContent>
+        
+        <TabsContent value="motocross">
+            <div className="space-y-6 mt-4">
+                <div>
+                    <h3 className="text-xl font-bold mb-2">450MX Standings</h3>
+                    {/* Using same data for demonstration. This would be different in a real app. */}
+                    <StandingsTable results={seriesPoints450.slice().reverse()} />
+                </div>
+                 <div>
+                    <h3 className="text-xl font-bold mb-2">250MX Standings</h3>
+                    <StandingsTable results={seriesPoints250.slice().reverse()} />
+                </div>
+            </div>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }
