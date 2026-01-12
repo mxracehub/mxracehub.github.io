@@ -22,6 +22,7 @@ import { mainEventResults } from '@/lib/results-data';
 import { notFound } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 import { getSeriesPoints } from '@/lib/points-service';
+import { Badge } from '@/components/ui/badge';
 
 const playoffsData = [
   {
@@ -104,9 +105,9 @@ const ResultsTable = ({ results, hasRaceHappened, isTripleCrownOverall = false, 
           <TableHeader>
             <TableRow>
               <TableHead>Pos</TableHead>
-              <TableHead>Rider</TableHead>
               <TableHead>#</TableHead>
               <TableHead>Bike</TableHead>
+              <TableHead>Rider</TableHead>
               {isTripleCrownOverall && <TableHead>Finishes</TableHead>}
               {showPoints && <TableHead className="text-right">Points</TableHead>}
             </TableRow>
@@ -115,9 +116,12 @@ const ResultsTable = ({ results, hasRaceHappened, isTripleCrownOverall = false, 
             {results.map((r, index) => (
               <TableRow key={r.rider || index}>
                 <TableCell>{r.pos || index + 1}</TableCell>
-                <TableCell>{r.rider}</TableCell>
                 <TableCell>{r.number}</TableCell>
                 <TableCell>{r.bike}</TableCell>
+                <TableCell className="flex items-center gap-2">
+                    {r.rider}
+                    {r.holeshot && <Badge className="bg-green-600">Holeshot</Badge>}
+                </TableCell>
                 {isTripleCrownOverall && <TableCell>{r.finishes}</TableCell>}
                 {showPoints && <TableCell className="text-right">{r.points}</TableCell>}
               </TableRow>

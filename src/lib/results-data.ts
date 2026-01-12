@@ -28,6 +28,18 @@ export const mainEventResults = {
       { rider: 'Robbie Wageman', number: '169', bike: 'Yamaha', points: 10 },
       { rider: 'Joshua Varize', number: '150', bike: 'GasGas', points: 9 }
     ],
+    '450_heat1': [
+      { pos: 1, rider: 'Jorge Prado', number: '26', bike: 'KTM', holeshot: true },
+      { pos: 2, rider: 'Eli Tomac', number: '3', bike: 'KTM' },
+      { pos: 3, rider: 'Justin Barcia', number: '51', bike: 'Ducati' },
+      { pos: 4, rider: 'Dylan Ferrandis', number: '14', bike: 'Ducati' },
+      { pos: 5, rider: 'Joey Savatgy', number: '17', bike: 'Honda' },
+      { pos: 6, rider: 'Malcolm Stewart', number: '27', bike: 'Husqvarna' },
+      { pos: 7, rider: 'Austin Forkner', number: '33', bike: 'Triumph' },
+      { pos: 8, rider: 'Cooper Webb', number: '1', bike: 'Yamaha' },
+      { pos: 9, rider: 'Mitchell Oldenburg', number: '52', bike: 'Beta' },
+      { pos: 10, rider: 'Max Miller', number: '604', bike: 'Kawasaki' },
+    ],
     '250_heat1': [
       { pos: 1, rider: 'Haiden Deegan', number: '1W', bike: 'Yamaha' },
       { pos: 2, rider: 'Cameron Mcadoo', number: '142', bike: 'Kawasaki' },
