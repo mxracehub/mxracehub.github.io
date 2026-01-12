@@ -52,7 +52,33 @@ const results250 = [
     { pos: 10, rider: 'Dilan Schwartz', number: '42', bike: 'Yamaha', points: 12 },
 ];
 
-// Updated to reflect points from a single 2026 race
+// Placeholder data for Triple Crown
+const tripleCrownOverall450 = [
+    { pos: 1, rider: 'Jett Lawrence', number: '18', bike: 'Honda', finishes: '1-1-2', points: 25 },
+    { pos: 2, rider: 'Cooper Webb', number: '2', bike: 'Yamaha', finishes: '3-2-1', points: 22 },
+    { pos: 3, rider: 'Eli Tomac', number: '3', bike: 'Yamaha', finishes: '2-3-3', points: 20 },
+]
+const tripleCrownRace1_450 = [
+    { pos: 1, rider: 'Jett Lawrence', number: '18', bike: 'Honda'},
+    { pos: 2, rider: 'Eli Tomac', number: '3', bike: 'Yamaha'},
+    { pos: 3, rider: 'Cooper Webb', number: '2', bike: 'Yamaha'},
+]
+const tripleCrownRace2_450 = [
+    { pos: 1, rider: 'Jett Lawrence', number: '18', bike: 'Honda'},
+    { pos: 2, rider: 'Cooper Webb', number: '2', bike: 'Yamaha'},
+    { pos: 3, rider: 'Eli Tomac', number: '3', bike: 'Yamaha'},
+]
+const tripleCrownRace3_450 = [
+    { pos: 1, rider: 'Cooper Webb', number: '2', bike: 'Yamaha'},
+    { pos: 2, rider: 'Jett Lawrence', number: '18', bike: 'Honda'},
+    { pos: 3, rider: 'Eli Tomac', number: '3', bike: 'Yamaha'},
+]
+const tripleCrownOverall250 = [
+    { pos: 1, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki', finishes: '1-1-2', points: 25 },
+    { pos: 2, rider: 'Jo Shimoda', number: '30', bike: 'Honda', finishes: '3-2-1', points: 22 },
+    { pos: 3, rider: 'RJ Hampshire', number: '24', bike: 'Husqvarna', finishes: '2-3-3', points: 20 },
+]
+
 const seriesPoints450 = [
     { pos: 1, rider: 'Eli Tomac', number: '3', bike: 'KTM', points: 25 },
     { pos: 2, rider: 'Ken Roczen', number: '94', bike: 'Suzuki', points: 22 },
@@ -79,8 +105,7 @@ const seriesPoints250 = [
     { pos: 10, rider: 'Dilan Schwartz', number: '42', bike: 'Yamaha', points: 12 },
 ];
 
-
-const ResultsTable = ({ results }: { results: typeof results450 | typeof seriesPoints450 }) => {
+const ResultsTable = ({ results, isTripleCrownOverall = false, isTripleCrownRace = false }: { results: any[], isTripleCrownOverall?: boolean, isTripleCrownRace?: boolean }) => {
     if (results.length === 0) {
       return (
         <div className="border rounded-lg p-8 text-center text-muted-foreground">
@@ -98,7 +123,8 @@ const ResultsTable = ({ results }: { results: typeof results450 | typeof seriesP
               <TableHead>Rider</TableHead>
               <TableHead>#</TableHead>
               <TableHead>Bike</TableHead>
-              <TableHead>Points</TableHead>
+              {isTripleCrownOverall && <TableHead>Finishes</TableHead>}
+              {isTripleCrownOverall || !isTripleCrownRace ? <TableHead>Points</TableHead> : null}
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -108,7 +134,9 @@ const ResultsTable = ({ results }: { results: typeof results450 | typeof seriesP
                 <TableCell>{r.rider}</TableCell>
                 <TableCell>{r.number}</TableCell>
                 <TableCell>{r.bike}</TableCell>
-                <TableCell>{r.points}</TableCell>
+                {isTripleCrownOverall && <TableCell>{r.finishes}</TableCell>}
+                {isTripleCrownOverall && <TableCell>{r.points}</TableCell>}
+                {!isTripleCrownOverall && !isTripleCrownRace && <TableCell>{r.points}</TableCell>}
               </TableRow>
             ))}
           </TableBody>
@@ -124,12 +152,9 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     const raceDate = useMemo(() => {
         if (!race) return new Date();
         const date = new Date(race.date);
-        // If date is invalid (e.g., 'MAY 30'), try appending a year
         if (isNaN(date.getTime())) {
             const currentYear = new Date().getFullYear();
             const parsedWithYear = new Date(`${race.date} ${currentYear}`);
-            // If date is in the past for current year, assume it's for next year if we are far from it
-            // This is a naive assumption, a more robust solution would be needed for a real app
             if (parsedWithYear < new Date() && new Date().getMonth() > 6) {
                 parsedWithYear.setFullYear(currentYear + 1);
             }
@@ -139,6 +164,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     }, [race]);
     
     const hasRaceHappened = useMemo(() => new Date() > raceDate, [raceDate]);
+    const isTripleCrown = race && 'format' in race && race.format === 'Triple Crown';
 
     if (!race) {
         notFound();
@@ -153,7 +179,12 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     }
 
     const getPageTitle = () => {
-        return race.type === 'Supercross' ? `${race.location} Results` : `${race.name} Results`;
+        if (race.type === 'Supercross') {
+            const supercrossRace = race as typeof supercrossRaces[0];
+            if (isTripleCrown) return `${supercrossRace.location} (Triple Crown)`;
+            return `${supercrossRace.location} Results`;
+        }
+        return `${race.name} Results`;
     }
 
   return (
@@ -163,39 +194,91 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
         description={getPageDescription()}
       />
 
-      <Tabs defaultValue="main-event" className="w-full">
-        <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="main-event">Main Event Results</TabsTrigger>
-          <TabsTrigger value="heat-races">Heat Race Results</TabsTrigger>
+      <Tabs defaultValue={isTripleCrown ? 'overall' : "main-event"} className="w-full">
+        <TabsList className="grid w-full grid-cols-5">
+          {isTripleCrown ? (
+            <>
+                <TabsTrigger value="overall">Overall</TabsTrigger>
+                <TabsTrigger value="race1">Race 1</TabsTrigger>
+                <TabsTrigger value="race2">Race 2</TabsTrigger>
+                <TabsTrigger value="race3">Race 3</TabsTrigger>
+            </>
+          ) : (
+            <>
+                <TabsTrigger value="main-event">Main Event</TabsTrigger>
+                <TabsTrigger value="heat-races">Heat Races</TabsTrigger>
+            </>
+          )}
           <TabsTrigger value="series-points">Series Points</TabsTrigger>
         </TabsList>
-
-        <TabsContent value="main-event">
-            <div className="space-y-6 mt-4">
-                <div>
-                    <h3 className="text-xl font-bold mb-2">450SX Main Event</h3>
-                    <ResultsTable results={hasRaceHappened ? results450 : []} />
-                </div>
-                 <div>
-                    <h3 className="text-xl font-bold mb-2">250SX Main Event</h3>
-                    <ResultsTable results={hasRaceHappened ? results250 : []} />
-                </div>
-            </div>
-        </TabsContent>
-
-        <TabsContent value="heat-races">
-             <div className="space-y-6 mt-4">
-                <div>
-                    <h3 className="text-xl font-bold mb-2">450SX Heat 1</h3>
-                    <ResultsTable results={hasRaceHappened ? results450.slice().reverse() : []} />
-                </div>
-                 <div>
-                    <h3 className="text-xl font-bold mb-2">250SX Heat 1</h3>
-                    <ResultsTable results={hasRaceHappened ? results250.slice().reverse() : []} />
-                </div>
-            </div>
-        </TabsContent>
-
+        
+        {isTripleCrown ? (
+            <>
+                <TabsContent value="overall">
+                    <div className="space-y-6 mt-4">
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">450SX Overall Results</h3>
+                            <ResultsTable results={hasRaceHappened ? tripleCrownOverall450 : []} isTripleCrownOverall={true} />
+                        </div>
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">250SX Overall Results</h3>
+                            <ResultsTable results={hasRaceHappened ? tripleCrownOverall250 : []} isTripleCrownOverall={true} />
+                        </div>
+                    </div>
+                </TabsContent>
+                <TabsContent value="race1">
+                    <div className="space-y-6 mt-4">
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">450SX Race 1 Results</h3>
+                            <ResultsTable results={hasRaceHappened ? tripleCrownRace1_450 : []} isTripleCrownRace={true} />
+                        </div>
+                    </div>
+                </TabsContent>
+                <TabsContent value="race2">
+                    <div className="space-y-6 mt-4">
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">450SX Race 2 Results</h3>
+                             <ResultsTable results={hasRaceHappened ? tripleCrownRace2_450 : []} isTripleCrownRace={true} />
+                        </div>
+                    </div>
+                </TabsContent>
+                <TabsContent value="race3">
+                    <div className="space-y-6 mt-4">
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">450SX Race 3 Results</h3>
+                            <ResultsTable results={hasRaceHappened ? tripleCrownRace3_450 : []} isTripleCrownRace={true} />
+                        </div>
+                    </div>
+                </TabsContent>
+            </>
+        ) : (
+            <>
+                <TabsContent value="main-event">
+                    <div className="space-y-6 mt-4">
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">450SX Main Event</h3>
+                            <ResultsTable results={hasRaceHappened ? results450 : []} />
+                        </div>
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">250SX Main Event</h3>
+                            <ResultsTable results={hasRaceHappened ? results250 : []} />
+                        </div>
+                    </div>
+                </TabsContent>
+                <TabsContent value="heat-races">
+                    <div className="space-y-6 mt-4">
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">450SX Heat 1</h3>
+                            <ResultsTable results={hasRaceHappened ? results450.slice().reverse() : []} />
+                        </div>
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">250SX Heat 1</h3>
+                            <ResultsTable results={hasRaceHappened ? results250.slice().reverse() : []} />
+                        </div>
+                    </div>
+                </TabsContent>
+            </>
+        )}
         <TabsContent value="series-points">
              <div className="space-y-6 mt-4">
                 <div>
@@ -212,6 +295,3 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     </div>
   );
 }
-
-
-    

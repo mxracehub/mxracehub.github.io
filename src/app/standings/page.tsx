@@ -33,6 +33,7 @@ const additionalRaces = [
     date: 'Mar 29, 2026',
     track: "The Dome at America's Center",
     tv: 'Peacock',
+    format: 'Triple Crown',
   },
   {
     round: 13,
@@ -107,10 +108,11 @@ export default function StandingsPage() {
             {allSupercrossRaces.map((race, index) => (
               <li key={race.round}>
                 <Link href={`/races/${race.round}/results`}>
-                  <div className="p-4 hover:bg-muted/50 cursor-pointer">
+                  <div className="p-4 hover:bg-muted/50 cursor-pointer flex justify-between items-center">
                     <span className={`${index === 0 ? 'text-primary' : 'text-foreground'}`}>
                       {String(race.round).padStart(2, '0')} - {formatSupercrossRaceName(race.round, race.location)}
                     </span>
+                    {race.format && <span className="text-xs font-bold uppercase text-primary bg-primary/20 px-2 py-1 rounded-full">{race.format}</span>}
                   </div>
                 </Link>
               </li>
@@ -126,7 +128,7 @@ export default function StandingsPage() {
             <h2 className="text-xl font-bold">Schedule</h2>
           </div>
           <ul className="divide-y divide-border">
-            {sortedMotorcrossRaces.map((race, index) => (
+            {sortedMotorcrossRaces.map((race) => (
               <li key={race.id}>
                 <Link href={`/races/${race.id}/results`}>
                   <div className="p-4 hover:bg-muted/50 cursor-pointer">
