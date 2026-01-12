@@ -193,16 +193,14 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     }
 
     const render250ClassTitle = () => {
-        if (race.type === 'Motocross' || race.type === 'Playoffs') return '250 Class Main Event';
+        if (race.type === 'Motocross') return '250 Class Main Event';
         if (!division) return '250 Class';
         if (division === 'East/West Showdown') return '250SX East/West Showdown';
         return `250SX ${division} Main Event`;
     }
     
     const render450ClassTitle = () => {
-        if (race.type === 'Motocross' || race.type === 'Playoffs') {
-            return '450 Class Main Event';
-        }
+        if (race.type === 'Motocross') return '450 Class Main Event';
         return '450SX Main Event';
     }
 
