@@ -212,16 +212,3 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     </div>
   );
 }
-
-// This function is needed for Next.js to know which rider pages to generate at build time.
-// export async function generateStaticParams() {
-//     const supercrossPaths = supercrossRaces.map((race) => ({
-//       raceId: race.round.toString(),
-//     }));
-
-//     const motorcrossPaths = motorcrossRaces.map((race) => ({
-//         raceId: race.id,
-//     }));
-  
-//     return [...supercrossPaths, ...motorcrossPaths];
-// }
