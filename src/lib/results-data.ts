@@ -2,16 +2,16 @@
 export const mainEventResults = {
   'supercross-1': { // Anaheim 1
     '450': [
-      { rider: 'Jett Lawrence', points: 0 },
-      { rider: 'Jason Anderson', points: 0 },
-      { rider: 'Chase Sexton', points: 0 },
-      { rider: 'Aaron Plessinger', points: 0 },
-      { rider: 'Dylan Ferrandis', points: 0 },
-      { rider: 'Cooper Webb', points: 0 },
-      { rider: 'Justin Barcia', points: 0 },
-      { rider: 'Justin Cooper', points: 0 },
-      { rider: 'Eli Tomac', points: 0 },
-      { rider: 'Ken Roczen', points: 0 },
+      { rider: 'Eli Tomac', points: 25 },
+      { rider: 'Ken Roczen', points: 22 },
+      { rider: 'Jorge Prado', points: 20 },
+      { rider: 'Hunter Lawrence', points: 18 },
+      { rider: 'Jason Anderson', points: 17 },
+      { rider: 'Justin Cooper', points: 16 },
+      { rider: 'Cooper Webb', points: 15 },
+      { rider: 'Chase Sexton', points: 14 },
+      { rider: 'Dylan Ferrandis', points: 13 },
+      { rider: 'Aaron Plessinger', points: 12 },
     ],
     '250': [ // West
       { rider: 'RJ Hampshire', points: 0 },
