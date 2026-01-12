@@ -188,15 +188,3 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     </div>
   );
 }
-
-export async function generateStaticParams() {
-    const supercrossPaths = supercrossRaces.map((race) => ({
-      raceId: race.round.toString(),
-    }));
-  
-    const motocrossPaths = motorcrossRaces.map((race) => ({
-      raceId: race.id,
-    }));
-  
-    return [...supercrossPaths, ...motocrossPaths];
-}
