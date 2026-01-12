@@ -270,11 +270,11 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                     <div className="space-y-6 mt-4">
                         <div>
                             <h3 className="text-xl font-bold mb-2">450SX Heat 1</h3>
-                            <ResultsTable results={hasRaceHappened ? results450.slice().reverse() : []} />
+                            <ResultsTable results={hasRaceHappened ? results450 : []} />
                         </div>
                         <div>
                             <h3 className="text-xl font-bold mb-2">250SX Heat 1</h3>
-                            <ResultsTable results={hasRaceHappened ? results250.slice().reverse() : []} />
+                            <ResultsTable results={hasRaceHappened ? results250 : []} />
                         </div>
                     </div>
                 </TabsContent>
