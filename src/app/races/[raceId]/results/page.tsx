@@ -80,26 +80,42 @@ const tripleCrownOverall250 = [
 ]
 
 const seriesPoints450 = [
-    { pos: 1, rider: 'Eli Tomac', number: '3', bike: 'KTM', points: 25 },
-    { pos: 2, rider: 'Ken Roczen', number: '94', bike: 'Suzuki', points: 22 },
-    { pos: 3, rider: 'Jorge Prado', number: '26', bike: 'KTM', points: 20 },
-    { pos: 4, rider: 'Hunter Lawrence', number: '96', bike: 'Honda', points: 18 },
-    { pos: 5, rider: 'Jason Anderson', number: '21', bike: 'Suzuki', points: 17 },
-    { pos: 6, rider: 'Justin Cooper', number: '32', bike: 'Yamaha', points: 16 },
-    { pos: 7, rider: 'Cooper Webb', number: '1', bike: 'Yamaha', points: 15 },
-    { pos: 8, rider: 'Chase Sexton', number: '4', bike: 'Kawasaki', points: 14 },
-    { pos: 9, rider: 'Dylan Ferrandis', number: '14', bike: 'Ducati', points: 13 },
-    { pos: 10, rider: 'Aaron Plessinger', number: '7', bike: 'KTM', points: 12 },
+    { pos: 1, rider: 'Jett Lawrence', number: '18', bike: 'Honda', points: 140 },
+    { pos: 2, rider: 'Cooper Webb', number: '2', bike: 'Yamaha', points: 135 },
+    { pos: 3, rider: 'Eli Tomac', number: '3', bike: 'Yamaha', points: 122 },
+    { pos: 4, rider: 'Chase Sexton', number: '1', bike: 'KTM', points: 118 },
+    { pos: 5, rider: 'Ken Roczen', number: '94', bike: 'Suzuki', points: 110 },
+    { pos: 6, rider: 'Aaron Plessinger', number: '7', bike: 'KTM', points: 105 },
+    { pos: 7, rider: 'Jason Anderson', number: '21', bike: 'Kawasaki', points: 98 },
+    { pos: 8, rider: 'Hunter Lawrence', number: '96', bike: 'Honda', points: 90 },
+    { pos: 9, rider: 'Justin Barcia', number: '51', bike: 'GasGas', points: 85 },
+    { pos: 10, rider: 'Dylan Ferrandis', number: '14', bike: 'Honda', points: 80 },
 ];
 
 const seriesPoints250East = [
-    { pos: 1, rider: 'Tom Vialle', number: '16', bike: 'KTM', points: 25 },
-    { pos: 2, rider: 'RJ Hampshire', number: '24', bike: 'Husqvarna', points: 22 },
+    { pos: 1, rider: 'Tom Vialle', number: '16', bike: 'KTM', points: 0 },
+    { pos: 2, rider: 'Cameron McAdoo', number: '63', bike: 'Kawasaki', points: 0 },
+    { pos: 3, rider: 'Pierce Brown', number: '39', bike: 'GasGas', points: 0 },
+    { pos: 4, rider: 'Coty Schock', number: '69', bike: 'Yamaha', points: 0 },
+    { pos: 5, rider: 'Haiden Deegan', number: '38', bike: 'Yamaha', points: 0 },
+    { pos: 6, rider: 'Max Anstie', number: '37', bike: 'Honda', points: 0 },
+    { pos: 7, rider: 'Daxton Bennick', number: '59', bike: 'Yamaha', points: 0 },
+    { pos: 8, rider: 'Jalek Swoll', number: '33', bike: 'Triumph', points: 0 },
+    { pos: 9, rider: 'Henry Miller', number: '81', bike: 'Honda', points: 0 },
+    { pos: 10, rider: 'Seth Hammaker', number: '43', bike: 'Kawasaki', points: 0 },
 ];
 
 const seriesPoints250West = [
-    { pos: 1, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki', points: 25 },
-    { pos: 2, rider: 'Jordon Smith', number: '45', bike: 'Yamaha', points: 22 },
+    { pos: 1, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki', points: 106 },
+    { pos: 2, rider: 'RJ Hampshire', number: '24', bike: 'Husqvarna', points: 101 },
+    { pos: 3, rider: 'Jordon Smith', number: '45', bike: 'Yamaha', points: 99 },
+    { pos: 4, rider: 'Garrett Marchbanks', number: '36', bike: 'Yamaha', points: 87 },
+    { pos: 5, rider: 'Jo Shimoda', number: '30', bike: 'Honda', points: 84 },
+    { pos: 6, rider: 'Anthony Bourdon', number: '100', bike: 'Suzuki', points: 72 },
+    { pos: 7, rider: 'Julien Beaumer', number: '99', bike: 'KTM', points: 68 },
+    { pos: 8, rider: 'Ryder DiFrancesco', number: '34', bike: 'GasGas', points: 65 },
+    { pos: 9, rider: 'Carson Mumford', number: '41', bike: 'Honda', points: 60 },
+    { pos: 10, rider: 'Nate Thrasher', number: '57', bike: 'Yamaha', points: 55 },
 ];
 
 const ResultsTable = ({ results, isTripleCrownOverall = false, isTripleCrownRace = false }: { results: any[], isTripleCrownOverall?: boolean, isTripleCrownRace?: boolean }) => {
