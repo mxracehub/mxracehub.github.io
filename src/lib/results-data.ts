@@ -24,6 +24,9 @@ export const mainEventResults = {
       { rider: 'Mitchell Oldenburg', points: 14 },
       { rider: 'Ryder DiFrancesco', points: 13 },
       { rider: 'Carson Mumford', points: 12 },
+      { rider: 'Anthony Bourdon', points: 11 },
+      { rider: 'Cole Thompson', points: 10 },
+      { rider: 'Hunter Yoder', points: 9 },
     ]
   },
   'supercross-2': { // San Diego
