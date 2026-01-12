@@ -83,7 +83,7 @@ const tripleCrownOverall250 = [
 
 
 const ResultsTable = ({ results, isTripleCrownOverall = false, isTripleCrownRace = false, isSeriesPoints = false }: { results: any[], isTripleCrownOverall?: boolean, isTripleCrownRace?: boolean, isSeriesPoints?: boolean }) => {
-    if (results.length === 0) {
+    if (!results || results.length === 0) {
       return (
         <div className="border rounded-lg p-8 text-center text-muted-foreground">
           {isSeriesPoints ? 'Points will be updated as the season progresses.' : 'Results will be posted after the race.'}
@@ -101,7 +101,7 @@ const ResultsTable = ({ results, isTripleCrownOverall = false, isTripleCrownRace
               <TableHead>#</TableHead>
               <TableHead>Bike</TableHead>
               {isTripleCrownOverall && <TableHead>Finishes</TableHead>}
-              {isTripleCrownOverall || !isTripleCrownRace ? <TableHead>Points</TableHead> : null}
+              {isTripleCrownOverall || isSeriesPoints || !isTripleCrownRace ? <TableHead>Points</TableHead> : null}
             </TableRow>
           </TableHeader>
           <TableBody>
