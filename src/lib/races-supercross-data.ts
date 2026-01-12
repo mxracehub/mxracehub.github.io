@@ -62,6 +62,7 @@ export const supercrossRaces = [
     tv: 'Peacock',
     ticketsUrl: '#',
     mapUrl: '#',
+    format: 'Triple Crown',
   },
   {
     round: 8,
