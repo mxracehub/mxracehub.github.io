@@ -28,29 +28,29 @@ const allRaces = [
 
 // This is now placeholder for a single race's results, not series points.
 const results450 = [
-    { pos: 1, rider: 'Jett Lawrence', number: '18', bike: 'Honda', points: 0 },
-    { pos: 2, rider: 'Chase Sexton', number: '1', bike: 'KTM', points: 0 },
-    { pos: 3, rider: 'Eli Tomac', number: '3', bike: 'Yamaha', points: 0 },
-    { pos: 4, rider: 'Ken Roczen', number: '94', bike: 'Suzuki', points: 0 },
-    { pos: 5, rider: 'Cooper Webb', number: '2', bike: 'Yamaha', points: 0 },
-    { pos: 6, rider: 'Jason Anderson', number: '21', bike: 'Kawasaki', points: 0 },
-    { pos: 7, rider: 'Hunter Lawrence', number: '96', bike: 'Honda', points: 0 },
-    { pos: 8, rider: 'Aaron Plessinger', number: '7', bike: 'KTM', points: 0 },
-    { pos: 9, rider: 'Justin Cooper', number: '32', bike: 'Yamaha', points: 0 },
-    { pos: 10, rider: 'Dylan Ferrandis', number: '14', bike: 'Honda', points: 0 },
+    { pos: 1, rider: 'Jett Lawrence', number: '18', bike: 'Honda', points: 25 },
+    { pos: 2, rider: 'Chase Sexton', number: '1', bike: 'KTM', points: 22 },
+    { pos: 3, rider: 'Eli Tomac', number: '3', bike: 'Yamaha', points: 20 },
+    { pos: 4, rider: 'Ken Roczen', number: '94', bike: 'Suzuki', points: 18 },
+    { pos: 5, rider: 'Cooper Webb', number: '2', bike: 'Yamaha', points: 17 },
+    { pos: 6, rider: 'Jason Anderson', number: '21', bike: 'Kawasaki', points: 16 },
+    { pos: 7, rider: 'Hunter Lawrence', number: '96', bike: 'Honda', points: 15 },
+    { pos: 8, rider: 'Aaron Plessinger', number: '7', bike: 'KTM', points: 14 },
+    { pos: 9, rider: 'Justin Cooper', number: '32', bike: 'Yamaha', points: 13 },
+    { pos: 10, rider: 'Dylan Ferrandis', number: '14', bike: 'Honda', points: 12 },
 ];
 
 const results250 = [
-    { pos: 1, rider: 'Haiden Deegan', number: '1W', bike: 'Yamaha', points: 0 },
-    { pos: 2, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki', points: 0 },
-    { pos: 3, rider: 'Tom Vialle', number: '16', bike: 'KTM', points: 0 },
-    { pos: 4, rider: 'Chance Hymas', number: '29', bike: 'Honda', points: 0 },
-    { pos: 5, rider: 'Pierce Brown', number: '39', bike: 'GasGas', points: 0 },
-    { pos: 6, rider: 'Max Anstie', number: '61', bike: 'Yamaha', points: 0 },
-    { pos: 7, rider: 'Michael Mosiman', number: '23', bike: 'Yamaha', points: 0 },
-    { pos: 8, rider: 'Ryder DiFrancesco', number: '34', bike: 'Husqvarna', points: 0 },
-    { pos: 9, rider: 'Jo Shimoda', number: '30', bike: 'Honda', points: 0 },
-    { pos: 10, rider: 'Jordon Smith', number: '31', bike: 'Yamaha', points: 0 },
+    { pos: 1, rider: 'Haiden Deegan', number: '1W', bike: 'Yamaha', points: 25 },
+    { pos: 2, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki', points: 22 },
+    { pos: 3, rider: 'Tom Vialle', number: '16', bike: 'KTM', points: 20 },
+    { pos: 4, rider: 'Chance Hymas', number: '29', bike: 'Honda', points: 18 },
+    { pos: 5, rider: 'Pierce Brown', number: '39', bike: 'GasGas', points: 17 },
+    { pos: 6, rider: 'Max Anstie', number: '61', bike: 'Yamaha', points: 16 },
+    { pos: 7, rider: 'Michael Mosiman', number: '23', bike: 'Yamaha', points: 15 },
+    { pos: 8, rider: 'Ryder DiFrancesco', number: '34', bike: 'Husqvarna', points: 14 },
+    { pos: 9, rider: 'Jo Shimoda', number: '30', bike: 'Honda', points: 13 },
+    { pos: 10, rider: 'Jordon Smith', number: '31', bike: 'Yamaha', points: 12 },
 ];
 
 // Placeholder for series points.
@@ -96,9 +96,9 @@ const seriesPoints250East = [
 
 // Placeholder data for Triple Crown
 const tripleCrownOverall450 = [
-    { pos: 1, rider: 'Jett Lawrence', number: '18', bike: 'Honda', finishes: '1-1-2', points: 0 },
-    { pos: 2, rider: 'Cooper Webb', number: '2', bike: 'Yamaha', finishes: '3-2-1', points: 0 },
-    { pos: 3, rider: 'Eli Tomac', number: '3', bike: 'Yamaha', finishes: '2-3-3', points: 0 },
+    { pos: 1, rider: 'Jett Lawrence', number: '18', bike: 'Honda', finishes: '1-1-2', points: 26 },
+    { pos: 2, rider: 'Cooper Webb', number: '2', bike: 'Yamaha', finishes: '3-2-1', points: 23 },
+    { pos: 3, rider: 'Eli Tomac', number: '3', bike: 'Yamaha', finishes: '2-3-3', points: 21 },
 ]
 const tripleCrownRace1_450 = [
     { pos: 1, rider: 'Jett Lawrence', number: '18', bike: 'Honda'},
@@ -116,9 +116,9 @@ const tripleCrownRace3_450 = [
     { pos: 3, rider: 'Eli Tomac', number: '3', bike: 'Yamaha'},
 ]
 const tripleCrownOverall250 = [
-    { pos: 1, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki', finishes: '1-1-2', points: 0 },
-    { pos: 2, rider: 'Jo Shimoda', number: '30', bike: 'Honda', finishes: '3-2-1', points: 0 },
-    { pos: 3, rider: 'RJ Hampshire', number: '24', bike: 'Husqvarna', finishes: '2-3-3', points: 0 },
+    { pos: 1, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki', finishes: '1-1-2', points: 26 },
+    { pos: 2, rider: 'Jo Shimoda', number: '30', bike: 'Honda', finishes: '3-2-1', points: 23 },
+    { pos: 3, rider: 'RJ Hampshire', number: '24', bike: 'Husqvarna', finishes: '2-3-3', points: 21 },
 ]
 
 
@@ -141,7 +141,7 @@ const ResultsTable = ({ results, hasRaceHappened, isTripleCrownOverall = false, 
               <TableHead>#</TableHead>
               <TableHead>Bike</TableHead>
               {isTripleCrownOverall && <TableHead>Finishes</TableHead>}
-              {hasRaceHappened && (isTripleCrownOverall || isSeriesPoints || !isTripleCrownRace) && <TableHead>Points</TableHead>}
+              {(hasRaceHappened || isSeriesPoints) && <TableHead className="text-right">Points</TableHead>}
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -152,8 +152,7 @@ const ResultsTable = ({ results, hasRaceHappened, isTripleCrownOverall = false, 
                 <TableCell>{r.number}</TableCell>
                 <TableCell>{r.bike}</TableCell>
                 {isTripleCrownOverall && <TableCell>{r.finishes}</TableCell>}
-                {hasRaceHappened && (isTripleCrownOverall || isSeriesPoints) && <TableCell>{r.points}</TableCell>}
-                {hasRaceHappened && !isTripleCrownOverall && !isTripleCrownRace && !isSeriesPoints && <TableCell>{r.points}</TableCell>}
+                {(hasRaceHappened || isSeriesPoints) && <TableCell className="text-right">{r.points}</TableCell>}
               </TableRow>
             ))}
           </TableBody>
@@ -259,26 +258,26 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                     </div>
                 </TabsContent>
                 <TabsContent value="race1">
-                    <div className="space-y-6 mt-4">
+                     <div className="space-y-6 mt-4">
                         <div>
                             <h3 className="text-xl font-bold mb-2">450SX Race 1 Results</h3>
-                            <ResultsTable results={hasRaceHappened ? tripleCrownRace1_450 : []} hasRaceHappened={hasRaceHappened} isTripleCrownRace={true} />
+                            {hasRaceHappened ? <ResultsTable results={tripleCrownRace1_450} hasRaceHappened={hasRaceHappened} isTripleCrownRace={true} /> : <StandingsNotAvailable />}
                         </div>
                     </div>
                 </TabsContent>
                 <TabsContent value="race2">
-                    <div className="space-y-6 mt-4">
+                     <div className="space-y-6 mt-4">
                         <div>
                             <h3 className="text-xl font-bold mb-2">450SX Race 2 Results</h3>
-                             <ResultsTable results={hasRaceHappened ? tripleCrownRace2_450 : []} hasRaceHappened={hasRaceHappened} isTripleCrownRace={true} />
+                             {hasRaceHappened ? <ResultsTable results={tripleCrownRace2_450} hasRaceHappened={hasRaceHappened} isTripleCrownRace={true} /> : <StandingsNotAvailable />}
                         </div>
                     </div>
                 </TabsContent>
                 <TabsContent value="race3">
-                    <div className="space-y-6 mt-4">
+                     <div className="space-y-6 mt-4">
                         <div>
                             <h3 className="text-xl font-bold mb-2">450SX Race 3 Results</h3>
-                            <ResultsTable results={hasRaceHappened ? tripleCrownRace3_450 : []} hasRaceHappened={hasRaceHappened} isTripleCrownRace={true} />
+                            {hasRaceHappened ? <ResultsTable results={tripleCrownRace3_450} hasRaceHappened={hasRaceHappened} isTripleCrownRace={true} /> : <StandingsNotAvailable />}
                         </div>
                     </div>
                 </TabsContent>
@@ -286,97 +285,63 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
         ) : (
             <>
                 <TabsContent value="main-event">
-                    {hasRaceHappened ? (
-                        <div className="space-y-6 mt-4">
-                            <div>
-                                <h3 className="text-xl font-bold mb-2">450 Class Main Event</h3>
-                                <ResultsTable results={results450} hasRaceHappened={hasRaceHappened} />
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-bold mb-2">{render250ClassTitle()}</h3>
-                                <ResultsTable results={results250} hasRaceHappened={hasRaceHappened} />
-                            </div>
+                    <div className="space-y-6 mt-4">
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">450 Class Main Event</h3>
+                            {hasRaceHappened ? <ResultsTable results={results450} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
                         </div>
-                    ) : (
-                        <div className="space-y-6 mt-4">
-                             <div>
-                                <h3 className="text-xl font-bold mb-2">450 Class Main Event</h3>
-                                <StandingsNotAvailable />
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-bold mb-2">{render250ClassTitle()}</h3>
-                                <StandingsNotAvailable />
-                            </div>
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">{render250ClassTitle()}</h3>
+                            {hasRaceHappened ? <ResultsTable results={results250} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
                         </div>
-                    )}
+                    </div>
                 </TabsContent>
                 <TabsContent value="heat-races">
-                     {hasRaceHappened ? (
-                        <div className="space-y-6 mt-4">
-                            <div>
-                                <h3 className="text-xl font-bold mb-2">450 Class Heat 1</h3>
-                                <ResultsTable results={results450.slice(0, 5)} hasRaceHappened={hasRaceHappened} />
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-bold mb-2">{render250ClassTitle()} Heat 1</h3>
-                                <ResultsTable results={results250.slice(0, 5)} hasRaceHappened={hasRaceHappened} />
-                            </div>
+                     <div className="space-y-6 mt-4">
+                         <div>
+                            <h3 className="text-xl font-bold mb-2">450 Class Heat 1</h3>
+                            {hasRaceHappened ? <ResultsTable results={results450.slice(0, 5)} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
                         </div>
-                    ) : (
-                         <div className="space-y-6 mt-4">
-                             <div>
-                                <h3 className="text-xl font-bold mb-2">450 Class Heat 1</h3>
-                                <StandingsNotAvailable />
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-bold mb-2">{render250ClassTitle()} Heat 1</h3>
-                                <StandingsNotAvailable />
-                            </div>
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">{render250ClassTitle()} Heat 1</h3>
+                            {hasRaceHappened ? <ResultsTable results={results250.slice(0, 5)} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
                         </div>
-                    )}
+                    </div>
                 </TabsContent>
             </>
         )}
         <TabsContent value="series-points">
-            {race.type === 'Motocross' && !hasRaceHappened ? (
-                <StandingsNotAvailable />
-            ) : (
-                <div className="space-y-6 mt-4">
-                    {race.type === 'Supercross' ? (
-                    <>
-                        <div>
-                            <h3 className="text-xl font-bold mb-2">450SX Series Points</h3>
-                            <ResultsTable results={seriesPoints450} hasRaceHappened={true} isSeriesPoints={true} />
-                        </div>
-                        <div>
-                            <h3 className="text-xl font-bold mb-2">250SX West Series Points</h3>
-                            <ResultsTable results={seriesPoints250West} hasRaceHappened={true} isSeriesPoints={true} />
-                        </div>
-                        <div>
-                            <h3 className="text-xl font-bold mb-2">250SX East Series Points</h3>
-                            <ResultsTable results={seriesPoints250East} hasRaceHappened={true} isSeriesPoints={true} />
-                        </div>
-                    </>
-                    ) : (
-                    <>
-                        <div>
-                            <h3 className="text-xl font-bold mb-2">450MX Series Points</h3>
-                            <ResultsTable results={seriesPoints450} hasRaceHappened={true} isSeriesPoints={true} />
-                        </div>
-                         <div>
-                            <h3 className="text-xl font-bold mb-2">250MX Series Points</h3>
-                            <ResultsTable results={seriesPoints250West} hasRaceHappened={true} isSeriesPoints={true} />
-                        </div>
-                    </>
-                    )}
-                </div>
-            )}
+            <div className="space-y-6 mt-4">
+                {race.type === 'Supercross' ? (
+                <>
+                    <div>
+                        <h3 className="text-xl font-bold mb-2">450SX Series Points</h3>
+                        <ResultsTable results={seriesPoints450} hasRaceHappened={true} isSeriesPoints={true} />
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-bold mb-2">250SX West Series Points</h3>
+                        <ResultsTable results={seriesPoints250West} hasRaceHappened={true} isSeriesPoints={true} />
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-bold mb-2">250SX East Series Points</h3>
+                        <ResultsTable results={seriesPoints250East} hasRaceHappened={true} isSeriesPoints={true} />
+                    </div>
+                </>
+                ) : (
+                <>
+                    <div>
+                        <h3 className="text-xl font-bold mb-2">450MX Series Points</h3>
+                        <ResultsTable results={seriesPoints450} hasRaceHappened={true} isSeriesPoints={true} />
+                    </div>
+                     <div>
+                        <h3 className="text-xl font-bold mb-2">250MX Series Points</h3>
+                        <ResultsTable results={seriesPoints250West} hasRaceHappened={true} isSeriesPoints={true} />
+                    </div>
+                </>
+                )}
+            </div>
         </TabsContent>
       </Tabs>
     </div>
   );
 }
-
-    
-
-    
