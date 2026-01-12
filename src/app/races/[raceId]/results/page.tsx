@@ -294,6 +294,14 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                             <h3 className="text-xl font-bold mb-2">250 Class Heat 1</h3>
                              {hasRaceHappened ? <ResultsTable results={raceResults?.['250_heat1'] || []} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
                         </div>
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">450 Class Heat 2</h3>
+                            {hasRaceHappened ? <ResultsTable results={raceResults?.['450_heat2'] || []} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
+                        </div>
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">250 Class Heat 2</h3>
+                             {hasRaceHappened ? <ResultsTable results={raceResults?.['250_heat2'] || []} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
+                        </div>
                     </div>
                 </TabsContent>
             </>
