@@ -307,12 +307,12 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                     <ResultsTable results={seriesPoints450} />
                 </div>
                  <div>
-                    <h3 className="text-xl font-bold mb-2">250SX East Series Points</h3>
-                    <ResultsTable results={seriesPoints250East} />
-                </div>
-                 <div>
                     <h3 className="text-xl font-bold mb-2">250SX West Series Points</h3>
                     <ResultsTable results={seriesPoints250West} />
+                </div>
+                 <div>
+                    <h3 className="text-xl font-bold mb-2">250SX East Series Points</h3>
+                    <ResultsTable results={seriesPoints250East} />
                 </div>
             </div>
         </TabsContent>
