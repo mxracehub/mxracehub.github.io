@@ -12,6 +12,34 @@ import { supercrossRaces } from '@/lib/races-supercross-data';
 import { motorcrossRaces } from '@/lib/races-motorcross-data';
 import { useMemo } from 'react';
 
+const playoffsData = [
+  {
+    id: 'playoff-1',
+    name: 'Playoff 1',
+    location: 'Columbus, OH',
+    date: 'Sep 12, 2026',
+    series: 'Playoffs',
+    track: 'Unknown Track',
+  },
+  {
+    id: 'playoff-2',
+    name: 'Playoff 2',
+    location: 'Carson, CA',
+    date: 'Sep 19, 2026',
+    series: 'Playoffs',
+    track: 'Unknown Track',
+  },
+  {
+    id: 'smx-final',
+    name: 'SMX World Championship Final',
+    location: 'Ridgedale, MO',
+    date: 'Sep 26, 2026',
+    series: 'Playoffs',
+    track: 'Unknown Track',
+  },
+];
+
+
 export default function StandingsPage() {
   const { sxRaces, mxRaces } = useMemo(() => {
     const sxRaces = supercrossRaces.map((race) => ({
@@ -85,6 +113,26 @@ export default function StandingsPage() {
               </div>
               <Button asChild>
                 <Link href={`/races/${race.id}/results`}>View Results</Link>
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
+         {playoffsData.map((race) => (
+          <Card key={`${race.series}-${race.id}`}>
+            <CardContent className="p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex-1 text-center sm:text-left">
+                <p
+                  className="text-sm font-bold text-yellow-400"
+                >
+                  {race.series.toUpperCase()}
+                </p>
+                <h3 className="text-lg font-bold">{race.name}</h3>
+                <p className="text-sm text-muted-foreground">
+                  {race.location} - {race.date}
+                </p>
+              </div>
+              <Button asChild>
+                <Link href="/playoffs">View Schedule</Link>
               </Button>
             </CardContent>
           </Card>
