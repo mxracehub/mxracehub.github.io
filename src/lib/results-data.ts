@@ -39,6 +39,18 @@ export const mainEventResults = {
       { pos: 8, rider: 'Anthony Bourdon', number: '70', bike: 'Kawasaki' },
       { pos: 9, rider: 'Brandon Ray', number: '388', bike: 'Triumph' },
       { pos: 10, rider: 'Crockett Myers', number: '131', bike: 'Suzuki' },
+    ],
+    '250_heat2': [
+      { pos: 1, rider: 'Max Anstie', number: '61', bike: 'Yamaha' },
+      { pos: 2, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki' },
+      { pos: 3, rider: 'Chance Hymas', number: '29', bike: 'Honda' },
+      { pos: 4, rider: 'Hunter Yoder', number: '60', bike: 'Yamaha' },
+      { pos: 5, rider: 'Dilan Schwartz', number: '42', bike: 'Yamaha' },
+      { pos: 6, rider: 'Avery Long', number: '57', bike: 'KTM' },
+      { pos: 7, rider: 'Joshua Varize', number: '224', bike: 'Kawasaki' },
+      { pos: 8, rider: 'Justin Rodbell', number: '83', bike: 'Honda' },
+      { pos: 9, rider: 'Parker Ross', number: '40', bike: 'Yamaha' },
+      { pos: 10, rider: 'Hunter Schlosser', number: '173', bike: 'Honda' }
     ]
   },
   'supercross-2': { // San Diego
