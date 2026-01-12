@@ -54,7 +54,7 @@ export default function StandingsPage() {
       id: race.id,
       name: race.name,
       track: race.track,
-      date: race.date,
+      date: `${race.date}, 2026`,
       series: 'Motorcross',
     }));
 
