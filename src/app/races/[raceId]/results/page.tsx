@@ -18,6 +18,7 @@ import {
 } from '@/components/ui/tabs';
 import { supercrossRaces } from '@/lib/races-supercross-data';
 import { motocrossRaces } from '@/lib/races-motocross-data';
+import { mainEventResults } from '@/lib/results-data';
 import { notFound } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 import { getSeriesPoints } from '@/lib/points-service';
@@ -56,32 +57,6 @@ const allRaces = [
   ...supercrossRaces.map(r => ({ ...r, id: r.round.toString(), type: 'Supercross' })),
   ...motocrossRaces.map(r => ({ ...r, type: 'Motocross' })),
   ...playoffsData.map(r => ({...r, type: 'Playoffs' })),
-];
-
-const results450 = [
-    { pos: 1, rider: 'Eli Tomac', number: '3', bike: 'Yamaha' },
-    { pos: 2, rider: 'Ken Roczen', number: '94', bike: 'Suzuki' },
-    { pos: 3, rider: 'Jorge Prado', number: '26', bike: 'KTM' },
-    { pos: 4, rider: 'Hunter Lawrence', number: '96', bike: 'Honda' },
-    { pos: 5, rider: 'Jason Anderson', number: '21', bike: 'Suzuki' },
-    { pos: 6, rider: 'Justin Cooper', number: '32', bike: 'Yamaha' },
-    { pos: 7, rider: 'Cooper Webb', number: '1', bike: 'Yamaha' },
-    { pos: 8, rider: 'Chase Sexton', number: '4', bike: 'Kawasaki' },
-    { pos: 9, rider: 'Dylan Ferrandis', number: '14', bike: 'Ducati' },
-    { pos: 10, rider: 'Aaron Plessinger', number: '7', bike: 'KTM' },
-];
-
-const results250 = [
-    { pos: 1, rider: 'RJ Hampshire', number: '24', bike: 'Husqvarna' },
-    { pos: 2, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki' },
-    { pos: 3, rider: 'Jordon Smith', number: '31', bike: 'Yamaha' },
-    { pos: 4, rider: 'Jo Shimoda', number: '30', bike: 'Honda' },
-    { pos: 5, rider: 'Garrett Marchbanks', number: '26', bike: 'Yamaha' },
-    { pos: 6, rider: 'Max Vohland', number: '20', bike: 'Kawasaki' },
-    { pos: 7, rider: 'Nate Thrasher', number: '57', bike: 'Yamaha' },
-    { pos: 8, rider: 'Julien Beaumer', number: '99', bike: 'KTM' },
-    { pos: 9, rider: 'Anthony Bourdon', number: '100', bike: 'Suzuki' },
-    { pos: 10, rider: 'Carson Mumford', number: '41', bike: 'Honda' },
 ];
 
 // Placeholder data for Triple Crown
@@ -137,9 +112,9 @@ const ResultsTable = ({ results, hasRaceHappened, isTripleCrownOverall = false, 
             </TableRow>
           </TableHeader>
           <TableBody>
-            {results.map((r) => (
-              <TableRow key={r.rider}>
-                <TableCell>{r.pos}</TableCell>
+            {results.map((r, index) => (
+              <TableRow key={r.rider || index}>
+                <TableCell>{r.pos || index + 1}</TableCell>
                 <TableCell>{r.rider}</TableCell>
                 <TableCell>{r.number}</TableCell>
                 <TableCell>{r.bike}</TableCell>
@@ -190,6 +165,9 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     if (!race) {
         notFound();
     }
+
+    const raceIdKey = race.type === 'Supercross' ? `supercross-${race.id}` : race.id;
+    const raceResults = mainEventResults[raceIdKey as keyof typeof mainEventResults];
     
     const getPageDescription = () => {
         if (race.type === 'Supercross') {
@@ -300,11 +278,11 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                     <div className="space-y-6 mt-4">
                         <div>
                             <h3 className="text-xl font-bold mb-2">{render450ClassTitle()}</h3>
-                            {hasRaceHappened ? <ResultsTable results={results450} hasRaceHappened={hasRaceHappened} isMainEvent={true} /> : <StandingsNotAvailable />}
+                            {hasRaceHappened ? <ResultsTable results={raceResults?.['450'] || []} hasRaceHappened={hasRaceHappened} isMainEvent={true} /> : <StandingsNotAvailable />}
                         </div>
                         <div>
                             <h3 className="text-xl font-bold mb-2">{render250ClassTitle()}</h3>
-                             {hasRaceHappened ? <ResultsTable results={results250} hasRaceHappened={hasRaceHappened} isMainEvent={true} /> : <StandingsNotAvailable />}
+                             {hasRaceHappened ? <ResultsTable results={raceResults?.['250'] || []} hasRaceHappened={hasRaceHappened} isMainEvent={true} /> : <StandingsNotAvailable />}
                         </div>
                     </div>
                 </TabsContent>
@@ -312,11 +290,11 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                      <div className="space-y-6 mt-4">
                          <div>
                             <h3 className="text-xl font-bold mb-2">450 Class Heat 1</h3>
-                            {hasRaceHappened ? <ResultsTable results={results450.slice(0, 5)} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
+                            {hasRaceHappened ? <ResultsTable results={raceResults?.['450']?.slice(0,5) || []} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
                         </div>
                         <div>
                             <h3 className="text-xl font-bold mb-2">{render250ClassTitle()} Heat 1</h3>
-                             {hasRaceHappened ? <ResultsTable results={results250.slice(0,5)} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
+                             {hasRaceHappened ? <ResultsTable results={raceResults?.['250']?.slice(0,5) || []} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
                         </div>
                     </div>
                 </TabsContent>
@@ -368,3 +346,5 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     </div>
   );
 }
+
+    
