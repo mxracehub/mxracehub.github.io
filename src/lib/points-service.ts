@@ -1,4 +1,6 @@
 
+'use client';
+
 import { supercrossRaces } from './races-supercross-data';
 import { motocrossRaces } from './races-motocross-data';
 import { mainEventResults } from './results-data';
@@ -21,7 +23,6 @@ const parseRaceDate = (dateStr: string): Date => {
     const currentYear = new Date().getFullYear();
     const withYear = new Date(`${dateStr} ${currentYear}`);
     if (withYear < new Date() && new Date().getMonth() > 6) {
-        // Handle dates like "JAN 10" when the current date is "DEC 01"
         withYear.setFullYear(withYear.getFullYear() + 1);
     }
     return withYear;
@@ -32,9 +33,8 @@ const getCompletedRaces = (raceSeries: any[]) => {
     return raceSeries.filter(race => parseRaceDate(race.date) < now);
 };
 
-// Helper to determine the division for a 250SX rider based on which race they first appeared in.
-const getRiderDivision = (riderName: string, allSxRaces: any[]): 'East' | 'West' | undefined => {
-    for (const race of allSxRaces) {
+const getRiderDivision = (riderName: string): 'East' | 'West' | undefined => {
+    for (const race of supercrossRaces) {
         if (race.division === 'East' || race.division === 'West') {
             const raceId = `supercross-${race.round}`;
             const results = mainEventResults[raceId as keyof typeof mainEventResults];
@@ -43,12 +43,12 @@ const getRiderDivision = (riderName: string, allSxRaces: any[]): 'East' | 'West'
             }
         }
     }
-    return undefined; // Rider not found in any regional championship
+    return undefined;
 };
 
 
 const calculatePoints = (
-    races: any[], 
+    raceSeries: any[], 
     series: 'supercross' | 'motocross' | 'playoffs', 
     riderClass: '450' | '250', 
     allRidersForClass: any[],
@@ -59,19 +59,23 @@ const calculatePoints = (
     let relevantRiders = allRidersForClass;
 
     if (series === 'supercross' && riderClass === '250' && division) {
-        relevantRiders = allRidersForClass.filter(r => getRiderDivision(r.name, supercrossRaces) === division);
+        relevantRiders = allRidersForClass.filter(r => getRiderDivision(r.name) === division);
     }
 
     relevantRiders.forEach(rider => {
         pointsMap[rider.name] = 0;
     });
-
-    const completedRaces = getCompletedRaces(races);
+    
+    // Use ONLY the races from the specified series for calculation
+    const completedRaces = getCompletedRaces(raceSeries);
     
     completedRaces.forEach(race => {
         let raceId;
-        if (series === 'supercross') raceId = `supercross-${race.round}`;
-        else raceId = race.id;
+        if (series === 'supercross') {
+            raceId = `supercross-${race.round}`;
+        } else {
+            raceId = race.id;
+        }
         
         const results = mainEventResults[raceId as keyof typeof mainEventResults];
         if (!results) return;
@@ -81,7 +85,6 @@ const calculatePoints = (
         classResults.forEach(result => {
             const riderName = result.rider;
             
-            // Only add points if the rider is in the points map for the current calculation
             if (pointsMap.hasOwnProperty(riderName)) {
                 pointsMap[riderName] = (pointsMap[riderName] || 0) + result.points;
             }
