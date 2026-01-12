@@ -162,6 +162,12 @@ const ResultsTable = ({ results, isTripleCrownOverall = false, isTripleCrownRace
     );
   };
 
+const StandingsNotAvailable = () => (
+    <div className="border rounded-lg p-8 text-center text-muted-foreground mt-4">
+        Results will be posted after the race.
+    </div>
+);
+
 
 export default function RaceResultsPage({ params }: { params: { raceId: string } }) {
     const race = allRaces.find(r => r.id === params.raceId);
@@ -206,16 +212,11 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     }
 
     const render250ClassTitle = () => {
+        if (race.type === 'Motocross') return '250 Class';
         if (!division) return '250 Class';
         if (division === 'East/West Showdown') return '250SX East/West Showdown';
         return `250SX ${division} Main Event`;
     }
-    
-    const StandingsNotAvailable = () => (
-        <div className="border rounded-lg p-8 text-center text-muted-foreground mt-4">
-            Results will be posted after the race.
-        </div>
-    );
 
   return (
     <div>
@@ -285,28 +286,54 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
         ) : (
             <>
                 <TabsContent value="main-event">
-                    <div className="space-y-6 mt-4">
-                        <div>
-                            <h3 className="text-xl font-bold mb-2">450 Class Main Event</h3>
-                            <ResultsTable results={hasRaceHappened ? results450 : []} />
+                    {hasRaceHappened ? (
+                        <div className="space-y-6 mt-4">
+                            <div>
+                                <h3 className="text-xl font-bold mb-2">450 Class Main Event</h3>
+                                <ResultsTable results={results450} />
+                            </div>
+                            <div>
+                                <h3 className="text-xl font-bold mb-2">{render250ClassTitle()}</h3>
+                                <ResultsTable results={results250} />
+                            </div>
                         </div>
-                        <div>
-                            <h3 className="text-xl font-bold mb-2">{render250ClassTitle()}</h3>
-                            <ResultsTable results={hasRaceHappened ? results250 : []} />
+                    ) : (
+                        <div className="space-y-6 mt-4">
+                             <div>
+                                <h3 className="text-xl font-bold mb-2">450 Class Main Event</h3>
+                                <StandingsNotAvailable />
+                            </div>
+                            <div>
+                                <h3 className="text-xl font-bold mb-2">{render250ClassTitle()}</h3>
+                                <StandingsNotAvailable />
+                            </div>
                         </div>
-                    </div>
+                    )}
                 </TabsContent>
                 <TabsContent value="heat-races">
-                    <div className="space-y-6 mt-4">
-                        <div>
-                            <h3 className="text-xl font-bold mb-2">450 Class Heat 1</h3>
-                            <ResultsTable results={hasRaceHappened ? results450.slice(0, 5) : []} />
+                     {hasRaceHappened ? (
+                        <div className="space-y-6 mt-4">
+                            <div>
+                                <h3 className="text-xl font-bold mb-2">450 Class Heat 1</h3>
+                                <ResultsTable results={results450.slice(0, 5)} />
+                            </div>
+                            <div>
+                                <h3 className="text-xl font-bold mb-2">{render250ClassTitle()} Heat 1</h3>
+                                <ResultsTable results={results250.slice(0, 5)} />
+                            </div>
                         </div>
-                        <div>
-                             <h3 className="text-xl font-bold mb-2">{render250ClassTitle()} Heat 1</h3>
-                            <ResultsTable results={hasRaceHappened ? results250.slice(0, 5) : []} />
+                    ) : (
+                         <div className="space-y-6 mt-4">
+                             <div>
+                                <h3 className="text-xl font-bold mb-2">450 Class Heat 1</h3>
+                                <StandingsNotAvailable />
+                            </div>
+                            <div>
+                                <h3 className="text-xl font-bold mb-2">{render250ClassTitle()} Heat 1</h3>
+                                <StandingsNotAvailable />
+                            </div>
                         </div>
-                    </div>
+                    )}
                 </TabsContent>
             </>
         )}
@@ -349,3 +376,5 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     </div>
   );
 }
+
+    
