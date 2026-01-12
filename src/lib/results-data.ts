@@ -16,7 +16,7 @@ export const mainEventResults = {
     '250': [ // West
       { rider: 'Max Anstie', number: '37', bike: 'Honda', points: 25 },
       { rider: 'Chance Hymas', number: '48', bike: 'Honda', points: 22 },
-      { rider: 'Ryder DiFrancesco', number: '34', bike: 'GasGas', points: 20 },
+      { rider: 'Ryder DiFrancesco', number: '34', bike: 'GasGas', points: 20, holeshot: true },
       { rider: 'Haiden Deegan', number: '38', bike: 'Yamaha', points: 18 },
       { rider: 'Michael Mosiman', number: '76', bike: 'Yamaha', points: 17 },
       { rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki', points: 16 },
