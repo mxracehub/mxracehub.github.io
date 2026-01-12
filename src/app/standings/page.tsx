@@ -1,6 +1,7 @@
 
 import { PageHeader } from '@/components/page-header';
 import { supercrossRaces } from '@/lib/races-supercross-data';
+import { motorcrossRaces } from '@/lib/races-motorcross-data';
 import Link from 'next/link';
 
 // Add the missing races from the image
@@ -70,10 +71,10 @@ const additionalRaces = [
   },
 ];
 
-const allRaces = [...supercrossRaces, ...additionalRaces].sort((a, b) => a.round - b.round);
+const allSupercrossRaces = [...supercrossRaces, ...additionalRaces].sort((a, b) => a.round - b.round);
 
-const formatRaceName = (round: number, location: string) => {
-    const anaheimRaces = allRaces.filter(r => r.location.startsWith('Anaheim'));
+const formatSupercrossRaceName = (round: number, location: string) => {
+    const anaheimRaces = allSupercrossRaces.filter(r => r.location.startsWith('Anaheim'));
     if (location.startsWith('Anaheim')) {
         if (anaheimRaces.length > 1) {
             const raceIndex = anaheimRaces.findIndex(r => r.round === round);
@@ -86,26 +87,58 @@ const formatRaceName = (round: number, location: string) => {
 
 
 export default function StandingsPage() {
+  // Simple date parsing for sorting motocross races
+  const sortedMotorcrossRaces = [...motorcrossRaces].sort((a, b) => {
+    const dateA = new Date(a.date + ' ' + new Date().getFullYear());
+    const dateB = new Date(b.date + ' ' + new Date().getFullYear());
+    return dateA.getTime() - dateB.getTime();
+  });
+
+
   return (
-    <div className="max-w-4xl mx-auto">
-      <PageHeader title="SUPERCROSS (2026)" />
-      <div className="border rounded-lg overflow-hidden">
-        <div className="bg-card-foreground text-background p-4">
-          <h2 className="text-xl font-bold">2026</h2>
+    <div className="max-w-4xl mx-auto space-y-8">
+      <div>
+        <PageHeader title="SUPERCROSS (2026)" />
+        <div className="border rounded-lg overflow-hidden">
+          <div className="bg-card-foreground text-background p-4">
+            <h2 className="text-xl font-bold">2026 Schedule</h2>
+          </div>
+          <ul className="divide-y divide-border">
+            {allSupercrossRaces.map((race, index) => (
+              <li key={race.round}>
+                <Link href={`/races/${race.round}/results`}>
+                  <div className="p-4 hover:bg-muted/50 cursor-pointer">
+                    <span className={`${index === 0 ? 'text-primary' : 'text-foreground'}`}>
+                      {String(race.round).padStart(2, '0')} - {formatSupercrossRaceName(race.round, race.location)}
+                    </span>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul className="divide-y divide-border">
-          {allRaces.map((race, index) => (
-            <li key={race.round}>
-              <Link href={`/races/${race.round}/results`}>
-                <div className="p-4 hover:bg-muted/50 cursor-pointer">
-                  <span className={`${index === 0 ? 'text-primary' : 'text-foreground'}`}>
-                    {String(race.round).padStart(2, '0')} - {formatRaceName(race.round, race.location)}
-                  </span>
-                </div>
-              </Link>
-            </li>
-          ))}
-        </ul>
+      </div>
+
+      <div>
+        <PageHeader title="MOTOCROSS" />
+        <div className="border rounded-lg overflow-hidden">
+          <div className="bg-card-foreground text-background p-4">
+            <h2 className="text-xl font-bold">Schedule</h2>
+          </div>
+          <ul className="divide-y divide-border">
+            {sortedMotorcrossRaces.map((race, index) => (
+              <li key={race.id}>
+                <Link href={`/races/${race.id}/results`}>
+                  <div className="p-4 hover:bg-muted/50 cursor-pointer">
+                    <span className="text-foreground">
+                      {race.date} - {race.name}
+                    </span>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
