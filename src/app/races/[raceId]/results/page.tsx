@@ -71,6 +71,20 @@ const results450 = [
     { pos: 9, rider: 'Dylan Ferrandis', number: '14', bike: 'Ducati', points: 0 },
     { pos: 10, rider: 'Aaron Plessinger', number: '7', bike: 'KTM', points: 0 },
 ];
+// No points here by default to prevent showing them before a race
+const results250 = [
+    { pos: 1, rider: 'RJ Hampshire', number: '24', bike: 'Husqvarna' },
+    { pos: 2, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki' },
+    { pos: 3, rider: 'Jordon Smith', number: '31', bike: 'Yamaha' },
+    { pos: 4, rider: 'Jo Shimoda', number: '30', bike: 'Honda' },
+    { pos: 5, rider: 'Garrett Marchbanks', number: '26', bike: 'Yamaha' },
+    { pos: 6, rider: 'Max Vohland', number: '20', bike: 'Kawasaki' },
+    { pos: 7, rider: 'Nate Thrasher', number: '57', bike: 'Yamaha' },
+    { pos: 8, rider: 'Julien Beaumer', number: '99', bike: 'KTM' },
+    { pos: 9, rider: 'Anthony Bourdon', number: '100', bike: 'Suzuki' },
+    { pos: 10, rider: 'Carson Mumford', number: '41', bike: 'Honda' },
+];
+
 
 const supercrossSeriesPoints450 = [
     { pos: 1, rider: 'Eli Tomac', number: '3', bike: 'Yamaha', points: 25 },
@@ -153,7 +167,7 @@ const tripleCrownOverall250 = [
 ]
 
 
-const ResultsTable = ({ results, hasRaceHappened, isTripleCrownOverall = false, isTripleCrownRace = false, isSeriesPoints = false }: { results: any[], hasRaceHappened: boolean, isTripleCrownOverall?: boolean, isTripleCrownRace?: boolean, isSeriesPoints?: boolean }) => {
+const ResultsTable = ({ results, hasRaceHappened, isTripleCrownOverall = false, isTripleCrownRace = false, isSeriesPoints = false, isMainEvent = false }: { results: any[], hasRaceHappened: boolean, isTripleCrownOverall?: boolean, isTripleCrownRace?: boolean, isSeriesPoints?: boolean, isMainEvent?: boolean }) => {
     if (!results || results.length === 0) {
       return (
         <div className="border rounded-lg p-8 text-center text-muted-foreground">
@@ -161,6 +175,8 @@ const ResultsTable = ({ results, hasRaceHappened, isTripleCrownOverall = false, 
         </div>
       );
     }
+    
+    const showPoints = isSeriesPoints || (isMainEvent && hasRaceHappened);
   
     return (
       <div className="border rounded-lg">
@@ -172,18 +188,18 @@ const ResultsTable = ({ results, hasRaceHappened, isTripleCrownOverall = false, 
               <TableHead>#</TableHead>
               <TableHead>Bike</TableHead>
               {isTripleCrownOverall && <TableHead>Finishes</TableHead>}
-              {hasRaceHappened || isSeriesPoints ? <TableHead className="text-right">Points</TableHead> : null}
+              {showPoints && <TableHead className="text-right">Points</TableHead>}
             </TableRow>
           </TableHeader>
           <TableBody>
             {results.map((r) => (
-              <TableRow key={r.pos}>
+              <TableRow key={r.rider}>
                 <TableCell>{r.pos}</TableCell>
                 <TableCell>{r.rider}</TableCell>
                 <TableCell>{r.number}</TableCell>
                 <TableCell>{r.bike}</TableCell>
                 {isTripleCrownOverall && <TableCell>{r.finishes}</TableCell>}
-                {hasRaceHappened || isSeriesPoints ? <TableCell className="text-right">{r.points}</TableCell> : null}
+                {showPoints && <TableCell className="text-right">{r.points}</TableCell>}
               </TableRow>
             ))}
           </TableBody>
@@ -273,12 +289,20 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     }
 
     const render250ClassTitle = () => {
-        if (race.type === 'Motocross') return '250 Class';
-        if (race.type === 'Playoffs') return '250 Class';
+        if (race.type === 'Motocross') return '250 Class Main Event';
+        if (race.type === 'Playoffs') return '250 Class Main Event';
         if (!division) return '250 Class';
         if (division === 'East/West Showdown') return '250SX East/West Showdown';
         return `250SX ${division} Main Event`;
     }
+    
+    const render450ClassTitle = () => {
+        if (race.type === 'Motocross' || race.type === 'Playoffs') {
+            return '450 Class Main Event';
+        }
+        return '450SX Main Event';
+    }
+
 
   return (
     <div>
@@ -350,12 +374,12 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                 <TabsContent value="main-event">
                     <div className="space-y-6 mt-4">
                         <div>
-                            <h3 className="text-xl font-bold mb-2">450 Class Main Event</h3>
-                            {hasRaceHappened ? <ResultsTable results={finalResults450} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
+                            <h3 className="text-xl font-bold mb-2">{render450ClassTitle()}</h3>
+                            {hasRaceHappened ? <ResultsTable results={finalResults450} hasRaceHappened={hasRaceHappened} isMainEvent={true} /> : <StandingsNotAvailable />}
                         </div>
                         <div>
                             <h3 className="text-xl font-bold mb-2">{render250ClassTitle()}</h3>
-                             {hasRaceHappened ? <ResultsTable results={division === 'East' ? sxSeriesPoints250East : (seriesPoints?.supercross250West || [])} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
+                             {hasRaceHappened ? <ResultsTable results={race.type === 'Motocross' ? results250 : (division === 'East' ? sxSeriesPoints250East : (seriesPoints?.supercross250West || []))} hasRaceHappened={hasRaceHappened} isMainEvent={true} /> : <StandingsNotAvailable />}
                         </div>
                     </div>
                 </TabsContent>
@@ -367,7 +391,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                         </div>
                         <div>
                             <h3 className="text-xl font-bold mb-2">{render250ClassTitle()} Heat 1</h3>
-                             {hasRaceHappened ? <ResultsTable results={(division === 'East' ? sxSeriesPoints250East : (seriesPoints?.supercross250West || [])).slice(0, 5)} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
+                             {hasRaceHappened ? <ResultsTable results={(race.type === 'Motocross' ? results250 : (division === 'East' ? sxSeriesPoints250East : (seriesPoints?.supercross250West || []))).slice(0,5)} hasRaceHappened={hasRaceHappened} /> : <StandingsNotAvailable />}
                         </div>
                     </div>
                 </TabsContent>
@@ -394,11 +418,11 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                 <>
                     <div>
                         <h3 className="text-xl font-bold mb-2">450MX Series Points</h3>
-                        <ResultsTable results={motocrossSeriesPoints450} hasRaceHappened={true} isSeriesPoints={true} />
+                        <ResultsTable results={seriesPoints?.motocross450 || []} hasRaceHappened={true} isSeriesPoints={true} />
                     </div>
                      <div>
                         <h3 className="text-xl font-bold mb-2">250MX Series Points</h3>
-                        <ResultsTable results={motocrossSeriesPoints250} hasRaceHappened={true} isSeriesPoints={true} />
+                        <ResultsTable results={seriesPoints?.motocross250 || []} hasRaceHappened={true} isSeriesPoints={true} />
                     </div>
                 </>
                 ) : race.type === 'Playoffs' ? (
@@ -419,5 +443,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     </div>
   );
 }
+
+    
 
     
