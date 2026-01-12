@@ -10,6 +10,7 @@ import {
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Tv, BarChart3 } from 'lucide-react';
 
 const playoffsData = [
   {
@@ -49,6 +50,25 @@ export default function PlayoffsPage() {
           />
         </div>
       )}
+
+      <div className="mb-8 flex justify-center gap-4 text-center">
+        <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+          <Link
+            href="https://www.peacocktv.com/sports/supercross"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Tv className="mr-2 h-5 w-5" />
+            Live Stream on Peacock
+          </Link>
+        </Button>
+        <Button asChild size="lg" variant="outline">
+          <Link href="/standings">
+            <BarChart3 className="mr-2 h-5 w-5" />
+            View Standings
+          </Link>
+        </Button>
+      </div>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {playoffsData.map((race) => (
