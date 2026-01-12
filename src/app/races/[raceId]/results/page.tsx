@@ -54,7 +54,7 @@ const results250 = [
 ];
 
 // Placeholder for series points.
-const sxSeriesPoints450 = [
+const supercrossSeriesPoints450 = [
     { pos: 1, rider: 'Jett Lawrence', number: '18', bike: 'Honda', points: 25 },
     { pos: 2, rider: 'Jason Anderson', number: '21', bike: 'Kawasaki', points: 22 },
     { pos: 3, rider: 'Chase Sexton', number: '1', bike: 'KTM', points: 20 },
@@ -80,7 +80,7 @@ const sxSeriesPoints250East = [
     { pos: 10, rider: 'Seth Hammaker', number: '43', bike: 'Kawasaki', points: 0 },
 ];
 
-const sxSeriesPoints250West = [
+const supercrossSeriesPoints250West = [
     { pos: 1, rider: 'RJ Hampshire', number: '24', bike: 'Husqvarna', points: 0 },
     { pos: 2, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki', points: 0 },
     { pos: 3, rider: 'Jordon Smith', number: '31', bike: 'Yamaha', points: 0 },
@@ -93,7 +93,7 @@ const sxSeriesPoints250West = [
     { pos: 10, rider: 'Carson Mumford', number: '41', bike: 'Honda', points: 0 },
 ];
 
-const mxSeriesPoints450 = [
+const motocrossSeriesPoints450 = [
     { pos: 1, rider: 'Eli Tomac', number: '3', bike: 'KTM', points: 0 },
     { pos: 2, rider: 'Ken Roczen', number: '94', bike: 'Suzuki', points: 0 },
     { pos: 3, rider: 'Jorge Prado', number: '26', bike: 'KTM', points: 0 },
@@ -106,7 +106,7 @@ const mxSeriesPoints450 = [
     { pos: 10, rider: 'Aaron Plessinger', number: '7', bike: 'KTM', points: 0 },
 ];
 
-const mxSeriesPoints250 = [
+const motocrossSeriesPoints250 = [
     { pos: 1, rider: 'RJ Hampshire', number: '24', bike: 'Husqvarna', points: 0 },
     { pos: 2, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki', points: 0 },
     { pos: 3, rider: 'Jordon Smith', number: '31', bike: 'Yamaha', points: 0 },
@@ -341,11 +341,11 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                 <>
                     <div>
                         <h3 className="text-xl font-bold mb-2">450SX Series Points</h3>
-                        <ResultsTable results={sxSeriesPoints450} hasRaceHappened={true} isSeriesPoints={true} />
+                        <ResultsTable results={supercrossSeriesPoints450} hasRaceHappened={true} isSeriesPoints={true} />
                     </div>
                     <div>
                         <h3 className="text-xl font-bold mb-2">250SX West Series Points</h3>
-                        <ResultsTable results={sxSeriesPoints250West} hasRaceHappened={true} isSeriesPoints={true} />
+                        <ResultsTable results={supercrossSeriesPoints250West} hasRaceHappened={true} isSeriesPoints={true} />
                     </div>
                     <div>
                         <h3 className="text-xl font-bold mb-2">250SX East Series Points</h3>
@@ -356,11 +356,11 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                 <>
                     <div>
                         <h3 className="text-xl font-bold mb-2">450MX Series Points</h3>
-                        <ResultsTable results={mxSeriesPoints450} hasRaceHappened={true} isSeriesPoints={true} />
+                        <ResultsTable results={motocrossSeriesPoints450} hasRaceHappened={true} isSeriesPoints={true} />
                     </div>
                      <div>
                         <h3 className="text-xl font-bold mb-2">250MX Series Points</h3>
-                        <ResultsTable results={mxSeriesPoints250} hasRaceHappened={true} isSeriesPoints={true} />
+                        <ResultsTable results={motocrossSeriesPoints250} hasRaceHappened={true} isSeriesPoints={true} />
                     </div>
                 </>
                 )}
@@ -370,5 +370,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     </div>
   );
 }
+
+    
 
     
