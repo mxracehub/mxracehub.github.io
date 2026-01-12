@@ -65,7 +65,7 @@ export const mainEventResults = {
       { pos: 10, rider: 'Crockett Myers', number: '133', bike: 'Kawasaki' },
     ],
     '250_heat2': [
-      { pos: 1, rider: 'Max Anstie', number: '37', bike: 'Honda' },
+      { pos: 1, rider: 'Max Anstie', number: '37', bike: 'Honda', holeshot: true },
       { pos: 2, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki' },
       { pos: 3, rider: 'Chance Hymas', number: '48', bike: 'Honda' },
       { pos: 4, rider: 'Hunter Yoder', number: '143', bike: 'Kawasaki' },
