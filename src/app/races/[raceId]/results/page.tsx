@@ -195,10 +195,11 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
       />
 
       <Tabs defaultValue={isTripleCrown ? 'overall' : "main-event"} className="w-full">
-        <TabsList className="grid w-full grid-cols-5">
+        <TabsList className="grid w-full grid-cols-3 md:grid-cols-5">
           {isTripleCrown ? (
             <>
                 <TabsTrigger value="overall">Overall</TabsTrigger>
+                <TabsTrigger value="series-points">Series Points</TabsTrigger>
                 <TabsTrigger value="race1">Race 1</TabsTrigger>
                 <TabsTrigger value="race2">Race 2</TabsTrigger>
                 <TabsTrigger value="race3">Race 3</TabsTrigger>
@@ -206,10 +207,10 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
           ) : (
             <>
                 <TabsTrigger value="main-event">Main Event</TabsTrigger>
+                <TabsTrigger value="series-points">Series Points</TabsTrigger>
                 <TabsTrigger value="heat-races">Heat Races</TabsTrigger>
             </>
           )}
-          <TabsTrigger value="series-points">Series Points</TabsTrigger>
         </TabsList>
         
         {isTripleCrown ? (
