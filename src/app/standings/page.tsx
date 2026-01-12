@@ -132,7 +132,7 @@ export default function StandingsPage() {
                 </p>
               </div>
               <Button asChild>
-                <Link href="/playoffs">View Schedule</Link>
+                <Link href={`/races/${race.id}/results`}>View Results</Link>
               </Button>
             </CardContent>
           </Card>
