@@ -281,7 +281,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                 <TabsContent value="main-event">
                     <div className="space-y-6 mt-4">
                         <div>
-                            <h3 className="text-xl font-bold mb-2">450SX Main Event</h3>
+                            <h3 className="text-xl font-bold mb-2">450 Class Main Event</h3>
                             <ResultsTable results={hasRaceHappened ? results450 : []} />
                         </div>
                         <div>
@@ -293,12 +293,12 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                 <TabsContent value="heat-races">
                     <div className="space-y-6 mt-4">
                         <div>
-                            <h3 className="text-xl font-bold mb-2">450SX Heat 1</h3>
-                            <ResultsTable results={hasRaceHappened ? results450 : []} />
+                            <h3 className="text-xl font-bold mb-2">450 Class Heat 1</h3>
+                            <ResultsTable results={hasRaceHappened ? results450.slice(0, 5) : []} />
                         </div>
                         <div>
                              <h3 className="text-xl font-bold mb-2">{render250ClassTitle()} Heat 1</h3>
-                            <ResultsTable results={hasRaceHappened ? results250 : []} />
+                            <ResultsTable results={hasRaceHappened ? results250.slice(0, 5) : []} />
                         </div>
                     </div>
                 </TabsContent>
