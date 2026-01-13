@@ -105,7 +105,7 @@ const ResultsTable = ({ results, hasRaceHappened, isTripleCrownOverall = false, 
           <TableHeader>
             <TableRow>
               <TableHead>Pos</TableHead>
-              <TableHead>#</TableHead>
+              <TableHead>Rider #</TableHead>
               <TableHead>Bike</TableHead>
               <TableHead>Rider</TableHead>
               {isTripleCrownOverall && <TableHead>Finishes</TableHead>}
@@ -356,3 +356,5 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     </div>
   );
 }
+
+    
