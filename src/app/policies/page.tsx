@@ -42,6 +42,12 @@ export default function PoliciesPage() {
             </p>
           </div>
           <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">KYC Agreement</h3>
+            <p>
+              When accepting a friend request, you acknowledge a mutual agreement for social gaming. For financial transactions and prize redemptions, further Know Your Customer (KYC) verification may be required to comply with financial regulations.
+            </p>
+          </div>
+          <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">Terms of Service</h3>
             <p>
               By using MxHub Exchange Duo, you agree to our terms of service. All bets placed are final. Users must be of legal age in their jurisdiction to participate. We reserve the right to suspend accounts for any fraudulent activity.
@@ -75,12 +81,6 @@ export default function PoliciesPage() {
             <h3 className="text-xl font-bold mb-2 text-card-foreground">Data and Asset Disposal Policy</h3>
             <p>
               Our systems are designed to automatically and securely dispose of data when it is no longer needed according to our retention policies. Digital data is cryptographically erased or overwritten to ensure it is unrecoverable. Physical media, such as servers or hard drives, are degaussed or physically destroyed before being decommissioned. These automated disposal methods comply with industry standards and applicable regulations to ensure your data is permanently and securely removed.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold mb-2 text-card-foreground">KYC Agreement</h3>
-            <p>
-              When accepting a friend request, you acknowledge a mutual agreement for social gaming. For financial transactions and prize redemptions, further Know Your Customer (KYC) verification may be required to comply with financial regulations.
             </p>
           </div>
         </CardContent>
