@@ -217,14 +217,14 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
       />
 
       <Tabs defaultValue={isTripleCrown ? 'overall' : "main-event"} className="w-full">
-        <TabsList className="grid w-full grid-cols-3 md:grid-cols-5">
+        <TabsList className={`grid w-full ${isTripleCrown ? 'grid-cols-5' : 'grid-cols-3'}`}>
           {isTripleCrown ? (
             <>
-                <TabsTrigger value="overall">Overall</TabsTrigger>
-                <TabsTrigger value="series-points">Series Points</TabsTrigger>
-                <TabsTrigger value="race1">Race 1</TabsTrigger>
-                <TabsTrigger value="race2">Race 2</TabsTrigger>
-                <TabsTrigger value="race3">Race 3</TabsTrigger>
+                <TabsTrigger value="overall" className="data-[state=active]:bg-red-600 data-[state=active]:text-white">Overall</TabsTrigger>
+                <TabsTrigger value="series-points" className="data-[state=active]:bg-red-600 data-[state=active]:text-white">Series Points</TabsTrigger>
+                <TabsTrigger value="race1" className="data-[state=active]:bg-red-600 data-[state=active]:text-white">Race 1</TabsTrigger>
+                <TabsTrigger value="race2" className="data-[state=active]:bg-red-600 data-[state=active]:text-white">Race 2</TabsTrigger>
+                <TabsTrigger value="race3" className="data-[state=active]:bg-red-600 data-[state=active]:text-white">Race 3</TabsTrigger>
             </>
           ) : (
             <>
