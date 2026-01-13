@@ -4,31 +4,49 @@
 import { db, auth } from "@/firebase";
 import { collection, doc, getDoc, getDocs, setDoc, query, where, addDoc, updateDoc, writeBatch } from "firebase/firestore";
 import type { Account, ExchangeRequest } from "./types";
+import { mainEventResults } from "./results-data";
 
 // --- DUMMY RESULTS DATA ---
 // In a real app, this would come from a secure API or Firestore after an admin updates it.
-const raceResultsData: Record<string, {rider: string, pos: number}[]> = {
-    'pala': [
-        { rider: 'Eli Tomac', pos: 1 }, { rider: 'Ken Roczen', pos: 2 }, { rider: 'Jorge Prado', pos: 3 },
-        { rider: 'Hunter Lawrence', pos: 4 }, { rider: 'Jason Anderson', pos: 5 }, { rider: 'Justin Cooper', pos: 6 },
-        { rider: 'Cooper Webb', pos: 7 }, { rider: 'Chase Sexton', pos: 8 }, { rider: 'Dylan Ferrandis', pos: 9 },
-        { rider: 'Aaron Plessinger', pos: 10 }
-    ],
-    'supercross-7': [ // Triple Crown example (Arlington)
-        { rider: 'Jett Lawrence', pos: 1 }, { rider: 'Cooper Webb', pos: 2 }, { rider: 'Eli Tomac', pos: 3 }
-    ]
+
+// This function simulates fetching results for various race types.
+export const getRaceResults = async (
+  raceId: string,
+  raceType: 'Main Event' | 'Heat 1' | 'Heat 2' | 'Heat 3'
+): Promise<{ rider: string; pos: number; holeshot?: boolean }[] | null> => {
+    // Simulate API call
+  await new Promise(resolve => setTimeout(resolve, 500));
+  const raceKey = raceId.includes('supercross') ? raceId : raceId;
+  const allRaceResults = mainEventResults[raceKey as keyof typeof mainEventResults];
+  
+  if (!allRaceResults) {
+    return null; // Race results not posted
+  }
+
+  let eventKey: string;
+  switch (raceType) {
+    case 'Main Event':
+      eventKey = '450'; // Default to 450, class is not in Bet type
+      break;
+    case 'Heat 1':
+      eventKey = '450_heat1';
+      break;
+    case 'Heat 2':
+      eventKey = '450_heat2';
+      break;
+    case 'Heat 3':
+       eventKey = '450_heat3'; // For triple crown
+      break;
+    default:
+      return null;
+  }
+  // This is a simplified lookup. A real implementation would handle 250/450 classes.
+  const results = allRaceResults[eventKey as keyof typeof allRaceResults] || allRaceResults['250_heat1' as keyof typeof allRaceResults] || allRaceResults['250_heat2' as keyof typeof allRaceResults] || allRaceResults['250' as keyof typeof allRaceResults];
+
+  return results || null;
 };
 
-export const getRiderPosition = async (raceId: string, riderName: string): Promise<number | null> => {
-    // Simulate API call to get results
-    await new Promise(resolve => setTimeout(resolve, 500));
-    const results = raceResultsData[raceId];
-    if (!results) {
-        return null; // Results not posted yet
-    }
-    const riderResult = results.find(r => r.rider === riderName);
-    return riderResult ? riderResult.pos : null; // Return position or null if rider not in top results
-}
+
 // --- END DUMMY DATA ---
 
 

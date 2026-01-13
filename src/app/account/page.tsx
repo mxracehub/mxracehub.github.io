@@ -20,7 +20,7 @@ import { Coins, Trophy, Users, Settings, Hash, Facebook, Instagram, RefreshCw, L
 import Link from 'next/link';
 import { Skeleton } from '@/components/ui/skeleton';
 import type { Account, Bet } from '@/lib/types';
-import { updateAccount, getRiderPosition } from '@/lib/firebase-config';
+import { updateAccount, getRaceResults } from '@/lib/firebase-config';
 import { useToast } from '@/hooks/use-toast';
 
 
@@ -103,10 +103,9 @@ export default function AccountPage() {
   const router = useRouter();
   const { toast } = useToast();
   const { user, isLoading: isUserLoading } = useUser();
-  // Using a local state for account to allow optimistic updates
-  const { data: initialAccount, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
+  const { data: initialAccount, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---', { listen: true });
   const [account, setAccount] = useState<Account | null>(null);
-  const [settlingBetId, setSettlingBetId] = useState<string | null>(null);
+  const [settlingBets, setSettlingBets] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     if (initialAccount) {
@@ -117,81 +116,86 @@ export default function AccountPage() {
   const userAvatar = PlaceHolderImages.find((p) => p.id === 'user-avatar');
 
   useEffect(() => {
-    // If user loading is finished and there's no user, redirect to sign-in.
     if (!isUserLoading && !user) {
       router.push('/sign-in');
     }
   }, [isUserLoading, user, router]);
 
-  const handleSettleBet = async (betToSettle: Bet) => {
-    if (!account) return;
-    setSettlingBetId(betToSettle.id);
-
-    try {
-        const userRiderPosition = await getRiderPosition(betToSettle.raceId, betToSettle.userRider);
-        const opponentRiderPosition = await getRiderPosition(betToSettle.raceId, betToSettle.opponentRider);
-
-        if (userRiderPosition === null || opponentRiderPosition === null) {
-            toast({
-                title: "Race results not available",
-                description: "The results for this race may not be posted yet. Please try again later.",
-                variant: "destructive"
-            });
-            setSettlingBetId(null);
-            return;
+  useEffect(() => {
+    if (account) {
+        const pendingBets = account.betHistory.filter(b => b.status === 'Pending' && new Date(b.date) < new Date());
+        if (pendingBets.length > 0) {
+            settlePendingBets(pendingBets);
         }
-
-        const userWon = userRiderPosition < opponentRiderPosition;
-        const newStatus = userWon ? 'Won' : 'Lost';
-
-        // Update bet status locally for optimistic update
-        const updatedBetHistory = account.betHistory.map(bet => 
-            bet.id === betToSettle.id ? { ...bet, status: newStatus } : bet
-        );
-
-        let newBalances = account.balances;
-        if (userWon) {
-             const winnings = betToSettle.amount * 2;
-             if (betToSettle.coinType === 'Gold Coins') {
-                 newBalances = { ...newBalances, gold: newBalances.gold + winnings };
-             } else {
-                 newBalances = { ...newBalances, sweeps: newBalances.sweeps + winnings };
-             }
-        }
-        
-        const updatedAccount = {
-            ...account,
-            betHistory: updatedBetHistory,
-            balances: newBalances
-        };
-        
-        // Optimistically update the local state
-        setAccount(updatedAccount);
-        
-        // Persist to Firestore
-        await updateAccount(account.id, {
-            betHistory: updatedBetHistory,
-            balances: newBalances
-        });
-        
-        toast({
-            title: `You ${newStatus}!`,
-            description: userWon ? `You won ${betToSettle.amount.toLocaleString()} ${betToSettle.coinType}!` : `You lost the bet.`,
-            variant: userWon ? "default" : "destructive"
-        });
-
-    } catch (error) {
-        console.error("Failed to settle bet:", error);
-        toast({
-            title: "Error",
-            description: "Could not settle the bet. Please try again.",
-            variant: "destructive"
-        });
-        // Revert optimistic update on error
-        setAccount(initialAccount);
-    } finally {
-        setSettlingBetId(null);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [account]);
+
+  const settlePendingBets = async (betsToSettle: Bet[]) => {
+      if (!account) return;
+
+      let tempAccount = { ...account };
+      let updatedBetHistory = [...account.betHistory];
+      let balancesChanged = false;
+      
+      const newSettlingState: Record<string, boolean> = {};
+      betsToSettle.forEach(b => newSettlingState[b.id] = true);
+      setSettlingBets(prev => ({...prev, ...newSettlingState}));
+
+      for (const bet of betsToSettle) {
+          try {
+              const results = await getRaceResults(bet.raceId, bet.raceType);
+              if (!results) continue; // Race results not available yet
+
+              let userWon = false;
+              if (bet.betType === 'Race Winner') {
+                  const userRiderResult = results.find(r => r.rider === bet.userRider);
+                  const opponentRiderResult = results.find(r => r.rider === bet.opponentRider);
+
+                  const userPosition = userRiderResult ? userRiderResult.pos : Infinity;
+                  const opponentPosition = opponentRiderResult ? opponentRiderResult.pos : Infinity;
+                  userWon = userPosition < opponentPosition;
+              } else if (bet.betType === 'Holeshot') {
+                  const holeshotRider = results.find(r => r.holeshot);
+                  userWon = !!holeshotRider && holeshotRider.rider === bet.userRider;
+              }
+              
+              const newStatus = userWon ? 'Won' : 'Lost';
+              const betIndex = updatedBetHistory.findIndex(b => b.id === bet.id);
+
+              if (betIndex !== -1 && updatedBetHistory[betIndex].status === 'Pending') {
+                  updatedBetHistory[betIndex] = { ...updatedBetHistory[betIndex], status: newStatus };
+                  
+                  if (userWon) {
+                      const winnings = bet.amount * 2;
+                      if (bet.coinType === 'Gold Coins') {
+                          tempAccount.balances.gold += winnings;
+                      } else {
+                          tempAccount.balances.sweeps += winnings;
+                      }
+                      balancesChanged = true;
+                  }
+                  toast({
+                      title: `Bet Settled: You ${newStatus}!`,
+                      description: `Your bet on ${bet.race} has been settled.`,
+                      variant: userWon ? "default" : "destructive"
+                  });
+              }
+
+          } catch (error) {
+              console.error(`Failed to settle bet ${bet.id}:`, error);
+          }
+      }
+
+      const finalAccountUpdate = {
+          betHistory: updatedBetHistory,
+          ...(balancesChanged && { balances: tempAccount.balances })
+      };
+      
+      if (JSON.stringify(finalAccountUpdate.betHistory) !== JSON.stringify(account.betHistory) || balancesChanged) {
+        await updateAccount(account.id, finalAccountUpdate);
+      }
+      setSettlingBets({});
   };
 
 
@@ -201,7 +205,6 @@ export default function AccountPage() {
     return <AccountPageSkeleton />;
   }
 
-  // This can happen if the user is authenticated but their account doc doesn't exist yet,
   if (!initialAccount && !isAccountLoading) {
     return <div>Could not load account details. Please try again later.</div>;
   }
@@ -279,7 +282,7 @@ export default function AccountPage() {
                   {sortedBetHistory.map((bet) => (
                     <li key={bet.id} className="flex flex-col sm:flex-row items-start sm:items-center justify-between rounded-md border p-4 gap-4">
                       <div className="flex-1">
-                        <p className="font-semibold">{bet.race}</p>
+                        <p className="font-semibold">{bet.race} - {bet.betType}</p>
                         <p className="text-sm text-muted-foreground">
                           Bet against @{bet.opponent} - {bet.date}
                         </p>
@@ -294,11 +297,10 @@ export default function AccountPage() {
                             <p className="text-sm">{bet.amount} {bet.coinType}</p>
                             <SocialShareButtons bet={bet} account={account} />
                         </div>
-                        {bet.status === 'Pending' && (
-                            <Button size="sm" variant="outline" onClick={() => handleSettleBet(bet)} disabled={settlingBetId === bet.id}>
-                                {settlingBetId === bet.id ? <Loader2 className="h-4 w-4 animate-spin"/> : <RefreshCw className="h-4 w-4" />}
-                                <span className="ml-2 hidden sm:inline">Settle</span>
-                            </Button>
+                        {bet.status === 'Pending' && settlingBets[bet.id] && (
+                            <div className="flex items-center justify-center w-12">
+                                <Loader2 className="h-4 w-4 animate-spin"/>
+                            </div>
                         )}
                       </div>
                     </li>

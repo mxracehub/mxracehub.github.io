@@ -3,6 +3,8 @@ export type Bet = {
     id: string;
     race: string;
     raceId: string; // To link to results page
+    betType: 'Race Winner' | 'Holeshot';
+    raceType: 'Main Event' | 'Heat 1' | 'Heat 2' | 'Heat 3'; // For heats/main
     opponent: string; // opponent's username
     opponentId: string;
     date: string;

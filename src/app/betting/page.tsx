@@ -96,6 +96,8 @@ export default function BettingPage() {
   const [isLoadingFriends, setIsLoadingFriends] = useState(true);
   const [userRider, setUserRider] = useState('');
   const [opponentRider, setOpponentRider] = useState('');
+  const [betType, setBetType] = useState<'Race Winner' | 'Holeshot'>('Race Winner');
+  const [raceType, setRaceType] = useState<'Main Event' | 'Heat 1' | 'Heat 2' | 'Heat 3'>('Main Event');
   const [isSubmitting, setIsSubmitting] = useState(false);
   
   useEffect(() => {
@@ -191,6 +193,8 @@ export default function BettingPage() {
         id: `${new Date().getTime()}-${user.uid}`,
         race: selectedRace.name,
         raceId: selectedRace.id,
+        betType,
+        raceType,
         opponent: selectedFriend.username,
         opponentId: selectedFriend.id,
         date: selectedRace.date,
@@ -322,6 +326,31 @@ export default function BettingPage() {
 
           <div className="space-y-4 rounded-lg border bg-background p-4">
              <Label className="flex items-center gap-2 text-lg font-semibold"><Coins className="h-5 w-5" />Make a Bet</Label>
+
+             <div className="grid grid-cols-2 gap-4">
+                 <div className="space-y-2">
+                    <Label>Bet Type</Label>
+                    <Select onValueChange={(v) => setBetType(v as any)} value={betType} disabled={isSubmitting}>
+                        <SelectTrigger><SelectValue /></SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="Race Winner">Race Winner</SelectItem>
+                            <SelectItem value="Holeshot">Holeshot</SelectItem>
+                        </SelectContent>
+                    </Select>
+                </div>
+                <div className="space-y-2">
+                    <Label>Race Type</Label>
+                    <Select onValueChange={(v) => setRaceType(v as any)} value={raceType} disabled={isSubmitting}>
+                        <SelectTrigger><SelectValue /></SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="Main Event">Main Event</SelectItem>
+                            <SelectItem value="Heat 1">Heat 1</SelectItem>
+                            <SelectItem value="Heat 2">Heat 2</SelectItem>
+                            <SelectItem value="Heat 3">Heat 3 (Triple Crown)</SelectItem>
+                        </SelectContent>
+                    </Select>
+                </div>
+            </div>
             
             <div className="space-y-2">
                 <Label>Your Rider Pick</Label>
