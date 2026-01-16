@@ -1,8 +1,11 @@
+'use client';
+
 import { PageHeader } from '@/components/page-header';
 import { riders450 } from '@/lib/riders-data';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { getSeriesPoints } from '@/lib/points-service';
+import { useEffect, useState } from 'react';
 
 const USFlag = () => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7410 3900" className="h-4 w-auto"><path d="M0 0h7410v3900H0z" fill="#b22234"/><path d="M0 0h2964v2100H0z" fill="#3c3b6e"/><path d="M250 210l83 256-218-158h269L117 466l83-256" fill="#fff"/><path d="M630 210l83 256-218-158h269L500 466l83-256" fill="#fff"/><path d="M1010 210l83 256-218-158h269L880 466l83-256" fill="#fff"/><path d="M1390 210l83 256-218-158h269L1260 466l83-256" fill="#fff"/><path d="M1770 210l83 256-218-158h269L1640 466l83-256" fill="#fff"/><path d="M2150 210l83 256-218-158h269L2020 466l83-256" fill="#fff"/><path d="M440 420l83 256-218-158h269L310 676l83-256" fill="#fff"/><path d="M820 420l83 256-218-158h269L690 676l83-256" fill="#fff"/><path d="M1200 420l83 256-218-158h269L1070 676l83-256" fill="#fff"/><path d="M1580 420l83 256-218-158h269L1450 676l83-256" fill="#fff"/><path d="M1960 420l83 256-218-158h269L1830 676l83-256" fill="#fff"/><g transform="translate(0 840)"><path d="M250 210l83 256-218-158h269L117 466l83-256" fill="#fff"/><path d="M630 210l83 256-218-158h269L500 466l83-256" fill="#fff"/><path d="M1010 210l83 256-218-158h269L880 466l83-256" fill="#fff"/><path d="M1390 210l83 256-218-158h269L1260 466l83-256" fill="#fff"/><path d="M1770 210l83 256-218-158h269L1640 466l83-256" fill="#fff"/><path d="M2150 210l83 256-218-158h269L2020 466l83-256" fill="#fff"/></g><path d="M440 1260l83 256-218-158h269L310 1516l83-256" fill="#fff"/><path d="M820 1260l83 256-218-158h269L690 1516l83-256" fill="#fff"/><path d="M1200 1260l83 256-218-158h269L1070 1516l83-256" fill="#fff"/><path d="M1580 1260l83 256-218-158h269L1450 1516l83-256" fill="#fff"/><path d="M1960 1260l83 256-218-158h269L1830 1516l83-256" fill="#fff"/><g transform="translate(0 1680)"><path d="M250 210l83 256-218-158h269L117 466l83-256" fill="#fff"/><path d="M630 210l83 256-218-158h269L500 466l83-256" fill="#fff"/><path d="M1010 210l83 256-218-158h269L880 466l83-256" fill="#fff"/><path d="M1390 210l83 256-218-158h269L1260 466l83-256" fill="#fff"/><path d="M1770 210l83 256-218-158h269L1640 466l83-256" fill="#fff"/><path d="M2150 210l83 256-218-158h269L2020 466l83-256" fill="#fff"/></g><path d="M0 300h7410v300H0zm0 600h7410v300H0zm0 600h7410v300H0zm0 600h7410v300H0z" fill="#fff"/><path d="M0 2100h7410v300H0zm0 600h7410v300H0zm0 600h7410v300H0z" fill="#fff"/></svg>
@@ -40,6 +43,19 @@ const getTextColor = (bgColor: string): string => {
 
 export default function RiderDetailPage({ params }: { params: { riderId: string } }) {
   const rider = riders450.find((r) => r.id === params.riderId);
+  const [pointsData, setPointsData] = useState<any>(null);
+
+  useEffect(() => {
+    if (rider) {
+      const points = getSeriesPoints();
+      const riderPoints = {
+          supercross: points.supercross450.find(p => p.rider === rider.name)?.points,
+          motocross: points.motocross450.find(p => p.rider === rider.name)?.points,
+          playoffs: points.playoff450.find(p => p.rider === rider.name)?.points,
+      };
+      setPointsData(riderPoints);
+    }
+  }, [rider]);
 
   if (!rider) {
     notFound();
@@ -93,6 +109,30 @@ export default function RiderDetailPage({ params }: { params: { riderId: string 
             </div>
         </CardContent>
       </Card>
+
+      {pointsData && (
+        <Card className="mt-8">
+            <CardHeader>
+                <CardTitle className="text-2xl font-bold font-headline uppercase tracking-wider">2026 Series Points</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                    <div>
+                        <p className="text-sm font-semibold text-muted-foreground">Supercross</p>
+                        <p className="text-3xl font-bold">{pointsData.supercross ?? '0'}</p>
+                    </div>
+                    <div>
+                        <p className="text-sm font-semibold text-muted-foreground">Motocross</p>
+                        <p className="text-3xl font-bold">{pointsData.motocross ?? '0'}</p>
+                    </div>
+                    <div>
+                        <p className="text-sm font-semibold text-muted-foreground">SMX Playoffs</p>
+                        <p className="text-3xl font-bold">{pointsData.playoffs ?? '0'}</p>
+                    </div>
+                </div>
+            </CardContent>
+        </Card>
+      )}
 
       {rider.videos && rider.videos.length > 0 && (
         <Card className="mt-8">
