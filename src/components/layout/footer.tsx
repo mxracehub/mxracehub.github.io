@@ -44,14 +44,18 @@ export function Footer() {
 
           {/* Middle: Logos */}
           <div className="flex flex-col items-center justify-start gap-4">
-            <svg viewBox="0 0 100 100" className="h-16 w-auto">
-              <circle cx="50" cy="50" r="48" fill="none" stroke="white" strokeWidth="4" />
-              <text x="50%" y="50%" textAnchor="middle" dy=".3em" fill="white" fontSize="40" fontFamily="sans-serif" fontWeight="bold">MX</text>
-            </svg>
-            <svg viewBox="0 0 100 100" className="h-16 w-auto">
-              <circle cx="50" cy="50" r="48" fill="none" stroke="white" strokeWidth="4" />
-              <text x="50%" y="50%" textAnchor="middle" dy=".3em" fill="white" fontSize="40" fontFamily="sans-serif" fontWeight="bold">SX</text>
-            </svg>
+            <Link href="/motorcross">
+              <svg viewBox="0 0 100 100" className="h-16 w-auto">
+                <circle cx="50" cy="50" r="48" fill="none" stroke="white" strokeWidth="4" />
+                <text x="50%" y="50%" textAnchor="middle" dy=".3em" fill="white" fontSize="40" fontFamily="sans-serif" fontWeight="bold">MX</text>
+              </svg>
+            </Link>
+            <Link href="/supercross">
+              <svg viewBox="0 0 100 100" className="h-16 w-auto">
+                <circle cx="50" cy="50" r="48" fill="none" stroke="white" strokeWidth="4" />
+                <text x="50%" y="50%" textAnchor="middle" dy=".3em" fill="white" fontSize="40" fontFamily="sans-serif" fontWeight="bold">SX</text>
+              </svg>
+            </Link>
           </div>
 
           {/* Right: Social Icons */}
