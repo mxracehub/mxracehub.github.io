@@ -44,7 +44,7 @@ export default function PoliciesPage() {
           <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">(SC) Sweeps Coins</h3>
             <p>
-             Sweeps Coins (SC) are our promotional coins, which you can win through gameplay. Each Sweeps Coin is redeemable for $1.00 USD. Winnings in SC must be played through at least once before they can be redeemed for cash prizes via our partner site, MX Exchange. A 2% processing fee applies at the time of redemption, resulting in a 98% return rate.
+             Sweeps Coins (SC) are our promotional coins, which you can win through gameplay. They can only be won. 100 Sweeps Coins are redeemable for $1.00 USD. Winnings in SC must be played through at least once before they can be redeemed for cash prizes via our partner site, MX Exchange. A 2% processing fee applies at the time of redemption, resulting in a 98% return rate.
             </p>
           </div>
           <div>
