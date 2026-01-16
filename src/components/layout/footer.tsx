@@ -1,8 +1,6 @@
 
 import Link from 'next/link';
 import { Instagram, Youtube } from 'lucide-react';
-import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const footerNavLinks = [
   { href: '/', label: 'Home' },
@@ -14,18 +12,7 @@ const footerNavLinks = [
   { href: '/contact', label: 'Contact' },
 ];
 
-const footerLogoIds = ['pro-racing-logo', 'ama-logo', 'monster-logo'];
-const logoDimensions: { [key: string]: { width: number; height: number } } = {
-  'pro-racing-logo': { width: 120, height: 40 },
-  'ama-logo': { width: 100, height: 50 },
-  'monster-logo': { width: 150, height: 40 },
-};
-
 export function Footer() {
-  const footerLogos = footerLogoIds
-    .map(id => PlaceHolderImages.find(p => p.id === id))
-    .filter(logo => logo !== undefined);
-
   // Adding Privacy to the nav links if it's not there.
   if (!footerNavLinks.find(link => link.href === '/policies')) {
       const contactIndex = footerNavLinks.findIndex(link => link.href === '/contact');
@@ -57,20 +44,14 @@ export function Footer() {
 
           {/* Middle: Logos */}
           <div className="flex flex-col items-center justify-start gap-4">
-            {footerLogos.map((logo) => {
-              if (!logo) return null;
-              const dims = logoDimensions[logo.id] || { width: 120, height: 40 };
-              return (
-                <Image 
-                  key={logo.id}
-                  src={logo.imageUrl} 
-                  alt={logo.description} 
-                  width={dims.width} 
-                  height={dims.height} 
-                  data-ai-hint={logo.imageHint} 
-                />
-              )
-            })}
+            <svg viewBox="0 0 100 100" className="h-16 w-auto">
+              <circle cx="50" cy="50" r="48" fill="none" stroke="white" strokeWidth="4" />
+              <text x="50%" y="50%" textAnchor="middle" dy=".3em" fill="white" fontSize="40" fontFamily="sans-serif" fontWeight="bold">MX</text>
+            </svg>
+            <svg viewBox="0 0 100 100" className="h-16 w-auto">
+              <circle cx="50" cy="50" r="48" fill="none" stroke="white" strokeWidth="4" />
+              <text x="50%" y="50%" textAnchor="middle" dy=".3em" fill="white" fontSize="40" fontFamily="sans-serif" fontWeight="bold">SX</text>
+            </svg>
           </div>
 
           {/* Right: Social Icons */}
