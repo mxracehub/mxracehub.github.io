@@ -245,7 +245,7 @@ export default function ParlayBetPage() {
               <h3 className="font-semibold">Total Win Value</h3>
               <p className="mt-1 text-2xl font-bold">{totalWinValue > 0 ? `${totalWinValue.toLocaleString()} GC` : '--'}</p>
               <p className="text-xs text-muted-foreground mt-2">
-                  Parlay bets are doubled by the second bet value and winnings from first race bet value.
+                  Your total potential winnings if both bets in the parlay are successful.
               </p>
             </div>
 

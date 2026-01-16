@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
 import {
@@ -44,6 +44,10 @@ function ExchangeSweepsSkeleton() {
                   <Label htmlFor="amount">Amount to Transfer</Label>
                   <Skeleton className="h-10 w-full" />
                 </div>
+                 <div className="rounded-lg border bg-muted/50 p-4">
+                    <h3 className="font-semibold">Redemption Value (after 2% fee)</h3>
+                    <Skeleton className="h-8 w-24 mt-1" />
+                </div>
                 <p className="text-sm text-muted-foreground">
                   Minimum transfer amount: 50.00 Sweeps Coins.
                 </p>
@@ -83,6 +87,15 @@ export default function ExchangeSweepsPage() {
           router.push('/sign-in');
         }
     }, [isUserLoading, user, router]);
+
+    const exchangeValueUSD = useMemo(() => {
+        const numericAmount = Number(amount);
+        if (numericAmount > 0) {
+            // 100 SC = $1, and there is a 2% fee (98% return)
+            return (numericAmount / 100 * 0.98).toFixed(2);
+        }
+        return '0.00';
+    }, [amount]);
 
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -201,6 +214,13 @@ export default function ExchangeSweepsPage() {
                     disabled={isSubmitting}
                     required
                   />
+                </div>
+                 <div className="rounded-lg border bg-muted/50 p-4">
+                    <h3 className="font-semibold">Redemption Value (after 2% fee)</h3>
+                    <p className="mt-1 text-2xl font-bold">${exchangeValueUSD}</p>
+                    <p className="text-xs text-muted-foreground mt-2">
+                        100 Sweeps Coins = $1.00 USD. A 2% processing fee is applied upon redemption.
+                    </p>
                 </div>
                 <p className="text-sm text-muted-foreground">
                   Minimum transfer amount: 50.00 Sweeps Coins.
