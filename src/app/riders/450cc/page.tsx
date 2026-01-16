@@ -1,6 +1,5 @@
 
 import { PageHeader } from '@/components/page-header';
-import Image from 'next/image';
 import Link from 'next/link';
 import { riders450 } from '@/lib/riders-data';
 
@@ -44,25 +43,9 @@ export default function Riders450Page() {
           const textColor = getTextColor(plateColor);
           return (
             <Link href={`/riders/450cc/${rider.id}`} key={rider.id}>
-              <div className="group overflow-hidden rounded-lg border bg-card text-card-foreground">
-                <div className="relative">
-                  <Image
-                    src={rider.imageUrl}
-                    alt={rider.name}
-                    width={300}
-                    height={200}
-                    className="w-full object-cover transition-opacity group-hover:opacity-80"
-                    data-ai-hint={rider.imageHint}
-                  />
-                  <div className={`absolute bottom-2 right-2 w-10 h-8 flex items-center justify-center ${plateColor} border border-white shadow-lg transform -skew-x-12`}>
-                    <div className="transform skew-x-12">
-                        <span className={`text-lg font-black italic ${textColor}`}>{rider.number}</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-2 text-center">
-                  <p className="text-sm font-semibold">{rider.name}</p>
-                </div>
+              <div className={`group flex h-32 flex-col items-center justify-center rounded-lg border p-4 text-center transition-opacity hover:opacity-80 ${plateColor}`}>
+                <span className={`text-4xl font-black italic ${textColor}`}>{rider.number}</span>
+                <p className={`mt-1 text-sm font-semibold ${textColor}`}>{rider.name}</p>
               </div>
             </Link>
           );
