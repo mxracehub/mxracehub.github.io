@@ -44,7 +44,7 @@ export default function PoliciesPage() {
           <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">(SC) Sweeps Coins</h3>
             <p>
-             Sweeps Coins (SC) are promotional coins that can be won. Winnings in SC must be played through at least once before they can be redeemed for cash prizes via our partner site, MX Exchange, at a 98% return rate.
+             Sweeps Coins (SC) are promotional coins. They can only be won. Winnings in SC must be played through at least once before they can be redeemed for cash prizes via our partner site, MX Exchange, at a 98% return rate.
             </p>
           </div>
           <div>
