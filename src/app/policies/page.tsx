@@ -24,21 +24,27 @@ export default function PoliciesPage() {
         </CardHeader>
         <CardContent className="p-6 space-y-6 text-muted-foreground">
           <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">Account Creation &amp; Fees</h3>
+            <p>
+              Creating a user account on MxRaceHub is completely free. We believe in providing a straightforward and enjoyable experience without hidden costs.
+            </p>
+          </div>
+          <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">Betting Rules</h3>
             <p>
-              When betting with a friend, all bets are final. Winning bets will take all GC or SC for the win. SC must be bet at least once before being eligible for exchange.
+              When betting with a friend, all bets are final. Winning bets will take all Gold Coins (GC) or Sweeps Coins (SC) for the win. Sweeps Coins (SC) must be bet at least once before being eligible for exchange.
             </p>
           </div>
           <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">(GC) Gold Coins</h3>
             <p>
-              Gold Coins are a virtual currency for social gameplay. You can purchase them in the bank and exchange them back to your original payment method at any time, free of charge.
+              Gold Coins (GC) are a virtual currency for social gameplay. You can purchase them in the bank and exchange them back to your original payment method at any time. All exchanges and returns for Gold Coins are free of charge.
             </p>
           </div>
           <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">(SC) Sweeps Coins</h3>
             <p>
-              Sweeps Coins are promotional coins that can be won. Winnings in SC must be played through at least once before they can be redeemed for prizes via our partner site, mxexchange.site, which may include a processing fee.
+             Sweeps Coins (SC) are promotional coins that can be won. Winnings in SC must be played through at least once before they can be redeemed for cash prizes via our partner site, MX Exchange, at a 98% return rate.
             </p>
           </div>
           <div>
