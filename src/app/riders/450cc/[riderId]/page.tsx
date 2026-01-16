@@ -62,8 +62,10 @@ export default function RiderDetailPage({ params }: { params: { riderId: string 
               className="rounded-full border-4 border-white"
               data-ai-hint={rider.imageHint}
             />
-            <div className={`absolute flex items-center justify-center -bottom-2 -right-2 w-10 h-8 ${plateColor} rounded-md border-2 border-white shadow-lg`}>
-                <span className={`text-lg font-black ${textColor}`}>{rider.number}</span>
+            <div className={`absolute -bottom-2 -right-4 w-14 h-12 flex items-center justify-center ${plateColor} border-2 border-white shadow-xl transform -skew-x-12`}>
+                <div className="transform skew-x-12">
+                     <span className={`text-2xl font-black italic ${textColor}`}>{rider.number}</span>
+                </div>
             </div>
         </div>
         <div>
