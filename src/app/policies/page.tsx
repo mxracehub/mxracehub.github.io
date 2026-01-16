@@ -38,13 +38,13 @@ export default function PoliciesPage() {
           <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">(GC) Gold Coins</h3>
             <p>
-              Gold Coins (GC) are a virtual currency for social gameplay. You can purchase them in the bank and exchange them back to your original payment method at any time. All exchanges and returns for Gold Coins are free of charge.
+              Gold Coins (GC) are our platform's virtual currency, used for social gameplay. They can be purchased at a rate of 100 GC for $1.00 USD. You can exchange your Gold Coins back to your original payment method anytime, and all exchanges and returns are completely free.
             </p>
           </div>
           <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">(SC) Sweeps Coins</h3>
             <p>
-             Sweeps Coins (SC) are promotional coins. They can only be won. Winnings in SC must be played through at least once before they can be redeemed for cash prizes via our partner site, MX Exchange, at a 98% return rate.
+             Sweeps Coins (SC) are our promotional coins, which you can win through gameplay. Each Sweeps Coin is redeemable for $1.00 USD. Winnings in SC must be played through at least once before they can be redeemed for cash prizes via our partner site, MX Exchange. A 2% processing fee applies at the time of redemption, resulting in a 98% return rate.
             </p>
           </div>
           <div>
