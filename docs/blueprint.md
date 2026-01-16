@@ -6,7 +6,7 @@
 - Automatic Race Data Updates: Automatically update race data, and add bet wins/losses for users.
 - Bank/Checkout Page: Secure bank/checkout page for users to acquire Gold Coins using credit card transactions.
 - Sweeps Coin Transfer: Functionality to transfer Sweeps Coins from MxRaceHub to the third-party Mx Exchange app for redemption and withdrawals.
-- Dockerized Deployment: A Docker server setup with necessary containers and images for easy deployment and scaling of both apps.
+- Maybe Dockerized Deployment or Firebase: A Docker server setup with necessary containers and images for easy deployment and scaling of both apps.
 - Readme Generation: Generate a simple README file with instructions for beginners to start shell, server, and all necessary files for running both applications.
 - Content Summarization: AI powered tool that automatically generate brief summaries from raw data.
 

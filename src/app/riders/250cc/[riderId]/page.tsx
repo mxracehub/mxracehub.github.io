@@ -93,6 +93,34 @@ export default function RiderDetailPage({ params }: { params: { riderId: string 
             </div>
         </CardContent>
       </Card>
+
+      <Card className="mt-8">
+        <CardHeader>
+            <h3 className="text-2xl font-bold font-headline uppercase tracking-wider">Recent Videos</h3>
+        </CardHeader>
+        <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="aspect-video">
+                <iframe
+                    className="w-full h-full rounded-lg"
+                    src="https://www.youtube.com/embed/6RDZJ57BoUU"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                ></iframe>
+            </div>
+            <div className="aspect-video">
+                <iframe
+                    className="w-full h-full rounded-lg"
+                    src="https://www.youtube.com/embed/gC2-VkH0k24"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                ></iframe>
+            </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }
