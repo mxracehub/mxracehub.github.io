@@ -1,6 +1,4 @@
 
-'use client';
-
 import { supercrossRaces } from './races-supercross-data';
 import { motocrossRaces } from './races-motocross-data';
 import { mainEventResults } from './results-data';
