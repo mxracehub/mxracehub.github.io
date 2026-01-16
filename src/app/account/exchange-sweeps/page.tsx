@@ -2,6 +2,7 @@
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
+import Link from 'next/link';
 import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
 import {
@@ -45,7 +46,7 @@ function ExchangeSweepsSkeleton() {
                   <Skeleton className="h-10 w-full" />
                 </div>
                  <div className="rounded-lg border bg-muted/50 p-4">
-                    <h3 className="font-semibold">Redemption Value (after 2% fee)</h3>
+                    <h3 className="font-semibold">Redemption Value</h3>
                     <Skeleton className="h-8 w-24 mt-1" />
                 </div>
                 <p className="text-sm text-muted-foreground">
@@ -91,8 +92,7 @@ export default function ExchangeSweepsPage() {
     const exchangeValueUSD = useMemo(() => {
         const numericAmount = Number(amount);
         if (numericAmount > 0) {
-            // 100 SC = $1, and there is a 2% fee (98% return)
-            return (numericAmount / 100 * 0.98).toFixed(2);
+            return (numericAmount / 100).toFixed(2);
         }
         return '0.00';
     }, [amount]);
@@ -216,10 +216,10 @@ export default function ExchangeSweepsPage() {
                   />
                 </div>
                  <div className="rounded-lg border bg-muted/50 p-4">
-                    <h3 className="font-semibold">Redemption Value (after 2% fee)</h3>
+                    <h3 className="font-semibold">Redemption Value</h3>
                     <p className="mt-1 text-2xl font-bold">${exchangeValueUSD}</p>
                     <p className="text-xs text-muted-foreground mt-2">
-                        100 Sweeps Coins = $1.00 USD. A 2% processing fee is applied upon redemption.
+                        100 Sweeps Coins = $1.00 USD.
                     </p>
                 </div>
                 <p className="text-sm text-muted-foreground">
@@ -252,17 +252,26 @@ export default function ExchangeSweepsPage() {
               <div className="text-muted-foreground">Sweeps Coins</div>
             </CardContent>
           </Card>
-          <div className="mt-4 space-y-2 rounded-lg border bg-card p-4 text-sm text-card-foreground">
-            <h4 className="font-semibold">How it works:</h4>
-            <ol className="list-inside list-decimal space-y-1 text-muted-foreground">
-              <li>Enter the transfer amount.</li>
-              <li>Confirm the transaction.</li>
-              <li>
-                Your coins will appear in the Mx Exchange app instantly.
-              </li>
-              <li>Visit Mx Exchange for prize redemption and withdrawals.</li>
-            </ol>
-          </div>
+          <Card className="mt-4">
+            <CardHeader>
+                <CardTitle className="text-base font-semibold">How it works:</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <ol className="list-inside list-decimal space-y-1 text-sm text-muted-foreground">
+                  <li>Enter the transfer amount on this page.</li>
+                  <li>Confirm the internal transaction.</li>
+                  <li>
+                    Your coins will be sent to the exchange system.
+                  </li>
+                  <li>Use the link below to visit Mx Exchange to complete your redemption.</li>
+                </ol>
+            </CardContent>
+            <CardFooter>
+                 <Button asChild className="w-full" variant="secondary">
+                    <Link href="https://mx-exchange.example.com" target="_blank">Go to Mx Exchange</Link>
+                </Button>
+            </CardFooter>
+          </Card>
         </div>
       </div>
     </div>
