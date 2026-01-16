@@ -53,20 +53,8 @@ export default function RiderDetailPage({ params }: { params: { riderId: string 
       <PageHeader title={rider.name} />
 
       <div className="bg-blue-900/80 text-white rounded-lg p-4 flex items-center gap-6 mb-8">
-        <div className="relative flex-shrink-0">
-            <Image
-              src={rider.imageUrl}
-              alt={rider.name}
-              width={100}
-              height={100}
-              className="rounded-full border-4 border-white"
-              data-ai-hint={rider.imageHint}
-            />
-            <div className={`absolute -bottom-2 -right-4 w-14 h-12 flex items-center justify-center ${plateColor} border-2 border-white shadow-xl transform -skew-x-12`}>
-                <div className="transform skew-x-12">
-                     <span className={`text-2xl font-black italic ${textColor}`}>{rider.number}</span>
-                </div>
-            </div>
+        <div className={`flex-shrink-0 h-32 w-32 flex flex-col items-center justify-center rounded-lg border-2 border-white ${plateColor}`}>
+            <span className={`text-6xl font-black italic ${textColor}`}>{rider.number}</span>
         </div>
         <div>
             <h2 className="text-3xl font-bold uppercase tracking-wider">{rider.name}</h2>
