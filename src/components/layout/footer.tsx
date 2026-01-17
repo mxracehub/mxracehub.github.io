@@ -25,7 +25,7 @@ export function Footer() {
   // Renaming policies to rules to match screenshot better
    const policiesLink = footerNavLinks.find(link => link.href === '/policies');
    if (policiesLink && policiesLink.label === 'Policies') {
-       policiesLink.label = "Rules";
+       policiesLink.label = "Rules/Policies";
    }
 
 
