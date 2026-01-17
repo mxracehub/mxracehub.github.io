@@ -62,7 +62,17 @@ export const mainEventResults = {
       { pos: 7, rider: 'Lux Turner', number: '156', bike: 'KTM' },
       { pos: 8, rider: 'Anthony Bourdon', number: '100', bike: 'Suzuki' },
       { pos: 9, rider: 'Brandon Ray', number: '991', bike: 'Kawasaki' },
-      { pos: 10, rider: 'Crockett Myers', number: '133', bike: 'Kawasaki' },
+      { pos: 10, rider: 'Crockett Myers', number: '131', bike: 'Suzuki' },
+      { pos: 11, rider: 'Ty Freehill', number: '316', bike: 'Honda' },
+      { pos: 12, rider: 'Lorenzo Camporese', number: '284', bike: 'Kawasaki' },
+      { pos: 13, rider: 'Dominique Thury', number: '964', bike: 'Yamaha' },
+      { pos: 14, rider: 'Jack Chambers', number: '69', bike: 'Kawasaki' },
+      { pos: 15, rider: 'Braden Spangle', number: '113', bike: 'Yamaha' },
+      { pos: 16, rider: 'Colby Copp', number: '645', bike: 'Honda' },
+      { pos: 17, rider: 'Kai Aiello', number: '310', bike: 'Husqvarna' },
+      { pos: 18, rider: 'Scotty Wennerstrom', number: '501', bike: 'KTM' },
+      { pos: 19, rider: 'Justin Aragaki', number: '344', bike: 'Husqvarna' },
+      { pos: 20, rider: 'Blake Davies', number: '585', bike: 'Husqvarna' }
     ],
     '250_heat2': [
       { pos: 1, rider: 'Max Anstie', number: '37', bike: 'Honda', holeshot: true },
