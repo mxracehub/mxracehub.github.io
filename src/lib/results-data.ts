@@ -84,7 +84,17 @@ export const mainEventResults = {
       { pos: 7, rider: 'Joshua Varize', number: '150', bike: 'GasGas' },
       { pos: 8, rider: 'Justin Rodbell', number: '726', bike: 'KTM' },
       { pos: 9, rider: 'Parker Ross', number: '165', bike: 'KTM' },
-      { pos: 10, rider: 'Hunter Schlosser', number: 'N/A', bike: 'KTM' }
+      { pos: 10, rider: 'Hunter Schlosser', number: 'N/A', bike: 'KTM' },
+      { pos: 11, rider: 'Michael Mosiman', number: '23', bike: 'Yamaha' },
+      { pos: 12, rider: 'Preston Masciangelo', number: '800', bike: 'GasGas' },
+      { pos: 13, rider: 'Matti Jorgensen', number: '245', bike: 'Honda' },
+      { pos: 14, rider: 'Slade Varola', number: '805', bike: 'Yamaha' },
+      { pos: 15, rider: 'Ayden Shive', number: '137', bike: 'KTM' },
+      { pos: 16, rider: 'Ronnie Orres', number: '873', bike: 'Honda' },
+      { pos: 17, rider: 'Reven Gordon', number: '425', bike: 'Kawasaki' },
+      { pos: 18, rider: 'Tyler Gibbs', number: '214', bike: 'Yamaha' },
+      { pos: 19, rider: 'Keegan Rowley', number: '900', bike: 'Yamaha' },
+      { pos: 20, rider: 'Kaden Lewis', number: '175', bike: 'GasGas' }
     ]
   },
   'supercross-2': { // San Diego
