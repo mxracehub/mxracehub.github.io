@@ -34,6 +34,8 @@ export const mainEventResults = {
       { rider: 'Matti Jorgensen', number: '245', bike: 'Honda', points: 4 },
       { rider: 'Justin Rodbell', number: '83', bike: 'Honda', points: 3 },
       { rider: 'Brandon Ray', number: '388', bike: 'Triumph', points: 2 },
+      { rider: 'Lorenzo Camporese', number: '284', bike: 'Kawasaki', points: 1 },
+      { rider: 'Cameron Mcadoo', number: '142', bike: 'Kawasaki', points: 1 },
     ],
     '450_heat1': [
       { pos: 1, rider: 'Jorge Prado', number: '111', bike: 'GasGas', holeshot: true },
