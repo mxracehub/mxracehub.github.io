@@ -139,7 +139,30 @@ export const mainEventResults = {
     ]
   },
   'supercross-2': { // San Diego
-    '450': [],
+    '450': [
+      { "pos": 1, "rider": "Eli Tomac", "number": "3", "bike": "KTM", "points": 25 },
+      { "pos": 2, "rider": "Hunter Lawrence", "number": "96", "bike": "Honda", "points": 22, "holeshot": true },
+      { "pos": 3, "rider": "Ken Roczen", "number": "94", "bike": "Suzuki", "points": 20 },
+      { "pos": 4, "rider": "Chase Sexton", "number": "4", "bike": "Kawasaki", "points": 18 },
+      { "pos": 5, "rider": "Joey Savatgy", "number": "17", "bike": "Honda", "points": 17 },
+      { "pos": 6, "rider": "Justin Cooper", "number": "32", "bike": "Yamaha", "points": 16 },
+      { "pos": 7, "rider": "Aaron Plessinger", "number": "7", "bike": "KTM", "points": 15 },
+      { "pos": 8, "rider": "Cooper Webb", "number": "1", "bike": "Yamaha", "points": 14 },
+      { "pos": 9, "rider": "Dylan Ferrandis", "number": "14", "bike": "Ducati", "points": 13 },
+      { "pos": 10, "rider": "Malcolm Stewart", "number": "27", "bike": "Husqvarna", "points": 12 },
+      { "pos": 11, "rider": "Jason Anderson", "number": "21", "bike": "Suzuki", "points": 11 },
+      { "pos": 12, "rider": "R.J. Hampshire", "number": "24", "bike": "Husqvarna", "points": 10 },
+      { "pos": 13, "rider": "Jorge Prado", "number": "26", "bike": "KTM", "points": 9 },
+      { "pos": 14, "rider": "Justin Hill", "number": "46", "bike": "KTM", "points": 8 },
+      { "pos": 15, "rider": "Christian Craig", "number": "28", "bike": "Honda", "points": 7 },
+      { "pos": 16, "rider": "Colt Nichols", "number": "45", "bike": "Suzuki", "points": 6 },
+      { "pos": 17, "rider": "Vince Friese", "number": "719", "bike": "Kawasaki", "points": 5 },
+      { "pos": 18, "rider": "Shane McElrath", "number": "12", "bike": "Honda", "points": 4 },
+      { "pos": 19, "rider": "Kevin Moranz", "number": "78", "bike": "KTM", "points": 3 },
+      { "pos": 20, "rider": "Mitchell Harrison", "number": "41", "bike": "Kawasaki", "points": 2 },
+      { "pos": 21, "rider": "Grant Harlan", "number": "62", "bike": "KTM", "points": 1 },
+      { "pos": 22, "rider": "Max Miller", "number": "604", "bike": "Kawasaki", "points": 1 }
+    ],
     '250': [],
     '450_heat1': [
       { pos: 1, rider: 'Chase Sexton', number: '4', bike: 'KTM', holeshot: true },
@@ -271,3 +294,5 @@ export const mainEventResults = {
     ]
   }
 };
+
+    
