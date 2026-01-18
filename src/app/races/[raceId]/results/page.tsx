@@ -145,8 +145,11 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     const [seriesPoints, setSeriesPoints] = useState<ReturnType<typeof getSeriesPoints> | null>(null);
 
     useEffect(() => {
-        setSeriesPoints(getSeriesPoints());
-    }, []);
+        if (race) {
+            const raceIdKey = race.type === 'Supercross' ? `supercross-${race.id}` : race.id;
+            setSeriesPoints(getSeriesPoints(raceIdKey));
+        }
+    }, [race]);
 
     const raceDate = useMemo(() => {
         if (!race) return new Date();

@@ -25,6 +25,9 @@ const calculatePoints = (
 
     const completedRaces = getCompletedRaces(raceSeries);
     
+    // Sort completed races by date to ensure lastPos is from the latest race
+    completedRaces.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
     completedRaces.forEach(race => {
         let raceId;
         if ('round' in race) {
@@ -35,27 +38,21 @@ const calculatePoints = (
         
         const results = mainEventResults[raceId as keyof typeof mainEventResults];
         if (!results) return;
-
+        
         const classResults = results[riderClass as keyof typeof results] || [];
 
         (classResults as any[]).forEach((result, index) => {
             const riderName = result.rider;
             if (riderName) {
                 if (!pointsMap[riderName]) {
-                    // Initialize rider if not in the map
                     pointsMap[riderName] = { 
                         points: 0,
-                        number: result.number,
-                        bike: result.bike,
-                        lastPos: index + 1,
                     };
                 }
                 pointsMap[riderName].points += (result.points || 0);
-                
-                // Always update with the latest race info to keep it current
                 pointsMap[riderName].number = result.number;
                 pointsMap[riderName].bike = result.bike;
-                // lastPos will be updated with the position from the latest race in the series
+                // Tie-breaker: position in the most recent race processed
                 pointsMap[riderName].lastPos = index + 1;
             }
         });
@@ -73,26 +70,49 @@ const calculatePoints = (
             };
         })
         .filter(r => r.points > 0)
-        .sort((a, b) => (b.points - a.points) || (a.lastPos! - b.lastPos!))
+        .sort((a, b) => {
+            if (b.points !== a.points) {
+                return b.points - a.points;
+            }
+            return (a.lastPos ?? Infinity) - (b.lastPos ?? Infinity);
+        })
         .map((rider, index) => ({ ...rider, pos: index + 1, lastPos: undefined }));
 };
 
+const allMxRacesSorted = [...motocrossRaces].sort((a, b) => new Date(a.date + " 2026").getTime() - new Date(b.date + " 2026").getTime());
 
-export const getSeriesPoints = () => {
+export const getSeriesPoints = (upToRaceId?: string) => {
     
-    const sxPoints450 = calculatePoints(supercrossRaces, '450');
+    let relevantSupercrossRaces = supercrossRaces;
+    let relevantMotocrossRaces = allMxRacesSorted;
+    let relevantPlayoffsData = playoffsData;
+
+    if (upToRaceId) {
+        if (upToRaceId.startsWith('supercross-')) {
+            const round = parseInt(upToRaceId.split('-')[1], 10);
+            relevantSupercrossRaces = supercrossRaces.filter(r => r.round <= round);
+        } else if (allMxRacesSorted.some(r => r.id === upToRaceId)) {
+            const raceIndex = allMxRacesSorted.findIndex(r => r.id === upToRaceId);
+            relevantMotocrossRaces = allMxRacesSorted.slice(0, raceIndex + 1);
+        } else if (playoffsData.some(r => r.id === upToRaceId)) {
+            const raceIndex = playoffsData.findIndex(r => r.id === upToRaceId);
+            relevantPlayoffsData = playoffsData.slice(0, raceIndex + 1);
+        }
+    }
     
-    const sxRacesWest = supercrossRaces.filter(r => r.division === 'West' || r.division === 'East/West Showdown');
+    const sxPoints450 = calculatePoints(relevantSupercrossRaces, '450');
+    
+    const sxRacesWest = relevantSupercrossRaces.filter(r => r.division === 'West' || r.division === 'East/West Showdown');
     const sxPoints250West = calculatePoints(sxRacesWest, '250');
     
-    const sxRacesEast = supercrossRaces.filter(r => r.division === 'East' || r.division === 'East/West Showdown');
+    const sxRacesEast = relevantSupercrossRaces.filter(r => r.division === 'East' || r.division === 'East/West Showdown');
     const sxPoints250East = calculatePoints(sxRacesEast, '250');
 
-    const mxPoints450 = calculatePoints(motocrossRaces, '450');
-    const mxPoints250 = calculatePoints(motocrossRaces, '250');
+    const mxPoints450 = calculatePoints(relevantMotocrossRaces, '450');
+    const mxPoints250 = calculatePoints(relevantMotocrossRaces, '250');
     
-    const playoffPoints450 = calculatePoints(playoffsData, '450');
-    const playoffPoints250 = calculatePoints(playoffsData, '250');
+    const playoffPoints450 = calculatePoints(relevantPlayoffsData, '450');
+    const playoffPoints250 = calculatePoints(relevantPlayoffsData, '250');
     
     return {
         supercross450: sxPoints450,
