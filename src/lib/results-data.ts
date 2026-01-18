@@ -162,14 +162,42 @@ export const mainEventResults = {
         { pos: 18, rider: 'Dilan Schwartz', number: '42', bike: 'Yamaha' },
         { pos: 19, rider: 'Nico Koch', number: '260', bike: 'KTM' },
         { pos: 20, rider: 'Brandon Ray', number: '388', bike: 'Triumph' }
+    ],
+    '250_heat2': [
+      { pos: 1, rider: 'Haiden Deegan', number: '1W', bike: 'Yamaha' },
+      { pos: 2, rider: 'Max Anstie', number: '61', bike: 'Yamaha', holeshot: true },
+      { pos: 3, rider: 'Michael Mosiman', number: '23', bike: 'Yamaha' },
+      { pos: 4, rider: 'Cameron Mcadoo', number: '142', bike: 'Kawasaki' },
+      { pos: 5, rider: 'Ryder DiFrancesco', number: '34', bike: 'Husqvarna' },
+      { pos: 6, rider: 'Parker Ross', number: '40', bike: 'Yamaha' },
+      { pos: 7, rider: 'Joshua Varize', number: '224', bike: 'Kawasaki' },
+      { pos: 8, rider: 'Avery Long', number: '57', bike: 'KTM' },
+      { pos: 9, rider: 'Hunter Schlosser', number: '173', bike: 'Honda' },
+      { pos: 10, rider: 'Slade Varola', number: '805', bike: 'Yamaha' },
+      { pos: 11, rider: 'Preston Masciangelo', number: '800', bike: 'GasGas' },
+      { pos: 12, rider: 'Paul Bloy', number: '204', bike: 'GasGas' },
+      { pos: 13, rider: 'Colby Copp', number: '645', bike: 'Honda' },
+      { pos: 14, rider: 'Lane Shaw', number: '129', bike: 'Kawasaki' },
+      { pos: 15, rider: 'Keegan Rowley', number: '900', bike: 'Yamaha' },
+      { pos: 16, rider: 'Tyler Gibbs', number: '214', bike: 'Yamaha' },
+      { pos: 17, rider: 'Scotty Wennerstrom', number: '501', bike: 'KTM' },
+      { pos: 18, rider: 'Crockett Myers', number: '131', bike: 'Suzuki' },
+      { pos: 19, rider: 'Dominique Thury', number: '964', bike: 'Yamaha' },
+      { pos: 20, rider: 'Justin Rodbell', number: '83', bike: 'Honda' }
     ]
   },
   'playoff-1': {
     '450': [],
     '250': []
   },
-  'playoff-2': {},
-  'smx-final': {},
+  'playoff-2': {
+    '450': [],
+    '250': []
+  },
+  'smx-final': {
+    '450': [],
+    '250': []
+  },
   'pala': {
     '450': [
         { rider: 'Eli Tomac', number: '3', bike: 'Yamaha', points: 0 }, 
