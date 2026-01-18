@@ -2,16 +2,12 @@
 import { supercrossRaces } from './races-supercross-data';
 import { motocrossRaces } from './races-motocross-data';
 import { mainEventResults } from './results-data';
-import { riders450 } from './riders-data';
-import { riders250 } from './riders-250-data';
 
 const playoffsData = [
     { id: 'playoff-1', name: 'Playoff 1', location: 'Columbus, OH', date: 'Sep 12, 2026' },
     { id: 'playoff-2', name: 'Playoff 2', location: 'Carson, CA', date: 'Sep 19, 2026' },
     { id: 'smx-final', name: 'SMX World Championship Final', location: 'Ridgedale, MO', date: 'Sep 26, 2026' },
 ];
-
-const allRiders = [...riders450, ...riders250];
 
 const getCompletedRaces = (raceSeries: any[]) => {
     return raceSeries.filter(race => {
@@ -46,12 +42,16 @@ const calculatePoints = (
             const riderName = result.rider;
             if (riderName) {
                 if (!pointsMap[riderName]) {
-                    // Initialize rider if not in the map
-                    pointsMap[riderName] = { points: 0 };
+                    // Initialize rider if not in the map from the main event data
+                    pointsMap[riderName] = { 
+                        points: 0,
+                        number: result.number,
+                        bike: result.bike
+                    };
                 }
                 pointsMap[riderName].points += (result.points || 0);
                 
-                // Update bike and number from the race result, as it's the most current.
+                // Always update with the latest race info to keep it current
                 pointsMap[riderName].number = result.number;
                 pointsMap[riderName].bike = result.bike;
             }
@@ -60,13 +60,11 @@ const calculatePoints = (
     
     return Object.entries(pointsMap)
         .map(([riderName, data]) => {
-            const riderInfo = allRiders.find(r => r.name === riderName);
             return {
                 pos: 0,
                 rider: riderName,
-                // Use data from pointsMap first, then fallback to riderInfo
-                number: data.number || riderInfo?.number || 'N/A',
-                bike: data.bike || (riderInfo ? riderInfo.team.split(' ').pop() : 'N/A') || 'N/A',
+                number: data.number || 'N/A',
+                bike: data.bike || 'N/A',
                 points: data.points
             };
         })
