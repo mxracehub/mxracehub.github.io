@@ -163,7 +163,30 @@ export const mainEventResults = {
       { "pos": 21, "rider": "Grant Harlan", "number": "62", "bike": "KTM", "points": 1 },
       { "pos": 22, "rider": "Max Miller", "number": "604", "bike": "Kawasaki", "points": 1 }
     ],
-    '250': [],
+    '250': [
+      { "pos": 1, "rider": "Haiden Deegan", "number": "1W", "bike": "Yamaha", "points": 25 },
+      { "pos": 2, "rider": "Cameron Mcadoo", "number": "142", "bike": "Kawasaki", "points": 22 },
+      { "pos": 3, "rider": "Michael Mosiman", "number": "23", "bike": "Yamaha", "points": 20 },
+      { "pos": 4, "rider": "Levi Kitchen", "number": "47", "bike": "Kawasaki", "points": 18 },
+      { "pos": 5, "rider": "Max Anstie", "number": "61", "bike": "Yamaha", "points": 17, "holeshot": true },
+      { "pos": 6, "rider": "Chance Hymas", "number": "29", "bike": "Honda", "points": 16 },
+      { "pos": 7, "rider": "Ryder Difrancesco", "number": "34", "bike": "Husqvarna", "points": 15 },
+      { "pos": 8, "rider": "Maximus Vohland", "number": "19", "bike": "Yamaha", "points": 14 },
+      { "pos": 9, "rider": "Dilan Schwartz", "number": "42", "bike": "Yamaha", "points": 13 },
+      { "pos": 10, "rider": "Anthony Bourdon", "number": "70", "bike": "Kawasaki", "points": 12 },
+      { "pos": 11, "rider": "Parker Ross", "number": "40", "bike": "Yamaha", "points": 11 },
+      { "pos": 12, "rider": "Avery Long", "number": "57", "bike": "KTM", "points": 10 },
+      { "pos": 13, "rider": "Lux Turner", "number": "43", "bike": "Yamaha", "points": 9 },
+      { "pos": 14, "rider": "Carson Mumford", "number": "71", "bike": "KTM", "points": 8 },
+      { "pos": 15, "rider": "Hunter Schlosser", "number": "173", "bike": "Honda", "points": 7 },
+      { "pos": 16, "rider": "Lorenzo Camporese", "number": "284", "bike": "Kawasaki", "points": 6 },
+      { "pos": 17, "rider": "Ayden Shive", "number": "137", "bike": "KTM", "points": 5 },
+      { "pos": 18, "rider": "Preston Masciangelo", "number": "800", "bike": "GasGas", "points": 4 },
+      { "pos": 19, "rider": "Joshua Varize", "number": "224", "bike": "Kawasaki", "points": 3 },
+      { "pos": 20, "rider": "Ty Freehill", "number": "316", "bike": "Honda", "points": 2 },
+      { "pos": 21, "rider": "Hunter Yoder", "number": "60", "bike": "Yamaha", "points": 1 },
+      { "pos": 22, "rider": "Robbie Wageman", "number": "237", "bike": "Yamaha", "points": 1 }
+    ],
     '450_heat1': [
       { pos: 1, rider: 'Chase Sexton', number: '4', bike: 'KTM', holeshot: true },
       { pos: 2, rider: 'Jorge Prado', number: '26', bike: 'GasGas' },
@@ -296,3 +319,4 @@ export const mainEventResults = {
 };
 
     
+
