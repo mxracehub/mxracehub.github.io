@@ -1,9 +1,11 @@
+
 'use client';
 
 import { PageHeader } from '@/components/page-header';
 import {
   Card,
   CardContent,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
@@ -18,6 +20,8 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Trophy } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default function ManufacturersStandingsPage() {
     const [manufacturerPoints, setManufacturerPoints] = useState<ManufacturerPoints[]>([]);
@@ -59,6 +63,11 @@ export default function ManufacturersStandingsPage() {
                     </TableBody>
                 </Table>
                 </CardContent>
+                <CardFooter>
+                    <Button asChild className="w-full">
+                        <Link href="/betting/manufacturer-championship">Bet on Championship Winner</Link>
+                    </Button>
+                </CardFooter>
             </Card>
         </div>
     );

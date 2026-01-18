@@ -22,6 +22,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import type { Account, Bet } from '@/lib/types';
 import { updateAccount, getRaceResults } from '@/lib/firebase-config';
 import { useToast } from '@/hooks/use-toast';
+import { getManufacturersPoints } from '@/lib/manufacturers-points-service';
 
 
 function AccountPageSkeleton() {
@@ -144,42 +145,57 @@ export default function AccountPage() {
 
       for (const bet of betsToSettle) {
           try {
-              const results = await getRaceResults(bet.raceId, bet.raceType);
-              if (!results) continue; // Race results not available yet
-
               let userWon = false;
-              if (bet.betType === 'Race Winner') {
-                  const userRiderResult = results.find(r => r.rider === bet.userRider);
-                  const opponentRiderResult = results.find(r => r.rider === bet.opponentRider);
+              let betSettled = false;
 
-                  const userPosition = userRiderResult ? userRiderResult.pos : Infinity;
-                  const opponentPosition = opponentRiderResult ? opponentRiderResult.pos : Infinity;
-                  userWon = userPosition < opponentPosition;
-              } else if (bet.betType === 'Holeshot') {
-                  const holeshotRider = results.find(r => r.holeshot);
-                  userWon = !!holeshotRider && holeshotRider.rider === bet.userRider;
+              if (bet.betType === 'Championship Winner') {
+                  const manufacturerStandings = getManufacturersPoints();
+                  if (manufacturerStandings.length > 0) {
+                      const winner = manufacturerStandings[0].manufacturer;
+                      userWon = winner === bet.userRider;
+                      betSettled = true;
+                  }
+              } else if (bet.raceType) {
+                  const results = await getRaceResults(bet.raceId, bet.raceType);
+                  if (!results) continue; // Race results not available yet
+
+                  if (bet.betType === 'Race Winner') {
+                      const userRiderResult = results.find(r => r.rider === bet.userRider);
+                      const opponentRiderResult = results.find(r => r.rider === bet.opponentRider);
+
+                      const userPosition = userRiderResult ? userRiderResult.pos : Infinity;
+                      const opponentPosition = opponentRiderResult ? opponentRiderResult.pos : Infinity;
+                      userWon = userPosition < opponentPosition;
+                      betSettled = true;
+                  } else if (bet.betType === 'Holeshot') {
+                      const holeshotRider = results.find(r => r.holeshot);
+                      userWon = !!holeshotRider && holeshotRider.rider === bet.userRider;
+                      betSettled = true;
+                  }
               }
               
-              const newStatus = userWon ? 'Won' : 'Lost';
-              const betIndex = updatedBetHistory.findIndex(b => b.id === bet.id);
+              if (betSettled) {
+                const newStatus = userWon ? 'Won' : 'Lost';
+                const betIndex = updatedBetHistory.findIndex(b => b.id === bet.id);
 
-              if (betIndex !== -1 && updatedBetHistory[betIndex].status === 'Pending') {
-                  updatedBetHistory[betIndex] = { ...updatedBetHistory[betIndex], status: newStatus };
-                  
-                  if (userWon) {
-                      const winnings = bet.amount * 2;
-                      if (bet.coinType === 'Gold Coins') {
-                          tempAccount.balances.gold += winnings;
-                      } else {
-                          tempAccount.balances.sweeps += winnings;
-                      }
-                      balancesChanged = true;
-                  }
-                  toast({
-                      title: `Bet Settled: You ${newStatus}!`,
-                      description: `Your bet on ${bet.race} has been settled.`,
-                      variant: userWon ? "default" : "destructive"
-                  });
+                if (betIndex !== -1 && updatedBetHistory[betIndex].status === 'Pending') {
+                    updatedBetHistory[betIndex] = { ...updatedBetHistory[betIndex], status: newStatus };
+                    
+                    if (userWon) {
+                        const winnings = bet.amount * 2;
+                        if (bet.coinType === 'Gold Coins') {
+                            tempAccount.balances.gold += winnings;
+                        } else {
+                            tempAccount.balances.sweeps += winnings;
+                        }
+                        balancesChanged = true;
+                    }
+                    toast({
+                        title: `Bet Settled: You ${newStatus}!`,
+                        description: `Your bet on ${bet.race} has been settled.`,
+                        variant: userWon ? "default" : "destructive"
+                    });
+                }
               }
 
           } catch (error) {

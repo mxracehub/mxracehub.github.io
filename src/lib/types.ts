@@ -3,16 +3,16 @@ export type Bet = {
     id: string;
     race: string;
     raceId: string; // To link to results page
-    betType: 'Race Winner' | 'Holeshot';
-    raceType: 'Main Event' | 'Heat 1' | 'Heat 2' | 'Heat 3'; // For heats/main
+    betType: 'Race Winner' | 'Holeshot' | 'Championship Winner';
+    raceType?: 'Main Event' | 'Heat 1' | 'Heat 2' | 'Heat 3'; // For heats/main
     opponent: string; // opponent's username
     opponentId: string;
     date: string;
     amount: number;
     coinType: 'Gold Coins' | 'Sweeps Coins';
     status: 'Won' | 'Lost' | 'Pending';
-    userRider: string; // Name of rider the user bet on
-    opponentRider: string; // Name of rider the opponent bet on
+    userRider: string; // Name of rider or manufacturer the user bet on
+    opponentRider: string; // Name of rider or manufacturer the opponent bet on
 };
 
 export type ExchangeRequest = {
