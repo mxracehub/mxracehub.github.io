@@ -143,20 +143,8 @@ export const mainEventResults = {
     '250': []
   },
   'playoff-1': {
-    '450': [
-      { rider: 'Jett Lawrence', number: '18', bike: 'Honda', points: 25 },
-      { rider: 'Ken Roczen', number: '94', bike: 'Suzuki', points: 22 },
-      { rider: 'Cooper Webb', number: '2', bike: 'Yamaha', points: 20 },
-      { rider: 'Chase Sexton', number: '1', bike: 'KTM', points: 18 },
-      { rider: 'Eli Tomac', number: '3', bike: 'Yamaha', points: 17 },
-    ],
-    '250': [
-      { rider: 'Haiden Deegan', number: '38', bike: 'Yamaha', points: 25 },
-      { rider: 'RJ Hampshire', number: '24', bike: 'Husqvarna', points: 22 },
-      { rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki', points: 20 },
-      { rider: 'Jo Shimoda', number: '30', bike: 'Honda', points: 18 },
-      { rider: 'Tom Vialle', number: '16', bike: 'KTM', points: 17 },
-    ]
+    '450': [],
+    '250': []
   },
   'playoff-2': {},
   'smx-final': {},
@@ -190,5 +178,3 @@ export const mainEventResults = {
     ]
   }
 };
-
-    

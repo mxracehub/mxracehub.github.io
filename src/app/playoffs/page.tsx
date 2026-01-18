@@ -45,40 +45,46 @@ const playoffsData = [
   },
 ];
 
-const PointsTable = ({ title, data }: { title: string, data: any[] }) => (
+const PointsTable = ({ title, data }: { title: string; data: any[] }) => (
     <Card>
-        <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-                <Trophy className="h-5 w-5 text-yellow-500" />
-                {title}
-            </CardTitle>
-        </CardHeader>
-        <CardContent>
-             <Table>
-                <TableHeader>
-                    <TableRow>
-                    <TableHead>Pos</TableHead>
-                    <TableHead>Rider</TableHead>
-                    <TableHead>#</TableHead>
-                    <TableHead>Bike</TableHead>
-                    <TableHead className="text-right">Points</TableHead>
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
-                    {data.map((r) => (
-                    <TableRow key={r.pos}>
-                        <TableCell>{r.pos}</TableCell>
-                        <TableCell>{r.rider}</TableCell>
-                        <TableCell>{r.number}</TableCell>
-                        <TableCell>{r.bike}</TableCell>
-                        <TableCell className="text-right">{r.points}</TableCell>
-                    </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </CardContent>
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          <Trophy className="h-5 w-5 text-yellow-500" />
+          {title}
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        {data && data.length > 0 ? (
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Pos</TableHead>
+                <TableHead>Rider</TableHead>
+                <TableHead>#</TableHead>
+                <TableHead>Bike</TableHead>
+                <TableHead className="text-right">Points</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {data.map((r) => (
+                <TableRow key={r.pos}>
+                  <TableCell>{r.pos}</TableCell>
+                  <TableCell>{r.rider}</TableCell>
+                  <TableCell>{r.number}</TableCell>
+                  <TableCell>{r.bike}</TableCell>
+                  <TableCell className="text-right">{r.points}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        ) : (
+          <div className="py-8 text-center text-muted-foreground">
+            Points will be updated as the season progresses.
+          </div>
+        )}
+      </CardContent>
     </Card>
-);
+  );
 
 export default function PlayoffsPage() {
   const heroImage = PlaceHolderImages.find(
