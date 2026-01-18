@@ -140,7 +140,29 @@ export const mainEventResults = {
   },
   'supercross-2': { // San Diego
     '450': [],
-    '250': []
+    '250': [],
+    '250_heat1': [
+        { pos: 1, rider: 'Maximus Vohland', number: '19', bike: 'Yamaha' },
+        { pos: 2, rider: 'Hunter Yoder', number: '60', bike: 'Yamaha', holeshot: true },
+        { pos: 3, rider: 'Chance Hymas', number: '29', bike: 'Honda' },
+        { pos: 4, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki' },
+        { pos: 5, rider: 'Robbie Wageman', number: '237', bike: 'Yamaha' },
+        { pos: 6, rider: 'Anthony Bourdon', number: '70', bike: 'Kawasaki' },
+        { pos: 7, rider: 'Lux Turner', number: '43', bike: 'Yamaha' },
+        { pos: 8, rider: 'Carson Mumford', number: '71', bike: 'KTM' },
+        { pos: 9, rider: 'Ayden Shive', number: '137', bike: 'KTM' },
+        { pos: 10, rider: 'Lorenzo Camporese', number: '284', bike: 'Kawasaki' },
+        { pos: 11, rider: 'Ty Freehill', number: '316', bike: 'Honda' },
+        { pos: 12, rider: 'Kai Aiello', number: '310', bike: 'Husqvarna' },
+        { pos: 13, rider: 'Blake Davies', number: '585', bike: 'Husqvarna' },
+        { pos: 14, rider: 'Matti Jorgensen', number: '245', bike: 'Honda' },
+        { pos: 15, rider: 'Austin Cozadd', number: '512', bike: 'Yamaha' },
+        { pos: 16, rider: 'Braden Spangle', number: '113', bike: 'Yamaha' },
+        { pos: 17, rider: 'Anthony Castaneda', number: '877', bike: 'Yamaha' },
+        { pos: 18, rider: 'Dilan Schwartz', number: '42', bike: 'Yamaha' },
+        { pos: 19, rider: 'Nico Koch', number: '260', bike: 'KTM' },
+        { pos: 20, rider: 'Brandon Ray', number: '388', bike: 'Triumph' }
+    ]
   },
   'playoff-1': {
     '450': [],
