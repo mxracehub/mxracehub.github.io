@@ -32,11 +32,20 @@ const getCompletedRaces = (raceSeries: any[]) => {
 };
 
 const getRiderDivision = (riderName: string): 'East' | 'West' | undefined => {
-    for (const race of supercrossRaces) {
+    const sortedRaces = [...supercrossRaces].sort((a,b) => parseRaceDate(a.date).getTime() - parseRaceDate(b.date).getTime());
+    for (const race of sortedRaces) {
         if (race.division === 'East' || race.division === 'West') {
             const raceId = `supercross-${race.round}`;
             const results = mainEventResults[raceId as keyof typeof mainEventResults];
-            if (results && results['250']?.some(r => r.rider === riderName)) {
+            const mainEventResultsForRace = results?.['250'];
+            const heat1Results = results?.['250_heat1'];
+            const heat2Results = results?.['250_heat2'];
+
+            const inMain = mainEventResultsForRace?.some(r => r.rider === riderName);
+            const inHeat1 = heat1Results?.some(r => r.rider === riderName);
+            const inHeat2 = heat2Results?.some(r => r.rider === riderName);
+
+            if (inMain || inHeat1 || inHeat2) {
                 return race.division;
             }
         }
@@ -51,16 +60,17 @@ const calculatePoints = (
     allRidersForClass: any[]
 ) => {
     const pointsMap: { [riderName: string]: number } = {};
+    const riderDetails: { [riderName: string]: { number: string; bike: string } } = {};
 
     allRidersForClass.forEach(rider => {
         pointsMap[rider.name] = 0;
     });
     
-    const completedRaces = getCompletedRaces(raceSeries);
+    const sortedRaces = [...raceSeries].sort((a, b) => parseRaceDate(a.date).getTime() - parseRaceDate(b.date).getTime());
+    const completedRaces = getCompletedRaces(sortedRaces);
     
     completedRaces.forEach(race => {
         let raceId;
-        // Supercross races are identified by round number
         if ('round' in race) {
             raceId = `supercross-${race.round}`;
         } else {
@@ -75,6 +85,10 @@ const calculatePoints = (
         classResults.forEach(result => {
             const riderName = result.rider;
             
+            if (riderName && !riderDetails[riderName] && result.number && result.bike) {
+                riderDetails[riderName] = { number: result.number, bike: result.bike };
+            }
+            
             if (pointsMap.hasOwnProperty(riderName)) {
                 pointsMap[riderName] = (pointsMap[riderName] || 0) + result.points;
             }
@@ -83,12 +97,13 @@ const calculatePoints = (
     
     return Object.entries(pointsMap)
         .map(([riderName, points]) => {
+            const details = riderDetails[riderName];
             const riderInfo = allRiders.find(r => r.name === riderName);
             return {
                 pos: 0,
                 rider: riderName,
-                number: riderInfo?.number || 'N/A',
-                bike: riderInfo?.team.split(' ').pop() || 'N/A',
+                number: details?.number || riderInfo?.number || 'N/A',
+                bike: details?.bike || (riderInfo ? riderInfo.team.split(' ').pop() : 'N/A') || 'N/A',
                 points: points
             };
         })
