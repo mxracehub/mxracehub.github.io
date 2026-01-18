@@ -129,12 +129,12 @@ export const getSeriesPoints = () => {
     const playoffPoints250 = calculatePoints(playoffsData, '250', riders250);
     
     return {
-        supercross450: sxPoints450.slice(0, 10),
-        supercross250West: sxPoints250West.slice(0, 10),
-        supercross250East: sxPoints250East.slice(0, 10),
-        motocross450: mxPoints450.slice(0, 10),
-        motocross250: mxPoints250.slice(0, 10),
-        playoff450: playoffPoints450.slice(0, 10),
-        playoff250: playoffPoints250.slice(0, 10),
+        supercross450: sxPoints450.slice(0, 22),
+        supercross250West: sxPoints250West.slice(0, 22),
+        supercross250East: sxPoints250East.slice(0, 22),
+        motocross450: mxPoints450.slice(0, 22),
+        motocross250: mxPoints250.slice(0, 22),
+        playoff450: playoffPoints450.slice(0, 22),
+        playoff250: playoffPoints250.slice(0, 22),
     };
 };
