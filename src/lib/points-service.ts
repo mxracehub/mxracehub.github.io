@@ -89,8 +89,8 @@ const calculatePoints = (
                 riderDetails[riderName] = { number: result.number, bike: result.bike };
             }
             
-            if (pointsMap.hasOwnProperty(riderName)) {
-                pointsMap[riderName] = (pointsMap[riderName] || 0) + result.points;
+            if (riderName) {
+                pointsMap[riderName] = (pointsMap[riderName] || 0) + (result.points || 0);
             }
         });
     });
