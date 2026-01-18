@@ -141,6 +141,27 @@ export const mainEventResults = {
   'supercross-2': { // San Diego
     '450': [],
     '250': [],
+    '450_heat1': [
+      { pos: 1, rider: 'Chase Sexton', number: '4', bike: 'Kawasaki' },
+      { pos: 2, rider: 'Jorge Prado', number: '26', bike: 'KTM', holeshot: true },
+      { pos: 3, rider: 'Jason Anderson', number: '21', bike: 'Suzuki' },
+      { pos: 4, rider: 'Joey Savatgy', number: '17', bike: 'Honda' },
+      { pos: 5, rider: 'Hunter Lawrence', number: '96', bike: 'Honda' },
+      { pos: 6, rider: 'Shane McElrath', number: '12', bike: 'Honda' },
+      { pos: 7, rider: 'Colt Nichols', number: '45', bike: 'Suzuki' },
+      { pos: 8, rider: 'Cooper Webb', number: '1', bike: 'Yamaha' },
+      { pos: 9, rider: 'Vince Friese', number: '719', bike: 'Kawasaki' },
+      { pos: 10, rider: 'Mitchell Harrison', number: '41', bike: 'Kawasaki' },
+      { pos: 11, rider: 'Josh Cartwright', number: '519', bike: 'Kawasaki' },
+      { pos: 12, rider: 'Tristan Lane', number: '711', bike: 'Yamaha' },
+      { pos: 13, rider: 'Romain Pape', number: '64', bike: 'Yamaha' },
+      { pos: 14, rider: 'Freddie Noren', number: '63', bike: 'Yamaha' },
+      { pos: 15, rider: 'Logan Leitzel', number: '208', bike: 'Kawasaki' },
+      { pos: 16, rider: 'Konnor Visger', number: '299', bike: 'Beta' },
+      { pos: 17, rider: 'Justin Aragaki', number: '344', bike: 'Husqvarna' },
+      { pos: 18, rider: 'David Pulley Jr', number: '138', bike: 'Yamaha' },
+      { pos: 19, rider: 'Bobby Piazza', number: '637', bike: 'Yamaha' },
+    ],
     '250_heat1': [
         { pos: 1, rider: 'Maximus Vohland', number: '19', bike: 'Yamaha' },
         { pos: 2, rider: 'Hunter Yoder', number: '60', bike: 'Yamaha', holeshot: true },
@@ -228,3 +249,5 @@ export const mainEventResults = {
     ]
   }
 };
+
+    
