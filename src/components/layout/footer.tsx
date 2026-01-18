@@ -6,6 +6,7 @@ const footerNavLinks = [
   { href: '/', label: 'Home' },
   { href: '/races', label: 'Races' },
   { href: '/riders', label: 'Riders' },
+  { href: '/standings', label: 'Standings' },
   { href: '/betting', label: 'Betting' },
   { href: '/account', label: 'Account' },
   { href: '/policies', label: 'Policies' },

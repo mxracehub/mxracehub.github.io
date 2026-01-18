@@ -12,6 +12,7 @@ import { supercrossRaces } from '@/lib/races-supercross-data';
 import { motocrossRaces } from '@/lib/races-motocross-data';
 import { useMemo } from 'react';
 
+
 const playoffsData = [
   {
     id: 'playoff-1',
@@ -67,6 +68,20 @@ export default function StandingsPage() {
         title="Race Schedule & Standings"
         description="View the schedule for all series and link to race results."
       />
+
+        <Card>
+            <CardContent className="p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex-1 text-center sm:text-left">
+                <h3 className="text-lg font-bold">Manufacturers Championship</h3>
+                <p className="text-sm text-muted-foreground">
+                    View the 2026 SX Manufacturers Championship Series Points.
+                </p>
+              </div>
+              <Button asChild>
+                <Link href={`/standings/manufacturers`}>View Standings</Link>
+              </Button>
+            </CardContent>
+        </Card>
 
       <div className="space-y-4">
         {sxRaces.map((race) => (
