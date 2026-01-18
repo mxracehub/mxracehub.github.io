@@ -139,30 +139,8 @@ export const mainEventResults = {
     ]
   },
   'supercross-2': { // San Diego
-    '450': [
-      { rider: 'Chase Sexton', number: '1', bike: 'KTM', points: 0 },
-      { rider: 'Cooper Webb', number: '2', bike: 'Yamaha', points: 0 },
-      { rider: 'Jett Lawrence', number: '18', bike: 'Honda', points: 0 },
-      { rider: 'Eli Tomac', number: '3', bike: 'Yamaha', points: 0 },
-      { rider: 'Aaron Plessinger', number: '7', bike: 'KTM', points: 0 },
-      { rider: 'Jason Anderson', number: '21', bike: 'Kawasaki', points: 0 },
-      { rider: 'Ken Roczen', number: '94', bike: 'Suzuki', points: 0 },
-      { rider: 'Hunter Lawrence', number: '96', bike: 'Honda', points: 0 },
-      { rider: 'Justin Barcia', number: '51', bike: 'GasGas', points: 0 },
-      { rider: 'Malcolm Stewart', number: '27', bike: 'Husqvarna', points: 0 },
-    ],
-    '250': [ // West
-      { rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki', points: 0 },
-      { rider: 'RJ Hampshire', number: '24', bike: 'Husqvarna', points: 0 },
-      { rider: 'Jordon Smith', number: '45', bike: 'Yamaha', points: 0 },
-      { rider: 'Jo Shimoda', number: '30', bike: 'Honda', points: 0 },
-      { rider: 'Garrett Marchbanks', number: '36', bike: 'Yamaha', points: 0 },
-      { rider: 'Julien Beaumer', number: '99', bike: 'KTM', points: 0 },
-      { rider: 'Nate Thrasher', number: '57', bike: 'Yamaha', points: 0 },
-      { rider: 'Anthony Bourdon', number: '100', bike: 'Suzuki', points: 0 },
-      { rider: 'Carson Mumford', number: '41', bike: 'Honda', points: 0 },
-      { rider: 'Ryder DiFrancesco', number: '34', bike: 'GasGas', points: 0 },
-    ]
+    '450': [],
+    '250': []
   },
   'playoff-1': {
     '450': [
