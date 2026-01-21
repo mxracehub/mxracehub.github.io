@@ -226,7 +226,7 @@ const TermsContent = () => (
             <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">7.2. Gold Coin Purchases</h4>
             <p className='mb-2'>a) The purchase of Gold Coins is the purchase of a license that allows you to Participate in Standard Play Games and it is not a deposit of funds which can be withdrawn. Funds used to purchase Gold Coins will not, and cannot, be refunded to you. Gold Coins do not have any real money value.</p>
             <p className='mb-2'>b) You can purchase Gold Coins on the Platform through one of the Payment Methods available on the website.</p>
-            <p className='mb-2'>c) The Payment Methods you use to purchase Gold Coins must be legally and beneficially owned by you and in your name. If it comes to our attention that the name you registered on your Customer Account and the name linked to your Payment Method differs, your Customer Account will be immediately suspended. Should your Customer Account be suspended, we recommend that you contact Customer Support through the support@mxracehub.me.</p>
+            <p className='mb-2'>c) The Payment Methods you use to purchase Gold Coins must be legally and beneficially owned by you and in your name. If it comes to our attention that the name you registered on your Customer Account and the name linked to your Payment Method differs, your Customer Account will be immediately suspended. Should your Customer Account be suspended, we recommend that you contact Customer Support through support@mxracehub.me.</p>
             <p className='mb-2'>d) MxRaceHub reserves the right to request documents and information to verify the legal and beneficial ownership of the Payment Methods you use to make Gold Coin purchases.</p>
             <p className='mb-2'>e) You agree that we and/or our Payment Administration Agents may store your payment information to process your future purchases. By accepting these Terms, you authorize MxRaceHub and/or our Payment Administration Agents to store your payment credentials in compliance with applicable payment processing regulations.</p>
             <p className='mb-2'>f) Once a Gold Coin purchase has been made, the funds will be withdrawn from your Payment Methods as soon as practicable.</p>
@@ -632,42 +632,6 @@ const TermsContent = () => (
             <p>29.2. Subject to clause 26, the parties agree that any dispute, controversy or claim arising out of or in connection with these Terms, or the breach, termination or invalidity of these Terms, will be submitted exclusively to the courts in the State of Delaware, and you and we consent to the venue and personal jurisdiction of those courts. Notwithstanding the foregoing, any motion to compel arbitration or to enforce an arbitral award issued hereunder may be brought before any court of competent jurisdiction.</p>
         </div>
 
-        <div>
-            <h3 className="text-xl font-bold mb-2 text-card-foreground">Account Creation &amp; Fees</h3>
-            <p>
-            Creating a user account on MxRaceHub is completely free. We believe in providing a straightforward and enjoyable experience without hidden costs.
-            </p>
-        </div>
-        <div>
-            <h3 className="text-xl font-bold mb-2 text-card-foreground">Playing Rules</h3>
-            <p>
-            When playing with a friend, all plays are final. Winning plays will take all Gold Coins (GC) or Sweeps Coins (SC) for the win. Sweeps Coins (SC) must be played at least once before being eligible for exchange.
-            </p>
-        </div>
-        <div>
-            <h3 className="text-xl font-bold mb-2 text-card-foreground">(GC) Gold Coins</h3>
-            <p>
-            Gold Coins (GC) are our platform's virtual currency, used for social gameplay. They can be purchased at a rate of 100 GC for $1.00 USD. You can exchange your Gold Coins back to your original payment method anytime, and all exchanges and returns are completely free, if coins are not used. No purchase is required to obtain or redeem Sweeps Coins. A purchase will not increase your chances of winning.
-            </p>
-        </div>
-        <div>
-            <h3 className="text-xl font-bold mb-2 text-card-foreground">(SC) Sweeps Coins</h3>
-            <p>
-            Sweeps Coins (SC) are our promotional coins, which you can win through gameplay. They can only be won. 100 Sweeps Coins are redeemable for $1.00 USD. Winnings in SC must be played through at least once before they can be redeemed for cash prizes via our partner site, MX Exchange. 
-            </p>
-        </div>
-        <div>
-            <h3 className="text-xl font-bold mb-2 text-card-foreground">KYC Agreement</h3>
-            <p>
-            When accepting a friend request, you acknowledge a mutual agreement for social gaming. For financial transactions and prize redemptions, further Know Your Customer (KYC) verification may be required to comply with financial regulations.
-            </p>
-        </div>
-        <div>
-            <h3 className="text-xl font-bold mb-2 text-card-foreground">Terms of Service</h3>
-            <p>
-            By using MxRaceHub, you agree to our terms of service. All plays placed are final. Users must be of legal age in their jurisdiction to participate. We reserve the right to suspend accounts for any fraudulent activity.
-            </p>
-        </div>
     </div>
 );
 
@@ -746,10 +710,36 @@ const PrivacyPolicyContent = () => (
 const CookiesContent = () => (
     <div className="space-y-6 text-muted-foreground">
         <div>
-            <h3 className="text-xl font-bold mb-2 text-card-foreground">Cookies Policy</h3>
-            <p>
-            We use cookies and similar tracking technologies to track the activity on our Service and hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service.
-            </p>
+            <p>This website and app uses cookies to better the users experience while visiting the website. Where applicable this website uses a cookie control system allowing the user on their first visit to the website to allow or disallow the use of cookies on their computer/device. This complies with recent legislation requirements for websites to obtain explicit consent from users before leaving behind or reading files such as cookies on a user’s computer/device. The cookies in use are described in the table below.</p>
+        </div>
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">Cookies Owner</h3>
+            <p>Opt-out In order to provide website visitors with more choice on how data is collected by Google Analytics, Google has developed the Google Analytics Opt-out Browser Add-on. The add-on communicates with the Google Analytics JavaScript (ga.js) to stop data being sent to Google Analytics. The Google Analytics Opt-out Browser Add-on does not affect usage of the website in any other way. A link to further information on the Google Analytics Opt-out Browser Add-on is provided below for your convenience. <a href="http://tools.google.com/dlpage/gaoptout?hl=None" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">http://tools.google.com/dlpage/gaoptout?hl=None</a></p>
+            <p className="mt-2">For more information on the usage of cookies by Google Analytics please see the Google website. A link to the privacy advice for this product is provided below for your convenience. <a href="http://www.google.com/analytics/learn/privacy.html" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">http://www.google.com/analytics/learn/privacy.html</a></p>
+        </div>
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">Disabling Cookies</h3>
+            <p>If you would like to restrict the use of cookies you can control this in your Internet browser. Links to advice on how to do this for the most popular Internet browsers are provided below for convenience and will be available for the Internet browser of your choice either online or via the software help (normally available via key F1).</p>
+        </div>
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">Contact & Communication</h3>
+            <p>Users contacting this website and/or its owners do so at their own discretion and provide any such personal details requested at their own risk. Your personal information is kept private and stored securely until a time it is no longer required or has no use, as detailed in the Data Protection Regulation. Every effort has been made to ensure a safe and secure form to email submission process but advise users using such form to email processes that they do so at their own risk. This website and its owners use any information submitted to provide you with further information about the products / services they offer or to assist you in answering any questions or queries you may have submitted. This includes using your details to subscribe you to any email newsletter program the website operates but only if this was made clear to you and your express permission was granted when submitting any form to email process. Or whereby you the consumer have previously purchased from or enquired about purchasing from the company a product or service that the email newsletter relates to. This is by no means an entire list of your user rights in regard to receiving email marketing material. Your details are not passed on to any third parties.</p>
+        </div>
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">External Links</h3>
+            <p>Although this website only looks to include quality, safe and relevant external links, users are advised adopt a policy of caution before clicking any external web links mentioned throughout this website.</p>
+            <p className="mt-2">The owners of this website cannot guarantee or verify the contents of any externally linked website despite their best efforts. Users should therefore note they click on external links at their own risk and this website and its owners cannot be held liable for any damages or implications caused by visiting any external links mentioned.</p>
+        </div>
+         <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">Social Media Platforms</h3>
+            <p>Communication, engagement and actions taken through external social media platforms that this website and its owners participate on are custom to the terms and conditions as well as the privacy policies held with each social media platform respectively.</p>
+            <p className="mt-2">Users are advised to use social media platforms wisely and communicate / engage upon them with due care and caution in regard to their own privacy and personal details. This website nor its owners will ever ask for personal or sensitive information through social media platforms and encourage users wishing to discuss sensitive details to contact them through primary communication channels such as by telephone or email.</p>
+            <p className="mt-2">This website may use social sharing buttons which help share web content directly from web pages to the social media platform in question. Users are advised before using such social sharing buttons that they do so at their own discretion and note that the social media platform may track and save your request to share a web page respectively through your social media platform account.</p>
+        </div>
+         <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">Shortened Links in Social Media</h3>
+            <p>This website and its owners through their social media platform accounts may share web links to relevant web pages.</p>
+            <p className="mt-2">Users are advised to take caution and good judgement before clicking any shortened URLs published on social media platforms by this website and its owners. Despite the best efforts to ensure only genuine URLs are published many social media platforms are prone to spam and hacking and therefore this website and its owners cannot be held liable for any damages or implications caused by visiting any shortened links.</p>
         </div>
     </div>
 );
