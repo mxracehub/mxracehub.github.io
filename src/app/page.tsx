@@ -198,7 +198,7 @@ export default function DashboardPage() {
               data-ai-hint={raceDayBanner.imageHint}
             />
           )}
-          <div className="absolute inset-x-0 bottom-0 bg-blue-700/90 p-2 text-white md:p-4">
+          <div className="absolute inset-x-0 bottom-0 bg-blue-700/90 p-2 md:p-4">
             <h3 className="text-3xl font-bold">Make Race Day More Exciting</h3>
             <p className="mb-4 mt-2 max-w-md text-white/90">
               Join playing with friends and play with your favorite riders prediction.
