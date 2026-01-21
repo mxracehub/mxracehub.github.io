@@ -27,15 +27,15 @@ const steps = [
   },
   {
     icon: <Coins className="h-8 w-8 text-yellow-500" />,
-    title: 'Bet on Races with Gold Coins',
-    description: "Use Gold Coins (GC) to place bets against your friends on upcoming Supercross and Motocross races. Select a race, choose a friend to bet against, set the amount, and confirm. Gold Coins can be purchased from the bank.",
+    title: 'Play on Races with Gold Coins',
+    description: "Use Gold Coins (GC) to place plays against your friends on upcoming Supercross and Motocross races. Select a race, choose a friend to play against, set the amount, and confirm. Gold Coins can be purchased from the bank.",
     link: '/betting',
-    linkText: 'Place a Bet',
+    linkText: 'Place a Play',
   },
   {
     icon: <Trophy className="h-8 w-8 text-amber-400" />,
     title: 'Win Sweeps Coins',
-    description: "Winning bets and participating in promotional games can earn you Sweeps Coins (SC). These are your key to winning real prizes. All Sweeps Coin winnings have a 1x playthrough requirement before they can be redeemed.",
+    description: "Winning plays and participating in promotional games can earn you Sweeps Coins (SC). These are your key to winning real prizes. All Sweeps Coin winnings have a 1x playthrough requirement before they can be redeemed.",
     link: '/account',
     linkText: 'View Balances',
   },
@@ -53,7 +53,7 @@ export default function HowItWorksPage() {
     <div className="max-w-3xl mx-auto">
       <PageHeader
         title="How MxRaceHub Works"
-        description="Your step-by-step guide to signing up, betting, and winning."
+        description="Your step-by-step guide to signing up, playing, and winning."
       />
       <div className="space-y-8">
         {steps.map((step, index) => (

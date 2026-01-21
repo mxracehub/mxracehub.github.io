@@ -147,7 +147,7 @@ export default function DashboardPage() {
           </Button>
           <Button variant="secondary" size="lg" asChild>
             <Link href="/betting">
-                <Star className="mr-2 h-4 w-4" /> Betting
+                <Star className="mr-2 h-4 w-4" /> Play
             </Link>
           </Button>
         </div>
@@ -182,7 +182,7 @@ export default function DashboardPage() {
           className="rounded-full bg-red-600 px-12 py-6 text-lg font-bold text-white hover:bg-red-700"
           asChild
         >
-          <Link href="/betting">Bet Next Race</Link>
+          <Link href="/betting">Play Next Race</Link>
         </Button>
       </div>
 
@@ -201,22 +201,22 @@ export default function DashboardPage() {
           <div className="absolute inset-x-0 bottom-0 bg-blue-700/90 p-6 text-white">
             <h3 className="text-3xl font-bold">Make Race Day More Exciting</h3>
             <p className="mb-4 mt-2 max-w-md text-white/90">
-              Join betting with friends and place bets on your favorite riders.
-              No Fee for bets or gold coins
+              Join playing with friends and place plays on your favorite riders.
+              No Fee for plays or gold coins
             </p>
             <div className="flex gap-4">
               <Button className="bg-red-600 text-white hover:bg-red-700" asChild>
                 <Link href="/register">Sign Up</Link>
               </Button>
               <Button className="bg-red-600 text-white hover:bg-red-700" asChild>
-                <Link href="/betting">Place Bet</Link>
+                <Link href="/betting">Place Play</Link>
               </Button>
             </div>
           </div>
         </div>
         <div className="p-8 text-center">
           <h3 className="text-xl font-bold uppercase tracking-wider">
-            The Ultimate Motorcross & Supercross Betting Platform
+            The Ultimate Motorcross & Supercross Playing Platform
           </h3>
           <p className="mt-2 text-muted-foreground">
             Professional riders - Automated payouts - Real time standings
@@ -226,7 +226,7 @@ export default function DashboardPage() {
               <Link href="/races">Race Schedule</Link>
             </Button>
             <Button variant="outline" className="border-2 font-bold" asChild>
-                <Link href="/betting">Place Bets</Link>
+                <Link href="/betting">Place Plays</Link>
             </Button>
             <Button className="bg-blue-600 text-white hover:bg-blue-700" asChild>
               <Link href="/riders">View Riders</Link>
@@ -237,5 +237,3 @@ export default function DashboardPage() {
     </div>
   );
 }
-
-    

@@ -24,7 +24,7 @@ function FriendsPageSkeleton() {
         <div className="max-w-4xl mx-auto">
             <PageHeader
                 title="Find and Make Friends"
-                description="Search for friends, manage your connections, and start betting."
+                description="Search for friends, manage your connections, and start playing."
             />
             <div className="mb-8 flex gap-4">
                 <Skeleton className="h-10 flex-1" />
@@ -173,7 +173,7 @@ export default function FriendsPage() {
     <div className="max-w-4xl mx-auto">
       <PageHeader
         title="Find and Make Friends"
-        description="Search for friends, manage your connections, and start betting."
+        description="Search for friends, manage your connections, and start playing."
       />
       <div className="mb-8 flex gap-4">
         <div className="relative flex-1">
@@ -209,14 +209,14 @@ export default function FriendsPage() {
                         <p className="text-sm text-muted-foreground">@{friend.username}</p>
                         <div className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
                             <p><strong>Rider's #</strong> {friend.riderNumber || 'N/A'}</p>
-                            <p><strong>Bet Wins:</strong> {friend.betHistory.filter(b => b.status === 'Won').length}</p>
+                            <p><strong>Play Wins:</strong> {friend.playHistory.filter(b => b.status === 'Won').length}</p>
                             <p><strong>Standings:</strong> {friend.mxhubStanding || 'N/A'}</p>
                         </div>
                     </div>
                     <div className="flex flex-col items-center gap-2">
-                        <p className="text-sm font-medium text-center">Bet with this Friend Next Race</p>
+                        <p className="text-sm font-medium text-center">Play with this Friend Next Race</p>
                         <Button asChild className="w-full sm:w-auto bg-red-600 hover:bg-red-700">
-                            <Link href="/betting">Bet Next Race</Link>
+                            <Link href="/betting">Play Next Race</Link>
                         </Button>
                     </div>
                 </CardContent>

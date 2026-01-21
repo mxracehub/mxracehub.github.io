@@ -143,7 +143,7 @@ export default function PlayoffsPage() {
                   <p className="font-bold">{race.location}</p>
                   <p className="text-sm text-muted-foreground">{race.date}</p>
                   <Button asChild className="mt-4 w-full">
-                    <Link href={`/races/${race.id}/results`}>Bet on this race</Link>
+                    <Link href="/betting">Play on this race</Link>
                   </Button>
                 </CardContent>
               </Card>

@@ -1,9 +1,9 @@
 
-export type Bet = {
+export type Play = {
     id: string;
     race: string;
     raceId: string; // To link to results page
-    betType: 'Race Winner' | 'Holeshot' | 'Championship Winner';
+    playType: 'Race Winner' | 'Holeshot' | 'Championship Winner';
     raceType?: 'Main Event' | 'Heat 1' | 'Heat 2' | 'Heat 3'; // For heats/main
     opponent: string; // opponent's username
     opponentId: string;
@@ -11,8 +11,8 @@ export type Bet = {
     amount: number;
     coinType: 'Gold Coins' | 'Sweeps Coins';
     status: 'Won' | 'Lost' | 'Pending';
-    userRider: string; // Name of rider or manufacturer the user bet on
-    opponentRider: string; // Name of rider or manufacturer the opponent bet on
+    userRider: string; // Name of rider or manufacturer the user played on
+    opponentRider: string; // Name of rider or manufacturer the opponent played on
 };
 
 export type ExchangeRequest = {
@@ -36,7 +36,7 @@ export type Account = {
         gold: number;
         sweeps: number;
     };
-    betHistory: Bet[];
+    playHistory: Play[];
     friendIds?: string[];
     riderNumber?: string;
     mxhubStanding?: number;

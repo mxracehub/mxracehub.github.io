@@ -5,10 +5,10 @@ This is your all-in-one platform for everything related to motocross and supercr
 ## What can you do with Mxracehub?
 
 *   **Follow the Action:** Get schedules for all the major Supercross and Motocross races. See who's racing in the 450cc and 250cc classes and learn more about your favorite riders.
-*   **Bet with Friends:** Make race day more exciting by placing friendly bets against your friends on upcoming races.
-*   **Manage Your Account:** Create a profile, find and add friends, and track your betting history.
+*   **Play with Friends:** Make race day more exciting by placing friendly plays against your friends on upcoming races.
+*   **Manage Your Account:** Create a profile, find and add friends, and track your play history.
 *   **Use Digital Coins:**
-    *   **Gold Coins (GC):** Purchase Gold Coins to use for fun bets on the platform. You can exchange them back to your original payment method anytime.
+    *   **Gold Coins (GC):** Purchase Gold Coins to use for fun plays on the platform. You can exchange them back to your original payment method anytime.
     *   **Sweeps Coins (SC):** Win Sweeps Coins through promotional games. These can be redeemed for real prizes.
 *   **Secure Banking:** We use Plaid, a trusted service, to securely link your bank account for exchanges, ensuring your financial information is always safe.
 

@@ -19,7 +19,7 @@ import { Button } from '@/components/ui/button';
 import { Coins, Trophy, Users, Settings, Hash, Facebook, Instagram, RefreshCw, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { Skeleton } from '@/components/ui/skeleton';
-import type { Account, Bet } from '@/lib/types';
+import type { Account, Play } from '@/lib/types';
 import { updateAccount, getRaceResults } from '@/lib/firebase-config';
 import { useToast } from '@/hooks/use-toast';
 import { getManufacturersPoints } from '@/lib/manufacturers-points-service';
@@ -28,7 +28,7 @@ import { getManufacturersPoints } from '@/lib/manufacturers-points-service';
 function AccountPageSkeleton() {
     return (
         <div>
-            <PageHeader title="My Account" description="View your profile, balances, and betting history."/>
+            <PageHeader title="My Account" description="View your profile, balances, and playing history."/>
             <div className="grid gap-8 md:grid-cols-3">
                 <div className="md:col-span-1 space-y-4">
                     <Card>
@@ -68,11 +68,11 @@ function AccountPageSkeleton() {
     )
 }
 
-const SocialShareButtons = ({ bet, account }: { bet: Bet; account: Account }) => {
-    if (bet.status === 'Pending') return null;
+const SocialShareButtons = ({ play, account }: { play: Play; account: Account }) => {
+    if (play.status === 'Pending') return null;
 
-    const outcome = bet.status === 'Won' ? 'won' : 'lost';
-    const text = `I just ${outcome} a bet of ${bet.amount} ${bet.coinType} against @${bet.opponent} on the ${bet.race} at #MxRaceHub!`;
+    const outcome = play.status === 'Won' ? 'won' : 'lost';
+    const text = `I just ${outcome} a play of ${play.amount} ${play.coinType} against @${play.opponent} on the ${play.race} at #MxRaceHub!`;
     const url = 'https://www.mxracehub.site';
 
     const handleFacebookShare = () => {
@@ -84,7 +84,7 @@ const SocialShareButtons = ({ bet, account }: { bet: Bet; account: Account }) =>
     // The best we can do is inform the user to share manually.
     const handleInstagramShare = () => {
         navigator.clipboard.writeText(text);
-        alert('Your bet result has been copied to your clipboard. Paste it into your next Instagram story or post!');
+        alert('Your play result has been copied to your clipboard. Paste it into your next Instagram story or post!');
     };
 
     return (
@@ -106,7 +106,7 @@ export default function AccountPage() {
   const { user, isLoading: isUserLoading } = useUser();
   const { data: initialAccount, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---', { listen: true });
   const [account, setAccount] = useState<Account | null>(null);
-  const [settlingBets, setSettlingBets] = useState<Record<string, boolean>>({});
+  const [settlingPlays, setSettlingPlays] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     if (initialAccount) {
@@ -124,66 +124,66 @@ export default function AccountPage() {
 
   useEffect(() => {
     if (account) {
-        const pendingBets = account.betHistory.filter(b => b.status === 'Pending' && new Date(b.date) < new Date());
-        if (pendingBets.length > 0) {
-            settlePendingBets(pendingBets);
+        const pendingPlays = account.playHistory.filter(b => b.status === 'Pending' && new Date(b.date) < new Date());
+        if (pendingPlays.length > 0) {
+            settlePendingPlays(pendingPlays);
         }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [account]);
 
-  const settlePendingBets = async (betsToSettle: Bet[]) => {
+  const settlePendingPlays = async (playsToSettle: Play[]) => {
       if (!account) return;
 
       let tempAccount = { ...account };
-      let updatedBetHistory = [...account.betHistory];
+      let updatedPlayHistory = [...account.playHistory];
       let balancesChanged = false;
       
       const newSettlingState: Record<string, boolean> = {};
-      betsToSettle.forEach(b => newSettlingState[b.id] = true);
-      setSettlingBets(prev => ({...prev, ...newSettlingState}));
+      playsToSettle.forEach(b => newSettlingState[b.id] = true);
+      setSettlingPlays(prev => ({...prev, ...newSettlingState}));
 
-      for (const bet of betsToSettle) {
+      for (const play of playsToSettle) {
           try {
               let userWon = false;
-              let betSettled = false;
+              let playSettled = false;
 
-              if (bet.betType === 'Championship Winner') {
+              if (play.playType === 'Championship Winner') {
                   const manufacturerStandings = getManufacturersPoints();
                   if (manufacturerStandings.length > 0) {
                       const winner = manufacturerStandings[0].manufacturer;
-                      userWon = winner === bet.userRider;
-                      betSettled = true;
+                      userWon = winner === play.userRider;
+                      playSettled = true;
                   }
-              } else if (bet.raceType) {
-                  const results = await getRaceResults(bet.raceId, bet.raceType);
+              } else if (play.raceType) {
+                  const results = await getRaceResults(play.raceId, play.raceType);
                   if (!results) continue; // Race results not available yet
 
-                  if (bet.betType === 'Race Winner') {
-                      const userRiderResult = results.find(r => r.rider === bet.userRider);
-                      const opponentRiderResult = results.find(r => r.rider === bet.opponentRider);
+                  if (play.playType === 'Race Winner') {
+                      const userRiderResult = results.find(r => r.rider === play.userRider);
+                      const opponentRiderResult = results.find(r => r.rider === play.opponentRider);
 
                       const userPosition = userRiderResult ? userRiderResult.pos : Infinity;
                       const opponentPosition = opponentRiderResult ? opponentRiderResult.pos : Infinity;
                       userWon = userPosition < opponentPosition;
-                      betSettled = true;
-                  } else if (bet.betType === 'Holeshot') {
+                      playSettled = true;
+                  } else if (play.playType === 'Holeshot') {
                       const holeshotRider = results.find(r => r.holeshot);
-                      userWon = !!holeshotRider && holeshotRider.rider === bet.userRider;
-                      betSettled = true;
+                      userWon = !!holeshotRider && holeshotRider.rider === play.userRider;
+                      playSettled = true;
                   }
               }
               
-              if (betSettled) {
+              if (playSettled) {
                 const newStatus = userWon ? 'Won' : 'Lost';
-                const betIndex = updatedBetHistory.findIndex(b => b.id === bet.id);
+                const playIndex = updatedPlayHistory.findIndex(b => b.id === play.id);
 
-                if (betIndex !== -1 && updatedBetHistory[betIndex].status === 'Pending') {
-                    updatedBetHistory[betIndex] = { ...updatedBetHistory[betIndex], status: newStatus };
+                if (playIndex !== -1 && updatedPlayHistory[playIndex].status === 'Pending') {
+                    updatedPlayHistory[playIndex] = { ...updatedPlayHistory[playIndex], status: newStatus };
                     
                     if (userWon) {
-                        const winnings = bet.amount * 2;
-                        if (bet.coinType === 'Gold Coins') {
+                        const winnings = play.amount * 2;
+                        if (play.coinType === 'Gold Coins') {
                             tempAccount.balances.gold += winnings;
                         } else {
                             tempAccount.balances.sweeps += winnings;
@@ -191,27 +191,27 @@ export default function AccountPage() {
                         balancesChanged = true;
                     }
                     toast({
-                        title: `Bet Settled: You ${newStatus}!`,
-                        description: `Your bet on ${bet.race} has been settled.`,
+                        title: `Play Settled: You ${newStatus}!`,
+                        description: `Your play on ${play.race} has been settled.`,
                         variant: userWon ? "default" : "destructive"
                     });
                 }
               }
 
           } catch (error) {
-              console.error(`Failed to settle bet ${bet.id}:`, error);
+              console.error(`Failed to settle play ${play.id}:`, error);
           }
       }
 
       const finalAccountUpdate = {
-          betHistory: updatedBetHistory,
+          playHistory: updatedPlayHistory,
           ...(balancesChanged && { balances: tempAccount.balances })
       };
       
-      if (JSON.stringify(finalAccountUpdate.betHistory) !== JSON.stringify(account.betHistory) || balancesChanged) {
+      if (JSON.stringify(finalAccountUpdate.playHistory) !== JSON.stringify(account.playHistory) || balancesChanged) {
         await updateAccount(account.id, finalAccountUpdate);
       }
-      setSettlingBets({});
+      setSettlingPlays({});
   };
 
 
@@ -225,14 +225,14 @@ export default function AccountPage() {
     return <div>Could not load account details. Please try again later.</div>;
   }
 
-  const sortedBetHistory = [...(account?.betHistory || [])].sort((a,b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const sortedPlayHistory = [...(account?.playHistory || [])].sort((a,b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 
   return (
     <div>
       <PageHeader
         title="My Account"
-        description="View your profile, balances, and betting history."
+        description="View your profile, balances, and playing history."
       >
         <div className="absolute top-0 right-0 mt-4 mr-4">
             <Button asChild variant="outline">
@@ -290,30 +290,30 @@ export default function AccountPage() {
         <div className="md:col-span-2">
           <Card>
             <CardHeader>
-              <CardTitle className="flex items-center gap-2"><Trophy /> Betting History</CardTitle>
+              <CardTitle className="flex items-center gap-2"><Trophy /> Playing History</CardTitle>
             </CardHeader>
             <CardContent>
-              {sortedBetHistory.length > 0 ? (
+              {sortedPlayHistory.length > 0 ? (
                 <ul className="space-y-4">
-                  {sortedBetHistory.map((bet) => (
-                    <li key={bet.id} className="flex flex-col sm:flex-row items-start sm:items-center justify-between rounded-md border p-4 gap-4">
+                  {sortedPlayHistory.map((play) => (
+                    <li key={play.id} className="flex flex-col sm:flex-row items-start sm:items-center justify-between rounded-md border p-4 gap-4">
                       <div className="flex-1">
-                        <p className="font-semibold">{bet.race} - {bet.betType}</p>
+                        <p className="font-semibold">{play.race} - {play.playType}</p>
                         <p className="text-sm text-muted-foreground">
-                          Bet against @{bet.opponent} - {bet.date}
+                          Play against @{play.opponent} - {play.date}
                         </p>
                         <div className="text-xs mt-2 space-y-1">
-                            <p><strong>Your Pick:</strong> {bet.userRider}</p>
-                            <p><strong>Friend's Pick:</strong> {bet.opponentRider}</p>
+                            <p><strong>Your Pick:</strong> {play.userRider}</p>
+                            <p><strong>Friend's Pick:</strong> {play.opponentRider}</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-4">
-                        <div className={`text-right ${bet.status === 'Won' ? 'text-green-500' : bet.status === 'Lost' ? 'text-red-500' : ''}`}>
-                            <p className="font-bold">{bet.status}</p>
-                            <p className="text-sm">{bet.amount} {bet.coinType}</p>
-                            <SocialShareButtons bet={bet} account={account} />
+                        <div className={`text-right ${play.status === 'Won' ? 'text-green-500' : play.status === 'Lost' ? 'text-red-500' : ''}`}>
+                            <p className="font-bold">{play.status}</p>
+                            <p className="text-sm">{play.amount} {play.coinType}</p>
+                            <SocialShareButtons play={play} account={account} />
                         </div>
-                        {bet.status === 'Pending' && settlingBets[bet.id] && (
+                        {play.status === 'Pending' && settlingPlays[play.id] && (
                             <div className="flex items-center justify-center w-12">
                                 <Loader2 className="h-4 w-4 animate-spin"/>
                             </div>
@@ -324,8 +324,8 @@ export default function AccountPage() {
                 </ul>
               ) : (
                 <div className="py-10 text-center text-muted-foreground">
-                  <p>You haven't placed any bets yet.</p>
-                  <Button variant="link" asChild><Link href="/betting">Place your first bet</Link></Button>
+                  <p>You haven't placed any plays yet.</p>
+                  <Button variant="link" asChild><Link href="/betting">Place your first play</Link></Button>
                 </div>
               )}
             </CardContent>

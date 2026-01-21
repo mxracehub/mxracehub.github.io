@@ -42,10 +42,10 @@
             }
           }
         },
-        "betHistory": {
+        "playHistory": {
           "type": "array",
           "items": {
-            "$ref": "#/entities/Bet"
+            "$ref": "#/entities/Play"
           }
         },
         "friendIds": {
@@ -67,15 +67,15 @@
       },
       "required": ["name", "username", "email", "balances"]
     },
-    "Bet": {
-      "title": "Bet",
-      "description": "Represents a bet made by a user.",
+    "Play": {
+      "title": "Play",
+      "description": "Represents a play made by a user.",
       "type": "object",
       "properties": {
         "id": { "type": "string" },
         "race": { "type": "string" },
         "raceId": { "type": "string" },
-        "betType": {
+        "playType": {
           "type": "string",
           "enum": ["Race Winner", "Holeshot", "Championship Winner"]
         },

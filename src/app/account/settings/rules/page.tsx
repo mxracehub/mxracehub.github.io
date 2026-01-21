@@ -12,9 +12,9 @@ export default function RulesPage() {
       <Card>
         <CardContent className="p-6 space-y-6">
           <div>
-            <h3 className="text-xl font-bold mb-2">Bets</h3>
+            <h3 className="text-xl font-bold mb-2">Plays</h3>
             <p className="text-muted-foreground">
-              When betting with a friend all bets are final. Winning bets will take all GC for SC win. SC need bet at least once before exchange.
+              When playing with a friend all plays are final. Winning plays will take all GC for SC win. SC need be played at least once before exchange.
             </p>
           </div>
           <div>

@@ -17,7 +17,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { motocrossRaces } from '@/lib/races-motocross-data';
 import { supercrossRaces } from '@/lib/races-supercross-data';
 import { getFriends, updateAccount } from '@/lib/firebase-config';
-import type { Account, Bet } from '@/lib/types';
+import type { Account, Play } from '@/lib/types';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
 import { useUser, useDoc } from '@/firebase';
@@ -43,8 +43,8 @@ function BettingPageSkeleton() {
     return (
         <div className="mx-auto max-w-2xl">
             <PageHeader
-                title="Bet"
-                description="Find friends, select a race, and place your bet."
+                title="Play"
+                description="Find friends, select a race, and place your play."
             />
             <Card>
                 <CardContent className="space-y-8 pt-6">
@@ -86,7 +86,7 @@ export default function BettingPage() {
   const { user, isLoading: isUserLoading } = useUser();
   const { data: currentUser, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
 
-  const [betAmount, setBetAmount] = useState('');
+  const [playAmount, setPlayAmount] = useState('');
   const [coinType, setCoinType] = useState('gold');
   const [raceSearch, setRaceSearch] = useState('');
   const [selectedRace, setSelectedRace] = useState<typeof allRaces[0] | null>(null);
@@ -96,7 +96,7 @@ export default function BettingPage() {
   const [isLoadingFriends, setIsLoadingFriends] = useState(true);
   const [userRider, setUserRider] = useState('');
   const [opponentRider, setOpponentRider] = useState('');
-  const [betType, setBetType] = useState<'Race Winner' | 'Holeshot'>('Race Winner');
+  const [playType, setPlayType] = useState<'Race Winner' | 'Holeshot'>('Race Winner');
   const [raceType, setRaceType] = useState<'Main Event' | 'Heat 1' | 'Heat 2' | 'Heat 3'>('Main Event');
   const [isSubmitting, setIsSubmitting] = useState(false);
   
@@ -146,21 +146,21 @@ export default function BettingPage() {
       setFriendSearch('');
   }
   
-  const handlePlaceBet = async () => {
+  const handlePlacePlay = async () => {
     setIsSubmitting(true);
     if (!currentUser || !user) {
-        toast({ title: "Please sign in", description: "You need to be signed in to place a bet.", variant: "destructive" });
+        toast({ title: "Please sign in", description: "You need to be signed in to place a play.", variant: "destructive" });
         router.push('/sign-in');
         setIsSubmitting(false);
         return;
     }
     if (!selectedFriend) {
-        toast({ title: "No friend selected", description: "Please select a friend to bet against.", variant: "destructive" });
+        toast({ title: "No friend selected", description: "Please select a friend to play against.", variant: "destructive" });
         setIsSubmitting(false);
         return;
     }
     if (!selectedRace) {
-        toast({ title: "No race selected", description: "Please select a race to bet on.", variant: "destructive" });
+        toast({ title: "No race selected", description: "Please select a race to play on.", variant: "destructive" });
         setIsSubmitting(false);
         return;
     }
@@ -174,9 +174,9 @@ export default function BettingPage() {
         setIsSubmitting(false);
         return;
     }
-    const amount = Number(betAmount);
+    const amount = Number(playAmount);
     if (!amount || amount < 100) {
-        toast({ title: "Invalid Amount", description: "The minimum bet amount is 100 coins.", variant: "destructive" });
+        toast({ title: "Invalid Amount", description: "The minimum play amount is 100 coins.", variant: "destructive" });
         setIsSubmitting(false);
         return;
     }
@@ -188,12 +188,12 @@ export default function BettingPage() {
         return;
     }
     
-    // Create new bet object
-    const newBet: Bet = {
+    // Create new play object
+    const newPlay: Play = {
         id: `${new Date().getTime()}-${user.uid}`,
         race: selectedRace.name,
         raceId: selectedRace.id,
-        betType,
+        playType,
         raceType,
         opponent: selectedFriend.username,
         opponentId: selectedFriend.id,
@@ -214,20 +214,20 @@ export default function BettingPage() {
     // Update Firestore
     try {
         await updateAccount(currentUser.id, {
-            betHistory: [...currentUser.betHistory, newBet],
+            playHistory: [...currentUser.playHistory, newPlay],
             balances: newUserBalance,
         });
 
         toast({
-            title: "Bet Placed!",
-            description: `Your bet against @${selectedFriend.username} has been placed.`,
+            title: "Play Placed!",
+            description: `Your play against @${selectedFriend.username} has been placed.`,
         });
 
         router.push('/account');
 
     } catch (error) {
-        console.error("Failed to place bet:", error);
-        toast({ title: "Error", description: "Failed to place bet. Please try again.", variant: "destructive" });
+        console.error("Failed to place play:", error);
+        toast({ title: "Error", description: "Failed to place play. Please try again.", variant: "destructive" });
     } finally {
         setIsSubmitting(false);
     }
@@ -242,8 +242,8 @@ export default function BettingPage() {
   return (
     <div className="mx-auto max-w-2xl">
       <PageHeader
-        title="Bet"
-        description="Find friends, select a race, and place your bet."
+        title="Play"
+        description="Find friends, select a race, and place your play."
       />
       <Card>
         <CardContent className="space-y-8 pt-6">
@@ -325,12 +325,12 @@ export default function BettingPage() {
           </div>
 
           <div className="space-y-4 rounded-lg border bg-background p-4">
-             <Label className="flex items-center gap-2 text-lg font-semibold"><Coins className="h-5 w-5" />Make a Bet</Label>
+             <Label className="flex items-center gap-2 text-lg font-semibold"><Coins className="h-5 w-5" />Make a Play</Label>
 
              <div className="grid grid-cols-2 gap-4">
                  <div className="space-y-2">
-                    <Label>Bet Type</Label>
-                    <Select onValueChange={(v) => setBetType(v as any)} value={betType} disabled={isSubmitting}>
+                    <Label>Play Type</Label>
+                    <Select onValueChange={(v) => setPlayType(v as any)} value={playType} disabled={isSubmitting}>
                         <SelectTrigger><SelectValue /></SelectTrigger>
                         <SelectContent>
                             <SelectItem value="Race Winner">Race Winner</SelectItem>
@@ -379,13 +379,13 @@ export default function BettingPage() {
                 </Select>
             </div>
             <div className="space-y-2">
-                <Label htmlFor="bet-amount">Bet Amount</Label>
+                <Label htmlFor="play-amount">Play Amount</Label>
                 <Input
-                id="bet-amount"
+                id="play-amount"
                 type="number"
                 placeholder="Minimum 100 coins"
-                value={betAmount}
-                onChange={(e) => setBetAmount(e.target.value)}
+                value={playAmount}
+                onChange={(e) => setPlayAmount(e.target.value)}
                 disabled={isSubmitting}
                 />
             </div>
@@ -409,13 +409,13 @@ export default function BettingPage() {
 
         </CardContent>
         <CardFooter className="flex flex-col gap-4">
-            <Button size="lg" className="w-full" onClick={handlePlaceBet} disabled={isSubmitting}>
-                {isSubmitting ? <Loader2 className="animate-spin" /> : "Place Bet"}
+            <Button size="lg" className="w-full" onClick={handlePlacePlay} disabled={isSubmitting}>
+                {isSubmitting ? <Loader2 className="animate-spin" /> : "Place Play"}
             </Button>
              <Button size="lg" className="w-full" variant="outline" asChild>
                 <Link href="/betting/parlay">
                     <Layers className="mr-2 h-4 w-4" />
-                    Create Parlay Bet
+                    Create Parlay Play
                 </Link>
             </Button>
         </CardFooter>

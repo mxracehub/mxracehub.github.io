@@ -30,9 +30,9 @@ export default function PoliciesPage() {
             </p>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-2 text-card-foreground">Betting Rules</h3>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">Playing Rules</h3>
             <p>
-              When betting with a friend, all bets are final. Winning bets will take all Gold Coins (GC) or Sweeps Coins (SC) for the win. Sweeps Coins (SC) must be bet at least once before being eligible for exchange.
+              When playing with a friend, all plays are final. Winning plays will take all Gold Coins (GC) or Sweeps Coins (SC) for the win. Sweeps Coins (SC) must be played at least once before being eligible for exchange.
             </p>
           </div>
           <div>
@@ -56,7 +56,7 @@ export default function PoliciesPage() {
           <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">Terms of Service</h3>
             <p>
-              By using MxHub Exchange Duo, you agree to our terms of service. All bets placed are final. Users must be of legal age in their jurisdiction to participate. We reserve the right to suspend accounts for any fraudulent activity.
+              By using MxHub Exchange Duo, you agree to our terms of service. All plays placed are final. Users must be of legal age in their jurisdiction to participate. We reserve the right to suspend accounts for any fraudulent activity.
             </p>
           </div>
           <div>

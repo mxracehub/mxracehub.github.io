@@ -8,23 +8,23 @@ import Link from 'next/link';
 export default function BetConfirmationPage() {
   return (
     <div className="mx-auto max-w-lg text-center">
-      <PageHeader title="Bet Confirmed!" />
+      <PageHeader title="Play Confirmed!" />
       <Card>
         <CardHeader>
             <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
                 <CheckCircle className="h-10 w-10 text-green-600" />
             </div>
-          <CardTitle className="mt-4">Your Bet has been Placed</CardTitle>
+          <CardTitle className="mt-4">Your Play has been Placed</CardTitle>
           <CardDescription>
             You will be notified of the outcome after the race is complete. Good luck!
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="rounded-lg border bg-muted/50 p-4 text-left">
-            <h3 className="font-semibold">Bet Summary</h3>
+            <h3 className="font-semibold">Play Summary</h3>
             <div className="mt-2 space-y-1 text-sm text-muted-foreground">
               <p><strong>Race:</strong> Thunder Valley National</p>
-              <p><strong>Bet Amount:</strong> 100 Gold Coins</p>
+              <p><strong>Play Amount:</strong> 100 Gold Coins</p>
               <p><strong>Friend:</strong> @motofan99</p>
             </div>
           </div>
@@ -38,7 +38,7 @@ export default function BetConfirmationPage() {
             <Button asChild className="flex-1">
               <Link href="/betting">
                 <Repeat className="mr-2 h-4 w-4" />
-                Place Another Bet
+                Place Another Play
               </Link>
             </Button>
           </div>

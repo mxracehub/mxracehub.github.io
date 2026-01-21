@@ -7,7 +7,8 @@ const footerNavLinks = [
   { href: '/races', label: 'Races' },
   { href: '/riders', label: 'Riders' },
   { href: '/standings', label: 'Standings' },
-  { href: '/betting', label: 'Betting' },
+  { href: '/betting', label: 'Play' },
+  { href: '/friends', label: 'Friends' },
   { href: '/account', label: 'Account' },
   { href: '/policies', label: 'Policies' },
   { href: '/contact', label: 'Contact' },
@@ -75,7 +76,7 @@ export function Footer() {
                       <li>1. Sign-up <span className="text-muted-foreground">(FREE)</span></li>
                       <li>2. Get Gold Coins <span className="text-muted-foreground">(FREE)</span></li>
                       <li>3. Make Friends <span className="text-muted-foreground">(FREE)</span></li>
-                      <li>4. Place Bet <span className="text-muted-foreground">(FREE)</span></li>
+                      <li>4. Place Play <span className="text-muted-foreground">(FREE)</span></li>
                       <li>5. Win Sweeps Coins <span className="text-muted-foreground">(FREE)</span></li>
                       <li>6. Exchange for Money <span className="text-muted-foreground">(2% Processing)</span></li>
                   </ul>

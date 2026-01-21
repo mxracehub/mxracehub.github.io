@@ -65,9 +65,9 @@ export default function PrivacyPage() {
 
           <div className="flex items-center justify-between">
             <div>
-              <h4 className="font-medium">Betting activity visibility</h4>
+              <h4 className="font-medium">Play activity visibility</h4>
               <p className="text-sm text-muted-foreground">
-                Control who can see your betting activity.
+                Control who can see your play activity.
               </p>
             </div>
             <Select
