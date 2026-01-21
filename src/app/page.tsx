@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
@@ -198,7 +197,7 @@ export default function DashboardPage() {
               data-ai-hint={raceDayBanner.imageHint}
             />
           )}
-          <div className="absolute inset-x-0 bottom-0 bg-blue-700/90 p-6 text-white">
+          <div className="absolute inset-x-0 bottom-0 bg-blue-700/90 p-4 text-white">
             <h3 className="text-3xl font-bold">Make Race Day More Exciting</h3>
             <p className="mb-4 mt-2 max-w-md text-white/90">
               Join playing with friends and place plays on your favorite riders.
