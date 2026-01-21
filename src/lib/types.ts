@@ -53,4 +53,5 @@ export type Account = {
     mxhubStanding?: number;
     isAdmin?: boolean;
     lastTriviaPlayed?: string;
+    playedTriviaIds?: number[];
 };

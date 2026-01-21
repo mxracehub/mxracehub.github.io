@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect, useMemo, useCallback } from 'react';
@@ -35,7 +36,7 @@ const REWARD_AMOUNT = 300;
 
 export function TriviaGame({ userAccount, onGameEnd }: TriviaGameProps) {
   const { toast } = useToast();
-  const [questions, setQuestions] = useState<TriviaQuestion[]>([]);
+  const [sessionQuestions, setSessionQuestions] = useState<TriviaQuestion[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [timeLeft, setTimeLeft] = useState(QUESTION_TIME);
   const [score, setScore] = useState(0);
@@ -46,8 +47,17 @@ export function TriviaGame({ userAccount, onGameEnd }: TriviaGameProps) {
   const [isDisqualified, setIsDisqualified] = useState(false);
 
   useEffect(() => {
-    // Select a random subset of questions when the component mounts
-    setQuestions(shuffleAndTake(triviaQuestions, NUM_QUESTIONS));
+    // Filter out questions that have already been played.
+    const playedIds = userAccount.playedTriviaIds || [];
+    let availableQuestions = triviaQuestions.filter(q => !playedIds.includes(q.id));
+
+    // If the user has played all available questions, reset their progress.
+    // They can play again from the full pool.
+    if (availableQuestions.length < NUM_QUESTIONS) {
+        availableQuestions = triviaQuestions;
+    }
+
+    setSessionQuestions(shuffleAndTake(availableQuestions, NUM_QUESTIONS));
     
     // Attempt to lock screen orientation on mobile
     try {
@@ -64,7 +74,7 @@ export function TriviaGame({ userAccount, onGameEnd }: TriviaGameProps) {
              screen.orientation.unlock();
         }
     }
-  }, []);
+  }, [userAccount.playedTriviaIds]);
 
   // Timer logic
   useEffect(() => {
@@ -112,12 +122,12 @@ export function TriviaGame({ userAccount, onGameEnd }: TriviaGameProps) {
     setIsAnswered(true);
     setSelectedAnswer(answer);
 
-    if (answer && answer === questions[currentQuestionIndex].correctAnswer) {
+    if (answer && answer === sessionQuestions[currentQuestionIndex].correctAnswer) {
       setScore((prev) => prev + 1);
     }
 
     setTimeout(() => {
-      if (currentQuestionIndex < questions.length - 1) {
+      if (currentQuestionIndex < sessionQuestions.length - 1) {
         setCurrentQuestionIndex((prev) => prev + 1);
         setIsAnswered(false);
         setSelectedAnswer(null);
@@ -130,17 +140,26 @@ export function TriviaGame({ userAccount, onGameEnd }: TriviaGameProps) {
 
   const handleFinishGame = useCallback(async () => {
     let finalToastTitle = 'Trivia Complete!';
-    let finalToastDesc = `You scored ${score} out of ${questions.length}.`;
+    let finalToastDesc = `You scored ${score} out of ${sessionQuestions.length}.`;
     
+    const playedInThisSessionIds = sessionQuestions.map(q => q.id);
+    const existingPlayedIds = userAccount.playedTriviaIds || [];
+    let nextPlayedTriviaIds = [...new Set([...existingPlayedIds, ...playedInThisSessionIds])];
+
+    if (nextPlayedTriviaIds.length >= triviaQuestions.length) {
+        nextPlayedTriviaIds = []; // Reset for next cycle
+    }
+
     const updates: Partial<Account> = {
       lastTriviaPlayed: new Date().toISOString(),
+      playedTriviaIds: nextPlayedTriviaIds,
     };
 
     if (score > 0 && !isDisqualified) {
       const newGoldBalance = (userAccount.balances.gold || 0) + REWARD_AMOUNT;
       updates.balances = { ...userAccount.balances, gold: newGoldBalance };
       finalToastTitle = 'You Won!';
-      finalToastDesc = `You scored ${score}/${questions.length} and won ${REWARD_AMOUNT} Gold Coins!`;
+      finalToastDesc = `You scored ${score}/${sessionQuestions.length} and won ${REWARD_AMOUNT} Gold Coins!`;
     } else if (isDisqualified) {
         finalToastTitle = 'Disqualified';
         finalToastDesc = 'You were disqualified for leaving the tab. No prize awarded.';
@@ -162,7 +181,7 @@ export function TriviaGame({ userAccount, onGameEnd }: TriviaGameProps) {
     } finally {
       onGameEnd();
     }
-  }, [score, questions.length, userAccount, onGameEnd, toast, isDisqualified]);
+  }, [score, sessionQuestions, userAccount, onGameEnd, toast, isDisqualified]);
   
   useEffect(() => {
     if (gameState === 'finished') {
@@ -170,12 +189,12 @@ export function TriviaGame({ userAccount, onGameEnd }: TriviaGameProps) {
     }
   }, [gameState, handleFinishGame])
 
-  if (questions.length === 0) {
+  if (sessionQuestions.length === 0) {
     return null; // Don't render anything until questions are loaded
   }
 
-  const currentQuestion = questions[currentQuestionIndex];
-  const progressPercentage = ((currentQuestionIndex + 1) / questions.length) * 100;
+  const currentQuestion = sessionQuestions[currentQuestionIndex];
+  const progressPercentage = ((currentQuestionIndex + 1) / sessionQuestions.length) * 100;
   const timeProgress = (timeLeft / QUESTION_TIME) * 100;
   
   const getButtonClass = (option: string) => {
@@ -198,7 +217,7 @@ export function TriviaGame({ userAccount, onGameEnd }: TriviaGameProps) {
             <DialogHeader>
               <DialogTitle className="text-center text-2xl">MxHub Trivia Challenge!</DialogTitle>
               <DialogDescription className="text-center">
-                Question {currentQuestionIndex + 1} of {questions.length}
+                Question {currentQuestionIndex + 1} of {sessionQuestions.length}
               </DialogDescription>
             </DialogHeader>
             <div className="py-4">
