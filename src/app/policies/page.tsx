@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -187,7 +186,7 @@ const TermsContent = () => (
             <p>21.1. We may provide you with a Live Chat service to talk to our Customer Support representatives or to talk to other Customers. It is your responsibility to use these services only for their intended purposes. You are not permitted to use our Live Chat services for illegal purposes.</p>
             <p>21.2. Be careful what you post on any Live Chat service. We review and moderate chats, and keep a log and record of statements. Your use of the Live Chat service should be for recreational and social purposes only.</p>
             <p>21.3. Spamming on Live Chat is prohibited. You are prohibited from intimidating, harassing or abusing other Customers or MxRaceHub employees and representatives.</p>
-            <p>21.4. You will not use any Live Chat service to engage in any form of harassment or offensive behavior, including but not limited to, threatening, derogatory, abusive or defamatory statements, or racist, sexually explicit, pornographic, obscene or offensive language.</p>
+            <p>21.4. You will not use any Live Chat service to engage in any form of harassment or offensive behavior, including but not limited to, threatening, derogatory, abusive or defamatory statements, or racist, sexually explicit, pornographic, obscene, or offensive language.</p>
             <p>21.5. You will not use any Live Chat service to infringe the privacy rights, property rights or any other rights of any person.</p>
             <p>21.6. You will not submit any kind of material or information on any Live Chat service that is fraudulent or otherwise unlawful or violates any law.</p>
             <p>21.7. You will not use any Live Chat service to distribute, promote or otherwise publish any material containing any solicitation for funds, advertising or solicitation for goods or services of other forums.</p>
@@ -458,48 +457,46 @@ const CookiesContent = () => (
 
 
 export default function PoliciesPage() {
-    const [activeSection, setActiveSection] = useState&lt;PolicySection&gt;('terms');
+    const [activeSection, setActiveSection] = useState<PolicySection>('terms');
 
     const renderContent = () => {
         switch (activeSection) {
             case 'terms':
-                return &lt;TermsContent /&gt;;
+                return <TermsContent />;
             case 'responsible':
-                return &lt;ResponsiblePlayContent /&gt;;
+                return <ResponsiblePlayContent />;
             case 'privacy':
-                return &lt;PrivacyPolicyContent /&gt;;
+                return <PrivacyPolicyContent />;
             case 'cookies':
-                return &lt;CookiesContent /&gt;;
+                return <CookiesContent />;
             default:
-                return &lt;TermsContent /&gt;;
+                return <TermsContent />;
         }
     }
 
   return (
-    &lt;div className="max-w-5xl mx-auto"&gt;
-      &lt;PageHeader
+    <div className="max-w-5xl mx-auto">
+      <PageHeader
         title="Policies"
         description="Review our terms, conditions, and privacy information."
-      /&gt;
-      &lt;div className="grid grid-cols-1 md:grid-cols-4 gap-8"&gt;
-        &lt;aside className="md:col-span-1"&gt;
-            &lt;nav className="flex flex-col space-y-1 bg-card p-2 rounded-lg"&gt;
-                &lt;SectionButton label="Terms &amp; Conditions" isActive={activeSection === 'terms'} onClick={() => setActiveSection('terms')} /&gt;
-                &lt;SectionButton label="Responsible Play" isActive={activeSection === 'responsible'} onClick={() => setActiveSection('responsible')} /&gt;
-                &lt;SectionButton label="Privacy Policy" isActive={activeSection === 'privacy'} onClick={() => setActiveSection('privacy')} /&gt;
-                &lt;SectionButton label="Cookies Policy" isActive={activeSection === 'cookies'} onClick={() => setActiveSection('cookies')} /&gt;
-            &lt;/nav&gt;
-        &lt;/aside&gt;
-        &lt;main className="md:col-span-3"&gt;
-            &lt;Card&gt;
-                &lt;CardContent className="p-6"&gt;
+      />
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <aside className="md:col-span-1">
+            <nav className="flex flex-col space-y-1 bg-card p-2 rounded-lg">
+                <SectionButton label="Terms & Conditions" isActive={activeSection === 'terms'} onClick={() => setActiveSection('terms')} />
+                <SectionButton label="Responsible Play" isActive={activeSection === 'responsible'} onClick={() => setActiveSection('responsible')} />
+                <SectionButton label="Privacy Policy" isActive={activeSection === 'privacy'} onClick={() => setActiveSection('privacy')} />
+                <SectionButton label="Cookies Policy" isActive={activeSection === 'cookies'} onClick={() => setActiveSection('cookies')} />
+            </nav>
+        </aside>
+        <main className="md:col-span-3">
+            <Card>
+                <CardContent className="p-6">
                     {renderContent()}
-                &lt;/CardContent&gt;
-            &lt;/Card&gt;
-        &lt;/main&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
+                </CardContent>
+            </Card>
+        </main>
+      </div>
+    </div>
   );
 }
-
-    
