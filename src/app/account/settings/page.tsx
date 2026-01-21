@@ -1,4 +1,5 @@
 
+
 import { PageHeader } from '@/components/page-header';
 import {
   Card,
@@ -47,6 +48,9 @@ export default function SettingsPage() {
           </Link>
           <Link href="/account/transactions" className="block text-lg font-medium text-primary hover:underline">
               Transaction History
+          </Link>
+          <Link href="/account/purchase-history" className="block text-lg font-medium text-primary hover:underline">
+              Purchase History
           </Link>
            <Link href="/account/settings/privacy" className="block text-lg font-medium text-primary hover:underline">
               Privacy

@@ -20,7 +20,7 @@ import { useRouter } from 'next/navigation';
 import { useUser, useDoc } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
 import type { Account } from '@/lib/types';
-import { updateAccount } from '@/lib/firebase-config';
+import { updateAccount, addGoldCoinPurchase } from '@/lib/firebase-config';
 import { Skeleton } from '@/components/ui/skeleton';
 
 const coinPackages = [
@@ -131,6 +131,16 @@ export default function BankPage() {
         try {
             // Simulate payment processing
             await new Promise(resolve => setTimeout(resolve, 1500));
+
+            // Create a record of the purchase
+            await addGoldCoinPurchase({
+                userId: user.uid,
+                packageId: selectedPkg.id,
+                amount: selectedPkg.amount,
+                price: selectedPkg.price,
+                date: new Date().toISOString(),
+                status: 'Completed',
+            });
 
             // Update user's balance
             const newGoldBalance = account.balances.gold + selectedPkg.amount;

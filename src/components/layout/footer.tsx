@@ -74,11 +74,11 @@ export function Footer() {
                   <h4 className="font-bold text-lg mb-2">Basic Instructions</h4>
                   <ul className="space-y-1 text-sm text-foreground/90">
                       <li>1. Sign-up <span className="text-muted-foreground">(FREE)</span></li>
-                      <li>2. Get Gold Coins <span className="text-muted-foreground">(FREE)</span></li>
+                      <li>2. Get Gold Coins <span className="text-muted-foreground">(WIN/OPTIONAL)</span></li>
                       <li>3. Make Friends <span className="text-muted-foreground">(FREE)</span></li>
-                      <li>4. Place Play <span className="text-muted-foreground">(FREE)</span></li>
+                      <li>4. Play <span className="text-muted-foreground">(FREE)</span></li>
                       <li>5. Win Sweeps Coins <span className="text-muted-foreground">(FREE)</span></li>
-                      <li>6. Exchange for Money <span className="text-muted-foreground">(2% Processing)</span></li>
+                      <li>6. Redeem <span className="text-muted-foreground">(FREE)</span></li>
                   </ul>
               </div>
           </div>
@@ -86,7 +86,7 @@ export function Footer() {
 
         {/* Bottom: Copyright */}
         <div className="mt-8 pt-4 text-center text-sm text-muted-foreground">
-          <p>&copy; 2025 Mxracehub</p>
+          <p>&copy; 2025 Mxracehub | ALL RIGHTS RESERVED.</p>
         </div>
       </div>
     </footer>

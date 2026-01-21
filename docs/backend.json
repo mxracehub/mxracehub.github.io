@@ -113,6 +113,21 @@
         "type": { "type": "string", "enum": ["Gold Coin", "Sweeps Coin"] }
       },
       "required": ["accountId", "accountName", "amount", "date", "status", "type"]
+    },
+    "GoldCoinPurchase": {
+      "title": "Gold Coin Purchase",
+      "description": "Represents a record of a user purchasing Gold Coins.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "packageId": { "type": "string" },
+        "amount": { "type": "number" },
+        "price": { "type": "number" },
+        "date": { "type": "string" },
+        "status": { "type": "string", "enum": ["Completed", "Refund Requested", "Refunded"] }
+      },
+      "required": ["userId", "packageId", "amount", "price", "date", "status"]
     }
   },
   "auth": {
@@ -126,6 +141,10 @@
     "/exchangeRequests/{requestId}": {
       "schema": { "$ref": "#/entities/ExchangeRequest" },
       "description": "Stores all coin exchange requests from users."
+    },
+    "/goldCoinPurchases/{purchaseId}": {
+        "schema": { "$ref": "#/entities/GoldCoinPurchase" },
+        "description": "Stores all Gold Coin purchases made by users."
     }
   }
 }

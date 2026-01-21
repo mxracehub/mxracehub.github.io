@@ -1,9 +1,10 @@
 
+
 'use client';
 
 import { db, auth } from "@/firebase";
 import { collection, doc, getDoc, getDocs, setDoc, query, where, addDoc, updateDoc, writeBatch } from "firebase/firestore";
-import type { Account, ExchangeRequest } from "./types";
+import type { Account, ExchangeRequest, GoldCoinPurchase } from "./types";
 import { mainEventResults } from "./results-data";
 
 // --- DUMMY RESULTS DATA ---
@@ -53,6 +54,7 @@ export const getRaceResults = async (
 // Firestore collection references
 const accountsCollection = collection(db, "accounts");
 const exchangeRequestsCollection = collection(db, "exchangeRequests");
+const goldCoinPurchasesCollection = collection(db, "goldCoinPurchases");
 
 // Account functions
 export const getAccountById = async (id: string): Promise<Account | null> => {
@@ -179,5 +181,41 @@ export const processExchangeRequest = async (request: ExchangeRequest, newStatus
         }
     }
     
+    await batch.commit();
+}
+
+// Gold Coin Purchase Functions
+export const addGoldCoinPurchase = async (purchaseData: Omit<GoldCoinPurchase, 'id'>): Promise<string> => {
+    const docRef = await addDoc(goldCoinPurchasesCollection, purchaseData);
+    return docRef.id;
+};
+
+export const updateGoldCoinPurchase = async (id: string, updates: Partial<GoldCoinPurchase>): Promise<void> => {
+    const docRef = doc(db, "goldCoinPurchases", id);
+    await updateDoc(docRef, updates);
+};
+
+export const processRefundRequest = async (purchase: GoldCoinPurchase, newStatus: 'Refunded' | 'Completed'): Promise<void> => {
+    const batch = writeBatch(db);
+    const purchaseRef = doc(db, "goldCoinPurchases", purchase.id);
+
+    if (newStatus === 'Refunded') {
+        const accountRef = doc(db, "accounts", purchase.userId);
+        const accountSnap = await getDoc(accountRef);
+        if (accountSnap.exists()) {
+            const accountData = accountSnap.data() as Account;
+            if (accountData.balances.gold >= purchase.amount) {
+                batch.update(accountRef, { 'balances.gold': accountData.balances.gold - purchase.amount });
+                batch.update(purchaseRef, { status: newStatus });
+            } else {
+                throw new Error("Insufficient balance to process refund.");
+            }
+        } else {
+            throw new Error(`Account with ID ${purchase.userId} not found.`);
+        }
+    } else { // 'Completed' (i.e., request rejected)
+        batch.update(purchaseRef, { status: newStatus });
+    }
+
     await batch.commit();
 }

@@ -1,4 +1,5 @@
 
+
 export type Play = {
     id: string;
     race: string;
@@ -23,6 +24,16 @@ export type ExchangeRequest = {
     date: string;
     status: 'Pending' | 'Approved' | 'Rejected';
     type: 'Gold Coin' | 'Sweeps Coin';
+};
+
+export type GoldCoinPurchase = {
+    id: string;
+    userId: string;
+    packageId: string;
+    amount: number;
+    price: number;
+    date: string;
+    status: 'Completed' | 'Refund Requested' | 'Refunded';
 };
 
 export type Account = {

@@ -24,6 +24,7 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { SummarizerForm } from '@/components/admin/summarizer-form';
 import { ExchangeRequestsTable } from '@/components/admin/exchange-requests-table';
+import { RefundRequestsTable } from '@/components/admin/refund-requests-table';
 import type { Account } from '@/lib/types';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Loader2 } from 'lucide-react';
@@ -83,10 +84,11 @@ export default function AdminPage() {
         description="Manage application data and utilize AI tools."
       />
       <Tabs defaultValue="race-data" className="w-full">
-        <TabsList className="grid w-full grid-cols-4">
+        <TabsList className="grid w-full grid-cols-5">
           <TabsTrigger value="race-data">Race Data Input</TabsTrigger>
           <TabsTrigger value="exchange-data">Exchange Data Sync</TabsTrigger>
           <TabsTrigger value="exchange-requests">Exchange Requests</TabsTrigger>
+          <TabsTrigger value="refund-requests">Refund Requests</TabsTrigger>
           <TabsTrigger value="ai-summarizer">AI Summarizer</TabsTrigger>
         </TabsList>
 
@@ -156,13 +158,27 @@ export default function AdminPage() {
         <TabsContent value="exchange-requests">
           <Card>
             <CardHeader>
-              <CardTitle>Gold Coin Exchange Requests</CardTitle>
+              <CardTitle>Coin Exchange Requests</CardTitle>
               <CardDescription>
-                Review and process user requests to exchange Gold Coins.
+                Review and process user requests to exchange Gold & Sweeps Coins.
               </CardDescription>
             </CardHeader>
             <CardContent>
               <ExchangeRequestsTable />
+            </CardContent>
+          </Card>
+        </TabsContent>
+        
+        <TabsContent value="refund-requests">
+          <Card>
+            <CardHeader>
+              <CardTitle>Gold Coin Refund Requests</CardTitle>
+              <CardDescription>
+                Review and process user requests to refund Gold Coin purchases.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <RefundRequestsTable />
             </CardContent>
           </Card>
         </TabsContent>
