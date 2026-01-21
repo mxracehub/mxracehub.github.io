@@ -134,7 +134,7 @@ export default function RegisterPage() {
     <div className="max-w-md mx-auto">
       <PageHeader
         title="Registration"
-        description="Create your MxHub account."
+        description="Create your MxRaceHub account."
       />
       <form onSubmit={handleSubmit}>
         <Card>
