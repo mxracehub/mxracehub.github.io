@@ -32,7 +32,7 @@ const shuffleAndTake = <T,>(array: T[], numItems: number): T[] => {
 
 const QUESTION_TIME = 10; // seconds
 const NUM_QUESTIONS = 7;
-const REWARD_AMOUNT = 300;
+const REWARD_AMOUNT = 100;
 
 export function TriviaGame({ userAccount, onGameEnd }: TriviaGameProps) {
   const { toast } = useToast();

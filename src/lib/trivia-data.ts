@@ -1,3 +1,4 @@
+
 import type { ImagePlaceholder } from './placeholder-images';
 import { PlaceHolderImages } from './placeholder-images';
 
@@ -45,7 +46,7 @@ export const triviaQuestions: TriviaQuestion[] = [
     id: 4,
     question: "The 'Bubba Scrub' was a revolutionary technique popularized by which rider?",
     type: 'text',
-    options: ['Travis Pastrana', 'James Stewart Jr.', 'Chad Reed', 'Kevin Windham'],
+    options: ['Travis Pastrana', 'James Stewart Jr.', 'Chad Reed', 'Malcolm Stewart'],
     correctAnswer: 'James Stewart Jr.',
     era: '2000s',
   },
@@ -425,7 +426,7 @@ export const triviaQuestions: TriviaQuestion[] = [
   },
   {
     id: 51,
-    question: "Before becoming a factory Honda rider, who did Steve Lamson win his 1995 & 1996 125cc MX titles with?",
+    question: "Before his factory Honda success, who did Steve Lamson win his 1995 & 1996 125cc MX titles with?",
     type: 'text',
     options: ['Noleen Sizzler', 'Pro Circuit Honda', 'FMF Honda', 'Splitfire Kawasaki'],
     correctAnswer: 'Pro Circuit Honda',
@@ -518,5 +519,391 @@ export const triviaQuestions: TriviaQuestion[] = [
     options: ['Supercross The Movie', 'Winners Take All', 'Motocrossed', 'FMX'],
     correctAnswer: 'Motocrossed',
     era: '2000s'
+  },
+  {
+    id: 63,
+    question: "The first-ever televised AMA Supercross race was broadcast from which city in 1974?",
+    type: 'text',
+    options: ['Los Angeles', 'Houston', 'Daytona', 'Anaheim'],
+    correctAnswer: 'Houston',
+    era: 'History'
+  },
+  {
+    id: 64,
+    question: "Which iconic Southern California track hosted the season finale for the AMA Motocross Nationals for many years?",
+    type: 'text',
+    options: ['Carlsbad', 'Saddleback', 'Glen Helen', 'Pala'],
+    correctAnswer: 'Glen Helen',
+    era: 'History'
+  },
+  {
+    id: 65,
+    question: "What was the last year 500cc two-strokes were the premier class in the FIM Motocross World Championship before the switch to MX1/MXGP?",
+    type: 'text',
+    options: ['1999', '2000', '2001', '2002'],
+    correctAnswer: '2002',
+    era: 'History'
+  },
+  {
+    id: 66,
+    question: "The 'Trans-AMA' series of the 1970s pitted American riders against top European stars. Who was the first American to win a Trans-AMA overall?",
+    type: 'text',
+    options: ['Jim Pomeroy', 'Billy Grossi', 'Brad Lackey', 'Marty Smith'],
+    correctAnswer: 'Billy Grossi',
+    era: 'History'
+  },
+  {
+    id: 67,
+    question: "Which manufacturer first introduced a production motocross bike with a liquid-cooled engine?",
+    type: 'text',
+    options: ['Honda', 'Yamaha', 'Suzuki', 'Kawasaki'],
+    correctAnswer: 'Yamaha',
+    era: 'History'
+  },
+  {
+    id: 68,
+    question: "The Pontiac Silverdome in Michigan was famous for its incredibly soft, sandy soil. Who was known as the 'King of the Silverdome'?",
+    type: 'text',
+    options: ['Jeff Ward', 'Rick Johnson', 'Bob Hannah', 'Mark Barnett'],
+    correctAnswer: 'Bob Hannah',
+    era: 'History'
+  },
+  {
+    id: 69,
+    question: "What year did the AMA introduce the 'four-stroke exemption' rule, allowing 250cc four-strokes to compete against 125cc two-strokes?",
+    type: 'text',
+    options: ['1994', '1996', '1998', '2000'],
+    correctAnswer: '1996',
+    era: 'History'
+  },
+  {
+    id: 70,
+    question: "The Astrodome in Houston, Texas, hosted the first-ever indoor stadium motocross race in what year?",
+    type: 'text',
+    options: ['1969', '1971', '1973', '1975'],
+    correctAnswer: '1969',
+    era: 'History'
+  },
+  {
+    id: 71,
+    question: "Which legendary track in Belgium was a staple of the FIM Motocross World Championship and known for its deep sand and castle backdrop?",
+    type: 'text',
+    options: ['Lommel', 'Namur', 'Genk', 'Kester'],
+    correctAnswer: 'Namur',
+    era: 'History'
+  },
+  {
+    id: 72,
+    question: "The term 'Supercross' was coined by a promoter for the 1972 'Superbowl of Motocross' event. What was his name?",
+    type: 'text',
+    options: ['Gary Bailey', 'Dave Coombs', 'Michael Goodwin', 'Gavin Trippe'],
+    correctAnswer: 'Michael Goodwin',
+    era: 'History'
+  },
+  {
+    id: 73,
+    question: "Which gear company was famously started in the back of a van by a young racer named Bob Fox in the 1970s?",
+    type: 'text',
+    options: ['O\'Neal', 'JT Racing', 'Fox Racing', 'Thor'],
+    correctAnswer: 'Fox Racing',
+    era: 'History'
+  },
+  {
+    id: 74,
+    question: "What was the first Japanese manufacturer to win the 500cc Motocross World Championship?",
+    type: 'text',
+    options: ['Honda', 'Yamaha', 'Suzuki', 'Kawasaki'],
+    correctAnswer: 'Suzuki',
+    era: 'History'
+  },
+  {
+    id: 75,
+    question: "The 1981 Motocross des Nations saw Team USA win for the first time with a 'B-team' of riders. Which four riders were on that team?",
+    type: 'text',
+    options: ['Hannah, Glover, LaPorte, Sun', 'Hansen, O\'Mara, Bailey, Johnson', 'LaPorte, Hansen, O\'Mara, Sun', 'Ward, Barnett, Bailey, Glover'],
+    correctAnswer: 'LaPorte, Hansen, O\'Mara, Sun',
+    era: 'History'
+  },
+  {
+    id: 76,
+    question: "Who was the first non-American rider to win the premier AMA Supercross Championship?",
+    type: 'text',
+    options: ['Chad Reed', 'Jean-Michel Bayle', 'Greg Albertyn', 'David Vuillemin'],
+    correctAnswer: 'Jean-Michel Bayle',
+    era: 'History'
+  },
+  {
+    id: 77,
+    question: "The 'Flying Freckle' was the nickname for which popular American rider from the 1980s?",
+    type: 'text',
+    options: ['Broc Glover', 'Johnny O\'Mara', 'Jeff Ward', 'Ron Lechien'],
+    correctAnswer: 'Jeff Ward',
+    era: 'History'
+  },
+  {
+    id: 78,
+    question: "In the 1970s, which Czechoslovakian motorcycle brand was a major competitor in the Motocross World Championships?",
+    type: 'text',
+    options: ['Jawa', 'Maico', 'Bultaco', 'CZ'],
+    correctAnswer: 'CZ',
+    era: 'History'
+  },
+  {
+    id: 79,
+    question: "Who was the promoter behind the 'United States Grand Prix' (USGP) at Carlsbad Raceway?",
+    type: 'text',
+    options: ['Dave Coombs Sr.', 'Stu Peters', 'Gavin Trippe', 'J.C. Agajanian'],
+    correctAnswer: 'Gavin Trippe',
+    era: 'History'
+  },
+  {
+    id: 80,
+    question: "The first-ever AMA 125cc National Motocross Champion was crowned in 1974. Who was it?",
+    type: 'text',
+    options: ['Tim Hart', 'Marty Smith', 'Gary Jones', 'Brad Lackey'],
+    correctAnswer: 'Marty Smith',
+    era: 'History'
+  },
+  {
+    id: 81,
+    question: "Which company introduced the first mass-produced plastic motocross boots, replacing traditional leather?",
+    type: 'text',
+    options: ['Sidi', 'Gaerne', 'Heckle', 'Alpinestars'],
+    correctAnswer: 'Alpinestars',
+    era: 'History'
+  },
+  {
+    id: 82,
+    question: "The 'Maico Breako' was a term riders used to describe what common failure on Maico motorcycles in the 1970s?",
+    type: 'text',
+    options: ['Engine seizure', 'Chain derailment', 'Frame cracking', 'Ignition failure'],
+    correctAnswer: 'Frame cracking',
+    era: 'History'
+  },
+  {
+    id: 83,
+    question: "The infamous 'LaRocco's Leap' is a massive uphill triple jump at which AMA National track?",
+    type: 'text',
+    options: ['High Point', 'Budds Creek', 'Washougal', 'RedBud'],
+    correctAnswer: 'RedBud',
+    era: 'History'
+  },
+  {
+    id: 84,
+    question: "What was the name of the popular motocross magazine founded in 1971, known for its in-depth bike tests?",
+    type: 'text',
+    options: ['Cycle World', 'Dirt Bike', 'Motocross Action', 'Racer X'],
+    correctAnswer: 'Motocross Action',
+    era: 'History'
+  },
+  {
+    id: 85,
+    question: "Before moving to the US, Belgian legend Stefan Everts won his first world title in which class?",
+    type: 'text',
+    options: ['85cc', '125cc', '250cc', '500cc'],
+    correctAnswer: '125cc',
+    era: 'History'
+  },
+  {
+    id: 86,
+    question: "The 'White Brothers' were famous for what aftermarket motorcycle parts?",
+    type: 'text',
+    options: ['Suspension', 'Handlebars', 'Exhaust systems', 'Plastic kits'],
+    correctAnswer: 'Exhaust systems',
+    era: 'History'
+  },
+  {
+    id: 87,
+    question: "The 'FIM' is the world governing body for motorcycle sport. What does FIM stand for?",
+    type: 'text',
+    options: ['Federal International Motorsports', 'Fédération Internationale de Motocyclisme', 'Federation of International Motorcycling', 'First International Moto-sports'],
+    correctAnswer: 'Fédération Internationale de Motocyclisme',
+    era: 'History'
+  },
+  {
+    id: 88,
+    question: "Which American rider was the first to win a moto at the Motocross des Nations in 1973?",
+    type: 'text',
+    options: ['Brad Lackey', 'Jim Pomeroy', 'Gary Jones', 'Mike Hartwig'],
+    correctAnswer: 'Jim Pomeroy',
+    era: 'History'
+  },
+  {
+    id: 89,
+    question: "The 'V-Force' reed valve system, popular in two-strokes, was developed by which company?",
+    type: 'text',
+    options: ['Boyesen', 'Moto Tassinari', 'Pro Circuit', 'FMF'],
+    correctAnswer: 'Moto Tassinari',
+    era: 'History'
+  },
+  {
+    id: 90,
+    question: "What year was the first Motocross des Nations held?",
+    type: 'text',
+    options: ['1927', '1937', '1947', '1957'],
+    correctAnswer: '1947',
+    era: 'History'
+  },
+  {
+    id: 91,
+    question: "The 'Hangtown Motocross Classic' is one of the oldest races in the US. What club has organized it since its inception?",
+    type: 'text',
+    options: ['The Piston Pushers', 'The Dirt Diggers North', 'The Viewfinders', 'The Checkers'],
+    correctAnswer: 'The Dirt Diggers North',
+    era: 'History'
+  },
+  {
+    id: 92,
+    question: "The 'Loretta Lynn's Amateur National Motocross Championship' is held on the ranch of which country music star?",
+    type: 'text',
+    options: ['Dolly Parton', 'Tammy Wynette', 'Patsy Cline', 'Loretta Lynn'],
+    correctAnswer: 'Loretta Lynn',
+    era: 'History'
+  },
+  {
+    id: 93,
+    question: "Before Ricky Carmichael, who held the record for most AMA 125cc/Lites motocross wins?",
+    type: 'text',
+    options: ['Jeff Ward', 'Mark Barnett', 'Steve Lamson', 'Mike Kiedrowski'],
+    correctAnswer: 'Mark Barnett',
+    era: 'History'
+  },
+  {
+    id: 94,
+    question: "The 'Big Four' Japanese manufacturers are Honda, Yamaha, Kawasaki, and...?",
+    type: 'text',
+    options: ['KTM', 'Husqvarna', 'GasGas', 'Suzuki'],
+    correctAnswer: 'Suzuki',
+    era: 'History'
+  },
+  {
+    id: 95,
+    question: "The film 'On Any Sunday' (1971) features Steve McQueen, Mert Lawwill, and which other motorcycle legend?",
+    type: 'text',
+    options: ['Roger De Coster', 'Malcolm Smith', 'Joel Robert', 'Dick Mann'],
+    correctAnswer: 'Malcolm Smith',
+    era: 'History'
+  },
+  {
+    id: 96,
+    question: "What was the first year that the premier AMA Supercross series was exclusively for 250cc (now 450cc) bikes?",
+    type: 'text',
+    options: ['1982', '1985', '1988', '1990'],
+    correctAnswer: '1985',
+    era: 'History'
+  },
+  {
+    id: 97,
+    question: "What brand of helmet did Bob 'Hurricane' Hannah famously wear for most of his career?",
+    type: 'text',
+    options: ['Shoei', 'Arai', 'Bell', 'JT Racing'],
+    correctAnswer: 'Bell',
+    era: 'History'
+  },
+  {
+    id: 98,
+    question: "Which company was the title sponsor of the AMA Supercross series for most of the 1990s?",
+    type: 'text',
+    options: ['Winston', 'Coors', 'Bud Light', 'Camel'],
+    correctAnswer: 'Camel',
+    era: 'History'
+  },
+  {
+    id: 99,
+    question: "The 'Steel City' National was held near which major Pennsylvania city?",
+    type: 'text',
+    options: ['Philadelphia', 'Pittsburgh', 'Harrisburg', 'Erie'],
+    correctAnswer: 'Pittsburgh',
+    era: 'History'
+  },
+  {
+    id: 100,
+    question: "Which European brand was known for its unique single-sided PDS (Progressive Damping System) rear suspension?",
+    type: 'text',
+    options: ['Husaberg', 'Husqvarna', 'KTM', 'Maico'],
+    correctAnswer: 'KTM',
+    era: 'History'
+  },
+  {
+    id: 101,
+    question: "The 'Millville Whoops' are a legendary section at which AMA National track?",
+    type: 'text',
+    options: ['RedBud', 'High Point', 'Spring Creek', 'Washougal'],
+    correctAnswer: 'Spring Creek',
+    era: 'History'
+  },
+  {
+    id: 102,
+    question: "The famous 'RedBud' national track is known for a chant the fans yell every year. What is it?",
+    type: 'text',
+    options: ['USA! USA!', 'Go, Bro!', 'Yee-Haw!', 'REDBUUUUUUD!'],
+    correctAnswer: 'REDBUUUUUUD!',
+    era: 'History'
+  },
+  {
+    id: 103,
+    question: "The 'Washougal' national track in Washington is famous for its dark, loamy soil and a section of track named what?",
+    type: 'text',
+    options: ['The Chuck-a-pult', 'Horsepower Hill', 'The Surgeon\'s Table', 'The Big Gulp'],
+    correctAnswer: 'Horsepower Hill',
+    era: 'History'
+  },
+  {
+    id: 104,
+    question: "Who was the founder of O'Neal, one of the original American motocross gear companies?",
+    type: 'text',
+    options: ['Brad O\'Neal', 'Jim O\'Neal', 'Keith O\'Neal', 'Patrick O\'Neal'],
+    correctAnswer: 'Jim O\'Neal',
+    era: 'History'
+  },
+  {
+    id: 105,
+    question: "The 1992 AMA 125 National Championship came down to a dramatic final moto between Jeff Emig and which other rider?",
+    type: 'text',
+    options: ['Steve Lamson', 'Mike LaRocco', 'Brian Swink', 'Doug Henry'],
+    correctAnswer: 'Mike LaRocco',
+    era: 'History'
+  },
+  {
+    id: 106,
+    question: "Before it became a supercross staple, Anaheim Stadium was the long-time home of which MLB team?",
+    type: 'text',
+    options: ['Los Angeles Dodgers', 'San Diego Padres', 'California Angels', 'Oakland Athletics'],
+    correctAnswer: 'California Angels',
+    era: 'History'
+  },
+  {
+    id: 107,
+    question: "Which company created the first 'tear-off' goggle lens system?",
+    type: 'text',
+    options: ['Oakley', 'Smith', 'Scott USA', '100%'],
+    correctAnswer: 'Scott USA',
+    era: 'History'
+  },
+  {
+    id: 108,
+    question: "Which rider, nicknamed 'The Dogger', was known for his raw speed and aggressive style in the mid-80s?",
+    type: 'text',
+    options: ['Jeff Ward', 'Broc Glover', 'Ron Lechien', 'Johnny O\'Mara'],
+    correctAnswer: 'Ron Lechien',
+    era: 'History'
+  },
+  {
+    id: 109,
+    question: "In what year did the 250 two-stroke era effectively end, with Ricky Carmichael winning the last premier SX title on one?",
+    type: 'text',
+    options: ['2001', '2002', '2003', '2004'],
+    correctAnswer: '2003',
+    era: 'History'
+  },
+  {
+    id: 110,
+    question: "The 'Gatorback' Winter Series in Florida was a major off-season event. Which company was its long-time title sponsor?",
+    type: 'text',
+    options: ['Mini-Elsinore', 'Thor', 'Pro Circuit', 'NMA'],
+    correctAnswer: 'NMA',
+    era: 'History'
   }
 ];
+
+    
