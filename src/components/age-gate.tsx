@@ -19,7 +19,9 @@ import {
 } from '@/components/ui/select';
 import { states } from '@/lib/states';
 
-type AgeGateStep = 'location' | 'age_18' | 'age_21';
+type AgeGateStep = 'location' | 'age_18' | 'age_21' | 'banned';
+
+const bannedStates = ['MT', 'CT', 'NY', 'WA', 'ID', 'NJ', 'CA', 'MI', 'NV', 'LA', 'DE'];
 
 export function AgeGate() {
   const [showModal, setShowModal] = useState(false);
@@ -34,6 +36,10 @@ export function AgeGate() {
   }, []);
 
   const handleStateSelect = (stateAbbr: string) => {
+    if (bannedStates.includes(stateAbbr)) {
+      setStep('banned');
+      return;
+    }
     const state = states.find(s => s.abbr === stateAbbr);
     if (state) {
       setSelectedState(stateAbbr);
@@ -52,6 +58,17 @@ export function AgeGate() {
 
   const renderStepContent = () => {
     switch (step) {
+      case 'banned':
+        return (
+          <>
+            <DialogHeader>
+              <DialogTitle>Service Not Available</DialogTitle>
+              <DialogDescription>
+                We're sorry, but our services are not available in your location at this time.
+              </DialogDescription>
+            </DialogHeader>
+          </>
+        );
       case 'age_18':
         return (
           <>
