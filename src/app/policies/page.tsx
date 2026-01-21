@@ -218,7 +218,7 @@ const TermsContent = () => (
             <p className='mb-2'>a) Gold coins do not have a monetary value and can only be used to play Standard Games. Gold Coins can be used for entertainment only and cannot be redeemed for any value whatsoever.</p>
             <p className='mb-2'>b) MxRaceHub will give Gold Coins free of charge on:</p>
             <ul className="list-roman list-inside ml-6 mb-2">
-                <li>Daily Bonus – You can claim Gold Coins once per day, through logging into your Customer Account and claiming your daily bonus.</li>
+                <li>Trival Bonus – You can claim Gold Coins once per month if win in Trivia game, through logging into your Customer Account and claiming your monthly bonus.</li>
                 <li>Promotional Giveaways – Promotional giveaways organized by MxRaceHub on its social media accounts (for example, Facebook, Twitter, Instagram).</li>
             </ul>
             <p className='mb-2'>c) You may also win more Gold Coins when you play in Standard Play and you may purchase more Gold Coins on the Platform.</p>
