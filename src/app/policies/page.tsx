@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -676,33 +677,303 @@ const PrivacyPolicyContent = () => (
     <div className="space-y-6 text-muted-foreground">
         <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">Privacy Policy</h3>
-            <p>
-            Your privacy is important to us. We collect minimal personal information necessary for account management and transactions. We do not sell your data to third parties. All financial information is encrypted and handled by secure payment processors.
-            </p>
+            <p>This Privacy Policy governs the manner in which MxRaceHub (hereinafter “MxRaceHub”, “We”, “us”, or “our”), collects, use, maintain and disclose information collected from customers of its website www.mxracehub.com. This Privacy Policy applies to www.mxracehub.com and all products and services offered through www.mxracehub.com.</p>
         </div>
         <div>
-            <h3 className="text-xl font-bold mb-2 text-card-foreground">Information Security Policy</h3>
-            <p>
-            We are committed to protecting your data. We implement industry-standard security measures including data encryption in transit (using TLS 1.2 or better) and at rest, regular security audits, and access control policies to safeguard your information. For sensitive operations like connecting a bank account, we integrate with trusted third-party services like Plaid, which handle your financial credentials directly. Your banking information is never stored on our servers. You are responsible for maintaining the security of your account by using a strong, unique password and not sharing your login details.
-            </p>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">1. MxRaceHub statement</h3>
+            <p>MxRaceHub is committed to protecting and respecting your privacy and maintaining the confidence and trust its customers. This Privacy Policy explains how your personal information is collected, why it is collected and how it is kept secure.</p>
         </div>
         <div>
-            <h3 className="text-xl font-bold mb-2 text-card-foreground">Vulnerability Management Policy</h3>
-            <p>
-            We are dedicated to ensuring the security of our platform by proactively identifying and addressing vulnerabilities. Our process includes regular automated security scanning, code reviews, and staying informed about the latest security threats. We encourage responsible disclosure of security vulnerabilities by security researchers. All reported issues are triaged, prioritized based on severity, and remediated in a timely manner to protect our users and their data.
-            </p>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">2. Data controller</h3>
+            <p>Sweepsteaks Limited is a company incorporated under the laws of Cyprus, with the register number ? and head office at 7-9 807 East Kelly Drive, Loveland, Colorado. Cyprus. MxRaceHub is responsible for processing the data collected from you using the website www.mxracehub.com</p>
         </div>
         <div>
-            <h3 className="text-xl font-bold mb-2 text-card-foreground">Data Deletion and Retention Policy</h3>
-            <p>
-            We retain user data only for as long as necessary to provide our services and comply with legal obligations. You may request the deletion of your account and associated personal data by contacting us. Upon receiving a valid deletion request, we will erase or anonymize your data within 30 days, unless we are legally required to retain it for a longer period (e.g., for financial records or legal disputes). This policy is reviewed periodically to ensure compliance with applicable data privacy laws.
-            </p>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">3. Type of information we collect</h3>
+            <p>We collect the following information from you:</p>
+            <ul className="list-disc list-inside ml-4">
+                <li>Full name</li>
+                <li>Date of Birth</li>
+                <li>Permanent address</li>
+                <li>E-mail</li>
+                <li>Phone number</li>
+                <li>Device information about your use of our website, such as the content you view, the time and duration of your visit on our website, how often you use our services, how you first heard about our website, your preferences and information about your interaction with the content offered through our website, your hardware model, device type, other unique device identifiers, operating system version, browser type and IP address</li>
+                <li>Identification documents (may include ID, utility bills, bank statements, etc.)</li>
+                <li>Transaction information (linked to the purchases and redeems you make)</li>
+                <li>Communications exchange with our teams (support, live chat, complaints, etc.)</li>
+                <li>Information we obtain from a third-party, such as a site or platform provider (including Facebook), about your use of or interest in our services.</li>
+            </ul>
         </div>
         <div>
-            <h3 className="text-xl font-bold mb-2 text-card-foreground">Data and Asset Disposal Policy</h3>
-            <p>
-            Our systems are designed to automatically and securely dispose of data when it is no longer needed according to our retention policies. Digital data is cryptographically erased or overwritten to ensure it is unrecoverable. Physical media, such as servers or hard drives, are degaussed or physically destroyed before being decommissioned. These automated disposal methods comply with industry standards and applicable regulations to ensure your data is permanently and securely removed.
-            </p>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">4. How we collect your information</h3>
+            <p>We collect your information in a variety of ways, including when you visit, register, make purchases or redemptions on www.mxracehub.com, or communicate with us through filling out a form, using our chats or other means of communications.</p>
+            <p>We also collect information about your use of our products and services through a variety of technologies that are present when you visit www.mxracehub.com or use our applications on third-party sites or platforms (whether or not you are logged in or registered) including cookies, flash cookies, pixels, tags and application program interfaces ("API").</p>
+            <p>Analytics tools are also used by us to collect information, including when you visit www.mxracehub.com or use our applications or services on third-party sites or platforms.</p>
+        </div>
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">5. How we use collect information</h3>
+            <p>MxRaceHub is responsible for and may use your information for the purposes described in this Privacy Policy. Third-Parties may access your information where they act on behalf of MxRaceHub as a data processor for the purposes described in this Privacy Policy.</p>
+            <p>In accordance with applicable law and any elections made available to you, MxRaceHub may collect and use your information for the following purposes:</p>
+            <ul className="list-disc list-inside ml-4">
+                <li>Provide and manage the services you request</li>
+                <li>Improve customer service and our services</li>
+                <li>Process payments</li>
+                <li>Contact you about our services</li>
+                <li>Comply legal and regulatory obligations.</li>
+            </ul>
+        </div>
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">6. Personal data collected via technology</h3>
+            <p>When you interact with our website, we try to make that experience simple and useful. We and our partners use industry standard identifiers, such as cookies or other similar technologies.</p>
+            <p>Our website may use technologies to enhance your experience. These technologies are small files that are placed on your computer, tablet, mobile phone or other devices when you visit a website. They allow us to record certain pieces of information whenever you visit or interact with the website.</p>
+            <p>You can have access to the list of all the cookies used by MxRaceHub <span className="text-primary hover:underline cursor-pointer" onClick={() => (document.querySelector('button[data-section="cookies"]') as HTMLButtonElement)?.click()}>here</span>.</p>
+        </div>
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">7. Your rights over your information</h3>
+            <p>You have the following general rights:</p>
+            <ul className="list-disc list-inside ml-4">
+                <li>Right of to access the personal information we hold about you</li>
+                <li>Right to object to the processing of your data</li>
+                <li>The right to withdraw any consent provided</li>
+                <li>The right to request we delete the personal information we hold about you</li>
+            </ul>
+            <p>To exercise the rights described above, please contact support@mxracehub.com.</p>
+        </div>
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">8. How we protect your information</h3>
+            <p>MxRaceHub has in place, physical, electronic and operational procedures to protect the information that we collect from you. MxRaceHub adopts appropriate data collection, storage and processing practices and security measures to protect against unauthorized access, alteration, disclosure or destruction of your personal information, username, password, transaction information and data stored on our database. Our security measures are reviewed regularly and updated in keeping with technological advances.</p>
+        </div>
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">9. How long we will retain your information</h3>
+            <p>We will retain your information for the period of time required to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law.</p>
+        </div>
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">10. Sharing your information</h3>
+            <p>MxRaceHub does not sell, trade, or rent the personal identification information of its customers. However, there are circumstances when MxRaceHub will share your personal data with other companies in MxRaceHub Group or with third-parties that provide services to you on our behalf.</p>
+            <p>MxRaceHub will only share your personal information with companies of its Group and Third-Parties on the following circumstances:</p>
+            <ul className="list-disc list-inside ml-4">
+                <li>You allow us to share your information with third-parties</li>
+                <li>When providing you with products and services and notifying you about either important changes or developments to the features and operation of those products and services</li>
+                <li>When such information is required by our service providers to enable us to provide our services, such as companies that help us with technology services, storing and combining data, processing payments and redemptions or providing relevant marketing and advertising for our products and services. The partner companies will have access to your personal information only to perform services on our behalf and are prohibited from using your personal information for purposes other than those requested by us or required by law</li>
+                <li>In response to lawful requests by public authorities, including to meet national security or law enforcement requirements, when ordered to do so by any regulatory body and/or under any legal provision contained in the governing law of a particular jurisdiction</li>
+                <li>When instructing and authorizing the financial institution with which your account is held to disclose any information as may be requested by a regulator in respect to your account</li>
+                <li>To enforce our terms and conditions set out on www.mxracehub.com, to protect our rights and property and the rights and property of our customers and third-parties, to detect fraud or other illegal activities, and to comply with law or legal processes; and</li>
+                <li>To perform customer due diligence including ID verification.</li>
+            </ul>
+            <p>We may ask you to provide your image to assist us in verifying your identity. We do this by using facial recognition technology provided by third-parties that determines whether the photo you take matches the photo in your identification document. The facial recognition technology provided by these third-parties collects information from your image capture, including biometric data, and may share this information with us. Biometric data is stored by the third-party service provider in accordance with its Privacy Policy and is stored by us, until such time as the initial purpose for collecting or obtaining such information has been satisfied or within 3 years of your last interaction with us, whichever occurs first, provided we have no other legal obligation to retain such information for any longer period.</p>
+            <p>We may also share generic aggregated demographic information not linked to any personal identification information regarding visitors to and customers of our with our business partners, trusted affiliates and advertisers for the purposes outlined above.</p>
+        </div>
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">11. Data transfers</h3>
+            <p>MxRaceHub Group operates in several international jurisdictions and personal information we collect may be transferred to, and stored and processed by, individual companies in the MxRaceHub Group or third-parties in the European Union, the United States, Canada, Australia, or any other country in which we or our third-party processors maintain facilities.</p>
+            <p>We will ensure that transfers of personal information to any country or organization are subject to appropriate safeguards. Additionally, without limitation and where applicable, when transferring personal information from the European Union, we may use standard contractual clauses approved by the European Commission or otherwise adopt other means in accordance with European data protection laws for ensuring adequate safeguards.</p>
+        </div>
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">12. Changes to this Privacy Policy</h3>
+            <p>This Privacy Policy may be updated from time to time to reflect changes in the way we work or the way our work is regulated. We will notify you of material changes and, where required by law, will obtain your consent. Notice may be by the posting of such changes on our website or by other means in accordance with applicable law.</p>
+            <p>Any changes to the Privacy Policy will become effective when the updated policy is posted on www.mxracehub.com.</p>
+            <p>We encourage you to frequently check this page for any changes to stay informed about how we are helping to protect the personal information we collect.</p>
+        </div>
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">13. Contacting us</h3>
+            <p>If you have specific questions regarding your personal information or how we use it, please contact support@mxracehub.com.</p>
+        </div>
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">14. Notice about collection</h3>
+            <p>We collect information that identifies, relates to, describes, references, is capable of being associated with, or could reasonably be linked, directly or indirectly, with a particular consumer or device (“personal information”).</p>
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">Information Collected</h4>
+            <p>The information we collect may include the following categories of information:</p>
+            <div className="my-4 border rounded-lg overflow-hidden">
+                <table className="w-full text-sm">
+                    <thead className="bg-muted">
+                        <tr>
+                            <th className="px-4 py-2 text-left font-semibold">Personal Information Category</th>
+                            <th className="px-4 py-2 text-left font-semibold">Examples</th>
+                            <th className="px-4 py-2 text-left font-semibold">Collected</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr className="border-b">
+                            <td className="px-4 py-2 align-top">Identifiers</td>
+                            <td className="px-4 py-2 align-top">A real name, alias, postal address, unique personal identifier, online identifier, Internet Protocol address, email address, account name, driver's license number, or other similar identifiers.</td>
+                            <td className="px-4 py-2 align-top">YES</td>
+                        </tr>
+                        <tr className="border-b">
+                            <td className="px-4 py-2 align-top">Personal information</td>
+                            <td className="px-4 py-2 align-top">Including but not limited to name, signature, social security number, physical characteristics or description, communications such e-mails or chat messages, address, telephone number, driver’s license or state or any other financial information. Some personal information included in this category may overlap with other categories.</td>
+                            <td className="px-4 py-2 align-top">YES</td>
+                        </tr>
+                        <tr className="border-b">
+                            <td className="px-4 py-2 align-top">Protected classification characteristics under California or federal law</td>
+                            <td className="px-4 py-2 align-top">Age (40 years or older), race, color, ancestry, national origin, citizenship, religion or creed, marital status, medical condition, physical or mental disability, sex, sexual orientation, veteran or military status, genetic information (including familial genetic information).</td>
+                            <td className="px-4 py-2 align-top">YES</td>
+                        </tr>
+                        <tr className="border-b">
+                            <td className="px-4 py-2 align-top">Biometric information</td>
+                            <td className="px-4 py-2 align-top">An individual’s physiological, biological or behavioral characteristics that can be used singly or in combination with each other or with other identifying data, to establish individual identity. Facial recognition technology collects information from your image capture, including biometric data, and shares this information with us, which assists us to verify your ID.</td>
+                            <td className="px-4 py-2 align-top">YES</td>
+                        </tr>
+                        <tr className="border-b">
+                            <td className="px-4 py-2 align-top">Internet or other similar network activity</td>
+                            <td className="px-4 py-2 align-top">Browsing history, search history, information on a consumer's interaction with a website, application, or advertisement.</td>
+                            <td className="px-4 py-2 align-top">YES</td>
+                        </tr>
+                        <tr className="border-b">
+                            <td className="px-4 py-2 align-top">Geolocation data</td>
+                            <td className="px-4 py-2 align-top">Physical or IP address location or movements.</td>
+                            <td className="px-4 py-2 align-top">YES</td>
+                        </tr>
+                        <tr className="border-b">
+                            <td className="px-4 py-2 align-top">Sensory data</td>
+                            <td className="px-4 py-2 align-top">Audio, electronic, visual, or similar information.</td>
+                            <td className="px-4 py-2 align-top">YES</td>
+                        </tr>
+                         <tr className="border-b">
+                            <td className="px-4 py-2 align-top">Professional or employment-related information</td>
+                            <td className="px-4 py-2 align-top">Current or past job history.</td>
+                            <td className="px-4 py-2 align-top">YES</td>
+                        </tr>
+                        <tr>
+                            <td className="px-4 py-2 align-top">Inferences drawn from other personal information</td>
+                            <td className="px-4 py-2 align-top">Profile reflecting a person's preferences, characteristics, predispositions, behaviour.</td>
+                            <td className="px-4 py-2 align-top">YES</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+             <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">Sensitive Personal Information Category</h4>
+            <div className="my-4 border rounded-lg overflow-hidden">
+                <table className="w-full text-sm">
+                    <thead className="bg-muted">
+                        <tr>
+                            <th className="px-4 py-2 text-left font-semibold">Category</th>
+                            <th className="px-4 py-2 text-left font-semibold">Examples</th>
+                            <th className="px-4 py-2 text-left font-semibold">Collected</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr className="border-b">
+                            <td className="px-4 py-2 align-top">Government identifiers</td>
+                            <td className="px-4 py-2 align-top">driver’s license or state identification card.</td>
+                            <td className="px-4 py-2 align-top">YES</td>
+                        </tr>
+                        <tr className="border-b">
+                            <td className="px-4 py-2 align-top">Complete account access credentials</td>
+                            <td className="px-4 py-2 align-top">Customer names, account numbers, digital currency addresses</td>
+                            <td className="px-4 py-2 align-top">YES</td>
+                        </tr>
+                        <tr className="border-b">
+                            <td className="px-4 py-2 align-top">Precise geolocation</td>
+                            <td className="px-4 py-2 align-top">Precise physical or IP address location or movements.</td>
+                            <td className="px-4 py-2 align-top">YES</td>
+                        </tr>
+                        <tr className="border-b">
+                            <td className="px-4 py-2 align-top">Racial or ethnic origin</td>
+                            <td className="px-4 py-2 align-top">Racial or ethnic origin information that may be revealed through Government or other identifiers or other personal information.</td>
+                            <td className="px-4 py-2 align-top">YES</td>
+                        </tr>
+                         <tr className="border-b">
+                            <td className="px-4 py-2 align-top">Religious or philosophical beliefs</td>
+                            <td className="px-4 py-2 align-top"></td>
+                            <td className="px-4 py-2 align-top">NO</td>
+                        </tr>
+                         <tr className="border-b">
+                            <td className="px-4 py-2 align-top">Union membership</td>
+                            <td className="px-4 py-2 align-top"></td>
+                            <td className="px-4 py-2 align-top">NO</td>
+                        </tr>
+                        <tr className="border-b">
+                            <td className="px-4 py-2 align-top">Genetic data</td>
+                            <td className="px-4 py-2 align-top"></td>
+                            <td className="px-4 py-2 align-top">NO</td>
+                        </tr>
+                         <tr className="border-b">
+                            <td className="px-4 py-2 align-top">Mail, email, or text messages contents not directed to us</td>
+                            <td className="px-4 py-2 align-top">Chat conversations conducted on our platform; communications with our affiliates or service providers.</td>
+                            <td className="px-4 py-2 align-top">YES</td>
+                        </tr>
+                         <tr className="border-b">
+                            <td className="px-4 py-2 align-top">Unique identifying biometric information</td>
+                            <td className="px-4 py-2 align-top">Biometric information that may be revealed through Government or other identifiers or other personal information.</td>
+                            <td className="px-4 py-2 align-top">YES</td>
+                        </tr>
+                         <tr>
+                            <td className="px-4 py-2 align-top">Health, sex life, or sexual orientation information</td>
+                            <td className="px-4 py-2 align-top"></td>
+                            <td className="px-4 py-2 align-top">NO</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">Sources of Information</h4>
+            <p>We obtain the categories of personal information listed above from the following sources:</p>
+            <ol className="list-decimal list-inside ml-4">
+                <li>Directly from our customers. For example, from when customers register for our services or respond to requests for information verification.</li>
+                <li>Directly and indirectly from activity on our websites and applications. This includes:
+                    <ul className="list-disc list-inside ml-6">
+                        <li>Usage and log information. For example, service-related, diagnostic and performance information. This includes information about your activity on our websites and applications, log files and reports.</li>
+                        <li>Device and connection information. We collect device-specific information such as hardware model, operating system information, browser information, IP address etc.</li>
+                    </ul>
+                </li>
+                <li>From third-parties that interact with us in connection with the services we perform. We may work with third-parties, for example, in order to understand, customise, provide, support and market the services we provide and/or to comply with laws.</li>
+            </ol>
+
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">Use of Personal Information</h4>
+            <p>We may use or disclose the personal information we collect for one or more of the following business purposes:</p>
+            <ul className="list-disc list-inside ml-4">
+                <li>To provide and manage the services you request</li>
+                <li>To maintain, develop, and improve customer service and our services</li>
+                <li>To create, maintain, customize, and secure your customer account</li>
+                <li>To fulfill purchases or redemptions and prevent transactional fraud</li>
+                <li>To personalize user experience</li>
+                <li>To contact you about our services</li>
+                <li>To send important notices to you</li>
+                <li>To comply with our legal and regulatory obligations</li>
+                <li>To offer alternative dispute resolution services.</li>
+            </ul>
+            <p>We will not retain the categories of personal information and sensitive personal information longer than reasonably necessary to achieve these business purposes. Ordinarily, we will retain your personal information and sensitive personal information for up to [12] months beyond any closure of your account.</p>
+
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">Sharing Personal Information</h4>
+            <p>We may disclose your personal information to third-parties for the business purposes described above. We may disclose your personal information for a business purpose to the following categories of third-parties:</p>
+            <ul className="list-disc list-inside ml-4">
+                <li>Our affiliates</li>
+                <li>Service providers</li>
+                <li>Third-parties that interact with us in connection with the services we perform</li>
+            </ul>
+            <p>We do not sell your personal information or share it with third-parties for cross-context behavioral advertising.</p>
+        </div>
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">15. Your Rights</h3>
+            <p>California residents may have specific rights regarding their personal information, including accessing the personal information we’ve collected about you during the past 12 months and information about our data practice. You may also have the right to request, subject to certain exceptions, that we delete the personal information we have collected from you.</p>
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">Exercising Access and Deletion Rights</h4>
+            <p>To request access to or deletion of your personal information, please submit a verifiable consumer request to us at support@mxracehub.com.</p>
+            <p>Only you or a person registered with the California Secretary of State that you authorize to act on your behalf may make a verifiable consumer request related to your personal information. If you decide to use an authorized agent, please also include written permission that you have designated that agent to make this request, or proof of the agent’s power of attorney. We may follow up with you to verify your identity before processing your authorized agent’s request.</p>
+            <p>For your consumer request to be verifiable, you must:</p>
+            <ul className="list-disc list-inside ml-4">
+                <li>Provide sufficient information that allows us to reasonably verify you are the person about whom we collected personal information or an authorized representative. You will need to provide:
+                    <ul className="list-disc list-inside ml-6">
+                        <li>Full name</li>
+                        <li>Date of birth</li>
+                        <li>Address</li>
+                        <li>E-mail address</li>
+                        <li>Whether you are a California consumer pursuant to CCPA</li>
+                        <li>If you would like to know the specific pieces of personal information that we have collected about you, or to delete your personal information, identification that clearly shows your name, date of birth and address (for example, driver's license or other photo identification)</li>
+                    </ul>
+                </li>
+                <li>Describe your request with sufficient detail that allows us to properly understand, evaluate and respond to it.</li>
+            </ul>
+            <p>We cannot respond to your request or provide you with personal information if we cannot verify your identity or authority to make the request and confirm the personal information relates to you. Making a verifiable consumer request does not require you to create an account with us. We will only use personal information provided in a verifiable consumer request to verify the requestor's identity or authority to make the request.</p>
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">Response Timing and Format</h4>
+            <p>We endeavor to provide timely responses to verifiable consumer request. If you have an account with us, we will deliver our written response to that account. If you do not have an account with us, we will deliver our written response by mail or electronically, at your option. Any disclosures we provide will only cover the 12-month period preceding the verifiable consumer request's receipt.</p>
+            <p>The response we provide will also explain the reasons we cannot comply with a request, if applicable. For data portability requests, we will select a format to provide your personal information that is readily useable and should allow you to transmit the information from one entity to another entity without hindrance.</p>
+            <p>We do not charge a fee to process or respond to your verifiable consumer request unless it is excessive, repetitive, or manifestly unfounded. If we determine that the request warrants a fee, we will tell you why we made that decision and provide you with a cost estimate before completing your request.</p>
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">Non-Discrimination</h4>
+            <p>We will not discriminate against you for exercising any of your rights described above.</p>
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">Changes to this Notice</h4>
+            <p>This Notice may be updated from time to time to reflect changes in the way we work or the way our work is regulated. We will notify you of changes by posting changes here, or by other appropriate means.</p>
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">Contact Information</h4>
+            <p>If you have any questions or comments about this Notice, our Privacy Policy, the ways in which we collect and use your personal information, your choices and rights regarding such use, or wish to exercise your rights, please do not hesitate to contact us at support@mxracehub.com.</p>
         </div>
     </div>
 );
@@ -789,3 +1060,4 @@ export default function PoliciesPage() {
     </div>
   );
 }
+
