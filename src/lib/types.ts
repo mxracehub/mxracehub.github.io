@@ -52,4 +52,5 @@ export type Account = {
     riderNumber?: string;
     mxhubStanding?: number;
     isAdmin?: boolean;
+    lastTriviaPlayed?: string;
 };

@@ -65,6 +65,24 @@
       "description": "SMX Playoffs banner",
       "imageUrl": "https://images.unsplash.com/photo-1599557457753-15a0a38219e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzdXBlcmNyb3NzfGVufDB8fHx8MTc2ODAxNDg0OHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "motocross race"
+    },
+    {
+      "id": "trivia-mcgrath",
+      "description": "Jeremy McGrath in action",
+      "imageUrl": "https://storage.googleapis.com/aifire-prompt-gallery/1721248555890_--version-2024-07-17-14_15_18-motocross-race-start.png",
+      "imageHint": "Jeremy McGrath"
+    },
+    {
+      "id": "trivia-daytona",
+      "description": "Daytona Supercross track",
+      "imageUrl": "https://images.unsplash.com/photo-1599557457753-15a0a38219e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzdXBlcmNyb3NzfGVufDB8fHx8MTc2ODAxNDg0OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Daytona track"
+    },
+    {
+      "id": "trivia-70s-bike",
+      "description": "A motocross bike from the 1970s",
+      "imageUrl": "https://images.unsplash.com/photo-1656768442835-256722b84e66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW90b2Nyb3NzJTIwYWN0aW9ufGVufDB8fHx8MTc2NzU1Nzc1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "vintage motocross"
     }
   ]
 }

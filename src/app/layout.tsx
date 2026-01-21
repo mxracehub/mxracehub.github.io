@@ -6,6 +6,7 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { FirebaseClientProvider } from '@/firebase/client-provider';
 import { AgeGate } from '@/components/age-gate';
+import { TriviaController } from '@/components/trivia-controller';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.mxracehub.site'),
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body className="font-body antialiased">
         <FirebaseClientProvider>
           <AgeGate />
+          <TriviaController />
           <div className="flex min-h-screen flex-col">
               <Header />
               <main className="flex-1 container mx-auto px-4 py-8">
