@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
@@ -193,15 +194,15 @@ export default function DashboardPage() {
               alt={raceDayBanner.description}
               width={1200}
               height={400}
-              className="w-full object-cover"
+              className="w-full object-cover object-right-bottom md:object-center"
               data-ai-hint={raceDayBanner.imageHint}
             />
           )}
-          <div className="absolute inset-x-0 bottom-0 bg-blue-700/90 p-4 text-white">
+          <div className="absolute inset-x-0 bottom-0 bg-blue-700/90 p-2 text-white md:p-4">
             <h3 className="text-3xl font-bold">Make Race Day More Exciting</h3>
             <p className="mb-4 mt-2 max-w-md text-white/90">
-              Join playing with friends and place plays on your favorite riders.
-              No Fee for plays or gold coins
+              Join playing with friends and play with your favorite riders prediction.
+              No Fee for playing or redeeming
             </p>
             <div className="flex gap-4">
               <Button className="bg-red-600 text-white hover:bg-red-700" asChild>
