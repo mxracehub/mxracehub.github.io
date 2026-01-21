@@ -23,6 +23,14 @@ import { auth } from '@/firebase';
 import { createAccount, getAccountByEmail, isUsernameTaken, isRiderNumberTaken } from '@/lib/firebase-config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import type { Account } from '@/lib/types';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { states } from '@/lib/states';
 
 export default function RegisterPage() {
   const [username, setUsername] = useState('');
@@ -30,10 +38,13 @@ export default function RegisterPage() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [riderNumber, setRiderNumber] = useState('');
+  const [userState, setUserState] = useState('');
   const [agreed, setAgreed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
   const router = useRouter();
+
+  const bannedStates = ['MT', 'CT', 'NY', 'WA', 'ID', 'NJ', 'CA', 'MI', 'NV', 'LA', 'DE'];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -66,6 +77,14 @@ export default function RegisterPage() {
         toast({ title: 'Error', description: 'This rider number is already taken.', variant: 'destructive' });
         return;
     }
+    if (!userState) {
+        toast({ title: 'Error', description: 'Please select your state.', variant: 'destructive' });
+        return;
+    }
+    if (bannedStates.includes(userState)) {
+        toast({ title: 'Service Not Available', description: 'Sorry, our services are not available in your selected state.', variant: 'destructive' });
+        return;
+    }
     if (!agreed) {
         toast({ title: 'Error', description: 'You must agree to the Terms of Service and Privacy Policy.', variant: 'destructive' });
         return;
@@ -82,6 +101,7 @@ export default function RegisterPage() {
             username: username.trim(),
             email: email.trim(),
             bio: '',
+            state: userState,
             balances: { gold: 0, sweeps: 0 },
             betHistory: [],
             friendIds: [],
@@ -144,6 +164,21 @@ export default function RegisterPage() {
                 disabled={isLoading}
                 required
               />
+            </div>
+             <div className="space-y-2">
+              <Label htmlFor="state">State</Label>
+              <Select onValueChange={setUserState} value={userState} disabled={isLoading} required>
+                <SelectTrigger id="state">
+                  <SelectValue placeholder="Select your state" />
+                </SelectTrigger>
+                <SelectContent>
+                  {states.map(s => (
+                    <SelectItem key={s.abbr} value={s.abbr} disabled={bannedStates.includes(s.abbr)}>
+                      {s.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
             <div className="space-y-2">
               <Label htmlFor="rider-number">Rider Number</Label>

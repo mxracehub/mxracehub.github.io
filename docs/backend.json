@@ -27,6 +27,10 @@
           "type": "string",
           "description": "A short biography of the user."
         },
+        "state": {
+          "type": "string",
+          "description": "The two-letter state abbreviation for the user's location."
+        },
         "balances": {
           "type": "object",
           "properties": {

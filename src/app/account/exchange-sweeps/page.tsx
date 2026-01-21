@@ -18,10 +18,11 @@ import { Label } from '@/components/ui/label';
 import { Loader2, Repeat } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { updateAccount, addExchangeRequest } from '@/lib/firebase-config';
-import type { Account } from '@/lib/types';
+import type { Account, ExchangeRequest } from '@/lib/types';
 import { useRouter } from 'next/navigation';
-import { useUser, useDoc } from '@/firebase';
+import { useUser, useDoc, useCollection } from '@/firebase';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Progress } from '@/components/ui/progress';
 
 function ExchangeSweepsSkeleton() {
     return (
@@ -79,6 +80,11 @@ export default function ExchangeSweepsPage() {
     const { toast } = useToast();
     const { user, isLoading: isUserLoading } = useUser();
     const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
+    const { data: monthlyRequests, isLoading: isRequestsLoading } = useCollection<ExchangeRequest>(
+        'exchangeRequests',
+        user ? ['accountId', '==', user.uid] : undefined,
+        { listen: true }
+    );
 
     const [amount, setAmount] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -96,6 +102,23 @@ export default function ExchangeSweepsPage() {
         }
         return '0.00';
     }, [amount]);
+    
+    const monthlyRedeemedUSD = useMemo(() => {
+        if (!monthlyRequests) return 0;
+
+        const currentMonth = new Date().getMonth();
+        const currentYear = new Date().getFullYear();
+
+        return monthlyRequests
+            .filter(req => {
+                const reqDate = new Date(req.date);
+                return req.type === 'Sweeps Coin' &&
+                       req.status === 'Approved' &&
+                       reqDate.getMonth() === currentMonth &&
+                       reqDate.getFullYear() === currentYear;
+            })
+            .reduce((sum, req) => sum + (req.amount / 100), 0);
+    }, [monthlyRequests]);
 
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -111,6 +134,20 @@ export default function ExchangeSweepsPage() {
       router.push('/sign-in');
       return;
     }
+    
+    if (account.state === 'FL') {
+        const floridaLimitUSD = 5000;
+        const transferAmountUSD = transferAmount / 100;
+        if (monthlyRedeemedUSD + transferAmountUSD > floridaLimitUSD) {
+            toast({
+                title: 'Florida Redemption Limit',
+                description: `You have reached your monthly redemption limit of $${floridaLimitUSD.toLocaleString()}. You have already redeemed $${monthlyRedeemedUSD.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} this month.`,
+                variant: 'destructive',
+            });
+            return;
+        }
+    }
+
 
     if (!transferAmount || transferAmount <= 0) {
       toast({
@@ -174,7 +211,7 @@ export default function ExchangeSweepsPage() {
     }
   };
   
-    const isLoading = isUserLoading || isAccountLoading;
+    const isLoading = isUserLoading || isAccountLoading || isRequestsLoading;
 
     if (isLoading) {
         return <ExchangeSweepsSkeleton />
@@ -225,6 +262,15 @@ export default function ExchangeSweepsPage() {
                 <p className="text-sm text-muted-foreground">
                   Minimum transfer amount: 50.00 Sweeps Coins.
                 </p>
+                 {account?.state === 'FL' && (
+                    <div className="rounded-lg border bg-yellow-900/50 p-4 text-sm mt-4">
+                        <h4 className="font-semibold text-yellow-300">Florida Redemption Limit</h4>
+                        <p className="text-muted-foreground mt-1">
+                            You have redeemed ${monthlyRedeemedUSD.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} of your $5,000.00 monthly limit.
+                        </p>
+                        <Progress value={(monthlyRedeemedUSD / 5000) * 100} className="mt-2 h-2" />
+                    </div>
+                )}
               </CardContent>
               <CardFooter>
                 <Button size="lg" type="submit" disabled={isSubmitting}>

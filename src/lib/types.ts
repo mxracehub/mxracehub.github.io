@@ -31,6 +31,7 @@ export type Account = {
     username: string;
     email: string;
     bio: string;
+    state?: string;
     balances: {
         gold: number;
         sweeps: number;
