@@ -103,7 +103,7 @@ export default function RegisterPage() {
             bio: '',
             state: userState,
             balances: { gold: 0, sweeps: 0 },
-            betHistory: [],
+            playHistory: [],
             friendIds: [],
             riderNumber: riderNumber.trim() || '',
             mxhubStanding: 0,
