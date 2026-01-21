@@ -88,7 +88,7 @@ export default function SupercrossPage() {
             </div>
             <div className="border-t border-border p-2">
               <Button asChild className="w-full">
-                <Link href="/betting">Play on this race now</Link>
+                <Link href="/play">Play on this race now</Link>
               </Button>
             </div>
           </div>

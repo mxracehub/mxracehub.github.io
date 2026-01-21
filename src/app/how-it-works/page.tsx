@@ -29,7 +29,7 @@ const steps = [
     icon: <Coins className="h-8 w-8 text-yellow-500" />,
     title: 'Play on Races with Gold Coins',
     description: "Use Gold Coins (GC) to place plays against your friends on upcoming Supercross and Motocross races. Select a race, choose a friend to play against, set the amount, and confirm. Gold Coins can be purchased from the bank.",
-    link: '/betting',
+    link: '/play',
     linkText: 'Place a Play',
   },
   {

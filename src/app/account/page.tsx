@@ -325,7 +325,7 @@ export default function AccountPage() {
               ) : (
                 <div className="py-10 text-center text-muted-foreground">
                   <p>You haven't placed any plays yet.</p>
-                  <Button variant="link" asChild><Link href="/betting">Place your first play</Link></Button>
+                  <Button variant="link" asChild><Link href="/play">Place your first play</Link></Button>
                 </div>
               )}
             </CardContent>

@@ -146,7 +146,7 @@ export default function DashboardPage() {
             </Link>
           </Button>
           <Button variant="secondary" size="lg" asChild>
-            <Link href="/betting">
+            <Link href="/play">
                 <Star className="mr-2 h-4 w-4" /> Play
             </Link>
           </Button>
@@ -182,7 +182,7 @@ export default function DashboardPage() {
           className="rounded-full bg-red-600 px-12 py-6 text-lg font-bold text-white hover:bg-red-700"
           asChild
         >
-          <Link href="/betting">Play Next Race</Link>
+          <Link href="/play">Play Next Race</Link>
         </Button>
       </div>
 
@@ -209,7 +209,7 @@ export default function DashboardPage() {
                 <Link href="/register">Sign Up</Link>
               </Button>
               <Button className="bg-red-600 text-white hover:bg-red-700" asChild>
-                <Link href="/betting">Play</Link>
+                <Link href="/play">Play</Link>
               </Button>
             </div>
           </div>
@@ -226,7 +226,7 @@ export default function DashboardPage() {
               <Link href="/races">Race Schedule</Link>
             </Button>
             <Button variant="outline" className="border-2 font-bold" asChild>
-                <Link href="/betting">Play</Link>
+                <Link href="/play">Play</Link>
             </Button>
             <Button className="bg-blue-600 text-white hover:bg-blue-700" asChild>
               <Link href="/riders">View Riders</Link>

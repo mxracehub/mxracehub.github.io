@@ -216,7 +216,7 @@ export default function FriendsPage() {
                     <div className="flex flex-col items-center gap-2">
                         <p className="text-sm font-medium text-center">Play with this Friend Next Race</p>
                         <Button asChild className="w-full sm:w-auto bg-red-600 hover:bg-red-700">
-                            <Link href="/betting">Play Next Race</Link>
+                            <Link href="/play">Play Next Race</Link>
                         </Button>
                     </div>
                 </CardContent>

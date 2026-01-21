@@ -22,7 +22,7 @@ const navItems = [
   { href: '/races', label: 'Races' },
   { href: '/riders', label: 'Riders' },
   { href: '/standings', label: 'Standings' },
-  { href: '/betting', label: 'Play'},
+  { href: '/play', label: 'Play'},
   { href: '/friends', label: 'Friends'},
   { href: '/account', label: 'Account' },
 ];
