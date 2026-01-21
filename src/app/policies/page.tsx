@@ -38,41 +38,303 @@ const SectionButton = ({
 
 const TermsContent = () => (
     <div className="space-y-6 text-muted-foreground">
+        <p className="text-center font-bold text-destructive">IMPORTANT NOTICE: THIS AGREEMENT IS SUBJECT TO BINDING ARBITRATION AND A WAIVER OF CLASS ACTION RIGHTS AS DETAILED IN CLAUSE 26.</p>
+        
         <div>
-            <h3 className="text-xl font-bold mb-2 text-card-foreground">Account Creation &amp; Fees</h3>
-            <p>
-            Creating a user account on MxRaceHub is completely free. We believe in providing a straightforward and enjoyable experience without hidden costs.
-            </p>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">1. INTRODUCTION</h3>
+            <p className="mb-4">Welcome to Mxracehub.com! Before the fun starts, we need to make sure you know how we operate and what it means when you register an account.</p>
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">Who are we</h4>
+            <p className="mb-4">The Platform is provided by MxRaceHub, a company duly incorporated under Cyprus law, with the register number ? and registered office at 807 East, Kelly Drive, Loveland, Colorado, 80537. Cyprus (hereinafter “MxRaceHub”, “we” , “us” or “our”).</p>
+            <div className="border rounded-lg p-4 my-4">
+              <div className="grid grid-cols-3 font-semibold">
+                <div>Version</div>
+                <div>Publish Date</div>
+                <div>Description</div>
+              </div>
+              <div className="grid grid-cols-3 mt-2">
+                <div>Version 1.0</div>
+                <div>1/21/2026</div>
+                <div>Term & Conditions</div>
+              </div>
+            </div>
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">Registering on the Platform</h4>
+            <p className="mb-2">By registering on the Platform (through any electronic device, such as the web, mobile, tablet or any other device), you accept these Terms and Conditions (“Terms”) and enter into a binding agreement with us which applies to your access to, and use of, our Platform and our Games.</p>
+            <p className="mb-2">PLEASE TAKE THE TIME TO READ THESE TERMS CAREFULLY AND IN THEIR ENTIRETY. BY ACCEPTING THESE TERMS, YOU REPRESENT – AND WE ARE RELYING ON YOUR REPRESENTATION – THAT YOU HAVE DONE SO. IF YOU LIVE IN ANY OF THE EXCLUDED TERRITORIES IDENTIFIED BELOW, DO NOT PROCEED ANY FURTHER AS YOU ARE NOT ELIGIBLE TO ACCESS OR USE THE PLATFORM, CREATE A CUSTOMER ACCOUNT, PLAY THE GAMES OR INTERACT WITH MXRACEHUB IN ANY OTHER WAY.</p>
+            <p className="mb-2">By checking the box for acceptance during the registration process, accessing or using our Platform, creating a Customer Account, and/or accessing the Games, you confirm that you have read and agree to be bound by these Terms, which includes our Privacy Policy and other game-specific or promotion-specific terms relevant to your Participation.</p>
+            <p className="mb-2">If you do not agree with any provision of these Terms or any other linked policy, rules or terms, you may not access or use the Platform, create a Customer Account or play any Game.</p>
+            <p>We may update these Terms periodically at our discretion. By continuing to access our Platform, your Customer Account, and/or our Games you are deemed to have read and to be bound by any such updates. If you do not wish to be bound by these Terms, any updated Terms or any other linked policy, rules or terms, you may not continue to access the Platform or any of the Games (including the website and any associated apps). We will note the most recent date of these Terms at the top of this page.</p>
         </div>
+
         <div>
-            <h3 className="text-xl font-bold mb-2 text-card-foreground">Playing Rules</h3>
-            <p>
-            When playing with a friend, all plays are final. Winning plays will take all Gold Coins (GC) or Sweeps Coins (SC) for the win. Sweeps Coins (SC) must be played at least once before being eligible for exchange.
-            </p>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">2. MXRACEHUB STATEMENT</h3>
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">2.1. The following are "Excluded Territories”:</h4>
+            <ul className="list-disc list-inside ml-4 mb-2">
+                <li>Any country other than the continental United States of America and Hawaii (“US”);</li>
+                <li>Within the US the following States are excluded:
+                    <ol className="list-roman list-inside ml-6">
+                        <li>WASHINGTON</li>
+                        <li>NEW YORK</li>
+                        <li>NEVADA</li>
+                        <li>IDAHO</li>
+                        <li>KENTUCKY</li>
+                        <li>MICHIGAN</li>
+                        <li>VERMONT</li>
+                        <li>NEW JERSEY</li>
+                        <li>DELAWARE</li>
+                        <li>WEST VIRGINIA</li>
+                        <li>PENNSYLVANIA</li>
+                        <li>RHODE ISLAND</li>
+                        <li>CONNECTICUT</li>
+                        <li>MARYLAND</li>
+                        <li>LOUISIANA</li>
+                        <li>MONTANA</li>
+                        <li>ARIZONA</li>
+                        <li>TENNESSEE</li>
+                        <li>CALIFORNIA</li>
+                        <li>Any other states or jurisdictions which, under the laws applicable to you, are legally precluded from playing the Games offered on the Platform, and any other jurisdiction MxRaceHub excludes, in its sole discretion, from time to time.</li>
+                    </ol>
+                </li>
+            </ul>
+            <p className="mb-2">2.2. BY ACCEPTING THESE TERMS, ACCESSING OR USING THE PLATFORM, CREATING A CUSTOMER ACCOUNT, AND/OR PLAYING THE GAMES, YOU SPECIFICALLY REPRESENT TO US THAT YOU DO NOT LIVE IN ANY OF THE EXCLUDED TERRITORIES. WE ARE SPECIFICALLY RELYING ON SUCH REPRESENTATIONS IN PROVIDING YOU ACCESS TO THE PLATFORM, CUSTOMER ACCOUNT, AND GAMES. IF YOU RESIDE IN ANY OF THE EXCLUDED TERRITORIES AND NONETHELESS CHECK THE BOX FOR ACCEPTANCE OF THESE TERMS, ACCESS OR USE THE PLATFORM, CREATE A CUSTOMER ACCOUNT, AND/OR PLAY THE GAMES DESPITE OUR EFFORTS TO PREVENT YOU FROM DOING SO, WE CONSIDER YOUR ACTIONS TO BE A MATERIAL MISREPRESENTATION TO US, A FRAUDULENT INDUCEMENT OF OUR SERVICES, AND A VIOLATION OF THESE TERMS, AND WE RESERVE ALL RIGHTS TO TAKE APPROPRIATE ACTION AGAINST YOU.</p>
+            <p className="mb-2">2.3. NO PURCHASE OR PAYMENT IS NECESSARY TO PARTICIPATE OR PLAY THE GAMES. A PURCHASE OR PAYMENT OF ANY KIND WILL NOT INCREASE YOUR CHANCES OF WINNING.</p>
+            <p className="mb-2">2.4. THE PLATFORM AND GAMES DO NOT OFFER REAL MONEY GAMBLING, AND NO ACTUAL MONEY IS REQUIRED TO PLAY.</p>
+            <p className="mb-2">2.5. ONLY CUSTOMERS IN THE CONTINENTAL UNITED STATES AND HAWAII (EXCEPT FOR THE EXCLUDED TERRITORIES) ARE ELIGIBLE TO ACCESS AND USE THE PLATFORM, CREATE A CUSTOMER ACCOUNT, AND PLAY THE GAMES.</p>
+            <p className="mb-2">2.6. PLEASE BE AWARE THAT THESE TERMS INCLUDE DISPUTE RESOLUTION PROVISIONS, INCLUDING A PROVISION WAIVING YOUR RIGHT TO PURSUE ANY CLASS, GROUP OR REPRESENTATIVE CLAIM AND REQUIRING YOU TO PURSUE PAST, PENDING, AND FUTURE DISPUTES BETWEEN YOU AND US THROUGH INDIVIDUAL ARBITRATION UNLESS YOU OPT OUT WITHIN THE SPECIFIED TIME FRAME PURSUANT TO CLAUSE 26.</p>
         </div>
+
         <div>
-            <h3 className="text-xl font-bold mb-2 text-card-foreground">(GC) Gold Coins</h3>
-            <p>
-            Gold Coins (GC) are our platform's virtual currency, used for social gameplay. They can be purchased at a rate of 100 GC for $1.00 USD. You can exchange your Gold Coins back to your original payment method anytime, and all exchanges and returns are completely free, if coins are not used. No purchase is required to obtain or redeem Sweeps Coins. A purchase will not increase your chances of winning.
-            </p>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">3. DEFINITIONS</h3>
+            <ul className="list-alpha list-inside ml-4 space-y-2">
+                <li><strong>“Collective Action”</strong> – means any claim, action, or proceeding asserted or pursued as a class action, group action, collective action, joint action, coordinated action, consolidated action, mass action, or in any other representative or private attorney general capacity, whether in arbitration, court or any other venue.</li>
+                <li><strong>“Content”</strong> – means text, graphics, user interfaces, visual interfaces, photographs, trademarks, logos, sounds, music, artwork, computer code and other material used, displayed or available as part of the Games and Platform.</li>
+                <li><strong>“Customer Account”</strong> – means an account held by a Registered Customer.</li>
+                <li><strong>“Fraudulent Conduct"</strong> – means any of the conduct described in clause 16.</li>
+                <li><strong>“Game”</strong> – means any one or more Game(s) available on the Platform in either Standard Play or Promotional Play. We reserve the right to add and remove Games from the Platform at our sole discretion.</li>
+                <li><strong>“Gold Coin”</strong> – means the virtual social gameplay currency which enables you to play the Standard Play Games. Gold Coins have no monetary value and cannot under any circumstance be redeemed for Prizes.</li>
+                <li><strong>“Participate”, “Participating” or “Participation”</strong> – means playing any Games or using our Platform in any manner whatsoever, including any of the conduct described in clause 6, 9, 10, 11 and 12.</li>
+                <li><strong>“Payment Administration Agent”</strong> – means any payments facilitators and / or the service provided through any related body corporate, affiliate, or third party we appoint to act as our agent.</li>
+                <li><strong>"Payment Medium"</strong> – means any card, online wallet, financial/bank account or other payment medium used to purchase Gold Coins.</li>
+                <li><strong>"Platform"</strong> – means the services provided through any URL or mobile application belonging to, or licensed to, MxRaceHub, and branded as part of the MxRaceHub games, including the website located at mxracehub.site, and all subdomains, subpages and successor sites thereof, as well as all Games, features, tools and services available thereon.</li>
+                <li><strong>“Customer” or “you”</strong> – means any person who Participates, whether or not a Registered Customer.</li>
+                <li><strong>“Prizes”</strong> – means valuable prizes that can be redeemed using Sweeps Coins won through Promotional Play in accordance with these Terms.</li>
+                <li><strong>“Promotional Play” or “Sweepstakes”</strong> – means Participation in our sweepstakes promotions by playing the Platform’s game with Sweeps Coins.</li>
+                <li><strong>“Registered Customer"</strong> – means a Customer who has successfully registered a Customer Account, whether that account is considered active or not.</li>
+                <li><strong>“Standard Play"</strong> – means Participating in any game played with Gold Coins.</li>
+                <li><strong>"Sweeps Coins"</strong> – means sweepstakes entries.</li>
+                <li><strong>"Third Party Website”</strong> – means a third-party website not controlled by us.</li>
+            </ul>
         </div>
+        
         <div>
-            <h3 className="text-xl font-bold mb-2 text-card-foreground">(SC) Sweeps Coins</h3>
-            <p>
-            Sweeps Coins (SC) are our promotional coins, which you can win through gameplay. They can only be won. 100 Sweeps Coins are redeemable for $1.00 USD. Winnings in SC must be played through at least once before they can be redeemed for cash prizes via our partner site, MX Exchange. 
-            </p>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">4. REGISTRATION & CUSTOMER WARRANTIES</h3>
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">4.1. Registration</h4>
+            <p className='mb-2'>a) When you try to register a Customer Account you will be requested to provide the following information:</p>
+            <ul className="list-roman list-inside ml-6 mb-2">
+                <li>Full legal name;</li>
+                <li>Date of birth;</li>
+                <li>Permanent Address;</li>
+                <li>E-mail.</li>
+            </ul>
+            <p>b) MxRaceHub will also request you to provide a copy of your identification document and proof of address upon registration. For the purpose of this verification, we may accept a driver's license or other government issued identification document which is permitted to be used for identification purposes and contains your residential address. You will also be requested to set a username and password.</p>
+            <p>Please note that how we collect, use, maintain and disclose your personal information is governed by our privacy policy accessible <span className="text-primary hover:underline cursor-pointer" onClick={() => (document.querySelector('button[data-section="privacy"]') as HTMLButtonElement)?.click()}>here</span>.</p>
+
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">4.2. Warranties</h4>
+            <p className='mb-2'>a) You declare and warrant that:</p>
+            <ul className="list-roman list-inside ml-6 mb-2 space-y-1">
+                <li>You are over 21 years of age or such higher minimum legal age of majority as stipulated in the jurisdiction of your residence and are, under the laws applicable to you, legally allowed to participate in the Games offered on the Platform;</li>
+                <li>WHEN PARTICIPATING IN STANDARD OR PROMOTIONAL PLAY, YOU DO NOT RESIDE IN, OR ACCESS THE PLATFORM FROM, THE EXCLUDED TERRITORIES;</li>
+                <li>You use our Platform strictly in your personal capacity for recreational and entertainment purposes only;</li>
+                <li>You participate in the Games on your own behalf and not on behalf of any other person;</li>
+                <li>All information that you provide to us during the term of validity of these Terms is true, complete and correct, and you will immediately notify us of any change to such information;</li>
+                <li>Cryptocurrency or FIAT currency (“FIAT”) that you use to purchase Gold Coins is not tainted with any illegality and, in particular, does not originate from any illegal activity or source, or from ill-gotten means;</li>
+                <li>You will not purchase Gold Coins from a business or corporate account, but only a wallet held in your name;</li>
+                <li>You will not be involved in any fraudulent, collusive, fixing or other unlawful activity in relation to your or third parties’ participation in any of the Games and you will not use any software-assisted methods or techniques (including but not limited to bots designed to play automatically) or hardware devices for your participation in any of the Games. We reserve the right to invalidate any participation in the event of such behavior;</li>
+                <li>When purchasing Gold Coins, you must only use a valid Payment Medium which lawfully belongs to you;</li>
+            </ul>
+            <p className='mb-2'>b) It is a Customer’s sole responsibility to ensure that their Participation is lawful in their jurisdiction.</p>
+            <p className='mb-2'>c) Any person who is knowingly in breach of Clauses 2, 4 and 23, including but not limited to any attempt to circumvent any restrictions regarding Excluded Territories and jurisdictions, for example, by using a service that masks or manipulates the identification of your real location, or by otherwise providing false or misleading information regarding your location or place of residence, or by Participating from an Excluded Territory or through a third party or on behalf of a third party located in an Excluded Territory, is in breach of these Terms. You may be committing fraud and may be subject to criminal prosecution.</p>
+            <p className='mb-2'>d) You shall not act in a manner that is defamatory, trade libelous, threatening, or harassing.</p>
+            <p className='mb-2'>e) You shall not engage in potentially fraudulent or suspicious activity and/or transactions.</p>
+            <p className='mb-2'>f) You must cooperate in any investigation or provide confirmation of your identity or the accuracy of any information you provide to us.</p>
+            <p className='mb-2'>g) You shall not provide false, inaccurate or misleading information in connection with your use of the Platform, in communications with MxRaceHub, or otherwise connected with these Terms.</p>
+            <p className='mb-2'>h) You shall not violate, or attempt to violate, (1) any law, statute, or ordinance; or (2) MxRaceHub’s or any third-party’s copyright, patent, trademark, trade secret, or other intellectual property rights, or rights of publicity or privacy.</p>
+            <p>i) You declare that your access and use of the Platform and/or the Games, and your execution and delivery of, and the performance of your obligations under these Terms, will not result in a breach of any applicable laws, rules or regulations or of any order, decree or judgment of any court, any award of any arbitrator or those of any governmental or regulatory authority in any jurisdiction.</p>
+            
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">4.3 Eligible Customers</h4>
+            <p>Employees and contractors of MxRaceHub, any of its respective affiliates, subsidiaries, holding companies, advertising agencies, or any other company or individual involved with the design, production, execution or distribution of the Games and their immediate family (spouse, parents, siblings and children, whether the relationship is by birth, marriage or adoption) and household members (people who share the same residence at least 3 months of the year) are not eligible to Participate.</p>
+            
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">4.4 Acceptance</h4>
+            <p>By accepting these Terms you agree that your Participation is at your sole option, discretion and risk. You will have no claims whatsoever against us or any of our partners, or respective directors, officers, employees, or contractors in relation to your use of the Platform or the Games.</p>
         </div>
+
         <div>
-            <h3 className="text-xl font-bold mb-2 text-card-foreground">KYC Agreement</h3>
-            <p>
-            When accepting a friend request, you acknowledge a mutual agreement for social gaming. For financial transactions and prize redemptions, further Know Your Customer (KYC) verification may be required to comply with financial regulations.
-            </p>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">5. LICENCE</h3>
+            <p className='mb-2'>5.1. Subject to your agreement and continuing compliance with these Terms, MxRaceHub grants you a personal, non-exclusive, non-transferable, non-sublicensable, revocable, limited license to access and use the Platform, including Gold Coins and Sweeps Coins, through a supported web browser or mobile device, solely for your personal, private entertainment and no other reason.</p>
+            <p className='mb-2'>5.2. These Terms do not grant you any right, title or interest in the Platform or Content.</p>
+            <p className='mb-2'>5.3. You acknowledge and agree that your license to use the Platform is limited by these Terms and if you do not agree to, or act in contravention of, these Terms, your license to use the Platform (including the Games and Content) shall be immediately and automatically terminated by MxRaceHub (without any liability to you whatsoever).</p>
+            <p>5.4. In the event that the Platform or any Game is deemed to be illegal under the laws of the jurisdiction in which you reside or are situated, you are not granted any license to, and must refrain from accessing, the Platform or relevant Game.</p>
         </div>
+
         <div>
-            <h3 className="text-xl font-bold mb-2 text-card-foreground">Terms of Service</h3>
-            <p>
-            By using MxHub Exchange Duo, you agree to our terms of service. All plays placed are final. Users must be of legal age in their jurisdiction to participate. We reserve the right to suspend accounts for any fraudulent activity.
-            </p>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">6. YOUR CUSTOMER ACCOUNT</h3>
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">6.1. Single Account</h4>
+            <p className='mb-2'>a) You are allowed to have only one Customer Account, including any inactive Account, on the Platform. If you attempt to open more than one Customer Account, all accounts you have opened or try to open may be cancelled or suspended and the consequences described in clause 23 may be enforced.</p>
+            <p className='mb-2'>b) You must notify us immediately if you notice that you have more than one registered Customer Account, whether active or not, on the Platform.</p>
+            <p>c) DO NOT CREATE A NEW CUSTOMER ACCOUNT IF YOU WISH TO CHANGE YOUR EMAIL, ADDRESS OR OTHER PERSONAL INFORMATION.</p>
+
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">6.2. Accuracy</h4>
+            <p className='mb-2'>a) You are required to keep your registration details up to date at all times.</p>
+            <p>b) All the personal information provided by you when creating your Customer Account or any further subsequent updates to your Customer Account, must be identical to that listed on your government issued identification.</p>
+
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">6.3. Security and Responsibility of Your Customer Account</h4>
+            <p className='mb-2'>a) As part of the registration process, you will have to choose a password to login into the Platform.</p>
+            <p className='mb-2'>b) It is your sole and exclusive responsibility to ensure that your Customer Account login details and any Payment Methods are kept secure and are only accessible by you. You accept full responsibility for any unauthorized use of your Customer Account and any activity linked to your Customer Account, including by a minor (which, in all events, is prohibited).</p>
+            <p className='mb-2'>c) WE STRONGLY RECOMMEND THAT YOU ENABLE MULTI-FACTOR AUTHENTICATION FOR YOUR CUSTOMER ACCOUNT.</p>
+            <p className='mb-2'>d) You must not share your Customer Account or password with another person, let anyone else access or use your Customer Account or do any other thing that may jeopardize the security of your Customer Account.</p>
+            <p className='mb-2'>e) If you become aware of, or reasonably suspect that security in your Customer Account has been compromised, including loss, theft or unauthorized disclosure of your password and Customer Account details, you must notify us immediately.</p>
+            <p className='mb-2'>f) You are solely responsible for maintaining the confidentiality of your password and you will be held responsible for all uses of your Customer Account, including any purchases made under the Customer Account, whether those purchases were authorized by you or not.</p>
+            <p className='mb-2'>g) You are solely responsible for anything that happens through your Customer Account, whether or not you undertook those actions.</p>
+            <p className='mb-2'>h) You acknowledge that your Customer Account may be terminated if someone else uses it and/or engages in any activity that breaches these Terms or is otherwise illegal.</p>
+            <p>i) MxRaceHub is not responsible for any abuse or misuse of your Customer Account by third parties due to your disclosure of your login details to any third party, whether such disclosure is intentional or accidental, active or passive.</p>
+
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">6.4. Transfer of Accounts, Gold Coins and Sweeps Coins.</h4>
+            <p className='mb-2'>a) You are not allowed to transfer Gold Coins or Sweeps Coins between Customer Accounts, or from your Customer Account to other Customers, or to receive Gold Coins or Sweeps Coins from other Customer Accounts into your Customer Account, or to transfer, sell and/or acquire Customer Accounts. You may not attempt to sell, trade, or transfer Gold Coins or Sweeps Coins, whether on the Platform or off the Platform.</p>
+            <p className='mb-2'>b) You are not allowed to convert Gold Coins to Sweeps Coins or vice versa.</p>
+            <p>c) You are prohibited from selling, transferring or acquiring Customer Accounts to or from other Customers. If you attempt to sell, transfer or acquire a Customer Account, all accounts you have opened or tried to sell, transfer or acquire will be cancelled (at our absolute discretion, and with no liability to you whatsoever) and the consequences described in clause 23 may be enforced.</p>
+            
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">6.5. Closing of Customer Accounts</h4>
+            <p className='mb-2'>a) If you wish to close your Customer Account you may do so at any time by sending an e-mail to accountclosure@mxracehub.me. Closing your Customer Account will forfeit all continued access to and right to use, enjoy or benefit from any Gold Coins, Sweeps Coins and unredeemed Prizes associated with your Customer Account.</p>
+            <p className='mb-2'>b) If you have concerns about possible responsible social gameplay issues, please consult our Gameplay Self Exclusion Policy, which is accessible <span className="text-primary hover:underline cursor-pointer" onClick={() => (document.querySelector('button[data-section="responsible"]') as HTMLButtonElement)?.click()}>here</span>.</p>
+            <p>c) You will be able to open your Customer Account again (unless you have implemented a self-exclusion) by sending an e-mail to accountclosure@mxracehub.me. All requests for the re-opening of an account will be evaluated by our Customer Support and Compliance teams, who abide by strict customer protection guidelines and applicable laws.</p>
+
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">6.6. Discretion to Refuse or Close Accounts</h4>
+            <p>MxRaceHub reserves the right to place limits on, suspend, close or refuse to open a Customer Account in its sole discretion, and without any liability to you whatsoever.</p>
+        </div>
+        
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">7. GOLD COINS</h3>
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">7.1. Gold Coins</h4>
+            <p className='mb-2'>a) Gold coins do not have a monetary value and can only be used to play Standard Games. Gold Coins can be used for entertainment only and cannot be redeemed for any value whatsoever.</p>
+            <p className='mb-2'>b) MxRaceHub will give Gold Coins free of charge on:</p>
+            <ul className="list-roman list-inside ml-6 mb-2">
+                <li>Daily Bonus – You can claim Gold Coins once per day, through logging into your Customer Account and claiming your daily bonus.</li>
+                <li>Promotional Giveaways – Promotional giveaways organized by MxRaceHub on its social media accounts (for example, Facebook, Twitter, Instagram).</li>
+            </ul>
+            <p className='mb-2'>c) You may also win more Gold Coins when you play in Standard Play and you may purchase more Gold Coins on the Platform.</p>
+            <p>d) You cannot win Prizes when you Participate in Standard Play.</p>
+
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">7.2. Gold Coin Purchases</h4>
+            <p className='mb-2'>a) The purchase of Gold Coins is the purchase of a license that allows you to Participate in Standard Play Games and it is not a deposit of funds which can be withdrawn. Funds used to purchase Gold Coins will not, and cannot, be refunded to you. Gold Coins do not have any real money value.</p>
+            <p className='mb-2'>b) You can purchase Gold Coins on the Platform through one of the Payment Methods available on the website.</p>
+            <p className='mb-2'>c) The Payment Methods you use to purchase Gold Coins must be legally and beneficially owned by you and in your name. If it comes to our attention that the name you registered on your Customer Account and the name linked to your Payment Method differs, your Customer Account will be immediately suspended. Should your Customer Account be suspended, we recommend that you contact Customer Support through the support@mxracehub.me.</p>
+            <p className='mb-2'>d) MxRaceHub reserves the right to request documents and information to verify the legal and beneficial ownership of the Payment Methods you use to make Gold Coin purchases.</p>
+            <p className='mb-2'>e) You agree that we and/or our Payment Administration Agents may store your payment information to process your future purchases. By accepting these Terms, you authorize MxRaceHub and/or our Payment Administration Agents to store your payment credentials in compliance with applicable payment processing regulations.</p>
+            <p className='mb-2'>f) Once a Gold Coin purchase has been made, the funds will be withdrawn from your Payment Methods as soon as practicable.</p>
+            <p className='mb-2'>g) The maximum Gold Coin purchase that can be made is USD $9,000 (nine thousand US dollars) per day.</p>
+            <p>h) If you are found to have one or more of your purchases returned and/or reversed or charged back, your account will be suspended. If this occurs, the amount of such purchases will constitute a debt owed by you to us and you must immediately remit payment for such purchases through an alternative payment method. Until payment is received by us or our Payment Administration Agent, your account will be suspended and any purchases will be deemed void and requests to redeem any Sweeps Coins will not be allowed.</p>
+
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">7.3. Currency</h4>
+            <p className='mb-2'>a) All Gold Coin purchases must be made using FIAT or a cryptocurrency supported by the Platform.</p>
+            <p className='mb-2'>b) Any exchange or transaction fees, charges or related costs that may be incurred as a result of, or in relation to, your purchase of Gold Coins are to be borne solely by you, including but not limited to any losses or additional costs arising from foreign exchange fluctuations.</p>
+            <p>c) If you purchase Gold Coins using FIAT or Plaid, then you must redeem Gold Coins using FIAT or Plaid. If you purchase Gold Coins using cryptocurrency, then you must redeem Sweeps Coins in cryptocurrency program. Only once your Sweeps Coins Or Gold Coins reaches a zero balance in the program, you may then elect your preferred currency (FIAT, Plaid or cryptocurrency) for future purchases of Gold Coins or redemptions of Gold Coins. For the avoidance of any doubt, if you have any Gold Coins or Sweeps Coins in your wallet, then you cannot switch between FIAT, Plaid and cryptocurrency for the purchase of Gold Coins or redemption of Sweeps Coins.</p>
+        </div>
+
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">8. Sweeps Coins</h3>
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">8.1. Sweeps Coins</h4>
+            <p className='mb-2'>a) Customers who receive promotional Gold Coins can use that Gold Coins to Play Games within MxRaceHub. Gold Coins can only be used to Gold Coin Play Games.</p>
+            <p>b) YOU CANNOT PURCHASE SWEEPS COINS.</p>
+
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">8.2. How to receive GOLD COINS</h4>
+            <p className='mb-2'>a) You can obtain Free Gold Coins through the following means:</p>
+            <ul className="list-roman list-inside ml-6 mb-2">
+                <li>Promotional Supercross and Motorcross Trivia Question Giveaways on site pop ups once a month.</li>
+                <li>Promotional Giveaways – Promotional giveaways organized by MxRaceHub on its social media (for example, Facebook, Twitter, Instagram). The amount of Sweeps Coins given away will be stated on the applicable Promotional Giveaway contest.</li>
+            </ul>
+            <p className='mb-2'>j) MXRACEHUB RESERVES THE RIGHT TO REJECT REQUEST CARDS FROM EXCLUDED TERRITORIES.</p>
+            <p className='mb-2'>k) Requests made by any other individual or any entity (including but not limited to commercial sweepstakes subscription notification and/or entering services) or posted from an Excluded Territory different to the Customer's verified residential address will be declared invalid.</p>
+            <p className='mb-2'>l) Tampering with the entry process or the operation of the Sweepstakes, including but not limited to the use of any device to automate the Sweeps Coins request/entry process, or to otherwise abuse the process, is prohibited and any requests/entries deemed by MxRaceHub, in its sole discretion, to have been submitted in this manner will be void. In the event a dispute regarding the identity of the individual who actually submitted a request or whether a request satisfies the requirements set out above cannot be resolved to MxRaceHub’s satisfaction, the affected request/entry will be deemed ineligible.</p>
+            <p className='mb-2'>m) All cards that are submitted without a valid unique postcard code using the code generator, will be rejected.</p>
+            <p>n) For each Request Card a Customer submits in accordance with the above requirements, the Customer will receive 5 Sweeps Coins.</p>
+
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">8.4. Sweeps Coins Balance</h4>
+            <p className='mb-2'>a) The amount of Sweeps Coins a Customer has will be displayed in their Customer Account on the website.</p>
+            <p className='mb-2'>b) The amount of Sweeps Coins to be allocated to Customers can be changed at any time by MxRaceHub in its sole discretion, without any liability to you whatsoever.</p>
+            <p>c) MxRaceHub is not responsible for lost, late, incomplete, invalid, unintelligible or misdirected Sweeps Coins requests or allocations.</p>
+        </div>
+
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">9. GAMES</h3>
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">9.1. Rules</h4>
+            <p className='mb-2'>a) To participate in any Standard or Promotional Play, you must have an active Customer Account and agree to be bound by these Terms.</p>
+            <p className='mb-2'>b) You may participate in any Game only if you have sufficient Gold Coins or Sweeps Coins (as applicable) in your Customer Account for such Participation.</p>
+            <p className='mb-2'>c) Games offered on the Platform may have their own rules which are available on the Platform. It is your responsibility to read the rules of a Game before playing and they are binding upon you as if they form part of these Terms. You must familiarize yourself with the applicable terms of play and read the relevant rules before playing any Game.</p>
+            <p>d) Gold Coins or Sweeps Coins that have been submitted for play and accepted cannot be changed or cancelled, and the Gold Coins or Sweeps Coins (whichever applicable) will be drawn from your Gold Coin or Sweeps Coins balance instantly.</p>
+
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">9.2. Void Games</h4>
+            <p>MxRaceHub reserves the right to declare Participation in a Game void, partially or in full, if, in our sole discretion, we deem it obvious that there was an error, mistake, misprint or technical error on the pay-table, win-table, minimum or maximum stakes, odds or software.</p>
+
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">9.3. Final Decision</h4>
+            <p>In the event of a discrepancy between the result showing on a user’s device and MxRaceHub server software, the result showing on the MxRaceHub server software will be the official and governing result.</p>
+        </div>
+
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">10. STANDARD PLAY</h3>
+            <p className='mb-2'>10.1. Standard Play can only be played with Gold Coins.</p>
+            <p className='mb-2'>10.2. On Standard Play you can only win Gold Coins.</p>
+            <p>10.3. You cannot win money or Prizes of any kind when playing on Standard Play.</p>
+        </div>
+
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">11. PLAY / SWEEPSTAKES</h3>
+            <p className='mb-2'>11.1. Play / Sweepstakes can only be played with Gold Coins or Sweeps Coins.</p>
+            <p className='mb-2'>11.2. It is the sole responsibility of a Customer to determine whether the Sweepstakes is legal and compliant with all regulations in the jurisdiction in which the Customer resides.</p>
+            <p className='mb-2'>11.3. Within MxRaceHub there are different Games. The amount of Gold Coins or Sweeps Coins required to play each Game, and the applicable rules will be detailed in the informational pages associated with a particular Game.</p>
+            <p className='mb-2'>11.4. Only Games played with Sweeps Coins provide the opportunity to redeem for Prizes. The Prize that can be won while playing a Game will be shown in the Platform by clicking the “Redeem” button.</p>
+            <p>11.5. MxRaceHub decisions as to the administration and operation of the Sweepstakes, the Game and the amount and nature of any Prizes are final and binding.</p>
+        </div>
+
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">13. REDEMPTION OF PRIZES</h3>
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">13.1. Prizes</h4>
+            <p className='mb-2'>a) Only Sweeps Coins can be redeemed for Prizes.</p>
+            <p className='mb-2'>b) With the exception of Sweeps Coins won through Promotional Play, all Customers are required to play their Sweeps Coins three (3) times before it is eligible to be redeemed for Prizes.</p>
+            <p className='mb-2'>c) Play reserves the right to change the Prize, win rates and odds of any of the Sweepstakes at any time at our absolute discretion. It is a Customer's responsibility to check the Prize win rate on each occasion before they participate.</p>
+            <p>d) No Prize can be redeemed without completing the identification process as required by MxRaceHub, at our absolute discretion.</p>
+
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">13.2. Redemption Methods</h4>
+            <p className='mb-2'>a) The Prizes for which you can redeem your Sweeps Coins will be identified on the Platform and can change from time to time at MxRaceHub’s absolute discretion.</p>
+            <p className='mb-2'>b) Prizes may include, but are not necessarily limited to:</p>
+            <ul className="list-roman list-inside ml-6 mb-2">
+                <li>Cryptocurrency (subject to conditions being met as outlined in these Terms); and</li>
+                <li>FIAT (subject to conditions being met as outlined in these Terms).</li>
+                <li>Plaid (subject to conditions being met as outlined in these Terms).</li>
+            </ul>
+
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">13.3. Limits and Fees</h4>
+            <p className='mb-2'>a) MxRaceHub reserves the right to charge fees for processing the redemption of Prizes to you and to set a minimum redemption threshold for Prize redemptions.</p>
+            <p>b) In Florida, the maximum redemption value of Sweeps Coins won on any Game or play, via a Customer’s participation in the Sweepstakes, is USD $5,000 (five thousand US dollars) per day. Any redemption of a Prize valued in excess of USD $5,000 (five thousand US dollars) per day will not be allocated or paid.</p>
+
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">13.4. Redeeming for Cryptocurrency</h4>
+            <p className='mb-2'>a) When you elect to redeem Sweeps Coins for cryptocurrency, you must select your “Wallet” account, press “Redeem,” and choose the cryptocurrency to which you wish to redeem for.</p>
+            <p className='mb-2'>b) When you choose to redeem Sweeps Coins for cryptocurrency, it is your sole responsibility to ensure that the crypto wallet to which you are transferring the funds can receive those funds. MxRaceHub has no obligation to check or verify whether your wallet will accept the cryptocurrency you select or nominate.</p>
+            <p className='mb-2'>c) Sweeps Coins will be redeemable at an implied rate of 100 Sweeps Coins per 1 USD. As such, the amount of cryptocurrency that can be redeemed per 1 Sweeps Coin will be determined by the market price of that cryptocurrency in USD at the time of such redemption (as determined in our discretion).</p>
+            <p>d) You can only redeem your Sweeps Coins using the same cryptocurrency you used when purchasing Gold Coins on the Platform. You will only be permitted to redeem Sweeps Coins in cryptocurrency if you have satisfied the conditions in clause 7.3(c) of these Terms.</p>
+
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">13.5 Redeeming for FIAT or Plaid</h4>
+            <p className='mb-2'>a) You will only be permitted to redeem mxracehub in FIAT or Plaid if you have satisfied the conditions in clause 7.3(c) of these Terms.</p>
+            <p className='mb-2'>b) When you elect to redeem Sweeps Coins for FIAT or Plaid, you must select your “Wallet” account, press “Redeem,” and choose the FIAT or Plaid currency you wish to redeem.</p>
+            <p className='mb-2'>c) When you choose to redeem sweeps coins for FIAT or Plaid currency, it is your sole responsibility to ensure that the bank account to which you are transferring the FIAT is capable of receiving those funds.</p>
+            <p>d) Sweeps Coins will be redeemable at an implied rate of 100 Sweeps Coins per 1 USD. As such, the amount of FIAT or Plaid currency that can be redeemed per 100 Sweeps Coins will be determined by the exchange rate of the FIAT or Plaid currency against 1USD.</p>
+            
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">13.6. Timing and Frequency for Prize Redemptions</h4>
+            <p className='mb-2'>a) We process requests to redeem Prizes in the order in which they are received. Our goal is to process your request as soon as practicable.</p>
+            <p className='mb-2'>b) We will only process one Prize redemption request per Customer Account in any 24-hour period.</p>
+            <p className='mb-2'>c) There may be delays in payments due to our identity verification process. Certain Payment Mediums will require additional verification at the time of redemption and we do not accept any liability to you in respect of any delays arising from these verification processes.</p>
+            <p>d) Without limiting clause 13, Customers can request to redeem Prizes of any value. However, we reserve the right to allocate or pay Prizes in smaller increments over a number of days until all of the Prize has been allocated or paid.</p>
+
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">13.7. Refused Prizes & Mistaken Credits</h4>
+            <p>If we mistakenly credit your Customer Account from time to time with Prizes that do not belong to you, whether due to a technical error, human error or otherwise, the amount credited will remain MxRaceHub property and will be deducted from your Customer Account. If you have been transferred cryptocurrency or FIAT that does not belong to you prior to us becoming aware of the error, the mistakenly paid amount will (without prejudice to other remedies and actions that may be available at law) constitute a debt owed by you to us. In the event of an incorrect crediting, you are obliged to notify Customer Support through support@mxracehub.me.</p>
         </div>
 
         <div>
@@ -368,6 +630,43 @@ const TermsContent = () => (
             <h3 className="text-xl font-bold mb-2 text-card-foreground">29. GOVERNING LAW</h3>
             <p>29.1. These Terms, your use of the Platform and our entire relationship will be governed, and interpreted in accordance with, the laws of the State of Delaware in the United States, without regard for its choice of conflict of law principles. The application of the United Nations Convention on Contracts for the International Sale of Goods is specifically excluded.</p>
             <p>29.2. Subject to clause 26, the parties agree that any dispute, controversy or claim arising out of or in connection with these Terms, or the breach, termination or invalidity of these Terms, will be submitted exclusively to the courts in the State of Delaware, and you and we consent to the venue and personal jurisdiction of those courts. Notwithstanding the foregoing, any motion to compel arbitration or to enforce an arbitral award issued hereunder may be brought before any court of competent jurisdiction.</p>
+        </div>
+
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">Account Creation &amp; Fees</h3>
+            <p>
+            Creating a user account on MxRaceHub is completely free. We believe in providing a straightforward and enjoyable experience without hidden costs.
+            </p>
+        </div>
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">Playing Rules</h3>
+            <p>
+            When playing with a friend, all plays are final. Winning plays will take all Gold Coins (GC) or Sweeps Coins (SC) for the win. Sweeps Coins (SC) must be played at least once before being eligible for exchange.
+            </p>
+        </div>
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">(GC) Gold Coins</h3>
+            <p>
+            Gold Coins (GC) are our platform's virtual currency, used for social gameplay. They can be purchased at a rate of 100 GC for $1.00 USD. You can exchange your Gold Coins back to your original payment method anytime, and all exchanges and returns are completely free, if coins are not used. No purchase is required to obtain or redeem Sweeps Coins. A purchase will not increase your chances of winning.
+            </p>
+        </div>
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">(SC) Sweeps Coins</h3>
+            <p>
+            Sweeps Coins (SC) are our promotional coins, which you can win through gameplay. They can only be won. 100 Sweeps Coins are redeemable for $1.00 USD. Winnings in SC must be played through at least once before they can be redeemed for cash prizes via our partner site, MX Exchange. 
+            </p>
+        </div>
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">KYC Agreement</h3>
+            <p>
+            When accepting a friend request, you acknowledge a mutual agreement for social gaming. For financial transactions and prize redemptions, further Know Your Customer (KYC) verification may be required to comply with financial regulations.
+            </p>
+        </div>
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">Terms of Service</h3>
+            <p>
+            By using MxRaceHub, you agree to our terms of service. All plays placed are final. Users must be of legal age in their jurisdiction to participate. We reserve the right to suspend accounts for any fraudulent activity.
+            </p>
         </div>
     </div>
 );
