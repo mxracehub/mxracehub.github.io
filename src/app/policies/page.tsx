@@ -11,7 +11,7 @@ import { Shield } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
-type PolicySection = 'terms' | 'responsible' | 'privacy';
+type PolicySection = 'terms' | 'responsible' | 'privacy' | 'cookies';
 
 const SectionButton = ({
   label,
@@ -150,6 +150,17 @@ const PrivacyPolicyContent = () => (
     </div>
 );
 
+const CookiesContent = () => (
+    <div className="space-y-6 text-muted-foreground">
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">Cookies Policy</h3>
+            <p>
+            We use cookies and similar tracking technologies to track the activity on our Service and hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service.
+            </p>
+        </div>
+    </div>
+);
+
 
 export default function PoliciesPage() {
     const [activeSection, setActiveSection] = useState<PolicySection>('terms');
@@ -162,6 +173,8 @@ export default function PoliciesPage() {
                 return <ResponsiblePlayContent />;
             case 'privacy':
                 return <PrivacyPolicyContent />;
+            case 'cookies':
+                return <CookiesContent />;
             default:
                 return <TermsContent />;
         }
@@ -179,6 +192,7 @@ export default function PoliciesPage() {
                 <SectionButton label="Terms & Conditions" isActive={activeSection === 'terms'} onClick={() => setActiveSection('terms')} />
                 <SectionButton label="Responsible Play" isActive={activeSection === 'responsible'} onClick={() => setActiveSection('responsible')} />
                 <SectionButton label="Privacy Policy" isActive={activeSection === 'privacy'} onClick={() => setActiveSection('privacy')} />
+                <SectionButton label="Cookies Policy" isActive={activeSection === 'cookies'} onClick={() => setActiveSection('cookies')} />
             </nav>
         </aside>
         <main className="md:col-span-3">
