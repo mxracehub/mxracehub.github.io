@@ -87,10 +87,13 @@ export function Footer() {
 
         {/* Bottom: Copyright */}
         <div className="mt-5 pt-1 text-center text-xs text-muted-foreground">
-        <p>NO PURCHASE NECESSARY TO ENTER TRIVIA. TRIVIA SWEEPSTAKES ARE VOID WHERE PROHIBITED BY LAW. For detailed rules, see terms of service
-        </p>
+        <p>NO PURCHASE NECESSARY TO ENTER TRIVIA. TRIVIA SWEEPSTAKES ARE VOID WHERE PROHIBITED BY LAW. For detailed rules, see terms of service</p>
         </div>
-        <div className="mt-8 pt-4 text-center text-sm text-muted-foreground">
+        <div className="mt-1 pt-1 text-center text-xs text-muted-foreground">
+        <p>Stake is committed to responsible social play, for more information visit 
+        Gamingaddictsanonymous.org</p>
+        </div>
+        <div className="mt-4 pt-4 text-center text-sm text-muted-foreground">
           <p>&copy; 2025 Mxracehub | ALL RIGHTS RESERVED.</p>
         </div>
       </div>

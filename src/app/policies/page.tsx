@@ -1,15 +1,21 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { PageHeader } from '@/components/page-header';
 import {
   Card,
   CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
 } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Shield } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { Separator } from '@/components/ui/separator';
 
 type PolicySection = 'terms' | 'responsible' | 'privacy' | 'cookies' | 'basic-instructions';
 
@@ -96,7 +102,7 @@ const TermsContent = () => (
                     </ol>
                 </li>
             </ul>
-            <p className="mb-2">2.2. BY ACCEPTING THESE TERMS, ACCESSING OR USING THE PLATFORM, CREATING A CUSTOMER ACCOUNT, AND/OR PLAYING THE GAMES, YOU SPECIFICALLY REPRESENT TO US THAT YOU DO NOT LIVE IN ANY OF THE EXCLUDED TERRITORIES. WE ARE SPECIFICALLY RELYING ON SUCH REPRESENTATIONS IN PROVIDING YOU ACCESS TO THE PLATFORM, CUSTOMER ACCOUNT, AND GAMES. IF YOU RESIDE IN ANY OF THE EXCLUDED TERRITORIES AND NONETHELESS CHECK THE BOX FOR ACCEPTANCE OF THESE TERMS, ACCESS OR USE THE PLATFORM, CREATE A CUSTOMER ACCOUNT, AND/OR PLAY THE GAMES DESPITE OUR EFFORTS TO PREVENT YOU FROM DOING SO, WE CONSIDER YOUR ACTIONS TO BE A MATERIAL MISREPRESENTATION TO US, A FRAUDULENT INDUCEMENT OF OUR SERVICES, AND A VIOLATION OF THESE TERMS, AND WE RESERVE ALL RIGHTS TO TAKE APPROPRIATE ACTION AGAINST YOU.</p>
+            <p className="mb-2">2.2. BY ACCEPTING THESE TERMS, ACCESSING OR USING THE PLATFORM, CREATING A CUSTOMER ACCOUNT, AND/OR PLAYING THE GAMES, YOU SPECIFICALLY REPRESENT TO US THAT YOU DO NOT RESIDE IN ANY OF THE EXCLUDED TERRITORIES. WE ARE SPECIFICALLY RELYING ON SUCH REPRESENTATIONS IN PROVIDING YOU ACCESS TO THE PLATFORM, CUSTOMER ACCOUNT, AND GAMES. IF YOU RESIDE IN ANY OF THE EXCLUDED TERRITORIES AND NONETHELESS CHECK THE BOX FOR ACCEPTANCE OF THESE TERMS, ACCESS OR USE THE PLATFORM, CREATE A CUSTOMER ACCOUNT, AND/OR PLAY THE GAMES DESPITE OUR EFFORTS TO PREVENT YOU FROM DOING SO, WE CONSIDER YOUR ACTIONS TO BE A MATERIAL MISREPRESENTATION TO US, A FRAUDULENT INDUCEMENT OF OUR SERVICES, AND A VIOLATION OF THESE TERMS, AND WE RESERVE ALL RIGHTS TO TAKE APPROPRIATE ACTION AGAINST YOU.</p>
             <p className="mb-2">2.3. NO PURCHASE OR PAYMENT IS NECESSARY TO PARTICIPATE OR PLAY THE GAMES. A PURCHASE OR PAYMENT OF ANY KIND WILL NOT INCREASE YOUR CHANCES OF WINNING.</p>
             <p className="mb-2">2.4. THE PLATFORM AND GAMES DO NOT OFFER REAL MONEY GAMBLING, AND NO ACTUAL MONEY IS REQUIRED TO PLAY.</p>
             <p className="mb-2">2.5. ONLY CUSTOMERS IN THE CONTINENTAL UNITED STATES AND HAWAII (EXCEPT FOR THE EXCLUDED TERRITORIES) ARE ELIGIBLE TO ACCESS AND USE THE PLATFORM, CREATE A CUSTOMER ACCOUNT, AND PLAY THE GAMES.</p>
@@ -612,14 +618,135 @@ const TermsContent = () => (
     </div>
 );
 
+const BudgetInput = ({ label, value, onChange }: { label: string; value: string; onChange: (e: React.ChangeEvent<HTMLInputElement>) => void }) => (
+    <div className="space-y-1">
+        <Label htmlFor={label.toLowerCase().replace(/[^a-z0-9]/g, '-')}>{label}</Label>
+        <div className="relative">
+            <Input
+                id={label.toLowerCase().replace(/[^a-z0-9]/g, '-')}
+                type="number"
+                value={value}
+                onChange={onChange}
+                placeholder="0.00"
+                className="pr-8"
+            />
+            <span className="absolute inset-y-0 right-3 flex items-center text-muted-foreground">$</span>
+        </div>
+    </div>
+);
+
+const BudgetCalculator = () => {
+    const [income, setIncome] = useState({
+        wages: '',
+        pensions: '',
+        benefits: '',
+        other: ''
+    });
+
+    const [expenses, setExpenses] = useState({
+        rent: '',
+        utilities: '',
+        loans: '',
+        other: ''
+    });
+
+    const handleIncomeChange = (field: keyof typeof income) => (e: React.ChangeEvent<HTMLInputElement>) => {
+        setIncome(prev => ({ ...prev, [field]: e.target.value }));
+    };
+
+    const handleExpenseChange = (field: keyof typeof expenses) => (e: React.ChangeEvent<HTMLInputElement>) => {
+        setExpenses(prev => ({ ...prev, [field]: e.target.value }));
+    };
+
+    const totalIncome = useMemo(() => {
+        return Object.values(income).reduce((sum, value) => sum + (Number(value) || 0), 0);
+    }, [income]);
+
+    const totalExpenses = useMemo(() => {
+        return Object.values(expenses).reduce((sum, value) => sum + (Number(value) || 0), 0);
+    }, [expenses]);
+
+    const disposableIncome = useMemo(() => totalIncome - totalExpenses, [totalIncome, totalExpenses]);
+
+    return (
+        <Card className="bg-muted/30">
+            <CardHeader>
+                <CardTitle>Monthly Budget Calculator</CardTitle>
+                <CardDescription>Your information is confidential and is not visible to MxRaceHub.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="space-y-4">
+                        <h4 className="font-semibold text-lg text-card-foreground">Income</h4>
+                        <BudgetInput label="Wages after deductions" value={income.wages} onChange={handleIncomeChange('wages')} />
+                        <BudgetInput label="Pensions" value={income.pensions} onChange={handleIncomeChange('pensions')} />
+                        <BudgetInput label="Benefits" value={income.benefits} onChange={handleIncomeChange('benefits')} />
+                        <BudgetInput label="Other income" value={income.other} onChange={handleIncomeChange('other')} />
+                        <div className="border-t pt-4 space-y-1">
+                            <Label>Total income</Label>
+                            <div className="relative">
+                                <Input value={totalIncome.toFixed(2)} readOnly className="font-bold pr-8" />
+                                <span className="absolute inset-y-0 right-3 flex items-center text-muted-foreground">$</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="space-y-4">
+                         <h4 className="font-semibold text-lg text-card-foreground">Expenses</h4>
+                        <BudgetInput label="Rent/mortgage" value={expenses.rent} onChange={handleExpenseChange('rent')} />
+                        <BudgetInput label="Utility bills" value={expenses.utilities} onChange={handleExpenseChange('utilities')} />
+                        <BudgetInput label="Loans/credit" value={expenses.loans} onChange={handleExpenseChange('loans')} />
+                        <BudgetInput label="Other expenses" value={expenses.other} onChange={handleExpenseChange('other')} />
+                        <div className="border-t pt-4 space-y-1">
+                            <Label>Total expenses</Label>
+                            <div className="relative">
+                                <Input value={totalExpenses.toFixed(2)} readOnly className="font-bold pr-8" />
+                                <span className="absolute inset-y-0 right-3 flex items-center text-muted-foreground">$</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div className="rounded-lg border bg-background p-4">
+                    <h3 className="font-semibold text-card-foreground">Disposable income</h3>
+                    <p className={`mt-1 text-2xl font-bold ${disposableIncome < 0 ? 'text-destructive' : 'text-green-500'}`}>
+                        ${disposableIncome.toFixed(2)}
+                    </p>
+                </div>
+            </CardContent>
+        </Card>
+    );
+};
+
+const RecognizeSignsContent = () => (
+    <div>
+        <h3 className="text-xl font-bold mb-2 text-card-foreground">Recognize the Signs</h3>
+        <p className="mb-4">Problematic social gameplay can sometimes be hard to spot. Here are some signs that your play may be becoming a problem:</p>
+        <ul className="list-disc list-inside space-y-2">
+            <li>Spending more money or time than you intend to.</li>
+            <li>Feeling guilty or ashamed about your playing habits.</li>
+            <li>Chasing losses to try and win back money.</li>
+            <li>Borrowing money or selling possessions to play.</li>
+            <li>Lying to friends or family about how much you play or lose.</li>
+            <li>Playing has started to negatively affect your work, school, or relationships.</li>
+            <li>Thinking about playing constantly.</li>
+            <li>Playing to escape from problems or negative feelings.</li>
+        </ul>
+        <p className="mt-4">If you recognize any of these signs in yourself, we strongly encourage you to take a break and seek support. Your well-being is the top priority.</p>
+    </div>
+);
+
 const ResponsiblePlayContent = () => (
-     <div className="space-y-6 text-muted-foreground">
+     <div className="space-y-8 text-muted-foreground">
         <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">Our Commitment to Responsible Play</h3>
             <p>
                 MxRaceHub is committed to providing a safe and responsible social gaming environment. We want all of our users to play responsibly and within their means. If you believe your play is having a negative impact on your life, we are here to help.
             </p>
         </div>
+        <Separator />
+        <BudgetCalculator />
+        <Separator />
+        <RecognizeSignsContent />
+        <Separator />
         <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">Tips for Playing Responsibly</h3>
             <ul className="list-disc list-inside space-y-2">
@@ -631,12 +758,14 @@ const ResponsiblePlayContent = () => (
                 <li>Do not play when you are upset, tired, or depressed.</li>
             </ul>
         </div>
+        <Separator />
         <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">Self-Exclusion & Limits</h3>
             <p>
                 If you feel you need a break from playing, you can request to self-exclude from our platform. We offer options to temporarily suspend your account or to close it permanently. To set play limits or to request self-exclusion, please contact our support team at <Link href="mailto:mxracehub@proton.me" className="text-primary hover:underline">mxracehub@proton.me</Link>.
             </p>
         </div>
+        <Separator />
          <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">Need Help?</h3>
             <p>
