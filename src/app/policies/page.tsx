@@ -592,7 +592,7 @@ const TermsContent = () => (
             <p>28.6. Severability</p>
             <p>If any of the Terms are determined by any competent authority to be invalid, unlawful or unenforceable to any extent, such term, condition or provision will, to that extent, be severed from these Terms. All remaining terms, conditions and provisions will continue to be valid to the fullest extent permitted by law. In such cases, the part deemed invalid or unenforceable will be amended in a manner consistent with the applicable law to reflect, as closely as possible, MxRaceHub’s original intent.</p>
             <p>28.7. Explanation of Terms</p>
-            <p>We consider these Terms to be open and fair. If you need any explanation regarding these Terms or any other part of our Platform, please contact Customer Support via the live chat function accessible when you sign into your Customer Account or by emailing support@mxracehub.me. The Terms prevail over any communication via email or chat. We reserve the right to record all correspondence between you and us.</p>
+            <p>We consider these Terms to be open and fair. If you need any explanation regarding these Terms or any other part of our Platform, please contact Customer Support via the live chat function accessible when you sign into your Customer Account or by emailing support@mxracehub.me.</p>
             <p>28.8. Assignment</p>
             <p>These Terms are personal to you, and are not assignable, transferable or sub-licensable by you except with our prior written consent. We reserve the right to assign, transfer or delegate any of our rights and obligations hereunder to any third party without notice to you.</p>
             <p>28.9. Business Transfers</p>
@@ -1001,6 +1001,7 @@ const BasicInstructionsContent = () => (
                 <li>Make Friends <span className="text-muted-foreground/80">(FREE)</span></li>
                 <li>Play <span className="text-muted-foreground/80">(FREE)</span></li>
                 <li>Win Sweeps Coins <span className="text-muted-foreground/80">(FREE)</span></li>
+                <li>Play With Sweeps Coins</li>
                 <li>Redeem <span className="text-muted-foreground/80">(FREE)</span></li>
             </ol>
         </div>
@@ -1026,7 +1027,7 @@ export default function PoliciesPage() {
             default:
                 return <TermsContent />;
         }
-    }
+    };
 
   return (
     <div className="max-w-5xl mx-auto">
@@ -1055,5 +1056,3 @@ export default function PoliciesPage() {
     </div>
   );
 }
-
-    
