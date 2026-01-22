@@ -252,12 +252,7 @@ const TermsContent = () => (
                 <li>Promotional Supercross and Motorcross Trivia Question Giveaways on site pop ups once a month.</li>
                 <li>Promotional Giveaways – Promotional giveaways organized by MxRaceHub on its social media (for example, Facebook, Twitter, Instagram). The amount of Sweeps Coins given away will be stated on the applicable Promotional Giveaway contest.</li>
             </ul>
-            <p className='mb-2'>j) MXRACEHUB RESERVES THE RIGHT TO REJECT REQUEST CARDS FROM EXCLUDED TERRITORIES.</p>
-            <p className='mb-2'>k) Requests made by any other individual or any entity (including but not limited to commercial sweepstakes subscription notification and/or entering services) or posted from an Excluded Territory different to the Customer's verified residential address will be declared invalid.</p>
-            <p className='mb-2'>l) Tampering with the entry process or the operation of the Sweepstakes, including but not limited to the use of any device to automate the Sweeps Coins request/entry process, or to otherwise abuse the process, is prohibited and any requests/entries deemed by MxRaceHub, in its sole discretion, to have been submitted in this manner will be void. In the event a dispute regarding the identity of the individual who actually submitted a request or whether a request satisfies the requirements set out above cannot be resolved to MxRaceHub’s satisfaction, the affected request/entry will be deemed ineligible.</p>
-            <p className='mb-2'>m) All cards that are submitted without a valid unique postcard code using the code generator, will be rejected.</p>
-            <p>n) For each Request Card a Customer submits in accordance with the above requirements, the Customer will receive 5 Sweeps Coins.</p>
-
+            
             <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">8.4. Sweeps Coins Balance</h4>
             <p className='mb-2'>a) The amount of Sweeps Coins a Customer has will be displayed in their Customer Account on the website.</p>
             <p className='mb-2'>b) The amount of Sweeps Coins to be allocated to Customers can be changed at any time by MxRaceHub in its sole discretion, without any liability to you whatsoever.</p>
@@ -309,7 +304,6 @@ const TermsContent = () => (
             <ul className="list-roman list-inside ml-6 mb-2">
                 <li>Cryptocurrency (subject to conditions being met as outlined in these Terms); and</li>
                 <li>FIAT (subject to conditions being met as outlined in these Terms).</li>
-                <li>Plaid (subject to conditions being met as outlined in these Terms).</li>
             </ul>
 
             <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">13.3. Limits and Fees</h4>
@@ -322,11 +316,11 @@ const TermsContent = () => (
             <p className='mb-2'>c) Sweeps Coins will be redeemable at an implied rate of 100 Sweeps Coins per 1 USD. As such, the amount of cryptocurrency that can be redeemed per 1 Sweeps Coin will be determined by the market price of that cryptocurrency in USD at the time of such redemption (as determined in our discretion).</p>
             <p>d) You can only redeem your Sweeps Coins using the same cryptocurrency you used when purchasing Gold Coins on the Platform. You will only be permitted to redeem Sweeps Coins in cryptocurrency if you have satisfied the conditions in clause 7.3(c) of these Terms.</p>
 
-            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">13.5 Redeeming for FIAT or Plaid</h4>
-            <p className='mb-2'>a) You will only be permitted to redeem mxracehub in FIAT or Plaid if you have satisfied the conditions in clause 7.3(c) of these Terms.</p>
-            <p className='mb-2'>b) When you elect to redeem Sweeps Coins for FIAT or Plaid, you must select your “Wallet” account, press “Redeem,” and choose the FIAT or Plaid currency you wish to redeem.</p>
-            <p className='mb-2'>c) When you choose to redeem sweeps coins for FIAT or Plaid currency, it is your sole responsibility to ensure that the bank account to which you are transferring the FIAT is capable of receiving those funds.</p>
-            <p>d) Sweeps Coins will be redeemable at an implied rate of 100 Sweeps Coins per 1 USD. As such, the amount of FIAT or Plaid currency that can be redeemed per 100 Sweeps Coins will be determined by the exchange rate of the FIAT or Plaid currency against 1USD.</p>
+            <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">13.5 Redeeming for FIAT</h4>
+            <p className='mb-2'>a) You will only be permitted to redeem mxracehub in FIAT or if you have satisfied the conditions in clause 7.3(c) of these Terms.</p>
+            <p className='mb-2'>b) When you elect to redeem Sweeps Coins for FIAT, you must select your “Wallet” account, press “Redeem,” and choose the FIAT or currency you wish to redeem.</p>
+            <p className='mb-2'>c) When you choose to redeem sweeps coins for FIAT, it is your sole responsibility to ensure that the bank account to which you are transferring the FIAT is capable of receiving those funds.</p>
+            <p>d) Sweeps Coins will be redeemable at an implied rate of 100 Sweeps Coins per 1 USD. As such, the amount of FIAT or currency that can be redeemed per 100 Sweeps Coins will be determined by the exchange rate of the FIAT or currency against 1USD.</p>
             
             <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">13.6. Timing and Frequency for Prize Redemptions</h4>
             <p className='mb-2'>a) We process requests to redeem Prizes in the order in which they are received. Our goal is to process your request as soon as practicable.</p>
@@ -442,24 +436,6 @@ const TermsContent = () => (
             <p>20.1. MxRaceHub is committed to protecting and respecting your privacy and complying with all applicable data protection and privacy laws.</p>
             <p>20.2. Our Privacy Policy is incorporated into these Terms and its acceptance is a prerequisite to creating a Customer Account.</p>
             <p>20.3. You consent to receive marketing communications from MxRaceHub in respect of its offerings by way of email, notifications, any of which you may unsubscribe from at any time by contacting Customer Support via support@mxracehub.me.</p>
-        </div>
-
-        <div>
-            <h3 className="text-xl font-bold mb-2 text-card-foreground">21. USE OF LIVE CHAT SERVICES</h3>
-            <p>21.1. We may provide you with a Live Chat service to talk to our Customer Support representatives or to talk to other Customers. It is your responsibility to use these services only for their intended purposes. You are not permitted to use our Live Chat services for illegal purposes.</p>
-            <p>21.2. Be careful what you post on any Live Chat service. We review and moderate chats, and keep a log and record of statements. Your use of the Live Chat service should be for recreational and social purposes only.</p>
-            <p>21.3. Spamming on Live Chat is prohibited. You are prohibited from intimidating, harassing or abusing other Customers or MxRaceHub employees and representatives.</p>
-            <p>21.4. You will not use any Live Chat service to engage in any form of harassment or offensive behavior, including but not limited to, threatening, derogatory, abusive or defamatory statements, or racist, sexually explicit, pornographic, obscene, or offensive language.</p>
-            <p>21.5. You will not use any Live Chat service to infringe the privacy rights, property rights or any other rights of any person.</p>
-            <p>21.6. You will not submit any kind of material or information on any Live Chat service that is fraudulent or otherwise unlawful or violates any law.</p>
-            <p>21.7. You will not use any Live Chat service to distribute, promote or otherwise publish any material containing any solicitation for funds, advertising or solicitation for goods or services of other forums.</p>
-            <p>21.8. You will not use any Live Chat service to distribute, promote or otherwise publish any kind of malicious code or do anything else that might cause harm to the Platform or to other Customer’s systems in any way.</p>
-            <p>21.9. We reserve the right to monitor anything and everything submitted by you to any Live Chat service to ensure that it conforms to content guidelines that are monitored by us and subject to change from time to time.</p>
-            <p>21.10. If you breach any of the provisions relating to a Live Chat service, we may ban you from using that Live Chat service or all Live Chat services and/or suspend or deactivate your Customer Account. If we deactivate your Customer Account, we reserve the right to cancel or refuse to redeem any Prizes.</p>
-            <p>21.11. We reserve the right to remove any Live Chat service from the Platform if abused.</p>
-            <p>21.12. We will not be liable if damage arises out of the Live Chat service.</p>
-            <p>21.13. You agree to unconditionally indemnify us against any damages arising out of your illegal, unlawful or inappropriate conduct or arising out of violation of the provisions in clause 21 or any other rules on the Platform applying to the Live Chat service.</p>
-            <p>21.14. You will not collude in any way through the Live Chat service. Customers are encouraged to report any suspicious behavior to Customer Support.</p>
         </div>
 
         <div>
