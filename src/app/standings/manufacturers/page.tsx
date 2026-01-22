@@ -65,7 +65,7 @@ export default function ManufacturersStandingsPage() {
                 </CardContent>
                 <CardFooter>
                     <Button asChild className="w-full">
-                        <Link href="/play/manufacturer-championship">Bet on Championship Winner</Link>
+                        <Link href="/play/manufacturer-championship">Play for Championship Winner</Link>
                     </Button>
                 </CardFooter>
             </Card>
