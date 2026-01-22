@@ -1001,7 +1001,7 @@ const BasicInstructionsContent = () => (
                 <li>Make Friends <span className="text-muted-foreground/80">(FREE)</span></li>
                 <li>Play <span className="text-muted-foreground/80">(FREE)</span></li>
                 <li>Win Sweeps Coins <span className="text-muted-foreground/80">(FREE)</span></li>
-                <li>Play With Sweeps Coins</li>
+                <li>Play With Sweeps Coins<span className="text-muted-foreground/80">(FREE)</span></li>
                 <li>Redeem <span className="text-muted-foreground/80">(FREE)</span></li>
             </ol>
         </div>
