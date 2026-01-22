@@ -78,7 +78,8 @@ export function Footer() {
                       <li>3. Make Friends <span className="text-muted-foreground">(FREE)</span></li>
                       <li>4. Play <span className="text-muted-foreground">(FREE)</span></li>
                       <li>5. Win Sweeps Coins <span className="text-muted-foreground">(FREE)</span></li>
-                      <li>6. Redeem <span className="text-muted-foreground">(FREE)</span></li>
+                      <li>6. Play With Sweeps Coins <span className="text-muted-foreground">(FREE)</span></li>
+                      <li>7. Redeem <span className="text-muted-foreground">(FREE)</span></li>
                   </ul>
               </div>
           </div>
