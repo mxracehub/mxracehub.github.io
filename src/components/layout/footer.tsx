@@ -90,7 +90,7 @@ export function Footer() {
         <p>NO PURCHASE NECESSARY TO ENTER TRIVIA. TRIVIA SWEEPSTAKES ARE VOID WHERE PROHIBITED BY LAW. For detailed rules, see terms of service</p>
         </div>
         <div className="mt-1 pt-1 text-center text-xs text-muted-foreground">
-        <p>Stake is committed to responsible social play, for more information visit 
+        <p>MxRaceHub is committed to responsible social play, for more information visit 
         Gamingaddictsanonymous.org</p>
         </div>
         <div className="mt-4 pt-4 text-center text-sm text-muted-foreground">
