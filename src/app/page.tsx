@@ -201,7 +201,7 @@ export default function DashboardPage() {
           <div className="absolute inset-x-0 bottom-0 bg-blue-700/90 p-2 md:p-4">
             <h3 className="text-3xl font-bold">Make Race Day More Exciting</h3>
             <p className="mb-4 mt-2 max-w-md text-white/90">
-              Join playing with friends and play with your favorite riders prediction.
+              Join playing with friends and predict your favorite riders win.
               No Fee for playing or redeeming
             </p>
             <div className="flex gap-4">
@@ -226,7 +226,7 @@ export default function DashboardPage() {
               <Link href="/races">Race Schedule</Link>
             </Button>
             <Button variant="outline" className="border-2 font-bold" asChild>
-                <Link href="/play">Play</Link>
+                <Link href="/play">Play Games</Link>
             </Button>
             <Button className="bg-blue-600 text-white hover:bg-blue-700" asChild>
               <Link href="/riders">View Riders</Link>
