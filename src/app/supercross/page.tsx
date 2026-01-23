@@ -46,7 +46,7 @@ export default function SupercrossPage() {
       )}
 
       <div className="mb-8 flex justify-center gap-4 text-center">
-        <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+        <Button asChild size="lg" className="bg-red-600 hover:bg-red-700">
           <Link
             href="https://www.peacocktv.com/sports/supercross"
             target="_blank"
