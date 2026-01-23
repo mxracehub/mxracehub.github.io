@@ -1,6 +1,7 @@
 
 import { supercrossRaces } from './races-supercross-data';
 import { motocrossRaces } from './races-motocross-data';
+import { worldSupercrossRaces } from './races-world-supercross-data';
 import { mainEventResults } from './results-data';
 
 const playoffsData = [
@@ -9,9 +10,25 @@ const playoffsData = [
     { id: 'smx-final', name: 'SMX World Championship Final', location: 'Ridgedale, MO', date: 'Sep 26, 2026' },
 ];
 
+const getRaceIdFromRaceObject = (race: any): string => {
+    // World Supercross races are identified by 'DAZN' tv provider.
+    if ('tv' in race && race.tv === 'DAZN' && 'round' in race) {
+         return `world-supercross-${race.round}`;
+    } 
+    // AMA Supercross races have a 'round' and 'tv: Peacock'.
+    else if ('round' in race && 'tv' in race && race.tv === 'Peacock') {
+        return `supercross-${race.round}`;
+    } 
+    // Motocross and Playoffs have a unique 'id'.
+    else {
+        return race.id;
+    }
+}
+
+
 const getCompletedRaces = (raceSeries: any[]) => {
     return raceSeries.filter(race => {
-        const raceId = 'round' in race ? `supercross-${race.round}` : race.id;
+        const raceId = getRaceIdFromRaceObject(race);
         const results = mainEventResults[raceId as keyof typeof mainEventResults];
         return results && Object.keys(results).length > 0;
     });
@@ -29,12 +46,7 @@ const calculatePoints = (
     completedRaces.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
     completedRaces.forEach(race => {
-        let raceId;
-        if ('round' in race) {
-            raceId = `supercross-${race.round}`;
-        } else {
-            raceId = race.id;
-        }
+        const raceId = getRaceIdFromRaceObject(race);
         
         const results = mainEventResults[raceId as keyof typeof mainEventResults];
         if (!results) return;
@@ -86,6 +98,7 @@ export const getSeriesPoints = (upToRaceId?: string) => {
     let relevantSupercrossRaces = supercrossRaces;
     let relevantMotocrossRaces = allMxRacesSorted;
     let relevantPlayoffsData = playoffsData;
+    let relevantWorldSupercrossRaces = worldSupercrossRaces;
 
     if (upToRaceId) {
         if (upToRaceId.startsWith('supercross-')) {
@@ -97,6 +110,9 @@ export const getSeriesPoints = (upToRaceId?: string) => {
         } else if (playoffsData.some(r => r.id === upToRaceId)) {
             const raceIndex = playoffsData.findIndex(r => r.id === upToRaceId);
             relevantPlayoffsData = playoffsData.slice(0, raceIndex + 1);
+        } else if (upToRaceId.startsWith('world-supercross-')) {
+            const round = parseInt(upToRaceId.split('-')[2], 10);
+            relevantWorldSupercrossRaces = worldSupercrossRaces.filter(r => r.round <= round);
         }
     }
     
@@ -114,6 +130,9 @@ export const getSeriesPoints = (upToRaceId?: string) => {
     const playoffPoints450 = calculatePoints(relevantPlayoffsData, '450');
     const playoffPoints250 = calculatePoints(relevantPlayoffsData, '250');
     
+    const wsxPoints450 = calculatePoints(relevantWorldSupercrossRaces, '450');
+    const wsxPoints250 = calculatePoints(relevantWorldSupercrossRaces, '250');
+    
     return {
         supercross450: sxPoints450,
         supercross250West: sxPoints250West,
@@ -122,5 +141,7 @@ export const getSeriesPoints = (upToRaceId?: string) => {
         motocross250: mxPoints250,
         playoff450: playoffPoints450,
         playoff250: playoffPoints250,
+        worldSupercross450: wsxPoints450,
+        worldSupercross250: wsxPoints250,
     };
 };

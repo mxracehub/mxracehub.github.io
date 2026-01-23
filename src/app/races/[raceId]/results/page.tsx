@@ -1,4 +1,3 @@
-
 'use client';
 
 import { PageHeader } from '@/components/page-header';
@@ -18,6 +17,7 @@ import {
 } from '@/components/ui/tabs';
 import { supercrossRaces } from '@/lib/races-supercross-data';
 import { motocrossRaces } from '@/lib/races-motocross-data';
+import { worldSupercrossRaces } from '@/lib/races-world-supercross-data';
 import { mainEventResults } from '@/lib/results-data';
 import { notFound } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
@@ -58,6 +58,7 @@ const allRaces = [
   ...supercrossRaces.map(r => ({ ...r, id: r.round.toString(), type: 'Supercross' })),
   ...motocrossRaces.map(r => ({ ...r, type: 'Motocross' })),
   ...playoffsData.map(r => ({...r, type: 'Playoffs' })),
+  ...worldSupercrossRaces.map(r => ({ ...r, id: `world-supercross-${r.round}`, type: 'World Supercross' })),
 ];
 
 // Placeholder data for Triple Crown
@@ -184,6 +185,10 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
         if (race.type === 'Playoffs') {
             return `The ${race.name} at ${race.location}`;
         }
+        if (race.type === 'World Supercross') {
+            const wsxRace = race as typeof worldSupercrossRaces[0];
+            return `Round ${wsxRace.round} of the FIM World Supercross Championship`;
+        }
         return `The ${race.name} at ${race.track}`;
     }
 
@@ -196,10 +201,14 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
         if (race.type === 'Playoffs') {
             return `${race.name} Results`;
         }
+        if (race.type === 'World Supercross') {
+            return `${race.location} Results`;
+        }
         return `${race.name} Results`;
     }
 
     const render250ClassTitle = () => {
+        if (race.type === 'World Supercross') return 'SX2 (250cc) Main Event';
         if (race.type === 'Motocross') return '250 Class Main Event';
         if (!division) return '250 Class';
         if (division === 'East/West Showdown') return '250SX East/West Showdown';
@@ -207,6 +216,7 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
     }
     
     const render450ClassTitle = () => {
+        if (race.type === 'World Supercross') return 'WSX (450cc) Main Event';
         if (race.type === 'Motocross') return '450 Class Main Event';
         return '450SX Main Event';
     }
@@ -350,6 +360,17 @@ export default function RaceResultsPage({ params }: { params: { raceId: string }
                      <div>
                         <h3 className="text-xl font-bold mb-2">250SMX Playoff Series Points</h3>
                         <ResultsTable results={seriesPoints?.playoff250 || []} hasRaceHappened={true} isSeriesPoints={true} />
+                    </div>
+                </>
+                ) : race.type === 'World Supercross' ? (
+                <>
+                    <div>
+                        <h3 className="text-xl font-bold mb-2">WSX (450cc) Series Points</h3>
+                        <ResultsTable results={seriesPoints?.worldSupercross450 || []} hasRaceHappened={true} isSeriesPoints={true} />
+                    </div>
+                        <div>
+                        <h3 className="text-xl font-bold mb-2">SX2 (250cc) Series Points</h3>
+                        <ResultsTable results={seriesPoints?.worldSupercross250 || []} hasRaceHappened={true} isSeriesPoints={true} />
                     </div>
                 </>
                 ) : null}
