@@ -51,7 +51,7 @@ const TermsContent = () => (
             <h3 className="text-xl font-bold mb-2 text-card-foreground">1. INTRODUCTION</h3>
             <p className="mb-4">Welcome to Mxracehub.com! Before the fun starts, we need to make sure you know how we operate and what it means when you register an account.</p>
             <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">Who are we</h4>
-            <p className="mb-4">The Platform is provided by MxRaceHub, a company duly incorporated under Cyprus law, with the register number ? and registered office at 807 East, Kelly Drive, Loveland, Colorado, 80537. Cyprus (hereinafter “MxRaceHub”, “we” , “us” or “our”).</p>
+            <p className="mb-4">The Platform is provided by MxRaceHub, a company duly incorporated under Colorado law, with the register number ? and registered office at 807 East, Kelly Drive, Loveland, Colorado, 80537. Colorado (hereinafter “MxRaceHub”, “we” , “us” or “our”).</p>
             <div className="border rounded-lg p-4 my-4">
               <div className="grid grid-cols-3 font-semibold">
                 <div>Version</div>
@@ -611,8 +611,8 @@ const TermsContent = () => (
 
         <div>
             <h3 className="text-xl font-bold mb-2 text-card-foreground">29. GOVERNING LAW</h3>
-            <p>29.1. These Terms, your use of the Platform and our entire relationship will be governed, and interpreted in accordance with, the laws of the State of Delaware in the United States, without regard for its choice of conflict of law principles. The application of the United Nations Convention on Contracts for the International Sale of Goods is specifically excluded.</p>
-            <p>29.2. Subject to clause 26, the parties agree that any dispute, controversy or claim arising out of or in connection with these Terms, or the breach, termination or invalidity of these Terms, will be submitted exclusively to the courts in the State of Delaware, and you and we consent to the venue and personal jurisdiction of those courts. Notwithstanding the foregoing, any motion to compel arbitration or to enforce an arbitral award issued hereunder may be brought before any court of competent jurisdiction.</p>
+            <p>29.1. These Terms, your use of the Platform and our entire relationship will be governed, and interpreted in accordance with, the laws of the State of Colorado in the United States, without regard for its choice of conflict of law principles. The application of the United Nations Convention on Contracts for the International Sale of Goods is specifically excluded.</p>
+            <p>29.2. Subject to clause 26, the parties agree that any dispute, controversy or claim arising out of or in connection with these Terms, or the breach, termination or invalidity of these Terms, will be submitted exclusively to the courts in the State of Colorado, and you and we consent to the venue and personal jurisdiction of those courts. Notwithstanding the foregoing, any motion to compel arbitration or to enforce an arbitral award issued hereunder may be brought before any court of competent jurisdiction.</p>
         </div>
 
     </div>
