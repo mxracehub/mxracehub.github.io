@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { supercrossRaces } from '@/lib/races-supercross-data';
 import { motocrossRaces } from '@/lib/races-motocross-data';
+import { worldSupercrossRaces } from '@/lib/races-world-supercross-data';
 import { useMemo } from 'react';
 
 
@@ -151,6 +152,24 @@ export default function StandingsPage() {
               </Button>
             </CardContent>
           </Card>
+        ))}
+        {worldSupercrossRaces.map((race) => (
+            <Card key={`world-supercross-${race.round}`}>
+            <CardContent className="p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex-1 text-center sm:text-left">
+                <p className="text-sm font-bold text-green-400">
+                    WORLD SUPERCROSS
+                </p>
+                <h3 className="text-lg font-bold">{race.location}</h3>
+                <p className="text-sm text-muted-foreground">
+                    {race.track} - {race.date}
+                </p>
+                </div>
+                <Button asChild>
+                <Link href={`/races/world-supercross-${race.round}/results`}>View Results</Link>
+                </Button>
+            </CardContent>
+            </Card>
         ))}
       </div>
     </div>
