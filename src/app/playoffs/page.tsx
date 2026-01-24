@@ -30,18 +30,24 @@ const playoffsData = [
     name: 'Playoff 1',
     location: 'Columbus, OH',
     date: 'Sep 12, 2026',
+    time: '19:00',
+    track: 'Mapfre Stadium',
   },
   {
     id: 'playoff-2',
     name: 'Playoff 2',
     location: 'Carson, CA',
     date: 'Sep 19, 2026',
+    time: '19:00',
+    track: 'Dignity Health Sports Park',
   },
   {
     id: 'smx-final',
     name: 'SMX World Championship Final',
     location: 'Ridgedale, MO',
     date: 'Sep 26, 2026',
+    time: '19:00',
+    track: 'Big Cedar Lodge',
   },
 ];
 
@@ -140,8 +146,9 @@ export default function PlayoffsPage() {
                   <CardTitle>{race.name}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="font-bold">{race.location}</p>
-                  <p className="text-sm text-muted-foreground">{race.date}</p>
+                  <p className="font-bold">{race.track}</p>
+                  <p className="text-sm text-muted-foreground">{race.location}</p>
+                  <p className="text-sm text-muted-foreground">{race.date} - {race.time} ET</p>
                   <Button asChild className="mt-4 w-full">
                     <Link href="/play">Play on this race</Link>
                   </Button>

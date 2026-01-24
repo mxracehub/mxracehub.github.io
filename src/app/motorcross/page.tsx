@@ -60,6 +60,7 @@ export default function MotorcrossPage() {
             </div>
             <div className="flex-grow p-4 text-center">
               <p className="text-xl font-bold">{race.date}</p>
+              <p className="text-sm font-semibold">{race.time} ET</p>
               <p className="mt-1 text-sm text-muted-foreground">
                 {race.track}
               </p>

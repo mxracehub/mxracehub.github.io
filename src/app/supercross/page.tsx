@@ -76,7 +76,7 @@ export default function SupercrossPage() {
                 {race.division && <Badge variant={getDivisionVariant(race.division)}>{race.division}</Badge>}
               </div>
               <h3 className="text-lg font-bold">{race.location}</h3>
-              <p className="text-sm">{race.date}</p>
+              <p className="text-sm">{race.date} - {race.time} ET</p>
             </div>
             <div className="flex-grow p-4">
               <div>

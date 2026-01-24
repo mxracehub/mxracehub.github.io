@@ -1,3 +1,4 @@
+
 import { PageHeader } from '@/components/page-header';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -61,7 +62,7 @@ export default function WorldSupercrossPage() {
                 <p className="text-sm font-bold">Round {race.round}</p>
               </div>
               <h3 className="text-lg font-bold">{race.location}</h3>
-              <p className="text-sm">{race.date}</p>
+              <p className="text-sm">{race.date} - {race.time} ET</p>
             </div>
             <div className="flex-grow p-4">
               <div>
