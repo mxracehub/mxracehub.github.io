@@ -222,7 +222,7 @@ export default function DashboardPage() {
       </div>
 
       {isClient && nextRace ? (
-        <div className="mt-8 mb-8 rounded-lg border border-border bg-card p-6 text-center text-card-foreground">
+        <div className="mt-8 mb-12 rounded-lg border border-border bg-card p-6 text-center text-card-foreground">
           <p className="mb-2 font-bold uppercase tracking-widest text-primary">
             Next Race
           </p>
@@ -256,7 +256,7 @@ export default function DashboardPage() {
 
       <div className="overflow-hidden rounded-lg border border-border bg-card text-card-foreground">
         <div className="relative hidden md:block">
-            <Image
+          <Image
               src="https://storage.googleapis.com/aifire-prompt-gallery/1721248555890_--version-2024-07-17-14_15_18-motocross-race-start.png"
               alt="Make Race Day More Exciting"
               width={1200}
@@ -281,7 +281,7 @@ export default function DashboardPage() {
           </div>
         </div>
         <div className="md:hidden">
-            <Image
+          <Image
               src="https://storage.googleapis.com/aifire-prompt-gallery/1721248555890_--version-2024-07-17-14_15_18-motocross-race-start.png"
               alt="Make Race Day More Exciting"
               width={1200}
