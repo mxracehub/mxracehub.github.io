@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import { Instagram, Youtube } from 'lucide-react';
 
@@ -23,11 +22,10 @@ export function Footer() {
       className={className}
     >
       <path
-        d="M7 2C5.34315 2 4 3.34315 4 5V19C4 20.6569 5.34315 22 7 22H17C18.6569 22 20 20.6569 20 19V5C20 3.34315 18.6569 2 17 2H7Z M8 5H16V17H8V5Z"
+        d="M7 2C5.34315 2 4 3.34315 4 5V19C4 20.6569 5.34315 22 7 22H17C18.6569 22 20 20.6569 20 19V5C20 3.34315 18.6569 2 17 2H7ZM9 6C8.44772 6 8 6.44772 8 7V17C8 17.5523 8.44772 18 9 18H15C15.5523 18 16 17.5523 16 17V7C16 6.44772 15.5523 6 15 6H9Z"
         fillRule="evenodd"
         fill="currentColor"
       />
-      <rect x="9" y="19" width="6" height="1" fill="black" />
     </svg>
   );
 
@@ -77,10 +75,10 @@ export function Footer() {
             </div>
             <div className="flex flex-col items-center text-center gap-4">
                 <div className="flex items-start justify-center gap-6">
-                    <Link href="#" aria-label="YouTube">
+                    <Link href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                     <Youtube className="h-8 w-8 text-red-600" />
                     </Link>
-                    <Link href="#" aria-label="Instagram">
+                    <Link href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <Instagram className="h-8 w-8 text-red-600" />
                     </Link>
                     <Link href="#" aria-label="Download App">
@@ -131,10 +129,10 @@ export function Footer() {
           {/* Right: Social Icons & Instructions */}
           <div className="col-span-1 flex flex-col items-end text-right gap-4">
               <div className="flex items-start justify-end gap-6">
-                  <Link href="#" aria-label="YouTube">
+                  <Link href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                   <Youtube className="h-8 w-8 text-red-600" />
                   </Link>
-                  <Link href="#" aria-label="Instagram">
+                  <Link href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                   <Instagram className="h-8 w-8 text-red-600" />
                   </Link>
                    <Link href="#" aria-label="Download App">
