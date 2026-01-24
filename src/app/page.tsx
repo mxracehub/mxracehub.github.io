@@ -226,7 +226,7 @@ export default function DashboardPage() {
       </div>
 
       {isClient && nextRace ? (
-        <div className="mb-8 rounded-lg border border-border bg-card p-6 text-center text-card-foreground">
+        <div className="mt-8 mb-8 rounded-lg border border-border bg-card p-6 text-center text-card-foreground">
           <p className="mb-2 font-bold uppercase tracking-widest text-primary">
             Next Race
           </p>
@@ -238,7 +238,7 @@ export default function DashboardPage() {
           <CountdownTimer targetDate={nextRace.date} />
         </div>
       ) : (
-         <div className="mb-8 rounded-lg border border-border bg-card p-6 text-center text-card-foreground">
+         <div className="mt-8 mb-8 rounded-lg border border-border bg-card p-6 text-center text-card-foreground">
             <h2 className="mb-1 text-3xl font-bold">
                 {isClient ? 'No upcoming races scheduled.' : 'Loading next race...'}
             </h2>
