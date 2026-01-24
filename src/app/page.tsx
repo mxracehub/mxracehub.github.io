@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -10,50 +10,41 @@ import Link from 'next/link';
 import { motocrossRaces } from '@/lib/races-motocross-data';
 import { supercrossRaces } from '@/lib/races-supercross-data';
 
-// Helper function to parse dates. Assumes current or next year for month-day formats.
-const parseDate = (dateString: string): Date => {
-  const now = new Date();
-  let raceDate = new Date(dateString);
-
-  if (isNaN(raceDate.getTime())) {
-    // Handle formats like "MAY 30"
-    const withYear = `${dateString} ${now.getFullYear()}`;
-    raceDate = new Date(withYear);
-    if (raceDate < now) {
-      // If the date is in the past, assume it's for next year
-      raceDate.setFullYear(now.getFullYear() + 1);
-    }
+// Helper function to parse dates. All races are assumed to be in 2026 for this app.
+const parseDate = (dateString: string, timeString: string): Date => {
+  let fullDateString = dateString;
+  if (!/\d{4}/.test(dateString)) {
+    fullDateString = `${dateString}, 2026`;
   }
-  
-  // Set time to end of day for countdown consistency
-  raceDate.setHours(23, 59, 59, 999);
-  return raceDate;
+  return new Date(`${fullDateString} ${timeString}`);
 };
 
 
 const allRaces = [
-  ...motocrossRaces.map(r => ({ ...r, date: parseDate(r.date) })),
+  ...motocrossRaces.map(r => ({ ...r, date: parseDate(r.date, r.time) })),
   ...supercrossRaces.map(r => ({
     id: `supercross-${r.round}`,
     name: `${r.location} Supercross`,
     track: r.track,
-    date: parseDate(r.date),
+    date: parseDate(r.date, r.time),
     location: r.location,
   })),
 ];
 
 // CountdownTimer component
 const CountdownTimer = ({ targetDate }: { targetDate: Date | null }) => {
-  const calculateTimeLeft = () => {
+  const calculateTimeLeft = useCallback(() => {
     if (!targetDate) {
-        return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+        return { days: 0, hours: 0, minutes: 0, seconds: 0, total: 0 };
     }
     const difference = +targetDate - +new Date();
+    
     let timeLeft = {
       days: 0,
       hours: 0,
       minutes: 0,
       seconds: 0,
+      total: difference,
     };
 
     if (difference > 0) {
@@ -62,23 +53,24 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date | null }) => {
         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((difference / 1000 / 60) % 60),
         seconds: Math.floor((difference / 1000) % 60),
+        total: difference,
       };
     }
 
     return timeLeft;
-  };
+  }, [targetDate]);
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
     if (!targetDate) return;
 
-    const timer = setTimeout(() => {
+    const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
 
-    return () => clearTimeout(timer);
-  });
+    return () => clearInterval(timer);
+  }, [targetDate, calculateTimeLeft]);
 
   const formatTime = (time: number) => {
     return time.toString().padStart(2, '0');
@@ -86,6 +78,31 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date | null }) => {
 
   if (!targetDate) {
     return null;
+  }
+  
+  // A race is considered "live" for 3 hours after its start time.
+  const raceDuration = 3 * 60 * 60 * 1000;
+  if (timeLeft.total <= 0 && timeLeft.total > -raceDuration) {
+    return (
+        <div className="flex justify-center items-center gap-4">
+            <div className="relative flex items-center justify-center">
+                <div className="absolute h-4 w-4 bg-red-500 rounded-full animate-ping"></div>
+                <div className="relative h-3 w-3 bg-red-500 rounded-full"></div>
+            </div>
+            <div className="text-4xl font-bold uppercase text-red-500 tracking-widest">
+                LIVE
+            </div>
+        </div>
+    );
+  }
+
+  // If the race is over, the timer will show 00s. The parent component will eventually find the next race.
+  if (timeLeft.total <= -raceDuration) {
+      return (
+        <div className="text-lg text-muted-foreground">
+            Race has concluded. Waiting for next race...
+        </div>
+      )
   }
 
   return (
@@ -120,12 +137,24 @@ export default function DashboardPage() {
 
   useEffect(() => {
     setIsClient(true);
-    const now = new Date();
-    const upcomingRaces = allRaces
-      .filter(race => race.date > now)
-      .sort((a, b) => a.date.getTime() - b.date.getTime());
     
-    setNextRace(upcomingRaces[0] || null);
+    const findNextRace = () => {
+        const now = new Date();
+        const raceDuration = 3 * 60 * 60 * 1000; // 3 hours
+
+        // Find races that are not over yet (race end time > now)
+        const upcomingRaces = allRaces
+          .filter(race => race.date.getTime() + raceDuration > now.getTime())
+          .sort((a, b) => a.date.getTime() - b.date.getTime());
+        
+        setNextRace(upcomingRaces[0] || null);
+    };
+
+    findNextRace();
+    // Set an interval to check for the next race periodically, e.g., every minute
+    const interval = setInterval(findNextRace, 60000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (

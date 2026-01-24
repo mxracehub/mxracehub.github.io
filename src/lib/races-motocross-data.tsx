@@ -6,6 +6,7 @@ export const motocrossRaces = [
     track: 'Fox Raceway at Pala',
     location: 'Pala, CA',
     date: 'MAY 30',
+    time: '13:00',
     logo: (
       <div className="w-full h-20 flex justify-center items-center">
         <svg viewBox="0 0 100 60" className="h-16 w-auto">
@@ -26,6 +27,7 @@ export const motocrossRaces = [
     track: 'Prairie City SVRA',
     location: 'Rancho Cordova, CA',
     date: 'JUNE 6',
+    time: '13:00',
     logo: (
       <div className="w-full h-20 flex justify-center items-center">
         <svg viewBox="0 0 100 60" className="h-16 w-auto">
@@ -46,6 +48,7 @@ export const motocrossRaces = [
     track: 'Thunder Valley Motocross Park',
     location: 'Lakewood, CO',
     date: 'JUNE 13',
+    time: '13:00',
     logo: (
       <div className="w-full h-20 flex justify-center items-center">
         <svg viewBox="0 0 100 60" className="h-16 w-auto">
@@ -66,6 +69,7 @@ export const motocrossRaces = [
     track: 'High Point Raceway',
     location: 'Mt. Morris, PA',
     date: 'JUNE 20',
+    time: '13:00',
     logo: (
        <div className="w-full h-20 flex justify-center items-center">
         <svg viewBox="0 0 100 60" className="h-16 w-auto">
@@ -86,6 +90,7 @@ export const motocrossRaces = [
     track: 'Unadilla MX',
     location: 'New Berlin, NY',
     date: 'AUGUST 15',
+    time: '13:00',
     logo: (
       <div className="w-full h-20 flex justify-center items-center">
         <svg viewBox="0 0 100 60" className="h-16 w-auto">
@@ -106,6 +111,7 @@ export const motocrossRaces = [
     track: 'Budds Creek Motocross Park',
     location: 'Mechanicsville, MD',
     date: 'AUGUST 22',
+    time: '13:00',
     logo: (
       <div className="w-full h-20 flex justify-center items-center">
         <svg viewBox="0 0 100 60" className="h-16 w-auto">
@@ -126,6 +132,7 @@ export const motocrossRaces = [
     track: 'Ironman Raceway',
     location: 'Crawfordsville, IN',
     date: 'AUGUST 29',
+    time: '13:00',
     logo: (
       <div className="w-full h-20 flex justify-center items-center">
         <svg viewBox="0 0 100 60" className="h-16 w-auto">
@@ -146,6 +153,7 @@ export const motocrossRaces = [
     track: 'RedBud MX',
     location: 'Buchanan, MI',
     date: 'JULY 4',
+    time: '13:00',
     logo: (
       <div className="w-full h-20 flex justify-center items-center">
         <svg viewBox="0 0 100 60" className="h-16 w-auto">
@@ -166,6 +174,7 @@ export const motocrossRaces = [
     track: 'The Wick 338',
     location: 'Southwick, MA',
     date: 'JULY 11',
+    time: '13:00',
     logo: (
       <div className="w-full h-20 flex justify-center items-center">
         <svg viewBox="0 0 100 60" className="h-16 w-auto">
@@ -186,6 +195,7 @@ export const motocrossRaces = [
     track: 'Spring Creek MX Park',
     location: 'Millville, MN',
     date: 'JULY 18',
+    time: '13:00',
     logo: (
       <div className="w-full h-20 flex justify-center items-center">
         <svg viewBox="0 0 100 60" className="h-16 w-auto">
@@ -206,6 +216,7 @@ export const motocrossRaces = [
     track: 'Washougal MX Park',
     location: 'Washougal, WA',
     date: 'JULY 25',
+    time: '13:00',
     logo: (
       <div className="w-full h-20 flex justify-center items-center">
         <svg viewBox="0 0 100 60" className="h-16 w-auto">
