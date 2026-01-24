@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { Instagram, Youtube, Smartphone } from 'lucide-react';
+import { Instagram, Youtube } from 'lucide-react';
 
 const footerNavLinks = [
   { href: '/', label: 'Home' },
@@ -15,6 +15,23 @@ const footerNavLinks = [
 ];
 
 export function Footer() {
+  // Define custom AppIcon component
+  const AppIcon = ({ className }: { className?: string }) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+      <rect x="8" y="5" width="8" height="14" rx="1" />
+    </svg>
+  );
+
   // Adding Privacy to the nav links if it's not there.
   if (!footerNavLinks.find(link => link.href === '/policies')) {
       const contactIndex = footerNavLinks.findIndex(link => link.href === '/contact');
@@ -68,7 +85,7 @@ export function Footer() {
                     <Instagram className="h-8 w-8 text-red-600" />
                     </Link>
                     <Link href="#" aria-label="Download App">
-                    <Smartphone className="h-8 w-8 text-red-600" />
+                    <AppIcon className="h-8 w-8 text-red-600" />
                     </Link>
                 </div>
                 <div className="mt-4">
@@ -122,7 +139,7 @@ export function Footer() {
                   <Instagram className="h-8 w-8 text-red-600" />
                   </Link>
                    <Link href="#" aria-label="Download App">
-                    <Smartphone className="h-8 w-8 text-red-600" />
+                    <AppIcon className="h-8 w-8 text-red-600" />
                   </Link>
               </div>
               <div className="mt-4">
