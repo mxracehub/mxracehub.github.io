@@ -195,12 +195,14 @@ export default function DashboardPage() {
 
   return (
     <div className="max-w-5xl mx-auto">
-      <PageHeader
-        title="THE ULTIMATE MOTORCROSS & SUPERCROSS PLAYING PLATFORM"
-        description="Professional riders - Automated payouts - Real time standings"
-        className="text-center"
-      />
-      <div className="relative mb-8 overflow-hidden rounded-lg aspect-video md:aspect-[16/6]">
+      <div className="bg-black py-2">
+        <PageHeader
+          title="THE ULTIMATE MOTORCROSS & SUPERCROSS PLAYING PLATFORM"
+          description="Friend vs Friend * Professional riders * Automated payouts * Real time standings"
+          className="text-center mb-0 [&_p]:text-foreground/80"
+        />
+      </div>
+      <div className="relative mb-0 overflow-hidden rounded-lg aspect-video md:aspect-[16/6]">
         <iframe
             className="absolute top-0 left-0 w-full h-full"
             src="https://www.youtube.com/embed/6RDZJ57BoUU?autoplay=1&mute=0&loop=1&playlist=6RDZJ57BoUU&controls=1&showinfo=0&autohide=1&modestbranding=1"
