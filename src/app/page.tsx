@@ -167,6 +167,9 @@ export default function DashboardPage() {
   const raceDayBanner = PlaceHolderImages.find(
     (img) => img.id === 'race-day-banner'
   );
+  const startingLineupBanner = PlaceHolderImages.find(
+    (p) => p.id === 'race-banner-1'
+  );
 
   const [nextRace, setNextRace] = useState<typeof allRaces[0] | null>(null);
   const [isClient, setIsClient] = useState(false);
@@ -257,6 +260,19 @@ export default function DashboardPage() {
           <Link href="/play">Play Next Race</Link>
         </Button>
       </div>
+
+      {startingLineupBanner && (
+        <div className="mb-12 overflow-hidden rounded-lg">
+          <Image
+            src={startingLineupBanner.imageUrl}
+            alt={startingLineupBanner.description}
+            width={1200}
+            height={400}
+            className="w-full object-cover"
+            data-ai-hint={startingLineupBanner.imageHint}
+          />
+        </div>
+      )}
 
       <div className="overflow-hidden rounded-lg border border-border bg-card text-card-foreground">
         <div className="relative hidden md:block">
