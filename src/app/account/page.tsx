@@ -16,13 +16,14 @@ import { useRouter } from 'next/navigation';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Coins, Trophy, Users, Settings, Hash, Facebook, Instagram, RefreshCw, Loader2 } from 'lucide-react';
+import { Coins, Trophy, Users, Settings, Hash, Facebook, Instagram, RefreshCw, Loader2, Clock } from 'lucide-react';
 import Link from 'next/link';
 import { Skeleton } from '@/components/ui/skeleton';
 import type { Account, Play } from '@/lib/types';
 import { updateAccount, getRaceResults } from '@/lib/firebase-config';
 import { useToast } from '@/hooks/use-toast';
 import { getManufacturersPoints } from '@/lib/manufacturers-points-service';
+import { Badge } from '@/components/ui/badge';
 
 
 function AccountPageSkeleton() {
@@ -254,6 +255,7 @@ export default function AccountPage() {
 
   const sortedPlayHistory = [...(account?.playHistory || [])].sort((a,b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
+  const todayString = new Date().toISOString().split('T')[0];
 
   return (
     <div>
@@ -322,32 +324,42 @@ export default function AccountPage() {
             <CardContent>
               {sortedPlayHistory.length > 0 ? (
                 <ul className="space-y-4">
-                  {sortedPlayHistory.map((play) => (
-                    <li key={play.id} className="flex flex-col sm:flex-row items-start sm:items-center justify-between rounded-md border p-4 gap-4">
-                      <div className="flex-1">
-                        <p className="font-semibold">{play.race} - {play.playType}</p>
-                        <p className="text-sm text-muted-foreground">
-                          Play against @{play.opponent} - {play.date}
-                        </p>
-                        <div className="text-xs mt-2 space-y-1">
-                            <p><strong>Your Pick:</strong> {play.userRider}</p>
-                            <p><strong>Friend's Pick:</strong> {play.opponentRider}</p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-4">
-                        <div className={`text-right ${play.status === 'Won' ? 'text-green-500' : play.status === 'Lost' ? 'text-red-500' : play.status === 'Voided' ? 'text-yellow-500' : ''}`}>
-                            <p className="font-bold">{play.status}</p>
-                            <p className="text-sm">{play.amount} {play.coinType}</p>
-                            <SocialShareButtons play={play} account={account} />
-                        </div>
-                        {play.status === 'Pending' && settlingPlays[play.id] && (
-                            <div className="flex items-center justify-center w-12">
-                                <Loader2 className="h-4 w-4 animate-spin"/>
+                  {sortedPlayHistory.map((play) => {
+                    const isLive = play.status === 'Pending' && play.date === todayString;
+                    return (
+                        <li key={play.id} className="flex flex-col sm:flex-row items-start sm:items-center justify-between rounded-md border p-4 gap-4">
+                          <div className="flex-1">
+                            <p className="font-semibold">{play.race} - {play.playType}</p>
+                            <p className="text-sm text-muted-foreground">
+                              Play against @{play.opponent} - {play.date}
+                            </p>
+                            <div className="text-xs mt-2 space-y-1">
+                                <p><strong>Your Pick:</strong> {play.userRider}</p>
+                                <p><strong>Friend's Pick:</strong> {play.opponentRider}</p>
                             </div>
-                        )}
-                      </div>
-                    </li>
-                  ))}
+                          </div>
+                          <div className="flex items-center gap-4">
+                            <div className={`text-right ${play.status === 'Won' ? 'text-green-500' : play.status === 'Lost' ? 'text-red-500' : play.status === 'Voided' ? 'text-yellow-500' : ''}`}>
+                                {isLive ? (
+                                    <Badge variant="destructive" className="animate-pulse mb-1">
+                                        <Clock className="mr-1 h-3 w-3" />
+                                        LIVE
+                                    </Badge>
+                                ) : (
+                                    <p className="font-bold">{play.status}</p>
+                                )}
+                                <p className="text-sm">{play.amount} {play.coinType}</p>
+                                <SocialShareButtons play={play} account={account} />
+                            </div>
+                            {play.status === 'Pending' && !isLive && settlingPlays[play.id] && (
+                                <div className="flex items-center justify-center w-12">
+                                    <Loader2 className="h-4 w-4 animate-spin"/>
+                                </div>
+                            )}
+                          </div>
+                        </li>
+                    )
+                  })}
                 </ul>
               ) : (
                 <div className="py-10 text-center text-muted-foreground">
@@ -373,3 +385,4 @@ export default function AccountPage() {
     </div>
   );
 }
+
