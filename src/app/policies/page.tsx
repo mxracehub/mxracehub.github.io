@@ -148,7 +148,7 @@ const TermsContent = () => (
             <h4 className="text-lg font-bold mt-4 mb-2 text-card-foreground">4.2. Warranties</h4>
             <p className='mb-2'>a) You declare and warrant that:</p>
             <ul className="list-roman list-inside ml-6 mb-2 space-y-1">
-                <li>You are over 21 years of age or such higher minimum legal age of majority as stipulated in the jurisdiction of your residence and are, under the laws applicable to you, legally allowed to participate in the Games offered on the Platform;</li>
+                <li>You are over 18 years of age or such higher minimum legal age of majority as stipulated in the jurisdiction of your residence and are, under the laws applicable to you, legally allowed to participate in the Games offered on the Platform;</li>
                 <li>WHEN PARTICIPATING IN STANDARD OR PROMOTIONAL PLAY, YOU DO NOT RESIDE IN, OR ACCESS THE PLATFORM FROM, THE EXCLUDED TERRITORIES;</li>
                 <li>You use our Platform strictly in your personal capacity for recreational and entertainment purposes only;</li>
                 <li>You participate in the Games on your own behalf and not on behalf of any other person;</li>
@@ -473,7 +473,7 @@ const TermsContent = () => (
                 <li>g) you provide incorrect or misleading information;</li>
                 <li>h) your identity or source of wealth or source of funds (if requested) cannot be verified;</li>
                 <li>i) you attempt to use your Customer Account through a VPN, proxy or similar service that masks or manipulates the identification of your real location, or by otherwise providing false or misleading information regarding your citizenship, location or place of residence, or by playing Games using the Platform through a third party or on behalf of a third party;</li>
-                <li>j) you are not over 21 years of age or such higher minimum legal age of majority as stipulated in the jurisdiction of your residence;</li>
+                <li>j) you are not over 18 years of age or such higher minimum legal age of majority as stipulated in the jurisdiction of your residence;</li>
                 <li>k) you are located in a jurisdiction where Participation is illegal;</li>
                 <li>l) you have allowed or permitted (whether intentionally or unintentionally) someone else to Participate using your Customer Account;</li>
                 <li>m) you have played in tandem with other Customer(s) as part of a club, group or played the Games in a coordinated manner with other Customer(s) involving the same (or materially the same) selections;</li>
