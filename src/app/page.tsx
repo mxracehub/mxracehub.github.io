@@ -164,13 +164,6 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date | null }) => {
 };
 
 export default function DashboardPage() {
-  const raceDayBanner = PlaceHolderImages.find(
-    (img) => img.id === 'race-day-banner'
-  );
-  const startingLineupBanner = PlaceHolderImages.find(
-    (p) => p.id === 'race-banner-1'
-  );
-
   const [nextRace, setNextRace] = useState<typeof allRaces[0] | null>(null);
   const [isClient, setIsClient] = useState(false);
 
@@ -261,31 +254,16 @@ export default function DashboardPage() {
         </Button>
       </div>
 
-      {startingLineupBanner && (
-        <div className="mb-12 overflow-hidden rounded-lg">
-          <Image
-            src={startingLineupBanner.imageUrl}
-            alt={startingLineupBanner.description}
-            width={1200}
-            height={400}
-            className="w-full object-cover"
-            data-ai-hint={startingLineupBanner.imageHint}
-          />
-        </div>
-      )}
-
       <div className="overflow-hidden rounded-lg border border-border bg-card text-card-foreground">
         <div className="relative hidden md:block">
-          {raceDayBanner && (
             <Image
-              src={raceDayBanner.imageUrl}
-              alt={raceDayBanner.description}
+              src="https://storage.googleapis.com/aifire-prompt-gallery/1721248555890_--version-2024-07-17-14_15_18-motocross-race-start.png"
+              alt="Make Race Day More Exciting"
               width={1200}
               height={400}
               className="w-full object-cover object-right-bottom md:object-center"
-              data-ai-hint={raceDayBanner.imageHint}
+              data-ai-hint="motocross race"
             />
-          )}
           <div className="bg-blue-700/90 p-4 md:absolute md:inset-x-0 md:bottom-0 md:bg-blue-700/80 md:p-6 lg:p-8">
             <h3 className="text-2xl font-bold md:text-3xl">Make Race Day More Exciting</h3>
             <p className="mb-4 mt-2 max-w-md text-white/90">
@@ -303,16 +281,14 @@ export default function DashboardPage() {
           </div>
         </div>
         <div className="md:hidden">
-           {raceDayBanner && (
             <Image
-              src={raceDayBanner.imageUrl}
-              alt={raceDayBanner.description}
+              src="https://storage.googleapis.com/aifire-prompt-gallery/1721248555890_--version-2024-07-17-14_15_18-motocross-race-start.png"
+              alt="Make Race Day More Exciting"
               width={1200}
               height={400}
               className="w-full object-cover object-right-bottom md:object-center"
-              data-ai-hint={raceDayBanner.imageHint}
+              data-ai-hint="motocross race"
             />
-          )}
           <div className="bg-blue-700/90 p-4">
             <h3 className="text-2xl font-bold md:text-3xl">Make Race Day More Exciting</h3>
             <p className="mb-4 mt-2 max-w-md text-white/90">
