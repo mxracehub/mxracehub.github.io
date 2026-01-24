@@ -35,7 +35,7 @@ export default function WorldSupercrossPage() {
       <div className="mb-8 flex justify-center gap-4 text-center">
         <Button asChild size="lg" className="bg-red-600 hover:bg-red-700">
           <Link
-            href="https://recast.app/"
+            href="https://account.recast.tv/pop-up?app=widget"
             target="_blank"
             rel="noopener noreferrer"
           >
