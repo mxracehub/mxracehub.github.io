@@ -20,15 +20,14 @@ export function Footer() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      fill="currentColor"
       className={className}
     >
-      <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
-      <rect x="8" y="5" width="8" height="14" rx="1" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7 2C5.34315 2 4 3.34315 4 5V19C4 20.6569 5.34315 22 7 22H17C18.6569 22 20 20.6569 20 19V5C20 3.34315 18.6569 2 17 2H7ZM9 20H15V19H9V20Z"
+      />
     </svg>
   );
 
