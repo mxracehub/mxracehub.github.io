@@ -23,7 +23,8 @@ export function Footer() {
       className={className}
     >
       <path
-        d="M7 2C5.34315 2 4 3.34315 4 5V19C4 20.6569 5.34315 22 7 22H17C18.6569 22 20 20.6569 20 19V5C20 3.34315 18.6569 2 17 2H7Z"
+        d="M7 2C5.34315 2 4 3.34315 4 5V19C4 20.6569 5.34315 22 7 22H17C18.6569 22 20 20.6569 20 19V5C20 3.34315 18.6569 2 17 2H7Z M8 5H16V17H8V5Z"
+        fillRule="evenodd"
         fill="currentColor"
       />
       <rect x="9" y="19" width="6" height="1" fill="black" />
