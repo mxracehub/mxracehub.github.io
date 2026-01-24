@@ -1,3 +1,4 @@
+
 'use client';
 
 import { PageHeader } from '@/components/page-header';
@@ -20,7 +21,8 @@ const teamColors: Record<string, string> = {
     'Husqvarna': 'bg-white',
     'GasGas': 'bg-red-600',
     'Beta': 'bg-red-600',
-    'Triumph': 'bg-gray-800'
+    'Triumph': 'bg-gray-800',
+    'Stark': 'bg-white'
 };
 
 const textColors: Record<string, string> = {
