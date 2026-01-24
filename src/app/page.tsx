@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { motocrossRaces } from '@/lib/races-motocross-data';
 import { supercrossRaces } from '@/lib/races-supercross-data';
 import { worldSupercrossRaces } from '@/lib/races-world-supercross-data';
+import { PageHeader } from '@/components/page-header';
 
 // Helper function to parse dates. All races are assumed to be in 2026 for this app.
 const parseDate = (dateString: string, timeString: string): Date => {
@@ -194,7 +195,12 @@ export default function DashboardPage() {
 
   return (
     <div className="max-w-5xl mx-auto">
-      <div className="relative mb-8 overflow-hidden rounded-lg aspect-video">
+      <PageHeader
+        title="THE ULTIMATE MOTORCROSS & SUPERCROSS PLAYING PLATFORM"
+        description="Professional riders - Automated payouts - Real time standings"
+        className="text-center"
+      />
+      <div className="relative mb-8 overflow-hidden rounded-lg aspect-video md:aspect-[16/6]">
         <iframe
             className="absolute top-0 left-0 w-full h-full"
             src="https://www.youtube.com/embed/6RDZJ57BoUU?autoplay=1&mute=0&loop=1&playlist=6RDZJ57BoUU&controls=1&showinfo=0&autohide=1&modestbranding=1"
@@ -251,7 +257,7 @@ export default function DashboardPage() {
       </div>
 
       <div className="overflow-hidden rounded-lg border border-border bg-card text-card-foreground">
-        <div className="relative">
+        <div className="relative md:block">
           {raceDayBanner && (
             <Image
               src={raceDayBanner.imageUrl}
@@ -262,7 +268,7 @@ export default function DashboardPage() {
               data-ai-hint={raceDayBanner.imageHint}
             />
           )}
-          <div className="bg-blue-700/90 p-4 md:absolute md:inset-x-0 md:bottom-0">
+          <div className="bg-blue-700/90 p-4 md:absolute md:inset-x-0 md:bottom-0 md:bg-blue-700/80 md:p-6 lg:p-8">
             <h3 className="text-2xl font-bold md:text-3xl">Make Race Day More Exciting</h3>
             <p className="mb-4 mt-2 max-w-md text-white/90">
               Join playing with friends and predict your favorite riders win.
@@ -279,12 +285,6 @@ export default function DashboardPage() {
           </div>
         </div>
         <div className="p-4 text-center md:p-8">
-          <h3 className="text-xl font-bold uppercase tracking-wider">
-            The Ultimate Motorcross & Supercross Playing Platform
-          </h3>
-          <p className="mt-2 text-muted-foreground">
-            Professional riders - Automated payouts - Real time standings
-          </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button className="w-full bg-red-600 text-white hover:bg-red-700 sm:w-auto" asChild>
               <Link href="/races">Race Schedule</Link>
