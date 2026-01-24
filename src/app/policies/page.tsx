@@ -17,7 +17,7 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { Separator } from '@/components/ui/separator';
 
-type PolicySection = 'terms' | 'responsible' | 'privacy' | 'cookies' | 'basic-instructions';
+type PolicySection = 'terms' | 'responsible' | 'privacy' | 'cookies' | 'basic-instructions' | 'subject-to-change';
 
 const SectionButton = ({
   label,
@@ -1137,6 +1137,22 @@ const BasicInstructionsContent = () => (
     </div>
 );
 
+const SubjectToChangeContent = () => (
+    <div className="space-y-6 text-muted-foreground">
+        <div>
+            <h3 className="text-xl font-bold mb-2 text-card-foreground">Subject to Change Policy</h3>
+            <p className="mb-4">All plays are subject to change based on race day conditions and rider participation. If a play is voided for any reason, your full wager amount will be returned to your account.</p>
+            <p className="font-semibold text-card-foreground mb-2">A play may be voided under the following circumstances:</p>
+            <ul className="list-disc list-inside space-y-2">
+                <li>A race is cancelled or postponed indefinitely.</li>
+                <li>A rider involved in a head-to-head play does not participate in the race.</li>
+                <li>For certain play types, if the condition for winning is not met by any party (e.g., neither rider in a 'Holeshot' play achieves the holeshot).</li>
+            </ul>
+            <p className="mt-4">We strive to settle all plays fairly based on official race results. Changes to rider lineups or race schedules made by the official race organizers may impact your pending plays and lead to them being voided.</p>
+        </div>
+    </div>
+);
+
 
 export default function PoliciesPage() {
     const [activeSection, setActiveSection] = useState<PolicySection>('terms');
@@ -1153,6 +1169,8 @@ export default function PoliciesPage() {
                 return <CookiesContent />;
             case 'basic-instructions':
                 return <BasicInstructionsContent />;
+            case 'subject-to-change':
+                return <SubjectToChangeContent />;
             default:
                 return <TermsContent />;
         }
@@ -1172,6 +1190,7 @@ export default function PoliciesPage() {
                 <SectionButton label="Privacy Policy" isActive={activeSection === 'privacy'} onClick={() => setActiveSection('privacy')} />
                 <SectionButton label="Cookies Policy" isActive={activeSection === 'cookies'} onClick={() => setActiveSection('cookies')} />
                 <SectionButton label="Basic Instructions" isActive={activeSection === 'basic-instructions'} onClick={() => setActiveSection('basic-instructions')} />
+                <SectionButton label="Subject to Change" isActive={activeSection === 'subject-to-change'} onClick={() => setActiveSection('subject-to-change')} />
             </nav>
         </aside>
         <main className="md:col-span-3">

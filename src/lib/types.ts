@@ -11,7 +11,7 @@ export type Play = {
     date: string;
     amount: number;
     coinType: 'Gold Coins' | 'Sweeps Coins';
-    status: 'Won' | 'Lost' | 'Pending';
+    status: 'Won' | 'Lost' | 'Pending' | 'Voided';
     userRider: string; // Name of rider or manufacturer the user played on
     opponentRider: string; // Name of rider or manufacturer the opponent played on
 };

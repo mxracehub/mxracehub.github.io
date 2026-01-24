@@ -147,6 +147,7 @@ export default function AccountPage() {
           try {
               let userWon = false;
               let playSettled = false;
+              let playVoided = false;
 
               if (play.playType === 'Championship Winner') {
                   const manufacturerStandings = getManufacturersPoints();
@@ -159,42 +160,68 @@ export default function AccountPage() {
                   const results = await getRaceResults(play.raceId, play.raceType);
                   if (!results) continue; // Race results not available yet
 
-                  if (play.playType === 'Race Winner') {
-                      const userRiderResult = results.find(r => r.rider === play.userRider);
-                      const opponentRiderResult = results.find(r => r.rider === play.opponentRider);
+                  const userRiderResult = results.find(r => r.rider === play.userRider);
+                  const opponentRiderResult = results.find(r => r.rider === play.opponentRider);
 
-                      const userPosition = userRiderResult ? userRiderResult.pos : Infinity;
-                      const opponentPosition = opponentRiderResult ? opponentRiderResult.pos : Infinity;
-                      userWon = userPosition < opponentPosition;
+                  if (play.playType === 'Race Winner') {
+                      if (!userRiderResult || !opponentRiderResult) {
+                          playVoided = true;
+                      } else {
+                          userWon = userRiderResult.pos < opponentRiderResult.pos;
+                      }
                       playSettled = true;
                   } else if (play.playType === 'Holeshot') {
                       const holeshotRider = results.find(r => r.holeshot);
-                      userWon = !!holeshotRider && holeshotRider.rider === play.userRider;
+                      if (!userRiderResult || !opponentRiderResult || !holeshotRider) {
+                          playVoided = true;
+                      } else if (holeshotRider.rider === play.userRider) {
+                          userWon = true;
+                      } else if (holeshotRider.rider === play.opponentRider) {
+                          userWon = false;
+                      } else {
+                          playVoided = true; // Neither pick got the holeshot
+                      }
                       playSettled = true;
                   }
               }
               
               if (playSettled) {
-                const newStatus = userWon ? 'Won' : 'Lost';
                 const playIndex = updatedPlayHistory.findIndex(b => b.id === play.id);
 
                 if (playIndex !== -1 && updatedPlayHistory[playIndex].status === 'Pending') {
-                    updatedPlayHistory[playIndex] = { ...updatedPlayHistory[playIndex], status: newStatus };
-                    
-                    if (userWon) {
-                        const winnings = play.amount * 2;
+                    if (playVoided) {
+                        updatedPlayHistory[playIndex] = { ...updatedPlayHistory[playIndex], status: 'Voided' };
+                        
                         if (play.coinType === 'Gold Coins') {
-                            tempAccount.balances.gold += winnings;
+                            tempAccount.balances.gold += play.amount;
                         } else {
-                            tempAccount.balances.sweeps += winnings;
+                            tempAccount.balances.sweeps += play.amount;
                         }
                         balancesChanged = true;
+
+                        toast({
+                            title: `Play Voided`,
+                            description: `Your play on ${play.race} was voided and ${play.amount} ${play.coinType} were returned.`,
+                        });
+                    } else {
+                        const newStatus = userWon ? 'Won' : 'Lost';
+                        updatedPlayHistory[playIndex] = { ...updatedPlayHistory[playIndex], status: newStatus };
+                        
+                        if (userWon) {
+                            const winnings = play.amount * 2;
+                            if (play.coinType === 'Gold Coins') {
+                                tempAccount.balances.gold += winnings;
+                            } else {
+                                tempAccount.balances.sweeps += winnings;
+                            }
+                            balancesChanged = true;
+                        }
+                        toast({
+                            title: `Play Settled: You ${newStatus}!`,
+                            description: `Your play on ${play.race} has been settled.`,
+                            variant: userWon ? "default" : "destructive"
+                        });
                     }
-                    toast({
-                        title: `Play Settled: You ${newStatus}!`,
-                        description: `Your play on ${play.race} has been settled.`,
-                        variant: userWon ? "default" : "destructive"
-                    });
                 }
               }
 
@@ -308,7 +335,7 @@ export default function AccountPage() {
                         </div>
                       </div>
                       <div className="flex items-center gap-4">
-                        <div className={`text-right ${play.status === 'Won' ? 'text-green-500' : play.status === 'Lost' ? 'text-red-500' : ''}`}>
+                        <div className={`text-right ${play.status === 'Won' ? 'text-green-500' : play.status === 'Lost' ? 'text-red-500' : play.status === 'Voided' ? 'text-yellow-500' : ''}`}>
                             <p className="font-bold">{play.status}</p>
                             <p className="text-sm">{play.amount} {play.coinType}</p>
                             <SocialShareButtons play={play} account={account} />
