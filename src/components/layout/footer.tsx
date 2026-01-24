@@ -34,9 +34,9 @@ export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-background text-white">
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
           {/* Left: Navigation */}
-          <div className="flex flex-col gap-1 items-center md:items-start">
+          <div className="flex flex-col gap-1 items-start text-left">
             {footerNavLinks.map((link) => (
               <Link key={link.label} href={link.href} className="text-sm text-red-500 hover:underline">
                 {link.label}
@@ -45,7 +45,7 @@ export function Footer() {
           </div>
 
           {/* Middle: Logos */}
-          <div className="flex flex-col items-center justify-start gap-4">
+          <div className="flex flex-col items-end md:items-center justify-start gap-4">
             <Link href="/motorcross">
               <svg viewBox="0 0 100 100" className="h-16 w-auto">
                 <circle cx="50" cy="50" r="48" fill="none" stroke="white" strokeWidth="4" />
@@ -61,7 +61,7 @@ export function Footer() {
           </div>
 
           {/* Right: Social Icons & Instructions */}
-          <div className="flex flex-col items-center md:items-end gap-4">
+          <div className="hidden md:flex flex-col items-center md:items-end gap-4">
               <div className="flex items-start justify-center md:justify-end gap-6">
                   <Link href="#" aria-label="YouTube">
                   <Youtube className="h-8 w-8 text-red-600" />
