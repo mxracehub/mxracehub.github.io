@@ -211,7 +211,7 @@ export default function DashboardPage() {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
         ></iframe>
-        <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 transform gap-2">
+        <div className="absolute inset-x-0 bottom-0 flex justify-center gap-4 p-4 bg-gradient-to-t from-black/60 to-transparent">
           <Button variant="secondary" size="lg" asChild>
             <Link href="/races">
               Races <Calendar className="ml-2 h-4 w-4" />
@@ -259,7 +259,7 @@ export default function DashboardPage() {
       </div>
 
       <div className="overflow-hidden rounded-lg border border-border bg-card text-card-foreground">
-        <div className="relative md:block">
+        <div className="relative hidden md:block">
           {raceDayBanner && (
             <Image
               src={raceDayBanner.imageUrl}
@@ -277,6 +277,33 @@ export default function DashboardPage() {
               No Fee for playing or redeeming
             </p>
             <div className="flex gap-4">
+              <Button className="bg-red-600 text-white hover:bg-red-700" asChild>
+                <Link href="/register">Sign Up</Link>
+              </Button>
+              <Button className="bg-red-600 text-white hover:bg-red-700" asChild>
+                <Link href="/play">Play</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div className="md:hidden">
+           {raceDayBanner && (
+            <Image
+              src={raceDayBanner.imageUrl}
+              alt={raceDayBanner.description}
+              width={1200}
+              height={400}
+              className="w-full object-cover object-right-bottom md:object-center"
+              data-ai-hint={raceDayBanner.imageHint}
+            />
+          )}
+          <div className="bg-blue-700/90 p-4">
+            <h3 className="text-2xl font-bold md:text-3xl">Make Race Day More Exciting</h3>
+            <p className="mb-4 mt-2 max-w-md text-white/90">
+              Join playing with friends and predict your favorite riders win.
+              No Fee for playing or redeeming
+            </p>
+             <div className="flex gap-4">
               <Button className="bg-red-600 text-white hover:bg-red-700" asChild>
                 <Link href="/register">Sign Up</Link>
               </Button>
