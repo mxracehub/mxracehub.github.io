@@ -73,10 +73,10 @@ export default function SupercrossPage() {
             <div className="w-full bg-primary p-4 text-primary-foreground">
               <div className="flex justify-between items-center">
                 <p className="text-sm font-bold">Round {race.round}</p>
-                {race.division && <Badge variant={getDivisionVariant(race.division)}>{race.division}</Badge>}
+                {race.division && <Badge variant={getDivisionVariant(race.division)} className={race.division === 'East' ? 'bg-green-600 hover:bg-green-700' : ''}>{race.division}</Badge>}
               </div>
               <h3 className="text-lg font-bold">{race.location}</h3>
-              <p className="text-sm">{race.date} - {race.time} ET</p>
+              <p className="text-sm">{race.date} - {race.time} Local</p>
             </div>
             <div className="flex-grow p-4">
               <div>
