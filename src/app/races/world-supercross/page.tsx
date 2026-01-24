@@ -35,12 +35,12 @@ export default function WorldSupercrossPage() {
       <div className="mb-8 flex justify-center gap-4 text-center">
         <Button asChild size="lg" className="bg-red-600 hover:bg-red-700">
           <Link
-            href="https://www.dazn.com/"
+            href="https://recast.app/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Tv className="mr-2 h-5 w-5" />
-            Live Stream on DAZN
+            Live Stream on Recast
           </Link>
         </Button>
         <Button asChild size="lg" variant="outline">
