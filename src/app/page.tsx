@@ -251,6 +251,16 @@ export default function DashboardPage() {
         </div>
       )}
 
+      <div className="mb-12 text-center">
+        <Button
+          size="lg"
+          className="rounded-full bg-red-600 px-12 py-6 text-lg font-bold text-white hover:bg-red-700"
+          asChild
+        >
+          <Link href="/play">Play Next Race</Link>
+        </Button>
+      </div>
+
       {startingLineupBanner && (
         <div className="mb-12 overflow-hidden rounded-lg">
           <Image
@@ -263,16 +273,6 @@ export default function DashboardPage() {
           />
         </div>
       )}
-
-      <div className="mb-12 text-center">
-        <Button
-          size="lg"
-          className="rounded-full bg-red-600 px-12 py-6 text-lg font-bold text-white hover:bg-red-700"
-          asChild
-        >
-          <Link href="/play">Play Next Race</Link>
-        </Button>
-      </div>
 
       <div className="overflow-hidden rounded-lg border border-border bg-card text-card-foreground">
         <div className="relative hidden md:block">
