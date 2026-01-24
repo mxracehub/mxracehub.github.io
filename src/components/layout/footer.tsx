@@ -61,7 +61,7 @@ export function Footer() {
           </div>
 
           {/* Right: Social Icons & Instructions */}
-          <div className="hidden md:flex flex-col items-center md:items-end gap-4">
+          <div className="col-span-2 md:col-span-1 flex flex-col items-center text-center md:items-end md:text-right gap-4">
               <div className="flex items-start justify-center md:justify-end gap-6">
                   <Link href="#" aria-label="YouTube">
                   <Youtube className="h-8 w-8 text-red-600" />
@@ -70,7 +70,7 @@ export function Footer() {
                   <Instagram className="h-8 w-8 text-red-600" />
                   </Link>
               </div>
-              <div className="text-center md:text-right mt-4">
+              <div className="mt-4">
                   <h4 className="font-bold text-lg mb-2">Basic Instructions</h4>
                   <ul className="space-y-1 text-sm text-foreground/90">
                       <li>1. Sign-up <span className="text-muted-foreground">(FREE)</span></li>
