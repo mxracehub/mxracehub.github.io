@@ -35,7 +35,7 @@ export default function WorldSupercrossPage() {
       <div className="mb-8 flex justify-center gap-4 text-center">
         <Button asChild size="lg" className="bg-red-600 hover:bg-red-700">
           <Link
-            href="https://account.recast.tv/login"
+            href="https://worldsupercrosschampionship.com/watch/"
             target="_blank"
             rel="noopener noreferrer"
           >
