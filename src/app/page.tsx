@@ -263,8 +263,8 @@ export default function DashboardPage() {
               data-ai-hint={raceDayBanner.imageHint}
             />
           )}
-          <div className="absolute inset-x-0 bottom-0 bg-blue-700/90 p-2 md:p-4">
-            <h3 className="text-3xl font-bold">Make Race Day More Exciting</h3>
+          <div className="absolute inset-x-0 bottom-0 bg-blue-700/90 p-4">
+            <h3 className="text-2xl font-bold md:text-3xl">Make Race Day More Exciting</h3>
             <p className="mb-4 mt-2 max-w-md text-white/90">
               Join playing with friends and predict your favorite riders win.
               No Fee for playing or redeeming
@@ -279,21 +279,21 @@ export default function DashboardPage() {
             </div>
           </div>
         </div>
-        <div className="p-8 text-center">
+        <div className="p-4 text-center md:p-8">
           <h3 className="text-xl font-bold uppercase tracking-wider">
             The Ultimate Motorcross & Supercross Playing Platform
           </h3>
           <p className="mt-2 text-muted-foreground">
             Professional riders - Automated payouts - Real time standings
           </p>
-          <div className="mt-6 flex justify-center gap-4">
-            <Button className="bg-red-600 text-white hover:bg-red-700" asChild>
+          <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Button className="w-full bg-red-600 text-white hover:bg-red-700 sm:w-auto" asChild>
               <Link href="/races">Race Schedule</Link>
             </Button>
-            <Button variant="outline" className="border-2 font-bold" asChild>
+            <Button variant="outline" className="w-full border-2 font-bold sm:w-auto" asChild>
                 <Link href="/play">Play Games</Link>
             </Button>
-            <Button className="bg-blue-600 text-white hover:bg-blue-700" asChild>
+            <Button className="w-full bg-blue-600 text-white hover:bg-blue-700 sm:w-auto" asChild>
               <Link href="/riders">View Riders</Link>
             </Button>
           </div>
