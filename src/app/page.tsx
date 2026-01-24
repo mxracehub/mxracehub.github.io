@@ -9,6 +9,7 @@ import { Star, Calendar } from 'lucide-react';
 import Link from 'next/link';
 import { motocrossRaces } from '@/lib/races-motocross-data';
 import { supercrossRaces } from '@/lib/races-supercross-data';
+import { worldSupercrossRaces } from '@/lib/races-world-supercross-data';
 
 // Helper function to parse dates. All races are assumed to be in 2026 for this app.
 const parseDate = (dateString: string, timeString: string): Date => {
@@ -18,6 +19,33 @@ const parseDate = (dateString: string, timeString: string): Date => {
   }
   return new Date(`${fullDateString} ${timeString}`);
 };
+
+const playoffsData = [
+  {
+    id: 'playoff-1',
+    name: 'Playoff 1',
+    location: 'Columbus, OH',
+    date: 'Sep 12, 2026',
+    time: '19:00',
+    track: 'Mapfre Stadium',
+  },
+  {
+    id: 'playoff-2',
+    name: 'Playoff 2',
+    location: 'Carson, CA',
+    date: 'Sep 19, 2026',
+    time: '19:00',
+    track: 'Dignity Health Sports Park',
+  },
+  {
+    id: 'smx-final',
+    name: 'SMX World Championship Final',
+    location: 'Ridgedale, MO',
+    date: 'Sep 26, 2026',
+    time: '19:00',
+    track: 'Big Cedar Lodge',
+  },
+];
 
 
 const allRaces = [
@@ -29,6 +57,14 @@ const allRaces = [
     date: parseDate(r.date, r.time),
     location: r.location,
   })),
+  ...playoffsData.map(r => ({ ...r, date: parseDate(r.date, r.time) })),
+  ...worldSupercrossRaces.map(r => ({
+    id: `world-supercross-${r.round}`,
+    name: `${r.location} World Supercross`,
+    track: r.track,
+    date: parseDate(r.date, r.time),
+    location: r.location,
+  }))
 ];
 
 // CountdownTimer component
