@@ -26,6 +26,15 @@ export default function SupercrossPage() {
     }
   }
 
+  const formatTime = (timeStr?: string) => {
+    if (!timeStr) return '';
+    const [hours, minutes] = timeStr.split(':');
+    const hour = parseInt(hours, 10);
+    const period = hour >= 12 ? 'pm' : 'am';
+    const displayHour = hour % 12 || 12;
+    return `${displayHour}:${minutes}${period}`;
+  };
+
   return (
     <div>
       <PageHeader
@@ -76,14 +85,20 @@ export default function SupercrossPage() {
                 {race.division && <Badge variant={getDivisionVariant(race.division)} className={race.division === 'East' ? 'bg-green-600 hover:bg-green-700' : ''}>{race.division}</Badge>}
               </div>
               <h3 className="text-lg font-bold">{race.location}</h3>
-              <p className="text-sm">{race.date} - {race.time} Local</p>
+              <p className="text-sm">{race.date}</p>
             </div>
-            <div className="flex-grow p-4">
+            <div className="flex-grow p-4 grid grid-cols-2 gap-4">
               <div>
                 <h4 className="font-bold">{race.track}</h4>
                 <p className="text-sm text-muted-foreground">
                   Live on {race.tv}
                 </p>
+              </div>
+              <div className="text-right">
+                <p className="text-sm font-semibold">Race Day Live</p>
+                <p className="text-sm text-muted-foreground">{formatTime(race.raceDayLive)} ET</p>
+                <p className="text-sm font-semibold mt-1">Gate Drop</p>
+                <p className="text-sm text-muted-foreground">{formatTime(race.time)} ET</p>
               </div>
             </div>
             <div className="border-t border-border p-2">
