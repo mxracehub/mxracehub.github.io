@@ -297,6 +297,28 @@ export const mainEventResults = {
       { pos: 18, rider: 'Austin Cozadd', number: '512', bike: 'Yamaha' },
       { pos: 19, rider: 'Ty Freehill', number: '316', bike: 'Honda' },
       { pos: 20, rider: 'Brandon Ray', number: '388', bike: 'Triumph' }
+    ],
+    '250_heat2': [
+      { pos: 1, rider: 'Haiden Deegan', number: '1W', bike: 'Yamaha' },
+      { pos: 2, rider: 'Max Anstie', number: '61', bike: 'Yamaha', holeshot: true },
+      { pos: 3, rider: 'Michael Mosiman', number: '23', bike: 'Yamaha' },
+      { pos: 4, rider: 'Cameron Mcadoo', number: '142', bike: 'Kawasaki' },
+      { pos: 5, rider: 'Hunter Yoder', number: '60', bike: 'Yamaha' },
+      { pos: 6, rider: 'Robbie Wageman', number: '237', bike: 'Yamaha' },
+      { pos: 7, rider: 'Lux Turner', number: '43', bike: 'Yamaha' },
+      { pos: 8, rider: 'Joshua Varize', number: '224', bike: 'Kawasaki' },
+      { pos: 9, rider: 'Avery Long', number: '57', bike: 'KTM' },
+      { pos: 10, rider: 'Anthony Bourdon', number: '70', bike: 'Kawasaki' },
+      { pos: 11, rider: 'Preston Masciangelo', number: '800', bike: 'GasGas' },
+      { pos: 12, rider: 'Crockett Myers', number: '131', bike: 'Suzuki' },
+      { pos: 13, rider: 'Nico Koch', number: '260', bike: 'KTM' },
+      { pos: 14, rider: 'Paul Bloy', number: '204', bike: 'GasGas' },
+      { pos: 15, rider: 'Kaden Lewis', number: '175', bike: 'GasGas' },
+      { pos: 16, rider: 'Lorenzo Camporese', number: '284', bike: 'Kawasaki' },
+      { pos: 17, rider: 'Reven Gordon', number: '425', bike: 'Kawasaki' },
+      { pos: 18, rider: 'Scotty Wennerstrom', number: '501', bike: 'KTM' },
+      { pos: 19, rider: 'Ronnie Orres', number: '873', bike: 'Honda' },
+      { pos: 20, rider: 'Lane Shaw', number: '129', bike: 'Kawasaki' }
     ]
   },
   'playoff-1': {
