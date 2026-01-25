@@ -53,7 +53,7 @@ export function Footer() {
             <div className="flex justify-between items-center mb-6">
                 <div className="flex flex-col gap-1 items-start text-left">
                     {footerNavLinks.map((link) => (
-                    <Link key={link.label} href={link.href} className="text-sm text-primary hover:underline">
+                    <Link key={link.label} href={link.href} className="text-sm text-red-600 hover:underline">
                         {link.label}
                     </Link>
                     ))}
@@ -76,13 +76,13 @@ export function Footer() {
             <div className="flex flex-col items-center text-center gap-4">
                 <div className="flex items-start justify-center gap-6">
                     <Link href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                    <Youtube className="h-8 w-8 text-primary" />
+                    <Youtube className="h-8 w-8 text-red-600" />
                     </Link>
                     <Link href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <Instagram className="h-8 w-8 text-primary" />
+                    <Instagram className="h-8 w-8 text-red-600" />
                     </Link>
                     <Link href="#" aria-label="Download App">
-                    <AppIcon className="h-8 w-8 text-primary" />
+                    <AppIcon className="h-8 w-8 text-red-600" />
                     </Link>
                 </div>
                 <div className="mt-4">
@@ -104,7 +104,7 @@ export function Footer() {
           {/* Left: Navigation */}
           <div className="flex flex-col gap-1 items-start text-left">
             {footerNavLinks.map((link) => (
-              <Link key={link.label} href={link.href} className="text-sm text-primary hover:underline">
+              <Link key={link.label} href={link.href} className="text-sm text-red-600 hover:underline">
                 {link.label}
               </Link>
             ))}
@@ -130,13 +130,13 @@ export function Footer() {
           <div className="col-span-1 flex flex-col items-end text-right gap-4">
               <div className="flex items-start justify-end gap-6">
                   <Link href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                  <Youtube className="h-8 w-8 text-primary" />
+                  <Youtube className="h-8 w-8 text-red-600" />
                   </Link>
                   <Link href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                  <Instagram className="h-8 w-8 text-primary" />
+                  <Instagram className="h-8 w-8 text-red-600" />
                   </Link>
                    <Link href="#" aria-label="Download App">
-                    <AppIcon className="h-8 w-8 text-primary" />
+                    <AppIcon className="h-8 w-8 text-red-600" />
                   </Link>
               </div>
               <div className="mt-4">
