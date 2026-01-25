@@ -246,17 +246,6 @@ export default function DashboardPage() {
       )}
       </div>
 
-       <div className="mb-12 text-center">
-        <Image
-          src="https://storage.googleapis.com/aifire-prompt-gallery/1721248555890_--version-2024-07-17-14_15_18-motocross-race-start.png"
-          alt="Make Race Day More Exciting"
-          width={1200}
-          height={400}
-          className="w-full object-cover object-right-bottom md:object-center rounded-lg"
-          data-ai-hint="motocross race"
-        />
-      </div>
-
       <div className="mb-12 text-center">
         <Button
           size="lg"
@@ -277,6 +266,7 @@ export default function DashboardPage() {
                 className="w-full object-cover object-right-bottom"
                 data-ai-hint="motocross race"
             />
+            
             <div className="bg-blue-700/90 p-6">
                 <h3 className="text-2xl font-bold">Make Race Day More Exciting</h3>
                 <p className="mb-4 mt-2 text-white/90">
@@ -302,21 +292,6 @@ export default function DashboardPage() {
                 className="w-full object-cover object-right-bottom"
                 data-ai-hint="motocross races"
             />
-            <div className="bg-blue-700/90 p-6">
-                <h3 className="text-2xl font-bold">Make Race Day More Exciting</h3>
-                <p className="mb-4 mt-2 text-white/90">
-                Join playing with friends and predict your favorite riders win.
-                No Fee for playing or redeeming
-                </p>
-                <div className="flex gap-4">
-                <Button className="bg-red-600 text-white hover:bg-red-700" asChild>
-                    <Link href="/register">Sign Up</Link>
-                </Button>
-                <Button className="bg-red-600 text-white hover:bg-red-700" asChild>
-                    <Link href="/play">Play</Link>
-                </Button>
-                </div>
-            </div>
         </div>
       </div>
         <div className="p-4 text-center md:p-8">
