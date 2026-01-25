@@ -191,7 +191,7 @@ export default function DashboardPage() {
 
   return (
     <div className="max-w-5xl mx-auto">
-       <div className="bg-black py-2 -mt-8">
+       <div className="bg-black py-2">
         <PageHeader
           title="THE ULTIMATE MOTORCROSS & SUPERCROSS PLAYING PLATFORM"
           description="Friend vs Friend * Professional riders * Automated payouts * Real time standings"
@@ -221,7 +221,7 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      <div className="mt-12 mb-12">
+      <div className="my-12">
       {isClient && nextRace ? (
         <div className="rounded-lg border border-border bg-card p-6 text-center text-card-foreground">
           <p className="mb-2 font-bold uppercase tracking-widest text-primary">
@@ -255,6 +255,17 @@ export default function DashboardPage() {
           <Link href="/play">Play Next Race</Link>
         </Button>
       </div>
+      
+      <div className="my-12">
+        <Image
+            src="https://storage.googleapis.com/aifire-prompt-gallery/1721248555890_--version-2024-07-17-14_15_18-motocross-race-start.png"
+            alt="Motocross starting line"
+            width={1200}
+            height={400}
+            className="w-full object-cover rounded-lg"
+            data-ai-hint="motocross start"
+        />
+      </div>
 
       <div className="space-y-8">
         <div className="overflow-hidden rounded-lg border border-border bg-card text-card-foreground">
@@ -267,9 +278,9 @@ export default function DashboardPage() {
                 data-ai-hint="motocross race"
             />
             
-            <div className="bg-blue-700/90 p-6">
+            <div className="bg-primary/90 p-6 text-primary-foreground">
                 <h3 className="text-2xl font-bold">Make Race Day More Exciting</h3>
-                <p className="mb-4 mt-2 text-white/90">
+                <p className="mb-4 mt-2 opacity-90">
                 Join playing with friends and predict your favorite riders win.
                 No Fee for playing or redeeming
                 </p>
@@ -292,6 +303,21 @@ export default function DashboardPage() {
                 className="w-full object-cover object-right-bottom"
                 data-ai-hint="motocross races"
             />
+             <div className="bg-primary/90 p-6 text-primary-foreground">
+                <h3 className="text-2xl font-bold">Make Race Day More Exciting</h3>
+                <p className="mb-4 mt-2 opacity-90">
+                Join playing with friends and predict your favorite riders win.
+                No Fee for playing or redeeming
+                </p>
+                <div className="flex gap-4">
+                <Button className="bg-red-600 text-white hover:bg-red-700" asChild>
+                    <Link href="/register">Sign Up</Link>
+                </Button>
+                <Button className="bg-red-600 text-white hover:bg-red-700" asChild>
+                    <Link href="/play">Play</Link>
+                </Button>
+                </div>
+            </div>
         </div>
       </div>
         <div className="p-4 text-center md:p-8">
@@ -302,7 +328,7 @@ export default function DashboardPage() {
             <Button variant="outline" className="w-full border-2 font-bold sm:w-auto" asChild>
                 <Link href="/play">Play Games</Link>
             </Button>
-            <Button className="w-full bg-blue-600 text-white hover:bg-blue-700 sm:w-auto" asChild>
+            <Button className="w-full sm:w-auto" asChild>
               <Link href="/riders">View Riders</Link>
             </Button>
           </div>

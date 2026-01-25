@@ -69,7 +69,7 @@ export default function RiderDetailPage({ params }: { params: { riderId: string 
     <div className="max-w-4xl mx-auto">
       <PageHeader title={rider.name} />
 
-      <div className="bg-blue-900/80 text-white rounded-lg p-4 flex flex-col sm:flex-row items-center text-center sm:text-left gap-6 mb-8">
+      <div className="bg-primary/80 text-primary-foreground rounded-lg p-4 flex flex-col sm:flex-row items-center text-center sm:text-left gap-6 mb-8">
         <div className={`flex-shrink-0 h-32 w-32 flex flex-col items-center justify-center rounded-lg border-2 border-white ${plateColor}`}>
             <span className={`text-6xl font-black italic ${textColor}`}>{rider.number}</span>
         </div>

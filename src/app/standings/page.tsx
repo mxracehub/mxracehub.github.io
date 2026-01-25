@@ -92,7 +92,7 @@ export default function StandingsPage() {
                 <p
                   className={`text-sm font-bold ${
                     race.series === 'Supercross'
-                      ? 'text-blue-400'
+                      ? 'text-primary'
                       : 'text-red-400'
                   }`}
                 >
@@ -116,7 +116,7 @@ export default function StandingsPage() {
                 <p
                   className={`text-sm font-bold ${
                     race.series === 'Supercross'
-                      ? 'text-blue-400'
+                      ? 'text-primary'
                       : 'text-red-400'
                   }`}
                 >
