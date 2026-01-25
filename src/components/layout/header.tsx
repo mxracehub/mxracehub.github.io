@@ -52,11 +52,14 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-10 flex flex-col border-b border-white/10 bg-background">
-      <div className="relative flex h-16 items-center justify-between bg-primary px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2.5">
-          <h1 className="font-bold text-2xl truncate font-headline text-primary-foreground">Mxracehub</h1>
-        </Link>
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden">
+      <div className="grid h-16 grid-cols-3 items-center bg-primary px-4 md:flex md:justify-between sm:px-6 lg:px-8">
+        <div className="justify-self-start">
+          <Link href="/" className="flex items-center gap-2.5">
+            <h1 className="font-bold text-2xl truncate font-headline text-primary-foreground">Mxracehub</h1>
+          </Link>
+        </div>
+
+        <div className="justify-self-center md:hidden">
             <Link href="/">
               <svg viewBox="0 0 100 100" className="h-12 w-auto">
                 <circle cx="50" cy="50" r="48" fill="none" stroke="white" strokeWidth="4" />
@@ -64,88 +67,91 @@ export function Header() {
               </svg>
             </Link>
         </div>
-        <div className="hidden items-center gap-4 md:flex">
-          {isLoggedIn ? (
-             <Button onClick={handleSignOut} variant="secondary" className="bg-white text-black hover:bg-gray-200">
-                Sign Out
-             </Button>
-          ) : (
-            <>
-              {!isLoading && (
-                <>
-                    <Button asChild variant="secondary" className="bg-white text-black hover:bg-gray-200">
-                        <Link href="/sign-in">Sign In</Link>
-                    </Button>
-                    <Button asChild variant="secondary" className="bg-black text-white hover:bg-gray-800">
-                        <Link href="/register">Register</Link>
-                    </Button>
-                </>
-              )}
-            </>
-          )}
-        </div>
-         <div className="md:hidden">
-            <Sheet>
-                <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon" className="h-16 w-16">
-                        <Menu className="h-12 w-12 text-primary-foreground" />
-                        <span className="sr-only">Open menu</span>
-                    </Button>
-                </SheetTrigger>
-                <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background">
-                     <nav className="flex h-full flex-col p-6">
-                        <div className="flex-1 space-y-4">
-                            {navItems.map((item) => (
-                            <SheetClose asChild key={item.href}>
-                                <Link
-                                href={item.href}
-                                className="block text-lg font-medium text-foreground hover:text-primary"
-                                >
-                                    {item.label}
-                                </Link>
-                            </SheetClose>
-                            ))}
-                        </div>
-                        
-                        <div className="flex items-center justify-center gap-6 py-6">
-                            <Link href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                                <Youtube className="h-8 w-8 text-red-600" />
-                            </Link>
-                            <Link href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                                <Instagram className="h-8 w-8 text-red-600" />
-                            </Link>
-                            <Link href="#" aria-label="Download App">
-                                <AppIcon className="h-8 w-8 text-red-600" />
-                            </Link>
-                        </div>
-                        
-                        <div className="flex flex-col gap-2">
-                          {isLoggedIn ? (
-                              <Button onClick={handleSignOut} variant="secondary">
-                                  Sign Out
-                              </Button>
-                          ) : (
-                              <>
-                                  {!isLoading && (
-                                      <>
-                                          <SheetClose asChild>
-                                              <Button asChild variant="secondary">
-                                                  <Link href="/sign-in">Sign In</Link>
-                                              </Button>
-                                          </SheetClose>
-                                          <SheetClose asChild>
-                                              <Button asChild>
-                                                  <Link href="/register">Register</Link>
-                                              </Button>
-                                          </SheetClose>
-                                      </>
-                                  )}
-                              </>
-                          )}
-                        </div>
-                    </nav>
-                </SheetContent>
-            </Sheet>
+
+        <div className="justify-self-end">
+          <div className="hidden items-center gap-4 md:flex">
+            {isLoggedIn ? (
+              <Button onClick={handleSignOut} variant="secondary" className="bg-white text-black hover:bg-gray-200">
+                  Sign Out
+              </Button>
+            ) : (
+              <>
+                {!isLoading && (
+                  <>
+                      <Button asChild variant="secondary" className="bg-white text-black hover:bg-gray-200">
+                          <Link href="/sign-in">Sign In</Link>
+                      </Button>
+                      <Button asChild variant="secondary" className="bg-black text-white hover:bg-gray-800">
+                          <Link href="/register">Register</Link>
+                      </Button>
+                  </>
+                )}
+              </>
+            )}
+          </div>
+          <div className="md:hidden">
+              <Sheet>
+                  <SheetTrigger asChild>
+                      <Button variant="ghost" size="icon" className="h-16 w-16">
+                          <Menu className="h-12 w-12 text-primary-foreground" />
+                          <span className="sr-only">Open menu</span>
+                      </Button>
+                  </SheetTrigger>
+                  <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background">
+                      <nav className="flex h-full flex-col p-6">
+                          <div className="flex-1 space-y-4">
+                              {navItems.map((item) => (
+                              <SheetClose asChild key={item.href}>
+                                  <Link
+                                  href={item.href}
+                                  className="block text-lg font-medium text-foreground hover:text-primary"
+                                  >
+                                      {item.label}
+                                  </Link>
+                              </SheetClose>
+                              ))}
+                          </div>
+                          
+                          <div className="flex items-center justify-center gap-6 py-6">
+                              <Link href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                                  <Youtube className="h-8 w-8 text-red-600" />
+                              </Link>
+                              <Link href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                  <Instagram className="h-8 w-8 text-red-600" />
+                              </Link>
+                              <Link href="#" aria-label="Download App">
+                                  <AppIcon className="h-8 w-8 text-red-600" />
+                              </Link>
+                          </div>
+                          
+                          <div className="flex flex-col gap-2">
+                            {isLoggedIn ? (
+                                <Button onClick={handleSignOut} variant="secondary">
+                                    Sign Out
+                                </Button>
+                            ) : (
+                                <>
+                                    {!isLoading && (
+                                        <>
+                                            <SheetClose asChild>
+                                                <Button asChild variant="secondary">
+                                                    <Link href="/sign-in">Sign In</Link>
+                                                </Button>
+                                            </SheetClose>
+                                            <SheetClose asChild>
+                                                <Button asChild>
+                                                    <Link href="/register">Register</Link>
+                                                </Button>
+                                            </SheetClose>
+                                        </>
+                                    )}
+                                </>
+                            )}
+                          </div>
+                      </nav>
+                  </SheetContent>
+              </Sheet>
+          </div>
         </div>
       </div>
       <div className="hidden h-16 items-center justify-between gap-6 bg-black px-4 sm:px-6 lg:px-8 md:flex">
