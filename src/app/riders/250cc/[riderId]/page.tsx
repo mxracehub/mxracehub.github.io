@@ -70,14 +70,14 @@ export default function RiderDetailPage({ params }: { params: { riderId: string 
     <div className="max-w-4xl mx-auto">
       <PageHeader title={rider.name} />
       
-      <div className="bg-blue-900/80 text-white rounded-lg p-4 flex items-center gap-6 mb-8">
+      <div className="bg-blue-900/80 text-white rounded-lg p-4 flex flex-col sm:flex-row items-center text-center sm:text-left gap-6 mb-8">
         <div className={`flex-shrink-0 h-32 w-32 flex flex-col items-center justify-center rounded-lg border-2 border-white ${plateColor}`}>
             <span className={`text-6xl font-black italic ${textColor}`}>{rider.number}</span>
         </div>
         <div>
             <h2 className="text-3xl font-bold uppercase tracking-wider">{rider.name}</h2>
             <p className="text-lg opacity-90">{rider.team}</p>
-            <div className="flex items-center gap-4 mt-2">
+            <div className="flex items-center justify-center sm:justify-start gap-4 mt-2">
                 <div className="flex items-center gap-2">
                     <USFlag />
                     <span>{rider.location}</span>
