@@ -28,6 +28,7 @@ import { RefundRequestsTable } from '@/components/admin/refund-requests-table';
 import type { Account } from '@/lib/types';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Loader2 } from 'lucide-react';
+import { SettlePlays } from '@/components/admin/settle-plays';
 
 function AdminPageSkeleton() {
   return (
@@ -84,12 +85,13 @@ export default function AdminPage() {
         description="Manage application data and utilize AI tools."
       />
       <Tabs defaultValue="race-data" className="w-full">
-        <TabsList className="grid w-full grid-cols-5">
+        <TabsList className="grid w-full grid-cols-6">
           <TabsTrigger value="race-data">Race Data Input</TabsTrigger>
           <TabsTrigger value="exchange-data">Exchange Data Sync</TabsTrigger>
           <TabsTrigger value="exchange-requests">Exchange Requests</TabsTrigger>
           <TabsTrigger value="refund-requests">Refund Requests</TabsTrigger>
           <TabsTrigger value="ai-summarizer">AI Summarizer</TabsTrigger>
+          <TabsTrigger value="settle-plays">Settle Plays</TabsTrigger>
         </TabsList>
 
         <TabsContent value="race-data">
@@ -185,6 +187,9 @@ export default function AdminPage() {
 
         <TabsContent value="ai-summarizer">
           <SummarizerForm />
+        </TabsContent>
+        <TabsContent value="settle-plays">
+          <SettlePlays />
         </TabsContent>
       </Tabs>
     </div>
