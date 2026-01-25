@@ -1,4 +1,3 @@
-
 'use client';
 
 import { PageHeader } from '@/components/page-header';
@@ -88,7 +87,7 @@ export default function RiderDetailPage({ params }: { params: { riderId: string 
       
       <Card>
         <CardHeader>
-            <h3 className="text-2xl font-bold font-headline uppercase tracking-wider">Accomplishments</h3>
+            <h3 className="text-2xl font-bold font-headline uppercase tracking-wider break-words">Accomplishments</h3>
         </CardHeader>
         <CardContent className="space-y-4">
             <ul className="space-y-2">
