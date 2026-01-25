@@ -36,6 +36,14 @@ export type GoldCoinPurchase = {
     status: 'Completed' | 'Refund Requested' | 'Refunded';
 };
 
+export type SettlementRecord = {
+    id: string;
+    date: string; // ISO string
+    settledPlays: number;
+    updatedAccounts: number;
+    triggeredBy: string;
+};
+
 export type Account = {
     id: string;
     name: string;

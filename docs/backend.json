@@ -128,6 +128,19 @@
         "status": { "type": "string", "enum": ["Completed", "Refund Requested", "Refunded"] }
       },
       "required": ["userId", "packageId", "amount", "price", "date", "status"]
+    },
+    "SettlementRecord": {
+      "title": "Settlement Record",
+      "description": "Represents a record of an automatic or manual play settlement process.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "date": { "type": "string", "format": "date-time" },
+        "settledPlays": { "type": "number" },
+        "updatedAccounts": { "type": "number" },
+        "triggeredBy": { "type": "string" }
+      },
+      "required": ["date", "settledPlays", "updatedAccounts", "triggeredBy"]
     }
   },
   "auth": {
@@ -145,6 +158,10 @@
     "/goldCoinPurchases/{purchaseId}": {
         "schema": { "$ref": "#/entities/GoldCoinPurchase" },
         "description": "Stores all Gold Coin purchases made by users."
+    },
+    "/settlementRecords/{recordId}": {
+      "schema": { "$ref": "#/entities/SettlementRecord" },
+      "description": "Stores records of each play settlement execution."
     }
   }
 }

@@ -29,6 +29,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { settleAllPlays } from '@/ai/flows/settle-plays-flow';
+import { SettlementHistoryTable } from '@/components/admin/settlement-history-table';
 
 function AdminPageSkeleton() {
   return (
@@ -63,8 +64,8 @@ export default function AdminPage() {
   }, [isUserLoading, user, isAccountLoading, account, router]);
   
   useEffect(() => {
-    if (account?.isAdmin) {
-      settleAllPlays().then(result => {
+    if (account?.isAdmin && user) {
+      settleAllPlays({ triggeredBy: `admin-login: ${user.email}` }).then(result => {
         if (result.settledPlays > 0) {
           toast({
             title: 'Automatic Play Settlement',
@@ -81,7 +82,7 @@ export default function AdminPage() {
         });
       });
     }
-  }, [account, toast]);
+  }, [account, toast, user]);
 
 
   const isLoading = isUserLoading || isAccountLoading;
@@ -108,11 +109,12 @@ export default function AdminPage() {
         description="Manage application data and utilize AI tools."
       />
       <Tabs defaultValue="race-data" className="w-full">
-        <TabsList className="grid w-full grid-cols-5">
+        <TabsList className="grid w-full grid-cols-6">
           <TabsTrigger value="race-data">Race Data Input</TabsTrigger>
           <TabsTrigger value="exchange-data">Exchange Data Sync</TabsTrigger>
           <TabsTrigger value="exchange-requests">Exchange Requests</TabsTrigger>
           <TabsTrigger value="refund-requests">Refund Requests</TabsTrigger>
+          <TabsTrigger value="settlement-history">Settlement History</TabsTrigger>
           <TabsTrigger value="ai-summarizer">AI Summarizer</TabsTrigger>
         </TabsList>
 
@@ -203,6 +205,20 @@ export default function AdminPage() {
             </CardHeader>
             <CardContent>
               <RefundRequestsTable />
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="settlement-history">
+          <Card>
+            <CardHeader>
+              <CardTitle>Play Settlement History</CardTitle>
+              <CardDescription>
+                A log of all automatic play settlement executions.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <SettlementHistoryTable />
             </CardContent>
           </Card>
         </TabsContent>

@@ -8,11 +8,16 @@
  */
 
 import { ai } from '@/ai/genkit';
-import { z } from 'genkit';
-import { collection, doc, getDocs, writeBatch } from 'firebase/firestore';
+import { z } from 'zod';
+import { collection, doc, getDocs, writeBatch, addDoc } from 'firebase/firestore';
 import { db } from '@/firebase';
 import type { Account, Play } from '@/lib/types';
 import { getRaceResults } from '@/lib/firebase-config';
+
+const SettlePlaysInputSchema = z.object({
+  triggeredBy: z.string().describe('Identifier for who or what triggered the settlement.'),
+});
+export type SettlePlaysInput = z.infer<typeof SettlePlaysInputSchema>;
 
 const SettlePlaysOutputSchema = z.object({
   settledPlays: z.number().describe('The number of plays that were settled.'),
@@ -20,8 +25,8 @@ const SettlePlaysOutputSchema = z.object({
 });
 export type SettlePlaysOutput = z.infer<typeof SettlePlaysOutputSchema>;
 
-export async function settleAllPlays(): Promise<SettlePlaysOutput> {
-  return settlePlaysFlow();
+export async function settleAllPlays(input: SettlePlaysInput): Promise<SettlePlaysOutput> {
+  return settlePlaysFlow(input);
 }
 
 const parseRaceDate = (dateString: string): Date => {
@@ -36,9 +41,10 @@ const parseRaceDate = (dateString: string): Date => {
 const settlePlaysFlow = ai.defineFlow(
   {
     name: 'settlePlaysFlow',
+    inputSchema: SettlePlaysInputSchema,
     outputSchema: SettlePlaysOutputSchema,
   },
-  async () => {
+  async (input) => {
     if (!db) {
         throw new Error("Firestore is not initialized.");
     }
@@ -136,6 +142,16 @@ const settlePlaysFlow = ai.defineFlow(
     
     if (updatedAccountIds.size > 0) {
         await batch.commit();
+        
+        // Create settlement record
+        const settlementRecord = {
+            date: new Date().toISOString(),
+            settledPlays: settledPlaysCount,
+            updatedAccounts: updatedAccountIds.size,
+            triggeredBy: input.triggeredBy
+        };
+        const settlementRecordsRef = collection(db, 'settlementRecords');
+        await addDoc(settlementRecordsRef, settlementRecord);
     }
 
     return {
