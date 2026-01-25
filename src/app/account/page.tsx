@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -105,15 +104,7 @@ export default function AccountPage() {
   const router = useRouter();
   const { toast } = useToast();
   const { user, isLoading: isUserLoading } = useUser();
-  const { data: initialAccount, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---', { listen: true });
-  const [account, setAccount] = useState<Account | null>(null);
-  const [settlingPlays, setSettlingPlays] = useState<Record<string, boolean>>({});
-
-  useEffect(() => {
-    if (initialAccount) {
-      setAccount(initialAccount);
-    }
-  }, [initialAccount]);
+  const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---', { listen: true });
 
   const userAvatar = PlaceHolderImages.find((p) => p.id === 'user-avatar');
 
@@ -123,133 +114,13 @@ export default function AccountPage() {
     }
   }, [isUserLoading, user, router]);
 
-  useEffect(() => {
-    if (account) {
-        const pendingPlays = account.playHistory.filter(b => b.status === 'Pending' && new Date(b.date) < new Date());
-        if (pendingPlays.length > 0) {
-            settlePendingPlays(pendingPlays);
-        }
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [account]);
-
-  const settlePendingPlays = async (playsToSettle: Play[]) => {
-      if (!account) return;
-
-      let tempAccount = { ...account };
-      let updatedPlayHistory = [...account.playHistory];
-      let balancesChanged = false;
-      
-      const newSettlingState: Record<string, boolean> = {};
-      playsToSettle.forEach(b => newSettlingState[b.id] = true);
-      setSettlingPlays(prev => ({...prev, ...newSettlingState}));
-
-      for (const play of playsToSettle) {
-          try {
-              let userWon = false;
-              let playSettled = false;
-              let playVoided = false;
-
-              if (play.playType === 'Championship Winner') {
-                  const manufacturerStandings = getManufacturersPoints();
-                  if (manufacturerStandings.length > 0) {
-                      const winner = manufacturerStandings[0].manufacturer;
-                      userWon = winner === play.userRider;
-                      playSettled = true;
-                  }
-              } else if (play.raceType) {
-                  const results = await getRaceResults(play.raceId, play.raceType);
-                  if (!results) continue; // Race results not available yet
-
-                  const userRiderResult = results.find(r => r.rider === play.userRider);
-                  const opponentRiderResult = results.find(r => r.rider === play.opponentRider);
-
-                  if (play.playType === 'Race Winner') {
-                      if (!userRiderResult || !opponentRiderResult) {
-                          playVoided = true;
-                      } else {
-                          userWon = userRiderResult.pos < opponentRiderResult.pos;
-                      }
-                      playSettled = true;
-                  } else if (play.playType === 'Holeshot') {
-                      const holeshotRider = results.find(r => r.holeshot);
-                      if (!userRiderResult || !opponentRiderResult || !holeshotRider) {
-                          playVoided = true;
-                      } else if (holeshotRider.rider === play.userRider) {
-                          userWon = true;
-                      } else if (holeshotRider.rider === play.opponentRider) {
-                          userWon = false;
-                      } else {
-                          playVoided = true; // Neither pick got the holeshot
-                      }
-                      playSettled = true;
-                  }
-              }
-              
-              if (playSettled) {
-                const playIndex = updatedPlayHistory.findIndex(b => b.id === play.id);
-
-                if (playIndex !== -1 && updatedPlayHistory[playIndex].status === 'Pending') {
-                    if (playVoided) {
-                        updatedPlayHistory[playIndex] = { ...updatedPlayHistory[playIndex], status: 'Voided' };
-                        
-                        if (play.coinType === 'Gold Coins') {
-                            tempAccount.balances.gold += play.amount;
-                        } else {
-                            tempAccount.balances.sweeps += play.amount;
-                        }
-                        balancesChanged = true;
-
-                        toast({
-                            title: `Play Voided`,
-                            description: `Your play on ${play.race} was voided and ${play.amount} ${play.coinType} were returned.`,
-                        });
-                    } else {
-                        const newStatus = userWon ? 'Won' : 'Lost';
-                        updatedPlayHistory[playIndex] = { ...updatedPlayHistory[playIndex], status: newStatus };
-                        
-                        if (userWon) {
-                            const winnings = play.amount * 2;
-                            if (play.coinType === 'Gold Coins') {
-                                tempAccount.balances.gold += winnings;
-                            } else {
-                                tempAccount.balances.sweeps += winnings;
-                            }
-                            balancesChanged = true;
-                        }
-                        toast({
-                            title: `Play Settled: You ${newStatus}!`,
-                            description: `Your play on ${play.race} has been settled.`,
-                            variant: userWon ? "default" : "destructive"
-                        });
-                    }
-                }
-              }
-
-          } catch (error) {
-              console.error(`Failed to settle play ${play.id}:`, error);
-          }
-      }
-
-      const finalAccountUpdate = {
-          playHistory: updatedPlayHistory,
-          ...(balancesChanged && { balances: tempAccount.balances })
-      };
-      
-      if (JSON.stringify(finalAccountUpdate.playHistory) !== JSON.stringify(account.playHistory) || balancesChanged) {
-        await updateAccount(account.id, finalAccountUpdate);
-      }
-      setSettlingPlays({});
-  };
-
-
   const isLoading = isUserLoading || isAccountLoading;
 
   if (isLoading || !account) {
     return <AccountPageSkeleton />;
   }
 
-  if (!initialAccount && !isAccountLoading) {
+  if (!account && !isAccountLoading) {
     return <div>Could not load account details. Please try again later.</div>;
   }
 
@@ -351,11 +222,6 @@ export default function AccountPage() {
                                 <p className="text-sm">{play.amount} {play.coinType}</p>
                                 <SocialShareButtons play={play} account={account} />
                             </div>
-                            {play.status === 'Pending' && !isLive && settlingPlays[play.id] && (
-                                <div className="flex items-center justify-center w-12">
-                                    <Loader2 className="h-4 w-4 animate-spin"/>
-                                </div>
-                            )}
                           </div>
                         </li>
                     )
@@ -385,4 +251,3 @@ export default function AccountPage() {
     </div>
   );
 }
-
