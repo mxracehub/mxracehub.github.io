@@ -19,8 +19,8 @@ export function NavLink({ href, children }: NavLinkProps) {
       className={cn(
         'flex items-center gap-2 text-sm font-medium transition-colors',
         isActive
-          ? 'text-primary underline'
-          : 'text-primary/90 hover:text-primary'
+          ? 'text-destructive underline'
+          : 'text-destructive/90 hover:text-destructive'
       )}
     >
       {children}
