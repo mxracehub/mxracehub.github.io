@@ -275,6 +275,30 @@ export const mainEventResults = {
       { pos: 20, rider: 'Justin Rodbell', number: '726', bike: 'KTM' }
     ]
   },
+  'supercross-3': {
+    '250_heat1': [
+      { pos: 1, rider: 'Chance Hymas', number: '29', bike: 'Honda', holeshot: true },
+      { pos: 2, rider: 'Ryder DiFrancesco', number: '34', bike: 'Husqvarna' },
+      { pos: 3, rider: 'Maximus Vohland', number: '19', bike: 'Yamaha' },
+      { pos: 4, rider: 'Levi Kitchen', number: '47', bike: 'Kawasaki' },
+      { pos: 5, rider: 'Carson Mumford', number: '71', bike: 'KTM' },
+      { pos: 6, rider: 'Parker Ross', number: '40', bike: 'Yamaha' },
+      { pos: 7, rider: 'Dilan Schwartz', number: '42', bike: 'Yamaha' },
+      { pos: 8, rider: 'Justin Rodbell', number: '83', bike: 'Honda' },
+      { pos: 9, rider: 'Hunter Schlosser', number: '173', bike: 'Honda' },
+      { pos: 10, rider: 'Dominique Thury', number: '964', bike: 'Yamaha' },
+      { pos: 11, rider: 'Slade Varola', number: '805', bike: 'Yamaha' },
+      { pos: 12, rider: 'Matti Jorgensen', number: '245', bike: 'Honda' },
+      { pos: 13, rider: 'Keegan Rowley', number: '900', bike: 'Yamaha' },
+      { pos: 14, rider: 'Colby Copp', number: '645', bike: 'Honda' },
+      { pos: 15, rider: 'Blake Davies', number: '585', bike: 'Husqvarna' },
+      { pos: 16, rider: 'Kai Aiello', number: '310', bike: 'Husqvarna' },
+      { pos: 17, rider: 'Ayden Shive', number: '137', bike: 'KTM' },
+      { pos: 18, rider: 'Austin Cozadd', number: '512', bike: 'Yamaha' },
+      { pos: 19, rider: 'Ty Freehill', number: '316', bike: 'Honda' },
+      { pos: 20, rider: 'Brandon Ray', number: '388', bike: 'Triumph' }
+    ]
+  },
   'playoff-1': {
     '450': [],
     '250': []
@@ -319,4 +343,3 @@ export const mainEventResults = {
 };
 
     
-
