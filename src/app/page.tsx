@@ -256,17 +256,7 @@ export default function DashboardPage() {
         </Button>
       </div>
       
-      <div className="my-12">
-        <Image
-            src="https://storage.googleapis.com/aifire-prompt-gallery/1721248555890_--version-2024-07-17-14_15_18-motocross-race-start.png"
-            alt="Motocross starting line"
-            width={1200}
-            height={400}
-            className="w-full object-cover rounded-lg"
-            data-ai-hint="motocross start"
-        />
-      </div>
-
+      
       <div className="space-y-8">
         <div className="overflow-hidden rounded-lg border border-border bg-card text-card-foreground">
             <Image
@@ -303,21 +293,8 @@ export default function DashboardPage() {
                 className="w-full object-cover object-right-bottom"
                 data-ai-hint="motocross races"
             />
-             <div className="bg-primary/90 p-6 text-primary-foreground">
-                <h3 className="text-2xl font-bold">Make Race Day More Exciting</h3>
-                <p className="mb-4 mt-2 opacity-90">
-                Join playing with friends and predict your favorite riders win.
-                No Fee for playing or redeeming
-                </p>
-                <div className="flex gap-4">
-                <Button className="bg-red-600 text-white hover:bg-red-700" asChild>
-                    <Link href="/register">Sign Up</Link>
-                </Button>
-                <Button className="bg-red-600 text-white hover:bg-red-700" asChild>
-                    <Link href="/play">Play</Link>
-                </Button>
-                </div>
-            </div>
+             
+            
         </div>
       </div>
         <div className="p-4 text-center md:p-8">
