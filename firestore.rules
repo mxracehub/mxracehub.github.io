@@ -6,8 +6,8 @@ service cloud.firestore {
   
     // Accounts Collection
     match /accounts/{userId} {
-      // Anyone can view a user's public profile
-      allow read: if true;
+      // Only authenticated users can view a user's public profile
+      allow read: if request.auth != null;
       
       // Only the authenticated user can create or update their own document
       allow create, update: if request.auth != null && request.auth.uid == userId;
