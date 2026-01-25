@@ -1,4 +1,3 @@
-
 'use client';
 
 import { PageHeader } from '@/components/page-header';
@@ -217,31 +216,34 @@ export default function ManufacturerBettingPage() {
         <CardContent className="space-y-8 pt-6">
           <div className="space-y-2">
             <Label className="flex items-center gap-2 text-lg font-semibold"><Users className="h-5 w-5"/>Find a Friend</Label>
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
-              <Input
-                id="find-friend"
-                placeholder="Search by username..."
-                className="pl-10 pr-10"
-                value={friendSearch}
-                onChange={(e) => setFriendSearch(e.target.value)}
-                disabled={!!selectedFriend || isSubmitting}
-              />
-              <Mic className="absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 cursor-pointer text-muted-foreground" />
-            </div>
-            {friendSearch && filteredFriends.length > 0 && (
+            {!selectedFriend ? (
+              <>
                 <div className="relative">
-                    <ul className="absolute z-10 w-full bg-card border rounded-md mt-1 max-h-60 overflow-y-auto">
-                        {filteredFriends.map(friend => (
-                            <li key={friend.id} onClick={() => handleSelectFriend(friend)} className="px-4 py-2 hover:bg-muted cursor-pointer">
-                                <p className="font-semibold">{friend.name}</p>
-                                <p className="text-sm text-muted-foreground">@{friend.username}</p>
-                            </li>
-                        ))}
-                    </ul>
+                  <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
+                  <Input
+                    id="find-friend"
+                    placeholder="Search by username..."
+                    className="pl-10 pr-10"
+                    value={friendSearch}
+                    onChange={(e) => setFriendSearch(e.target.value)}
+                    disabled={isSubmitting}
+                  />
+                  <Mic className="absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 cursor-pointer text-muted-foreground" />
                 </div>
-            )}
-             {selectedFriend && (
+                {friendSearch && filteredFriends.length > 0 && (
+                    <div className="relative">
+                        <ul className="absolute z-10 w-full bg-card border rounded-md mt-1 max-h-60 overflow-y-auto">
+                            {filteredFriends.map(friend => (
+                                <li key={friend.id} onClick={() => handleSelectFriend(friend)} className="px-4 py-2 hover:bg-muted cursor-pointer">
+                                    <p className="font-semibold">{friend.name}</p>
+                                    <p className="text-sm text-muted-foreground">@{friend.username}</p>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+              </>
+            ) : (
                 <div className="rounded-lg border bg-muted/50 p-4 flex items-center justify-between">
                     <div>
                         <p className="font-semibold flex items-center gap-2"><CheckCircle className="h-5 w-5 text-green-500" /> {selectedFriend.name}</p>
