@@ -141,6 +141,66 @@
         "triggeredBy": { "type": "string" }
       },
       "required": ["date", "settledPlays", "updatedAccounts", "triggeredBy"]
+    },
+    "Rider": {
+      "title": "Rider",
+      "description": "Represents a motocross/supercross rider.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "team": { "type": "string" },
+        "number": { "type": "string" },
+        "class": { "type": "string", "enum": ["450cc", "250cc"] },
+        "location": { "type": "string" },
+        "dob": { "type": "string" },
+        "turnedPro": { "type": "string" },
+        "accomplishments": { "type": "array", "items": { "type": "string" } },
+        "videos": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["name", "number", "class", "team"]
+    },
+    "Race": {
+      "title": "Race",
+      "description": "Represents a race event.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "track": { "type": "string" },
+        "location": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "series": { "type": "string", "enum": ["Supercross", "Motocross", "Playoffs", "World Supercross"] },
+        "division": { "type": "string", "enum": ["East", "West", "East/West Showdown"] },
+        "format": { "type": "string", "enum": ["Triple Crown"] },
+        "round": { "type": "number" },
+        "tv": { "type": "string" },
+        "raceDayLive": { "type": "string" }
+      },
+      "required": ["name", "date", "series"]
+    },
+    "RaceResult": {
+      "title": "RaceResult",
+      "description": "Stores the results for a single race event. The document ID should match the race ID.",
+      "type": "object",
+      "properties": {},
+      "patternProperties": {
+        "^(450|250|450_heat1|450_heat2|250_heat1|250_heat2)$": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "pos": { "type": "number" },
+              "rider": { "type": "string" },
+              "number": { "type": "string" },
+              "bike": { "type": "string" },
+              "points": { "type": "number" },
+              "holeshot": { "type": "boolean" },
+              "finishes": { "type": "string" }
+            },
+            "required": ["pos", "rider", "number", "bike"]
+          }
+        }
+      }
     }
   },
   "auth": {
@@ -162,6 +222,18 @@
     "/settlementRecords/{recordId}": {
       "schema": { "$ref": "#/entities/SettlementRecord" },
       "description": "Stores records of each play settlement execution."
+    },
+    "/riders/{riderId}": {
+      "schema": { "$ref": "#/entities/Rider" },
+      "description": "Stores individual rider profiles."
+    },
+    "/races/{raceId}": {
+      "schema": { "$ref": "#/entities/Race" },
+      "description": "Stores race event information."
+    },
+    "/raceResults/{raceId}": {
+      "schema": { "$ref": "#/entities/RaceResult" },
+      "description": "Stores results for each race, with the document ID matching the race ID."
     }
   }
 }

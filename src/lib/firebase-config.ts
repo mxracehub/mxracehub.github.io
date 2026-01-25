@@ -3,8 +3,8 @@
 'use client';
 
 import { db, auth } from "@/firebase";
-import { collection, doc, getDoc, getDocs, setDoc, query, where, addDoc, updateDoc, writeBatch } from "firebase/firestore";
-import type { Account, ExchangeRequest, GoldCoinPurchase } from "./types";
+import { collection, doc, getDoc, getDocs, setDoc, query, where, addDoc, updateDoc, writeBatch, deleteDoc } from "firebase/firestore";
+import type { Account, ExchangeRequest, GoldCoinPurchase, Race, RaceResult, Rider } from "./types";
 import { mainEventResults } from "./results-data";
 
 // --- DUMMY RESULTS DATA ---
@@ -18,7 +18,7 @@ export const getRaceResults = async (
     // Simulate API call
   await new Promise(resolve => setTimeout(resolve, 500));
   const raceKey = raceId.includes('supercross') ? raceId : raceId;
-  const allRaceResults = mainEventResults[raceKey as keyof typeof mainEventResults];
+  const allRaceResults = mainEventResults[raceKey as keyof typeof mainEventResults] as any;
   
   if (!allRaceResults) {
     return null; // Race results not posted
@@ -55,6 +55,10 @@ export const getRaceResults = async (
 const accountsCollection = collection(db, "accounts");
 const exchangeRequestsCollection = collection(db, "exchangeRequests");
 const goldCoinPurchasesCollection = collection(db, "goldCoinPurchases");
+const racesCollection = collection(db, "races");
+const ridersCollection = collection(db, "riders");
+const raceResultsCollection = collection(db, "raceResults");
+
 
 // Account functions
 export const getAccountById = async (id: string): Promise<Account | null> => {
@@ -219,3 +223,24 @@ export const processRefundRequest = async (purchase: GoldCoinPurchase, newStatus
 
     await batch.commit();
 }
+
+// Race Functions
+export const addRace = async (raceData: Omit<Race, 'id'>) => addDoc(racesCollection, raceData);
+export const updateRace = async (id: string, updates: Partial<Race>) => updateDoc(doc(db, 'races', id), updates);
+export const deleteRace = async (id: string) => deleteDoc(doc(db, 'races', id));
+
+// Rider Functions
+export const addRider = async (riderData: Omit<Rider, 'id'>) => addDoc(ridersCollection, riderData);
+export const updateRider = async (id: string, updates: Partial<Rider>) => updateDoc(doc(db, 'riders', id), updates);
+export const deleteRider = async (id: string) => deleteDoc(doc(db, 'riders', id));
+
+// Race Result Functions
+export const getRaceResult = async (raceId: string): Promise<RaceResult | null> => {
+    const docRef = doc(db, "raceResults", raceId);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+        return { id: docSnap.id, ...docSnap.data() } as RaceResult;
+    }
+    return null;
+}
+export const setRaceResult = async (raceId: string, results: Omit<RaceResult, 'id'>) => setDoc(doc(db, 'raceResults', raceId), results);

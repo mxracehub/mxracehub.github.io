@@ -63,3 +63,46 @@ export type Account = {
     lastTriviaPlayed?: string;
     playedTriviaIds?: number[];
 };
+
+export type Rider = {
+    id: string;
+    name: string;
+    team: string;
+    number: string;
+    class: '450cc' | '250cc';
+    location?: string;
+    dob?: string;
+    turnedPro?: string;
+    accomplishments?: string[];
+    videos?: string[];
+};
+
+export type Race = {
+    id: string;
+    name: string;
+    track: string;
+    location: string;
+    date: string;
+    time?: string;
+    series: 'Supercross' | 'Motocross' | 'Playoffs' | 'World Supercross';
+    division?: 'East' | 'West' | 'East/West Showdown';
+    format?: 'Triple Crown';
+    round?: number;
+    tv?: string;
+    raceDayLive?: string;
+};
+
+export type RiderResult = {
+    pos: number;
+    rider: string;
+    number: string;
+    bike: string;
+    points?: number;
+    holeshot?: boolean;
+    finishes?: string;
+};
+
+export type RaceResult = {
+    id: string; // raceId
+    [eventType: string]: RiderResult[] | string; // To allow for id property
+};
