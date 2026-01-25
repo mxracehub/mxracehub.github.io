@@ -219,7 +219,7 @@ export const mainEventResults = {
       { pos: 8, rider: 'Justin Cooper', number: '32', bike: 'Yamaha' },
       { pos: 9, rider: 'Justin Hill', number: '46', bike: 'KTM' },
       { pos: 10, rider: 'Max Miller', number: '604', bike: 'Kawasaki' },
-      { pos: 11, rider: 'Kevin Moranz', number: '78', bike: 'KTM' },
+      { pos: 11, rider: 'Kevin Moranz', number: '81', bike: 'KTM' },
       { pos: 12, rider: 'Grant Harlan', number: '62', bike: 'KTM' },
       { pos: 13, rider: 'Cade Clason', number: '784', bike: 'Kawasaki' },
       { pos: 14, rider: 'Scott Meshey', number: '411', bike: 'Husqvarna' },
@@ -276,6 +276,28 @@ export const mainEventResults = {
     ]
   },
   'supercross-3': {
+    '450_heat1': [
+      { pos: 1, rider: 'Chase Sexton', number: '4', bike: 'KTM', holeshot: true },
+      { pos: 2, rider: 'Jorge Prado', number: '26', bike: 'GasGas' },
+      { pos: 3, rider: 'Jason Anderson', number: '21', bike: 'Kawasaki' },
+      { pos: 4, rider: 'Joey Savatgy', number: '17', bike: 'Triumph' },
+      { pos: 5, rider: 'Hunter Lawrence', number: '96', bike: 'Honda' },
+      { pos: 6, rider: 'Shane McElrath', number: '12', bike: 'Suzuki' },
+      { pos: 7, rider: 'Colt Nichols', number: '45', bike: 'Beta'},
+      { pos: 8, rider: 'Cooper Webb', number: '2', bike: 'Yamaha' },
+      { pos: 9, rider: 'Vince Friese', number: '35', bike: 'Honda' }
+    ],
+    '450_heat2': [
+      { pos: 1, rider: 'Ken Roczen', number: '94', bike: 'Suzuki', holeshot: true },
+      { pos: 2, rider: 'Eli Tomac', number: '3', bike: 'KTM' },
+      { pos: 3, rider: 'Aaron Plessinger', number: '7', bike: 'KTM' },
+      { pos: 4, rider: 'Dylan Ferrandis', number: '14', bike: 'Ducati' },
+      { pos: 5, rider: 'Christian Craig', number: '28', bike: 'Honda' },
+      { pos: 6, rider: 'Malcolm Stewart', number: '27', bike: 'Husqvarna' },
+      { pos: 7, rider: 'RJ Hampshire', number: '24', bike: 'Husqvarna' },
+      { pos: 8, rider: 'Justin Cooper', number: '32', bike: 'Yamaha' },
+      { pos: 9, rider: 'Justin Hill', number: '46', bike: 'KTM' }
+    ],
     '250_heat1': [
       { pos: 1, rider: 'Chance Hymas', number: '29', bike: 'Honda', holeshot: true },
       { pos: 2, rider: 'Ryder DiFrancesco', number: '34', bike: 'Husqvarna' },
