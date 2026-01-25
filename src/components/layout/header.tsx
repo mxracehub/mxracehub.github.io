@@ -57,7 +57,7 @@ export function Header() {
           <h1 className="font-bold text-2xl truncate font-headline text-primary-foreground">Mxracehub</h1>
         </Link>
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden">
-            <Link href="/motorcross">
+            <Link href="/">
               <svg viewBox="0 0 100 100" className="h-12 w-auto">
                 <circle cx="50" cy="50" r="48" fill="none" stroke="white" strokeWidth="4" />
                 <text x="50%" y="50%" textAnchor="middle" dy=".3em" fill="white" fontSize="40" fontFamily="sans-serif" fontWeight="bold">MX</text>
@@ -88,7 +88,7 @@ export function Header() {
             <Sheet>
                 <SheetTrigger asChild>
                     <Button variant="ghost" size="icon">
-                        <Menu className="h-6 w-6 text-primary-foreground" />
+                        <Menu className="h-8 w-8 text-primary-foreground" />
                         <span className="sr-only">Open menu</span>
                     </Button>
                 </SheetTrigger>
