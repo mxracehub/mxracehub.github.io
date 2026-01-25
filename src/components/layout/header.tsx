@@ -52,10 +52,18 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-10 flex flex-col border-b border-white/10 bg-background">
-      <div className="flex h-16 items-center justify-between bg-primary px-4 sm:px-6 lg:px-8">
+      <div className="relative flex h-16 items-center justify-between bg-primary px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2.5">
           <h1 className="font-bold text-2xl truncate font-headline text-primary-foreground">Mxracehub</h1>
         </Link>
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden">
+            <Link href="/motorcross">
+              <svg viewBox="0 0 100 100" className="h-12 w-auto">
+                <circle cx="50" cy="50" r="48" fill="none" stroke="white" strokeWidth="4" />
+                <text x="50%" y="50%" textAnchor="middle" dy=".3em" fill="white" fontSize="40" fontFamily="sans-serif" fontWeight="bold">MX</text>
+              </svg>
+            </Link>
+        </div>
         <div className="hidden items-center gap-4 md:flex">
           {isLoggedIn ? (
              <Button onClick={handleSignOut} variant="secondary" className="bg-white text-black hover:bg-gray-200">
