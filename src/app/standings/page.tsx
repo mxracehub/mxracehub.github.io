@@ -93,7 +93,7 @@ export default function StandingsPage() {
                   className={`text-sm font-bold ${
                     race.series === 'Supercross'
                       ? 'text-primary'
-                      : 'text-red-400'
+                      : 'text-red-600'
                   }`}
                 >
                   {race.series.toUpperCase()}
@@ -117,7 +117,7 @@ export default function StandingsPage() {
                   className={`text-sm font-bold ${
                     race.series === 'Supercross'
                       ? 'text-primary'
-                      : 'text-red-400'
+                      : 'text-red-600'
                   }`}
                 >
                   {race.series.toUpperCase()}
