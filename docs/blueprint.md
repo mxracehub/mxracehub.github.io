@@ -12,9 +12,9 @@
 
 ## Style Guidelines:
 
-- Primary color: Deep scarlet (#C41E3A) for a high-energy, competitive feel.
+- Primary color: Yamaha Bright Blue for a high-energy, competitive feel.
 - Background color: Desaturated crimson (#F2D6DE) for a visually engaging yet comfortable backdrop.
-- Accent color: Rose (#D75474) to highlight interactive elements.
+- Accent color: Bright Red to highlight interactive elements.
 - Headline font: 'Belleza' (sans-serif) for fashion-forward flair and brand distinctiveness
 - Body font: 'Alegreya' (serif) to ensure easy reading of important information.
 - Custom icons for races, user profiles, wallets, and exchange functions.
