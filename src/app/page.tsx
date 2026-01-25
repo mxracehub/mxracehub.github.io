@@ -224,7 +224,7 @@ export default function DashboardPage() {
       <div className="my-12">
       {isClient && nextRace ? (
         <div className="rounded-lg border border-border bg-card p-6 text-center text-card-foreground">
-          <p className="mb-2 font-bold uppercase tracking-widest text-primary">
+          <p className="mb-2 font-bold uppercase tracking-widest text-red-600">
             Next Race
           </p>
           <h2 className="mb-1 text-3xl font-bold uppercase">
