@@ -194,7 +194,7 @@ export default function DashboardPage() {
        <div className="bg-black py-2">
         <PageHeader
           title="THE ULTIMATE MOTORCROSS & SUPERCROSS PLAYING PLATFORM"
-          description="Friend vs Friend * Professional riders * Automated payouts * Real time standings"
+          description="Friend vs Friend * Professional Riders * Automated Payouts"
           className="text-center mb-0 [&_p]:text-foreground/80"
         />
       </div>
