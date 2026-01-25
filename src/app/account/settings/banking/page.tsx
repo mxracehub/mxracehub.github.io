@@ -13,7 +13,7 @@ import {
 import { useToast } from '@/hooks/use-toast';
 import { Banknote, Loader2 } from 'lucide-react';
 import { useState, useEffect, useCallback } from 'react';
-import { usePlaidLink } from 'react-plaid-link';
+import { usePlaidLink } from '@plaid/react-plaid-link';
 
 export default function BankingPage() {
   const [linkToken, setLinkToken] = useState<string | null>(null);
