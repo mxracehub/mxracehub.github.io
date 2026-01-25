@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -19,8 +20,8 @@ export function NavLink({ href, children }: NavLinkProps) {
       className={cn(
         'flex items-center gap-2 text-sm font-medium transition-colors',
         isActive
-          ? 'text-destructive underline'
-          : 'text-destructive/90 hover:text-destructive'
+          ? 'text-red-600 underline'
+          : 'text-red-600/90 hover:text-red-600'
       )}
     >
       {children}
