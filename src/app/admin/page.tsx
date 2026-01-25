@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect } from 'react';
@@ -28,7 +27,8 @@ import { RefundRequestsTable } from '@/components/admin/refund-requests-table';
 import type { Account } from '@/lib/types';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Loader2 } from 'lucide-react';
-import { SettlePlays } from '@/components/admin/settle-plays';
+import { useToast } from '@/hooks/use-toast';
+import { settleAllPlays } from '@/ai/flows/settle-plays-flow';
 
 function AdminPageSkeleton() {
   return (
@@ -47,6 +47,7 @@ function AdminPageSkeleton() {
 
 export default function AdminPage() {
   const router = useRouter();
+  const { toast } = useToast();
   const { user, isLoading: isUserLoading } = useUser();
   const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
 
@@ -60,6 +61,28 @@ export default function AdminPage() {
         router.push('/'); 
     }
   }, [isUserLoading, user, isAccountLoading, account, router]);
+  
+  useEffect(() => {
+    if (account?.isAdmin) {
+      settleAllPlays().then(result => {
+        if (result.settledPlays > 0) {
+          toast({
+            title: 'Automatic Play Settlement',
+            description: `${result.settledPlays} plays were settled across ${result.updatedAccounts} accounts.`,
+          });
+        }
+        console.log('Automatic settlement check complete.', result);
+      }).catch(error => {
+        console.error('Automatic settlement failed:', error);
+        toast({
+          variant: 'destructive',
+          title: 'Auto-Settlement Error',
+          description: 'An error occurred during the automatic play settlement process.',
+        });
+      });
+    }
+  }, [account, toast]);
+
 
   const isLoading = isUserLoading || isAccountLoading;
 
@@ -85,13 +108,12 @@ export default function AdminPage() {
         description="Manage application data and utilize AI tools."
       />
       <Tabs defaultValue="race-data" className="w-full">
-        <TabsList className="grid w-full grid-cols-6">
+        <TabsList className="grid w-full grid-cols-5">
           <TabsTrigger value="race-data">Race Data Input</TabsTrigger>
           <TabsTrigger value="exchange-data">Exchange Data Sync</TabsTrigger>
           <TabsTrigger value="exchange-requests">Exchange Requests</TabsTrigger>
           <TabsTrigger value="refund-requests">Refund Requests</TabsTrigger>
           <TabsTrigger value="ai-summarizer">AI Summarizer</TabsTrigger>
-          <TabsTrigger value="settle-plays">Settle Plays</TabsTrigger>
         </TabsList>
 
         <TabsContent value="race-data">
@@ -187,9 +209,6 @@ export default function AdminPage() {
 
         <TabsContent value="ai-summarizer">
           <SummarizerForm />
-        </TabsContent>
-        <TabsContent value="settle-plays">
-          <SettlePlays />
         </TabsContent>
       </Tabs>
     </div>
