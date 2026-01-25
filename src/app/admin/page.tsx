@@ -22,12 +22,11 @@ import { ExchangeRequestsTable } from '@/components/admin/exchange-requests-tabl
 import { RefundRequestsTable } from '@/components/admin/refund-requests-table';
 import type { Account } from '@/lib/types';
 import { Loader2 } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
-import { settleAllPlays } from '@/ai/flows/settle-plays-flow';
 import { SettlementHistoryTable } from '@/components/admin/settlement-history-table';
 import { RacesManager } from '@/components/admin/races-manager';
 import { RidersManager } from '@/components/admin/riders-manager';
 import { ResultsManager } from '@/components/admin/results-manager';
+import { Button } from '@/components/ui/button';
 
 
 function AdminPageSkeleton() {
@@ -47,7 +46,6 @@ function AdminPageSkeleton() {
 
 export default function AdminPage() {
   const router = useRouter();
-  const { toast } = useToast();
   const { user, isLoading: isUserLoading } = useUser();
   const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
 
@@ -62,28 +60,6 @@ export default function AdminPage() {
     }
   }, [isUserLoading, user, isAccountLoading, account, router]);
   
-  useEffect(() => {
-    if (account?.isAdmin && user) {
-      settleAllPlays({ triggeredBy: `admin-login: ${user.email}` }).then(result => {
-        if (result.settledPlays > 0) {
-          toast({
-            title: 'Automatic Play Settlement',
-            description: `${result.settledPlays} plays were settled across ${result.updatedAccounts} accounts.`,
-          });
-        }
-        console.log('Automatic settlement check complete.', result);
-      }).catch(error => {
-        console.error('Automatic settlement failed:', error);
-        toast({
-          variant: 'destructive',
-          title: 'Auto-Settlement Error',
-          description: 'An error occurred during the automatic play settlement process.',
-        });
-      });
-    }
-  }, [account, toast, user]);
-
-
   const isLoading = isUserLoading || isAccountLoading;
 
   if (isLoading) {
