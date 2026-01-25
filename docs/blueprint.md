@@ -1,12 +1,12 @@
-# **App Name**: MxHub Exchange Duo
+# **App Name**: MxRaceHub
 
 ## Core Features:
 
-- Data Input and Sync: Simple backend to input data (images, text, button details, urls) for both MxRaceHub and Mx Exchange, automatically updating content on both frontends and backends.
+- Data Input and Sync: Simple backend to input data (images, text, button details, urls) MxRaceHub, automatically updating content on both frontends and backends.
 - Automatic Race Data Updates: Automatically update race data, and add bet wins/losses for users.
-- Bank/Checkout Page: Secure bank/checkout page for users to acquire Gold Coins using credit card transactions.
-- Sweeps Coin Transfer: Functionality to transfer Sweeps Coins from MxRaceHub to the third-party Mx Exchange app for redemption and withdrawals.
-- Maybe Dockerized Deployment or Firebase: A Docker server setup with necessary containers and images for easy deployment and scaling of both apps.
+- Bank/Checkout Page: Secure bank/checkout page for users to acquire Gold Coins using credit card transactions from Plaid.
+- Sweeps Coin Transfer: Functionality to transfer Sweeps Coins from MxRaceHub to the Plaid third-party for redemption and withdrawals.
+- Maybe Dockerized Deployment or Firebase:
 - Readme Generation: Generate a simple README file with instructions for beginners to start shell, server, and all necessary files for running both applications.
 - Content Summarization: AI powered tool that automatically generate brief summaries from raw data.
 
