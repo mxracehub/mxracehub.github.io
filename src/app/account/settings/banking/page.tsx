@@ -2,7 +2,6 @@
 'use client';
 
 import { PageHeader } from '@/components/page-header';
-import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -10,7 +9,8 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Banknote } from 'lucide-react';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Terminal } from 'lucide-react';
 
 export default function BankingPage() {
   return (
@@ -20,22 +20,17 @@ export default function BankingPage() {
         <CardHeader>
           <CardTitle>Manage Your Payout Method</CardTitle>
           <CardDescription>
-            Securely connect your bank account using Plaid. This allows us to process Gold Coin exchanges directly to your bank.
+            Securely connect your bank account to process exchanges.
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="space-y-4">
-            <p className="text-sm text-muted-foreground">
-              We use Plaid to securely link your bank account. Your credentials are never stored on our servers.
-            </p>
-            <p className="text-sm font-semibold text-destructive pt-4">
-                The banking connection feature is temporarily unavailable due to a technical issue with a third-party package. We are working to resolve this.
-            </p>
-             <Button disabled>
-                <Banknote className="mr-2 h-4 w-4" />
-                Connect a Bank Account (Unavailable)
-            </Button>
-          </div>
+            <Alert variant="destructive">
+              <Terminal className="h-4 w-4" />
+              <AlertTitle>Feature Temporarily Unavailable</AlertTitle>
+              <AlertDescription>
+                We are currently experiencing issues with our banking integration and have temporarily disabled this feature. We apologize for the inconvenience and are working to resolve it as soon as possible.
+              </AlertDescription>
+            </Alert>
         </CardContent>
       </Card>
     </div>
