@@ -57,7 +57,7 @@ export default function TransactionsPage() {
   const { user, isLoading: isUserLoading } = useUser();
   const { data: requests, isLoading: isRequestsLoading } = useCollection<ExchangeRequest>(
       'exchangeRequests', 
-      user ? ['accountId', '==', user.uid] : undefined,
+      ['accountId', '==', user?.uid],
       { listen: true }
   );
   

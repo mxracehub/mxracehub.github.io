@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect } from 'react';
@@ -47,7 +48,7 @@ function AdminPageSkeleton() {
 export default function AdminPage() {
   const router = useRouter();
   const { user, isLoading: isUserLoading } = useUser();
-  const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
+  const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid);
 
   useEffect(() => {
     if (!isUserLoading && !user) {

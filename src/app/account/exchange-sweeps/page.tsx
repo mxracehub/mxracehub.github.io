@@ -79,10 +79,10 @@ export default function ExchangeSweepsPage() {
     const router = useRouter();
     const { toast } = useToast();
     const { user, isLoading: isUserLoading } = useUser();
-    const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
+    const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid);
     const { data: monthlyRequests, isLoading: isRequestsLoading } = useCollection<ExchangeRequest>(
         'exchangeRequests',
-        user ? ['accountId', '==', user.uid] : undefined,
+        ['accountId', '==', user?.uid],
         { listen: true }
     );
 

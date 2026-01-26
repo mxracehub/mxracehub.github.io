@@ -64,10 +64,10 @@ export default function PurchaseHistoryPage() {
     const router = useRouter();
     const { toast } = useToast();
     const { user, isLoading: isUserLoading } = useUser();
-    const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---', { listen: true });
+    const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid, { listen: true });
     const { data: purchases, isLoading: isPurchasesLoading } = useCollection<GoldCoinPurchase>(
         'goldCoinPurchases',
-        user ? ['userId', '==', user.uid] : undefined,
+        ['userId', '==', user?.uid],
         { listen: true }
     );
 

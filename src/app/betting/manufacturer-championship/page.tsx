@@ -1,3 +1,4 @@
+
 'use client';
 
 import { PageHeader } from '@/components/page-header';
@@ -77,7 +78,7 @@ export default function ManufacturerBettingPage() {
   const router = useRouter();
   const { toast } = useToast();
   const { user, isLoading: isUserLoading } = useUser();
-  const { data: currentUser, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
+  const { data: currentUser, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid);
 
   const [playAmount, setPlayAmount] = useState('');
   const [coinType, setCoinType] = useState('gold');

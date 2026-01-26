@@ -12,7 +12,7 @@ interface HookOptions {
 
 export function useDoc<T = DocumentData>(
   collectionName: string,
-  docId: string,
+  docId: string | undefined | null,
   options: HookOptions = { listen: false }
 ) {
   const db = useFirestore();
@@ -21,6 +21,7 @@ export function useDoc<T = DocumentData>(
 
   useEffect(() => {
     if (!db || !docId) {
+      setData(null);
       setIsLoading(false);
       return;
     };

@@ -73,7 +73,7 @@ export default function ParlayBetPage() {
   const { toast } = useToast();
   const router = useRouter();
   const { user, isLoading: isUserLoading } = useUser();
-  const { data: currentUser, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
+  const { data: currentUser, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid);
 
   useEffect(() => {
     if (!isUserLoading && !user) {

@@ -55,7 +55,7 @@ export default function ChangeRiderNumberPage() {
   const router = useRouter();
   const { toast } = useToast();
   const { user, isLoading: isUserLoading } = useUser();
-  const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
+  const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid);
 
   const [newRiderNumber, setNewRiderNumber] = useState('');
   const [isLoading, setIsLoading] = useState(false);

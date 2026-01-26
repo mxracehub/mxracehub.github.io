@@ -8,6 +8,7 @@ import {
   type DocumentData,
   type Firestore,
   type Query,
+  type WhereFilterOp,
 } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { useFirestore } from '../provider';
@@ -20,7 +21,7 @@ interface HookOptions {
 
 export function useCollection<T = DocumentData>(
   collectionName: string,
-  queryString?: [string, '==', any],
+  queryString?: [string, WhereFilterOp, any],
   options: HookOptions = { listen: false }
 ) {
   const db = useFirestore();
@@ -28,7 +29,19 @@ export function useCollection<T = DocumentData>(
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (!db) return;
+    if (!db) {
+        setIsLoading(false);
+        return;
+    };
+    
+    // If a query string is provided but the value to compare against is falsy (e.g., undefined user ID),
+    // don't run the query. This prevents permission errors for queries that depend on user authentication
+    // before the user state is resolved.
+    if (queryString && (queryString[2] === undefined || queryString[2] === null)) {
+        setData([]);
+        setIsLoading(false);
+        return;
+    }
 
     let q: Query;
     if (queryString) {
@@ -50,7 +63,7 @@ export function useCollection<T = DocumentData>(
         setIsLoading(false);
       },
       (error) => {
-        console.error('Error fetching collection:', error);
+        console.error(`Error fetching collection: ${collectionName}`, error);
         const permissionError = new FirestorePermissionError({
           path: collectionName,
           operation: 'list',
@@ -61,7 +74,8 @@ export function useCollection<T = DocumentData>(
     );
 
     return () => unsubscribe();
-  }, [db, collectionName, queryString, options.listen]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [db, collectionName, options.listen, ...(queryString || [])]);
 
   return { data, isLoading };
 }

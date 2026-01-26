@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -104,7 +105,7 @@ export default function AccountPage() {
   const router = useRouter();
   const { toast } = useToast();
   const { user, isLoading: isUserLoading } = useUser();
-  const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---', { listen: true });
+  const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid, { listen: true });
 
   const userAvatar = PlaceHolderImages.find((p) => p.id === 'user-avatar');
 

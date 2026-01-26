@@ -93,7 +93,7 @@ function BankPageSkeleton() {
 export default function BankPage() {
     const [selectedPackageId, setSelectedPackageId] = React.useState('gc-2k');
     const { user, isLoading: isUserLoading } = useUser();
-    const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
+    const { data: account, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid);
     const router = useRouter();
     const { toast } = useToast();
     const [isSubmitting, setIsSubmitting] = useState(false);

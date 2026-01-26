@@ -64,7 +64,7 @@ export default function FriendsPage() {
     const router = useRouter();
     const { toast } = useToast();
     const { user, isLoading: isUserLoading } = useUser();
-    const { data: currentUser, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid || '---');
+    const { data: currentUser, isLoading: isAccountLoading } = useDoc<Account>('accounts', user?.uid);
     
     const [friends, setFriends] = useState<Account[]>([]);
     const [isLoadingFriends, setIsLoadingFriends] = useState(true);

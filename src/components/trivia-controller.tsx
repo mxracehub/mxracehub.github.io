@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -9,7 +10,7 @@ export function TriviaController() {
   const { user, isLoading: isUserLoading } = useUser();
   const { data: account, isLoading: isAccountLoading } = useDoc<Account>(
     'accounts',
-    user?.uid || '---'
+    user?.uid
   );
   const [shouldShowTrivia, setShouldShowTrivia] = useState(false);
 
