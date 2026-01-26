@@ -49,7 +49,7 @@ This command starts the Next.js development server for the main application.
 npm run dev
 ```
 
-The application will be available at `http://localhost:9003`.
+The application will be available at `http://localhost:9002`.
 
 ### 2. Start the AI Server
 
