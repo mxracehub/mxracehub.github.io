@@ -14,11 +14,11 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@genkit-ai/firebase": "^1.19.0",
-    "@genkit-ai/google-genai": "^1.19.0",
+    "@genkit-ai/firebase": "1.18.0",
+    "@genkit-ai/google-genai": "1.18.0",
     "firebase-admin": "^13.6.0",
     "firebase-functions": "^7.0.0",
-    "genkit": "^1.19.0",
+    "genkit": "1.18.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
