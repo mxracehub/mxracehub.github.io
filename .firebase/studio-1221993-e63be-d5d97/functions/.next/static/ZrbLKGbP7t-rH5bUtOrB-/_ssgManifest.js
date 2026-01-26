@@ -1,1 +1,0 @@
-self.__SSG_MANIFEST=new Set(["\u002Friders\u002F250cc\u002F[riderId]","\u002Friders\u002F450cc\u002F[riderId]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
