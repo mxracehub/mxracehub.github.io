@@ -20,7 +20,7 @@ import { Coins, Trophy, Users, Settings, Hash, Facebook, Instagram, RefreshCw, L
 import Link from 'next/link';
 import { Skeleton } from '@/components/ui/skeleton';
 import type { Account, Play } from '@/lib/types';
-import { updateAccount, getRaceResults } from '@/lib/firebase-config';
+import { updateAccount } from '@/lib/firebase-config';
 import { useToast } from '@/hooks/use-toast';
 import { getManufacturersPoints } from '@/lib/manufacturers-points-service';
 import { Badge } from '@/components/ui/badge';

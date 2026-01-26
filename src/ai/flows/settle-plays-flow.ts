@@ -12,7 +12,7 @@ import { z } from 'zod';
 import { collection, doc, getDocs, writeBatch, addDoc } from 'firebase/firestore';
 import { db } from '@/firebase';
 import type { Account, Play } from '@/lib/types';
-import { getRaceResults } from '@/lib/firebase-config';
+import { getRaceResults } from '@/lib/race-results-service';
 
 const SettlePlaysInputSchema = z.object({
   triggeredBy: z.string().describe('Identifier for who or what triggered the settlement.'),
