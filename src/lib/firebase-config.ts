@@ -1,11 +1,12 @@
 
-
 'use client';
 
-import { db, auth } from "@/firebase";
-import { collection, doc, getDoc, getDocs, setDoc, query, where, addDoc, updateDoc, writeBatch, deleteDoc } from "firebase/firestore";
+import { db } from "@/firebase";
+import { collection, doc, getDoc, getDocs, setDoc, query, where, addDoc, updateDoc, writeBatch, deleteDoc, DocumentReference } from "firebase/firestore";
 import type { Account, ExchangeRequest, GoldCoinPurchase, Race, RaceResult, Rider } from "./types";
 import { mainEventResults } from "./results-data";
+import { errorEmitter } from "@/firebase/error-emitter";
+import { FirestorePermissionError } from "@/firebase/errors";
 
 // --- DUMMY RESULTS DATA ---
 // In a real app, this would come from a secure API or Firestore after an admin updates it.
@@ -57,7 +58,6 @@ const exchangeRequestsCollection = collection(db, "exchangeRequests");
 const goldCoinPurchasesCollection = collection(db, "goldCoinPurchases");
 const racesCollection = collection(db, "races");
 const ridersCollection = collection(db, "riders");
-const raceResultsCollection = collection(db, "raceResults");
 
 
 // Account functions
@@ -80,16 +80,29 @@ export const getAccountByEmail = async (email: string): Promise<Account | null> 
     return null;
 };
 
-export const createAccount = async (id: string, accountData: Omit<Account, 'id'>): Promise<void> => {
+export const createAccount = (id: string, accountData: Omit<Account, 'id'>): void => {
     const accountRef = doc(db, "accounts", id);
-    // New accounts are not admins by default
     const dataToSet = { ...accountData, isAdmin: false };
-    await setDoc(accountRef, dataToSet);
+    setDoc(accountRef, dataToSet).catch(async (serverError) => {
+        const permissionError = new FirestorePermissionError({
+            path: accountRef.path,
+            operation: 'create',
+            requestResourceData: dataToSet,
+        });
+        errorEmitter.emit('permission-error', permissionError);
+    });
 };
 
-export const updateAccount = async (id: string, updates: Partial<Account>): Promise<void> => {
+export const updateAccount = (id: string, updates: Partial<Account>): void => {
     const docRef = doc(db, "accounts", id);
-    await updateDoc(docRef, updates);
+    updateDoc(docRef, updates).catch(async (serverError) => {
+        const permissionError = new FirestorePermissionError({
+            path: docRef.path,
+            operation: 'update',
+            requestResourceData: updates,
+        });
+        errorEmitter.emit('permission-error', permissionError);
+    });
 };
 
 export const isUsernameTaken = async (username: string): Promise<boolean> => {
@@ -104,7 +117,6 @@ export const isRiderNumberTaken = async (riderNumber: string, currentUserId?: st
     if (querySnapshot.empty) {
         return false;
     }
-    // If we're checking for an update, make sure the taken number doesn't belong to the current user
     if (currentUserId) {
         return querySnapshot.docs.some(doc => doc.id !== currentUserId);
     }
@@ -114,7 +126,6 @@ export const isRiderNumberTaken = async (riderNumber: string, currentUserId?: st
 export const getFriends = async (friendIds: string[]): Promise<Account[]> => {
     if (!friendIds || friendIds.length === 0) return [];
     const friends: Account[] = [];
-    // Firestore 'in' query is limited to 30 elements. Chunk if necessary.
     for (let i = 0; i < friendIds.length; i += 30) {
         const chunk = friendIds.slice(i, i + 30);
         const q = query(accountsCollection, where("__name__", "in", chunk));
@@ -150,13 +161,22 @@ export const getExchangeRequestsByAccountId = async (accountId: string): Promise
 };
 
 export const addExchangeRequest = async (request: Omit<ExchangeRequest, 'id'>): Promise<string> => {
-    const docRef = await addDoc(exchangeRequestsCollection, request);
-    return docRef.id;
+    try {
+        const docRef = await addDoc(exchangeRequestsCollection, request);
+        return docRef.id;
+    } catch (serverError) {
+        const permissionError = new FirestorePermissionError({
+            path: exchangeRequestsCollection.path,
+            operation: 'create',
+            requestResourceData: request,
+        });
+        errorEmitter.emit('permission-error', permissionError);
+        throw serverError;
+    }
 };
 
 export const processExchangeRequest = async (request: ExchangeRequest, newStatus: 'Approved' | 'Rejected'): Promise<void> => {
     const batch = writeBatch(db);
-
     const requestRef = doc(db, "exchangeRequests", request.id);
     batch.update(requestRef, { status: newStatus });
 
@@ -185,18 +205,45 @@ export const processExchangeRequest = async (request: ExchangeRequest, newStatus
         }
     }
     
-    await batch.commit();
+    try {
+        await batch.commit();
+    } catch (serverError) {
+        const permissionError = new FirestorePermissionError({
+            path: `/exchangeRequests/${request.id}`,
+            operation: 'update',
+            requestResourceData: { status: newStatus },
+        });
+        errorEmitter.emit('permission-error', permissionError);
+        throw serverError;
+    }
 }
 
 // Gold Coin Purchase Functions
 export const addGoldCoinPurchase = async (purchaseData: Omit<GoldCoinPurchase, 'id'>): Promise<string> => {
-    const docRef = await addDoc(goldCoinPurchasesCollection, purchaseData);
-    return docRef.id;
+    try {
+        const docRef = await addDoc(goldCoinPurchasesCollection, purchaseData);
+        return docRef.id;
+    } catch (serverError) {
+        const permissionError = new FirestorePermissionError({
+            path: goldCoinPurchasesCollection.path,
+            operation: 'create',
+            requestResourceData: purchaseData,
+        });
+        errorEmitter.emit('permission-error', permissionError);
+        throw serverError;
+    }
 };
 
-export const updateGoldCoinPurchase = async (id: string, updates: Partial<GoldCoinPurchase>): Promise<void> => {
+export const updateGoldCoinPurchase = (id: string, updates: Partial<GoldCoinPurchase>): void => {
     const docRef = doc(db, "goldCoinPurchases", id);
-    await updateDoc(docRef, updates);
+    updateDoc(docRef, updates).catch(async (serverError) => {
+        const permissionError = new FirestorePermissionError({
+            path: docRef.path,
+            operation: 'update',
+            requestResourceData: updates,
+        });
+        errorEmitter.emit('permission-error', permissionError);
+    });
 };
 
 export const processRefundRequest = async (purchase: GoldCoinPurchase, newStatus: 'Refunded' | 'Completed'): Promise<void> => {
@@ -221,26 +268,111 @@ export const processRefundRequest = async (purchase: GoldCoinPurchase, newStatus
         batch.update(purchaseRef, { status: newStatus });
     }
 
-    await batch.commit();
+    try {
+        await batch.commit();
+    } catch(serverError) {
+        const permissionError = new FirestorePermissionError({
+            path: purchaseRef.path,
+            operation: 'update',
+            requestResourceData: { status: newStatus },
+        });
+        errorEmitter.emit('permission-error', permissionError);
+        throw serverError;
+    }
 }
 
 // Race Functions
-export const addRace = async (raceData: Omit<Race, 'id'>) => addDoc(racesCollection, raceData);
-export const updateRace = async (id: string, updates: Partial<Race>) => updateDoc(doc(db, 'races', id), updates);
-export const deleteRace = async (id: string) => deleteDoc(doc(db, 'races', id));
+export const addRace = (raceData: Omit<Race, 'id'>) => {
+    addDoc(racesCollection, raceData).catch(async (serverError) => {
+        const permissionError = new FirestorePermissionError({
+            path: racesCollection.path,
+            operation: 'create',
+            requestResourceData: raceData
+        });
+        errorEmitter.emit('permission-error', permissionError);
+    });
+};
+export const updateRace = (id: string, updates: Partial<Race>) => {
+    const docRef = doc(db, 'races', id);
+    updateDoc(docRef, updates).catch(async (serverError) => {
+        const permissionError = new FirestorePermissionError({
+            path: docRef.path,
+            operation: 'update',
+            requestResourceData: updates
+        });
+        errorEmitter.emit('permission-error', permissionError);
+    });
+};
+export const deleteRace = (id: string) => {
+    const docRef = doc(db, 'races', id);
+    deleteDoc(docRef).catch(async (serverError) => {
+        const permissionError = new FirestorePermissionError({
+            path: docRef.path,
+            operation: 'delete'
+        });
+        errorEmitter.emit('permission-error', permissionError);
+    });
+};
 
 // Rider Functions
-export const addRider = async (riderData: Omit<Rider, 'id'>) => addDoc(ridersCollection, riderData);
-export const updateRider = async (id: string, updates: Partial<Rider>) => updateDoc(doc(db, 'riders', id), updates);
-export const deleteRider = async (id: string) => deleteDoc(doc(db, 'riders', id));
+export const addRider = (riderData: Omit<Rider, 'id'>) => {
+    addDoc(ridersCollection, riderData).catch(async (serverError) => {
+        const permissionError = new FirestorePermissionError({
+            path: ridersCollection.path,
+            operation: 'create',
+            requestResourceData: riderData
+        });
+        errorEmitter.emit('permission-error', permissionError);
+    });
+};
+export const updateRider = (id: string, updates: Partial<Rider>) => {
+    const docRef = doc(db, 'riders', id);
+    updateDoc(docRef, updates).catch(async (serverError) => {
+        const permissionError = new FirestorePermissionError({
+            path: docRef.path,
+            operation: 'update',
+            requestResourceData: updates
+        });
+        errorEmitter.emit('permission-error', permissionError);
+    });
+};
+export const deleteRider = (id: string) => {
+    const docRef = doc(db, 'riders', id);
+    deleteDoc(docRef).catch(async (serverError) => {
+        const permissionError = new FirestorePermissionError({
+            path: docRef.path,
+            operation: 'delete'
+        });
+        errorEmitter.emit('permission-error', permissionError);
+    });
+};
 
 // Race Result Functions
 export const getRaceResult = async (raceId: string): Promise<RaceResult | null> => {
     const docRef = doc(db, "raceResults", raceId);
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-        return { id: docSnap.id, ...docSnap.data() } as RaceResult;
+    try {
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+            return { id: docSnap.id, ...docSnap.data() } as RaceResult;
+        }
+        return null;
+    } catch(serverError) {
+        const permissionError = new FirestorePermissionError({
+            path: docRef.path,
+            operation: 'get'
+        });
+        errorEmitter.emit('permission-error', permissionError);
+        return null;
     }
-    return null;
 }
-export const setRaceResult = async (raceId: string, results: Omit<RaceResult, 'id'>) => setDoc(doc(db, 'raceResults', raceId), results);
+export const setRaceResult = (raceId: string, results: Omit<RaceResult, 'id'>) => {
+    const docRef = doc(db, 'raceResults', raceId);
+    setDoc(docRef, results).catch(async (serverError) => {
+        const permissionError = new FirestorePermissionError({
+            path: docRef.path,
+            operation: 'create',
+            requestResourceData: results
+        });
+        errorEmitter.emit('permission-error', permissionError);
+    });
+};
